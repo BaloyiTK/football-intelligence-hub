@@ -1,5 +1,5 @@
 {
-  "status": "blocked",
+  "status": "in-progress",
   "runId": "82932",
   "modelVersion": "v2.2-calibrated-selector",
   "date": "2026-10-04",
@@ -534,11 +534,11 @@
       "leagueId": "arg-primera",
       "country": "Argentina",
       "name": "Primera Division",
-      "status": "processing",
-      "fixturesDiscovered": 15,
-      "fixturesProcessed": 0,
+      "status": "complete",
+      "fixturesDiscovered": 4,
+      "fixturesProcessed": 4,
       "sources": [
-        "https://footballfixtures.org/fixtures/2026-10-04"
+        "https://www.ligaprofesional.ar/notas/primera/2026/09/26/cambios-de-la-fecha-11-y-toda-la-12/"
       ]
     },
     {
@@ -1135,96 +1135,6 @@
       ]
     },
     {
-      "leagueId": "arg-primera",
-      "homeTeam": "Huracan",
-      "awayTeam": "Aldosivi",
-      "status": "discovered-pending-research"
-    },
-    {
-      "leagueId": "arg-primera",
-      "homeTeam": "Velez Sarsfield",
-      "awayTeam": "Platense",
-      "status": "discovered-pending-research"
-    },
-    {
-      "leagueId": "arg-primera",
-      "homeTeam": "Talleres",
-      "awayTeam": "Belgrano",
-      "status": "discovered-pending-research"
-    },
-    {
-      "leagueId": "arg-primera",
-      "homeTeam": "Estudiantes LP",
-      "awayTeam": "Gimnasia M.",
-      "status": "discovered-pending-research"
-    },
-    {
-      "leagueId": "arg-primera",
-      "homeTeam": "Newells Old Boys",
-      "awayTeam": "Lanus",
-      "status": "discovered-pending-research"
-    },
-    {
-      "leagueId": "arg-primera",
-      "homeTeam": "Independiente Rivadavia",
-      "awayTeam": "Gimnasia LP",
-      "status": "discovered-pending-research"
-    },
-    {
-      "leagueId": "arg-primera",
-      "homeTeam": "Deportivo Riestra",
-      "awayTeam": "Central Cordoba",
-      "status": "discovered-pending-research"
-    },
-    {
-      "leagueId": "arg-primera",
-      "homeTeam": "Argentinos Jrs",
-      "awayTeam": "Tigre",
-      "status": "discovered-pending-research"
-    },
-    {
-      "leagueId": "arg-primera",
-      "homeTeam": "Sarmiento",
-      "awayTeam": "River Plate",
-      "status": "discovered-pending-research"
-    },
-    {
-      "leagueId": "arg-primera",
-      "homeTeam": "Atletico Tucuman",
-      "awayTeam": "Barracas Central",
-      "status": "discovered-pending-research"
-    },
-    {
-      "leagueId": "arg-primera",
-      "homeTeam": "Boca Juniors",
-      "awayTeam": "Union",
-      "status": "discovered-pending-research"
-    },
-    {
-      "leagueId": "arg-primera",
-      "homeTeam": "Defensa y Justicia",
-      "awayTeam": "San Lorenzo",
-      "status": "discovered-pending-research"
-    },
-    {
-      "leagueId": "arg-primera",
-      "homeTeam": "Estudiantes RC",
-      "awayTeam": "Racing Club",
-      "status": "discovered-pending-research"
-    },
-    {
-      "leagueId": "arg-primera",
-      "homeTeam": "Independiente",
-      "awayTeam": "Instituto",
-      "status": "discovered-pending-research"
-    },
-    {
-      "leagueId": "arg-primera",
-      "homeTeam": "Banfield",
-      "awayTeam": "Rosario Central",
-      "status": "discovered-pending-research"
-    },
-    {
       "leagueId": "col-primera-a",
       "homeTeam": "Deportivo Pasto",
       "awayTeam": "Fortaleza",
@@ -1331,37 +1241,167 @@
       "homeTeam": "Kyrgyzstan",
       "awayTeam": "Lebanon",
       "status": "discovered-pending-research"
+    },
+    {
+      "leagueId": "arg-primera",
+      "homeTeam": "Huracan",
+      "awayTeam": "Aldosivi",
+      "status": "BET",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1,
+        "awayAttack": 1.9354838709677418,
+        "homeDefence": 0.8602150537634409,
+        "awayDefence": 1.6666666666666667,
+        "leagueHomeGoals": 1.2,
+        "leagueAwayGoals": 0.93,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 1.9,
+      "lambdaAway": 1.47,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 73.3,
+        "rawProbability": 85.7,
+        "reliability": 0.856,
+        "rating": "Good"
+      },
+      "researchTimestamp": "2026-10-04T18:17:10+02:00",
+      "sources": [
+        "https://www.ligaprofesional.ar/notas/primera/2026/09/26/cambios-de-la-fecha-11-y-toda-la-12/",
+        "https://www.footymetrics.com/leagues/51-liga-profesional-de-futbol",
+        "https://shutli.com/en/match-detail/27587",
+        "https://www.fotmob.com/matches/huracan-vs-aldosivi/6s3dgmp"
+      ]
+    },
+    {
+      "leagueId": "arg-primera",
+      "homeTeam": "Talleres",
+      "awayTeam": "Belgrano",
+      "status": "BET",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 0.8333333333333334,
+        "awayAttack": 1.075268817204301,
+        "homeDefence": 1.5053763440860213,
+        "awayDefence": 0.8333333333333334,
+        "leagueHomeGoals": 1.2,
+        "leagueAwayGoals": 0.93,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 0.88,
+      "lambdaAway": 1.43,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Under 3.5",
+        "probability": 68.2,
+        "rawProbability": 79.7,
+        "reliability": 0.856,
+        "rating": "Good"
+      },
+      "researchTimestamp": "2026-10-04T18:17:10+02:00",
+      "sources": [
+        "https://www.ligaprofesional.ar/notas/primera/2026/09/26/cambios-de-la-fecha-11-y-toda-la-12/",
+        "https://www.footymetrics.com/leagues/51-liga-profesional-de-futbol",
+        "https://last5games.com/matches/belgrano-vs-talleres-cordoba-19636617/",
+        "https://www.fotmob.com/en-GB/matches/belgrano-vs-talleres/3de9c6"
+      ]
+    },
+    {
+      "leagueId": "arg-primera",
+      "homeTeam": "Argentinos Jrs",
+      "awayTeam": "Tigre",
+      "status": "BET",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 0.6666666666666667,
+        "awayAttack": 1.075268817204301,
+        "homeDefence": 0.8602150537634409,
+        "awayDefence": 1.1666666666666667,
+        "leagueHomeGoals": 1.2,
+        "leagueAwayGoals": 0.93,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 0.97,
+      "lambdaAway": 0.87,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Under 3.5",
+        "probability": 75.7,
+        "rawProbability": 88.5,
+        "reliability": 0.856,
+        "rating": "Strong"
+      },
+      "researchTimestamp": "2026-10-04T18:17:10+02:00",
+      "sources": [
+        "https://www.ligaprofesional.ar/notas/primera/2026/09/26/cambios-de-la-fecha-11-y-toda-la-12/",
+        "https://www.footymetrics.com/leagues/51-liga-profesional-de-futbol",
+        "https://last5games.com/matches/argentinos-juniors-vs-tigre-19636603/",
+        "https://shutli.com/en/match-detail/27579"
+      ]
+    },
+    {
+      "leagueId": "arg-primera",
+      "homeTeam": "Estudiantes RC",
+      "awayTeam": "Racing Club",
+      "status": "BET",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 0.5,
+        "awayAttack": 1.5053763440860213,
+        "homeDefence": 1.5053763440860213,
+        "awayDefence": 1.5,
+        "leagueHomeGoals": 1.2,
+        "leagueAwayGoals": 0.93,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 0.94,
+      "lambdaAway": 1.96,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 72.8,
+        "rawProbability": 83.4,
+        "reliability": 0.873,
+        "rating": "Good"
+      },
+      "researchTimestamp": "2026-10-04T18:17:10+02:00",
+      "sources": [
+        "https://www.ligaprofesional.ar/notas/primera/2026/09/26/cambios-de-la-fecha-11-y-toda-la-12/",
+        "https://www.footymetrics.com/leagues/51-liga-profesional-de-futbol",
+        "https://last5games.com/head-to-head/estudiantes-de-rio-cuarto-vs-racing-club/3608-12186/",
+        "https://fbref.com/en/squads/8277fe2e/2026/matchlogs/all_comps/schedule/Estudiantes-de-Rio-Cuarto-Scores-and-Fixtures-All-Competitions"
+      ]
     }
   ],
   "metrics": {
-    "leaguesChecked": 56,
+    "leaguesChecked": 57,
     "leaguesTotal": 61,
-    "fixturesDiscovered": 47,
-    "fixturesProcessed": 14,
-    "modelled": 8,
+    "fixturesDiscovered": 36,
+    "fixturesProcessed": 18,
+    "modelled": 12,
     "noModel": 6,
-    "recommendedBets": 6,
+    "recommendedBets": 10,
     "noBet": 2
   },
   "current": {
-    "leagueIndex": 41,
-    "leagueId": "arg-primera",
+    "leagueIndex": 44,
+    "leagueId": "col-primera-a",
     "stage": "fixture-verification"
   },
   "notes": [
     "League discovery checkpointed from today's web research. Fixtures remain pending RESEARCH_RULES processing; league discovery complete does not mean fixture modelling complete.",
     "Zero-fixture checkpoints use broad daily fixture sources and targeted competition searches; any later contradiction must reopen the checkpoint."
   ],
-  "blocker": {
-    "type": "external-tool-limit",
-    "reason": "Web research search-call allowance exhausted during active response. Argentina Oct 4 fixture sources conflict and require additional web verification; continuing without it would violate web-first/no-fabrication rules.",
-    "resumeCursor": {
-      "leagueIndex": 41,
-      "leagueId": "arg-primera",
-      "stage": "fixture-verification"
-    },
-    "observedConflict": "Saved 15-fixture aggregator list conflicts with Liga Profesional/Argentine daily schedule sources; do not model until corrected."
-  },
   "lastCheckpoint": {
     "at": "2026-10-04T18:17:10+02:00",
     "note": "Segunda and Eerste processed; Nations League processed/frozen. Argentina verification started but not resolved before web tool limit."
