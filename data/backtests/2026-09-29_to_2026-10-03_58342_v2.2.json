@@ -1,0 +1,252 @@
+{
+  "status": "in-progress",
+  "runId": "58342",
+  "modelVersion": "v2.2-calibrated-selector",
+  "range": {
+    "start": "2026-09-29",
+    "end": "2026-10-03"
+  },
+  "researchProgress": {
+    "datesWebScanned": 5,
+    "datesTotal": 5,
+    "configuredLeagues": 61,
+    "leagueDaysToAudit": 305,
+    "fixtureExtractionStatus": "in-progress"
+  },
+  "verifiedActivity": {
+    "2026-09-29": [
+      "uefa-nations-league",
+      "bra-serie-b",
+      "col-primera-a",
+      "international-friendlies"
+    ],
+    "2026-09-30": [
+      "usa-mls",
+      "col-primera-a",
+      "international-friendlies"
+    ],
+    "2026-10-01": [
+      "uefa-nations-league",
+      "usa-mls",
+      "col-primera-a",
+      "international-friendlies"
+    ],
+    "2026-10-02": [
+      "uefa-nations-league",
+      "bra-serie-b",
+      "arg-primera",
+      "mar-botola",
+      "ned-eerste-divisie",
+      "esp-segunda",
+      "usa-mls",
+      "international-friendlies"
+    ],
+    "2026-10-03": [
+      "uefa-nations-league",
+      "eng-league-one",
+      "eng-league-two",
+      "esp-segunda",
+      "ned-eerste-divisie",
+      "arg-primera",
+      "bra-serie-a",
+      "bra-serie-b",
+      "col-primera-a",
+      "jpn-j2",
+      "mar-botola",
+      "caf-champions-league",
+      "international-friendlies"
+    ]
+  },
+  "frozenModelledFixtures": [
+    {
+      "date": "2026-10-03",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Finland",
+      "awayTeam": "Albania",
+      "evidenceCutoff": "pre-kickoff",
+      "modelLevel": "basic",
+      "sampleSize": 1,
+      "lambdaHome": 0.96,
+      "lambdaAway": 0.35,
+      "recommendedBet": null,
+      "actualScore": "2-1",
+      "outcome": "NO_BET",
+      "sources": [
+        "UEFA Nations League fixtures/results 2026/27"
+      ],
+      "notes": "Basic reconstruction from prior 2026/27 Nations League match only; final score used after model output."
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Croatia",
+      "awayTeam": "England",
+      "evidenceCutoff": "pre-kickoff",
+      "modelLevel": "basic",
+      "sampleSize": 1,
+      "lambdaHome": 3.02,
+      "lambdaAway": 2.09,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "rawProbability": 96.6,
+        "reliability": 0.741,
+        "probability": 71.6,
+        "rating": "Good"
+      },
+      "actualScore": "0-7",
+      "outcome": "WIN",
+      "sources": [
+        "UEFA Nations League fixtures/results 2026/27"
+      ],
+      "notes": "Basic reconstruction from prior 2026/27 Nations League match only; final score used after model output."
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Belarus",
+      "awayTeam": "San Marino",
+      "evidenceCutoff": "pre-kickoff",
+      "modelLevel": "basic",
+      "sampleSize": 1,
+      "lambdaHome": 0.96,
+      "lambdaAway": 0.35,
+      "recommendedBet": null,
+      "actualScore": "4-0",
+      "outcome": "NO_BET",
+      "sources": [
+        "UEFA Nations League fixtures/results 2026/27"
+      ],
+      "notes": "Basic reconstruction from prior 2026/27 Nations League match only; final score used after model output."
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Estonia",
+      "awayTeam": "Luxembourg",
+      "evidenceCutoff": "pre-kickoff",
+      "modelLevel": "basic",
+      "sampleSize": 1,
+      "lambdaHome": 0.86,
+      "lambdaAway": 2.09,
+      "recommendedBet": null,
+      "actualScore": "1-0",
+      "outcome": "NO_BET",
+      "sources": [
+        "UEFA Nations League fixtures/results 2026/27"
+      ],
+      "notes": "Basic reconstruction from prior 2026/27 Nations League match only; final score used after model output."
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Iceland",
+      "awayTeam": "Bulgaria",
+      "evidenceCutoff": "pre-kickoff",
+      "modelLevel": "basic",
+      "sampleSize": 1,
+      "lambdaHome": 1.29,
+      "lambdaAway": 1.14,
+      "recommendedBet": null,
+      "actualScore": "3-0",
+      "outcome": "NO_BET",
+      "sources": [
+        "UEFA Nations League fixtures/results 2026/27"
+      ],
+      "notes": "Basic reconstruction from prior 2026/27 Nations League match only; final score used after model output."
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Spain",
+      "awayTeam": "Czechia",
+      "evidenceCutoff": "pre-kickoff",
+      "modelLevel": "basic",
+      "sampleSize": 1,
+      "lambdaHome": 3.02,
+      "lambdaAway": 2.09,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "rawProbability": 96.6,
+        "reliability": 0.741,
+        "probability": 71.6,
+        "rating": "Good"
+      },
+      "actualScore": "3-1",
+      "outcome": "WIN",
+      "sources": [
+        "UEFA Nations League fixtures/results 2026/27"
+      ],
+      "notes": "Basic reconstruction from prior 2026/27 Nations League match only; final score used after model output."
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "North Macedonia",
+      "awayTeam": "Scotland",
+      "evidenceCutoff": "pre-kickoff",
+      "modelLevel": "basic",
+      "sampleSize": 1,
+      "lambdaHome": 0.44,
+      "lambdaAway": 0.42,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Under 3.5",
+        "rawProbability": 98.8,
+        "reliability": 0.741,
+        "probability": 73.2,
+        "rating": "Good"
+      },
+      "actualScore": "0-2",
+      "outcome": "WIN",
+      "sources": [
+        "UEFA Nations League fixtures/results 2026/27"
+      ],
+      "notes": "Basic reconstruction from prior 2026/27 Nations League match only; final score used after model output."
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Switzerland",
+      "awayTeam": "Slovenia",
+      "evidenceCutoff": "pre-kickoff",
+      "modelLevel": "basic",
+      "sampleSize": 1,
+      "lambdaHome": 0.65,
+      "lambdaAway": 0.2,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Under 3.5",
+        "rawProbability": 98.9,
+        "reliability": 0.741,
+        "probability": 73.3,
+        "rating": "Good"
+      },
+      "actualScore": "2-1",
+      "outcome": "WIN",
+      "sources": [
+        "UEFA Nations League fixtures/results 2026/27"
+      ],
+      "notes": "Basic reconstruction from prior 2026/27 Nations League match only; final score used after model output."
+    }
+  ],
+  "currentBetMetrics": {
+    "recommendedBets": 4,
+    "wins": 4,
+    "losses": 0,
+    "hitRate": 100
+  },
+  "aggregateMetrics": null,
+  "sources": [
+    "UEFA 2026/27 Nations League fixtures/results",
+    "PredictZ daily historical results Sep 29-Oct 2 2026",
+    "WinDrawWin historical results Sep 30 and Oct 3 2026",
+    "Soccer schedule source MLS Sep 29-Oct 3 2026"
+  ],
+  "notes": [
+    "Only frozen V2.2 recommendations with reconstructed pre-kickoff evidence are included in current performance.",
+    "NO BET is excluded from displayed/current betting performance.",
+    "Run remains in-progress until every discovered configured-league fixture in the five-day window is either modelled or explicitly NO MODEL and the audit is persisted."
+  ]
+}
