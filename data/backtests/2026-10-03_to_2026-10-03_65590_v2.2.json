@@ -1,0 +1,945 @@
+{
+  "runId": "65590",
+  "dateFrom": "2026-10-03",
+  "dateTo": "2026-10-03",
+  "modelVersion": "v2.2-calibrated-selector",
+  "status": "in-progress",
+  "researchMode": "chatgpt-web-primary",
+  "createdAt": "2026-10-04",
+  "current": {
+    "date": "2026-10-03",
+    "leagueIndex": 1,
+    "leagueId": "eng-premier-league",
+    "stage": "fixture-discovery"
+  },
+  "metrics": {
+    "leagueDaysComplete": 0,
+    "leagueDaysTotal": 61,
+    "fixturesDiscovered": 0,
+    "fixturesProcessed": 0,
+    "modelled": 0,
+    "noModel": 0,
+    "recommendedBets": 0,
+    "noBet": 0,
+    "wins": 0,
+    "losses": 0
+  },
+  "leagueScan": [
+    {
+      "leagueIndex": 1,
+      "leagueId": "eng-premier-league",
+      "country": "England",
+      "name": "Premier League",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 2,
+      "leagueId": "eng-championship",
+      "country": "England",
+      "name": "Championship",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 3,
+      "leagueId": "eng-league-one",
+      "country": "England",
+      "name": "League One",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 4,
+      "leagueId": "eng-league-two",
+      "country": "England",
+      "name": "League Two",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 5,
+      "leagueId": "esp-la-liga",
+      "country": "Spain",
+      "name": "La Liga",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 6,
+      "leagueId": "esp-segunda",
+      "country": "Spain",
+      "name": "Segunda Division",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 7,
+      "leagueId": "ita-serie-a",
+      "country": "Italy",
+      "name": "Serie A",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 8,
+      "leagueId": "ita-serie-b",
+      "country": "Italy",
+      "name": "Serie B",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 9,
+      "leagueId": "ger-bundesliga",
+      "country": "Germany",
+      "name": "Bundesliga",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 10,
+      "leagueId": "ger-2-bundesliga",
+      "country": "Germany",
+      "name": "2. Bundesliga",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 11,
+      "leagueId": "fra-ligue-1",
+      "country": "France",
+      "name": "Ligue 1",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 12,
+      "leagueId": "fra-ligue-2",
+      "country": "France",
+      "name": "Ligue 2",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 13,
+      "leagueId": "ned-eredivisie",
+      "country": "Netherlands",
+      "name": "Eredivisie",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 14,
+      "leagueId": "ned-eerste-divisie",
+      "country": "Netherlands",
+      "name": "Eerste Divisie",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 15,
+      "leagueId": "por-primeira-liga",
+      "country": "Portugal",
+      "name": "Primeira Liga",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 16,
+      "leagueId": "bel-pro-league",
+      "country": "Belgium",
+      "name": "Belgian Pro League",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 17,
+      "leagueId": "sco-premiership",
+      "country": "Scotland",
+      "name": "Scottish Premiership",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 18,
+      "leagueId": "tur-super-lig",
+      "country": "Turkey",
+      "name": "Super Lig",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 19,
+      "leagueId": "gre-super-league",
+      "country": "Greece",
+      "name": "Super League Greece",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 20,
+      "leagueId": "aut-bundesliga",
+      "country": "Austria",
+      "name": "Austrian Bundesliga",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 21,
+      "leagueId": "sui-super-league",
+      "country": "Switzerland",
+      "name": "Swiss Super League",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 22,
+      "leagueId": "den-superliga",
+      "country": "Denmark",
+      "name": "Danish Superliga",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 23,
+      "leagueId": "nor-eliteserien",
+      "country": "Norway",
+      "name": "Eliteserien",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 24,
+      "leagueId": "swe-allsvenskan",
+      "country": "Sweden",
+      "name": "Allsvenskan",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 25,
+      "leagueId": "fin-veikkausliiga",
+      "country": "Finland",
+      "name": "Veikkausliiga",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 26,
+      "leagueId": "pol-ekstraklasa",
+      "country": "Poland",
+      "name": "Ekstraklasa",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 27,
+      "leagueId": "cze-first-league",
+      "country": "Czech Republic",
+      "name": "Czech First League",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 28,
+      "leagueId": "cro-hnl",
+      "country": "Croatia",
+      "name": "HNL",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 29,
+      "leagueId": "ser-superliga",
+      "country": "Serbia",
+      "name": "Serbian SuperLiga",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 30,
+      "leagueId": "rou-liga-1",
+      "country": "Romania",
+      "name": "Liga I",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 31,
+      "leagueId": "ukr-premier-league",
+      "country": "Ukraine",
+      "name": "Ukrainian Premier League",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 32,
+      "leagueId": "uefa-champions-league",
+      "country": "Europe",
+      "name": "UEFA Champions League",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 33,
+      "leagueId": "uefa-europa-league",
+      "country": "Europe",
+      "name": "UEFA Europa League",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 34,
+      "leagueId": "uefa-conference-league",
+      "country": "Europe",
+      "name": "UEFA Conference League",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 35,
+      "leagueId": "uefa-nations-league",
+      "country": "Europe",
+      "name": "UEFA Nations League",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 36,
+      "leagueId": "uefa-euro",
+      "country": "Europe",
+      "name": "UEFA European Championship",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 37,
+      "leagueId": "conmebol-libertadores",
+      "country": "South America",
+      "name": "Copa Libertadores",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 38,
+      "leagueId": "conmebol-sudamericana",
+      "country": "South America",
+      "name": "Copa Sudamericana",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 39,
+      "leagueId": "bra-serie-a",
+      "country": "Brazil",
+      "name": "Serie A",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 40,
+      "leagueId": "bra-serie-b",
+      "country": "Brazil",
+      "name": "Serie B",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 41,
+      "leagueId": "arg-primera",
+      "country": "Argentina",
+      "name": "Primera Division",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 42,
+      "leagueId": "usa-mls",
+      "country": "United States",
+      "name": "Major League Soccer",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 43,
+      "leagueId": "mex-liga-mx",
+      "country": "Mexico",
+      "name": "Liga MX",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 44,
+      "leagueId": "col-primera-a",
+      "country": "Colombia",
+      "name": "Categoria Primera A",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 45,
+      "leagueId": "jpn-j1",
+      "country": "Japan",
+      "name": "J1 League",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 46,
+      "leagueId": "jpn-j2",
+      "country": "Japan",
+      "name": "J2 League",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 47,
+      "leagueId": "kor-k1",
+      "country": "South Korea",
+      "name": "K League 1",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 48,
+      "leagueId": "chn-super-league",
+      "country": "China",
+      "name": "Chinese Super League",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 49,
+      "leagueId": "aus-a-league",
+      "country": "Australia",
+      "name": "A-League Men",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 50,
+      "leagueId": "ksa-pro-league",
+      "country": "Saudi Arabia",
+      "name": "Saudi Pro League",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 51,
+      "leagueId": "qat-stars-league",
+      "country": "Qatar",
+      "name": "Qatar Stars League",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 52,
+      "leagueId": "uae-pro-league",
+      "country": "United Arab Emirates",
+      "name": "UAE Pro League",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 53,
+      "leagueId": "rsa-premiership",
+      "country": "South Africa",
+      "name": "Betway Premiership",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 54,
+      "leagueId": "rsa-first-division",
+      "country": "South Africa",
+      "name": "Motsepe Foundation Championship",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 55,
+      "leagueId": "egy-premier-league",
+      "country": "Egypt",
+      "name": "Egyptian Premier League",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 56,
+      "leagueId": "mar-botola",
+      "country": "Morocco",
+      "name": "Botola Pro",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 57,
+      "leagueId": "tun-ligue-1",
+      "country": "Tunisia",
+      "name": "Tunisian Ligue Professionnelle 1",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 58,
+      "leagueId": "caf-champions-league",
+      "country": "Africa",
+      "name": "CAF Champions League",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 59,
+      "leagueId": "caf-confederation-cup",
+      "country": "Africa",
+      "name": "CAF Confederation Cup",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 60,
+      "leagueId": "fifa-world-cup",
+      "country": "International",
+      "name": "FIFA World Cup",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "leagueIndex": 61,
+      "leagueId": "international-friendlies",
+      "country": "International",
+      "name": "International Friendlies",
+      "status": "pending",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "dates": [
+        {
+          "date": "2026-10-03",
+          "status": "pending"
+        }
+      ]
+    }
+  ],
+  "fixtures": []
+}
