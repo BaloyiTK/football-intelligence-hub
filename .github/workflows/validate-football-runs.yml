@@ -50,4 +50,8 @@ jobs:
             [[ -f "$file" ]] || continue
             echo "Validating $file"
             npm run run:validate -- "$file"
+            if grep -q '"status"[[:space:]]*:[[:space:]]*"complete"' "$file"; then
+              echo "Completed run detected; enforcing strict finalization."
+              npm run run:finalize -- "$file"
+            fi
           done
