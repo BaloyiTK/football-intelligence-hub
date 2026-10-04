@@ -129,3 +129,14 @@ A blocker therefore stops further research execution, not access to valid predic
 - Use `npm run backtest:controller -- --from ... --to ... --evidence ... --resume <run-file>` for an existing run once evidence is available.
 - An assistant progress response is never an execution boundary. If the active execution cannot reach the strict finalizer, persist a resumable non-complete state and exact cursor/blocker before ending.
 - Never infer completion from discovery counters or a modelled subset.
+
+## Mandatory data-repair loop
+When fixture, date, competition, team, result, or evidence data conflicts, looks stale, or fails validation, NEVER stop at the first discrepancy. Execute this repair loop before a blocker is allowed:
+1. Re-query the disputed item with targeted searches.
+2. Prefer authoritative/organizer/association sources, but distinguish a published schedule from an actual played result; schedules may be superseded.
+3. Require independent corroboration for changed/cancelled/replaced fixtures or results when available.
+4. Check cancellation/postponement/replacement, timezone/date rollover, team aliases, competition classification, and youth/women/reserve contamination.
+5. Correct the persisted fixture universe and counters immediately when wrong data is proven.
+6. Continue from the corrected cursor automatically; a correction is NOT a stopping condition.
+7. Only persist status=blocked after all reasonable repair paths above have actually been attempted and the unresolved fact is necessary to model or grade safely. Persist attempted sources and exact unresolved fact.
+8. Never invent missing data merely to avoid a blocker.
