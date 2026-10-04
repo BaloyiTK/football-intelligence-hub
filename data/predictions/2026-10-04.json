@@ -1,7 +1,7 @@
 {
   "date": "2026-10-04",
   "timezone": "Africa/Johannesburg",
-  "generatedAt": "2026-10-04T14:30:42.430Z",
+  "generatedAt": "2026-10-04T14:33:05.134Z",
   "fixtures": [
     {
       "fixtureKey": "2026-10-04|ned-eerste-divisie|vvv-venlo|roda-jc",
@@ -349,62 +349,6 @@
       "status": "No Model",
       "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
       "model": null
-    },
-    {
-      "fixtureKey": "2026-10-04|jpn-j2|consadole-sapporo|iwaki-fc",
-      "leagueId": "jpn-j2",
-      "league": "J2 League",
-      "homeTeam": "Consadole Sapporo",
-      "awayTeam": "Iwaki FC",
-      "kickoff": "06:00 SAST",
-      "status": "Completed",
-      "reason": "Match had already finished before this manual prediction run; no retrospective prediction generated.",
-      "model": null,
-      "sources": [
-        "https://www.jleague.jp/en/j2/match/search-list/?enddate=2026-10-04&period=custom&sort_desc=true&startdate=2026-08-08"
-      ]
-    },
-    {
-      "fixtureKey": "2026-10-04|jpn-j2|vanraure-hachinohe|yokohama-fc",
-      "leagueId": "jpn-j2",
-      "league": "J2 League",
-      "homeTeam": "Vanraure Hachinohe",
-      "awayTeam": "Yokohama FC",
-      "kickoff": "06:00 SAST",
-      "status": "Completed",
-      "reason": "Match had already finished before this manual prediction run; no retrospective prediction generated.",
-      "model": null,
-      "sources": [
-        "https://www.jleague.jp/en/j2/match/search-list/?enddate=2026-10-04&period=custom&sort_desc=true&startdate=2026-08-08"
-      ]
-    },
-    {
-      "fixtureKey": "2026-10-04|jpn-j2|blaublitz-akita|sagan-tosu",
-      "leagueId": "jpn-j2",
-      "league": "J2 League",
-      "homeTeam": "Blaublitz Akita",
-      "awayTeam": "Sagan Tosu",
-      "kickoff": "07:00 SAST",
-      "status": "Completed",
-      "reason": "Match had already finished before this manual prediction run; no retrospective prediction generated.",
-      "model": null,
-      "sources": [
-        "https://www.jleague.jp/en/j2/match/search-list/?enddate=2026-10-04&period=custom&sort_desc=true&startdate=2026-08-08"
-      ]
-    },
-    {
-      "fixtureKey": "2026-10-04|jpn-j2|vegalta-sendai|j-bilo-iwata",
-      "leagueId": "jpn-j2",
-      "league": "J2 League",
-      "homeTeam": "Vegalta Sendai",
-      "awayTeam": "Júbilo Iwata",
-      "kickoff": "08:00 SAST",
-      "status": "Completed",
-      "reason": "Match had already finished before this manual prediction run; no retrospective prediction generated.",
-      "model": null,
-      "sources": [
-        "https://www.jleague.jp/en/j2/match/search-list/?enddate=2026-10-04&period=custom&sort_desc=true&startdate=2026-08-08"
-      ]
     },
     {
       "fixtureKey": "2026-10-04|jpn-j2|tegevajaro-miyazaki|omiya-ardija",
@@ -898,20 +842,6 @@
       "sources": [
         "https://www.fotmob.com/en-GB/matches/kyrgyzstan-vs-lebanon/15dx82"
       ]
-    },
-    {
-      "fixtureKey": "2026-10-04|international-friendlies|argentina|burkina-faso",
-      "leagueId": "international-friendlies",
-      "league": "International Friendlies",
-      "homeTeam": "Argentina",
-      "awayTeam": "Burkina Faso",
-      "kickoff": "02:00 SAST",
-      "status": "Completed",
-      "reason": "Match finished before this manual run; no retrospective prediction generated.",
-      "model": null,
-      "sources": [
-        "https://www.reuters.com/sports/soccer/african-national-teams-head-off-friendly-assignments-2026-10-01/"
-      ]
     }
   ],
   "scan": {
@@ -921,6 +851,6 @@
     "completedAt": "2026-10-04T14:25:11.180Z",
     "duplicatePolicy": "fixtureKey",
     "failures": [],
-    "notes": "Full manual run using GitHub automation rules. Removed fixtures falling on 5 Oct SAST, corrected friendly replacements/orientation, and did not retrospectively predict matches already completed before this run. Improved fallback pass applied: Full -> Standard -> Basic; reliable recent-score evidence converted eligible No Model fixtures to Basic predictions."
+    "notes": "Full manual run using GitHub automation rules. Removed fixtures falling on 5 Oct SAST, corrected friendly replacements/orientation, and did not retrospectively predict matches already completed before this run. Improved fallback pass applied: Full -> Standard -> Basic; reliable recent-score evidence converted eligible No Model fixtures to Basic predictions. Completed fixtures removed from prediction feed by policy."
   }
 }
