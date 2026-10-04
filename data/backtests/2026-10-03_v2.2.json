@@ -1,0 +1,439 @@
+{
+  "status": "in-progress",
+  "modelVersion": "v2.2-calibrated-selector",
+  "range": {
+    "start": "2026-10-03",
+    "end": "2026-10-03"
+  },
+  "dailyScan": [
+    {
+      "date": "2026-10-03",
+      "status": "in-progress"
+    }
+  ],
+  "leagueScan": [
+    {
+      "leagueId": "eng-premier-league",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "eng-championship",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "eng-league-one",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "eng-league-two",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "esp-la-liga",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "esp-segunda",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "ita-serie-a",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "ita-serie-b",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "ger-bundesliga",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "ger-2-bundesliga",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "fra-ligue-1",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "fra-ligue-2",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "ned-eredivisie",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "ned-eerste-divisie",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "por-primeira-liga",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "bel-pro-league",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "sco-premiership",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "tur-super-lig",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "gre-super-league",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "aut-bundesliga",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "sui-super-league",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "den-superliga",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "nor-eliteserien",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "swe-allsvenskan",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "fin-veikkausliiga",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "pol-ekstraklasa",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "cze-first-league",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "cro-hnl",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "ser-superliga",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "rou-liga-1",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "ukr-premier-league",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "uefa-champions-league",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "uefa-europa-league",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "uefa-conference-league",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "uefa-nations-league",
+      "status": "modelled"
+    },
+    {
+      "leagueId": "uefa-euro",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "conmebol-libertadores",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "conmebol-sudamericana",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "bra-serie-a",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "bra-serie-b",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "arg-primera",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "usa-mls",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "mex-liga-mx",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "col-primera-a",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "jpn-j1",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "jpn-j2",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "kor-k1",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "chn-super-league",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "aus-a-league",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "ksa-pro-league",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "qat-stars-league",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "uae-pro-league",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "rsa-premiership",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "rsa-first-division",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "egy-premier-league",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "mar-botola",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "tun-ligue-1",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "caf-champions-league",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "caf-confederation-cup",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "fifa-world-cup",
+      "status": "scan-pending"
+    },
+    {
+      "leagueId": "international-friendlies",
+      "status": "scan-pending"
+    }
+  ],
+  "fixtures": [
+    {
+      "date": "2026-10-03",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Finland",
+      "awayTeam": "Albania",
+      "evidenceCutoff": "pre-kickoff",
+      "modelLevel": "basic",
+      "sampleSize": 1,
+      "lambdaHome": 0.96,
+      "lambdaAway": 0.35,
+      "recommendedBet": null,
+      "actualScore": "2-1",
+      "outcome": "NO_BET",
+      "sources": [
+        "UEFA Nations League fixtures/results 2026/27"
+      ],
+      "notes": "Basic reconstruction from prior 2026/27 Nations League match only; final score used after model output."
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Croatia",
+      "awayTeam": "England",
+      "evidenceCutoff": "pre-kickoff",
+      "modelLevel": "basic",
+      "sampleSize": 1,
+      "lambdaHome": 3.02,
+      "lambdaAway": 2.09,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "rawProbability": 96.6,
+        "reliability": 0.741,
+        "probability": 71.6,
+        "rating": "Good"
+      },
+      "actualScore": "0-7",
+      "outcome": "WIN",
+      "sources": [
+        "UEFA Nations League fixtures/results 2026/27"
+      ],
+      "notes": "Basic reconstruction from prior 2026/27 Nations League match only; final score used after model output."
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Belarus",
+      "awayTeam": "San Marino",
+      "evidenceCutoff": "pre-kickoff",
+      "modelLevel": "basic",
+      "sampleSize": 1,
+      "lambdaHome": 0.96,
+      "lambdaAway": 0.35,
+      "recommendedBet": null,
+      "actualScore": "4-0",
+      "outcome": "NO_BET",
+      "sources": [
+        "UEFA Nations League fixtures/results 2026/27"
+      ],
+      "notes": "Basic reconstruction from prior 2026/27 Nations League match only; final score used after model output."
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Estonia",
+      "awayTeam": "Luxembourg",
+      "evidenceCutoff": "pre-kickoff",
+      "modelLevel": "basic",
+      "sampleSize": 1,
+      "lambdaHome": 0.86,
+      "lambdaAway": 2.09,
+      "recommendedBet": null,
+      "actualScore": "1-0",
+      "outcome": "NO_BET",
+      "sources": [
+        "UEFA Nations League fixtures/results 2026/27"
+      ],
+      "notes": "Basic reconstruction from prior 2026/27 Nations League match only; final score used after model output."
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Iceland",
+      "awayTeam": "Bulgaria",
+      "evidenceCutoff": "pre-kickoff",
+      "modelLevel": "basic",
+      "sampleSize": 1,
+      "lambdaHome": 1.29,
+      "lambdaAway": 1.14,
+      "recommendedBet": null,
+      "actualScore": "3-0",
+      "outcome": "NO_BET",
+      "sources": [
+        "UEFA Nations League fixtures/results 2026/27"
+      ],
+      "notes": "Basic reconstruction from prior 2026/27 Nations League match only; final score used after model output."
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Spain",
+      "awayTeam": "Czechia",
+      "evidenceCutoff": "pre-kickoff",
+      "modelLevel": "basic",
+      "sampleSize": 1,
+      "lambdaHome": 3.02,
+      "lambdaAway": 2.09,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "rawProbability": 96.6,
+        "reliability": 0.741,
+        "probability": 71.6,
+        "rating": "Good"
+      },
+      "actualScore": "3-1",
+      "outcome": "WIN",
+      "sources": [
+        "UEFA Nations League fixtures/results 2026/27"
+      ],
+      "notes": "Basic reconstruction from prior 2026/27 Nations League match only; final score used after model output."
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "North Macedonia",
+      "awayTeam": "Scotland",
+      "evidenceCutoff": "pre-kickoff",
+      "modelLevel": "basic",
+      "sampleSize": 1,
+      "lambdaHome": 0.44,
+      "lambdaAway": 0.42,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Under 3.5",
+        "rawProbability": 98.8,
+        "reliability": 0.741,
+        "probability": 73.2,
+        "rating": "Good"
+      },
+      "actualScore": "0-2",
+      "outcome": "WIN",
+      "sources": [
+        "UEFA Nations League fixtures/results 2026/27"
+      ],
+      "notes": "Basic reconstruction from prior 2026/27 Nations League match only; final score used after model output."
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Switzerland",
+      "awayTeam": "Slovenia",
+      "evidenceCutoff": "pre-kickoff",
+      "modelLevel": "basic",
+      "sampleSize": 1,
+      "lambdaHome": 0.65,
+      "lambdaAway": 0.2,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Under 3.5",
+        "rawProbability": 98.9,
+        "reliability": 0.741,
+        "probability": 73.3,
+        "rating": "Good"
+      },
+      "actualScore": "2-1",
+      "outcome": "WIN",
+      "sources": [
+        "UEFA Nations League fixtures/results 2026/27"
+      ],
+      "notes": "Basic reconstruction from prior 2026/27 Nations League match only; final score used after model output."
+    }
+  ],
+  "aggregateMetrics": null,
+  "notes": [
+    "Do not treat the modelled Nations League subset as the completed requested backtest.",
+    "Public fixture discovery also identified configured-league activity in EFL League One/Two, Brazil Serie A/B, Argentina Primera, Colombia Primera A, Japan J2 and Morocco Botola; these remain to be reconstructed before status can become complete."
+  ]
+}
