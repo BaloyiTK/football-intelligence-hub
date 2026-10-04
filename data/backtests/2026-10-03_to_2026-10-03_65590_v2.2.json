@@ -8,20 +8,20 @@
   "createdAt": "2026-10-04",
   "current": {
     "date": "2026-10-03",
-    "leagueIndex": 3,
-    "leagueId": "eng-league-one",
+    "leagueIndex": 4,
+    "leagueId": "eng-league-two",
     "stage": "prematch-research"
   },
   "metrics": {
-    "leagueDaysComplete": 1,
+    "leagueDaysComplete": 2,
     "leagueDaysTotal": 61,
     "fixturesDiscovered": 25,
-    "fixturesProcessed": 8,
-    "modelled": 8,
+    "fixturesProcessed": 11,
+    "modelled": 11,
     "noModel": 0,
-    "recommendedBets": 8,
+    "recommendedBets": 11,
     "noBet": 0,
-    "wins": 7,
+    "wins": 10,
     "losses": 1
   },
   "leagueScan": [
@@ -60,13 +60,13 @@
       "leagueId": "eng-league-one",
       "country": "England",
       "name": "League One",
-      "status": "processing",
+      "status": "complete",
       "fixturesDiscovered": 3,
-      "fixturesProcessed": 0,
+      "fixturesProcessed": 3,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "processing"
+          "status": "complete"
         }
       ],
       "sources": [
@@ -971,42 +971,108 @@
       "leagueId": "eng-league-one",
       "homeTeam": "Burton Albion",
       "awayTeam": "Huddersfield Town",
-      "actualScore": null,
-      "status": "discovered-pending-prematch-research",
+      "actualScore": "1-3",
+      "status": "BET",
       "sources": [
-        "https://fbref.com/en/matches/2026-10-03",
-        "https://www.sofascore.com/football/world/2026-10-03",
-        "https://www.footballfixtures.org/fixtures/2026-10-03",
-        "https://www.theguardian.com/football/fixtures/2026/Oct/03"
-      ]
+        "https://shutli.com/en/match-detail/87906",
+        "https://www.efl.com/news/2026/october/03/sky-bet-league-one-results--table---stats/"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-03T14:59:00+01:00",
+      "inputs": {
+        "homeAttack": 1.3333333333333333,
+        "awayAttack": 1.3913043478260871,
+        "homeDefence": 1.3913043478260871,
+        "awayDefence": 0.7407407407407407,
+        "leagueHomeGoals": 1.35,
+        "leagueAwayGoals": 1.15,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 1.34,
+      "lambdaAway": 2.09,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "rawProbability": 86.3,
+        "probability": 73.8,
+        "reliability": 0.856,
+        "rating": "Good"
+      },
+      "outcome": "WIN"
     },
     {
       "date": "2026-10-03",
       "leagueId": "eng-league-one",
       "homeTeam": "Leyton Orient",
       "awayTeam": "Plymouth Argyle",
-      "actualScore": null,
-      "status": "discovered-pending-prematch-research",
+      "actualScore": "0-2",
+      "status": "BET",
       "sources": [
-        "https://fbref.com/en/matches/2026-10-03",
-        "https://www.sofascore.com/football/world/2026-10-03",
-        "https://www.footballfixtures.org/fixtures/2026-10-03",
-        "https://www.theguardian.com/football/fixtures/2026/Oct/03"
-      ]
+        "https://shutli.com/en/match-detail/87912",
+        "https://www.efl.com/news/2026/october/03/sky-bet-league-one-results--table---stats/"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-03T14:59:00+01:00",
+      "inputs": {
+        "homeAttack": 0.8888888888888888,
+        "awayAttack": 2.608695652173913,
+        "homeDefence": 1.565217391304348,
+        "awayDefence": 0.8888888888888888,
+        "leagueHomeGoals": 1.35,
+        "leagueAwayGoals": 1.15,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 1.1,
+      "lambdaAway": 4,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "rawProbability": 94.6,
+        "probability": 82.6,
+        "reliability": 0.873,
+        "rating": "Strong"
+      },
+      "outcome": "WIN"
     },
     {
       "date": "2026-10-03",
       "leagueId": "eng-league-one",
       "homeTeam": "Reading",
       "awayTeam": "Bradford City",
-      "actualScore": null,
-      "status": "discovered-pending-prematch-research",
+      "actualScore": "1-1",
+      "status": "BET",
       "sources": [
-        "https://fbref.com/en/matches/2026-10-03",
-        "https://www.sofascore.com/football/world/2026-10-03",
-        "https://www.footballfixtures.org/fixtures/2026-10-03",
-        "https://www.theguardian.com/football/fixtures/2026/Oct/03"
-      ]
+        "https://last5games.com/matches/bradford-city-vs-reading-19728232/",
+        "https://www.efl.com/news/2026/october/03/sky-bet-league-one-results--table---stats/"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-03T14:59:00+01:00",
+      "inputs": {
+        "homeAttack": 1.3333333333333333,
+        "awayAttack": 1.2173913043478262,
+        "homeDefence": 1.2173913043478262,
+        "awayDefence": 0.4444444444444444,
+        "leagueHomeGoals": 1.35,
+        "leagueAwayGoals": 1.15,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 0.87,
+      "lambdaAway": 1.63,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "rawProbability": 81,
+        "probability": 70.7,
+        "reliability": 0.873,
+        "rating": "Good"
+      },
+      "outcome": "WIN"
     },
     {
       "date": "2026-10-03",
