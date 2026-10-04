@@ -10,7 +10,8 @@
     "backtest:collect": "tsx scripts/collect-backtest-evidence.ts",
     "backtest:run": "tsx scripts/run-backtest.ts",
     "backtest:research": "tsx scripts/research-backtest.ts",
-    "backtest:auto": "tsx scripts/auto-backtest.ts"
+    "backtest:auto": "tsx scripts/auto-backtest.ts",
+    "run:validate": "tsx scripts/validate-run.ts"
   },
   "dependencies": {
     "next": "15.5.7",
