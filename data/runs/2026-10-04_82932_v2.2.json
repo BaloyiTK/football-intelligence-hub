@@ -674,11 +674,12 @@
       "leagueId": "uae-pro-league",
       "country": "United Arab Emirates",
       "name": "UAE Pro League",
-      "status": "processing",
-      "fixturesDiscovered": 1,
+      "status": "complete",
+      "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "sources": [
-        "https://www.uaepl.ae/en"
+        "https://globalsportsarchive.com/en/soccer/competition/adnoc-pro-league-2026-2027/81054",
+        "https://uaeproleague.ae/en/news-and-gallery/adnoc-pro-league-978"
       ]
     },
     {
@@ -1290,12 +1291,6 @@
       ]
     },
     {
-      "leagueId": "uae-pro-league",
-      "homeTeam": "Sharjah",
-      "awayTeam": "Al Wahda",
-      "status": "discovered-pending-research"
-    },
-    {
       "leagueId": "international-friendlies",
       "homeTeam": "Argentina",
       "awayTeam": "Burkina Faso",
@@ -1479,9 +1474,9 @@
     }
   ],
   "metrics": {
-    "leaguesChecked": 59,
+    "leaguesChecked": 60,
     "leaguesTotal": 61,
-    "fixturesDiscovered": 36,
+    "fixturesDiscovered": 35,
     "fixturesProcessed": 28,
     "modelled": 14,
     "noModel": 14,
@@ -1489,8 +1484,8 @@
     "noBet": 2
   },
   "current": {
-    "leagueIndex": 52,
-    "leagueId": "uae-pro-league",
+    "leagueIndex": 61,
+    "leagueId": "international-friendlies",
     "stage": "fixture-verification"
   },
   "notes": [
