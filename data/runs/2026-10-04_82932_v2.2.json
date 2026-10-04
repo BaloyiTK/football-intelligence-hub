@@ -80,12 +80,12 @@
       "leagueId": "esp-segunda",
       "country": "Spain",
       "name": "Segunda Division",
-      "status": "processing",
-      "fixturesDiscovered": 11,
-      "fixturesProcessed": 0,
+      "status": "complete",
+      "fixturesDiscovered": 5,
+      "fixturesProcessed": 5,
       "sources": [
-        "https://www.sportsgambler.com/fixtures-results/football/",
-        "https://footballfixtures.org/fixtures/2026-10-04"
+        "https://rfef.es/es/competiciones/segunda-division",
+        "https://fbref.com/en/comps/17/schedule/Segunda-Division-Scores-and-Fixtures"
       ]
     },
     {
@@ -805,67 +805,126 @@
       "leagueId": "esp-segunda",
       "homeTeam": "Real Sociedad B",
       "awayTeam": "Granada",
-      "status": "discovered-pending-research"
+      "status": "NO_MODEL",
+      "noModelReason": "Match had already started/finished before research was completed.",
+      "sources": [
+        "https://rfef.es/es/competiciones/segunda-division",
+        "https://fbref.com/en/comps/17/schedule/Segunda-Division-Scores-and-Fixtures",
+        "https://www.laliga.com/en-US/match/temporada-2026-2027-laliga-hypermotion-r-sociedad-b-granada-cf-8"
+      ],
+      "researchTimestamp": "2026-10-04T18:17:10+02:00"
     },
     {
       "leagueId": "esp-segunda",
       "homeTeam": "Sporting Gijon",
       "awayTeam": "Celta Fortuna",
-      "status": "discovered-pending-research"
+      "status": "NO_MODEL",
+      "noModelReason": "Match had already started before research was completed.",
+      "sources": [
+        "https://rfef.es/es/competiciones/segunda-division",
+        "https://fbref.com/en/comps/17/schedule/Segunda-Division-Scores-and-Fixtures",
+        "https://www.laliga.com/en-BR/match/temporada-2026-2027-laliga-hypermotion-real-sporting-rc-celta-fortuna-8",
+        "https://rccelta.es/en/fundacion/actualidad/celta-fortuna-squad-list-for-their-visit-to-the-el-molinon-stadium/"
+      ],
+      "researchTimestamp": "2026-10-04T18:17:10+02:00"
     },
     {
       "leagueId": "esp-segunda",
       "homeTeam": "Castellon",
       "awayTeam": "Ceuta",
-      "status": "discovered-pending-research"
+      "status": "BET",
+      "modelLevel": "basic",
+      "sampleSize": 7,
+      "inputs": {
+        "homeAttack": 1.4184,
+        "awayAttack": 0.7586,
+        "homeDefence": 0.2528,
+        "awayDefence": 1.7224,
+        "leagueHomeGoals": 1.41,
+        "leagueAwayGoals": 1.13,
+        "sampleSize": 7,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 3.19,
+      "lambdaAway": 0.33,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 85.9,
+        "rawProbability": 98.4,
+        "reliability": 0.873,
+        "rating": "Elite"
+      },
+      "sources": [
+        "https://rfef.es/es/competiciones/segunda-division",
+        "https://fbref.com/en/comps/17/schedule/Segunda-Division-Scores-and-Fixtures",
+        "https://tipsterarea.com/statistics/spain/segunda-division",
+        "https://www.laliga.com/en-US/match/temporada-2026-2027-laliga-hypermotion-cd-castellon-ad-ceuta-fc-8"
+      ],
+      "researchTimestamp": "2026-10-04T18:17:10+02:00"
     },
     {
       "leagueId": "esp-segunda",
       "homeTeam": "Las Palmas",
       "awayTeam": "Real Valladolid",
-      "status": "discovered-pending-research"
+      "status": "NO_BET",
+      "modelLevel": "basic",
+      "sampleSize": 7,
+      "inputs": {
+        "homeAttack": 1.0132,
+        "awayAttack": 0.7586,
+        "homeDefence": 1.3906,
+        "awayDefence": 0.9119,
+        "leagueHomeGoals": 1.41,
+        "leagueAwayGoals": 1.13,
+        "sampleSize": 7,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 1.32,
+      "lambdaAway": 1.18,
+      "recommendedBet": null,
+      "sources": [
+        "https://rfef.es/es/competiciones/segunda-division",
+        "https://fbref.com/en/comps/17/schedule/Segunda-Division-Scores-and-Fixtures",
+        "https://tipsterarea.com/statistics/spain/segunda-division",
+        "https://www.laliga.com/en-US/match/temporada-2026-2027-laliga-hypermotion-ud-las-palmas-real-valladolid-cf-8"
+      ],
+      "researchTimestamp": "2026-10-04T18:17:10+02:00"
     },
     {
       "leagueId": "esp-segunda",
       "homeTeam": "Girona",
       "awayTeam": "Mallorca",
-      "status": "discovered-pending-research"
-    },
-    {
-      "leagueId": "esp-segunda",
-      "homeTeam": "Sabadell",
-      "awayTeam": "Andorra",
-      "status": "discovered-pending-research"
-    },
-    {
-      "leagueId": "esp-segunda",
-      "homeTeam": "Albacete",
-      "awayTeam": "Eibar",
-      "status": "discovered-pending-research"
-    },
-    {
-      "leagueId": "esp-segunda",
-      "homeTeam": "Eldense",
-      "awayTeam": "Oviedo",
-      "status": "discovered-pending-research"
-    },
-    {
-      "leagueId": "esp-segunda",
-      "homeTeam": "Almeria",
-      "awayTeam": "Burgos",
-      "status": "discovered-pending-research"
-    },
-    {
-      "leagueId": "esp-segunda",
-      "homeTeam": "Cordoba",
-      "awayTeam": "Tenerife",
-      "status": "discovered-pending-research"
-    },
-    {
-      "leagueId": "esp-segunda",
-      "homeTeam": "Cadiz",
-      "awayTeam": "Leganes",
-      "status": "discovered-pending-research"
+      "status": "BET",
+      "modelLevel": "basic",
+      "sampleSize": 7,
+      "inputs": {
+        "homeAttack": 1.4184,
+        "awayAttack": 1.0119,
+        "homeDefence": 1.0119,
+        "awayDefence": 0.304,
+        "leagueHomeGoals": 1.41,
+        "leagueAwayGoals": 1.13,
+        "sampleSize": 7,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 0.71,
+      "lambdaAway": 1.15,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Under 3.5",
+        "probability": 75.4,
+        "rawProbability": 88.1,
+        "reliability": 0.856,
+        "rating": "Strong"
+      },
+      "sources": [
+        "https://rfef.es/es/competiciones/segunda-division",
+        "https://fbref.com/en/comps/17/schedule/Segunda-Division-Scores-and-Fixtures",
+        "https://tipsterarea.com/statistics/spain/segunda-division",
+        "https://www.laliga.com/en-US/match/temporada-2026-2027-laliga-hypermotion-girona-fc-rcd-mallorca-8"
+      ],
+      "researchTimestamp": "2026-10-04T18:17:10+02:00"
     },
     {
       "leagueId": "ned-eerste-divisie",
@@ -1121,18 +1180,18 @@
     }
   ],
   "metrics": {
-    "leaguesChecked": 53,
+    "leaguesChecked": 54,
     "leaguesTotal": 61,
-    "fixturesDiscovered": 53,
-    "fixturesProcessed": 0,
-    "modelled": 0,
-    "noModel": 0,
-    "recommendedBets": 0,
-    "noBet": 0
+    "fixturesDiscovered": 47,
+    "fixturesProcessed": 5,
+    "modelled": 3,
+    "noModel": 2,
+    "recommendedBets": 2,
+    "noBet": 1
   },
   "current": {
-    "leagueIndex": 6,
-    "leagueId": "esp-segunda",
+    "leagueIndex": 14,
+    "leagueId": "ned-eerste-divisie",
     "stage": "fixture-research"
   },
   "notes": [
