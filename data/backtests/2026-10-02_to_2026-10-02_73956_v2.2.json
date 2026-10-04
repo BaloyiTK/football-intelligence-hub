@@ -1,5 +1,5 @@
 {
-  "status": "blocked",
+  "status": "in-progress",
   "runId": "73956",
   "modelVersion": "v2.2-calibrated-selector",
   "range": {
@@ -1457,22 +1457,23 @@
     },
     {
       "leagueId": "international-friendlies",
-      "status": "processing",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "processing",
-          "fixturesDiscovered": 4,
-          "fixturesProcessed": 0,
+          "status": "complete",
+          "fixturesDiscovered": 5,
+          "fixturesProcessed": 5,
           "sources": [
             "https://fbref.com/en/matches/2026-10-02",
             "https://www.footballfixtures.org/fixtures/2026-10-02",
             "https://www.livescore.mobi/football/2026-10-02/"
-          ]
+          ],
+          "noBet": 2
         }
       ],
-      "fixturesDiscovered": 4,
-      "fixturesProcessed": 0,
+      "fixturesDiscovered": 5,
+      "fixturesProcessed": 5,
       "sources": [
         "https://fbref.com/en/matches/2026-10-02",
         "https://www.footballfixtures.org/fixtures/2026-10-02",
@@ -2120,25 +2121,153 @@
         "rating": "Good"
       },
       "outcome": "LOSS"
+    },
+    {
+      "date": "2026-10-02",
+      "leagueId": "international-friendlies",
+      "homeTeam": "Korea Republic",
+      "awayTeam": "Venezuela",
+      "actualScore": {
+        "home": 0,
+        "away": 0
+      },
+      "status": "BET",
+      "sources": [
+        "https://www.oddscalendar.com/football/international/international-friendlies/south-korea-vs-venezuela/1629003",
+        "https://fbref.com/en/comps/218/schedule/Friendlies-M-Scores-and-Fixtures"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-02T10:59:00Z",
+      "inputs": {
+        "homeAttack": 0.7228915663,
+        "homeDefence": 1.2389380531,
+        "awayAttack": 1.4159292035,
+        "awayDefence": 0.6024096386,
+        "leagueHomeGoals": 1.66,
+        "leagueAwayGoals": 1.13,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 0.84,
+      "lambdaAway": 1.87,
+      "correctScore": {
+        "score": "0-2",
+        "probability": 11.6
+      },
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "rawProbability": 84.5,
+        "probability": 73.8,
+        "reliability": 0.873,
+        "rating": "Good"
+      },
+      "outcome": "WIN"
+    },
+    {
+      "date": "2026-10-02",
+      "leagueId": "international-friendlies",
+      "homeTeam": "Mauritius",
+      "awayTeam": "Sri Lanka",
+      "actualScore": {
+        "home": 3,
+        "away": 0
+      },
+      "status": "BET",
+      "sources": [
+        "https://www.oddscalendar.com/football/international/international-friendlies/mauritius-vs-sri-lanka/1642994",
+        "https://www.fotmob.com/en-GB/matches/mauritius-vs-sri-lanka/14di6i"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-02T14:59:00Z",
+      "inputs": {
+        "homeAttack": 0.4819277108,
+        "homeDefence": 1.7699115044,
+        "awayAttack": 2.1238938053,
+        "awayDefence": 0.7228915663,
+        "leagueHomeGoals": 1.66,
+        "leagueAwayGoals": 1.13,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 0.72,
+      "lambdaAway": 3.85,
+      "correctScore": {
+        "score": "0-3",
+        "probability": 10.1
+      },
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "rawProbability": 97.1,
+        "probability": 84.8,
+        "reliability": 0.873,
+        "rating": "Strong"
+      },
+      "outcome": "LOSS"
+    },
+    {
+      "date": "2026-10-02",
+      "leagueId": "international-friendlies",
+      "homeTeam": "Colombia",
+      "awayTeam": "Paraguay",
+      "actualScore": {
+        "home": 0,
+        "away": 1
+      },
+      "status": "BET",
+      "sources": [
+        "https://www.oddscalendar.com/football/international/international-friendlies/colombia-vs-paraguay/1638597",
+        "https://fcf.com.co/2026/10/02/hoy-juega-colombia-357/",
+        "https://fbref.com/en/squads/ab73cfe5/2026/matchlogs/all_comps/schedule/Colombia-Men-Scores-and-Fixtures-All-Competitions"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-02T23:59:00Z",
+      "inputs": {
+        "homeAttack": 0.3614457831,
+        "homeDefence": 0.1769911504,
+        "awayAttack": 0.7079646018,
+        "awayDefence": 0.2409638554,
+        "leagueHomeGoals": 1.66,
+        "leagueAwayGoals": 1.13,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 0.34,
+      "lambdaAway": 0.27,
+      "correctScore": {
+        "score": "0-0",
+        "probability": 55
+      },
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Under 3.5",
+        "rawProbability": 99.7,
+        "probability": 85.3,
+        "reliability": 0.856,
+        "rating": "Elite"
+      },
+      "outcome": "WIN"
     }
   ],
   "metrics": {
-    "leagueDaysComplete": 60,
+    "leagueDaysComplete": 61,
     "leagueDaysTotal": 61,
-    "fixturesDiscovered": 21,
-    "fixturesProcessed": 17,
-    "modelled": 17,
-    "recommendedBets": 15,
-    "wins": 12,
-    "losses": 3
+    "fixturesDiscovered": 22,
+    "fixturesProcessed": 22,
+    "modelled": 22,
+    "recommendedBets": 18,
+    "wins": 14,
+    "losses": 4
   },
   "current": {
     "date": "2026-10-02",
-    "leagueId": "international-friendlies",
-    "stage": "fixture-verification"
+    "stage": "grading-audit-and-finalization"
   },
   "aggregateMetrics": null,
   "failureAnalysis": [],
-  "improvementCandidates": [],
-  "blocker": "International-friendlies source conflict: official Chinese FA schedule lists China PR vs Turkmenistan and Tajikistan vs Palestine on 2026-10-02, while multiple result aggregators list China PR vs Palestine 0-5. The fixture universe must be resolved before modelling/grading. Fortaleza vs Nautico was corrected to 2026-10-03 and removed from Oct 2."
+  "improvementCandidates": []
 }
