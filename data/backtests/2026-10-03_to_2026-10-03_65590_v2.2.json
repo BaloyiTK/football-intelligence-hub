@@ -10,19 +10,20 @@
     "date": "2026-10-03",
     "leagueIndex": 4,
     "leagueId": "eng-league-two",
-    "stage": "prematch-research"
+    "stage": "prematch-research",
+    "fixture": "Crewe Alexandra vs Bristol Rovers"
   },
   "metrics": {
     "leagueDaysComplete": 2,
     "leagueDaysTotal": 61,
     "fixturesDiscovered": 25,
-    "fixturesProcessed": 11,
-    "modelled": 11,
+    "fixturesProcessed": 14,
+    "modelled": 14,
     "noModel": 0,
-    "recommendedBets": 11,
-    "noBet": 0,
-    "wins": 10,
-    "losses": 1
+    "recommendedBets": 13,
+    "noBet": 1,
+    "wins": 11,
+    "losses": 2
   },
   "leagueScan": [
     {
@@ -83,7 +84,7 @@
       "name": "League Two",
       "status": "processing",
       "fixturesDiscovered": 8,
-      "fixturesProcessed": 0,
+      "fixturesProcessed": 3,
       "dates": [
         {
           "date": "2026-10-03",
@@ -1079,28 +1080,65 @@
       "leagueId": "eng-league-two",
       "homeTeam": "Chesterfield",
       "awayTeam": "Tranmere Rovers",
-      "actualScore": null,
-      "status": "discovered-pending-prematch-research",
+      "actualScore": "4-2",
+      "status": "NO_BET",
       "sources": [
-        "https://fbref.com/en/matches/2026-10-03",
-        "https://www.sofascore.com/football/world/2026-10-03",
-        "https://www.footballfixtures.org/fixtures/2026-10-03",
-        "https://www.theguardian.com/football/fixtures/2026/Oct/03"
-      ]
+        "https://last5games.com/matches/chesterfield-vs-tranmere-rovers-19727687/",
+        "https://www.efl.com/news/2026/october/03/salford-top-the-table-/"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-03T11:29:00Z",
+      "inputs": {
+        "homeAttack": 1.3333333333333333,
+        "awayAttack": 0.8695652173913044,
+        "homeDefence": 1.2173913043478262,
+        "awayDefence": 0.7407407407407407,
+        "leagueHomeGoals": 1.35,
+        "leagueAwayGoals": 1.15,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 1.34,
+      "lambdaAway": 1.21,
+      "recommendedBet": null,
+      "outcome": "NO_BET"
     },
     {
       "date": "2026-10-03",
       "leagueId": "eng-league-two",
       "homeTeam": "Accrington Stanley",
       "awayTeam": "Cheltenham Town",
-      "actualScore": null,
-      "status": "discovered-pending-prematch-research",
+      "actualScore": "2-0",
+      "status": "BET",
       "sources": [
-        "https://fbref.com/en/matches/2026-10-03",
-        "https://www.sofascore.com/football/world/2026-10-03",
-        "https://www.footballfixtures.org/fixtures/2026-10-03",
-        "https://www.theguardian.com/football/fixtures/2026/Oct/03"
-      ]
+        "https://last5games.com/matches/accrington-stanley-vs-cheltenham-town-19727689/",
+        "https://www.efl.com/news/2026/october/03/salford-top-the-table-/"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-03T11:29:00Z",
+      "inputs": {
+        "homeAttack": 1.037037037037037,
+        "awayAttack": 1.9130434782608698,
+        "homeDefence": 1.2173913043478262,
+        "awayDefence": 1.037037037037037,
+        "leagueHomeGoals": 1.35,
+        "leagueAwayGoals": 1.15,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 1.44,
+      "lambdaAway": 2.48,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "rawProbability": 90.8,
+        "probability": 77.7,
+        "reliability": 0.856,
+        "rating": "Strong"
+      },
+      "outcome": "LOSS"
     },
     {
       "date": "2026-10-03",
@@ -1121,14 +1159,36 @@
       "leagueId": "eng-league-two",
       "homeTeam": "Exeter City",
       "awayTeam": "Rotherham United",
-      "actualScore": null,
-      "status": "discovered-pending-prematch-research",
+      "actualScore": "1-0",
+      "status": "BET",
       "sources": [
-        "https://fbref.com/en/matches/2026-10-03",
-        "https://www.sofascore.com/football/world/2026-10-03",
-        "https://www.footballfixtures.org/fixtures/2026-10-03",
-        "https://www.theguardian.com/football/fixtures/2026/Oct/03"
-      ]
+        "https://last5games.com/matches/exeter-city-vs-rotherham-united-19727684/",
+        "https://www.efl.com/news/2026/october/03/salford-top-the-table-/"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-03T11:29:00Z",
+      "inputs": {
+        "homeAttack": 0.14814814814814814,
+        "awayAttack": 1.2173913043478262,
+        "homeDefence": 0.5217391304347826,
+        "awayDefence": 1.037037037037037,
+        "leagueHomeGoals": 1.35,
+        "leagueAwayGoals": 1.15,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 0.35,
+      "lambdaAway": 0.78,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Under 3.5",
+        "rawProbability": 97.1,
+        "probability": 83.1,
+        "reliability": 0.856,
+        "rating": "Strong"
+      },
+      "outcome": "WIN"
     },
     {
       "date": "2026-10-03",
