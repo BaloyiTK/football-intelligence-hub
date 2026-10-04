@@ -51,3 +51,11 @@ Never estimate, simulate, or invent progress. Creating an empty report is not pr
 A run is complete only when every requested date × every configured league has a persisted `complete` checkpoint and every discovered fixture has a terminal state: BET, NO BET, or NO MODEL.
 
 For today's run, do not require historical grading. For a backtest, also obey `HISTORICAL_BACKTEST.md`.
+
+## Machine-enforced finalization gate
+- League state is `pending -> discovering -> processing -> complete`. Discovery alone is never complete.
+- If fixtures exist, a league may become `complete` only after every saved fixture is terminal: BET, NO_BET or NO_MODEL (historical grading may then be WIN/LOSS).
+- Before presenting a run as finished, execute `npm run run:validate -- <run-file>`.
+- If validation fails, DO NOT stop at the checkpoint and DO NOT present final selections. Continue the active execution when possible; otherwise report the exact blocker and leave status in-progress.
+- User-facing progress must distinguish `leagues discovered` from `leagues fully processed`.
+- A run file's stored counters are advisory; final status must be recomputed/validated from fixture and league states.
