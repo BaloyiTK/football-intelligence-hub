@@ -1,5 +1,5 @@
 {
-  "status": "in-progress",
+  "status": "blocked",
   "runId": "82932",
   "modelVersion": "v2.2-calibrated-selector",
   "date": "2026-10-04",
@@ -792,11 +792,10 @@
       "country": "International",
       "name": "International Friendlies",
       "status": "processing",
-      "fixturesDiscovered": 7,
-      "fixturesProcessed": 0,
+      "fixturesDiscovered": 5,
+      "fixturesProcessed": 5,
       "sources": [
-        "https://www.soccerbase.com/matches/results.sd?date=2026-10-04",
-        "https://fbref.com/en/matches/2026-10-04"
+        "https://www.sofascore.com/football/tournament/world/int-friendly-games/851"
       ]
     }
   ],
@@ -1294,43 +1293,79 @@
       "leagueId": "international-friendlies",
       "homeTeam": "Argentina",
       "awayTeam": "Burkina Faso",
-      "status": "discovered-pending-research"
+      "status": "NO_MODEL",
+      "researchTimestamp": "2026-10-04T18:17:10+02:00",
+      "noModelReason": "Match had already started/finished before research was completed.",
+      "sources": [
+        "https://www.sofascore.com/football/match/argentina-burkina-faso/ZUbsuWb"
+      ]
     },
     {
       "leagueId": "international-friendlies",
       "homeTeam": "USA",
       "awayTeam": "Mexico",
-      "status": "discovered-pending-research"
+      "status": "NO_MODEL",
+      "researchTimestamp": "2026-10-04T18:17:10+02:00",
+      "noModelReason": "Match had already started/finished before research was completed.",
+      "sources": [
+        "https://www.ussoccer.com/fifa-world-cup-2026"
+      ]
     },
     {
       "leagueId": "international-friendlies",
       "homeTeam": "Comoros",
       "awayTeam": "Senegal",
-      "status": "discovered-pending-research"
+      "status": "NO_MODEL",
+      "researchTimestamp": "2026-10-04T18:17:10+02:00",
+      "noModelReason": "Match had already started/finished before research was completed.",
+      "sources": [
+        "https://fbref.com/en/squads/fe674fb0/2026/matchlogs/c218/schedule/Comoros-Men-Scores-and-Fixtures-Friendlies-M"
+      ]
     },
     {
       "leagueId": "international-friendlies",
       "homeTeam": "Egypt",
       "awayTeam": "South Africa",
-      "status": "discovered-pending-research"
-    },
-    {
-      "leagueId": "international-friendlies",
-      "homeTeam": "Morocco",
-      "awayTeam": "Ghana",
-      "status": "discovered-pending-research"
-    },
-    {
-      "leagueId": "international-friendlies",
-      "homeTeam": "Bolivia",
-      "awayTeam": "Gambia",
-      "status": "discovered-pending-research"
+      "status": "BET",
+      "researchTimestamp": "2026-10-04T18:17:10+02:00",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.0112359550561798,
+        "awayAttack": 1.6363636363636362,
+        "homeDefence": 0.9090909090909091,
+        "awayDefence": 0.33707865168539325,
+        "leagueHomeGoals": 1.78,
+        "leagueAwayGoals": 1.1,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 0.76,
+      "lambdaAway": 1.57,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 72.4,
+        "rawProbability": 83,
+        "reliability": 0.873,
+        "rating": "Good"
+      },
+      "sources": [
+        "https://www.beinsports.com/en-mena/football/friendlies/egypt-vs-south-africa-2026-10-04",
+        "https://footystats.org/international/international-friendlies",
+        "https://m.aiscore.com/head-to-head/soccer-egypt-vs-south-africa"
+      ]
     },
     {
       "leagueId": "international-friendlies",
       "homeTeam": "Kyrgyzstan",
       "awayTeam": "Lebanon",
-      "status": "discovered-pending-research"
+      "status": "NO_MODEL",
+      "researchTimestamp": "2026-10-04T18:17:10+02:00",
+      "noModelReason": "Match had already started/finished before research was completed.",
+      "sources": [
+        "https://www.sofascore.com/football/match/kyrgyzstan-lebanon/zVbsFid"
+      ]
     },
     {
       "leagueId": "arg-primera",
@@ -1476,17 +1511,17 @@
   "metrics": {
     "leaguesChecked": 60,
     "leaguesTotal": 61,
-    "fixturesDiscovered": 35,
-    "fixturesProcessed": 28,
-    "modelled": 14,
-    "noModel": 14,
-    "recommendedBets": 12,
+    "fixturesDiscovered": 33,
+    "fixturesProcessed": 33,
+    "modelled": 15,
+    "noModel": 18,
+    "recommendedBets": 13,
     "noBet": 2
   },
   "current": {
     "leagueIndex": 61,
     "leagueId": "international-friendlies",
-    "stage": "fixture-verification"
+    "stage": "exhaustive-fixture-discovery"
   },
   "notes": [
     "League discovery checkpointed from today's web research. Fixtures remain pending RESEARCH_RULES processing; league discovery complete does not mean fixture modelling complete.",
@@ -1495,5 +1530,14 @@
   "lastCheckpoint": {
     "at": "2026-10-04T18:17:10+02:00",
     "note": "Segunda and Eerste processed; Nations League processed/frozen. Argentina verification started but not resolved before web tool limit."
+  },
+  "blocker": {
+    "type": "external-tool-limit",
+    "reason": "Web research search-call allowance exhausted while verifying the complete Oct 4 International Friendlies universe. Known saved fixtures were corrected and processed, but exhaustive friendlies discovery cannot be certified without additional search.",
+    "resumeCursor": {
+      "leagueIndex": 61,
+      "leagueId": "international-friendlies",
+      "stage": "exhaustive-fixture-discovery"
+    }
   }
 }
