@@ -1,7 +1,7 @@
 {
   "date": "2026-10-04",
   "timezone": "Africa/Johannesburg",
-  "generatedAt": "2026-10-04T14:14:48.314Z",
+  "generatedAt": "2026-10-04T14:18:48.980Z",
   "fixtures": [
     {
       "fixtureKey": "2026-10-04|ned-eerste-divisie|vvv-venlo|roda-jc",
@@ -63,6 +63,332 @@
         "https://www.vvv-venlo.nl/wedstrijden/resultaten/",
         "https://www.aiscore.com/head-to-head/soccer-roda-jc-vs-vvv-venlo"
       ]
+    },
+    {
+      "fixtureKey": "2026-10-04|esp-segunda|real-sociedad-ii|granada",
+      "leagueId": "esp-segunda",
+      "league": "Segunda Division",
+      "homeTeam": "Real Sociedad II",
+      "awayTeam": "Granada",
+      "kickoff": "14:00 SAST",
+      "status": "No Model",
+      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
+      "model": null
+    },
+    {
+      "fixtureKey": "2026-10-04|esp-segunda|sporting-gij-n|celta-de-vigo-ii",
+      "leagueId": "esp-segunda",
+      "league": "Segunda Division",
+      "homeTeam": "Sporting Gijón",
+      "awayTeam": "Celta de Vigo II",
+      "kickoff": "16:15 SAST",
+      "status": "No Model",
+      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
+      "model": null
+    },
+    {
+      "fixtureKey": "2026-10-04|esp-segunda|las-palmas|real-valladolid",
+      "leagueId": "esp-segunda",
+      "league": "Segunda Division",
+      "homeTeam": "Las Palmas",
+      "awayTeam": "Real Valladolid",
+      "kickoff": "18:30 SAST",
+      "status": "No Model",
+      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
+      "model": null
+    },
+    {
+      "fixtureKey": "2026-10-04|esp-segunda|castell-n|ceuta",
+      "leagueId": "esp-segunda",
+      "league": "Segunda Division",
+      "homeTeam": "Castellón",
+      "awayTeam": "Ceuta",
+      "kickoff": "18:30 SAST",
+      "status": "No Model",
+      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
+      "model": null
+    },
+    {
+      "fixtureKey": "2026-10-04|esp-segunda|girona|mallorca",
+      "leagueId": "esp-segunda",
+      "league": "Segunda Division",
+      "homeTeam": "Girona",
+      "awayTeam": "Mallorca",
+      "kickoff": "21:00 SAST",
+      "status": "No Model",
+      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
+      "model": null
+    },
+    {
+      "fixtureKey": "2026-10-04|arg-primera|hurac-n|aldosivi",
+      "leagueId": "arg-primera",
+      "league": "Primera Division",
+      "homeTeam": "Huracán",
+      "awayTeam": "Aldosivi",
+      "kickoff": "19:45 SAST",
+      "status": "No Model",
+      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
+      "model": null
+    },
+    {
+      "fixtureKey": "2026-10-04|arg-primera|talleres-c-rdoba|belgrano",
+      "leagueId": "arg-primera",
+      "league": "Primera Division",
+      "homeTeam": "Talleres Córdoba",
+      "awayTeam": "Belgrano",
+      "kickoff": "22:00 SAST",
+      "status": "No Model",
+      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
+      "model": null
+    },
+    {
+      "fixtureKey": "2026-10-04|arg-primera|argentinos-juniors|tigre",
+      "leagueId": "arg-primera",
+      "league": "Primera Division",
+      "homeTeam": "Argentinos Juniors",
+      "awayTeam": "Tigre",
+      "kickoff": "00:15 SAST (+1)",
+      "status": "No Model",
+      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
+      "model": null
+    },
+    {
+      "fixtureKey": "2026-10-04|col-primera-a|deportivo-pasto|fortaleza",
+      "leagueId": "col-primera-a",
+      "league": "Categoria Primera A",
+      "homeTeam": "Deportivo Pasto",
+      "awayTeam": "Fortaleza",
+      "kickoff": "21:00 SAST",
+      "status": "No Model",
+      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
+      "model": null
+    },
+    {
+      "fixtureKey": "2026-10-04|col-primera-a|c-cuta-deportivo|deportivo-pereira",
+      "leagueId": "col-primera-a",
+      "league": "Categoria Primera A",
+      "homeTeam": "Cúcuta Deportivo",
+      "awayTeam": "Deportivo Pereira",
+      "kickoff": "23:05 SAST",
+      "status": "No Model",
+      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
+      "model": null
+    },
+    {
+      "fixtureKey": "2026-10-04|col-primera-a|atl-tico-bucaramanga|junior",
+      "leagueId": "col-primera-a",
+      "league": "Categoria Primera A",
+      "homeTeam": "Atlético Bucaramanga",
+      "awayTeam": "Junior",
+      "kickoff": "01:10 SAST (+1)",
+      "status": "No Model",
+      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
+      "model": null
+    },
+    {
+      "fixtureKey": "2026-10-04|jpn-j2|consadole-sapporo|iwaki-fc",
+      "leagueId": "jpn-j2",
+      "league": "J2 League",
+      "homeTeam": "Consadole Sapporo",
+      "awayTeam": "Iwaki FC",
+      "kickoff": "06:00 SAST",
+      "status": "No Model",
+      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
+      "model": null
+    },
+    {
+      "fixtureKey": "2026-10-04|jpn-j2|vanraure-hachinohe|yokohama-fc",
+      "leagueId": "jpn-j2",
+      "league": "J2 League",
+      "homeTeam": "Vanraure Hachinohe",
+      "awayTeam": "Yokohama FC",
+      "kickoff": "06:00 SAST",
+      "status": "No Model",
+      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
+      "model": null
+    },
+    {
+      "fixtureKey": "2026-10-04|jpn-j2|blaublitz-akita|sagan-tosu",
+      "leagueId": "jpn-j2",
+      "league": "J2 League",
+      "homeTeam": "Blaublitz Akita",
+      "awayTeam": "Sagan Tosu",
+      "kickoff": "07:00 SAST",
+      "status": "No Model",
+      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
+      "model": null
+    },
+    {
+      "fixtureKey": "2026-10-04|jpn-j2|vegalta-sendai|j-bilo-iwata",
+      "leagueId": "jpn-j2",
+      "league": "J2 League",
+      "homeTeam": "Vegalta Sendai",
+      "awayTeam": "Júbilo Iwata",
+      "kickoff": "08:00 SAST",
+      "status": "No Model",
+      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
+      "model": null
+    },
+    {
+      "fixtureKey": "2026-10-04|jpn-j2|tegevajaro-miyazaki|omiya-ardija",
+      "leagueId": "jpn-j2",
+      "league": "J2 League",
+      "homeTeam": "Tegevajaro Miyazaki",
+      "awayTeam": "Omiya Ardija",
+      "kickoff": "12:00 SAST",
+      "status": "No Model",
+      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
+      "model": null
+    },
+    {
+      "fixtureKey": "2026-10-04|uefa-nations-league|azerbaijan|lithuania",
+      "leagueId": "uefa-nations-league",
+      "league": "UEFA Nations League",
+      "homeTeam": "Azerbaijan",
+      "awayTeam": "Lithuania",
+      "kickoff": "15:00 SAST",
+      "status": "No Model",
+      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
+      "model": null
+    },
+    {
+      "fixtureKey": "2026-10-04|uefa-nations-league|kosovo|austria",
+      "leagueId": "uefa-nations-league",
+      "league": "UEFA Nations League",
+      "homeTeam": "Kosovo",
+      "awayTeam": "Austria",
+      "kickoff": "18:00 SAST",
+      "status": "No Model",
+      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
+      "model": null
+    },
+    {
+      "fixtureKey": "2026-10-04|uefa-nations-league|malta|andorra",
+      "leagueId": "uefa-nations-league",
+      "league": "UEFA Nations League",
+      "homeTeam": "Malta",
+      "awayTeam": "Andorra",
+      "kickoff": "18:00 SAST",
+      "status": "No Model",
+      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
+      "model": null
+    },
+    {
+      "fixtureKey": "2026-10-04|uefa-nations-league|greece|germany",
+      "leagueId": "uefa-nations-league",
+      "league": "UEFA Nations League",
+      "homeTeam": "Greece",
+      "awayTeam": "Germany",
+      "kickoff": "20:45 SAST",
+      "status": "No Model",
+      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
+      "model": null
+    },
+    {
+      "fixtureKey": "2026-10-04|uefa-nations-league|netherlands|serbia",
+      "leagueId": "uefa-nations-league",
+      "league": "UEFA Nations League",
+      "homeTeam": "Netherlands",
+      "awayTeam": "Serbia",
+      "kickoff": "20:45 SAST",
+      "status": "No Model",
+      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
+      "model": null
+    },
+    {
+      "fixtureKey": "2026-10-04|uefa-nations-league|portugal|norway",
+      "leagueId": "uefa-nations-league",
+      "league": "UEFA Nations League",
+      "homeTeam": "Portugal",
+      "awayTeam": "Norway",
+      "kickoff": "20:45 SAST",
+      "status": "No Model",
+      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
+      "model": null
+    },
+    {
+      "fixtureKey": "2026-10-04|uefa-nations-league|republic-of-ireland|israel",
+      "leagueId": "uefa-nations-league",
+      "league": "UEFA Nations League",
+      "homeTeam": "Republic of Ireland",
+      "awayTeam": "Israel",
+      "kickoff": "20:45 SAST",
+      "status": "No Model",
+      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
+      "model": null
+    },
+    {
+      "fixtureKey": "2026-10-04|uefa-nations-league|wales|denmark",
+      "leagueId": "uefa-nations-league",
+      "league": "UEFA Nations League",
+      "homeTeam": "Wales",
+      "awayTeam": "Denmark",
+      "kickoff": "20:45 SAST",
+      "status": "No Model",
+      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
+      "model": null
+    },
+    {
+      "fixtureKey": "2026-10-04|international-friendlies|usa|mexico",
+      "leagueId": "international-friendlies",
+      "league": "International Friendlies",
+      "homeTeam": "USA",
+      "awayTeam": "Mexico",
+      "kickoff": "04:00 SAST",
+      "status": "No Model",
+      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
+      "model": null
+    },
+    {
+      "fixtureKey": "2026-10-04|international-friendlies|comoros|senegal",
+      "leagueId": "international-friendlies",
+      "league": "International Friendlies",
+      "homeTeam": "Comoros",
+      "awayTeam": "Senegal",
+      "kickoff": "14:00 SAST",
+      "status": "No Model",
+      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
+      "model": null
+    },
+    {
+      "fixtureKey": "2026-10-04|international-friendlies|egypt|south-africa",
+      "leagueId": "international-friendlies",
+      "league": "International Friendlies",
+      "homeTeam": "Egypt",
+      "awayTeam": "South Africa",
+      "kickoff": "20:00 SAST",
+      "status": "No Model",
+      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
+      "model": null
+    },
+    {
+      "fixtureKey": "2026-10-04|international-friendlies|morocco|ghana",
+      "leagueId": "international-friendlies",
+      "league": "International Friendlies",
+      "homeTeam": "Morocco",
+      "awayTeam": "Ghana",
+      "kickoff": "20:00 SAST",
+      "status": "No Model",
+      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
+      "model": null
+    },
+    {
+      "fixtureKey": "2026-10-04|international-friendlies|bolivia|gambia",
+      "leagueId": "international-friendlies",
+      "league": "International Friendlies",
+      "homeTeam": "Bolivia",
+      "awayTeam": "Gambia",
+      "kickoff": "00:30 SAST (+1)",
+      "status": "No Model",
+      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
+      "model": null
     }
-  ]
+  ],
+  "scan": {
+    "status": "complete",
+    "leagueEntriesChecked": 61,
+    "completedAt": "2026-10-04T14:18:48.975Z",
+    "duplicatePolicy": "fixtureKey",
+    "notes": "Manual end-to-end league-list scan. Fixtures are modelled only when sufficient statistical evidence has been researched."
+  }
 }
