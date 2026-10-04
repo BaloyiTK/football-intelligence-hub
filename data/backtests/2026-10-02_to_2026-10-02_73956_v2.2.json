@@ -981,30 +981,6 @@
         {
           "date": "2026-10-02",
           "status": "processing",
-          "fixturesDiscovered": 3,
-          "fixturesProcessed": 0,
-          "sources": [
-            "https://fbref.com/en/matches/2026-10-02",
-            "https://www.footballfixtures.org/fixtures/2026-10-02",
-            "https://www.livescore.mobi/football/2026-10-02/"
-          ]
-        }
-      ],
-      "fixturesDiscovered": 3,
-      "fixturesProcessed": 0,
-      "sources": [
-        "https://fbref.com/en/matches/2026-10-02",
-        "https://www.footballfixtures.org/fixtures/2026-10-02",
-        "https://www.livescore.mobi/football/2026-10-02/"
-      ]
-    },
-    {
-      "leagueId": "usa-mls",
-      "status": "processing",
-      "dates": [
-        {
-          "date": "2026-10-02",
-          "status": "processing",
           "fixturesDiscovered": 1,
           "fixturesProcessed": 0,
           "sources": [
@@ -1015,6 +991,30 @@
         }
       ],
       "fixturesDiscovered": 1,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
+      ]
+    },
+    {
+      "leagueId": "usa-mls",
+      "status": "complete",
+      "dates": [
+        {
+          "date": "2026-10-02",
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
+        }
+      ],
+      "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "sources": [
         "https://fbref.com/en/matches/2026-10-02",
@@ -1481,9 +1481,9 @@
   ],
   "fixtures": [],
   "metrics": {
-    "leagueDaysComplete": 53,
+    "leagueDaysComplete": 54,
     "leagueDaysTotal": 61,
-    "fixturesDiscovered": 25,
+    "fixturesDiscovered": 22,
     "fixturesProcessed": 0,
     "modelled": 0,
     "recommendedBets": 0,
