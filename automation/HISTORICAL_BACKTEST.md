@@ -105,3 +105,20 @@ After a complete run, identify recurring failure patterns. Candidate parameter c
 - Exclude `NO BET` fixtures from displayed backtest results, wins/losses, hit-rate denominators, market results, rating results, model-level performance results, sample-depth performance results, calibration results, and any headline performance statistics.
 - User-facing backtest result tables must show recommended bets only unless the user explicitly asks to inspect `NO BET` cases.
 - `NO MODEL` is likewise not a betting result and must not be mixed into recommended-bet performance statistics.
+
+## User-requested backtest contract
+When the user asks for a backtest, treat the request as a complete execution task, not as a request for methodology or a partial sample.
+
+Required sequence:
+1. Create the requested backtest report file at the start of execution with `status: "in-progress"`.
+2. Execute the entire requested date range and configured league universe according to this file.
+3. During a long run, give progress updates using ONLY measured checkpoint data from the actual report/run. Never use illustrative, estimated, simulated or invented progress counters.
+4. Do not end the task merely because a progress update was shown. Continue execution in the same active run.
+5. After all required dates and league entries have been checked, set `status: "complete"`.
+6. Show the user the final recommended-bet results: bets, wins, losses, hit rate and required breakdowns. Do not include NO BET fixtures in displayed performance results.
+7. Analyze the completed test for recurring failure patterns and explain what could improve the model.
+8. Any proposed model change must be evidence-based and tested against the same walk-forward sample plus a holdout before production promotion.
+9. Save the complete audit, aggregate metrics, failure analysis and improvement candidates in the backtest file.
+
+If execution genuinely cannot be completed, leave the report `in-progress`, state exactly what blocked completion, and never imply that work continues after the active response ends.
+
