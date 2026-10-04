@@ -8,22 +8,21 @@
   "createdAt": "2026-10-04",
   "current": {
     "date": "2026-10-03",
-    "leagueIndex": 35,
-    "leagueId": "uefa-nations-league",
-    "stage": "prematch-research",
-    "fixture": "Belarus vs San Marino"
+    "leagueIndex": 3,
+    "leagueId": "eng-league-one",
+    "stage": "prematch-research"
   },
   "metrics": {
-    "leagueDaysComplete": 0,
+    "leagueDaysComplete": 1,
     "leagueDaysTotal": 61,
     "fixturesDiscovered": 25,
-    "fixturesProcessed": 4,
-    "modelled": 4,
+    "fixturesProcessed": 8,
+    "modelled": 8,
     "noModel": 0,
-    "recommendedBets": 4,
+    "recommendedBets": 8,
     "noBet": 0,
-    "wins": 4,
-    "losses": 0
+    "wins": 7,
+    "losses": 1
   },
   "leagueScan": [
     {
@@ -553,13 +552,13 @@
       "leagueId": "uefa-nations-league",
       "country": "Europe",
       "name": "UEFA Nations League",
-      "status": "processing",
+      "status": "complete",
       "fixturesDiscovered": 8,
-      "fixturesProcessed": 4,
+      "fixturesProcessed": 8,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "processing"
+          "status": "complete"
         }
       ],
       "sources": [
@@ -1199,10 +1198,35 @@
       "homeTeam": "Belarus",
       "awayTeam": "San Marino",
       "actualScore": "4-0",
-      "status": "discovered-pending-prematch-research",
+      "status": "BET",
       "sources": [
+        "https://www.fotmob.com/matches/san-marino-vs-belarus/253fd5",
         "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/"
-      ]
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-02T23:59:00+02:00",
+      "inputs": {
+        "homeAttack": 1.565217391304348,
+        "awayAttack": 0.45454545454545453,
+        "homeDefence": 0.9090909090909091,
+        "awayDefence": 2.2608695652173916,
+        "leagueHomeGoals": 1.15,
+        "leagueAwayGoals": 1.32,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 3.7,
+      "lambdaAway": 0.64,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "rawProbability": 97.2,
+        "probability": 84.9,
+        "reliability": 0.873,
+        "rating": "Elite"
+      },
+      "outcome": "WIN"
     },
     {
       "date": "2026-10-03",
@@ -1210,10 +1234,35 @@
       "homeTeam": "Estonia",
       "awayTeam": "Luxembourg",
       "actualScore": "1-0",
-      "status": "discovered-pending-prematch-research",
+      "status": "BET",
       "sources": [
+        "https://scorecast.eu/football/match/estonia-vs-luxembourg-uefa-nations-league-2026-10-03",
         "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/"
-      ]
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-02T23:59:00+02:00",
+      "inputs": {
+        "homeAttack": 0.6956521739130436,
+        "awayAttack": 1.3636363636363635,
+        "homeDefence": 0.9090909090909091,
+        "awayDefence": 0.6956521739130436,
+        "leagueHomeGoals": 1.15,
+        "leagueAwayGoals": 1.32,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 0.63,
+      "lambdaAway": 1.6,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "rawProbability": 86.3,
+        "probability": 75.3,
+        "reliability": 0.873,
+        "rating": "Strong"
+      },
+      "outcome": "LOSS"
     },
     {
       "date": "2026-10-03",
@@ -1221,10 +1270,35 @@
       "homeTeam": "Iceland",
       "awayTeam": "Bulgaria",
       "actualScore": "3-0",
-      "status": "discovered-pending-prematch-research",
+      "status": "BET",
       "sources": [
+        "https://www.oddscalendar.com/football/europe/nations-league/iceland-vs-bulgaria/1528935",
         "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/"
-      ]
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-02T23:59:00+02:00",
+      "inputs": {
+        "homeAttack": 0.8695652173913044,
+        "awayAttack": 0.6060606060606061,
+        "homeDefence": 0.9090909090909091,
+        "awayDefence": 0.8695652173913044,
+        "leagueHomeGoals": 1.15,
+        "leagueAwayGoals": 1.32,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 0.91,
+      "lambdaAway": 0.8,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Under 3.5",
+        "rawProbability": 90.6,
+        "probability": 77.5,
+        "reliability": 0.856,
+        "rating": "Strong"
+      },
+      "outcome": "WIN"
     },
     {
       "date": "2026-10-03",
@@ -1268,10 +1342,35 @@
       "homeTeam": "North Macedonia",
       "awayTeam": "Scotland",
       "actualScore": "0-2",
-      "status": "discovered-pending-prematch-research",
+      "status": "BET",
       "sources": [
+        "https://footballwhispers.com/blog/north-macedonia-vs-scotland-prediction-03-10-2026/",
         "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/"
-      ]
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-02T23:59:00+02:00",
+      "inputs": {
+        "homeAttack": 0,
+        "awayAttack": 0.15151515151515152,
+        "homeDefence": 1.3636363636363635,
+        "awayDefence": 1.2173913043478262,
+        "leagueHomeGoals": 1.15,
+        "leagueAwayGoals": 1.32,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 0.2,
+      "lambdaAway": 0.41,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Under 3.5",
+        "rawProbability": 99.7,
+        "probability": 85.3,
+        "reliability": 0.856,
+        "rating": "Elite"
+      },
+      "outcome": "WIN"
     },
     {
       "date": "2026-10-03",
