@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-04",
+  "timezone": "Africa/Johannesburg",
+  "generatedAt": "2026-10-04T14:14:48.314Z",
+  "fixtures": [
+    {
+      "fixtureKey": "2026-10-04|ned-eerste-divisie|vvv-venlo|roda-jc",
+      "leagueId": "ned-eerste-divisie",
+      "league": "Eerste Divisie",
+      "homeTeam": "VVV-Venlo",
+      "awayTeam": "Roda JC",
+      "kickoff": "14:30 CEST / 12:30 UTC",
+      "evidence": {
+        "level": "provisional",
+        "homeLast5": {
+          "gfPerMatch": 2.8,
+          "gaPerMatch": 1.8,
+          "record": "4W 0D 1L"
+        },
+        "awayLast5": {
+          "gfPerMatch": 1.2,
+          "gaPerMatch": 0.6,
+          "record": "2W 3D 0L"
+        },
+        "h2h": "24 meetings: VVV 4 wins, 8 draws, Roda JC 12 wins"
+      },
+      "model": {
+        "lambdaHome": 1.7,
+        "lambdaAway": 1.5,
+        "correctScore": {
+          "score": "1-1",
+          "probability": 10.4
+        },
+        "alternatives": [
+          {
+            "score": "2-1",
+            "probability": 8.8
+          },
+          {
+            "score": "1-2",
+            "probability": 7.8
+          }
+        ],
+        "homeWin": 42.6,
+        "draw": 23.3,
+        "awayWin": 34.1,
+        "doubleChance": {
+          "homeOrDraw": 65.9,
+          "awayOrDraw": 57.4,
+          "homeOrAway": 76.7
+        },
+        "btts": 63.5,
+        "over15": 82.8,
+        "over25": 62,
+        "over35": 39.7,
+        "home2Plus": 50.6,
+        "away2Plus": 44.2,
+        "confidence": "provisional"
+      },
+      "sources": [
+        "https://www.soccernews.com/soccer-stats/dutch-eerste-divisie/fixtures-and-results/?season=2026",
+        "https://fbref.com/en/stathead/matchup/teams/534ac6d0/45b403c3/VVV-Venlo-vs-Roda-JC-Kerkrade-History",
+        "https://www.vvv-venlo.nl/wedstrijden/resultaten/",
+        "https://www.aiscore.com/head-to-head/soccer-roda-jc-vs-vvv-venlo"
+      ]
+    }
+  ]
+}
