@@ -2,25 +2,16 @@
 
 Path: `data/predictions/YYYY-MM-DD.json`
 
-## Public fixtures contract
-`fixtures` is a PREDICTION-ONLY, PRE-MATCH feed.
+`fixtures` is prediction-only and pre-match. Every row must be upcoming and have a deterministic model. Never publish started/live/completed/cancelled/abandoned or model:null rows.
 
-Every row MUST:
-- still be upcoming at publication time
-- have a successfully calculated deterministic `model`
-- contain no null model
+Each model includes modelLevel, confidence, lambdaHome/lambdaAway, correct score + alternatives, 1X2, double chance, BTTS, totals, team-goal probabilities, and `recommendedBet`.
 
-The array MUST NOT contain:
-- No Model fixtures
-- model:null rows
-- started/live matches
-- completed matches
-- abandoned/cancelled matches
+`recommendedBet` is either:
+`{ market, pick, probability, rating }`
+or `null` meaning NO BET.
 
-Every published fixture includes fixtureKey, leagueId, league, homeTeam, awayTeam, kickoff, evidence/sources, research timestamp and model.
+There is at most ONE recommended betting market per fixture. Correct score remains visible but is not the bet unless a future explicitly supported selector rule says so.
 
-Every model includes modelLevel, confidence, lambdaHome/lambdaAway, correct score + probability, alternatives, 1X2, double chance, BTTS, totals and team 2+.
+Fixtures that cannot be modelled after Full -> Standard -> Basic are omitted. Modelled fixtures with no market clearing the selector floors remain visible with recommendedBet:null.
 
-Fixtures that cannot be modelled after Full -> Standard -> Basic are omitted from the public feed rather than fabricated. They may be summarized only in internal scan metadata/counts.
-
-Immediately before output, filter with the equivalent invariant: fixture is pre-match AND model != null.
+Immediately before output: fixture is pre-match AND model != null.
