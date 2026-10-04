@@ -8,20 +8,21 @@
   "createdAt": "2026-10-04",
   "current": {
     "date": "2026-10-03",
-    "leagueIndex": 3,
-    "leagueId": "eng-league-one",
-    "stage": "prematch-research"
+    "leagueIndex": 35,
+    "leagueId": "uefa-nations-league",
+    "stage": "prematch-research",
+    "fixture": "Belarus vs San Marino"
   },
   "metrics": {
     "leagueDaysComplete": 0,
     "leagueDaysTotal": 61,
     "fixturesDiscovered": 25,
-    "fixturesProcessed": 0,
-    "modelled": 0,
+    "fixturesProcessed": 4,
+    "modelled": 4,
     "noModel": 0,
-    "recommendedBets": 0,
+    "recommendedBets": 4,
     "noBet": 0,
-    "wins": 0,
+    "wins": 4,
     "losses": 0
   },
   "leagueScan": [
@@ -554,7 +555,7 @@
       "name": "UEFA Nations League",
       "status": "processing",
       "fixturesDiscovered": 8,
-      "fixturesProcessed": 0,
+      "fixturesProcessed": 4,
       "dates": [
         {
           "date": "2026-10-03",
@@ -1126,10 +1127,35 @@
       "homeTeam": "Finland",
       "awayTeam": "Albania",
       "actualScore": "2-1",
-      "status": "discovered-pending-prematch-research",
+      "status": "BET",
       "sources": [
+        "https://scorecast.eu/football/match/finland-vs-albania-uefa-nations-league-2026-10-03",
         "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/"
-      ]
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-02T23:59:00+02:00",
+      "inputs": {
+        "homeAttack": 1.3913043478260871,
+        "awayAttack": 1.0606060606060606,
+        "homeDefence": 0.9090909090909091,
+        "awayDefence": 0.3478260869565218,
+        "leagueHomeGoals": 1.15,
+        "leagueAwayGoals": 1.32,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 0.63,
+      "lambdaAway": 1.28,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Under 3.5",
+        "rawProbability": 87.3,
+        "probability": 74.7,
+        "reliability": 0.856,
+        "rating": "Good"
+      },
+      "outcome": "WIN"
     },
     {
       "date": "2026-10-03",
@@ -1137,10 +1163,35 @@
       "homeTeam": "Croatia",
       "awayTeam": "England",
       "actualScore": "0-7",
-      "status": "discovered-pending-prematch-research",
+      "status": "BET",
       "sources": [
+        "https://scorecast.eu/football/match/croatia-vs-england-uefa-nations-league-2026-10-03",
         "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/"
-      ]
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-02T23:59:00+02:00",
+      "inputs": {
+        "homeAttack": 1.0434782608695652,
+        "awayAttack": 2.2727272727272725,
+        "homeDefence": 1.2121212121212122,
+        "awayDefence": 0.6956521739130436,
+        "leagueHomeGoals": 1.15,
+        "leagueAwayGoals": 1.32,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 0.87,
+      "lambdaAway": 3.34,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "rawProbability": 94.2,
+        "probability": 82.2,
+        "reliability": 0.873,
+        "rating": "Strong"
+      },
+      "outcome": "WIN"
     },
     {
       "date": "2026-10-03",
@@ -1181,10 +1232,35 @@
       "homeTeam": "Spain",
       "awayTeam": "Czechia",
       "actualScore": "3-1",
-      "status": "discovered-pending-prematch-research",
+      "status": "BET",
       "sources": [
+        "https://www.oddscalendar.com/football/europe/nations-league/spain-vs-czechia/1528936",
         "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/"
-      ]
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-02T23:59:00+02:00",
+      "inputs": {
+        "homeAttack": 2.0869565217391304,
+        "awayAttack": 0.45454545454545453,
+        "homeDefence": 0.6060606060606061,
+        "awayDefence": 1.7391304347826089,
+        "leagueHomeGoals": 1.15,
+        "leagueAwayGoals": 1.32,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 3.79,
+      "lambdaAway": 0.49,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "rawProbability": 98.3,
+        "probability": 85.8,
+        "reliability": 0.873,
+        "rating": "Elite"
+      },
+      "outcome": "WIN"
     },
     {
       "date": "2026-10-03",
@@ -1203,10 +1279,35 @@
       "homeTeam": "Switzerland",
       "awayTeam": "Slovenia",
       "actualScore": "2-1",
-      "status": "discovered-pending-prematch-research",
+      "status": "BET",
       "sources": [
+        "https://scorecast.eu/football/match/switzerland-vs-slovenia-uefa-nations-league-2026-10-03",
         "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/"
-      ]
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-02T23:59:00+02:00",
+      "inputs": {
+        "homeAttack": 1.0434782608695652,
+        "awayAttack": 0.45454545454545453,
+        "homeDefence": 1.8181818181818181,
+        "awayDefence": 0.8695652173913044,
+        "leagueHomeGoals": 1.15,
+        "leagueAwayGoals": 1.32,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 1.06,
+      "lambdaAway": 1.12,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Under 3.5",
+        "rawProbability": 82.4,
+        "probability": 70.5,
+        "reliability": 0.856,
+        "rating": "Good"
+      },
+      "outcome": "WIN"
     },
     {
       "date": "2026-10-03",
