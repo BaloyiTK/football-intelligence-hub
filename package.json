@@ -13,7 +13,8 @@
     "backtest:auto": "tsx scripts/auto-backtest.ts",
     "run:validate": "tsx scripts/validate-run.ts",
     "run:finalize": "tsx scripts/finalize-run.ts",
-    "run:predictions": "tsx scripts/show-predictions.ts"
+    "run:predictions": "tsx scripts/show-predictions.ts",
+    "backtest:resume": "tsx scripts/resume-backtests.ts"
   },
   "dependencies": {
     "next": "15.5.7",
