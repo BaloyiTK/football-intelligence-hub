@@ -1,7 +1,7 @@
 {
   "date": "2026-10-04",
   "timezone": "Africa/Johannesburg",
-  "generatedAt": "2026-10-04T14:18:48.980Z",
+  "generatedAt": "2026-10-04T14:25:11.180Z",
   "fixtures": [
     {
       "fixtureKey": "2026-10-04|ned-eerste-divisie|vvv-venlo|roda-jc",
@@ -82,9 +82,49 @@
       "homeTeam": "Sporting Gijón",
       "awayTeam": "Celta de Vigo II",
       "kickoff": "16:15 SAST",
-      "status": "No Model",
-      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
-      "model": null
+      "status": "Predicted",
+      "model": {
+        "lambdaHome": 1.14,
+        "lambdaAway": 1,
+        "correctScore": {
+          "score": "1-0",
+          "probability": 13.4
+        },
+        "alternatives": [
+          {
+            "score": "1-1",
+            "probability": 13.4
+          },
+          {
+            "score": "0-0",
+            "probability": 11.7
+          },
+          {
+            "score": "0-1",
+            "probability": 11.7
+          }
+        ],
+        "homeWin": 38.9,
+        "draw": 29.5,
+        "awayWin": 31.6,
+        "doubleChance": {
+          "homeOrDraw": 68.4,
+          "awayOrDraw": 61.1,
+          "homeOrAway": 70.5
+        },
+        "btts": 43.1,
+        "over15": 63.1,
+        "over25": 36.2,
+        "over35": 17,
+        "home2Plus": 31.7,
+        "away2Plus": 26.4,
+        "confidence": "moderate"
+      },
+      "sources": [
+        "https://www.fotmob.com/matches/sporting-gijon-vs-celta-fortuna/6rj56bn",
+        "https://www.sportsmole.co.uk/football/segunda-division/sporting-gijon-vs-celta-de-vigo-ii_game_259394.html"
+      ],
+      "researchedAt": "2026-10-04T14:25:11.176Z"
     },
     {
       "fixtureKey": "2026-10-04|esp-segunda|las-palmas|real-valladolid",
@@ -93,9 +133,49 @@
       "homeTeam": "Las Palmas",
       "awayTeam": "Real Valladolid",
       "kickoff": "18:30 SAST",
-      "status": "No Model",
-      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
-      "model": null
+      "status": "Predicted",
+      "model": {
+        "lambdaHome": 1.36,
+        "lambdaAway": 1.21,
+        "correctScore": {
+          "score": "1-1",
+          "probability": 12.6
+        },
+        "alternatives": [
+          {
+            "score": "1-0",
+            "probability": 10.4
+          },
+          {
+            "score": "0-1",
+            "probability": 9.3
+          },
+          {
+            "score": "2-1",
+            "probability": 8.5
+          }
+        ],
+        "homeWin": 40.1,
+        "draw": 26.5,
+        "awayWin": 33.4,
+        "doubleChance": {
+          "homeOrDraw": 66.6,
+          "awayOrDraw": 59.9,
+          "homeOrAway": 73.5
+        },
+        "btts": 52.2,
+        "over15": 72.7,
+        "over25": 47.4,
+        "over35": 25.8,
+        "home2Plus": 39.3,
+        "away2Plus": 34.2,
+        "confidence": "moderate"
+      },
+      "sources": [
+        "https://www.laliga.com/en-US/match/temporada-2026-2027-laliga-hypermotion-ud-las-palmas-real-valladolid-cf-8",
+        "https://www.fotmob.com/en-GB/matches/las-palmas-vs-real-valladolid/2uurak"
+      ],
+      "researchedAt": "2026-10-04T14:25:11.180Z"
     },
     {
       "fixtureKey": "2026-10-04|esp-segunda|castell-n|ceuta",
@@ -104,9 +184,49 @@
       "homeTeam": "Castellón",
       "awayTeam": "Ceuta",
       "kickoff": "18:30 SAST",
-      "status": "No Model",
-      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
-      "model": null
+      "status": "Predicted",
+      "model": {
+        "lambdaHome": 2.21,
+        "lambdaAway": 0.57,
+        "correctScore": {
+          "score": "2-0",
+          "probability": 15.2
+        },
+        "alternatives": [
+          {
+            "score": "1-0",
+            "probability": 13.7
+          },
+          {
+            "score": "3-0",
+            "probability": 11.2
+          },
+          {
+            "score": "2-1",
+            "probability": 8.7
+          }
+        ],
+        "homeWin": 75.1,
+        "draw": 16.9,
+        "awayWin": 8.1,
+        "doubleChance": {
+          "homeOrDraw": 91.9,
+          "awayOrDraw": 24.9,
+          "homeOrAway": 83.1
+        },
+        "btts": 38.7,
+        "over15": 76.6,
+        "over25": 52.6,
+        "over35": 30.3,
+        "home2Plus": 64.8,
+        "away2Plus": 11.2,
+        "confidence": "strong"
+      },
+      "sources": [
+        "https://www.laliga.com/en-US/match/temporada-2026-2027-laliga-hypermotion-cd-castellon-ad-ceuta-fc-8",
+        "https://www.fotmob.com/en-GB/matches/castellon-vs-ad-ceuta-fc/v11507a"
+      ],
+      "researchedAt": "2026-10-04T14:25:11.180Z"
     },
     {
       "fixtureKey": "2026-10-04|esp-segunda|girona|mallorca",
@@ -115,9 +235,48 @@
       "homeTeam": "Girona",
       "awayTeam": "Mallorca",
       "kickoff": "21:00 SAST",
-      "status": "No Model",
-      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
-      "model": null
+      "status": "Predicted",
+      "model": {
+        "lambdaHome": 1.21,
+        "lambdaAway": 1.14,
+        "correctScore": {
+          "score": "1-1",
+          "probability": 13.1
+        },
+        "alternatives": [
+          {
+            "score": "1-0",
+            "probability": 11.5
+          },
+          {
+            "score": "0-1",
+            "probability": 10.8
+          },
+          {
+            "score": "0-0",
+            "probability": 9.5
+          }
+        ],
+        "homeWin": 37.8,
+        "draw": 27.9,
+        "awayWin": 34.3,
+        "doubleChance": {
+          "homeOrDraw": 65.7,
+          "awayOrDraw": 62.2,
+          "homeOrAway": 72.1
+        },
+        "btts": 47.9,
+        "over15": 68.2,
+        "over25": 41.9,
+        "over35": 21.2,
+        "home2Plus": 34.2,
+        "away2Plus": 31.7,
+        "confidence": "moderate"
+      },
+      "sources": [
+        "https://iaas-public-front-pro.laliga.com/partido/temporada-2026-2027-laliga-hypermotion-girona-fc-rcd-mallorca-8"
+      ],
+      "researchedAt": "2026-10-04T14:25:11.180Z"
     },
     {
       "fixtureKey": "2026-10-04|arg-primera|hurac-n|aldosivi",
@@ -137,17 +296,6 @@
       "homeTeam": "Talleres Córdoba",
       "awayTeam": "Belgrano",
       "kickoff": "22:00 SAST",
-      "status": "No Model",
-      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
-      "model": null
-    },
-    {
-      "fixtureKey": "2026-10-04|arg-primera|argentinos-juniors|tigre",
-      "leagueId": "arg-primera",
-      "league": "Primera Division",
-      "homeTeam": "Argentinos Juniors",
-      "awayTeam": "Tigre",
-      "kickoff": "00:15 SAST (+1)",
       "status": "No Model",
       "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
       "model": null
@@ -175,26 +323,18 @@
       "model": null
     },
     {
-      "fixtureKey": "2026-10-04|col-primera-a|atl-tico-bucaramanga|junior",
-      "leagueId": "col-primera-a",
-      "league": "Categoria Primera A",
-      "homeTeam": "Atlético Bucaramanga",
-      "awayTeam": "Junior",
-      "kickoff": "01:10 SAST (+1)",
-      "status": "No Model",
-      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
-      "model": null
-    },
-    {
       "fixtureKey": "2026-10-04|jpn-j2|consadole-sapporo|iwaki-fc",
       "leagueId": "jpn-j2",
       "league": "J2 League",
       "homeTeam": "Consadole Sapporo",
       "awayTeam": "Iwaki FC",
       "kickoff": "06:00 SAST",
-      "status": "No Model",
-      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
-      "model": null
+      "status": "Completed",
+      "reason": "Match had already finished before this manual prediction run; no retrospective prediction generated.",
+      "model": null,
+      "sources": [
+        "https://www.jleague.jp/en/j2/match/search-list/?enddate=2026-10-04&period=custom&sort_desc=true&startdate=2026-08-08"
+      ]
     },
     {
       "fixtureKey": "2026-10-04|jpn-j2|vanraure-hachinohe|yokohama-fc",
@@ -203,9 +343,12 @@
       "homeTeam": "Vanraure Hachinohe",
       "awayTeam": "Yokohama FC",
       "kickoff": "06:00 SAST",
-      "status": "No Model",
-      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
-      "model": null
+      "status": "Completed",
+      "reason": "Match had already finished before this manual prediction run; no retrospective prediction generated.",
+      "model": null,
+      "sources": [
+        "https://www.jleague.jp/en/j2/match/search-list/?enddate=2026-10-04&period=custom&sort_desc=true&startdate=2026-08-08"
+      ]
     },
     {
       "fixtureKey": "2026-10-04|jpn-j2|blaublitz-akita|sagan-tosu",
@@ -214,9 +357,12 @@
       "homeTeam": "Blaublitz Akita",
       "awayTeam": "Sagan Tosu",
       "kickoff": "07:00 SAST",
-      "status": "No Model",
-      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
-      "model": null
+      "status": "Completed",
+      "reason": "Match had already finished before this manual prediction run; no retrospective prediction generated.",
+      "model": null,
+      "sources": [
+        "https://www.jleague.jp/en/j2/match/search-list/?enddate=2026-10-04&period=custom&sort_desc=true&startdate=2026-08-08"
+      ]
     },
     {
       "fixtureKey": "2026-10-04|jpn-j2|vegalta-sendai|j-bilo-iwata",
@@ -225,9 +371,12 @@
       "homeTeam": "Vegalta Sendai",
       "awayTeam": "Júbilo Iwata",
       "kickoff": "08:00 SAST",
-      "status": "No Model",
-      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
-      "model": null
+      "status": "Completed",
+      "reason": "Match had already finished before this manual prediction run; no retrospective prediction generated.",
+      "model": null,
+      "sources": [
+        "https://www.jleague.jp/en/j2/match/search-list/?enddate=2026-10-04&period=custom&sort_desc=true&startdate=2026-08-08"
+      ]
     },
     {
       "fixtureKey": "2026-10-04|jpn-j2|tegevajaro-miyazaki|omiya-ardija",
@@ -247,9 +396,49 @@
       "homeTeam": "Azerbaijan",
       "awayTeam": "Lithuania",
       "kickoff": "15:00 SAST",
-      "status": "No Model",
-      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
-      "model": null
+      "status": "Predicted",
+      "model": {
+        "lambdaHome": 0.7,
+        "lambdaAway": 1.1,
+        "correctScore": {
+          "score": "0-1",
+          "probability": 18.2
+        },
+        "alternatives": [
+          {
+            "score": "0-0",
+            "probability": 16.5
+          },
+          {
+            "score": "1-1",
+            "probability": 12.7
+          },
+          {
+            "score": "1-0",
+            "probability": 11.6
+          }
+        ],
+        "homeWin": 23.2,
+        "draw": 31.9,
+        "awayWin": 44.9,
+        "doubleChance": {
+          "homeOrDraw": 55.1,
+          "awayOrDraw": 76.8,
+          "homeOrAway": 68.1
+        },
+        "btts": 33.6,
+        "over15": 53.7,
+        "over25": 26.9,
+        "over35": 10.9,
+        "home2Plus": 15.6,
+        "away2Plus": 30.1,
+        "confidence": "moderate"
+      },
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://www.fotmob.com/matches/lithuania-vs-azerbaijan/2c89eg"
+      ],
+      "researchedAt": "2026-10-04T14:25:11.180Z"
     },
     {
       "fixtureKey": "2026-10-04|uefa-nations-league|kosovo|austria",
@@ -258,9 +447,49 @@
       "homeTeam": "Kosovo",
       "awayTeam": "Austria",
       "kickoff": "18:00 SAST",
-      "status": "No Model",
-      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
-      "model": null
+      "status": "Predicted",
+      "model": {
+        "lambdaHome": 1,
+        "lambdaAway": 1.83,
+        "correctScore": {
+          "score": "0-1",
+          "probability": 10.8
+        },
+        "alternatives": [
+          {
+            "score": "1-1",
+            "probability": 10.8
+          },
+          {
+            "score": "0-2",
+            "probability": 9.9
+          },
+          {
+            "score": "1-2",
+            "probability": 9.9
+          }
+        ],
+        "homeWin": 20.4,
+        "draw": 22.8,
+        "awayWin": 56.8,
+        "doubleChance": {
+          "homeOrDraw": 43.2,
+          "awayOrDraw": 79.6,
+          "homeOrAway": 77.2
+        },
+        "btts": 53.1,
+        "over15": 77.4,
+        "over25": 53.7,
+        "over35": 31.4,
+        "home2Plus": 26.4,
+        "away2Plus": 54.6,
+        "confidence": "moderate"
+      },
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://www.sofascore.com/news/kosovo-vs-austria-form-team-news-and-numbers-to-know"
+      ],
+      "researchedAt": "2026-10-04T14:25:11.180Z"
     },
     {
       "fixtureKey": "2026-10-04|uefa-nations-league|malta|andorra",
@@ -291,9 +520,48 @@
       "homeTeam": "Netherlands",
       "awayTeam": "Serbia",
       "kickoff": "20:45 SAST",
-      "status": "No Model",
-      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
-      "model": null
+      "status": "Predicted",
+      "model": {
+        "lambdaHome": 2.3,
+        "lambdaAway": 0.9,
+        "correctScore": {
+          "score": "2-0",
+          "probability": 10.8
+        },
+        "alternatives": [
+          {
+            "score": "2-1",
+            "probability": 9.7
+          },
+          {
+            "score": "1-0",
+            "probability": 9.4
+          },
+          {
+            "score": "1-1",
+            "probability": 8.5
+          }
+        ],
+        "homeWin": 68.7,
+        "draw": 18.1,
+        "awayWin": 13.2,
+        "doubleChance": {
+          "homeOrDraw": 86.8,
+          "awayOrDraw": 31.3,
+          "homeOrAway": 81.9
+        },
+        "btts": 53.4,
+        "over15": 82.8,
+        "over25": 61.9,
+        "over35": 39.6,
+        "home2Plus": 66.8,
+        "away2Plus": 22.8,
+        "confidence": "strong"
+      },
+      "sources": [
+        "https://www.skysports.com/football/netherlands-vs-serbia/554062"
+      ],
+      "researchedAt": "2026-10-04T14:25:11.180Z"
     },
     {
       "fixtureKey": "2026-10-04|uefa-nations-league|portugal|norway",
@@ -302,9 +570,48 @@
       "homeTeam": "Portugal",
       "awayTeam": "Norway",
       "kickoff": "20:45 SAST",
-      "status": "No Model",
-      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
-      "model": null
+      "status": "Predicted",
+      "model": {
+        "lambdaHome": 1.8,
+        "lambdaAway": 1.3,
+        "correctScore": {
+          "score": "1-1",
+          "probability": 10.5
+        },
+        "alternatives": [
+          {
+            "score": "2-1",
+            "probability": 9.5
+          },
+          {
+            "score": "1-0",
+            "probability": 8.1
+          },
+          {
+            "score": "2-0",
+            "probability": 7.3
+          }
+        ],
+        "homeWin": 49.2,
+        "draw": 23.1,
+        "awayWin": 27.7,
+        "doubleChance": {
+          "homeOrDraw": 72.3,
+          "awayOrDraw": 50.8,
+          "homeOrAway": 76.9
+        },
+        "btts": 60.7,
+        "over15": 81.5,
+        "over25": 59.9,
+        "over35": 37.5,
+        "home2Plus": 53.7,
+        "away2Plus": 37.3,
+        "confidence": "moderate"
+      },
+      "sources": [
+        "https://www.fotmob.com/en-GB/matches/portugal-vs-norway/2ck62b"
+      ],
+      "researchedAt": "2026-10-04T14:25:11.180Z"
     },
     {
       "fixtureKey": "2026-10-04|uefa-nations-league|republic-of-ireland|israel",
@@ -313,9 +620,48 @@
       "homeTeam": "Republic of Ireland",
       "awayTeam": "Israel",
       "kickoff": "20:45 SAST",
-      "status": "No Model",
-      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
-      "model": null
+      "status": "Predicted",
+      "model": {
+        "lambdaHome": 1.5,
+        "lambdaAway": 0.8,
+        "correctScore": {
+          "score": "1-0",
+          "probability": 15
+        },
+        "alternatives": [
+          {
+            "score": "1-1",
+            "probability": 12
+          },
+          {
+            "score": "2-0",
+            "probability": 11.3
+          },
+          {
+            "score": "0-0",
+            "probability": 10
+          }
+        ],
+        "homeWin": 53.8,
+        "draw": 26.2,
+        "awayWin": 20,
+        "doubleChance": {
+          "homeOrDraw": 80,
+          "awayOrDraw": 46.2,
+          "homeOrAway": 73.8
+        },
+        "btts": 42.8,
+        "over15": 66.9,
+        "over25": 40.4,
+        "over35": 20.1,
+        "home2Plus": 44.2,
+        "away2Plus": 19.1,
+        "confidence": "moderate"
+      },
+      "sources": [
+        "https://www.fotmob.com/en-GB/matches/ireland-vs-israel/1pdm5w"
+      ],
+      "researchedAt": "2026-10-04T14:25:11.180Z"
     },
     {
       "fixtureKey": "2026-10-04|uefa-nations-league|wales|denmark",
@@ -340,11 +686,11 @@
       "model": null
     },
     {
-      "fixtureKey": "2026-10-04|international-friendlies|comoros|senegal",
+      "fixtureKey": "2026-10-04|international-friendlies|senegal|comoros",
       "leagueId": "international-friendlies",
       "league": "International Friendlies",
-      "homeTeam": "Comoros",
-      "awayTeam": "Senegal",
+      "homeTeam": "Senegal",
+      "awayTeam": "Comoros",
       "kickoff": "14:00 SAST",
       "status": "No Model",
       "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
@@ -362,33 +708,55 @@
       "model": null
     },
     {
-      "fixtureKey": "2026-10-04|international-friendlies|morocco|ghana",
+      "fixtureKey": "2026-10-04|international-friendlies|morocco|mali",
       "leagueId": "international-friendlies",
       "league": "International Friendlies",
       "homeTeam": "Morocco",
-      "awayTeam": "Ghana",
+      "awayTeam": "Mali",
       "kickoff": "20:00 SAST",
       "status": "No Model",
-      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
-      "model": null
+      "reason": "Ghana withdrew; Reuters reports Mali replaced Ghana for the Morocco friendly.",
+      "model": null,
+      "sources": [
+        "https://www.reuters.com/sports/soccer/african-national-teams-head-off-friendly-assignments-2026-10-01/"
+      ]
     },
     {
-      "fixtureKey": "2026-10-04|international-friendlies|bolivia|gambia",
+      "fixtureKey": "2026-10-04|international-friendlies|kyrgyzstan|lebanon",
       "leagueId": "international-friendlies",
       "league": "International Friendlies",
-      "homeTeam": "Bolivia",
-      "awayTeam": "Gambia",
-      "kickoff": "00:30 SAST (+1)",
+      "homeTeam": "Kyrgyzstan",
+      "awayTeam": "Lebanon",
+      "kickoff": "14:00 SAST",
       "status": "No Model",
-      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
-      "model": null
+      "reason": "Fixture verified; manual run reached/started around kickoff, so no retrospective prediction generated.",
+      "model": null,
+      "sources": [
+        "https://www.fotmob.com/en-GB/matches/kyrgyzstan-vs-lebanon/15dx82"
+      ]
+    },
+    {
+      "fixtureKey": "2026-10-04|international-friendlies|argentina|burkina-faso",
+      "leagueId": "international-friendlies",
+      "league": "International Friendlies",
+      "homeTeam": "Argentina",
+      "awayTeam": "Burkina Faso",
+      "kickoff": "02:00 SAST",
+      "status": "Completed",
+      "reason": "Match finished before this manual run; no retrospective prediction generated.",
+      "model": null,
+      "sources": [
+        "https://www.reuters.com/sports/soccer/african-national-teams-head-off-friendly-assignments-2026-10-01/"
+      ]
     }
   ],
   "scan": {
     "status": "complete",
     "leagueEntriesChecked": 61,
-    "completedAt": "2026-10-04T14:18:48.975Z",
+    "totalLeagueEntries": 61,
+    "completedAt": "2026-10-04T14:25:11.180Z",
     "duplicatePolicy": "fixtureKey",
-    "notes": "Manual end-to-end league-list scan. Fixtures are modelled only when sufficient statistical evidence has been researched."
+    "failures": [],
+    "notes": "Full manual run using GitHub automation rules. Removed fixtures falling on 5 Oct SAST, corrected friendly replacements/orientation, and did not retrospectively predict matches already completed before this run."
   }
 }
