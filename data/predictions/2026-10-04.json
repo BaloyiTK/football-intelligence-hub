@@ -1,7 +1,7 @@
 {
   "date": "2026-10-04",
   "timezone": "Africa/Johannesburg",
-  "generatedAt": "2026-10-04T14:34:19.350Z",
+  "generatedAt": "2026-10-04T14:35:20.090Z",
   "fixtures": [
     {
       "fixtureKey": "2026-10-04|esp-segunda|las-palmas|real-valladolid",
@@ -156,28 +156,6 @@
       "researchedAt": "2026-10-04T14:25:11.180Z"
     },
     {
-      "fixtureKey": "2026-10-04|arg-primera|hurac-n|aldosivi",
-      "leagueId": "arg-primera",
-      "league": "Primera Division",
-      "homeTeam": "Huracán",
-      "awayTeam": "Aldosivi",
-      "kickoff": "19:45 SAST",
-      "status": "No Model",
-      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
-      "model": null
-    },
-    {
-      "fixtureKey": "2026-10-04|arg-primera|talleres-c-rdoba|belgrano",
-      "leagueId": "arg-primera",
-      "league": "Primera Division",
-      "homeTeam": "Talleres Córdoba",
-      "awayTeam": "Belgrano",
-      "kickoff": "22:00 SAST",
-      "status": "No Model",
-      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
-      "model": null
-    },
-    {
       "fixtureKey": "2026-10-04|col-primera-a|deportivo-pasto|fortaleza",
       "leagueId": "col-primera-a",
       "league": "Categoria Primera A",
@@ -215,17 +193,6 @@
         "https://fbref.com/en/squads/72f9f06e/2026/matchlogs/all_comps/schedule/Deportivo-Pasto-Scores-and-Fixtures-All-Competitions"
       ],
       "researchedAt": "2026-10-04T14:30:42.429Z"
-    },
-    {
-      "fixtureKey": "2026-10-04|col-primera-a|c-cuta-deportivo|deportivo-pereira",
-      "leagueId": "col-primera-a",
-      "league": "Categoria Primera A",
-      "homeTeam": "Cúcuta Deportivo",
-      "awayTeam": "Deportivo Pereira",
-      "kickoff": "23:05 SAST",
-      "status": "No Model",
-      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
-      "model": null
     },
     {
       "fixtureKey": "2026-10-04|uefa-nations-league|kosovo|austria",
@@ -630,6 +597,6 @@
     "completedAt": "2026-10-04T14:25:11.180Z",
     "duplicatePolicy": "fixtureKey",
     "failures": [],
-    "notes": "Full manual run using GitHub automation rules. Removed fixtures falling on 5 Oct SAST, corrected friendly replacements/orientation, and did not retrospectively predict matches already completed before this run. Improved fallback pass applied: Full -> Standard -> Basic; reliable recent-score evidence converted eligible No Model fixtures to Basic predictions. Completed fixtures removed from prediction feed by policy. Live status refresh: started/live/completed fixtures purged and are not listed."
+    "notes": "Full manual run using GitHub automation rules. Removed fixtures falling on 5 Oct SAST, corrected friendly replacements/orientation, and did not retrospectively predict matches already completed before this run. Improved fallback pass applied: Full -> Standard -> Basic; reliable recent-score evidence converted eligible No Model fixtures to Basic predictions. Completed fixtures removed from prediction feed by policy. Live status refresh: started/live/completed fixtures purged and are not listed. No Model fixtures removed from public feed; published fixtures are prediction-only."
   }
 }
