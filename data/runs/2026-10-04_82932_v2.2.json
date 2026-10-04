@@ -80,7 +80,7 @@
       "leagueId": "esp-segunda",
       "country": "Spain",
       "name": "Segunda Division",
-      "status": "complete",
+      "status": "processing",
       "fixturesDiscovered": 11,
       "fixturesProcessed": 0,
       "sources": [
@@ -184,7 +184,7 @@
       "leagueId": "ned-eerste-divisie",
       "country": "Netherlands",
       "name": "Eerste Divisie",
-      "status": "complete",
+      "status": "processing",
       "fixturesDiscovered": 1,
       "fixturesProcessed": 0,
       "sources": [
@@ -456,7 +456,7 @@
       "leagueId": "uefa-nations-league",
       "country": "Europe",
       "name": "UEFA Nations League",
-      "status": "complete",
+      "status": "processing",
       "fixturesDiscovered": 8,
       "fixturesProcessed": 0,
       "sources": [
@@ -534,7 +534,7 @@
       "leagueId": "arg-primera",
       "country": "Argentina",
       "name": "Primera Division",
-      "status": "complete",
+      "status": "processing",
       "fixturesDiscovered": 15,
       "fixturesProcessed": 0,
       "sources": [
@@ -572,7 +572,7 @@
       "leagueId": "col-primera-a",
       "country": "Colombia",
       "name": "Categoria Primera A",
-      "status": "complete",
+      "status": "processing",
       "fixturesDiscovered": 5,
       "fixturesProcessed": 0,
       "sources": [
@@ -598,7 +598,7 @@
       "leagueId": "jpn-j2",
       "country": "Japan",
       "name": "J2 League",
-      "status": "complete",
+      "status": "processing",
       "fixturesDiscovered": 5,
       "fixturesProcessed": 0,
       "sources": [
@@ -675,7 +675,7 @@
       "leagueId": "uae-pro-league",
       "country": "United Arab Emirates",
       "name": "UAE Pro League",
-      "status": "complete",
+      "status": "processing",
       "fixturesDiscovered": 1,
       "fixturesProcessed": 0,
       "sources": [
@@ -791,7 +791,7 @@
       "leagueId": "international-friendlies",
       "country": "International",
       "name": "International Friendlies",
-      "status": "complete",
+      "status": "processing",
       "fixturesDiscovered": 7,
       "fixturesProcessed": 0,
       "sources": [
@@ -1121,7 +1121,7 @@
     }
   ],
   "metrics": {
-    "leaguesChecked": 61,
+    "leaguesChecked": 53,
     "leaguesTotal": 61,
     "fixturesDiscovered": 53,
     "fixturesProcessed": 0,
@@ -1131,8 +1131,8 @@
     "noBet": 0
   },
   "current": {
-    "leagueIndex": 61,
-    "leagueId": "international-friendlies",
+    "leagueIndex": 6,
+    "leagueId": "esp-segunda",
     "stage": "fixture-research"
   },
   "notes": [
