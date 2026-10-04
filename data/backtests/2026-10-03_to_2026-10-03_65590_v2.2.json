@@ -1665,7 +1665,7 @@
         "reliability": 0.856,
         "rating": "Strong"
       },
-      "outcome": "LOSS"
+      "outcome": "WIN"
     },
     {
       "date": "2026-10-03",
@@ -2572,7 +2572,7 @@
         "reliability": 0.856,
         "rating": "Strong"
       },
-      "outcome": "WIN"
+      "outcome": "LOSS"
     },
     {
       "date": "2026-10-03",
@@ -2907,5 +2907,10 @@
     "wins": 31,
     "losses": 5,
     "hitRate": 86.1
+  },
+  "gradingAudit": {
+    "betsAudited": 36,
+    "mismatchesCorrected": 2,
+    "status": "passed"
   }
 }
