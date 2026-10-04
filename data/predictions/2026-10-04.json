@@ -1,7 +1,7 @@
 {
   "date": "2026-10-04",
   "timezone": "Africa/Johannesburg",
-  "generatedAt": "2026-10-04T14:25:11.180Z",
+  "generatedAt": "2026-10-04T14:30:42.430Z",
   "fixtures": [
     {
       "fixtureKey": "2026-10-04|ned-eerste-divisie|vvv-venlo|roda-jc",
@@ -307,9 +307,37 @@
       "homeTeam": "Deportivo Pasto",
       "awayTeam": "Fortaleza",
       "kickoff": "21:00 SAST",
-      "status": "No Model",
-      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
-      "model": null
+      "status": "Predicted",
+      "model": {
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 1.7,
+        "lambdaAway": 1.8,
+        "correctScore": {
+          "score": "1-1",
+          "probability": 9.2
+        },
+        "alternatives": [],
+        "homeWin": 36.8,
+        "draw": 22.3,
+        "awayWin": 40.9,
+        "doubleChance": {
+          "homeOrDraw": 59.1,
+          "awayOrDraw": 63.2,
+          "homeOrAway": 77.7
+        },
+        "btts": 68.1,
+        "over15": 86.3,
+        "over25": 67.8,
+        "over35": 46.2,
+        "home2Plus": 50.7,
+        "away2Plus": 53.7
+      },
+      "sources": [
+        "https://www.fotmob.com/es-419/matches/deportivo-pasto-vs-fortaleza-fc/e6xktdn",
+        "https://fbref.com/en/squads/72f9f06e/2026/matchlogs/all_comps/schedule/Deportivo-Pasto-Scores-and-Fixtures-All-Competitions"
+      ],
+      "researchedAt": "2026-10-04T14:30:42.429Z"
     },
     {
       "fixtureKey": "2026-10-04|col-primera-a|c-cuta-deportivo|deportivo-pereira",
@@ -498,9 +526,37 @@
       "homeTeam": "Malta",
       "awayTeam": "Andorra",
       "kickoff": "18:00 SAST",
-      "status": "No Model",
-      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
-      "model": null
+      "status": "Predicted",
+      "model": {
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 1.5,
+        "lambdaAway": 0.9167,
+        "correctScore": {
+          "score": "1-0",
+          "probability": 13.4
+        },
+        "alternatives": [],
+        "homeWin": 50.8,
+        "draw": 26.1,
+        "awayWin": 23,
+        "doubleChance": {
+          "homeOrDraw": 76.9,
+          "awayOrDraw": 49.1,
+          "homeOrAway": 73.8
+        },
+        "btts": 46.6,
+        "over15": 69.5,
+        "over25": 43.4,
+        "over35": 22.5,
+        "home2Plus": 44.2,
+        "away2Plus": 23.4
+      },
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/match/2047928--luxembourg-malta-vs-andorra/",
+        "https://www.skysports.com/football/malta-vs-andorra/554065"
+      ],
+      "researchedAt": "2026-10-04T14:30:42.430Z"
     },
     {
       "fixtureKey": "2026-10-04|uefa-nations-league|greece|germany",
@@ -509,9 +565,37 @@
       "homeTeam": "Greece",
       "awayTeam": "Germany",
       "kickoff": "20:45 SAST",
-      "status": "No Model",
-      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
-      "model": null
+      "status": "Predicted",
+      "model": {
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 1.1667,
+        "lambdaAway": 1.1667,
+        "correctScore": {
+          "score": "1-1",
+          "probability": 13.2
+        },
+        "alternatives": [],
+        "homeWin": 35.9,
+        "draw": 28.1,
+        "awayWin": 35.9,
+        "doubleChance": {
+          "homeOrDraw": 64,
+          "awayOrDraw": 64,
+          "homeOrAway": 71.8
+        },
+        "btts": 47.4,
+        "over15": 67.7,
+        "over25": 41.3,
+        "over35": 20.7,
+        "home2Plus": 32.5,
+        "away2Plus": 32.5
+      },
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/match/2047926--greece-vs-germany/",
+        "https://www.skysports.com/football/greece-vs-germany/554060"
+      ],
+      "researchedAt": "2026-10-04T14:30:42.430Z"
     },
     {
       "fixtureKey": "2026-10-04|uefa-nations-league|netherlands|serbia",
@@ -670,9 +754,36 @@
       "homeTeam": "Wales",
       "awayTeam": "Denmark",
       "kickoff": "20:45 SAST",
-      "status": "No Model",
-      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
-      "model": null
+      "status": "Predicted",
+      "model": {
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 1.1667,
+        "lambdaAway": 1.6667,
+        "correctScore": {
+          "score": "1-1",
+          "probability": 11.4
+        },
+        "alternatives": [],
+        "homeWin": 26.7,
+        "draw": 24.2,
+        "awayWin": 49,
+        "doubleChance": {
+          "homeOrDraw": 50.9,
+          "awayOrDraw": 73.2,
+          "homeOrAway": 75.7
+        },
+        "btts": 55.8,
+        "over15": 77.4,
+        "over25": 53.8,
+        "over35": 31.5,
+        "home2Plus": 32.5,
+        "away2Plus": 49.6
+      },
+      "sources": [
+        "https://www.skysports.com/football/wales-vs-denmark/554066"
+      ],
+      "researchedAt": "2026-10-04T14:30:42.430Z"
     },
     {
       "fixtureKey": "2026-10-04|international-friendlies|usa|mexico",
@@ -703,9 +814,37 @@
       "homeTeam": "Egypt",
       "awayTeam": "South Africa",
       "kickoff": "20:00 SAST",
-      "status": "No Model",
-      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
-      "model": null
+      "status": "Predicted",
+      "model": {
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 1.0833,
+        "lambdaAway": 1,
+        "correctScore": {
+          "score": "1-0",
+          "probability": 13.5
+        },
+        "alternatives": [],
+        "homeWin": 37.1,
+        "draw": 30.1,
+        "awayWin": 32.8,
+        "doubleChance": {
+          "homeOrDraw": 67.2,
+          "awayOrDraw": 62.9,
+          "homeOrAway": 69.9
+        },
+        "btts": 41.8,
+        "over15": 61.6,
+        "over25": 34.6,
+        "over35": 15.8,
+        "home2Plus": 29.5,
+        "away2Plus": 26.4
+      },
+      "sources": [
+        "https://www.goal.com/en-za/lists/egypt-vs-south-africa-international-friendly-how-to-watch-bafana-bafana-kick-off-time-venue-squad-news-team-form-and-predictions/bltb3df3373c71f0a97",
+        "https://www.skysports.com/football/egypt-vs-south-africa/578215"
+      ],
+      "researchedAt": "2026-10-04T14:30:42.430Z"
     },
     {
       "fixtureKey": "2026-10-04|international-friendlies|morocco|mali",
@@ -714,12 +853,37 @@
       "homeTeam": "Morocco",
       "awayTeam": "Mali",
       "kickoff": "20:00 SAST",
-      "status": "No Model",
-      "reason": "Ghana withdrew; Reuters reports Mali replaced Ghana for the Morocco friendly.",
-      "model": null,
+      "status": "Predicted",
+      "model": {
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 1.3333,
+        "lambdaAway": 0.6667,
+        "correctScore": {
+          "score": "1-0",
+          "probability": 18
+        },
+        "alternatives": [],
+        "homeWin": 52.8,
+        "draw": 28.5,
+        "awayWin": 18.7,
+        "doubleChance": {
+          "homeOrDraw": 81.3,
+          "awayOrDraw": 47.2,
+          "homeOrAway": 71.5
+        },
+        "btts": 35.8,
+        "over15": 59.4,
+        "over25": 32.3,
+        "over35": 14.3,
+        "home2Plus": 38.5,
+        "away2Plus": 14.4
+      },
       "sources": [
-        "https://www.reuters.com/sports/soccer/african-national-teams-head-off-friendly-assignments-2026-10-01/"
-      ]
+        "https://www.reuters.com/sports/soccer/african-national-teams-head-off-friendly-assignments-2026-10-01/",
+        "https://www.skysports.com/football/morocco-vs-mali/578658"
+      ],
+      "researchedAt": "2026-10-04T14:30:42.430Z"
     },
     {
       "fixtureKey": "2026-10-04|international-friendlies|kyrgyzstan|lebanon",
@@ -757,6 +921,6 @@
     "completedAt": "2026-10-04T14:25:11.180Z",
     "duplicatePolicy": "fixtureKey",
     "failures": [],
-    "notes": "Full manual run using GitHub automation rules. Removed fixtures falling on 5 Oct SAST, corrected friendly replacements/orientation, and did not retrospectively predict matches already completed before this run."
+    "notes": "Full manual run using GitHub automation rules. Removed fixtures falling on 5 Oct SAST, corrected friendly replacements/orientation, and did not retrospectively predict matches already completed before this run. Improved fallback pass applied: Full -> Standard -> Basic; reliable recent-score evidence converted eligible No Model fixtures to Basic predictions."
   }
 }
