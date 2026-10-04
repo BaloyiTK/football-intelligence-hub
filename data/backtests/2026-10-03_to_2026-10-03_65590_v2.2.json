@@ -10,19 +10,20 @@
     "date": "2026-10-03",
     "leagueIndex": 6,
     "leagueId": "esp-segunda",
-    "stage": "prematch-research"
+    "stage": "result-verification",
+    "fixture": "Sabadell vs FC Andorra"
   },
   "metrics": {
     "leagueDaysComplete": 4,
     "leagueDaysTotal": 61,
     "fixturesDiscovered": 40,
-    "fixturesProcessed": 24,
-    "modelled": 23,
+    "fixturesProcessed": 27,
+    "modelled": 27,
     "noModel": 1,
-    "recommendedBets": 22,
+    "recommendedBets": 26,
     "noBet": 1,
-    "wins": 18,
-    "losses": 4
+    "wins": 20,
+    "losses": 5
   },
   "leagueScan": [
     {
@@ -119,7 +120,7 @@
       "name": "Segunda Division",
       "status": "processing",
       "fixturesDiscovered": 4,
-      "fixturesProcessed": 0,
+      "fixturesProcessed": 3,
       "dates": [
         {
           "date": "2026-10-03",
@@ -1806,36 +1807,108 @@
       "leagueId": "esp-segunda",
       "homeTeam": "Albacete",
       "awayTeam": "Eibar",
-      "actualScore": null,
-      "status": "discovered-pending-prematch-research",
+      "actualScore": "1-3",
+      "status": "BET",
       "sources": [
-        "https://www.livescores.com/football/2026-10-03/?tz=-3",
-        "https://www.livescore.mobi/football/2026-10-03/?tz=-8"
-      ]
+        "https://last5games.com/matches/albacete-vs-sd-eibar-19745055/",
+        "https://rfef.es/es/resultados?competition=33836086&group=33836087&journey=8"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-03T11:59:00Z",
+      "inputs": {
+        "homeAttack": 0.28368794326241137,
+        "awayAttack": 2.300884955752213,
+        "homeDefence": 1.4159292035398232,
+        "awayDefence": 0.425531914893617,
+        "leagueHomeGoals": 1.41,
+        "leagueAwayGoals": 1.13,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 0.33,
+      "lambdaAway": 3.36,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "rawProbability": 98.6,
+        "probability": 86.1,
+        "reliability": 0.873,
+        "rating": "Elite"
+      },
+      "outcome": "WIN"
     },
     {
       "date": "2026-10-03",
       "leagueId": "esp-segunda",
       "homeTeam": "Almeria",
       "awayTeam": "Burgos CF",
-      "actualScore": null,
-      "status": "discovered-pending-prematch-research",
+      "actualScore": "2-1",
+      "status": "BET",
       "sources": [
-        "https://www.livescores.com/football/2026-10-03/?tz=-3",
-        "https://www.livescore.mobi/football/2026-10-03/?tz=-8"
-      ]
+        "https://spanishleague.net/match/almeria-vs-burgos-cf-2026-10-03",
+        "https://rfef.es/es/resultados?competition=33836086&group=33836087&journey=8"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-03T11:59:00Z",
+      "inputs": {
+        "homeAttack": 1.1347517730496455,
+        "awayAttack": 1.4159292035398232,
+        "homeDefence": 0.5309734513274337,
+        "awayDefence": 0.5673758865248227,
+        "leagueHomeGoals": 1.41,
+        "leagueAwayGoals": 1.13,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 0.97,
+      "lambdaAway": 0.89,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Under 3.5",
+        "rawProbability": 88.2,
+        "probability": 75.5,
+        "reliability": 0.856,
+        "rating": "Strong"
+      },
+      "outcome": "WIN"
     },
     {
       "date": "2026-10-03",
       "leagueId": "esp-segunda",
       "homeTeam": "Cadiz",
       "awayTeam": "Leganes",
-      "actualScore": null,
-      "status": "discovered-pending-prematch-research",
+      "actualScore": "4-0",
+      "status": "BET",
       "sources": [
-        "https://www.livescores.com/football/2026-10-03/?tz=-3",
-        "https://www.livescore.mobi/football/2026-10-03/?tz=-8"
-      ]
+        "https://last5games.com/matches/cadiz-vs-leganes-19745053/",
+        "https://rfef.es/es/resultados?competition=33836086&group=33836087&journey=8"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-03T11:59:00Z",
+      "inputs": {
+        "homeAttack": 0.7092198581560284,
+        "awayAttack": 0.7079646017699116,
+        "homeDefence": 1.4159292035398232,
+        "awayDefence": 0.851063829787234,
+        "leagueHomeGoals": 1.41,
+        "leagueAwayGoals": 1.13,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 0.92,
+      "lambdaAway": 1.13,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Under 3.5",
+        "rawProbability": 84.7,
+        "probability": 72.5,
+        "reliability": 0.856,
+        "rating": "Good"
+      },
+      "outcome": "LOSS"
     },
     {
       "date": "2026-10-03",
@@ -1843,11 +1916,35 @@
       "homeTeam": "Sabadell",
       "awayTeam": "FC Andorra",
       "actualScore": null,
-      "status": "discovered-pending-prematch-research",
+      "status": "BET",
       "sources": [
-        "https://www.livescores.com/football/2026-10-03/?tz=-3",
-        "https://www.livescore.mobi/football/2026-10-03/?tz=-8"
-      ]
+        "https://last5games.com/matches/fc-andorra-vs-sabadell-19745046/",
+        "https://rfef.es/es/resultados?competition=33836086&group=33836087&journey=8"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-03T11:59:00Z",
+      "inputs": {
+        "homeAttack": 1.1347517730496455,
+        "awayAttack": 0.8849557522123894,
+        "homeDefence": 1.0619469026548674,
+        "awayDefence": 1.4184397163120568,
+        "leagueHomeGoals": 1.41,
+        "leagueAwayGoals": 1.13,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 2.16,
+      "lambdaAway": 1.07,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "rawProbability": 82.9,
+        "probability": 72.4,
+        "reliability": 0.873,
+        "rating": "Good"
+      },
+      "outcome": "PENDING_RESULT"
     },
     {
       "date": "2026-10-03",
