@@ -1,5 +1,5 @@
 {
-  "status": "in-progress",
+  "status": "blocked",
   "runId": "82932",
   "modelVersion": "v2.2-calibrated-selector",
   "date": "2026-10-04",
@@ -1351,5 +1351,19 @@
   "notes": [
     "League discovery checkpointed from today's web research. Fixtures remain pending RESEARCH_RULES processing; league discovery complete does not mean fixture modelling complete.",
     "Zero-fixture checkpoints use broad daily fixture sources and targeted competition searches; any later contradiction must reopen the checkpoint."
-  ]
+  ],
+  "blocker": {
+    "type": "external-tool-limit",
+    "reason": "Web research search-call allowance exhausted during active response. Argentina Oct 4 fixture sources conflict and require additional web verification; continuing without it would violate web-first/no-fabrication rules.",
+    "resumeCursor": {
+      "leagueIndex": 41,
+      "leagueId": "arg-primera",
+      "stage": "fixture-verification"
+    },
+    "observedConflict": "Saved 15-fixture aggregator list conflicts with Liga Profesional/Argentine daily schedule sources; do not model until corrected."
+  },
+  "lastCheckpoint": {
+    "at": "2026-10-04T18:17:10+02:00",
+    "note": "Segunda and Eerste processed; Nations League processed/frozen. Argentina verification started but not resolved before web tool limit."
+  }
 }
