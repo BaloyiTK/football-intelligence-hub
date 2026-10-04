@@ -8,12 +8,14 @@
   "createdAt": "2026-10-04",
   "current": {
     "date": "2026-10-03",
-    "stage": "global-zero-fixture-certification"
+    "leagueIndex": 6,
+    "leagueId": "esp-segunda",
+    "stage": "prematch-research"
   },
   "metrics": {
     "leagueDaysComplete": 4,
     "leagueDaysTotal": 61,
-    "fixturesDiscovered": 24,
+    "fixturesDiscovered": 40,
     "fixturesProcessed": 24,
     "modelled": 23,
     "noModel": 1,
@@ -115,13 +117,13 @@
       "leagueId": "esp-segunda",
       "country": "Spain",
       "name": "Segunda Division",
-      "status": "pending",
-      "fixturesDiscovered": 0,
+      "status": "processing",
+      "fixturesDiscovered": 4,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "processing"
         }
       ]
     },
@@ -235,13 +237,13 @@
       "leagueId": "ned-eerste-divisie",
       "country": "Netherlands",
       "name": "Eerste Divisie",
-      "status": "pending",
-      "fixturesDiscovered": 0,
+      "status": "processing",
+      "fixturesDiscovered": 6,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "processing"
         }
       ]
     },
@@ -616,13 +618,13 @@
       "leagueId": "bra-serie-a",
       "country": "Brazil",
       "name": "Serie A",
-      "status": "pending",
-      "fixturesDiscovered": 0,
+      "status": "processing",
+      "fixturesDiscovered": 1,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "processing"
         }
       ]
     },
@@ -721,13 +723,13 @@
       "leagueId": "jpn-j2",
       "country": "Japan",
       "name": "J2 League",
-      "status": "pending",
-      "fixturesDiscovered": 0,
+      "status": "processing",
+      "fixturesDiscovered": 5,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "processing"
         }
       ]
     },
@@ -1798,6 +1800,198 @@
         "rating": "Strong"
       },
       "outcome": "WIN"
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "esp-segunda",
+      "homeTeam": "Albacete",
+      "awayTeam": "Eibar",
+      "actualScore": null,
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://www.livescores.com/football/2026-10-03/?tz=-3",
+        "https://www.livescore.mobi/football/2026-10-03/?tz=-8"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "esp-segunda",
+      "homeTeam": "Almeria",
+      "awayTeam": "Burgos CF",
+      "actualScore": null,
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://www.livescores.com/football/2026-10-03/?tz=-3",
+        "https://www.livescore.mobi/football/2026-10-03/?tz=-8"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "esp-segunda",
+      "homeTeam": "Cadiz",
+      "awayTeam": "Leganes",
+      "actualScore": null,
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://www.livescores.com/football/2026-10-03/?tz=-3",
+        "https://www.livescore.mobi/football/2026-10-03/?tz=-8"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "esp-segunda",
+      "homeTeam": "Sabadell",
+      "awayTeam": "FC Andorra",
+      "actualScore": null,
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://www.livescores.com/football/2026-10-03/?tz=-3",
+        "https://www.livescore.mobi/football/2026-10-03/?tz=-8"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "ned-eerste-divisie",
+      "homeTeam": "TOP Oss",
+      "awayTeam": "MVV Maastricht",
+      "actualScore": null,
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://www.livescores.com/football/2026-10-03/?tz=-3",
+        "https://www.livescore.mobi/football/2026-10-03/?tz=-8"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "ned-eerste-divisie",
+      "homeTeam": "Vitesse",
+      "awayTeam": "NAC Breda",
+      "actualScore": null,
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://www.livescores.com/football/2026-10-03/?tz=-3",
+        "https://www.livescore.mobi/football/2026-10-03/?tz=-8"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "ned-eerste-divisie",
+      "homeTeam": "Almere City FC",
+      "awayTeam": "FC Volendam",
+      "actualScore": null,
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://www.livescores.com/football/2026-10-03/?tz=-3",
+        "https://www.livescore.mobi/football/2026-10-03/?tz=-8"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "ned-eerste-divisie",
+      "homeTeam": "FC Den Bosch",
+      "awayTeam": "FC Dordrecht",
+      "actualScore": null,
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://www.livescores.com/football/2026-10-03/?tz=-3",
+        "https://www.livescore.mobi/football/2026-10-03/?tz=-8"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "ned-eerste-divisie",
+      "homeTeam": "FC Eindhoven",
+      "awayTeam": "De Graafschap",
+      "actualScore": null,
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://www.livescores.com/football/2026-10-03/?tz=-3",
+        "https://www.livescore.mobi/football/2026-10-03/?tz=-8"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "ned-eerste-divisie",
+      "homeTeam": "RKC Waalwijk",
+      "awayTeam": "FC Emmen",
+      "actualScore": null,
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://www.livescores.com/football/2026-10-03/?tz=-3",
+        "https://www.livescore.mobi/football/2026-10-03/?tz=-8"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "bra-serie-a",
+      "homeTeam": "Atletico MG",
+      "awayTeam": "RB Bragantino",
+      "actualScore": "1-0",
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://matchcalendar.football/today/2026-10-03/",
+        "https://www.ogol.com.br/ao-vivo/2026-10-03-atletico-mineiro-red-bull-bragantino/11860984"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "jpn-j2",
+      "homeTeam": "Fujieda MYFC",
+      "awayTeam": "Shonan Bellmare",
+      "actualScore": "1-1",
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://statshub.sportradar.com/sportradar/en/sport/1/tournament/402/fixtures"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "jpn-j2",
+      "homeTeam": "Albirex Niigata",
+      "awayTeam": "Tokushima Vortis",
+      "actualScore": "2-1",
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://statshub.sportradar.com/sportradar/en/sport/1/tournament/402/fixtures"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "jpn-j2",
+      "homeTeam": "Ventforet Kofu",
+      "awayTeam": "Kataller Toyama",
+      "actualScore": "1-2",
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://statshub.sportradar.com/sportradar/en/sport/1/tournament/402/fixtures"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "jpn-j2",
+      "homeTeam": "Oita Trinita",
+      "awayTeam": "Montedio Yamagata",
+      "actualScore": "2-1",
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://statshub.sportradar.com/sportradar/en/sport/1/tournament/402/fixtures"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "jpn-j2",
+      "homeTeam": "Tochigi City",
+      "awayTeam": "FC Imabari",
+      "actualScore": "1-2",
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://statshub.sportradar.com/sportradar/en/sport/1/tournament/402/fixtures"
+      ]
     }
   ],
   "notes": [
