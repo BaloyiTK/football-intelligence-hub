@@ -3,26 +3,27 @@
 This file is the authoritative operating procedure for every manual or scheduled prediction run.
 
 ## Completion invariant
-Finding fixtures is NEVER a stopping condition. Finding 1, 10, 50, or 100 matches does not complete the job. A normal run completes only after the FINAL entry in `data/leagues.json` has been processed.
+Finding fixtures is NEVER a stopping condition. A normal run completes only after the FINAL entry in `data/leagues.json` has been processed.
+
+## Prediction-feed invariant
+The prediction feed contains UPCOMING fixtures only. Before research and again immediately before writing the daily JSON, check fixture status/current time. If a match has started, finished, been abandoned or otherwise is no longer pre-match, EXCLUDE it from `fixtures`. Never retain completed matches as placeholders and never generate retrospective predictions.
 
 ## Run
-1. Resolve today's date in Africa/Johannesburg.
+1. Resolve today's date/time in Africa/Johannesburg.
 2. Read `data/leagues.json` from first entry to last entry, in order.
 3. For every league, follow `FIXTURE_DISCOVERY.md`.
-4. If no fixtures exist today, record the league as checked and continue.
-5. For every verified fixture, create its canonical fixtureKey and apply `DUPLICATE_RULES.md`.
+4. Exclude fixtures that have already started/finished.
+5. Apply canonical fixtureKey and `DUPLICATE_RULES.md`.
 6. Research every upcoming fixture using `RESEARCH_RULES.md`.
-7. Attempt Full model evidence first, then Standard, then Basic.
-8. Calculate the deterministic model using `MODEL_RULES.md` as soon as one evidence level is satisfied.
-9. Use `No Model` only after all three evidence levels fail, or when the match has already started/finished. Never invent inputs.
-10. Continue to the next fixture and league. Do not stop early.
-11. After the final league, verify checked-league count equals the league-list count.
-12. Write/update `data/predictions/YYYY-MM-DD.json` according to `OUTPUT_SCHEMA.md`.
-13. Set scan.status=`complete` only after the final league has been checked.
-14. Commit the daily file to main.
-15. Verify the Vercel production deployment reaches READY.
-16. Open/verify the production website displays the current daily file.
-17. Only after production verification report the run COMPLETE.
+7. Attempt Full, then Standard, then Basic.
+8. Calculate the deterministic model as soon as one evidence level is satisfied.
+9. Use `No Model` only after all evidence levels fail for a still-upcoming verified fixture.
+10. Continue to the final league; never stop early.
+11. Re-check status/time and remove any fixture that started during the run.
+12. Verify checked-league count equals the league-list count.
+13. Write `data/predictions/YYYY-MM-DD.json`.
+14. Commit to main, verify Vercel READY, then verify the production website.
+15. Only then report COMPLETE.
 
 ## Failure rule
-If any stage fails, preserve collected data, set scan.status=`incomplete`, record the failure/reason, and do not claim the daily run is complete.
+If any stage fails, preserve valid upcoming data, set scan.status=`incomplete`, record the reason, and do not claim completion.
