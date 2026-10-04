@@ -184,9 +184,9 @@
       "leagueId": "ned-eerste-divisie",
       "country": "Netherlands",
       "name": "Eerste Divisie",
-      "status": "processing",
+      "status": "complete",
       "fixturesDiscovered": 1,
-      "fixturesProcessed": 0,
+      "fixturesProcessed": 1,
       "sources": [
         "https://www.footballfixtures.org/eerste-divisie/fixtures"
       ]
@@ -458,7 +458,7 @@
       "name": "UEFA Nations League",
       "status": "processing",
       "fixturesDiscovered": 8,
-      "fixturesProcessed": 0,
+      "fixturesProcessed": 3,
       "sources": [
         "https://www.uefa.com/uefanationsleague/",
         "https://fbref.com/en/matches/2026-10-04"
@@ -930,25 +930,46 @@
       "leagueId": "ned-eerste-divisie",
       "homeTeam": "VVV Venlo",
       "awayTeam": "Roda",
-      "status": "discovered-pending-research"
+      "status": "NO_MODEL",
+      "noModelReason": "Match finished before research was completed.",
+      "researchTimestamp": "2026-10-04T18:17:10+02:00",
+      "sources": [
+        "https://www.vvv-venlo.nl/wedstrijden/programma/",
+        "https://www.sofascore.com/football/match/vvv-venlo-roda-jc-kerkrade/ejbsFjb"
+      ]
     },
     {
       "leagueId": "uefa-nations-league",
       "homeTeam": "Azerbaijan",
       "awayTeam": "Lithuania",
-      "status": "discovered-pending-research"
+      "status": "NO_MODEL",
+      "noModelReason": "Match had already started/finished before research was completed.",
+      "researchTimestamp": "2026-10-04T18:17:10+02:00",
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/"
+      ]
     },
     {
       "leagueId": "uefa-nations-league",
       "homeTeam": "Kosovo",
       "awayTeam": "Austria",
-      "status": "discovered-pending-research"
+      "status": "NO_MODEL",
+      "noModelReason": "Match had already started/finished before research was completed.",
+      "researchTimestamp": "2026-10-04T18:17:10+02:00",
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/"
+      ]
     },
     {
       "leagueId": "uefa-nations-league",
       "homeTeam": "Malta",
       "awayTeam": "Andorra",
-      "status": "discovered-pending-research"
+      "status": "NO_MODEL",
+      "noModelReason": "Match had already started/finished before research was completed.",
+      "researchTimestamp": "2026-10-04T18:17:10+02:00",
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/"
+      ]
     },
     {
       "leagueId": "uefa-nations-league",
@@ -1180,18 +1201,19 @@
     }
   ],
   "metrics": {
-    "leaguesChecked": 54,
+    "leaguesChecked": 55,
     "leaguesTotal": 61,
     "fixturesDiscovered": 47,
-    "fixturesProcessed": 5,
+    "fixturesProcessed": 9,
     "modelled": 3,
-    "noModel": 2,
+    "noModel": 6,
     "recommendedBets": 2,
     "noBet": 1
   },
   "current": {
-    "leagueIndex": 14,
-    "leagueId": "ned-eerste-divisie",
+    "leagueIndex": 35,
+    "leagueId": "uefa-nations-league",
+    "fixture": "Portugal vs Norway",
     "stage": "fixture-research"
   },
   "notes": [
