@@ -123,3 +123,9 @@ A blocker therefore stops further research execution, not access to valid predic
 - Transient runner failures may retry with bounded exponential backoff. A retry does not permit fabricated evidence or bypass validation.
 - Scheduled automation may only process evidence already available to the repository. It cannot replenish ChatGPT/web-search allowance or invent missing research. If required evidence is absent, the run remains blocked/in-progress until evidence is supplied by a valid source.
 - Completion still requires the strict finalization gate; automatic retry does not weaken any coverage, evidence, leakage or audit requirement.
+
+## Fail-closed execution controller
+- A historical backtest execution is successful only when runner execution, deterministic grading audit, and strict finalization all exit successfully.
+- Use `npm run backtest:controller -- --from ... --to ... --evidence ... --resume <run-file>` for an existing run once evidence is available.
+- An assistant progress response is never an execution boundary. If the active execution cannot reach the strict finalizer, persist a resumable non-complete state and exact cursor/blocker before ending.
+- Never infer completion from discovery counters or a modelled subset.
