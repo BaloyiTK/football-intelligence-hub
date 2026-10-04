@@ -116,11 +116,11 @@ After a complete run, identify recurring failure patterns. Candidate parameter c
 - A known historical final score is explicitly allowed for grading AFTER the reconstructed prediction has been frozen.
 
 ## NO BET reporting rule
-- `NO BET` is an internal model decision, not a prediction result.
-- Retain `NO BET` fixtures only in the internal audit for traceability.
+- `NO BET` and `NO MODEL` are internal processing decisions, not prediction result rows.
+- Do NOT persist `NO BET` or `NO MODEL` fixtures in the backtest `fixtures` result array. Persist only aggregate/checkpoint counts for these decisions.
 - Exclude `NO BET` fixtures from displayed backtest results, wins/losses, hit-rate denominators, market results, rating results, model-level performance results, sample-depth performance results, calibration results, and any headline performance statistics.
 - User-facing backtest result tables must show recommended bets only unless the user explicitly asks to inspect `NO BET` cases.
-- `NO MODEL` is likewise not a betting result and must not be mixed into recommended-bet performance statistics.
+- The persisted `fixtures` result array contains recommended bets only. `NO BET` / `NO MODEL` counts may remain in coverage checkpoints and aggregate processing metrics, but never as saved match-result records.
 
 ## User-requested backtest contract
 When the user asks for a backtest, treat the request as a complete execution task, not as a request for methodology or a partial sample.
