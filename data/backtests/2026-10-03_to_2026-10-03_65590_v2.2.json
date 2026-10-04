@@ -8,21 +8,18 @@
   "createdAt": "2026-10-04",
   "current": {
     "date": "2026-10-03",
-    "leagueIndex": 46,
-    "leagueId": "jpn-j2",
-    "stage": "prematch-research",
-    "fixture": "Albirex Niigata vs Tokushima Vortis"
+    "stage": "global-zero-fixture-certification"
   },
   "metrics": {
-    "leagueDaysComplete": 7,
+    "leagueDaysComplete": 8,
     "leagueDaysTotal": 61,
     "fixturesDiscovered": 40,
-    "fixturesProcessed": 37,
-    "modelled": 35,
+    "fixturesProcessed": 40,
+    "modelled": 38,
     "noModel": 3,
-    "recommendedBets": 34,
+    "recommendedBets": 37,
     "noBet": 1,
-    "wins": 28,
+    "wins": 31,
     "losses": 5
   },
   "leagueScan": [
@@ -724,13 +721,13 @@
       "leagueId": "jpn-j2",
       "country": "Japan",
       "name": "J2 League",
-      "status": "processing",
+      "status": "complete",
       "fixturesDiscovered": 5,
-      "fixturesProcessed": 2,
+      "fixturesProcessed": 5,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "processing"
+          "status": "complete"
         }
       ]
     },
@@ -2211,11 +2208,35 @@
       "homeTeam": "Albirex Niigata",
       "awayTeam": "Tokushima Vortis",
       "actualScore": "2-1",
-      "status": "discovered-pending-prematch-research",
+      "status": "BET",
       "sources": [
-        "https://fbref.com/en/matches/2026-10-03",
-        "https://statshub.sportradar.com/sportradar/en/sport/1/tournament/402/fixtures"
-      ]
+        "https://www.jleague.jp/en/match/j2/2026/100309/",
+        "https://www.jleague.jp/en/club/tokushima/"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-03T00:00:00+09:00",
+      "inputs": {
+        "homeAttack": 1.3333333333333333,
+        "awayAttack": 1.2173913043478262,
+        "homeDefence": 0.6956521739130436,
+        "awayDefence": 0.7407407407407407,
+        "leagueHomeGoals": 1.35,
+        "leagueAwayGoals": 1.15,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 1.55,
+      "lambdaAway": 1.08,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "rawProbability": 80.5,
+        "probability": 68.9,
+        "reliability": 0.856,
+        "rating": "Good"
+      },
+      "outcome": "WIN"
     },
     {
       "date": "2026-10-03",
@@ -2260,11 +2281,36 @@
       "homeTeam": "Oita Trinita",
       "awayTeam": "Montedio Yamagata",
       "actualScore": "2-1",
-      "status": "discovered-pending-prematch-research",
+      "status": "BET",
       "sources": [
-        "https://fbref.com/en/matches/2026-10-03",
-        "https://statshub.sportradar.com/sportradar/en/sport/1/tournament/402/fixtures"
-      ]
+        "https://www.betexplorer.com/football/team/oita-trinita/Q17PNMnc/",
+        "https://www.jleague.jp/en/club/yamagata/",
+        "https://www.soccerpunter.com/match/19719532/Oita-Trinita-vs-Montedio-Yamagata"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-03T00:00:00+09:00",
+      "inputs": {
+        "homeAttack": 0.4444444444444444,
+        "awayAttack": 0.6956521739130436,
+        "homeDefence": 0.6956521739130436,
+        "awayDefence": 0.7407407407407407,
+        "leagueHomeGoals": 1.35,
+        "leagueAwayGoals": 1.15,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 0.82,
+      "lambdaAway": 0.75,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Under 3.5",
+        "rawProbability": 92.5,
+        "probability": 79.2,
+        "reliability": 0.856,
+        "rating": "Strong"
+      },
+      "outcome": "WIN"
     },
     {
       "date": "2026-10-03",
@@ -2272,11 +2318,35 @@
       "homeTeam": "Tochigi City",
       "awayTeam": "FC Imabari",
       "actualScore": "1-2",
-      "status": "discovered-pending-prematch-research",
+      "status": "BET",
       "sources": [
-        "https://fbref.com/en/matches/2026-10-03",
-        "https://statshub.sportradar.com/sportradar/en/sport/1/tournament/402/fixtures"
-      ]
+        "https://www.jleague.jp/en/club/tochigic/",
+        "https://footballfixtures.org/team/imabari"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-03T00:00:00+09:00",
+      "inputs": {
+        "homeAttack": 0.7407407407407407,
+        "awayAttack": 0.6956521739130436,
+        "homeDefence": 1.2173913043478262,
+        "awayDefence": 1.1851851851851851,
+        "leagueHomeGoals": 1.35,
+        "leagueAwayGoals": 1.15,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 1.49,
+      "lambdaAway": 1.08,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "rawProbability": 72.4,
+        "probability": 69.2,
+        "reliability": 0.956,
+        "rating": "Good"
+      },
+      "outcome": "WIN"
     }
   ],
   "notes": [
