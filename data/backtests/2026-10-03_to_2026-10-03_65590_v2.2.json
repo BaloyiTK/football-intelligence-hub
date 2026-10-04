@@ -8,20 +8,18 @@
   "createdAt": "2026-10-04",
   "current": {
     "date": "2026-10-03",
-    "leagueIndex": 61,
-    "leagueId": "international-friendlies",
-    "stage": "prematch-research"
+    "stage": "global-zero-fixture-certification"
   },
   "metrics": {
-    "leagueDaysComplete": 3,
+    "leagueDaysComplete": 4,
     "leagueDaysTotal": 61,
-    "fixturesDiscovered": 25,
-    "fixturesProcessed": 19,
-    "modelled": 18,
+    "fixturesDiscovered": 24,
+    "fixturesProcessed": 24,
+    "modelled": 23,
     "noModel": 1,
-    "recommendedBets": 17,
+    "recommendedBets": 22,
     "noBet": 1,
-    "wins": 13,
+    "wins": 18,
     "losses": 4
   },
   "leagueScan": [
@@ -948,13 +946,13 @@
       "leagueId": "international-friendlies",
       "country": "International",
       "name": "International Friendlies",
-      "status": "processing",
-      "fixturesDiscovered": 6,
-      "fixturesProcessed": 0,
+      "status": "complete",
+      "fixturesDiscovered": 5,
+      "fixturesProcessed": 5,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "processing"
+          "status": "complete"
         }
       ],
       "sources": [
@@ -1626,84 +1624,180 @@
       "leagueId": "international-friendlies",
       "homeTeam": "Canada",
       "awayTeam": "Peru",
-      "actualScore": null,
-      "status": "discovered-pending-prematch-research",
+      "actualScore": "2-0",
+      "status": "BET",
       "sources": [
-        "https://fbref.com/en/matches/2026-10-03",
-        "https://www.sofascore.com/football/world/2026-10-03",
-        "https://www.footballfixtures.org/fixtures/2026-10-03",
-        "https://www.theguardian.com/football/fixtures/2026/Oct/03"
-      ]
+        "https://bueon.com/en/ai-predictions/2026-10-03/canada-vs-peru",
+        "https://www.footballwebpages.co.uk/international-friendly/international-friendly/fixtures-results/may"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-03T00:00:00Z",
+      "inputs": {
+        "homeAttack": 1.0112359550561798,
+        "awayAttack": 1.1818181818181817,
+        "homeDefence": 0.9090909090909091,
+        "awayDefence": 1.292134831460674,
+        "leagueHomeGoals": 1.78,
+        "leagueAwayGoals": 1.1,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 2.26,
+      "lambdaAway": 1.17,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "rawProbability": 86.3,
+        "probability": 73.8,
+        "reliability": 0.856,
+        "rating": "Good"
+      },
+      "outcome": "WIN"
     },
     {
       "date": "2026-10-03",
       "leagueId": "international-friendlies",
       "homeTeam": "Russia",
       "awayTeam": "Namibia",
-      "actualScore": null,
-      "status": "discovered-pending-prematch-research",
+      "actualScore": "6-0",
+      "status": "BET",
       "sources": [
-        "https://fbref.com/en/matches/2026-10-03",
-        "https://www.sofascore.com/football/world/2026-10-03",
-        "https://www.footballfixtures.org/fixtures/2026-10-03",
-        "https://www.theguardian.com/football/fixtures/2026/Oct/03"
-      ]
+        "https://last5games.com/head-to-head/namibia-vs-russia/18702-18741/",
+        "https://www.footballwebpages.co.uk/international-friendly/international-friendly/fixtures-results/may"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-03T00:00:00Z",
+      "inputs": {
+        "homeAttack": 0.8988764044943821,
+        "awayAttack": 0,
+        "homeDefence": 0.18181818181818182,
+        "awayDefence": 1.1235955056179776,
+        "leagueHomeGoals": 1.78,
+        "leagueAwayGoals": 1.1,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 1.8,
+      "lambdaAway": 0.2,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "rawProbability": 96.8,
+        "probability": 84.5,
+        "reliability": 0.873,
+        "rating": "Elite"
+      },
+      "outcome": "WIN"
     },
     {
       "date": "2026-10-03",
       "leagueId": "international-friendlies",
       "homeTeam": "Côte d'Ivoire",
       "awayTeam": "Cameroon",
-      "actualScore": null,
-      "status": "discovered-pending-prematch-research",
+      "actualScore": "0-1",
+      "status": "BET",
       "sources": [
-        "https://fbref.com/en/matches/2026-10-03",
-        "https://www.sofascore.com/football/world/2026-10-03",
-        "https://www.footballfixtures.org/fixtures/2026-10-03",
-        "https://www.theguardian.com/football/fixtures/2026/Oct/03"
-      ]
+        "https://www.betting.co.uk/tips/ivory-coast-vs-cameroon-prediction-international-friendlies-03-10-2026/",
+        "https://www.footballwebpages.co.uk/international-friendly/international-friendly/fixtures-results/may"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-03T00:00:00Z",
+      "inputs": {
+        "homeAttack": 0.8988764044943821,
+        "awayAttack": 1.0909090909090908,
+        "homeDefence": 0.7272727272727273,
+        "awayDefence": 0.5617977528089888,
+        "leagueHomeGoals": 1.78,
+        "leagueAwayGoals": 1.1,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 1.01,
+      "lambdaAway": 0.9,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Under 3.5",
+        "rawProbability": 87.3,
+        "probability": 74.7,
+        "reliability": 0.856,
+        "rating": "Good"
+      },
+      "outcome": "WIN"
     },
     {
       "date": "2026-10-03",
       "leagueId": "international-friendlies",
       "homeTeam": "USA",
       "awayTeam": "Mexico",
-      "actualScore": null,
-      "status": "discovered-pending-prematch-research",
+      "actualScore": "3-0",
+      "status": "BET",
       "sources": [
-        "https://fbref.com/en/matches/2026-10-03",
-        "https://www.sofascore.com/football/world/2026-10-03",
-        "https://www.footballfixtures.org/fixtures/2026-10-03",
-        "https://www.theguardian.com/football/fixtures/2026/Oct/03"
-      ]
+        "https://www.goal.com/en-us/news/watch-usa-v-mexico-live-stream-online-tv-channel/blt5a2a11fc72d5d91b",
+        "https://www.footballwebpages.co.uk/international-friendly/international-friendly/fixtures-results/may"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-03T00:00:00Z",
+      "inputs": {
+        "homeAttack": 1.4606741573033708,
+        "awayAttack": 1.6363636363636362,
+        "homeDefence": 1.8181818181818181,
+        "awayDefence": 0.5617977528089888,
+        "leagueHomeGoals": 1.78,
+        "leagueAwayGoals": 1.1,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 1.5,
+      "lambdaAway": 3,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "rawProbability": 94.3,
+        "probability": 80.7,
+        "reliability": 0.856,
+        "rating": "Strong"
+      },
+      "outcome": "WIN"
     },
     {
       "date": "2026-10-03",
       "leagueId": "international-friendlies",
       "homeTeam": "India",
       "awayTeam": "Brazil",
-      "actualScore": null,
-      "status": "discovered-pending-prematch-research",
+      "actualScore": "0-4",
+      "status": "BET",
       "sources": [
-        "https://fbref.com/en/matches/2026-10-03",
-        "https://www.sofascore.com/football/world/2026-10-03",
-        "https://www.footballfixtures.org/fixtures/2026-10-03",
-        "https://www.theguardian.com/football/fixtures/2026/Oct/03"
-      ]
-    },
-    {
-      "date": "2026-10-03",
-      "leagueId": "international-friendlies",
-      "homeTeam": "Argentina",
-      "awayTeam": "Burkina Faso",
-      "actualScore": null,
-      "status": "discovered-pending-prematch-research",
-      "sources": [
-        "https://fbref.com/en/matches/2026-10-03",
-        "https://www.sofascore.com/football/world/2026-10-03",
-        "https://www.footballfixtures.org/fixtures/2026-10-03",
-        "https://www.theguardian.com/football/fixtures/2026/Oct/03"
-      ]
+        "https://last5games.com/matches/brazil-vs-india-19786453/",
+        "https://www.footballwebpages.co.uk/international-friendly/international-friendly/fixtures-results/may"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-03T00:00:00Z",
+      "inputs": {
+        "homeAttack": 0.33707865168539325,
+        "awayAttack": 2,
+        "homeDefence": 1.4545454545454546,
+        "awayDefence": 0.6741573033707865,
+        "leagueHomeGoals": 1.78,
+        "leagueAwayGoals": 1.1,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 0.58,
+      "lambdaAway": 2.93,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "rawProbability": 95.7,
+        "probability": 83.5,
+        "reliability": 0.873,
+        "rating": "Strong"
+      },
+      "outcome": "WIN"
     }
   ],
   "notes": [
