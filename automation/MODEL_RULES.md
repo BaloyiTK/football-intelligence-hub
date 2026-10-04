@@ -34,3 +34,10 @@ Store rawProbability, reliability and adjusted probability for auditability. Rat
 Backtests must be walk-forward with no future leakage. Track hit rate, Brier/log loss where applicable, market type, probability band, model level and sample depth.
 
 Do not automatically promote a parameter change merely because it improves one weekly sample. A candidate change must improve a sufficiently sized holdout and must not materially damage calibration or key market segments.
+
+## NO BET reporting rule
+- `NO BET` is an internal model decision, not a prediction result.
+- Retain `NO BET` fixtures only in the internal audit for traceability.
+- Exclude `NO BET` fixtures from displayed backtest results, wins/losses, hit-rate denominators, market results, rating results, model-level performance results, sample-depth performance results, calibration results, and any headline performance statistics.
+- User-facing backtest result tables must show recommended bets only unless the user explicitly asks to inspect `NO BET` cases.
+- `NO MODEL` is likewise not a betting result and must not be mixed into recommended-bet performance statistics.
