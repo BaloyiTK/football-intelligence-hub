@@ -572,12 +572,11 @@
       "leagueId": "col-primera-a",
       "country": "Colombia",
       "name": "Categoria Primera A",
-      "status": "processing",
+      "status": "complete",
       "fixturesDiscovered": 5,
-      "fixturesProcessed": 0,
+      "fixturesProcessed": 5,
       "sources": [
-        "https://www.sportsgambler.com/fixtures-results/football/",
-        "https://www.flashscore.com/football/colombia/primera-a/fixtures/"
+        "https://www.dimayor.com.co/"
       ]
     },
     {
@@ -1138,31 +1137,102 @@
       "leagueId": "col-primera-a",
       "homeTeam": "Deportivo Pasto",
       "awayTeam": "Fortaleza",
-      "status": "discovered-pending-research"
+      "status": "BET",
+      "researchTimestamp": "2026-10-04T18:17:10+02:00",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 0.6944444444444444,
+        "awayAttack": 1.4876033057851241,
+        "homeDefence": 1.4876033057851241,
+        "awayDefence": 1.6666666666666667,
+        "leagueHomeGoals": 1.44,
+        "leagueAwayGoals": 1.21,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 1.64,
+      "lambdaAway": 2.49,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 78.9,
+        "rawProbability": 92.3,
+        "reliability": 0.856,
+        "rating": "Strong"
+      },
+      "sources": [
+        "https://www.dimayor.com.co/",
+        "https://www.soccerstats.com/table.asp?league=colombia2&tid=ha",
+        "https://www.fotmob.com/en/matches/deportivo-pasto-vs-fortaleza-fc/e6xktdn"
+      ]
     },
     {
       "leagueId": "col-primera-a",
       "homeTeam": "Cucuta",
       "awayTeam": "Deportivo Pereira",
-      "status": "discovered-pending-research"
+      "status": "BET",
+      "researchTimestamp": "2026-10-04T18:17:10+02:00",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 0.8333333333333334,
+        "awayAttack": 0.8264462809917356,
+        "homeDefence": 1.6528925619834711,
+        "awayDefence": 1.1111111111111112,
+        "leagueHomeGoals": 1.44,
+        "leagueAwayGoals": 1.21,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 1.35,
+      "lambdaAway": 1.6,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 68.6,
+        "rawProbability": 80.1,
+        "reliability": 0.856,
+        "rating": "Good"
+      },
+      "sources": [
+        "https://www.dimayor.com.co/",
+        "https://www.soccerstats.com/table.asp?league=colombia2&tid=ha",
+        "https://last5games.com/matches/cucuta-deportivo-vs-deportivo-pereira-19712987/"
+      ]
     },
     {
       "leagueId": "col-primera-a",
       "homeTeam": "Inter Bogota",
       "awayTeam": "Once Caldas",
-      "status": "discovered-pending-research"
+      "status": "NO_MODEL",
+      "researchTimestamp": "2026-10-04T18:17:10+02:00",
+      "noModelReason": "Reliable pre-kickoff recent scoring/conceding inputs were not available after Full→Standard→Basic research attempts.",
+      "sources": [
+        "https://www.dimayor.com.co/"
+      ]
     },
     {
       "leagueId": "col-primera-a",
       "homeTeam": "Bucaramanga",
       "awayTeam": "Junior",
-      "status": "discovered-pending-research"
+      "status": "NO_MODEL",
+      "researchTimestamp": "2026-10-04T18:17:10+02:00",
+      "noModelReason": "Reliable pre-kickoff recent scoring/conceding inputs were not available after Full→Standard→Basic research attempts.",
+      "sources": [
+        "https://www.dimayor.com.co/"
+      ]
     },
     {
       "leagueId": "col-primera-a",
       "homeTeam": "Llaneros",
       "awayTeam": "America de Cali",
-      "status": "discovered-pending-research"
+      "status": "NO_MODEL",
+      "researchTimestamp": "2026-10-04T18:17:10+02:00",
+      "noModelReason": "Reliable pre-kickoff recent scoring/conceding inputs were not available after Full→Standard→Basic research attempts.",
+      "sources": [
+        "https://www.dimayor.com.co/"
+      ]
     },
     {
       "leagueId": "jpn-j2",
@@ -1384,18 +1454,18 @@
     }
   ],
   "metrics": {
-    "leaguesChecked": 57,
+    "leaguesChecked": 58,
     "leaguesTotal": 61,
     "fixturesDiscovered": 36,
-    "fixturesProcessed": 18,
-    "modelled": 12,
-    "noModel": 6,
-    "recommendedBets": 10,
+    "fixturesProcessed": 23,
+    "modelled": 14,
+    "noModel": 9,
+    "recommendedBets": 12,
     "noBet": 2
   },
   "current": {
-    "leagueIndex": 44,
-    "leagueId": "col-primera-a",
+    "leagueIndex": 46,
+    "leagueId": "jpn-j2",
     "stage": "fixture-verification"
   },
   "notes": [
