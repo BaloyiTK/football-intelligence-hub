@@ -1,50 +1,30 @@
-# Deterministic Model Rules
+# Deterministic Model Rules — V2
 
-Web research gathers evidence. The numerical engine produces probabilities. Never invent probability values.
+The numerical engine is the sole producer of probabilities.
 
-## Model levels
+## V2 principles
+1. Separate attacking and defensive strength.
+2. Normalize against league home/away scoring baselines when available.
+3. Explicitly support home advantage.
+4. Blend stable venue/season strength with recent form: default 65% base + 35% recent when both exist.
+5. Clamp both lambdas to 0.2–4.0.
+6. Apply a Dixon–Coles-style low-score dependence correction to 0-0, 0-1, 1-0 and 1-1; default rho=-0.08 until calibration data supports league-specific rho.
+7. Normalize the corrected score matrix before deriving markets.
+8. Calculate grid through 8 goals.
+9. Store modelVersion=v2-dixon-coles.
 
-### Full
-When venue splits and league baselines exist:
-- homeAttack = homeVenueGF / leagueHomeAvg
-- awayDefence = awayVenueGA / leagueHomeAvg
-- awayAttack = awayVenueGF / leagueAwayAvg
-- homeDefence = homeVenueGA / leagueAwayAvg
-- lambdaHome = leagueHomeAvg * homeAttack * awayDefence
-- lambdaAway = leagueAwayAvg * awayAttack * homeDefence
-Use researched recent/xG evidence only through deterministic blending implemented by the project.
+## Evidence levels
+Full: venue attack/defence + league baselines, optionally recent/xG evidence.
+Standard: reliable recent GF/GA plus venue/league context where available.
+Basic: recent GF/GA fallback. lambdaHome=(homeGF+awayGA)/2; lambdaAway=(awayGF+homeGA)/2, then clamp.
 
-### Standard
-When some Full inputs are missing, derive lambda from verified recent GF/GA for both teams, using venue splits when available and league baselines when available. Do not replace missing fields with zero. Weight better/venue-specific samples more heavily than generic samples.
+Never fabricate missing evidence. Basic remains low confidence.
 
-### Basic
-When only reliable recent match results are available:
-- homeGF = home recent goals scored per match
-- homeGA = home recent goals conceded per match
-- awayGF = away recent goals scored per match
-- awayGA = away recent goals conceded per match
-- lambdaHome = (homeGF + awayGA) / 2
-- lambdaAway = (awayGF + homeGA) / 2
-Use preferably 5-10 completed matches per team. Clamp lambda to the project's safe range (minimum 0.2, maximum 4.0).
-
-Basic is a legitimate model with lower data confidence; it is preferable to No Model when its inputs are reliable.
-
-## Poisson
-P(k; lambda) = exp(-lambda) * lambda^k / k!
-Build a score matrix at least 0..7.
-
-Derive from the same matrix:
-- Home / Draw / Away
-- 1X / X2 / 12
-- BTTS
-- Over 1.5 / 2.5 / 3.5
-- Home 2+ / Away 2+
-- primary correct score = highest-probability cell
-- at least 3 alternative correct scores sorted by probability
+## Outputs
+Derive 1X2, double chance, BTTS, O1.5/O2.5/O3.5, team 2+, primary correct score and three alternatives from the same normalized score matrix.
 
 ## Confidence
-Store both modelLevel (full | standard | basic) and confidence (high | medium | low). Confidence describes evidence/model quality, NOT the chance that the predicted score will be correct.
+Confidence is evidence quality, not probability of prediction correctness. Full high/medium, Standard medium, Basic low by default.
 
-Full normally begins high/medium, Standard medium, and Basic low. Adjust downward for small samples, stale data, source disagreement or missing context. Never increase confidence merely because one Poisson cell has a high probability.
-
-Three P's, Heat and Floors may be added as deterministic layers without replacing the base Poisson outputs.
+## Calibration
+Archive pre-match V2 probabilities separately from the public feed so completed results can later be scored with Brier score, log loss, calibration curves, market accuracy and Full/Standard/Basic segmentation. Never put completed fixtures back into the public prediction feed.
