@@ -1,131 +1,8 @@
 {
   "date": "2026-10-04",
   "timezone": "Africa/Johannesburg",
-  "generatedAt": "2026-10-04T14:33:05.134Z",
+  "generatedAt": "2026-10-04T14:34:19.350Z",
   "fixtures": [
-    {
-      "fixtureKey": "2026-10-04|ned-eerste-divisie|vvv-venlo|roda-jc",
-      "leagueId": "ned-eerste-divisie",
-      "league": "Eerste Divisie",
-      "homeTeam": "VVV-Venlo",
-      "awayTeam": "Roda JC",
-      "kickoff": "14:30 CEST / 12:30 UTC",
-      "evidence": {
-        "level": "provisional",
-        "homeLast5": {
-          "gfPerMatch": 2.8,
-          "gaPerMatch": 1.8,
-          "record": "4W 0D 1L"
-        },
-        "awayLast5": {
-          "gfPerMatch": 1.2,
-          "gaPerMatch": 0.6,
-          "record": "2W 3D 0L"
-        },
-        "h2h": "24 meetings: VVV 4 wins, 8 draws, Roda JC 12 wins"
-      },
-      "model": {
-        "lambdaHome": 1.7,
-        "lambdaAway": 1.5,
-        "correctScore": {
-          "score": "1-1",
-          "probability": 10.4
-        },
-        "alternatives": [
-          {
-            "score": "2-1",
-            "probability": 8.8
-          },
-          {
-            "score": "1-2",
-            "probability": 7.8
-          }
-        ],
-        "homeWin": 42.6,
-        "draw": 23.3,
-        "awayWin": 34.1,
-        "doubleChance": {
-          "homeOrDraw": 65.9,
-          "awayOrDraw": 57.4,
-          "homeOrAway": 76.7
-        },
-        "btts": 63.5,
-        "over15": 82.8,
-        "over25": 62,
-        "over35": 39.7,
-        "home2Plus": 50.6,
-        "away2Plus": 44.2,
-        "confidence": "provisional"
-      },
-      "sources": [
-        "https://www.soccernews.com/soccer-stats/dutch-eerste-divisie/fixtures-and-results/?season=2026",
-        "https://fbref.com/en/stathead/matchup/teams/534ac6d0/45b403c3/VVV-Venlo-vs-Roda-JC-Kerkrade-History",
-        "https://www.vvv-venlo.nl/wedstrijden/resultaten/",
-        "https://www.aiscore.com/head-to-head/soccer-roda-jc-vs-vvv-venlo"
-      ]
-    },
-    {
-      "fixtureKey": "2026-10-04|esp-segunda|real-sociedad-ii|granada",
-      "leagueId": "esp-segunda",
-      "league": "Segunda Division",
-      "homeTeam": "Real Sociedad II",
-      "awayTeam": "Granada",
-      "kickoff": "14:00 SAST",
-      "status": "No Model",
-      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
-      "model": null
-    },
-    {
-      "fixtureKey": "2026-10-04|esp-segunda|sporting-gij-n|celta-de-vigo-ii",
-      "leagueId": "esp-segunda",
-      "league": "Segunda Division",
-      "homeTeam": "Sporting Gijón",
-      "awayTeam": "Celta de Vigo II",
-      "kickoff": "16:15 SAST",
-      "status": "Predicted",
-      "model": {
-        "lambdaHome": 1.14,
-        "lambdaAway": 1,
-        "correctScore": {
-          "score": "1-0",
-          "probability": 13.4
-        },
-        "alternatives": [
-          {
-            "score": "1-1",
-            "probability": 13.4
-          },
-          {
-            "score": "0-0",
-            "probability": 11.7
-          },
-          {
-            "score": "0-1",
-            "probability": 11.7
-          }
-        ],
-        "homeWin": 38.9,
-        "draw": 29.5,
-        "awayWin": 31.6,
-        "doubleChance": {
-          "homeOrDraw": 68.4,
-          "awayOrDraw": 61.1,
-          "homeOrAway": 70.5
-        },
-        "btts": 43.1,
-        "over15": 63.1,
-        "over25": 36.2,
-        "over35": 17,
-        "home2Plus": 31.7,
-        "away2Plus": 26.4,
-        "confidence": "moderate"
-      },
-      "sources": [
-        "https://www.fotmob.com/matches/sporting-gijon-vs-celta-fortuna/6rj56bn",
-        "https://www.sportsmole.co.uk/football/segunda-division/sporting-gijon-vs-celta-de-vigo-ii_game_259394.html"
-      ],
-      "researchedAt": "2026-10-04T14:25:11.176Z"
-    },
     {
       "fixtureKey": "2026-10-04|esp-segunda|las-palmas|real-valladolid",
       "leagueId": "esp-segunda",
@@ -349,68 +226,6 @@
       "status": "No Model",
       "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
       "model": null
-    },
-    {
-      "fixtureKey": "2026-10-04|jpn-j2|tegevajaro-miyazaki|omiya-ardija",
-      "leagueId": "jpn-j2",
-      "league": "J2 League",
-      "homeTeam": "Tegevajaro Miyazaki",
-      "awayTeam": "Omiya Ardija",
-      "kickoff": "12:00 SAST",
-      "status": "No Model",
-      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
-      "model": null
-    },
-    {
-      "fixtureKey": "2026-10-04|uefa-nations-league|azerbaijan|lithuania",
-      "leagueId": "uefa-nations-league",
-      "league": "UEFA Nations League",
-      "homeTeam": "Azerbaijan",
-      "awayTeam": "Lithuania",
-      "kickoff": "15:00 SAST",
-      "status": "Predicted",
-      "model": {
-        "lambdaHome": 0.7,
-        "lambdaAway": 1.1,
-        "correctScore": {
-          "score": "0-1",
-          "probability": 18.2
-        },
-        "alternatives": [
-          {
-            "score": "0-0",
-            "probability": 16.5
-          },
-          {
-            "score": "1-1",
-            "probability": 12.7
-          },
-          {
-            "score": "1-0",
-            "probability": 11.6
-          }
-        ],
-        "homeWin": 23.2,
-        "draw": 31.9,
-        "awayWin": 44.9,
-        "doubleChance": {
-          "homeOrDraw": 55.1,
-          "awayOrDraw": 76.8,
-          "homeOrAway": 68.1
-        },
-        "btts": 33.6,
-        "over15": 53.7,
-        "over25": 26.9,
-        "over35": 10.9,
-        "home2Plus": 15.6,
-        "away2Plus": 30.1,
-        "confidence": "moderate"
-      },
-      "sources": [
-        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
-        "https://www.fotmob.com/matches/lithuania-vs-azerbaijan/2c89eg"
-      ],
-      "researchedAt": "2026-10-04T14:25:11.180Z"
     },
     {
       "fixtureKey": "2026-10-04|uefa-nations-league|kosovo|austria",
@@ -730,28 +545,6 @@
       "researchedAt": "2026-10-04T14:30:42.430Z"
     },
     {
-      "fixtureKey": "2026-10-04|international-friendlies|usa|mexico",
-      "leagueId": "international-friendlies",
-      "league": "International Friendlies",
-      "homeTeam": "USA",
-      "awayTeam": "Mexico",
-      "kickoff": "04:00 SAST",
-      "status": "No Model",
-      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
-      "model": null
-    },
-    {
-      "fixtureKey": "2026-10-04|international-friendlies|senegal|comoros",
-      "leagueId": "international-friendlies",
-      "league": "International Friendlies",
-      "homeTeam": "Senegal",
-      "awayTeam": "Comoros",
-      "kickoff": "14:00 SAST",
-      "status": "No Model",
-      "reason": "Fixture verified in full league scan; statistical research not yet sufficient for deterministic model.",
-      "model": null
-    },
-    {
       "fixtureKey": "2026-10-04|international-friendlies|egypt|south-africa",
       "leagueId": "international-friendlies",
       "league": "International Friendlies",
@@ -828,20 +621,6 @@
         "https://www.skysports.com/football/morocco-vs-mali/578658"
       ],
       "researchedAt": "2026-10-04T14:30:42.430Z"
-    },
-    {
-      "fixtureKey": "2026-10-04|international-friendlies|kyrgyzstan|lebanon",
-      "leagueId": "international-friendlies",
-      "league": "International Friendlies",
-      "homeTeam": "Kyrgyzstan",
-      "awayTeam": "Lebanon",
-      "kickoff": "14:00 SAST",
-      "status": "No Model",
-      "reason": "Fixture verified; manual run reached/started around kickoff, so no retrospective prediction generated.",
-      "model": null,
-      "sources": [
-        "https://www.fotmob.com/en-GB/matches/kyrgyzstan-vs-lebanon/15dx82"
-      ]
     }
   ],
   "scan": {
@@ -851,6 +630,6 @@
     "completedAt": "2026-10-04T14:25:11.180Z",
     "duplicatePolicy": "fixtureKey",
     "failures": [],
-    "notes": "Full manual run using GitHub automation rules. Removed fixtures falling on 5 Oct SAST, corrected friendly replacements/orientation, and did not retrospectively predict matches already completed before this run. Improved fallback pass applied: Full -> Standard -> Basic; reliable recent-score evidence converted eligible No Model fixtures to Basic predictions. Completed fixtures removed from prediction feed by policy."
+    "notes": "Full manual run using GitHub automation rules. Removed fixtures falling on 5 Oct SAST, corrected friendly replacements/orientation, and did not retrospectively predict matches already completed before this run. Improved fallback pass applied: Full -> Standard -> Basic; reliable recent-score evidence converted eligible No Model fixtures to Basic predictions. Completed fixtures removed from prediction feed by policy. Live status refresh: started/live/completed fixtures purged and are not listed."
   }
 }
