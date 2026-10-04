@@ -47,8 +47,14 @@
         "home2Plus": 39.4,
         "away2Plus": 34.1,
         "confidence": "medium",
-        "modelVersion": "v2-dixon-coles",
-        "modelLevel": "standard"
+        "modelVersion": "v2.1-dixon-coles-market-selector",
+        "modelLevel": "standard",
+        "recommendedBet": {
+          "market": "Team Goals",
+          "pick": "Home 1+",
+          "probability": 74.3,
+          "rating": "Good"
+        }
       },
       "sources": [
         "https://www.laliga.com/en-US/match/temporada-2026-2027-laliga-hypermotion-ud-las-palmas-real-valladolid-cf-8",
@@ -100,8 +106,14 @@
         "home2Plus": 64.8,
         "away2Plus": 11.2,
         "confidence": "high",
-        "modelVersion": "v2-dixon-coles",
-        "modelLevel": "full"
+        "modelVersion": "v2.1-dixon-coles-market-selector",
+        "modelLevel": "full",
+        "recommendedBet": {
+          "market": "Double Chance",
+          "pick": "1X",
+          "probability": 92.5,
+          "rating": "Elite"
+        }
       },
       "sources": [
         "https://www.laliga.com/en-US/match/temporada-2026-2027-laliga-hypermotion-cd-castellon-ad-ceuta-fc-8",
@@ -153,8 +165,14 @@
         "home2Plus": 34.1,
         "away2Plus": 31.6,
         "confidence": "medium",
-        "modelVersion": "v2-dixon-coles",
-        "modelLevel": "standard"
+        "modelVersion": "v2.1-dixon-coles-market-selector",
+        "modelLevel": "standard",
+        "recommendedBet": {
+          "market": "Total Goals",
+          "pick": "Under 3.5",
+          "probability": 78.9,
+          "rating": "Strong"
+        }
       },
       "sources": [
         "https://iaas-public-front-pro.laliga.com/partido/temporada-2026-2027-laliga-hypermotion-girona-fc-rcd-mallorca-8"
@@ -206,7 +224,13 @@
         "over35": 46.3,
         "home2Plus": 50.7,
         "away2Plus": 53.7,
-        "modelVersion": "v2-dixon-coles"
+        "modelVersion": "v2.1-dixon-coles-market-selector",
+        "recommendedBet": {
+          "market": "Total Goals",
+          "pick": "Over 1.5",
+          "probability": 87.1,
+          "rating": "Elite"
+        }
       },
       "sources": [
         "https://www.fotmob.com/es-419/matches/deportivo-pasto-vs-fortaleza-fc/e6xktdn",
@@ -258,8 +282,14 @@
         "home2Plus": 26.4,
         "away2Plus": 54.6,
         "confidence": "medium",
-        "modelVersion": "v2-dixon-coles",
-        "modelLevel": "standard"
+        "modelVersion": "v2.1-dixon-coles-market-selector",
+        "modelLevel": "standard",
+        "recommendedBet": {
+          "market": "Team Goals",
+          "pick": "Away 1+",
+          "probability": 84,
+          "rating": "Strong"
+        }
       },
       "sources": [
         "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
@@ -312,7 +342,13 @@
         "over35": 22.5,
         "home2Plus": 44.2,
         "away2Plus": 23.4,
-        "modelVersion": "v2-dixon-coles"
+        "modelVersion": "v2.1-dixon-coles-market-selector",
+        "recommendedBet": {
+          "market": "Double Chance",
+          "pick": "1X",
+          "probability": 77.9,
+          "rating": "Strong"
+        }
       },
       "sources": [
         "https://www.uefa.com/uefanationsleague/match/2047928--luxembourg-malta-vs-andorra/",
@@ -365,7 +401,13 @@
         "over35": 20.7,
         "home2Plus": 32.5,
         "away2Plus": 32.5,
-        "modelVersion": "v2-dixon-coles"
+        "modelVersion": "v2.1-dixon-coles-market-selector",
+        "recommendedBet": {
+          "market": "Total Goals",
+          "pick": "Under 3.5",
+          "probability": 79.3,
+          "rating": "Strong"
+        }
       },
       "sources": [
         "https://www.uefa.com/uefanationsleague/match/2047926--greece-vs-germany/",
@@ -417,8 +459,14 @@
         "home2Plus": 66.9,
         "away2Plus": 22.8,
         "confidence": "high",
-        "modelVersion": "v2-dixon-coles",
-        "modelLevel": "full"
+        "modelVersion": "v2.1-dixon-coles-market-selector",
+        "modelLevel": "full",
+        "recommendedBet": {
+          "market": "Team Goals",
+          "pick": "Home 1+",
+          "probability": 90,
+          "rating": "Elite"
+        }
       },
       "sources": [
         "https://www.skysports.com/football/netherlands-vs-serbia/554062"
@@ -469,8 +517,14 @@
         "home2Plus": 53.7,
         "away2Plus": 37.3,
         "confidence": "medium",
-        "modelVersion": "v2-dixon-coles",
-        "modelLevel": "standard"
+        "modelVersion": "v2.1-dixon-coles-market-selector",
+        "modelLevel": "standard",
+        "recommendedBet": {
+          "market": "Team Goals",
+          "pick": "Home 1+",
+          "probability": 83.5,
+          "rating": "Strong"
+        }
       },
       "sources": [
         "https://www.fotmob.com/en-GB/matches/portugal-vs-norway/2ck62b"
@@ -521,8 +575,14 @@
         "home2Plus": 44.2,
         "away2Plus": 19.1,
         "confidence": "medium",
-        "modelVersion": "v2-dixon-coles",
-        "modelLevel": "standard"
+        "modelVersion": "v2.1-dixon-coles-market-selector",
+        "modelLevel": "standard",
+        "recommendedBet": {
+          "market": "Double Chance",
+          "pick": "1X",
+          "probability": 81,
+          "rating": "Strong"
+        }
       },
       "sources": [
         "https://www.fotmob.com/en-GB/matches/ireland-vs-israel/1pdm5w"
@@ -574,7 +634,13 @@
         "over35": 31.5,
         "home2Plus": 32.5,
         "away2Plus": 49.6,
-        "modelVersion": "v2-dixon-coles"
+        "modelVersion": "v2.1-dixon-coles-market-selector",
+        "recommendedBet": {
+          "market": "Team Goals",
+          "pick": "Away 1+",
+          "probability": 81.1,
+          "rating": "Strong"
+        }
       },
       "sources": [
         "https://www.skysports.com/football/wales-vs-denmark/554066"
@@ -626,7 +692,13 @@
         "over35": 15.8,
         "home2Plus": 29.5,
         "away2Plus": 26.4,
-        "modelVersion": "v2-dixon-coles"
+        "modelVersion": "v2.1-dixon-coles-market-selector",
+        "recommendedBet": {
+          "market": "Total Goals",
+          "pick": "Under 3.5",
+          "probability": 84.2,
+          "rating": "Strong"
+        }
       },
       "sources": [
         "https://www.goal.com/en-za/lists/egypt-vs-south-africa-international-friendly-how-to-watch-bafana-bafana-kick-off-time-venue-squad-news-team-form-and-predictions/bltb3df3373c71f0a97",
@@ -679,7 +751,13 @@
         "over35": 14.3,
         "home2Plus": 38.5,
         "away2Plus": 14.4,
-        "modelVersion": "v2-dixon-coles"
+        "modelVersion": "v2.1-dixon-coles-market-selector",
+        "recommendedBet": {
+          "market": "Total Goals",
+          "pick": "Under 3.5",
+          "probability": 85.7,
+          "rating": "Elite"
+        }
       },
       "sources": [
         "https://www.reuters.com/sports/soccer/african-national-teams-head-off-friendly-assignments-2026-10-01/",
@@ -695,6 +773,6 @@
     "completedAt": "2026-10-04T14:25:11.180Z",
     "duplicatePolicy": "fixtureKey",
     "failures": [],
-    "notes": "Full manual run using GitHub automation rules. Removed fixtures falling on 5 Oct SAST, corrected friendly replacements/orientation, and did not retrospectively predict matches already completed before this run. Improved fallback pass applied: Full -> Standard -> Basic; reliable recent-score evidence converted eligible No Model fixtures to Basic predictions. Completed fixtures removed from prediction feed by policy. Live status refresh: started/live/completed fixtures purged and are not listed. No Model fixtures removed from public feed; published fixtures are prediction-only. 16:35 SAST rerun: prediction-only filter reapplied; any fixture already kicked off removed. V2 rerun: Dixon-Coles low-score correction applied to all still-published pre-match predictions."
+    "notes": "Full manual run using GitHub automation rules. Removed fixtures falling on 5 Oct SAST, corrected friendly replacements/orientation, and did not retrospectively predict matches already completed before this run. Improved fallback pass applied: Full -> Standard -> Basic; reliable recent-score evidence converted eligible No Model fixtures to Basic predictions. Completed fixtures removed from prediction feed by policy. Live status refresh: started/live/completed fixtures purged and are not listed. No Model fixtures removed from public feed; published fixtures are prediction-only. 16:35 SAST rerun: prediction-only filter reapplied; any fixture already kicked off removed. V2 rerun: Dixon-Coles low-score correction applied to all still-published pre-match predictions. V2.1 market selector added: one recommended market per modelled fixture or NO BET."
   }
 }
