@@ -10,626 +10,1480 @@
   "dailyScan": [
     {
       "date": "2026-10-02",
-      "status": "discovering"
+      "status": "processing"
     }
   ],
   "leagueScan": [
     {
       "leagueId": "eng-premier-league",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "eng-championship",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "eng-league-one",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "eng-league-two",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "esp-la-liga",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "esp-segunda",
-      "status": "pending",
+      "status": "processing",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "processing",
+          "fixturesDiscovered": 1,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 1,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "ita-serie-a",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "ita-serie-b",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "ger-bundesliga",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "ger-2-bundesliga",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "fra-ligue-1",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "fra-ligue-2",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "ned-eredivisie",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "ned-eerste-divisie",
-      "status": "pending",
+      "status": "processing",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "processing",
+          "fixturesDiscovered": 1,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 1,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "por-primeira-liga",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "bel-pro-league",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "sco-premiership",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "tur-super-lig",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "gre-super-league",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "aut-bundesliga",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "sui-super-league",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "den-superliga",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "nor-eliteserien",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "swe-allsvenskan",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "fin-veikkausliiga",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "pol-ekstraklasa",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "cze-first-league",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "cro-hnl",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "ser-superliga",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "rou-liga-1",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "ukr-premier-league",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "uefa-champions-league",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "uefa-europa-league",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "uefa-conference-league",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "uefa-nations-league",
-      "status": "pending",
+      "status": "processing",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "processing",
+          "fixturesDiscovered": 10,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 10,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "uefa-euro",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "conmebol-libertadores",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "conmebol-sudamericana",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "bra-serie-a",
-      "status": "pending",
+      "status": "processing",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "processing",
+          "fixturesDiscovered": 1,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 1,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "bra-serie-b",
-      "status": "pending",
+      "status": "processing",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "processing",
+          "fixturesDiscovered": 4,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 4,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "arg-primera",
-      "status": "pending",
+      "status": "processing",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "processing",
+          "fixturesDiscovered": 3,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 3,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "usa-mls",
-      "status": "pending",
+      "status": "processing",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "processing",
+          "fixturesDiscovered": 1,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 1,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "mex-liga-mx",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "col-primera-a",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "jpn-j1",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "jpn-j2",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "kor-k1",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "chn-super-league",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "aus-a-league",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "ksa-pro-league",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "qat-stars-league",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "uae-pro-league",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "rsa-premiership",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "rsa-first-division",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "egy-premier-league",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "mar-botola",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "tun-ligue-1",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "caf-champions-league",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "caf-confederation-cup",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "fifa-world-cup",
-      "status": "pending",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "complete",
+          "fixturesDiscovered": 0,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     },
     {
       "leagueId": "international-friendlies",
-      "status": "pending",
+      "status": "processing",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "pending"
+          "status": "processing",
+          "fixturesDiscovered": 4,
+          "fixturesProcessed": 0,
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-02",
+            "https://www.footballfixtures.org/fixtures/2026-10-02",
+            "https://www.livescore.mobi/football/2026-10-02/"
+          ]
         }
+      ],
+      "fixturesDiscovered": 4,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-02",
+        "https://www.footballfixtures.org/fixtures/2026-10-02",
+        "https://www.livescore.mobi/football/2026-10-02/"
       ]
     }
   ],
   "fixtures": [],
   "metrics": {
-    "leagueDaysComplete": 0,
+    "leagueDaysComplete": 53,
     "leagueDaysTotal": 61,
-    "fixturesDiscovered": 0,
+    "fixturesDiscovered": 25,
     "fixturesProcessed": 0,
     "modelled": 0,
     "recommendedBets": 0,
@@ -638,7 +1492,8 @@
   },
   "current": {
     "date": "2026-10-02",
-    "stage": "global-fixture-discovery"
+    "leagueId": "esp-segunda",
+    "stage": "prematch-research"
   },
   "aggregateMetrics": null,
   "failureAnalysis": [],
