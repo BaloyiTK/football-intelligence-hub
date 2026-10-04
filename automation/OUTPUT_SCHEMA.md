@@ -1,17 +1,14 @@
 # Daily Output Contract
 
-Path: `data/predictions/YYYY-MM-DD.json`
+Daily public betting data contains only pre-match fixtures with a deterministic model AND a non-null `recommendedBet`.
 
-`fixtures` is prediction-only and pre-match. Every row must be upcoming and have a deterministic model. Never publish started/live/completed/cancelled/abandoned or model:null rows.
+Each published model includes modelLevel, confidence/evidence metadata, sampleSize when known, lambdas, correct score + alternatives, 1X2, double chance, BTTS, totals, team goals and recommendedBet.
 
-Each model includes modelLevel, confidence, lambdaHome/lambdaAway, correct score + alternatives, 1X2, double chance, BTTS, totals, team-goal probabilities, and `recommendedBet`.
+recommendedBet V2.2:
+`{ market, pick, probability, rawProbability, reliability, rating }`
+- probability = reliability-adjusted recommendation probability
+- rawProbability = probability from the normalized score model
+- reliability = evidence/market reliability multiplier
+- rating uses adjusted probability
 
-`recommendedBet` is either:
-`{ market, pick, probability, rating }`
-or `null` meaning NO BET.
-
-There is at most ONE recommended betting market per fixture. Correct score remains visible but is not the bet unless a future explicitly supported selector rule says so.
-
-Fixtures that cannot be modelled after Full -> Standard -> Basic are omitted. Modelled fixtures with no market clearing the selector floors remain visible with recommendedBet:null.
-
-Immediately before output: fixture is pre-match AND model != null.
+NO BET fixtures are excluded from the main public betting list, but may be retained separately for research/backtesting. Never publish started/live/completed/cancelled/abandoned fixtures.
