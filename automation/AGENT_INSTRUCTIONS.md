@@ -59,3 +59,23 @@ For today's run, do not require historical grading. For a backtest, also obey `H
 - If validation fails, DO NOT stop at the checkpoint and DO NOT present final selections. Continue the active execution when possible; otherwise report the exact blocker and leave status in-progress.
 - User-facing progress must distinguish `leagues discovered` from `leagues fully processed`.
 - A run file's stored counters are advisory; final status must be recomputed/validated from fixture and league states.
+
+## No-voluntary-stop execution rule
+For user commands that start execution (for example: "run today", "run tonight", "backtest", or "resume run"), a progress update is informational only and is NEVER a stopping condition.
+
+A normal final response is allowed only when ONE of these is true:
+1. The run passes `npm run run:finalize -- <run-file>`; or
+2. A real external/technical blocker prevents further tool execution in the active response. In that case persist `status: "blocked"`, persist a specific `blocker` reason and exact resume cursor, and report that blocker. Do not call ordinary workload, many fixtures, research still pending, or a progress checkpoint a blocker.
+
+After every progress update, immediately continue with the next persisted non-terminal league/fixture. Never voluntarily end because discovery, a checkpoint, a batch, a league, or a progress message completed.
+
+## Resume determinism
+- Persist `current` with date, leagueIndex/leagueId, fixture index or fixture identity, and stage.
+- On resume, read the run file and continue from the first non-terminal checkpoint; do not rediscover completed work unless verification is contradicted.
+- Terminal fixture records must contain sources and the evidence/model state needed for audit.
+- Zero-fixture league completion requires at least one explicit verification source; absence from an API/dataset is not enough.
+- `blocked` is reserved for genuine external/technical inability to proceed and requires a blocker reason. Pending research is `processing`, not blocked.
+
+## Validation modes
+- `npm run run:validate -- <run-file>` checks checkpoint integrity and allows legitimate in-progress work.
+- `npm run run:finalize -- <run-file>` is the strict completion gate and must pass before a run is described as finished or final recommendations are presented as the completed run.
