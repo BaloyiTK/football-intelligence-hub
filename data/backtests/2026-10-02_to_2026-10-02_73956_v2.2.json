@@ -953,12 +953,12 @@
     },
     {
       "leagueId": "bra-serie-b",
-      "status": "processing",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "processing",
-          "fixturesDiscovered": 4,
+          "status": "complete",
+          "fixturesDiscovered": 3,
           "fixturesProcessed": 3,
           "sources": [
             "https://fbref.com/en/matches/2026-10-02",
@@ -967,7 +967,7 @@
           ]
         }
       ],
-      "fixturesDiscovered": 4,
+      "fixturesDiscovered": 3,
       "fixturesProcessed": 3,
       "sources": [
         "https://fbref.com/en/matches/2026-10-02",
@@ -2123,9 +2123,9 @@
     }
   ],
   "metrics": {
-    "leagueDaysComplete": 59,
+    "leagueDaysComplete": 60,
     "leagueDaysTotal": 61,
-    "fixturesDiscovered": 22,
+    "fixturesDiscovered": 21,
     "fixturesProcessed": 17,
     "modelled": 17,
     "recommendedBets": 15,
@@ -2134,12 +2134,11 @@
   },
   "current": {
     "date": "2026-10-02",
-    "leagueId": "bra-serie-b",
-    "fixture": "Fortaleza vs Nautico",
-    "stage": "prematch-research"
+    "leagueId": "international-friendlies",
+    "stage": "fixture-verification"
   },
   "aggregateMetrics": null,
   "failureAnalysis": [],
   "improvementCandidates": [],
-  "blocker": "Required pre-kickoff evidence remains for Fortaleza vs Nautico and 4 senior international friendlies; current web-research allowance is exhausted before reliable V2.2 inputs can be reconstructed. Resume from this exact cursor; do not invent missing inputs."
+  "blocker": "International-friendlies source conflict: official Chinese FA schedule lists China PR vs Turkmenistan and Tajikistan vs Palestine on 2026-10-02, while multiple result aggregators list China PR vs Palestine 0-5. The fixture universe must be resolved before modelling/grading. Fortaleza vs Nautico was corrected to 2026-10-03 and removed from Oct 2."
 }
