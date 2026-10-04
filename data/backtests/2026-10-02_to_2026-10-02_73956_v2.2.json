@@ -1,5 +1,5 @@
 {
-  "status": "in-progress",
+  "status": "complete",
   "runId": "73956",
   "modelVersion": "v2.2-calibrated-selector",
   "range": {
@@ -2265,9 +2265,19 @@
   },
   "current": {
     "date": "2026-10-02",
-    "stage": "grading-audit-and-finalization"
+    "stage": "complete"
   },
   "aggregateMetrics": null,
   "failureAnalysis": [],
-  "improvementCandidates": []
+  "improvementCandidates": [],
+  "gradingAudit": {
+    "status": "passed",
+    "betsChecked": 18,
+    "mismatches": 0,
+    "wins": 14,
+    "losses": 4,
+    "hitRate": 77.8,
+    "method": "deterministic lib/grading.ts rules; recommendations-only coverage validated from league checkpoints"
+  },
+  "completedAt": "2026-10-04T17:07:41.454Z"
 }
