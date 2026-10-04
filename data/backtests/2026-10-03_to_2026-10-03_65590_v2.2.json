@@ -8,22 +8,21 @@
   "createdAt": "2026-10-04",
   "current": {
     "date": "2026-10-03",
-    "leagueIndex": 4,
-    "leagueId": "eng-league-two",
-    "stage": "prematch-research",
-    "fixture": "Crewe Alexandra vs Bristol Rovers"
+    "leagueIndex": 61,
+    "leagueId": "international-friendlies",
+    "stage": "prematch-research"
   },
   "metrics": {
-    "leagueDaysComplete": 2,
+    "leagueDaysComplete": 3,
     "leagueDaysTotal": 61,
     "fixturesDiscovered": 25,
-    "fixturesProcessed": 14,
-    "modelled": 14,
-    "noModel": 0,
-    "recommendedBets": 13,
+    "fixturesProcessed": 19,
+    "modelled": 18,
+    "noModel": 1,
+    "recommendedBets": 17,
     "noBet": 1,
-    "wins": 11,
-    "losses": 2
+    "wins": 13,
+    "losses": 4
   },
   "leagueScan": [
     {
@@ -82,13 +81,13 @@
       "leagueId": "eng-league-two",
       "country": "England",
       "name": "League Two",
-      "status": "processing",
+      "status": "complete",
       "fixturesDiscovered": 8,
-      "fixturesProcessed": 3,
+      "fixturesProcessed": 8,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "processing"
+          "status": "complete"
         }
       ],
       "sources": [
@@ -1145,14 +1144,14 @@
       "leagueId": "eng-league-two",
       "homeTeam": "Crewe Alexandra",
       "awayTeam": "Bristol Rovers",
-      "actualScore": null,
-      "status": "discovered-pending-prematch-research",
+      "actualScore": "3-1",
+      "status": "NO_MODEL",
       "sources": [
-        "https://fbref.com/en/matches/2026-10-03",
-        "https://www.sofascore.com/football/world/2026-10-03",
-        "https://www.footballfixtures.org/fixtures/2026-10-03",
-        "https://www.theguardian.com/football/fixtures/2026/Oct/03"
-      ]
+        "https://www.efl.com/news/2026/october/03/salford-top-the-table-/"
+      ],
+      "modelLevel": "no-model",
+      "noModelReason": "Reliable pre-kickoff recent GF/GA evidence was not reconstructed within the available historical research sources.",
+      "outcome": "NO_MODEL"
     },
     {
       "date": "2026-10-03",
@@ -1195,56 +1194,144 @@
       "leagueId": "eng-league-two",
       "homeTeam": "Gillingham",
       "awayTeam": "Newport County",
-      "actualScore": null,
-      "status": "discovered-pending-prematch-research",
+      "actualScore": "0-0",
+      "status": "BET",
       "sources": [
-        "https://fbref.com/en/matches/2026-10-03",
-        "https://www.sofascore.com/football/world/2026-10-03",
-        "https://www.footballfixtures.org/fixtures/2026-10-03",
-        "https://www.theguardian.com/football/fixtures/2026/Oct/03"
-      ]
+        "https://last5games.com/matches/gillingham-vs-newport-county-19727683/",
+        "https://www.efl.com/news/2026/october/03/salford-top-the-table-/"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-03T13:59:00Z",
+      "inputs": {
+        "homeAttack": 1.4814814814814814,
+        "awayAttack": 0.6956521739130436,
+        "homeDefence": 0.8695652173913044,
+        "awayDefence": 0.7407407407407407,
+        "leagueHomeGoals": 1.35,
+        "leagueAwayGoals": 1.15,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 1.46,
+      "lambdaAway": 0.75,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "rawProbability": 81.7,
+        "probability": 71.3,
+        "reliability": 0.873,
+        "rating": "Good"
+      },
+      "outcome": "WIN"
     },
     {
       "date": "2026-10-03",
       "leagueId": "eng-league-two",
       "homeTeam": "Grimsby Town",
       "awayTeam": "Shrewsbury Town",
-      "actualScore": null,
-      "status": "discovered-pending-prematch-research",
+      "actualScore": "1-2",
+      "status": "BET",
       "sources": [
-        "https://fbref.com/en/matches/2026-10-03",
-        "https://www.sofascore.com/football/world/2026-10-03",
-        "https://www.footballfixtures.org/fixtures/2026-10-03",
-        "https://www.theguardian.com/football/fixtures/2026/Oct/03"
-      ]
+        "https://last5games.com/matches/grimsby-town-vs-shrewsbury-town-19727682/",
+        "https://www.efl.com/news/2026/october/03/salford-top-the-table-/"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-03T13:59:00Z",
+      "inputs": {
+        "homeAttack": 1.3333333333333333,
+        "awayAttack": 0.8695652173913044,
+        "homeDefence": 1.0434782608695652,
+        "awayDefence": 1.1851851851851851,
+        "leagueHomeGoals": 1.35,
+        "leagueAwayGoals": 1.15,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 2.03,
+      "lambdaAway": 1.06,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "rawProbability": 81.7,
+        "probability": 71.3,
+        "reliability": 0.873,
+        "rating": "Good"
+      },
+      "outcome": "LOSS"
     },
     {
       "date": "2026-10-03",
       "leagueId": "eng-league-two",
       "homeTeam": "Rochdale",
       "awayTeam": "Swindon Town",
-      "actualScore": null,
-      "status": "discovered-pending-prematch-research",
+      "actualScore": "1-0",
+      "status": "BET",
       "sources": [
-        "https://fbref.com/en/matches/2026-10-03",
-        "https://www.sofascore.com/football/world/2026-10-03",
-        "https://www.footballfixtures.org/fixtures/2026-10-03",
-        "https://www.theguardian.com/football/fixtures/2026/Oct/03"
-      ]
+        "https://last5games.com/head-to-head/rochdale-vs-swindon-town/240-285/",
+        "https://www.efl.com/news/2026/october/03/salford-top-the-table-/"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-03T13:59:00Z",
+      "inputs": {
+        "homeAttack": 1.1851851851851851,
+        "awayAttack": 1.2173913043478262,
+        "homeDefence": 0.8695652173913044,
+        "awayDefence": 1.1851851851851851,
+        "leagueHomeGoals": 1.35,
+        "leagueAwayGoals": 1.15,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 1.83,
+      "lambdaAway": 1.21,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "rawProbability": 81.5,
+        "probability": 69.7,
+        "reliability": 0.856,
+        "rating": "Good"
+      },
+      "outcome": "LOSS"
     },
     {
       "date": "2026-10-03",
       "leagueId": "eng-league-two",
       "homeTeam": "Salford City",
       "awayTeam": "Fleetwood Town",
-      "actualScore": null,
-      "status": "discovered-pending-prematch-research",
+      "actualScore": "1-0",
+      "status": "BET",
       "sources": [
-        "https://fbref.com/en/matches/2026-10-03",
-        "https://www.sofascore.com/football/world/2026-10-03",
-        "https://www.footballfixtures.org/fixtures/2026-10-03",
-        "https://www.theguardian.com/football/fixtures/2026/Oct/03"
-      ]
+        "https://last5games.com/matches/fleetwood-town-vs-salford-city-19727679/",
+        "https://www.efl.com/news/2026/october/03/salford-top-the-table-/"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-03T13:59:00Z",
+      "inputs": {
+        "homeAttack": 1.6296296296296298,
+        "awayAttack": 1.0434782608695652,
+        "homeDefence": 0.8695652173913044,
+        "awayDefence": 0.8888888888888888,
+        "leagueHomeGoals": 1.35,
+        "leagueAwayGoals": 1.15,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 1.88,
+      "lambdaAway": 1.06,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "rawProbability": 79.8,
+        "probability": 69.7,
+        "reliability": 0.873,
+        "rating": "Good"
+      },
+      "outcome": "WIN"
     },
     {
       "date": "2026-10-03",
