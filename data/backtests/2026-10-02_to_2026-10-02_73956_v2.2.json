@@ -832,22 +832,23 @@
     },
     {
       "leagueId": "uefa-nations-league",
-      "status": "processing",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "processing",
+          "status": "complete",
           "fixturesDiscovered": 10,
-          "fixturesProcessed": 0,
+          "fixturesProcessed": 10,
           "sources": [
             "https://fbref.com/en/matches/2026-10-02",
             "https://www.footballfixtures.org/fixtures/2026-10-02",
             "https://www.livescore.mobi/football/2026-10-02/"
-          ]
+          ],
+          "noBet": 2
         }
       ],
       "fixturesDiscovered": 10,
-      "fixturesProcessed": 0,
+      "fixturesProcessed": 10,
       "sources": [
         "https://fbref.com/en/matches/2026-10-02",
         "https://www.footballfixtures.org/fixtures/2026-10-02",
@@ -1565,21 +1566,365 @@
         "rating": "Strong"
       },
       "outcome": "WIN"
+    },
+    {
+      "date": "2026-10-02",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Bosnia & Herzegovina",
+      "awayTeam": "Sweden",
+      "actualScore": {
+        "home": 1,
+        "away": 1
+      },
+      "status": "BET",
+      "sources": [
+        "https://tips.gg/article/bosnia-and-herzegovina-vs-sweden-head-to-head-02-10-2026/",
+        "https://www.bettingacademyus.com/stats/competition/europe-stats/1661/n6wdZbLXzQ73J/statistics"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 6,
+      "evidenceCutoff": "2026-10-02T13:59:00Z",
+      "inputs": {
+        "homeAttack": 1.3157894737,
+        "homeDefence": 1.2531328321,
+        "awayAttack": 1.5037593985,
+        "awayDefence": 1.7543859649,
+        "leagueHomeGoals": 1.14,
+        "leagueAwayGoals": 1.33,
+        "modelLevel": "basic",
+        "sampleSize": 6
+      },
+      "lambdaHome": 2.44,
+      "lambdaAway": 2.36,
+      "correctScore": {
+        "score": "2-2",
+        "probability": 6.8
+      },
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "rawProbability": 95.6,
+        "probability": 81.8,
+        "reliability": 0.856,
+        "rating": "Strong"
+      },
+      "outcome": "WIN"
+    },
+    {
+      "date": "2026-10-02",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Hungary",
+      "awayTeam": "Georgia",
+      "actualScore": {
+        "home": 1,
+        "away": 0
+      },
+      "status": "BET",
+      "sources": [
+        "https://www.oddscalendar.com/football/europe/nations-league/hungary-vs-georgia/1528926",
+        "https://www.bettingacademyus.com/stats/competition/europe-stats/1661/n6wdZbLXzQ73J/statistics"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-02T13:59:00Z",
+      "inputs": {
+        "homeAttack": 0.8771929825,
+        "homeDefence": 0.4511278195,
+        "awayAttack": 0.7518796992,
+        "awayDefence": 0.350877193,
+        "leagueHomeGoals": 1.14,
+        "leagueAwayGoals": 1.33,
+        "modelLevel": "basic",
+        "sampleSize": 5
+      },
+      "lambdaHome": 0.45,
+      "lambdaAway": 0.56,
+      "correctScore": {
+        "score": "0-0",
+        "probability": 37
+      },
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Under 3.5",
+        "rawProbability": 98,
+        "probability": 83.8,
+        "reliability": 0.856,
+        "rating": "Strong"
+      },
+      "outcome": "WIN"
+    },
+    {
+      "date": "2026-10-02",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Latvia",
+      "awayTeam": "Montenegro",
+      "actualScore": {
+        "home": 1,
+        "away": 2
+      },
+      "status": "BET",
+      "sources": [
+        "https://www.oddscalendar.com/football/europe/nations-league/latvia-vs-montenegro/1545608",
+        "https://www.bettingacademyus.com/stats/competition/europe-stats/1661/n6wdZbLXzQ73J/statistics"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-02T13:59:00Z",
+      "inputs": {
+        "homeAttack": 0.5263157895,
+        "homeDefence": 0.6015037594,
+        "awayAttack": 1.5037593985,
+        "awayDefence": 1.4035087719,
+        "leagueHomeGoals": 1.14,
+        "leagueAwayGoals": 1.33,
+        "modelLevel": "basic",
+        "sampleSize": 5
+      },
+      "lambdaHome": 0.88,
+      "lambdaAway": 1.22,
+      "correctScore": {
+        "score": "1-1",
+        "probability": 14.2
+      },
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Under 3.5",
+        "rawProbability": 83.9,
+        "probability": 71.8,
+        "reliability": 0.856,
+        "rating": "Good"
+      },
+      "outcome": "WIN"
+    },
+    {
+      "date": "2026-10-02",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Faroe Islands",
+      "awayTeam": "Slovakia",
+      "actualScore": {
+        "home": 1,
+        "away": 1
+      },
+      "status": "BET",
+      "sources": [
+        "https://www.oddscalendar.com/football/europe/nations-league/faroe-islands-vs-slovakia/1528931",
+        "https://www.bettingacademyus.com/stats/competition/europe-stats/1661/n6wdZbLXzQ73J/statistics"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-02T13:59:00Z",
+      "inputs": {
+        "homeAttack": 1.0526315789,
+        "homeDefence": 0.9022556391,
+        "awayAttack": 1.5037593985,
+        "awayDefence": 0.701754386,
+        "leagueHomeGoals": 1.14,
+        "leagueAwayGoals": 1.33,
+        "modelLevel": "basic",
+        "sampleSize": 5
+      },
+      "lambdaHome": 0.88,
+      "lambdaAway": 1.74,
+      "correctScore": {
+        "score": "1-1",
+        "probability": 12
+      },
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "rawProbability": 82.2,
+        "probability": 71.8,
+        "reliability": 0.873,
+        "rating": "Good"
+      },
+      "outcome": "WIN"
+    },
+    {
+      "date": "2026-10-02",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Poland",
+      "awayTeam": "Romania",
+      "actualScore": {
+        "home": 6,
+        "away": 0
+      },
+      "status": "BET",
+      "sources": [
+        "https://www.oddscalendar.com/football/europe/nations-league/poland-vs-romania/1528928",
+        "https://www.bettingacademyus.com/stats/competition/europe-stats/1661/n6wdZbLXzQ73J/statistics"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-02T13:59:00Z",
+      "inputs": {
+        "homeAttack": 0.8771929825,
+        "homeDefence": 1.5037593985,
+        "awayAttack": 0.9022556391,
+        "awayDefence": 1.7543859649,
+        "leagueHomeGoals": 1.14,
+        "leagueAwayGoals": 1.33,
+        "modelLevel": "basic",
+        "sampleSize": 5
+      },
+      "lambdaHome": 1.68,
+      "lambdaAway": 1.74,
+      "correctScore": {
+        "score": "1-1",
+        "probability": 10.3
+      },
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "rawProbability": 86.3,
+        "probability": 73.8,
+        "reliability": 0.856,
+        "rating": "Good"
+      },
+      "outcome": "WIN"
+    },
+    {
+      "date": "2026-10-02",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Kazakhstan",
+      "awayTeam": "Moldova",
+      "actualScore": {
+        "home": 1,
+        "away": 2
+      },
+      "status": "BET",
+      "sources": [
+        "https://tips.gg/article/kazakhstan-vs-moldova-head-to-head-02-10-2026/",
+        "https://www.bettingacademyus.com/stats/competition/europe-stats/1661/n6wdZbLXzQ73J/statistics"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 6,
+      "evidenceCutoff": "2026-10-02T13:59:00Z",
+      "inputs": {
+        "homeAttack": 1.0233918129,
+        "homeDefence": 0.8771929825,
+        "awayAttack": 0.7518796992,
+        "awayDefence": 1.6081871345,
+        "leagueHomeGoals": 1.14,
+        "leagueAwayGoals": 1.33,
+        "modelLevel": "basic",
+        "sampleSize": 6
+      },
+      "lambdaHome": 1.78,
+      "lambdaAway": 0.93,
+      "correctScore": {
+        "score": "1-1",
+        "probability": 11.9
+      },
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "rawProbability": 81.4,
+        "probability": 71.1,
+        "reliability": 0.873,
+        "rating": "Good"
+      },
+      "outcome": "LOSS"
+    },
+    {
+      "date": "2026-10-02",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Belgium",
+      "awayTeam": "Türkiye",
+      "actualScore": {
+        "home": 3,
+        "away": 0
+      },
+      "status": "BET",
+      "sources": [
+        "https://footballwhispers.com/blog/belgium-vs-turkey-prediction-preview-betting-tips-02-10-2026/",
+        "https://www.bettingacademyus.com/stats/competition/europe-stats/1661/n6wdZbLXzQ73J/statistics"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-02T13:59:00Z",
+      "inputs": {
+        "homeAttack": 1.7543859649,
+        "homeDefence": 0.9022556391,
+        "awayAttack": 0.6015037594,
+        "awayDefence": 1.7543859649,
+        "leagueHomeGoals": 1.14,
+        "leagueAwayGoals": 1.33,
+        "modelLevel": "basic",
+        "sampleSize": 5
+      },
+      "lambdaHome": 3.21,
+      "lambdaAway": 0.8,
+      "correctScore": {
+        "score": "3-0",
+        "probability": 10.1
+      },
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "rawProbability": 94.4,
+        "probability": 82.4,
+        "reliability": 0.873,
+        "rating": "Strong"
+      },
+      "outcome": "WIN"
+    },
+    {
+      "date": "2026-10-02",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Ukraine",
+      "awayTeam": "Northern Ireland",
+      "actualScore": {
+        "home": 0,
+        "away": 3
+      },
+      "status": "BET",
+      "sources": [
+        "https://tips.gg/article/ukraine-vs-northern-ireland-head-to-head-02-10-2026/",
+        "https://www.bettingacademyus.com/stats/competition/europe-stats/1661/n6wdZbLXzQ73J/statistics"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 6,
+      "evidenceCutoff": "2026-10-02T13:59:00Z",
+      "inputs": {
+        "homeAttack": 1.0233918129,
+        "homeDefence": 0.3759398496,
+        "awayAttack": 0.5012531328,
+        "awayDefence": 0.8771929825,
+        "leagueHomeGoals": 1.14,
+        "leagueAwayGoals": 1.33,
+        "modelLevel": "basic",
+        "sampleSize": 6
+      },
+      "lambdaHome": 1.04,
+      "lambdaAway": 0.39,
+      "correctScore": {
+        "score": "0-0",
+        "probability": 24.8
+      },
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Under 3.5",
+        "rawProbability": 94.3,
+        "probability": 80.7,
+        "reliability": 0.856,
+        "rating": "Strong"
+      },
+      "outcome": "WIN"
     }
   ],
   "metrics": {
-    "leagueDaysComplete": 56,
+    "leagueDaysComplete": 57,
     "leagueDaysTotal": 61,
     "fixturesDiscovered": 22,
-    "fixturesProcessed": 2,
-    "modelled": 2,
-    "recommendedBets": 2,
-    "wins": 1,
-    "losses": 1
+    "fixturesProcessed": 12,
+    "modelled": 12,
+    "recommendedBets": 10,
+    "wins": 8,
+    "losses": 2
   },
   "current": {
     "date": "2026-10-02",
-    "leagueId": "uefa-nations-league",
+    "leagueId": "bra-serie-a",
     "stage": "prematch-research"
   },
   "aggregateMetrics": null,
