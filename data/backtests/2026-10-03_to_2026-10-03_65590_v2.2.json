@@ -3,19 +3,19 @@
   "dateFrom": "2026-10-03",
   "dateTo": "2026-10-03",
   "modelVersion": "v2.2-calibrated-selector",
-  "status": "blocked",
+  "status": "in-progress",
   "researchMode": "chatgpt-web-primary",
   "createdAt": "2026-10-04",
   "current": {
     "date": "2026-10-03",
-    "leagueIndex": 1,
-    "leagueId": "eng-premier-league",
-    "stage": "fixture-discovery"
+    "leagueIndex": 3,
+    "leagueId": "eng-league-one",
+    "stage": "prematch-research"
   },
   "metrics": {
     "leagueDaysComplete": 0,
     "leagueDaysTotal": 61,
-    "fixturesDiscovered": 0,
+    "fixturesDiscovered": 25,
     "fixturesProcessed": 0,
     "modelled": 0,
     "noModel": 0,
@@ -60,14 +60,20 @@
       "leagueId": "eng-league-one",
       "country": "England",
       "name": "League One",
-      "status": "pending",
-      "fixturesDiscovered": 0,
+      "status": "processing",
+      "fixturesDiscovered": 3,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "processing"
         }
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.sofascore.com/football/world/2026-10-03",
+        "https://www.footballfixtures.org/fixtures/2026-10-03",
+        "https://www.theguardian.com/football/fixtures/2026/Oct/03"
       ]
     },
     {
@@ -75,14 +81,20 @@
       "leagueId": "eng-league-two",
       "country": "England",
       "name": "League Two",
-      "status": "pending",
-      "fixturesDiscovered": 0,
+      "status": "processing",
+      "fixturesDiscovered": 8,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "processing"
         }
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.sofascore.com/football/world/2026-10-03",
+        "https://www.footballfixtures.org/fixtures/2026-10-03",
+        "https://www.theguardian.com/football/fixtures/2026/Oct/03"
       ]
     },
     {
@@ -540,14 +552,20 @@
       "leagueId": "uefa-nations-league",
       "country": "Europe",
       "name": "UEFA Nations League",
-      "status": "pending",
-      "fixturesDiscovered": 0,
+      "status": "processing",
+      "fixturesDiscovered": 8,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "processing"
         }
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.sofascore.com/football/world/2026-10-03",
+        "https://www.footballfixtures.org/fixtures/2026-10-03",
+        "https://www.theguardian.com/football/fixtures/2026/Oct/03"
       ]
     },
     {
@@ -930,30 +948,364 @@
       "leagueId": "international-friendlies",
       "country": "International",
       "name": "International Friendlies",
-      "status": "pending",
-      "fixturesDiscovered": 0,
+      "status": "processing",
+      "fixturesDiscovered": 6,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "processing"
         }
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.sofascore.com/football/world/2026-10-03",
+        "https://www.footballfixtures.org/fixtures/2026-10-03",
+        "https://www.theguardian.com/football/fixtures/2026/Oct/03"
       ]
     }
   ],
-  "fixtures": [],
-  "blocker": {
-    "type": "external-tool-limit",
-    "reason": "Web research search-call allowance exhausted before the required 61 configured league-days and pre-kickoff fixture evidence could be exhaustively researched. No aggregate performance is valid yet.",
-    "resumeCursor": {
+  "fixtures": [
+    {
       "date": "2026-10-03",
-      "leagueIndex": 1,
-      "leagueId": "eng-premier-league",
-      "stage": "fixture-discovery"
+      "leagueId": "eng-league-one",
+      "homeTeam": "Burton Albion",
+      "awayTeam": "Huddersfield Town",
+      "actualScore": null,
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.sofascore.com/football/world/2026-10-03",
+        "https://www.footballfixtures.org/fixtures/2026-10-03",
+        "https://www.theguardian.com/football/fixtures/2026/Oct/03"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "eng-league-one",
+      "homeTeam": "Leyton Orient",
+      "awayTeam": "Plymouth Argyle",
+      "actualScore": null,
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.sofascore.com/football/world/2026-10-03",
+        "https://www.footballfixtures.org/fixtures/2026-10-03",
+        "https://www.theguardian.com/football/fixtures/2026/Oct/03"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "eng-league-one",
+      "homeTeam": "Reading",
+      "awayTeam": "Bradford City",
+      "actualScore": null,
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.sofascore.com/football/world/2026-10-03",
+        "https://www.footballfixtures.org/fixtures/2026-10-03",
+        "https://www.theguardian.com/football/fixtures/2026/Oct/03"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "eng-league-two",
+      "homeTeam": "Chesterfield",
+      "awayTeam": "Tranmere Rovers",
+      "actualScore": null,
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.sofascore.com/football/world/2026-10-03",
+        "https://www.footballfixtures.org/fixtures/2026-10-03",
+        "https://www.theguardian.com/football/fixtures/2026/Oct/03"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "eng-league-two",
+      "homeTeam": "Accrington Stanley",
+      "awayTeam": "Cheltenham Town",
+      "actualScore": null,
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.sofascore.com/football/world/2026-10-03",
+        "https://www.footballfixtures.org/fixtures/2026-10-03",
+        "https://www.theguardian.com/football/fixtures/2026/Oct/03"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "eng-league-two",
+      "homeTeam": "Crewe Alexandra",
+      "awayTeam": "Bristol Rovers",
+      "actualScore": null,
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.sofascore.com/football/world/2026-10-03",
+        "https://www.footballfixtures.org/fixtures/2026-10-03",
+        "https://www.theguardian.com/football/fixtures/2026/Oct/03"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "eng-league-two",
+      "homeTeam": "Exeter City",
+      "awayTeam": "Rotherham United",
+      "actualScore": null,
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.sofascore.com/football/world/2026-10-03",
+        "https://www.footballfixtures.org/fixtures/2026-10-03",
+        "https://www.theguardian.com/football/fixtures/2026/Oct/03"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "eng-league-two",
+      "homeTeam": "Gillingham",
+      "awayTeam": "Newport County",
+      "actualScore": null,
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.sofascore.com/football/world/2026-10-03",
+        "https://www.footballfixtures.org/fixtures/2026-10-03",
+        "https://www.theguardian.com/football/fixtures/2026/Oct/03"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "eng-league-two",
+      "homeTeam": "Grimsby Town",
+      "awayTeam": "Shrewsbury Town",
+      "actualScore": null,
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.sofascore.com/football/world/2026-10-03",
+        "https://www.footballfixtures.org/fixtures/2026-10-03",
+        "https://www.theguardian.com/football/fixtures/2026/Oct/03"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "eng-league-two",
+      "homeTeam": "Rochdale",
+      "awayTeam": "Swindon Town",
+      "actualScore": null,
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.sofascore.com/football/world/2026-10-03",
+        "https://www.footballfixtures.org/fixtures/2026-10-03",
+        "https://www.theguardian.com/football/fixtures/2026/Oct/03"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "eng-league-two",
+      "homeTeam": "Salford City",
+      "awayTeam": "Fleetwood Town",
+      "actualScore": null,
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.sofascore.com/football/world/2026-10-03",
+        "https://www.footballfixtures.org/fixtures/2026-10-03",
+        "https://www.theguardian.com/football/fixtures/2026/Oct/03"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Finland",
+      "awayTeam": "Albania",
+      "actualScore": "2-1",
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Croatia",
+      "awayTeam": "England",
+      "actualScore": "0-7",
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Belarus",
+      "awayTeam": "San Marino",
+      "actualScore": "4-0",
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Estonia",
+      "awayTeam": "Luxembourg",
+      "actualScore": "1-0",
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Iceland",
+      "awayTeam": "Bulgaria",
+      "actualScore": "3-0",
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Spain",
+      "awayTeam": "Czechia",
+      "actualScore": "3-1",
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "North Macedonia",
+      "awayTeam": "Scotland",
+      "actualScore": "0-2",
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Switzerland",
+      "awayTeam": "Slovenia",
+      "actualScore": "2-1",
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "international-friendlies",
+      "homeTeam": "Canada",
+      "awayTeam": "Peru",
+      "actualScore": null,
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.sofascore.com/football/world/2026-10-03",
+        "https://www.footballfixtures.org/fixtures/2026-10-03",
+        "https://www.theguardian.com/football/fixtures/2026/Oct/03"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "international-friendlies",
+      "homeTeam": "Russia",
+      "awayTeam": "Namibia",
+      "actualScore": null,
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.sofascore.com/football/world/2026-10-03",
+        "https://www.footballfixtures.org/fixtures/2026-10-03",
+        "https://www.theguardian.com/football/fixtures/2026/Oct/03"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "international-friendlies",
+      "homeTeam": "Côte d'Ivoire",
+      "awayTeam": "Cameroon",
+      "actualScore": null,
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.sofascore.com/football/world/2026-10-03",
+        "https://www.footballfixtures.org/fixtures/2026-10-03",
+        "https://www.theguardian.com/football/fixtures/2026/Oct/03"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "international-friendlies",
+      "homeTeam": "USA",
+      "awayTeam": "Mexico",
+      "actualScore": null,
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.sofascore.com/football/world/2026-10-03",
+        "https://www.footballfixtures.org/fixtures/2026-10-03",
+        "https://www.theguardian.com/football/fixtures/2026/Oct/03"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "international-friendlies",
+      "homeTeam": "India",
+      "awayTeam": "Brazil",
+      "actualScore": null,
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.sofascore.com/football/world/2026-10-03",
+        "https://www.footballfixtures.org/fixtures/2026-10-03",
+        "https://www.theguardian.com/football/fixtures/2026/Oct/03"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "international-friendlies",
+      "homeTeam": "Argentina",
+      "awayTeam": "Burkina Faso",
+      "actualScore": null,
+      "status": "discovered-pending-prematch-research",
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.sofascore.com/football/world/2026-10-03",
+        "https://www.footballfixtures.org/fixtures/2026-10-03",
+        "https://www.theguardian.com/football/fixtures/2026/Oct/03"
+      ]
     }
-  },
+  ],
   "notes": [
     "Backtest must resume from persisted cursor and cover all 61 configured leagues.",
     "Do not report a win/loss rate until fixtures are frozen from pre-kickoff evidence and all league-days are complete."
-  ]
+  ],
+  "globalDiscovery": {
+    "date": "2026-10-03",
+    "status": "mapped-partial",
+    "sources": [
+      "https://fbref.com/en/matches/2026-10-03",
+      "https://www.sofascore.com/football/world/2026-10-03",
+      "https://www.footballfixtures.org/fixtures/2026-10-03",
+      "https://www.theguardian.com/football/fixtures/2026/Oct/03"
+    ],
+    "note": "Date-level global discovery active; targeted verification only for configured competitions requiring disambiguation."
+  }
 }
