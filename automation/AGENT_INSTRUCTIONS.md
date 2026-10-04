@@ -116,3 +116,10 @@ When the global finalization gate has not passed:
 When `npm run run:finalize -- <run-file>` passes, the eligible BET set may be labelled the completed/final daily recommendations.
 
 A blocker therefore stops further research execution, not access to valid predictions already frozen before the blocker.
+
+## Automatic retry and resume
+- Repository automation may resume persisted `blocked` or `in-progress` backtests from their saved cursor/checkpoints.
+- Automatic resume MUST NOT recreate or re-grade terminal fixture records; the runner skips completed date/league checkpoints and duplicate fixture identities.
+- Transient runner failures may retry with bounded exponential backoff. A retry does not permit fabricated evidence or bypass validation.
+- Scheduled automation may only process evidence already available to the repository. It cannot replenish ChatGPT/web-search allowance or invent missing research. If required evidence is absent, the run remains blocked/in-progress until evidence is supplied by a valid source.
+- Completion still requires the strict finalization gate; automatic retry does not weaken any coverage, evidence, leakage or audit requirement.
