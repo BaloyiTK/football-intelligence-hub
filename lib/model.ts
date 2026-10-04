@@ -15,13 +15,16 @@ const clamp=(v:number,lo=.2,hi=4)=>Math.min(hi,Math.max(lo,v));
 const blend=(base:number,recent?:number)=>recent==null?base:0.65*base+0.35*recent;
 const dcTau=(x:number,y:number,lh:number,la:number,rho:number)=>{if(x===0&&y===0)return 1-lh*la*rho;if(x===0&&y===1)return 1+lh*rho;if(x===1&&y===0)return 1+la*rho;if(x===1&&y===1)return 1-rho;return 1;};
 const evidenceFactor=(i:ModelInput)=>{const level=i.modelLevel==="full"?1:i.modelLevel==="standard"?.96:.90;const n=i.sampleSize??5;const sample=n>=8?1:n>=5?.97:n>=3?.92:.84;return level*sample;};
+// Missing volatility is uncertainty, not evidence of a quiet game. Basic/Standard Under 3.5 selections
+// therefore receive a conservative reliability haircut unless recent O3.5 history is actually supplied.
+const under35Reliability=(i:ModelInput,ef:number)=>{const known=i.recentOver35Rate!=null;const over35=known?Math.max(0,Math.min(1,i.recentOver35Rate!)):null;const volatility=over35==null?(i.modelLevel==="full"?.90:.84):Math.max(.72,.98-over35*.22);return ef*volatility;};
 const rating=(p:number):BetRecommendation["rating"]=>p>=85?"Elite":p>=75?"Strong":"Good";
 const recommend=(m:{home:number;draw:number;away:number;dc:{homeOrDraw:number;awayOrDraw:number;homeOrAway:number};btts:number;o15:number;o25:number;o35:number;lh:number;la:number},i:ModelInput):BetRecommendation|null=>{
- const ef=evidenceFactor(i), over35=i.recentOver35Rate??0;
+ const ef=evidenceFactor(i);
  const rows=[
   ["Double Chance","1X",m.dc.homeOrDraw,72,1],["Double Chance","X2",m.dc.awayOrDraw,72,1],["Double Chance","12",m.dc.homeOrAway,75,.98],
   ["Total Goals","Over 1.5",m.o15,72,.98],["Total Goals","Over 2.5",m.o25,68,.94],
-  ["Total Goals","Under 3.5",100-m.o35,72,Math.max(.78,.98-over35*.18)],
+  ["Total Goals","Under 3.5",100-m.o35,72,under35Reliability(i,1)],
   ["BTTS","Yes",m.btts,68,.93],["BTTS","No",100-m.btts,68,.93],
   ["Team Goals","Home 1+",100-Math.exp(-m.lh),74,(i.homeScoringRate??.75)>=.6?.94:.82],
   ["Team Goals","Away 1+",100-Math.exp(-m.la),78,(i.awayScoringRate??.70)>=.65?.88:.76],
