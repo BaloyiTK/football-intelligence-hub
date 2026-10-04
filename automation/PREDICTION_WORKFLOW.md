@@ -1,20 +1,17 @@
 # Daily Prediction Workflow
 
-Authoritative procedure for every manual or scheduled prediction run.
-
-1. Resolve current date/time in Africa/Johannesburg.
+1. Resolve Africa/Johannesburg date/time.
 2. Process every league in `data/leagues.json` through the FINAL entry.
-3. Discover and verify fixtures; exclude anything no longer pre-match.
-4. Research each upcoming fixture.
-5. Attempt Full -> Standard -> Basic. Never fabricate inputs.
-6. Run deterministic V2.1 model.
+3. Verify today's fixtures and exclude non-pre-match fixtures.
+4. Research each fixture and record evidence depth: sampleSize, modelLevel, scoring consistency and recent goal volatility where available.
+5. Attempt Full -> Standard -> Basic without fabricating inputs.
+6. Run V2.2 calibrated Dixon-Coles model.
 7. Calculate all markets and correct score.
-8. Run the one-market selector. Store exactly one recommendedBet or null (NO BET).
-9. Keep successfully modelled NO BET fixtures visible for analytics; omit only fixtures where modelling itself failed.
-10. Continue through final league; recheck status before writing.
-11. Purge started/live/completed/cancelled/abandoned fixtures.
-12. Verify checked-league count equals total league count.
-13. Write daily JSON, commit main, verify Vercel READY and production.
-14. Report fixture count, recommended-bet count, NO BET count and model-level mix.
+8. Run reliability-adjusted one-market selector; store one recommendedBet or null.
+9. PUBLIC BETTING LIST: publish only fixtures with recommendedBet != null. NO BET/model-only fixtures may be retained in internal/archive analytics but must not appear in the main betting list.
+10. Continue through final league; recheck kickoff/status before writing.
+11. Verify all league entries were checked.
+12. Write daily/archive data, commit main, verify Vercel production.
+13. Report recommendations, NO BET count and evidence mix.
 
-Correct score is a forecast. The recommendedBet is the single actionable model selection and is the metric used for betting-performance backtests.
+Correct score is supporting forecast information. recommendedBet is the single actionable selection.
