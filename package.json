@@ -15,7 +15,8 @@
     "run:finalize": "tsx scripts/finalize-run.ts",
     "run:predictions": "tsx scripts/show-predictions.ts",
     "backtest:resume": "tsx scripts/resume-backtests.ts",
-    "backtest:audit": "tsx scripts/audit-backtest-grading.ts"
+    "backtest:audit": "tsx scripts/audit-backtest-grading.ts",
+    "backtest:controller": "tsx scripts/backtest-controller.ts"
   },
   "dependencies": {
     "next": "15.5.7",
