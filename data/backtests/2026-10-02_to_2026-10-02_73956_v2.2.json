@@ -136,13 +136,13 @@
     },
     {
       "leagueId": "esp-segunda",
-      "status": "processing",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "processing",
+          "status": "complete",
           "fixturesDiscovered": 1,
-          "fixturesProcessed": 0,
+          "fixturesProcessed": 1,
           "sources": [
             "https://fbref.com/en/matches/2026-10-02",
             "https://www.footballfixtures.org/fixtures/2026-10-02",
@@ -151,7 +151,7 @@
         }
       ],
       "fixturesDiscovered": 1,
-      "fixturesProcessed": 0,
+      "fixturesProcessed": 1,
       "sources": [
         "https://fbref.com/en/matches/2026-10-02",
         "https://www.footballfixtures.org/fixtures/2026-10-02",
@@ -328,13 +328,13 @@
     },
     {
       "leagueId": "ned-eerste-divisie",
-      "status": "processing",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "processing",
+          "status": "complete",
           "fixturesDiscovered": 1,
-          "fixturesProcessed": 0,
+          "fixturesProcessed": 1,
           "sources": [
             "https://fbref.com/en/matches/2026-10-02",
             "https://www.footballfixtures.org/fixtures/2026-10-02",
@@ -343,7 +343,7 @@
         }
       ],
       "fixturesDiscovered": 1,
-      "fixturesProcessed": 0,
+      "fixturesProcessed": 1,
       "sources": [
         "https://fbref.com/en/matches/2026-10-02",
         "https://www.footballfixtures.org/fixtures/2026-10-02",
@@ -1479,20 +1479,107 @@
       ]
     }
   ],
-  "fixtures": [],
+  "fixtures": [
+    {
+      "date": "2026-10-02",
+      "leagueId": "esp-segunda",
+      "homeTeam": "CD Eldense",
+      "awayTeam": "Real Oviedo",
+      "actualScore": {
+        "home": 4,
+        "away": 1
+      },
+      "status": "BET",
+      "sources": [
+        "https://www.laliga.com/en-ID/match/temporada-2026-2027-laliga-hypermotion-cd-eldense-real-oviedo-8",
+        "https://tipsterarea.com/statistics/spain/segunda-division"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 7,
+      "evidenceCutoff": "2026-10-02T18:29:00Z",
+      "inputs": {
+        "homeAttack": 0.4052684903748733,
+        "awayAttack": 0.8849557522123894,
+        "homeDefence": 1.1378002528445008,
+        "awayDefence": 0.4052684903748733,
+        "leagueHomeGoals": 1.41,
+        "leagueAwayGoals": 1.13,
+        "sampleSize": 7,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 0.38,
+      "lambdaAway": 1.14,
+      "correctScore": {
+        "score": "0-1",
+        "probability": 24.2
+      },
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Under 3.5",
+        "rawProbability": 93.2,
+        "probability": 79.7,
+        "reliability": 0.856,
+        "rating": "Strong"
+      },
+      "outcome": "LOSS"
+    },
+    {
+      "date": "2026-10-02",
+      "leagueId": "ned-eerste-divisie",
+      "homeTeam": "Helmond Sport",
+      "awayTeam": "Heracles",
+      "actualScore": {
+        "home": 2,
+        "away": 2
+      },
+      "status": "BET",
+      "sources": [
+        "https://www.fotmob.com/matches/helmond-sport-vs-heracles/267ntz",
+        "https://footballnation.eu/football-competitions/the-netherlands/eerste-divisie/"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-02T18:59:00Z",
+      "inputs": {
+        "homeAttack": 0.9569377990430622,
+        "awayAttack": 1.6666666666666667,
+        "homeDefence": 1.282051282051282,
+        "awayDefence": 0.3827751196172249,
+        "leagueHomeGoals": 2.09,
+        "leagueAwayGoals": 1.56,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 0.93,
+      "lambdaAway": 3.11,
+      "correctScore": {
+        "score": "0-3",
+        "probability": 8.8
+      },
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "rawProbability": 92.5,
+        "probability": 80.8,
+        "reliability": 0.873,
+        "rating": "Strong"
+      },
+      "outcome": "WIN"
+    }
+  ],
   "metrics": {
-    "leagueDaysComplete": 54,
+    "leagueDaysComplete": 56,
     "leagueDaysTotal": 61,
     "fixturesDiscovered": 22,
-    "fixturesProcessed": 0,
-    "modelled": 0,
-    "recommendedBets": 0,
-    "wins": 0,
-    "losses": 0
+    "fixturesProcessed": 2,
+    "modelled": 2,
+    "recommendedBets": 2,
+    "wins": 1,
+    "losses": 1
   },
   "current": {
     "date": "2026-10-02",
-    "leagueId": "esp-segunda",
+    "leagueId": "uefa-nations-league",
     "stage": "prematch-research"
   },
   "aggregateMetrics": null,
