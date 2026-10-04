@@ -98,3 +98,10 @@ After a complete run, identify recurring failure patterns. Candidate parameter c
 - Do not count NO BET as a win.
 - Correct score is analytical only and is graded separately from the recommended bet.
 - A known historical final score is explicitly allowed for grading AFTER the reconstructed prediction has been frozen.
+
+## NO BET reporting rule
+- `NO BET` is an internal model decision, not a prediction result.
+- Retain `NO BET` fixtures only in the internal audit for traceability.
+- Exclude `NO BET` fixtures from displayed backtest results, wins/losses, hit-rate denominators, market results, rating results, model-level performance results, sample-depth performance results, calibration results, and any headline performance statistics.
+- User-facing backtest result tables must show recommended bets only unless the user explicitly asks to inspect `NO BET` cases.
+- `NO MODEL` is likewise not a betting result and must not be mixed into recommended-bet performance statistics.
