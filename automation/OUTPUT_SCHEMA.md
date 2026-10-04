@@ -28,9 +28,11 @@ Each fixture must include:
 - research/evidence summary
 - sources with URLs and timestamps
 - model OR null
-- No Model reason when model is null
+- exact No Model reason when model is null
 
-Model output should include:
+Every model must include:
+- modelLevel: full | standard | basic
+- confidence: high | medium | low
 - lambdaHome / lambdaAway
 - correctScore + probability
 - alternative correct scores
@@ -39,6 +41,7 @@ Model output should include:
 - btts
 - over15 / over25 / over35
 - home2Plus / away2Plus
-- confidence
+
+No Model is a last-resort state. Missing xG, shots, injuries or another premium metric alone is NOT a valid No Model reason when reliable recent scoring/conceding results exist.
 
 The website must tolerate `model: null` and visibly render `No Model`. Never mark a scan complete until every league-list entry has been checked.
