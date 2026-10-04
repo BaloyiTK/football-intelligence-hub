@@ -1,0 +1,53 @@
+name: Validate Football Runs
+
+on:
+  pull_request:
+    paths:
+      - "data/runs/**/*.json"
+      - "data/backtests/**/*.json"
+      - "scripts/validate-run.ts"
+      - "automation/AGENT_INSTRUCTIONS.md"
+  push:
+    branches: [main]
+    paths:
+      - "data/runs/**/*.json"
+      - "data/backtests/**/*.json"
+      - "scripts/validate-run.ts"
+      - "automation/AGENT_INSTRUCTIONS.md"
+
+jobs:
+  validate-runs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Validate changed run files
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            BASE="${{ github.event.pull_request.base.sha }}"
+          else
+            BASE="${{ github.event.before }}"
+            if [[ "$BASE" == "0000000000000000000000000000000000000000" ]]; then
+              BASE="$(git rev-list --max-parents=0 HEAD)"
+            fi
+          fi
+          mapfile -t FILES < <(git diff --name-only "$BASE" HEAD -- 'data/runs/*.json' 'data/backtests/*.json')
+          if (( ${#FILES[@]} == 0 )); then
+            echo "No changed run/backtest JSON files."
+            exit 0
+          fi
+          for file in "${FILES[@]}"; do
+            [[ -f "$file" ]] || continue
+            echo "Validating $file"
+            npm run run:validate -- "$file"
+          done
