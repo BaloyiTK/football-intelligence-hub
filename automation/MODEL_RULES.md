@@ -1,39 +1,36 @@
-# Deterministic Model Rules — V2.1
+# Deterministic Model Rules — V2.2
 
-The numerical engine is the sole producer of probabilities.
+V2.2 keeps the normalized Dixon-Coles score engine and adds evidence-aware calibration to the recommendation layer.
 
-## Core model
-Keep V2 Dixon-Coles: attack/defence strengths, league baselines, home advantage, 65/35 stable/recent blend, lambda clamp 0.2–4.0, rho default -0.08, normalized score grid through 8 goals.
+## Core
+- Separate attack/defence strengths and league home/away baselines.
+- 65/35 stable/recent blend where both exist.
+- Lambda clamp 0.2–4.0; rho default -0.08; normalized 0–8 score grid.
+- Sparse evidence shrinks calculated lambdas toward league baselines instead of trusting tiny samples at full strength.
 
-## Outputs
-Calculate 1X2, double chance, BTTS, O1.5/O2.5/O3.5, team goal probabilities and correct-score grid.
+## Evidence factor
+Model level: Full 1.00, Standard 0.96, Basic 0.90.
+Sample depth: 8+ matches 1.00; 5–7 0.97; 3–4 0.92; 1–2 0.84.
+Combined factor affects both lambda shrinkage and recommendation reliability.
 
-Correct score is an analytical forecast only. It is NOT automatically the recommended betting market.
+## One recommended market
+Correct score remains analytical only. Select at most one betting market or NO BET.
 
-## One-market selector
-After probabilities are calculated, evaluate supported markets and publish at most ONE recommended bet per fixture.
+Raw floors remain market-specific, but ranking is now by reliability-adjusted probability rather than raw probability.
+- 1X/X2 raw >=72
+- 12 >=75
+- O1.5 >=72
+- O2.5 >=68
+- U3.5 >=72, with a volatility penalty from recent O3.5 rate
+- BTTS Yes/No >=68
+- Home 1+ >=74 plus scoring-consistency penalty
+- Away 1+ >=78 plus stricter away-scoring consistency penalty
+- 1X2 Home/Away >=62
+Adjusted recommendation probability must also be >=68.
 
-Eligible markets: 1X2 Home/Away, Double Chance 1X/X2/12, Over 1.5, Over 2.5, Under 3.5, BTTS Yes/No, Home 1+ goal, Away 1+ goal.
+Store rawProbability, reliability and adjusted probability for auditability. Rating is based on adjusted probability: Elite >=85, Strong >=75, Good >=68.
 
-Minimum probability floors:
-- 1X/X2: 72%
-- 12: 75%
-- Over 1.5: 72%
-- Over 2.5: 68%
-- Under 3.5: 72%
-- BTTS Yes/No: 68%
-- Team 1+ goal: 72%
-- Home/Away 1X2: 62%
+## Weekly calibration
+Backtests must be walk-forward with no future leakage. Track hit rate, Brier/log loss where applicable, market type, probability band, model level and sample depth.
 
-Among markets clearing their floor, select the highest model probability. If none qualifies, recommendedBet=null (NO BET). Never force a selection.
-
-Rating: Elite >=85%, Strong >=75%, Good below 75% but above its market floor.
-
-## Evidence and confidence
-Full: venue attack/defence + league baselines, optionally recent/xG evidence.
-Standard: reliable recent GF/GA plus venue/league context where available.
-Basic: recent GF/GA fallback; low confidence by default.
-Confidence describes evidence quality, not probability of winning.
-
-## Calibration
-Backtest the single recommended market independently from correct score and 1X2 forecast. Track recommended-bet hit rate by market, probability band and model level.
+Do not automatically promote a parameter change merely because it improves one weekly sample. A candidate change must improve a sufficiently sized holdout and must not materially damage calibration or key market segments.
