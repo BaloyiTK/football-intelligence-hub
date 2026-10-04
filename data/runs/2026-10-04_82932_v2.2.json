@@ -456,9 +456,9 @@
       "leagueId": "uefa-nations-league",
       "country": "Europe",
       "name": "UEFA Nations League",
-      "status": "processing",
+      "status": "complete",
       "fixturesDiscovered": 8,
-      "fixturesProcessed": 3,
+      "fixturesProcessed": 8,
       "sources": [
         "https://www.uefa.com/uefanationsleague/",
         "https://fbref.com/en/matches/2026-10-04"
@@ -975,31 +975,164 @@
       "leagueId": "uefa-nations-league",
       "homeTeam": "Portugal",
       "awayTeam": "Norway",
-      "status": "discovered-pending-research"
+      "status": "BET",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.565217391304348,
+        "awayAttack": 1.2121212121212122,
+        "homeDefence": 0.7575757575757576,
+        "awayDefence": 1.565217391304348,
+        "leagueHomeGoals": 1.15,
+        "leagueAwayGoals": 1.32,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 2.61,
+      "lambdaAway": 1.23,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 77.1,
+        "rawProbability": 90.1,
+        "reliability": 0.856,
+        "rating": "Strong"
+      },
+      "researchTimestamp": "2026-10-04T18:17:10+02:00",
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://www.onlinebettingacademy.com/stats/competition/europe/1661",
+        "https://www.tntsports.co.uk/football/uefa-nations-league/2026-2027/portugal-norway_mtc20005931/live-stats.shtml"
+      ]
     },
     {
       "leagueId": "uefa-nations-league",
       "homeTeam": "Wales",
       "awayTeam": "Denmark",
-      "status": "discovered-pending-research"
+      "status": "NO_BET",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 0.6956521739130436,
+        "awayAttack": 1.2121212121212122,
+        "homeDefence": 1.0606060606060606,
+        "awayDefence": 1.565217391304348,
+        "leagueHomeGoals": 1.15,
+        "leagueAwayGoals": 1.32,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 1.24,
+      "lambdaAway": 1.65,
+      "recommendedBet": null,
+      "researchTimestamp": "2026-10-04T18:17:10+02:00",
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://www.onlinebettingacademy.com/stats/competition/europe/1661",
+        "https://www.tntsports.co.uk/football/uefa-nations-league/2026-2027/live-wales-denmark_mtc20006006/live-stats.shtml"
+      ]
     },
     {
       "leagueId": "uefa-nations-league",
       "homeTeam": "Netherlands",
       "awayTeam": "Serbia",
-      "status": "discovered-pending-research"
+      "status": "BET",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.565217391304348,
+        "awayAttack": 0.45454545454545453,
+        "homeDefence": 0.9090909090909091,
+        "awayDefence": 2.4347826086956523,
+        "leagueHomeGoals": 1.15,
+        "leagueAwayGoals": 1.32,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 3.97,
+      "lambdaAway": 0.64,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 85.3,
+        "rawProbability": 97.7,
+        "reliability": 0.873,
+        "rating": "Elite"
+      },
+      "researchTimestamp": "2026-10-04T18:17:10+02:00",
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://www.onlinebettingacademy.com/stats/competition/europe/1661",
+        "https://mundialoop.com/teams/ned/vs/srb"
+      ]
     },
     {
       "leagueId": "uefa-nations-league",
       "homeTeam": "Republic of Ireland",
       "awayTeam": "Israel",
-      "status": "discovered-pending-research"
+      "status": "BET",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.2173913043478262,
+        "awayAttack": 0.6060606060606061,
+        "homeDefence": 0.6060606060606061,
+        "awayDefence": 1.3913043478260871,
+        "leagueHomeGoals": 1.15,
+        "leagueAwayGoals": 1.32,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 1.85,
+      "lambdaAway": 0.59,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 78.2,
+        "rawProbability": 89.6,
+        "reliability": 0.873,
+        "rating": "Strong"
+      },
+      "researchTimestamp": "2026-10-04T18:17:10+02:00",
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://www.onlinebettingacademy.com/stats/competition/europe/1661",
+        "https://www.tntsports.co.uk/football/uefa-nations-league/2026-2027/republic-of-ireland-israel_mtc20005873/live-stats.shtml"
+      ]
     },
     {
       "leagueId": "uefa-nations-league",
       "homeTeam": "Greece",
       "awayTeam": "Germany",
-      "status": "discovered-pending-research"
+      "status": "BET",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.2173913043478262,
+        "awayAttack": 0.7575757575757576,
+        "homeDefence": 0.9090909090909091,
+        "awayDefence": 0.8695652173913044,
+        "leagueHomeGoals": 1.15,
+        "leagueAwayGoals": 1.32,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 1.21,
+      "lambdaAway": 0.96,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Under 3.5",
+        "probability": 70.6,
+        "rawProbability": 82.5,
+        "reliability": 0.856,
+        "rating": "Good"
+      },
+      "researchTimestamp": "2026-10-04T18:17:10+02:00",
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://www.onlinebettingacademy.com/stats/competition/europe/1661",
+        "https://dailysports.net/stat/football/germany-2-vs-greece-2/"
+      ]
     },
     {
       "leagueId": "arg-primera",
@@ -1201,20 +1334,19 @@
     }
   ],
   "metrics": {
-    "leaguesChecked": 55,
+    "leaguesChecked": 56,
     "leaguesTotal": 61,
     "fixturesDiscovered": 47,
-    "fixturesProcessed": 9,
-    "modelled": 3,
+    "fixturesProcessed": 14,
+    "modelled": 8,
     "noModel": 6,
-    "recommendedBets": 2,
-    "noBet": 1
+    "recommendedBets": 6,
+    "noBet": 2
   },
   "current": {
-    "leagueIndex": 35,
-    "leagueId": "uefa-nations-league",
-    "fixture": "Portugal vs Norway",
-    "stage": "fixture-research"
+    "leagueIndex": 41,
+    "leagueId": "arg-primera",
+    "stage": "fixture-verification"
   },
   "notes": [
     "League discovery checkpointed from today's web research. Fixtures remain pending RESEARCH_RULES processing; league discovery complete does not mean fixture modelling complete.",
