@@ -3,26 +3,26 @@
   "dateFrom": "2026-10-03",
   "dateTo": "2026-10-03",
   "modelVersion": "v2.2-calibrated-selector",
-  "status": "blocked",
+  "status": "in-progress",
   "researchMode": "chatgpt-web-primary",
   "createdAt": "2026-10-04",
   "current": {
     "date": "2026-10-03",
-    "leagueIndex": 14,
-    "leagueId": "ned-eerste-divisie",
+    "leagueIndex": 39,
+    "leagueId": "bra-serie-a",
     "stage": "prematch-research",
-    "fixture": "FC Eindhoven vs De Graafschap"
+    "fixture": "Atletico MG vs RB Bragantino"
   },
   "metrics": {
-    "leagueDaysComplete": 5,
+    "leagueDaysComplete": 6,
     "leagueDaysTotal": 61,
     "fixturesDiscovered": 40,
-    "fixturesProcessed": 32,
-    "modelled": 31,
-    "noModel": 2,
-    "recommendedBets": 30,
+    "fixturesProcessed": 34,
+    "modelled": 32,
+    "noModel": 3,
+    "recommendedBets": 31,
     "noBet": 1,
-    "wins": 24,
+    "wins": 25,
     "losses": 5
   },
   "leagueScan": [
@@ -238,13 +238,13 @@
       "leagueId": "ned-eerste-divisie",
       "country": "Netherlands",
       "name": "Eerste Divisie",
-      "status": "processing",
+      "status": "complete",
       "fixturesDiscovered": 6,
-      "fixturesProcessed": 4,
+      "fixturesProcessed": 6,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "processing"
+          "status": "complete"
         }
       ]
     },
@@ -2089,11 +2089,35 @@
       "homeTeam": "FC Eindhoven",
       "awayTeam": "De Graafschap",
       "actualScore": "2-2",
-      "status": "discovered-pending-prematch-research",
+      "status": "BET",
       "sources": [
-        "https://www.livescores.com/football/2026-10-03/?tz=-3",
-        "https://www.livescore.mobi/football/2026-10-03/?tz=-8"
-      ]
+        "https://www.forebet.com/en/football/matches/fc-eindhoven-de-graafschap-2492393",
+        "https://www.degraafschap.nl/nieuws/de-graafschap-moet-genoegen-nemen-met-een-punt-bij-fc-eindhoven-2-2"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 6,
+      "evidenceCutoff": "2026-10-03T19:59:00+02:00",
+      "inputs": {
+        "homeAttack": 1.2121212121212122,
+        "awayAttack": 1.111111111111111,
+        "homeDefence": 1.111111111111111,
+        "awayDefence": 1.2121212121212122,
+        "leagueHomeGoals": 1.65,
+        "leagueAwayGoals": 1.35,
+        "sampleSize": 6,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 1.9,
+      "lambdaAway": 1.4,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "rawProbability": 84.1,
+        "probability": 78.3,
+        "reliability": 0.931,
+        "rating": "Strong"
+      },
+      "outcome": "WIN"
     },
     {
       "date": "2026-10-03",
@@ -2101,11 +2125,13 @@
       "homeTeam": "RKC Waalwijk",
       "awayTeam": "FC Emmen",
       "actualScore": "1-1",
-      "status": "discovered-pending-prematch-research",
+      "status": "NO_MODEL",
       "sources": [
-        "https://www.livescores.com/football/2026-10-03/?tz=-3",
-        "https://www.livescore.mobi/football/2026-10-03/?tz=-8"
-      ]
+        "https://www.livescores.com/football/2026-10-03/?tz=-3"
+      ],
+      "modelLevel": "no-model",
+      "noModelReason": "Reliable pre-kickoff recent scoring evidence could not be reconstructed to the required Basic threshold in this research pass.",
+      "outcome": "NO_MODEL"
     },
     {
       "date": "2026-10-03",
@@ -2194,16 +2220,5 @@
       "https://www.theguardian.com/football/fixtures/2026/Oct/03"
     ],
     "note": "Date-level global discovery active; targeted verification only for configured competitions requiring disambiguation."
-  },
-  "blocker": {
-    "type": "external-tool-limit",
-    "reason": "Web research search-call allowance exhausted while reconstructing remaining Oct 3 pre-match evidence. Global fixture discovery significantly reduced discovery calls, but historical evidence reconstruction still requires targeted searches.",
-    "resumeCursor": {
-      "date": "2026-10-03",
-      "leagueIndex": 14,
-      "leagueId": "ned-eerste-divisie",
-      "stage": "prematch-research",
-      "fixture": "FC Eindhoven vs De Graafschap"
-    }
   }
 }
