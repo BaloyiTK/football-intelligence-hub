@@ -1,6 +1,9 @@
 # Match Research Rules
 
-For every verified fixture research, where available:
+Research every verified upcoming fixture. The goal is to produce the strongest defensible pre-match model possible from public evidence, not to require premium statistics before modelling.
+
+## Research targets
+Collect where available:
 - recent 5-10 results and goals for/against
 - home team's home form
 - away team's away form
@@ -13,9 +16,23 @@ For every verified fixture research, where available:
 - injuries, suspensions and relevant team news
 - current context such as rotation/congestion
 
-## Evidence
-Use multiple useful public sources where practical. Preserve source title/URL and research timestamp. Prefer official and reputable statistical sources.
+Use multiple useful public sources where practical. Preserve source title/URL and research timestamp. Prefer official competition/club sources and reputable statistical sources.
 
-Never fabricate a missing statistic. Missing xG, injuries, odds or another field is null/unknown, not zero.
+Never fabricate a missing statistic. Missing xG, injuries, odds, shots or another field is null/unknown, never zero.
 
-A model may run only when enough recent scoring/conceding evidence exists to derive defensible home and away expected-goal inputs. Otherwise store `No Model` and the reason.
+## Mandatory fallback hierarchy
+For every upcoming verified fixture, attempt these levels in order:
+
+### Level A — Full
+Use venue-specific scoring/conceding form, recent form, league scoring baselines and additional evidence such as xG/xGA, shots, table context, H2H and team news when available.
+
+### Level B — Standard
+If premium metrics are unavailable, use recent goals scored/conceded for both teams, home/away form where available, league/table context and league scoring baseline where available.
+
+### Level C — Basic
+If venue splits or league baselines are unavailable, use each team's recent 5-10 completed matches and actual goals scored/conceded to derive conservative expected-goal inputs. Missing premium statistics MUST NOT by itself prevent a prediction.
+
+### No Model — last resort only
+Use No Model only when reliable recent scoring/conceding evidence cannot be obtained for one or both teams, the fixture itself cannot be verified, or the match has already started/finished before research is completed. Record the exact reason.
+
+The agent must try Full, then Standard, then Basic before choosing No Model.
