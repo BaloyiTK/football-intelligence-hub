@@ -17,9 +17,11 @@ Backtests are INTERNAL model validation. They are never added to the public dail
 Do not substitute a sample, selected leagues, or a convenient competition for the requested range.
 
 For EACH calendar date from start through end:
-1. For EACH league in `data/leagues.json`, from entry 1 through the FINAL entry:
-2. Discover every historical fixture in that league on that date using public web research.
-3. Verify fixture, competition, kickoff and final result. Record zero fixtures when none occurred.
+1. Discover that date's worldwide fixture universe using at least TWO independent global date-indexed football sources.
+2. Normalize competition/country/team aliases and map the global universe against ALL leagues in `data/leagues.json`.
+3. Use targeted league/official-source searches only for disagreements, ambiguous competition names, missing source coverage, suspicious classification, or result verification that the global sources cannot resolve.
+4. For EACH league in `data/leagues.json`, from entry 1 through the FINAL entry, persist the mapped fixtures or a verified zero-fixture checkpoint backed by the date-level global discovery sources.
+5. Verify fixture, competition, kickoff and final result before grading.
 4. For every verified fixture, reconstruct ONLY evidence that existed before that kickoff.
 5. Attempt evidence hierarchy in order: Full -> Standard -> Basic.
 6. Never use the fixture's own result or any later match as an input.
@@ -30,6 +32,15 @@ For EACH calendar date from start through end:
 11. Grade the ONE `recommendedBet` as WIN or LOSS. NO BET and NO MODEL are neither wins nor losses.
 12. The completed result may then become historical evidence for a later kickoff, never an earlier one.
 13. Continue to the next fixture, next league, and next date. Do not stop early.
+
+## Historical global-discovery safeguards
+- Global discovery is a search-efficiency optimization, not permission to shrink the league universe.
+- Require at least two independent date-level sources before bulk zero-fixture completion.
+- Disambiguate generic competition names by country.
+- Reject youth/women/reserve/U23/club-friendly contamination unless explicitly configured.
+- Normalize timezone/date boundaries before assigning a fixture to a historical date.
+- Resolve source disagreements with targeted/official research rather than choosing whichever source is convenient.
+- Cache each date-level global fixture universe so it is researched once and reused across all configured leagues.
 
 ## Completion rule
 A requested backtest is NOT COMPLETE until every date in the requested range and every league entry in `data/leagues.json` has a recorded scan status.
