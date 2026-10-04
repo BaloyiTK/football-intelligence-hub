@@ -79,3 +79,9 @@ After every progress update, immediately continue with the next persisted non-te
 ## Validation modes
 - `npm run run:validate -- <run-file>` checks checkpoint integrity and allows legitimate in-progress work.
 - `npm run run:finalize -- <run-file>` is the strict completion gate and must pass before a run is described as finished or final recommendations are presented as the completed run.
+
+## Completeness invariants
+- The run must contain exactly the current configured league IDs from `data/leagues.json`: no missing, duplicate or unknown league checkpoints.
+- Duplicate fixture identities are invalid.
+- Terminal BET/WIN/LOSS records require a persisted recommended bet; NO_MODEL requires a persisted reason; all terminal fixtures require sources.
+- CI runs integrity validation for every changed run/backtest file and additionally runs strict finalization validation whenever a changed file declares `status: "complete"`.
