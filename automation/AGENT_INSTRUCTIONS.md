@@ -56,7 +56,7 @@ For today's run, do not require historical grading. For a backtest, also obey `H
 - League state is `pending -> discovering -> processing -> complete`. Discovery alone is never complete.
 - If fixtures exist, a league may become `complete` only after every saved fixture is terminal: BET, NO_BET or NO_MODEL (historical grading may then be WIN/LOSS).
 - Before presenting a run as finished, execute `npm run run:validate -- <run-file>`.
-- If validation fails, DO NOT stop at the checkpoint and DO NOT present final selections. Continue the active execution when possible; otherwise report the exact blocker and leave status in-progress.
+- If finalization validation fails, DO NOT describe the run as complete or label its selections as the full/final slate. Continue active execution when possible. If a genuine blocker prevents continuation, persist/report the blocker and surface any already-frozen prediction-eligible BET records as PARTIAL predictions.
 - User-facing progress must distinguish `leagues discovered` from `leagues fully processed`.
 - A run file's stored counters are advisory; final status must be recomputed/validated from fixture and league states.
 
@@ -85,3 +85,24 @@ After every progress update, immediately continue with the next persisted non-te
 - Duplicate fixture identities are invalid.
 - Terminal BET/WIN/LOSS records require a persisted recommended bet; NO_MODEL requires a persisted reason; all terminal fixtures require sources.
 - CI runs integrity validation for every changed run/backtest file and additionally runs strict finalization validation whenever a changed file declares `status: "complete"`.
+
+## Prediction visibility and graceful partial results
+Run completion and prediction visibility are separate concepts.
+
+A fixture is prediction-eligible when ALL are true:
+- it is persisted in the run file with terminal `status: "BET"`;
+- `recommendedBet` exists and contains market, pick, raw probability, adjusted probability, reliability and rating;
+- research/model evidence is frozen before kickoff and the record has a non-empty `sources` array;
+- it is not subsequently invalidated by fixture/date/competition verification.
+
+Prediction-eligible records MAY be shown immediately during progress when useful, when the user asks for predictions/results, and MUST be shown if a genuine blocker ends an otherwise active daily run and at least one eligible prediction exists.
+
+When the global finalization gate has not passed:
+- label surfaced bets `PARTIAL — verified/frozen so far`;
+- state the persisted coverage (leagues complete/total and fixtures terminal/discovered);
+- never imply the partial set is the day's complete slate;
+- never expose discovered-only, research-pending, NO_BET or NO_MODEL records as recommendations.
+
+When `npm run run:finalize -- <run-file>` passes, the eligible BET set may be labelled the completed/final daily recommendations.
+
+A blocker therefore stops further research execution, not access to valid predictions already frozen before the blocker.
