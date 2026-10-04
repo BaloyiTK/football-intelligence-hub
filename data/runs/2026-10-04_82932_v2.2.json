@@ -597,11 +597,11 @@
       "leagueId": "jpn-j2",
       "country": "Japan",
       "name": "J2 League",
-      "status": "processing",
+      "status": "complete",
       "fixturesDiscovered": 5,
-      "fixturesProcessed": 0,
+      "fixturesProcessed": 5,
       "sources": [
-        "https://footballfixtures.org/fixtures/2026-10-04"
+        "https://www.jleague.jp/en/j2/"
       ]
     },
     {
@@ -1238,31 +1238,56 @@
       "leagueId": "jpn-j2",
       "homeTeam": "Consadole Sapporo",
       "awayTeam": "Iwaki",
-      "status": "discovered-pending-research"
+      "status": "NO_MODEL",
+      "noModelReason": "Match had already started/finished before research was completed.",
+      "researchTimestamp": "2026-10-04T18:17:10+02:00",
+      "sources": [
+        "https://www.jleague.jp/en/j2/"
+      ]
     },
     {
       "leagueId": "jpn-j2",
       "homeTeam": "Vanraure Hachinohe",
       "awayTeam": "Yokohama FC",
-      "status": "discovered-pending-research"
+      "status": "NO_MODEL",
+      "noModelReason": "Match had already started/finished before research was completed.",
+      "researchTimestamp": "2026-10-04T18:17:10+02:00",
+      "sources": [
+        "https://www.jleague.jp/en/j2/"
+      ]
     },
     {
       "leagueId": "jpn-j2",
       "homeTeam": "Blaublitz Akita",
       "awayTeam": "Sagan Tosu",
-      "status": "discovered-pending-research"
+      "status": "NO_MODEL",
+      "noModelReason": "Match had already started/finished before research was completed.",
+      "researchTimestamp": "2026-10-04T18:17:10+02:00",
+      "sources": [
+        "https://www.jleague.jp/en/j2/"
+      ]
     },
     {
       "leagueId": "jpn-j2",
       "homeTeam": "Vegalta Sendai",
       "awayTeam": "Jubilo Iwata",
-      "status": "discovered-pending-research"
+      "status": "NO_MODEL",
+      "noModelReason": "Match had already started/finished before research was completed.",
+      "researchTimestamp": "2026-10-04T18:17:10+02:00",
+      "sources": [
+        "https://www.jleague.jp/en/j2/"
+      ]
     },
     {
       "leagueId": "jpn-j2",
       "homeTeam": "Tegevajaro Miyazaki",
       "awayTeam": "Omiya Ardija",
-      "status": "discovered-pending-research"
+      "status": "NO_MODEL",
+      "noModelReason": "Match had already started/finished before research was completed.",
+      "researchTimestamp": "2026-10-04T18:17:10+02:00",
+      "sources": [
+        "https://www.jleague.jp/en/j2/"
+      ]
     },
     {
       "leagueId": "uae-pro-league",
@@ -1454,18 +1479,18 @@
     }
   ],
   "metrics": {
-    "leaguesChecked": 58,
+    "leaguesChecked": 59,
     "leaguesTotal": 61,
     "fixturesDiscovered": 36,
-    "fixturesProcessed": 23,
+    "fixturesProcessed": 28,
     "modelled": 14,
-    "noModel": 9,
+    "noModel": 14,
     "recommendedBets": 12,
     "noBet": 2
   },
   "current": {
-    "leagueIndex": 46,
-    "leagueId": "jpn-j2",
+    "leagueIndex": 52,
+    "leagueId": "uae-pro-league",
     "stage": "fixture-verification"
   },
   "notes": [
