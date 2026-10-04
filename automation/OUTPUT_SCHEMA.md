@@ -2,6 +2,8 @@
 
 Path: `data/predictions/YYYY-MM-DD.json`
 
+The `fixtures` array is a PRE-MATCH prediction feed. It MUST NOT contain started, live, completed, abandoned or cancelled matches.
+
 Required top-level fields:
 - date
 - timezone = Africa/Johannesburg
@@ -9,39 +11,12 @@ Required top-level fields:
 - scan
 - fixtures
 
-scan must include:
-- status: in_progress | incomplete | complete
-- leagueEntriesChecked
-- totalLeagueEntries
-- completedAt (only when complete)
-- duplicatePolicy
-- failures/notes when relevant
+scan includes status, leagueEntriesChecked, totalLeagueEntries, completedAt when complete, duplicatePolicy, and failures/notes.
 
-Each fixture must include:
-- fixtureKey
-- leagueId
-- league
-- homeTeam
-- awayTeam
-- kickoff
-- fixture status
-- research/evidence summary
-- sources with URLs and timestamps
-- model OR null
-- exact No Model reason when model is null
+Each upcoming fixture includes fixtureKey, leagueId, league, homeTeam, awayTeam, kickoff, research/evidence, sources/timestamps, and model OR null.
 
-Every model must include:
-- modelLevel: full | standard | basic
-- confidence: high | medium | low
-- lambdaHome / lambdaAway
-- correctScore + probability
-- alternative correct scores
-- homeWin / draw / awayWin
-- doubleChance
-- btts
-- over15 / over25 / over35
-- home2Plus / away2Plus
+Every model includes modelLevel, confidence, lambdaHome/lambdaAway, correct score + probability, alternatives, 1X2, double chance, BTTS, totals and team 2+.
 
-No Model is a last-resort state. Missing xG, shots, injuries or another premium metric alone is NOT a valid No Model reason when reliable recent scoring/conceding results exist.
+No Model is last resort for a still-upcoming fixture only. Missing premium metrics alone is not a valid reason when reliable recent scoring/conceding results exist.
 
-The website must tolerate `model: null` and visibly render `No Model`. Never mark a scan complete until every league-list entry has been checked.
+Immediately before output, purge every fixture whose kickoff has passed or whose status is not pre-match. Never archive completed matches inside the prediction feed.
