@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "backtest": "tsx scripts/backtest.ts"
+    "backtest": "tsx scripts/backtest.ts",
+    "backtest:collect": "tsx scripts/collect-backtest-evidence.ts",
+    "backtest:run": "tsx scripts/run-backtest.ts"
   },
   "dependencies": {
     "next": "15.5.7",
