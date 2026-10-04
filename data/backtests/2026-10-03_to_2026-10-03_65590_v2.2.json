@@ -8,21 +8,21 @@
   "createdAt": "2026-10-04",
   "current": {
     "date": "2026-10-03",
-    "leagueIndex": 39,
-    "leagueId": "bra-serie-a",
+    "leagueIndex": 46,
+    "leagueId": "jpn-j2",
     "stage": "prematch-research",
-    "fixture": "Atletico MG vs RB Bragantino"
+    "fixture": "Albirex Niigata vs Tokushima Vortis"
   },
   "metrics": {
-    "leagueDaysComplete": 6,
+    "leagueDaysComplete": 7,
     "leagueDaysTotal": 61,
     "fixturesDiscovered": 40,
-    "fixturesProcessed": 34,
-    "modelled": 32,
+    "fixturesProcessed": 37,
+    "modelled": 35,
     "noModel": 3,
-    "recommendedBets": 31,
+    "recommendedBets": 34,
     "noBet": 1,
-    "wins": 25,
+    "wins": 28,
     "losses": 5
   },
   "leagueScan": [
@@ -619,13 +619,13 @@
       "leagueId": "bra-serie-a",
       "country": "Brazil",
       "name": "Serie A",
-      "status": "processing",
+      "status": "complete",
       "fixturesDiscovered": 1,
-      "fixturesProcessed": 0,
+      "fixturesProcessed": 1,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "processing"
+          "status": "complete"
         }
       ]
     },
@@ -726,7 +726,7 @@
       "name": "J2 League",
       "status": "processing",
       "fixturesDiscovered": 5,
-      "fixturesProcessed": 0,
+      "fixturesProcessed": 2,
       "dates": [
         {
           "date": "2026-10-03",
@@ -2139,11 +2139,35 @@
       "homeTeam": "Atletico MG",
       "awayTeam": "RB Bragantino",
       "actualScore": "1-0",
-      "status": "discovered-pending-prematch-research",
+      "status": "BET",
       "sources": [
-        "https://matchcalendar.football/today/2026-10-03/",
-        "https://www.ogol.com.br/ao-vivo/2026-10-03-atletico-mineiro-red-bull-bragantino/11860984"
-      ]
+        "https://www.forebet.com/en/football/matches/atl%C3%A9tico-mineiro-rb-bragantino-2418094",
+        "https://www.uol.com.br/esporte/ultimas-noticias/2026/10/03/transmissao-ao-vivo-de-atletico-mg-x-red-bull-bragantino-pelo-brasileirao-veja-onde-assistir.ghtm"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 6,
+      "evidenceCutoff": "2026-10-03T18:29:00-03:00",
+      "inputs": {
+        "homeAttack": 1.103448275862069,
+        "awayAttack": 0.6956521739130436,
+        "homeDefence": 0.9565217391304349,
+        "awayDefence": 0.9655172413793103,
+        "leagueHomeGoals": 1.45,
+        "leagueAwayGoals": 1.15,
+        "sampleSize": 6,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 1.55,
+      "lambdaAway": 0.77,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "rawProbability": 84,
+        "probability": 78.2,
+        "reliability": 0.931,
+        "rating": "Strong"
+      },
+      "outcome": "WIN"
     },
     {
       "date": "2026-10-03",
@@ -2151,11 +2175,35 @@
       "homeTeam": "Fujieda MYFC",
       "awayTeam": "Shonan Bellmare",
       "actualScore": "1-1",
-      "status": "discovered-pending-prematch-research",
+      "status": "BET",
       "sources": [
-        "https://fbref.com/en/matches/2026-10-03",
-        "https://statshub.sportradar.com/sportradar/en/sport/1/tournament/402/fixtures"
-      ]
+        "https://fbref.com/en/squads/3432c6ff/2026-2027/matchlogs/c49/schedule/Fujieda-MYFC-Scores-and-Fixtures-J2-League",
+        "https://en.24score.com/football/match/853392-fujieda_myfc-shonan_bellmare"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-03T06:59:00Z",
+      "inputs": {
+        "homeAttack": 1.037037037037037,
+        "awayAttack": 0.9565217391304349,
+        "homeDefence": 1.0434782608695652,
+        "awayDefence": 0.7407407407407407,
+        "leagueHomeGoals": 1.35,
+        "leagueAwayGoals": 1.15,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 1.18,
+      "lambdaAway": 1.08,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Under 3.5",
+        "rawProbability": 80.8,
+        "probability": 69.2,
+        "reliability": 0.856,
+        "rating": "Good"
+      },
+      "outcome": "WIN"
     },
     {
       "date": "2026-10-03",
@@ -2175,11 +2223,36 @@
       "homeTeam": "Ventforet Kofu",
       "awayTeam": "Kataller Toyama",
       "actualScore": "1-2",
-      "status": "discovered-pending-prematch-research",
+      "status": "BET",
       "sources": [
-        "https://fbref.com/en/matches/2026-10-03",
-        "https://statshub.sportradar.com/sportradar/en/sport/1/tournament/402/fixtures"
-      ]
+        "https://tipsterarea.com/teams/japan/ventforet-kofu",
+        "https://tipsterarea.com/teams/japan/kataller-toyama",
+        "https://www.soccerstats.com/round_details.asp?league=japan2&mrevid=m83&st1=16&st2=6"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-03T08:59:00+09:00",
+      "inputs": {
+        "homeAttack": 0.5925925925925926,
+        "awayAttack": 1.3913043478260871,
+        "homeDefence": 1.565217391304348,
+        "awayDefence": 0.8888888888888888,
+        "leagueHomeGoals": 1.35,
+        "leagueAwayGoals": 1.15,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 0.71,
+      "lambdaAway": 2.11,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "rawProbability": 84.2,
+        "probability": 72.1,
+        "reliability": 0.856,
+        "rating": "Good"
+      },
+      "outcome": "WIN"
     },
     {
       "date": "2026-10-03",
