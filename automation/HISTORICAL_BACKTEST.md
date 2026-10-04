@@ -127,3 +127,21 @@ Required sequence:
 
 If execution genuinely cannot be completed, leave the report `in-progress`, state exactly what blocked completion, and never imply that work continues after the active response ends.
 
+
+## Execution architecture
+The backtest must be executed by the repository runner, not represented by a report file alone.
+
+Command:
+`npm run backtest -- --from YYYY-MM-DD --to YYYY-MM-DD --evidence data/backtest-evidence/<evidence-file>.json`
+
+Resume:
+`npm run backtest -- --from YYYY-MM-DD --to YYYY-MM-DD --resume data/backtests/<run-file>.json --evidence data/backtest-evidence/<evidence-file>.json`
+
+Rules:
+- Research/discovery first produces a verified evidence JSON covering every requested date/league, including zero-fixture coverage.
+- Creating an empty `in-progress` report is NOT execution progress.
+- The runner checkpoints after every date/league pair and can resume without duplicating fixture records.
+- Only the runner may mark the report `complete` after all configured leagues and requested dates are covered.
+- The runner imports the production `lib/model.ts`; do not duplicate model math in a backtest-specific implementation.
+- Historical evidence collection must remain auditable and leakage-free. The runner never invents missing inputs.
+
