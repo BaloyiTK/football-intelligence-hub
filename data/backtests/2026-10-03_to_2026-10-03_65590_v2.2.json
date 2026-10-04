@@ -8,18 +8,17 @@
   "createdAt": "2026-10-04",
   "current": {
     "date": "2026-10-03",
-    "leagueIndex": 6,
-    "leagueId": "esp-segunda",
-    "stage": "result-verification",
-    "fixture": "Sabadell vs FC Andorra"
+    "leagueIndex": 14,
+    "leagueId": "ned-eerste-divisie",
+    "stage": "prematch-research"
   },
   "metrics": {
-    "leagueDaysComplete": 4,
+    "leagueDaysComplete": 5,
     "leagueDaysTotal": 61,
     "fixturesDiscovered": 40,
-    "fixturesProcessed": 27,
+    "fixturesProcessed": 28,
     "modelled": 27,
-    "noModel": 1,
+    "noModel": 2,
     "recommendedBets": 26,
     "noBet": 1,
     "wins": 20,
@@ -118,13 +117,13 @@
       "leagueId": "esp-segunda",
       "country": "Spain",
       "name": "Segunda Division",
-      "status": "processing",
+      "status": "complete",
       "fixturesDiscovered": 4,
-      "fixturesProcessed": 3,
+      "fixturesProcessed": 4,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "processing"
+          "status": "complete"
         }
       ]
     },
@@ -1916,10 +1915,9 @@
       "homeTeam": "Sabadell",
       "awayTeam": "FC Andorra",
       "actualScore": null,
-      "status": "BET",
+      "status": "NO_MODEL",
       "sources": [
-        "https://last5games.com/matches/fc-andorra-vs-sabadell-19745046/",
-        "https://rfef.es/es/resultados?competition=33836086&group=33836087&journey=8"
+        "https://www.laliga.com/en-US/laliga-hypermotion/results"
       ],
       "modelLevel": "basic",
       "sampleSize": 5,
@@ -1936,22 +1934,16 @@
       },
       "lambdaHome": 2.16,
       "lambdaAway": 1.07,
-      "recommendedBet": {
-        "market": "Double Chance",
-        "pick": "1X",
-        "rawProbability": 82.9,
-        "probability": 72.4,
-        "reliability": 0.873,
-        "rating": "Good"
-      },
-      "outcome": "PENDING_RESULT"
+      "recommendedBet": null,
+      "outcome": "NO_MODEL",
+      "noModelReason": "Fixture was postponed and therefore not a playable historical prediction."
     },
     {
       "date": "2026-10-03",
       "leagueId": "ned-eerste-divisie",
       "homeTeam": "TOP Oss",
       "awayTeam": "MVV Maastricht",
-      "actualScore": null,
+      "actualScore": "4-1",
       "status": "discovered-pending-prematch-research",
       "sources": [
         "https://www.livescores.com/football/2026-10-03/?tz=-3",
@@ -1963,7 +1955,7 @@
       "leagueId": "ned-eerste-divisie",
       "homeTeam": "Vitesse",
       "awayTeam": "NAC Breda",
-      "actualScore": null,
+      "actualScore": "2-2",
       "status": "discovered-pending-prematch-research",
       "sources": [
         "https://www.livescores.com/football/2026-10-03/?tz=-3",
@@ -1975,7 +1967,7 @@
       "leagueId": "ned-eerste-divisie",
       "homeTeam": "Almere City FC",
       "awayTeam": "FC Volendam",
-      "actualScore": null,
+      "actualScore": "1-0",
       "status": "discovered-pending-prematch-research",
       "sources": [
         "https://www.livescores.com/football/2026-10-03/?tz=-3",
@@ -1987,7 +1979,7 @@
       "leagueId": "ned-eerste-divisie",
       "homeTeam": "FC Den Bosch",
       "awayTeam": "FC Dordrecht",
-      "actualScore": null,
+      "actualScore": "1-1",
       "status": "discovered-pending-prematch-research",
       "sources": [
         "https://www.livescores.com/football/2026-10-03/?tz=-3",
@@ -1999,7 +1991,7 @@
       "leagueId": "ned-eerste-divisie",
       "homeTeam": "FC Eindhoven",
       "awayTeam": "De Graafschap",
-      "actualScore": null,
+      "actualScore": "2-2",
       "status": "discovered-pending-prematch-research",
       "sources": [
         "https://www.livescores.com/football/2026-10-03/?tz=-3",
@@ -2011,7 +2003,7 @@
       "leagueId": "ned-eerste-divisie",
       "homeTeam": "RKC Waalwijk",
       "awayTeam": "FC Emmen",
-      "actualScore": null,
+      "actualScore": "1-1",
       "status": "discovered-pending-prematch-research",
       "sources": [
         "https://www.livescores.com/football/2026-10-03/?tz=-3",
