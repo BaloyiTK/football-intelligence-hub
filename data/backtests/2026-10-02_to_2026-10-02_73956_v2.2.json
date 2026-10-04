@@ -1,5 +1,5 @@
 {
-  "status": "in-progress",
+  "status": "blocked",
   "runId": "73956",
   "modelVersion": "v2.2-calibrated-selector",
   "range": {
@@ -929,13 +929,13 @@
     },
     {
       "leagueId": "bra-serie-a",
-      "status": "processing",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "processing",
+          "status": "complete",
           "fixturesDiscovered": 1,
-          "fixturesProcessed": 0,
+          "fixturesProcessed": 1,
           "sources": [
             "https://fbref.com/en/matches/2026-10-02",
             "https://www.footballfixtures.org/fixtures/2026-10-02",
@@ -944,7 +944,7 @@
         }
       ],
       "fixturesDiscovered": 1,
-      "fixturesProcessed": 0,
+      "fixturesProcessed": 1,
       "sources": [
         "https://fbref.com/en/matches/2026-10-02",
         "https://www.footballfixtures.org/fixtures/2026-10-02",
@@ -959,7 +959,7 @@
           "date": "2026-10-02",
           "status": "processing",
           "fixturesDiscovered": 4,
-          "fixturesProcessed": 0,
+          "fixturesProcessed": 3,
           "sources": [
             "https://fbref.com/en/matches/2026-10-02",
             "https://www.footballfixtures.org/fixtures/2026-10-02",
@@ -968,7 +968,7 @@
         }
       ],
       "fixturesDiscovered": 4,
-      "fixturesProcessed": 0,
+      "fixturesProcessed": 3,
       "sources": [
         "https://fbref.com/en/matches/2026-10-02",
         "https://www.footballfixtures.org/fixtures/2026-10-02",
@@ -977,13 +977,13 @@
     },
     {
       "leagueId": "arg-primera",
-      "status": "processing",
+      "status": "complete",
       "dates": [
         {
           "date": "2026-10-02",
-          "status": "processing",
+          "status": "complete",
           "fixturesDiscovered": 1,
-          "fixturesProcessed": 0,
+          "fixturesProcessed": 1,
           "sources": [
             "https://fbref.com/en/matches/2026-10-02",
             "https://www.footballfixtures.org/fixtures/2026-10-02",
@@ -992,7 +992,7 @@
         }
       ],
       "fixturesDiscovered": 1,
-      "fixturesProcessed": 0,
+      "fixturesProcessed": 1,
       "sources": [
         "https://fbref.com/en/matches/2026-10-02",
         "https://www.footballfixtures.org/fixtures/2026-10-02",
@@ -1910,24 +1910,236 @@
         "rating": "Strong"
       },
       "outcome": "WIN"
+    },
+    {
+      "date": "2026-10-02",
+      "leagueId": "bra-serie-a",
+      "homeTeam": "São Paulo",
+      "awayTeam": "Santos",
+      "actualScore": {
+        "home": 1,
+        "away": 2
+      },
+      "status": "BET",
+      "sources": [
+        "https://last5games.com/matches/santos-vs-sao-paulo-19621877/"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-02T00:00:00Z",
+      "inputs": {
+        "homeAttack": 0.6578947368,
+        "homeDefence": 0.6956521739,
+        "awayAttack": 1.5652173913,
+        "awayDefence": 0.6578947368,
+        "leagueHomeGoals": 1.52,
+        "leagueAwayGoals": 1.15,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 0.77,
+      "lambdaAway": 1.24,
+      "correctScore": {
+        "score": "0-1",
+        "probability": 15.6
+      },
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Under 3.5",
+        "rawProbability": 85.6,
+        "probability": 73.2,
+        "reliability": 0.856,
+        "rating": "Good"
+      },
+      "outcome": "WIN"
+    },
+    {
+      "date": "2026-10-02",
+      "leagueId": "bra-serie-b",
+      "homeTeam": "São Bernardo",
+      "awayTeam": "CRB",
+      "actualScore": {
+        "home": 3,
+        "away": 1
+      },
+      "status": "BET",
+      "sources": [
+        "https://www.worldsoccerdata.com/stats/brazil/serieb/matches/sao-bernardo-vs-crb-02-10-2026"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-02T00:00:00Z",
+      "inputs": {
+        "homeAttack": 1.037037037,
+        "homeDefence": 0.4,
+        "awayAttack": 0.8,
+        "awayDefence": 1.1851851852,
+        "leagueHomeGoals": 1.35,
+        "leagueAwayGoals": 1,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 1.62,
+      "lambdaAway": 0.41,
+      "correctScore": {
+        "score": "1-0",
+        "probability": 20.7
+      },
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "rawProbability": 91.8,
+        "probability": 80.1,
+        "reliability": 0.873,
+        "rating": "Strong"
+      },
+      "outcome": "WIN"
+    },
+    {
+      "date": "2026-10-02",
+      "leagueId": "bra-serie-b",
+      "homeTeam": "Londrina",
+      "awayTeam": "Criciúma",
+      "actualScore": {
+        "home": 0,
+        "away": 2
+      },
+      "status": "BET",
+      "sources": [
+        "https://www.futanalises.com.br/en/partidas/londrina-x-criciuma-2026-10-02-19667134"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-02T00:00:00Z",
+      "inputs": {
+        "homeAttack": 1.4814814815,
+        "homeDefence": 1.4,
+        "awayAttack": 1,
+        "awayDefence": 1.1851851852,
+        "leagueHomeGoals": 1.35,
+        "leagueAwayGoals": 1,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 2.24,
+      "lambdaAway": 1.35,
+      "correctScore": {
+        "score": "2-1",
+        "probability": 9.4
+      },
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "rawProbability": 88,
+        "probability": 75.3,
+        "reliability": 0.856,
+        "rating": "Strong"
+      },
+      "outcome": "WIN"
+    },
+    {
+      "date": "2026-10-02",
+      "leagueId": "bra-serie-b",
+      "homeTeam": "Juventude",
+      "awayTeam": "Operário-PR",
+      "actualScore": {
+        "home": 3,
+        "away": 0
+      },
+      "status": "BET",
+      "sources": [
+        "https://www.worldsoccerdata.com/stats/brazil/serieb/matches/juventude-vs-operario-pr-02-10-2026"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-02T00:00:00Z",
+      "inputs": {
+        "homeAttack": 1.037037037,
+        "homeDefence": 0.2,
+        "awayAttack": 0.6,
+        "awayDefence": 1.4814814815,
+        "leagueHomeGoals": 1.35,
+        "leagueAwayGoals": 1,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 1.98,
+      "lambdaAway": 0.23,
+      "correctScore": {
+        "score": "2-0",
+        "probability": 21.5
+      },
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "rawProbability": 96.9,
+        "probability": 84.6,
+        "reliability": 0.873,
+        "rating": "Strong"
+      },
+      "outcome": "WIN"
+    },
+    {
+      "date": "2026-10-02",
+      "leagueId": "arg-primera",
+      "homeTeam": "Independiente",
+      "awayTeam": "Instituto",
+      "actualScore": {
+        "home": 1,
+        "away": 4
+      },
+      "status": "BET",
+      "sources": [
+        "https://www.worldsoccerdata.com/stats/argentina/liga-professional/matches/independiente-vs-instituto-cordoba-02-10-2026"
+      ],
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "evidenceCutoff": "2026-10-02T00:00:00Z",
+      "inputs": {
+        "homeAttack": 1.0650406504,
+        "homeDefence": 1.0909090909,
+        "awayAttack": 0.7777777778,
+        "awayDefence": 0.8130081301,
+        "leagueHomeGoals": 1.23,
+        "leagueAwayGoals": 0.99,
+        "sampleSize": 5,
+        "modelLevel": "basic"
+      },
+      "lambdaHome": 1.09,
+      "lambdaAway": 0.86,
+      "correctScore": {
+        "score": "0-0",
+        "probability": 15.4
+      },
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Under 3.5",
+        "rawProbability": 86.7,
+        "probability": 74.2,
+        "reliability": 0.856,
+        "rating": "Good"
+      },
+      "outcome": "LOSS"
     }
   ],
   "metrics": {
-    "leagueDaysComplete": 57,
+    "leagueDaysComplete": 59,
     "leagueDaysTotal": 61,
     "fixturesDiscovered": 22,
-    "fixturesProcessed": 12,
-    "modelled": 12,
-    "recommendedBets": 10,
-    "wins": 8,
-    "losses": 2
+    "fixturesProcessed": 17,
+    "modelled": 17,
+    "recommendedBets": 15,
+    "wins": 12,
+    "losses": 3
   },
   "current": {
     "date": "2026-10-02",
-    "leagueId": "bra-serie-a",
+    "leagueId": "bra-serie-b",
+    "fixture": "Fortaleza vs Nautico",
     "stage": "prematch-research"
   },
   "aggregateMetrics": null,
   "failureAnalysis": [],
-  "improvementCandidates": []
+  "improvementCandidates": [],
+  "blocker": "Required pre-kickoff evidence remains for Fortaleza vs Nautico and 4 senior international friendlies; current web-research allowance is exhausted before reliable V2.2 inputs can be reconstructed. Resume from this exact cursor; do not invent missing inputs."
 }
