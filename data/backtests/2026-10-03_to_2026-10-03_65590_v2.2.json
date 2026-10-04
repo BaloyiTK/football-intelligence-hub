@@ -3,7 +3,7 @@
   "dateFrom": "2026-10-03",
   "dateTo": "2026-10-03",
   "modelVersion": "v2.2-calibrated-selector",
-  "status": "in-progress",
+  "status": "blocked",
   "researchMode": "chatgpt-web-primary",
   "createdAt": "2026-10-04",
   "current": {
@@ -941,5 +941,19 @@
       ]
     }
   ],
-  "fixtures": []
+  "fixtures": [],
+  "blocker": {
+    "type": "external-tool-limit",
+    "reason": "Web research search-call allowance exhausted before the required 61 configured league-days and pre-kickoff fixture evidence could be exhaustively researched. No aggregate performance is valid yet.",
+    "resumeCursor": {
+      "date": "2026-10-03",
+      "leagueIndex": 1,
+      "leagueId": "eng-premier-league",
+      "stage": "fixture-discovery"
+    }
+  },
+  "notes": [
+    "Backtest must resume from persisted cursor and cover all 61 configured leagues.",
+    "Do not report a win/loss rate until fixtures are frozen from pre-kickoff evidence and all league-days are complete."
+  ]
 }
