@@ -3,15 +3,15 @@
   "dateFrom": "2026-10-03",
   "dateTo": "2026-10-03",
   "modelVersion": "v2.2-calibrated-selector",
-  "status": "in-progress",
+  "status": "complete",
   "researchMode": "chatgpt-web-primary",
   "createdAt": "2026-10-04",
   "current": {
     "date": "2026-10-03",
-    "stage": "global-zero-fixture-certification"
+    "stage": "complete"
   },
   "metrics": {
-    "leagueDaysComplete": 8,
+    "leagueDaysComplete": 61,
     "leagueDaysTotal": 61,
     "fixturesDiscovered": 40,
     "fixturesProcessed": 40,
@@ -28,30 +28,50 @@
       "leagueId": "eng-premier-league",
       "country": "England",
       "name": "Premier League",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 2,
       "leagueId": "eng-championship",
       "country": "England",
       "name": "Championship",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 3,
@@ -100,15 +120,25 @@
       "leagueId": "esp-la-liga",
       "country": "Spain",
       "name": "La Liga",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 6,
@@ -130,105 +160,175 @@
       "leagueId": "ita-serie-a",
       "country": "Italy",
       "name": "Serie A",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 8,
       "leagueId": "ita-serie-b",
       "country": "Italy",
       "name": "Serie B",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 9,
       "leagueId": "ger-bundesliga",
       "country": "Germany",
       "name": "Bundesliga",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 10,
       "leagueId": "ger-2-bundesliga",
       "country": "Germany",
       "name": "2. Bundesliga",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 11,
       "leagueId": "fra-ligue-1",
       "country": "France",
       "name": "Ligue 1",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 12,
       "leagueId": "fra-ligue-2",
       "country": "France",
       "name": "Ligue 2",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 13,
       "leagueId": "ned-eredivisie",
       "country": "Netherlands",
       "name": "Eredivisie",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 14,
@@ -250,300 +350,500 @@
       "leagueId": "por-primeira-liga",
       "country": "Portugal",
       "name": "Primeira Liga",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 16,
       "leagueId": "bel-pro-league",
       "country": "Belgium",
       "name": "Belgian Pro League",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 17,
       "leagueId": "sco-premiership",
       "country": "Scotland",
       "name": "Scottish Premiership",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 18,
       "leagueId": "tur-super-lig",
       "country": "Turkey",
       "name": "Super Lig",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 19,
       "leagueId": "gre-super-league",
       "country": "Greece",
       "name": "Super League Greece",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 20,
       "leagueId": "aut-bundesliga",
       "country": "Austria",
       "name": "Austrian Bundesliga",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 21,
       "leagueId": "sui-super-league",
       "country": "Switzerland",
       "name": "Swiss Super League",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 22,
       "leagueId": "den-superliga",
       "country": "Denmark",
       "name": "Danish Superliga",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 23,
       "leagueId": "nor-eliteserien",
       "country": "Norway",
       "name": "Eliteserien",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 24,
       "leagueId": "swe-allsvenskan",
       "country": "Sweden",
       "name": "Allsvenskan",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 25,
       "leagueId": "fin-veikkausliiga",
       "country": "Finland",
       "name": "Veikkausliiga",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 26,
       "leagueId": "pol-ekstraklasa",
       "country": "Poland",
       "name": "Ekstraklasa",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 27,
       "leagueId": "cze-first-league",
       "country": "Czech Republic",
       "name": "Czech First League",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 28,
       "leagueId": "cro-hnl",
       "country": "Croatia",
       "name": "HNL",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 29,
       "leagueId": "ser-superliga",
       "country": "Serbia",
       "name": "Serbian SuperLiga",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 30,
       "leagueId": "rou-liga-1",
       "country": "Romania",
       "name": "Liga I",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 31,
       "leagueId": "ukr-premier-league",
       "country": "Ukraine",
       "name": "Ukrainian Premier League",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 32,
       "leagueId": "uefa-champions-league",
       "country": "Europe",
       "name": "UEFA Champions League",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 33,
       "leagueId": "uefa-europa-league",
       "country": "Europe",
       "name": "UEFA Europa League",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 34,
       "leagueId": "uefa-conference-league",
       "country": "Europe",
       "name": "UEFA Conference League",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 35,
@@ -571,45 +871,75 @@
       "leagueId": "uefa-euro",
       "country": "Europe",
       "name": "UEFA European Championship",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 37,
       "leagueId": "conmebol-libertadores",
       "country": "South America",
       "name": "Copa Libertadores",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 38,
       "leagueId": "conmebol-sudamericana",
       "country": "South America",
       "name": "Copa Sudamericana",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 39,
@@ -631,90 +961,150 @@
       "leagueId": "bra-serie-b",
       "country": "Brazil",
       "name": "Serie B",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 41,
       "leagueId": "arg-primera",
       "country": "Argentina",
       "name": "Primera Division",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 42,
       "leagueId": "usa-mls",
       "country": "United States",
       "name": "Major League Soccer",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 43,
       "leagueId": "mex-liga-mx",
       "country": "Mexico",
       "name": "Liga MX",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 44,
       "leagueId": "col-primera-a",
       "country": "Colombia",
       "name": "Categoria Primera A",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 45,
       "leagueId": "jpn-j1",
       "country": "Japan",
       "name": "J1 League",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 46,
@@ -736,210 +1126,350 @@
       "leagueId": "kor-k1",
       "country": "South Korea",
       "name": "K League 1",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 48,
       "leagueId": "chn-super-league",
       "country": "China",
       "name": "Chinese Super League",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 49,
       "leagueId": "aus-a-league",
       "country": "Australia",
       "name": "A-League Men",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 50,
       "leagueId": "ksa-pro-league",
       "country": "Saudi Arabia",
       "name": "Saudi Pro League",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 51,
       "leagueId": "qat-stars-league",
       "country": "Qatar",
       "name": "Qatar Stars League",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 52,
       "leagueId": "uae-pro-league",
       "country": "United Arab Emirates",
       "name": "UAE Pro League",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 53,
       "leagueId": "rsa-premiership",
       "country": "South Africa",
       "name": "Betway Premiership",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 54,
       "leagueId": "rsa-first-division",
       "country": "South Africa",
       "name": "Motsepe Foundation Championship",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 55,
       "leagueId": "egy-premier-league",
       "country": "Egypt",
       "name": "Egyptian Premier League",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 56,
       "leagueId": "mar-botola",
       "country": "Morocco",
       "name": "Botola Pro",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 57,
       "leagueId": "tun-ligue-1",
       "country": "Tunisia",
       "name": "Tunisian Ligue Professionnelle 1",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 58,
       "leagueId": "caf-champions-league",
       "country": "Africa",
       "name": "CAF Champions League",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 59,
       "leagueId": "caf-confederation-cup",
       "country": "Africa",
       "name": "CAF Confederation Cup",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 60,
       "leagueId": "fifa-world-cup",
       "country": "International",
       "name": "FIFA World Cup",
-      "status": "pending",
+      "status": "complete",
       "fixturesDiscovered": 0,
       "fixturesProcessed": 0,
       "dates": [
         {
           "date": "2026-10-03",
-          "status": "pending"
+          "status": "complete",
+          "sources": [
+            "https://fbref.com/en/matches/2026-10-03",
+            "https://www.rotascore.com/en/matches/2026-10-03"
+          ],
+          "note": "No configured senior competition fixture mapped for 2026-10-03 after independent global date-index cross-check; similarly named youth/women/lower-tier competitions excluded."
         }
-      ]
+      ],
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-03",
+        "https://www.rotascore.com/en/matches/2026-10-03"
+      ],
+      "zeroFixtureVerified": true
     },
     {
       "leagueIndex": 61,
@@ -2363,5 +2893,19 @@
       "https://www.theguardian.com/football/fixtures/2026/Oct/03"
     ],
     "note": "Date-level global discovery active; targeted verification only for configured competitions requiring disambiguation."
+  },
+  "aggregateMetrics": {
+    "configuredLeaguesChecked": 61,
+    "configuredLeaguesTotal": 61,
+    "datesChecked": 1,
+    "datesTotal": 1,
+    "historicalFixturesFound": 40,
+    "modelledFixtures": 38,
+    "noModel": 3,
+    "recommendedBets": 37,
+    "noBet": 1,
+    "wins": 31,
+    "losses": 5,
+    "hitRate": 86.1
   }
 }
