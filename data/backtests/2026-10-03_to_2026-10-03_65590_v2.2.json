@@ -1605,35 +1605,6 @@
     {
       "date": "2026-10-03",
       "leagueId": "eng-league-two",
-      "homeTeam": "Chesterfield",
-      "awayTeam": "Tranmere Rovers",
-      "actualScore": "4-2",
-      "status": "NO_BET",
-      "sources": [
-        "https://last5games.com/matches/chesterfield-vs-tranmere-rovers-19727687/",
-        "https://www.efl.com/news/2026/october/03/salford-top-the-table-/"
-      ],
-      "modelLevel": "basic",
-      "sampleSize": 5,
-      "evidenceCutoff": "2026-10-03T11:29:00Z",
-      "inputs": {
-        "homeAttack": 1.3333333333333333,
-        "awayAttack": 0.8695652173913044,
-        "homeDefence": 1.2173913043478262,
-        "awayDefence": 0.7407407407407407,
-        "leagueHomeGoals": 1.35,
-        "leagueAwayGoals": 1.15,
-        "sampleSize": 5,
-        "modelLevel": "basic"
-      },
-      "lambdaHome": 1.34,
-      "lambdaAway": 1.21,
-      "recommendedBet": null,
-      "outcome": "NO_BET"
-    },
-    {
-      "date": "2026-10-03",
-      "leagueId": "eng-league-two",
       "homeTeam": "Accrington Stanley",
       "awayTeam": "Cheltenham Town",
       "actualScore": "2-0",
@@ -1666,20 +1637,6 @@
         "rating": "Strong"
       },
       "outcome": "WIN"
-    },
-    {
-      "date": "2026-10-03",
-      "leagueId": "eng-league-two",
-      "homeTeam": "Crewe Alexandra",
-      "awayTeam": "Bristol Rovers",
-      "actualScore": "3-1",
-      "status": "NO_MODEL",
-      "sources": [
-        "https://www.efl.com/news/2026/october/03/salford-top-the-table-/"
-      ],
-      "modelLevel": "no-model",
-      "noModelReason": "Reliable pre-kickoff recent GF/GA evidence was not reconstructed within the available historical research sources.",
-      "outcome": "NO_MODEL"
     },
     {
       "date": "2026-10-03",
@@ -2439,35 +2396,6 @@
     },
     {
       "date": "2026-10-03",
-      "leagueId": "esp-segunda",
-      "homeTeam": "Sabadell",
-      "awayTeam": "FC Andorra",
-      "actualScore": null,
-      "status": "NO_MODEL",
-      "sources": [
-        "https://www.laliga.com/en-US/laliga-hypermotion/results"
-      ],
-      "modelLevel": "basic",
-      "sampleSize": 5,
-      "evidenceCutoff": "2026-10-03T11:59:00Z",
-      "inputs": {
-        "homeAttack": 1.1347517730496455,
-        "awayAttack": 0.8849557522123894,
-        "homeDefence": 1.0619469026548674,
-        "awayDefence": 1.4184397163120568,
-        "leagueHomeGoals": 1.41,
-        "leagueAwayGoals": 1.13,
-        "sampleSize": 5,
-        "modelLevel": "basic"
-      },
-      "lambdaHome": 2.16,
-      "lambdaAway": 1.07,
-      "recommendedBet": null,
-      "outcome": "NO_MODEL",
-      "noModelReason": "Fixture was postponed and therefore not a playable historical prediction."
-    },
-    {
-      "date": "2026-10-03",
       "leagueId": "ned-eerste-divisie",
       "homeTeam": "TOP Oss",
       "awayTeam": "MVV Maastricht",
@@ -2645,20 +2573,6 @@
         "rating": "Strong"
       },
       "outcome": "WIN"
-    },
-    {
-      "date": "2026-10-03",
-      "leagueId": "ned-eerste-divisie",
-      "homeTeam": "RKC Waalwijk",
-      "awayTeam": "FC Emmen",
-      "actualScore": "1-1",
-      "status": "NO_MODEL",
-      "sources": [
-        "https://www.livescores.com/football/2026-10-03/?tz=-3"
-      ],
-      "modelLevel": "no-model",
-      "noModelReason": "Reliable pre-kickoff recent scoring evidence could not be reconstructed to the required Basic threshold in this research pass.",
-      "outcome": "NO_MODEL"
     },
     {
       "date": "2026-10-03",
@@ -2912,5 +2826,6 @@
     "betsAudited": 36,
     "mismatchesCorrected": 2,
     "status": "passed"
-  }
+  },
+  "storagePolicy": "recommended-bets-only"
 }
