@@ -1,6 +1,6 @@
 {
   "schema": "fih-execution-contract-v1",
-  "contractVersion": "2.0.0",
+  "contractVersion": "2.1.0",
   "authority": "canonical-machine-readable",
   "mutationPolicy": {
     "runtimeRuleCreation": "forbidden",
@@ -10,7 +10,7 @@
     "ruleChangesRequire": "explicit-user-approval-outside-execution"
   },
   "production": {
-    "modelVersion": "v2.3-backtest-calibrated-selector",
+    "modelVersion": "v2.3.1-supported-selector",
     "modelPath": "lib/model.ts",
     "timezone": "Africa/Johannesburg"
   },
@@ -26,7 +26,7 @@
     "persist-discovery",
     "verify-prematch",
     "research",
-    "calculate-1x2",
+    "calculate-primary-and-support-signals",
     "select-one-or-no-bet",
     "freeze-output",
     "complete-all-checkpoints",
@@ -53,19 +53,40 @@
   },
   "markets": {
     "requiredFamilies": [
-      "1X2"
+      "1X2",
+      "Total Goals",
+      "Double Chance"
     ],
     "actionable": {
       "1X2": [
         "Home",
         "Draw",
         "Away"
+      ],
+      "Total Goals": [
+        "Over 1.5"
+      ],
+      "Double Chance": [
+        "1X",
+        "X2"
       ]
     },
+    "supportingSignals": {
+      "Over 1.5": {
+        "requires": "Over 2.5",
+        "rawMinimum": 68
+      },
+      "1X": {
+        "requires": "1X2 Home",
+        "rawMinimum": 62
+      },
+      "X2": {
+        "requires": "1X2 Away",
+        "rawMinimum": 62
+      }
+    },
     "forbidden": [
-      "Total Goals",
       "BTTS",
-      "Double Chance",
       "Team Goals",
       "Correct Score",
       "Asian Handicap",
@@ -74,7 +95,8 @@
       "Cards",
       "Half Time",
       "Player Props",
-      "Win to Nil"
+      "Win to Nil",
+      "Double Chance 12"
     ],
     "maximumRecommendedBetsPerFixture": 1
   },
@@ -88,7 +110,10 @@
     "rawMinimums": {
       "Home": 62,
       "Draw": 62,
-      "Away": 62
+      "Away": 62,
+      "Over 1.5": 72,
+      "1X": 72,
+      "X2": 72
     }
   },
   "invariants": {
@@ -98,7 +123,7 @@
     "allRegistryCheckpointsRequired": true,
     "noBetAndNoModelAreNotPerformanceResults": true,
     "historicalResultVisibleOnlyAfterFreeze": true,
-    "only1X2RequiredForEveryModelledFixture": true
+    "supportGateRequiredForSaferMarkets": true
   },
   "selfCorrection": {
     "mayChangeExecutionPath": true,
