@@ -22,7 +22,7 @@ export type BetRecommendation={
   support?:SupportSignal;
 };
 
-export const MODEL_VERSION="v2.7-quality-gated-selector";
+export const MODEL_VERSION="v2.8-support-quality-selector";
 export const V24=Object.freeze({
   marketDivergenceWatch:20,
   marketDivergenceReview:30,
@@ -50,6 +50,10 @@ export const V26=Object.freeze({
 export const V27=Object.freeze({
   ...V26,
   publishProbabilityMin:78
+});
+export const V28=Object.freeze({
+  ...V27,
+  minimumSupportMargin:5
 });
 
 const fact=(n:number):number=>n<2?1:n*fact(n-1);
@@ -129,17 +133,22 @@ const recommend=(m:{home:number;draw:number;away:number;homeOrDraw:number;awayOr
   const t=(V26.marketTemperature as Record<string,number>)[x.pick]??1;
   return temperatureCalibrate(x.probability,t);
  };
- const publishable=candidates.find(x=>x.publishable&&publicProbabilityFor(x)>=V27.publishProbabilityMin);
- const review=candidates.find(x=>(!x.publishable&&x.selectionStatus==="REVIEW")||(x.publishable&&publicProbabilityFor(x)<V27.publishProbabilityMin));
+ const supportMarginFor=(x:typeof candidates[number])=>x.support?x.support.rawProbability-x.support.minimum:99;
+ const publishable=candidates.find(x=>x.publishable&&publicProbabilityFor(x)>=V27.publishProbabilityMin&&supportMarginFor(x)>=V28.minimumSupportMargin);
+ const review=candidates.find(x=>
+   (!x.publishable&&x.selectionStatus==="REVIEW")||
+   (x.publishable&&publicProbabilityFor(x)<V27.publishProbabilityMin)||
+   (x.publishable&&supportMarginFor(x)<V28.minimumSupportMargin)
+ );
  const shape=(x:typeof candidates[number]):BetRecommendation=>{
   const publicProbability=publicProbabilityFor(x);
   return {
   market:x.market,pick:x.pick,probability:+publicProbability.toFixed(1),selectionProbability:+x.probability.toFixed(1),rawProbability:+x.raw.toFixed(1),
   reliability:+x.reliability.toFixed(3),rating:rating(publicProbability),
-  selectionStatus:(x.publishable&&publicProbability<V27.publishProbabilityMin?"REVIEW":x.selectionStatus),publishable:x.publishable&&publicProbability>=V27.publishProbabilityMin,
+  selectionStatus:(x.publishable&&(publicProbability<V27.publishProbabilityMin||supportMarginFor(x)<V28.minimumSupportMargin)?"REVIEW":x.selectionStatus),publishable:x.publishable&&publicProbability>=V27.publishProbabilityMin&&supportMarginFor(x)>=V28.minimumSupportMargin,
   ...(x.marketProbability!==undefined?{marketProbability:+x.marketProbability.toFixed(1)}:{}),
   ...(x.marketDivergence!==undefined?{marketDivergence:+x.marketDivergence.toFixed(1)}:{}),
-  riskFlags:[...x.riskFlags,...(x.publishable&&publicProbability<V27.publishProbabilityMin?["quality-public-probability"]:[])],
+  riskFlags:[...x.riskFlags,...(x.publishable&&publicProbability<V27.publishProbabilityMin?["quality-public-probability"]:[]),...(x.publishable&&supportMarginFor(x)<V28.minimumSupportMargin?["weak-support-margin"]:[])],
   ...(x.support?{support:{...x.support,rawProbability:+x.support.rawProbability.toFixed(1)}}:{})
  };};
  return {recommendedBet:publishable?shape(publishable):null,reviewBet:review?shape(review):null};
