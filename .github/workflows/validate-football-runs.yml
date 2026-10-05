@@ -8,7 +8,9 @@ on:
       - "data/predictions/**/*.json"
       - "scripts/validate-run.ts"
       - "scripts/verify-predictions.ts"
-      - "automation/AGENT_INSTRUCTIONS.md"
+      - "automation/*.md"
+      - "lib/model.ts"
+      - "lib/grading.ts"
       - "data/leagues.json"
   push:
     branches: [main]
@@ -18,7 +20,9 @@ on:
       - "data/predictions/**/*.json"
       - "scripts/validate-run.ts"
       - "scripts/verify-predictions.ts"
-      - "automation/AGENT_INSTRUCTIONS.md"
+      - "automation/*.md"
+      - "lib/model.ts"
+      - "lib/grading.ts"
       - "data/leagues.json"
 
 jobs:
