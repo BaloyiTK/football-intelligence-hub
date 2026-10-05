@@ -4,7 +4,7 @@ Daily public betting data contains only pre-match fixtures with a deterministic 
 
 Each published model includes modelLevel, confidence/evidence metadata, sampleSize when known, lambdas, correct score + alternatives, 1X2, double chance, BTTS, totals, team goals and recommendedBet.
 
-recommendedBet V2.2:
+recommendedBet V2.3:
 `{ market, pick, probability, rawProbability, reliability, rating }`
 - probability = reliability-adjusted recommendation probability
 - rawProbability = probability from the normalized score model
