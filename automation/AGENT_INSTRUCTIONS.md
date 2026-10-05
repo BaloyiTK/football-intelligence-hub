@@ -17,6 +17,27 @@ Before any daily prediction run or historical backtest, read and obey:
 
 Repository rules are authoritative. Do not substitute remembered conversation rules, provider coverage, a sample of leagues, or convenient competitions.
 
+## Mandatory preflight and self-correction
+Before starting ANY execution command (daily run, historical backtest, resume, reconciliation or training):
+1. Read the complete mandatory rule chain and production model before choosing an execution path.
+2. Resolve the requested date/range and inspect existing non-complete runs before creating files.
+3. Build an execution plan from the repository contract: discovery -> research -> exact production model -> freeze -> grade when historical -> validate/finalize -> training/publication when applicable.
+4. Verify the chosen tools can perform each stage. A preferred tool/runner being unavailable is NOT a blocker if the same contract can be completed through another available approved path.
+5. For backtests, historical research uses the SAME discovery/research/model instructions as a daily prediction, shifted to the historical pre-kickoff cutoff. Previously stored evidence is an accelerator, never a prerequisite.
+6. Never introduce a new prerequisite that is absent from repository rules (for example, requiring old stored inputs before historical web reconstruction).
+
+### Self-correction loop
+If execution deviates from the contract, a validation step fails, a tool path is unavailable, or an assumption is disproven:
+1. Detect and name the failed assumption internally; do not stop merely to explain it.
+2. Re-read the controlling rule for that stage.
+3. Roll back/repair only the invalid state; preserve valid frozen/checkpointed work.
+4. Select the next valid execution path using available tools (web research, repository evidence, runner/CI, or deterministic local execution as allowed by the contract).
+5. Persist the correction/cursor when repository state changes.
+6. Resume execution immediately from the first non-terminal item.
+7. Repeat until strict finalization succeeds or every approved fallback is genuinely unavailable.
+
+A run-level blocker is allowed only when ALL applicable approved execution paths have been attempted or are unavailable and continuing would require fabrication, future leakage, or unsafe mutation. "I used the wrong approach", "the preferred runner is unavailable", "research is large", "stored evidence is missing", and "a progress update was emitted" are NEVER sufficient blocker reasons by themselves.
+
 ## Worldwide coverage policy
 - FIH targets worldwide senior football coverage. The configured competition universe is dynamic and MUST NOT be constrained by a hard-coded league count.
 - `data/leagues.json` is the current verified registry, not a permanent ceiling. Newly verified senior domestic leagues/divisions and senior international/continental competitions may be added as coverage expands.
