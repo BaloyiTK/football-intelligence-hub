@@ -23,12 +23,13 @@ const recommend=(m:{home:number;draw:number;away:number;dc:{homeOrDraw:number;aw
  const ef=evidenceFactor(i);
  const rows=[
   ["Double Chance","1X",m.dc.homeOrDraw,72,1],["Double Chance","X2",m.dc.awayOrDraw,72,1],
-  ["Total Goals","Over 1.5",m.o15,72,.98],["Total Goals","Over 2.5",m.o25,68,.94],
-  ["Total Goals","Under 3.5",100-m.o35,72,under35Reliability(i,1)],
+  ["Total Goals","Over 1.5",m.o15,72,.98],["Total Goals","Under 1.5",100-m.o15,72,.98],
+  ["Total Goals","Over 2.5",m.o25,68,.94],["Total Goals","Under 2.5",100-m.o25,68,.94],
+  ["Total Goals","Over 3.5",m.o35,72,.90],["Total Goals","Under 3.5",100-m.o35,72,under35Reliability(i,1)],
   ["BTTS","Yes",m.btts,68,.93],["BTTS","No",100-m.btts,68,.93],
   ["Team Goals","Home 1+",100-Math.exp(-m.lh),74,(i.homeScoringRate??.75)>=.6?.94:.82],
   ["Team Goals","Away 1+",100-Math.exp(-m.la),78,(i.awayScoringRate??.70)>=.65?.88:.76],
-  ["1X2","Home",m.home,62,.92],["1X2","Away",m.away,62,.90]
+  ["1X2","Home",m.home,62,.92],["1X2","Draw",m.draw,62,.88],["1X2","Away",m.away,62,.90]
  ] as Array<[string,string,number,number,number]>;
  const candidates=rows.map(([market,pick,raw,min,mr])=>({market,pick,raw,min,reliability:ef*mr,adjusted:raw*ef*mr}))
   .filter(x=>x.raw>=x.min&&x.adjusted>=68).sort((a,b)=>b.adjusted-a.adjusted);
