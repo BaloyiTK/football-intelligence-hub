@@ -3,15 +3,16 @@
   "from": "2026-09-28",
   "to": "2026-10-04",
   "modelVersion": "v2.3-backtest-calibrated-selector",
-  "status": "in-progress",
+  "status": "blocked",
   "createdAt": "2026-10-05T10:00:00+02:00",
   "timezone": "Africa/Johannesburg",
   "configuredLeagues": 61,
   "dates": 7,
   "current": {
-    "stage": "global-discovery",
+    "stage": "historical-evidence-reconstruction",
     "date": "2026-09-28",
-    "leagueIndex": 0
+    "leagueIndex": 0,
+    "leagueId": "eng-premier-league"
   },
   "dailyScan": [],
   "leagueScan": [],
@@ -20,5 +21,92 @@
   "notes": [
     "New historical backtest requested by user. No aggregate performance is final until all 7 dates x configured leagues are terminal.",
     "Historical evidence must be reconstructed pre-kickoff; results are revealed only after prediction freeze."
-  ]
+  ],
+  "blocker": "Exact repository backtest runner cannot be executed in the active ChatGPT runtime: the container has no network path to GitHub, while the GitHub connector can edit/dispatch repository workflows but cannot execute arbitrary repository code with newly researched evidence. The seven-day historical evidence file is not yet complete, so dispatching the existing resume workflow would not safely execute the missing Sep 28-Oct 1 model tests.",
+  "resumeAction": "Complete leakage-safe web evidence for 2026-09-28 through 2026-10-04 using two global date indexes plus targeted research, persist data/backtest-evidence/2026-09-28_to_2026-10-04.json, then execute npm run backtest with --resume on this run and append newly graded records to data/training/model-training-data.jsonl.",
+  "discoveryEvidence": [
+    {
+      "date": "2026-09-28",
+      "sources": [
+        "https://www.soccerbase.com/matches/results.sd?date=2026-09-28",
+        "https://www.skysports.com/football-scores-fixtures/2026-09-28",
+        "https://www.predictz.com/results/20260928/"
+      ],
+      "verifiedConfiguredExamples": [
+        "UEFA Nations League",
+        "Major League Soccer",
+        "Segunda Division"
+      ]
+    },
+    {
+      "date": "2026-09-29",
+      "sources": [
+        "https://www.skysports.com/football-scores-fixtures/2026-09-29",
+        "https://www.predictz.com/results/20260929/"
+      ],
+      "verifiedConfiguredExamples": [
+        "UEFA Nations League",
+        "Brazil Serie B",
+        "Categoria Primera A"
+      ]
+    },
+    {
+      "date": "2026-09-30",
+      "sources": [
+        "https://www.skysports.com/football-scores-fixtures/2026-09-30",
+        "https://www.windrawwin.com/predictions/history/20260930/"
+      ],
+      "verifiedConfiguredExamples": [
+        "International Friendlies"
+      ]
+    },
+    {
+      "date": "2026-10-01",
+      "sources": [
+        "https://www.skysports.com/football-scores-fixtures/2026-10-01",
+        "https://www.predictz.com/results/20261001/"
+      ],
+      "verifiedConfiguredExamples": [
+        "UEFA Nations League",
+        "Major League Soccer",
+        "Categoria Primera A",
+        "International Friendlies"
+      ]
+    },
+    {
+      "date": "2026-10-02",
+      "sources": [
+        "existing completed audited backtest 73956"
+      ],
+      "verifiedConfiguredExamples": [
+        "multiple configured competitions"
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "sources": [
+        "existing completed audited backtest 65590"
+      ],
+      "verifiedConfiguredExamples": [
+        "multiple configured competitions"
+      ]
+    },
+    {
+      "date": "2026-10-04",
+      "sources": [
+        "data/predictions/2026-10-04.json",
+        "https://www.skysports.com/football-scores-fixtures/2026-10-04"
+      ],
+      "verifiedConfiguredExamples": [
+        "UEFA Nations League",
+        "International Friendlies"
+      ]
+    }
+  ],
+  "trainingDataset": {
+    "path": "data/training/model-training-data.jsonl",
+    "schema": "fih-model-training-v1",
+    "verifiedRecordsBeforeThisRun": 67,
+    "trainerConsumesCanonicalFile": true
+  }
 }
