@@ -1,0 +1,139 @@
+{
+  "schema": "fih-execution-contract-v1",
+  "contractVersion": "1.0.0",
+  "authority": "canonical-machine-readable",
+  "mutationPolicy": {
+    "runtimeRuleCreation": "forbidden",
+    "ruleInterpretationOverride": "forbidden",
+    "ruleRelaxation": "forbidden",
+    "ruleSubstitution": "forbidden",
+    "ruleChangesRequire": "explicit-user-approval-outside-execution"
+  },
+  "production": {
+    "modelVersion": "v2.3-backtest-calibrated-selector",
+    "modelPath": "lib/model.ts",
+    "timezone": "Africa/Johannesburg"
+  },
+  "pipeline": [
+    "load-contract",
+    "freeze-contract-hash",
+    "preflight",
+    "resolve-run-and-resume",
+    "reconcile-results",
+    "freeze-registry",
+    "worldwide-discovery",
+    "normalize-and-map",
+    "persist-discovery",
+    "verify-prematch",
+    "research",
+    "calculate-six-market-families",
+    "select-one-or-no-bet",
+    "freeze-output",
+    "complete-all-checkpoints",
+    "validate",
+    "finalize",
+    "publish-daily-artifact",
+    "verify-publication-artifact",
+    "train-if-new-verified-outcomes",
+    "verify-exact-deployment-sha"
+  ],
+  "discovery": {
+    "minimumIndependentGlobalDateSources": 2,
+    "worldwideSenior": true,
+    "registryIsCoverageFloorNotCeiling": true
+  },
+  "research": {
+    "hierarchy": [
+      "full",
+      "standard",
+      "basic",
+      "no-model"
+    ],
+    "missingData": "null-or-unknown-never-invented"
+  },
+  "markets": {
+    "requiredFamilies": [
+      "1X2",
+      "Total Goals",
+      "BTTS",
+      "Double Chance",
+      "Team Goals",
+      "Correct Score"
+    ],
+    "actionable": {
+      "1X2": [
+        "Home",
+        "Draw",
+        "Away"
+      ],
+      "Total Goals": [
+        "Over 1.5",
+        "Under 1.5",
+        "Over 2.5",
+        "Under 2.5",
+        "Over 3.5",
+        "Under 3.5"
+      ],
+      "BTTS": [
+        "Yes",
+        "No"
+      ],
+      "Double Chance": [
+        "1X",
+        "X2"
+      ],
+      "Team Goals": [
+        "Home 1+",
+        "Away 1+"
+      ]
+    },
+    "analyticalOnly": {
+      "Correct Score": "primary-plus-alternatives"
+    },
+    "forbidden": [
+      "Double Chance 12",
+      "Team 2+",
+      "Asian Handicap",
+      "Draw No Bet",
+      "Corners",
+      "Cards",
+      "Half Time",
+      "Player Props",
+      "Win to Nil"
+    ],
+    "maximumRecommendedBetsPerFixture": 1
+  },
+  "recommendation": {
+    "minimumAdjustedProbability": 68,
+    "ratings": {
+      "Elite": 85,
+      "Strong": 75,
+      "Good": 68
+    }
+  },
+  "invariants": {
+    "allSixFamiliesRequiredForEveryModelledFixture": true,
+    "correctScoreCannotBeRecommended": true,
+    "exactProductionModelRequired": true,
+    "preKickoffFreezeRequired": true,
+    "duplicateFixtureIdentityForbidden": true,
+    "allRegistryCheckpointsRequired": true,
+    "noBetAndNoModelAreNotPerformanceResults": true,
+    "historicalResultVisibleOnlyAfterFreeze": true
+  },
+  "selfCorrection": {
+    "mayChangeExecutionPath": true,
+    "mayRepairInvalidState": true,
+    "mayChangeBusinessRules": false,
+    "mayInventFallbackRule": false
+  },
+  "specGap": {
+    "state": "SPEC_GAP",
+    "action": "do-not-invent-rule; preserve safe progress; require explicit user-approved contract change if unresolved"
+  },
+  "completion": {
+    "strictFinalizerRequired": true,
+    "publicationVerificationRequiredForDailyArtifact": true,
+    "deploymentIsSeparateFromModelCompletion": true
+  }
+}
