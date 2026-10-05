@@ -1,0 +1,45 @@
+{
+  "status": "in-progress",
+  "modelVersion": "v2.4-calibrated-risk-selector",
+  "range": {
+    "start": "2026-09-28",
+    "end": "2026-10-04"
+  },
+  "startedFromScratch": true,
+  "dailyScan": [
+    {
+      "date": "2026-09-28",
+      "status": "pending"
+    },
+    {
+      "date": "2026-09-29",
+      "status": "pending"
+    },
+    {
+      "date": "2026-09-30",
+      "status": "pending"
+    },
+    {
+      "date": "2026-10-01",
+      "status": "pending"
+    },
+    {
+      "date": "2026-10-02",
+      "status": "pending"
+    },
+    {
+      "date": "2026-10-03",
+      "status": "pending"
+    },
+    {
+      "date": "2026-10-04",
+      "status": "pending"
+    }
+  ],
+  "leagueScan": [],
+  "fixtures": [],
+  "aggregateMetrics": null,
+  "failureAnalysis": [],
+  "improvementCandidates": [],
+  "note": "Canonical seven-day backtest file reset under overwrite-by-date-range policy. No prior backtest metrics or checkpoints were carried forward."
+}
