@@ -3,7 +3,7 @@
 ChatGPT is the research/orchestration layer. GitHub stores the auditable inputs, checkpoints and frozen outputs; repository automation validates/publishes evidence already written to the repository and must never invent missing research.
 
 1. Resolve the requested daily run date/time in Africa/Johannesburg.
-2. Read the complete mandatory rule chain from `automation/AGENT_INSTRUCTIONS.md` and freeze the current `data/leagues.json` registry snapshot for this run.
+2. Read the complete mandatory rule chain from `automation/AGENT_INSTRUCTIONS.md`. Before creating a run, inspect today's persisted runs and resume the latest non-complete resumable run from its exact cursor/resumeAction; otherwise create a new run. Freeze the current `data/leagues.json` registry snapshot for a new run.
 3. Discover the requested date's worldwide senior-football fixture universe using at least TWO independent global date-indexed sources, following `FIXTURE_DISCOVERY.md`.
 4. Normalize/map fixtures to every competition in the frozen registry. Persist discovery sources, mapped fixtures, verified zero-fixture checkpoints, and legitimate out-of-registry senior competition coverage-gap candidates before modelling.
 5. Process every configured competition through the FINAL entry. Resolve discovery disagreements/ambiguities with targeted verification rather than skipping them.
@@ -11,7 +11,7 @@ ChatGPT is the research/orchestration layer. GitHub stores the auditable inputs,
 7. Research each verified upcoming fixture under `RESEARCH_RULES.md`; attempt Full -> Standard -> Basic -> No Model and preserve evidence sources/cutoff, sampleSize, modelLevel, scoring consistency and recent goal volatility where available. Never fabricate missing inputs.
 8. Run the exact production V2.3 model from `lib/model.ts`. Calculate the score distribution/markets and deterministic reliability-adjusted selector.
 9. Freeze one `recommendedBet` or NO BET/NO MODEL immediately with its evidence/model state. Follow `DUPLICATE_RULES.md`; never append the same fixture twice.
-10. Continue through the final configured competition. Re-check kickoff/status immediately before publication.
+10. Continue through the final configured competition. A failed/ambiguous search must exhaust alternate global, targeted, official and reputable-statistics fallbacks plus the Full -> Standard -> Basic hierarchy before blocking. Persist fixture-local blockers and continue other independent fixtures; stop globally only when a genuine dependency prevents further safe progress. Re-check kickoff/status immediately before publication.
 11. Validate the run with `npm run run:validate -- <run-file>`. A run may be called complete/final only after `npm run run:finalize -- <run-file>` succeeds.
 12. Build `data/predictions/YYYY-MM-DD.json` under `OUTPUT_SCHEMA.md`. The public betting list contains only still-valid pre-match fixtures with non-null `recommendedBet`; create the dated artifact even when that list is empty.
 13. Run `npm run predictions:verify -- YYYY-MM-DD`, re-read the artifact, and confirm its recommendation count equals the frozen publishable BET count.
