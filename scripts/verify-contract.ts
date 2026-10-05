@@ -1,0 +1,10 @@
+import fs from "node:fs";
+const c=JSON.parse(fs.readFileSync("automation/FIH_CONTRACT.json","utf8"));
+const required=["1X2","Total Goals","BTTS","Double Chance","Team Goals","Correct Score"];
+if(JSON.stringify(c.markets.requiredFamilies)!==JSON.stringify(required)) throw new Error("Canonical six-family contract changed");
+if(c.mutationPolicy.runtimeRuleCreation!=="forbidden") throw new Error("Runtime rule creation must remain forbidden");
+if(c.selfCorrection.mayChangeBusinessRules!==false) throw new Error("Self-correction may not change business rules");
+if(c.invariants.allSixFamiliesRequiredForEveryModelledFixture!==true) throw new Error("Six-family invariant must remain enabled");
+if(c.invariants.correctScoreCannotBeRecommended!==true) throw new Error("Correct Score recommendation ban missing");
+if(c.markets.maximumRecommendedBetsPerFixture!==1) throw new Error("One-bet invariant changed");
+console.log(JSON.stringify({status:"contract-verified",contractVersion:c.contractVersion,modelVersion:c.production.modelVersion,families:c.markets.requiredFamilies}));
