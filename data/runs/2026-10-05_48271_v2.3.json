@@ -5,12 +5,13 @@
   "status": "complete",
   "storagePolicy": "recommended-bets-only",
   "modelVersion": "v2.3-backtest-calibrated-selector",
-  "researchCutoff": "2026-10-05T08:20:54+02:00",
+  "researchCutoff": "2026-10-05T09:15:51+02:00",
   "globalDiscovery": {
     "sources": [
       "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
       "https://fbref.com/en/matches/2026-10-05",
-      "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05",
+      "https://www.ligaprofesional.ar/torneo-clausura-mercado-libre-2026/"
     ],
     "method": "two-plus global date-indexed sources with targeted official/statistical verification",
     "correctedUniverse": true
@@ -459,12 +460,14 @@
     {
       "leagueId": "arg-primera",
       "status": "complete",
-      "fixturesDiscovered": 1,
-      "fixturesProcessed": 1,
+      "fixturesDiscovered": 3,
+      "fixturesProcessed": 3,
       "sources": [
         "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
         "https://fbref.com/en/matches/2026-10-05",
-        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05",
+        "https://www.ligaprofesional.ar/torneo-clausura-mercado-libre-2026/",
+        "https://www.lpf.org.ar/?p=86406"
       ]
     },
     {
@@ -1640,6 +1643,150 @@
         "https://www.skysports.com/football/liechtenstein-vs-gibraltar/stats/569578"
       ],
       "researchedAt": "2026-10-05T08:20:54+02:00"
+    },
+    {
+      "date": "2026-10-05",
+      "fixtureKey": "2026-10-05|arg-primera|deportivo-riestra|central-cordoba-sde",
+      "leagueId": "arg-primera",
+      "league": "Liga Profesional Argentina",
+      "homeTeam": "Deportivo Riestra",
+      "awayTeam": "Central Córdoba de Santiago",
+      "kickoff": "21:45 SAST",
+      "status": "BET",
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Under 3.5",
+        "probability": 69.2,
+        "rawProbability": 88.1,
+        "reliability": 0.786,
+        "rating": "Good"
+      },
+      "model": {
+        "modelVersion": "v2.3-backtest-calibrated-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "sampleSize": 5,
+        "lambdaHome": 0.85,
+        "lambdaAway": 1.01,
+        "correctScore": {
+          "score": "0-0",
+          "probability": 16.6
+        },
+        "alternatives": [
+          {
+            "score": "0-1",
+            "probability": 14.6
+          },
+          {
+            "score": "1-1",
+            "probability": 14.4
+          },
+          {
+            "score": "1-0",
+            "probability": 12.2
+          }
+        ],
+        "homeWin": 28.6,
+        "draw": 34.2,
+        "awayWin": 37.2,
+        "doubleChance": {
+          "homeOrDraw": 62.8,
+          "awayOrDraw": 71.4,
+          "homeOrAway": 65.8
+        },
+        "btts": 37.5,
+        "over15": 56.6,
+        "over25": 28.6,
+        "over35": 11.9,
+        "home2Plus": 21,
+        "away2Plus": 26.8,
+        "recommendedBet": {
+          "market": "Total Goals",
+          "pick": "Under 3.5",
+          "probability": 69.2,
+          "rawProbability": 88.1,
+          "reliability": 0.786,
+          "rating": "Good"
+        }
+      },
+      "sources": [
+        "https://www.ligaprofesional.ar/torneo-clausura-mercado-libre-2026/",
+        "https://www.fotmob.com/matches/central-cordoba-de-santiago-vs-deportivo-riestra/1o9ltexi",
+        "https://footystats.org/argentina/primera-division"
+      ],
+      "researchedAt": "2026-10-05T09:15:51+02:00"
+    },
+    {
+      "date": "2026-10-05",
+      "fixtureKey": "2026-10-05|arg-primera|velez-sarsfield|platense",
+      "leagueId": "arg-primera",
+      "league": "Liga Profesional Argentina",
+      "homeTeam": "Vélez Sarsfield",
+      "awayTeam": "Platense",
+      "kickoff": "00:00 SAST",
+      "status": "BET",
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 71.2,
+        "rawProbability": 81.6,
+        "reliability": 0.873,
+        "rating": "Good"
+      },
+      "model": {
+        "modelVersion": "v2.3-backtest-calibrated-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "sampleSize": 5,
+        "lambdaHome": 1.37,
+        "lambdaAway": 0.71,
+        "correctScore": {
+          "score": "1-0",
+          "probability": 16.1
+        },
+        "alternatives": [
+          {
+            "score": "0-0",
+            "probability": 13.4
+          },
+          {
+            "score": "1-1",
+            "probability": 13.1
+          },
+          {
+            "score": "2-0",
+            "probability": 11.7
+          }
+        ],
+        "homeWin": 51.7,
+        "draw": 29.8,
+        "awayWin": 18.4,
+        "doubleChance": {
+          "homeOrDraw": 81.6,
+          "awayOrDraw": 48.3,
+          "homeOrAway": 70.2
+        },
+        "btts": 39.1,
+        "over15": 62.7,
+        "over25": 34.7,
+        "over35": 15.9,
+        "home2Plus": 39.9,
+        "away2Plus": 16.1,
+        "recommendedBet": {
+          "market": "Double Chance",
+          "pick": "1X",
+          "probability": 71.2,
+          "rawProbability": 81.6,
+          "reliability": 0.873,
+          "rating": "Good"
+        }
+      },
+      "sources": [
+        "https://www.ligaprofesional.ar/torneo-clausura-mercado-libre-2026/",
+        "https://www.fotmob.com/en-GB/matches/velez-sarsfield-vs-club-atletico-platense/3d3g19",
+        "https://footystats.org/argentina/primera-division"
+      ],
+      "researchedAt": "2026-10-05T09:15:51+02:00"
     }
   ],
   "metrics": {
