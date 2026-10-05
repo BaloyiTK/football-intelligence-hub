@@ -1,6 +1,6 @@
 {
   "schema": "fih-execution-contract-v1",
-  "contractVersion": "2.1.0",
+  "contractVersion": "2.2.0",
   "authority": "canonical-machine-readable",
   "mutationPolicy": {
     "runtimeRuleCreation": "forbidden",
@@ -10,7 +10,7 @@
     "ruleChangesRequire": "explicit-user-approval-outside-execution"
   },
   "production": {
-    "modelVersion": "v2.3.1-supported-selector",
+    "modelVersion": "v2.4-calibrated-risk-selector",
     "modelPath": "lib/model.ts",
     "timezone": "Africa/Johannesburg"
   },
@@ -27,7 +27,7 @@
     "verify-prematch",
     "research",
     "calculate-primary-and-support-signals",
-    "select-one-or-no-bet",
+    "calibrate-risk-and-select-one-or-no-bet",
     "freeze-output",
     "complete-all-checkpoints",
     "validate",
@@ -104,7 +104,7 @@
     "minimumAdjustedProbability": 68,
     "ratings": {
       "Elite": 85,
-      "Strong": 75,
+      "Strong": 78,
       "Good": 68
     },
     "rawMinimums": {
@@ -114,6 +114,27 @@
       "Over 1.5": 72,
       "1X": 72,
       "X2": 72
+    },
+    "calibration": {
+      "method": "shrink-toward-50",
+      "confidenceShrink": {
+        "high": 1,
+        "medium": 0.95,
+        "low": 0.9
+      },
+      "competitionShrink": {
+        "club": 1,
+        "international": 0.96,
+        "friendly": 0.92
+      },
+      "marketDivergenceWatch": 20,
+      "marketDivergenceReview": 30
+    },
+    "lambdaRisk": {
+      "high": 3,
+      "low": 0.25,
+      "totalHigh": 4.8,
+      "action": "REVIEW"
     }
   },
   "invariants": {
@@ -123,7 +144,10 @@
     "allRegistryCheckpointsRequired": true,
     "noBetAndNoModelAreNotPerformanceResults": true,
     "historicalResultVisibleOnlyAfterFreeze": true,
-    "supportGateRequiredForSaferMarkets": true
+    "supportGateRequiredForSaferMarkets": true,
+    "extremeLambdaMustNotAutoPublish": true,
+    "extremeMarketDivergenceMustNotAutoPublish": true,
+    "reviewBetIsNotPublicRecommendation": true
   },
   "selfCorrection": {
     "mayChangeExecutionPath": true,
