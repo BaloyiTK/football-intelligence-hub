@@ -27,7 +27,7 @@ jobs:
         run: npm run build
 
       - name: Exercise model training pipeline
-        run: npm run model:train
+        run: npm run model:train:check
 
       - name: Validate changed FIH artifacts
         if: github.event_name == 'push'
@@ -52,23 +52,37 @@ jobs:
             npm run predictions:verify -- "$(basename "$file" .json)"
           done
 
-      - name: Wait for production deployment and verify site
+      - name: Verify exact production deployment when Vercel reports success
+        if: github.event_name == 'push'
         shell: bash
         env:
+          EXPECTED_SHA: ${{ github.sha }}
           SITE: https://football-intelligence-hub.vercel.app
         run: |
           set -euo pipefail
-          latest="$(find data/predictions -maxdepth 1 -type f -name '????-??-??.json' -printf '%f\n' | sed 's/.json$//' | sort -r | head -1)"
-          echo "Latest archive: $latest"
+          status_url="https://api.github.com/repos/${GITHUB_REPOSITORY}/commits/${EXPECTED_SHA}/status"
+          state=""
+          description=""
+          target=""
           for attempt in {1..12}; do
-            echo "Health check attempt $attempt/12"
-            root="$(curl -fsSL --retry 2 --retry-delay 3 --max-time 20 "$SITE/" || true)"
-            dated="$(curl -fsSL --retry 2 --retry-delay 3 --max-time 20 "$SITE/?date=$latest" || true)"
-            if [[ -n "$root" && -n "$dated" ]] && grep -q "$latest" <<<"$dated" && ! grep -q "No published slate" <<<"$dated"; then
-              echo "Production health check passed for $latest"
-              exit 0
+            payload="$(curl -fsSL -H "Accept: application/vnd.github+json" "$status_url")"
+            state="$(node -e 'const x=JSON.parse(process.argv[1]);const s=x.statuses.find(v=>v.context==="Vercel");console.log(s?.state??"missing")' "$payload")"
+            description="$(node -e 'const x=JSON.parse(process.argv[1]);const s=x.statuses.find(v=>v.context==="Vercel");console.log(s?.description??"")' "$payload")"
+            target="$(node -e 'const x=JSON.parse(process.argv[1]);const s=x.statuses.find(v=>v.context==="Vercel");console.log(s?.target_url??"")' "$payload")"
+            echo "Vercel status: $state — $description"
+            if [[ "$state" == "success" ]]; then break; fi
+            if [[ "$state" == "failure" || "$state" == "error" ]]; then
+              echo "::error::Vercel failed for exact commit $EXPECTED_SHA: $description"
+              exit 1
             fi
             sleep 15
           done
-          echo "::error::Production did not become healthy after bounded retries."
-          exit 1
+          if [[ "$state" != "success" ]]; then
+            echo "::error::No successful Vercel deployment status for exact commit $EXPECTED_SHA."
+            exit 1
+          fi
+          latest="$(find data/predictions -maxdepth 1 -type f -name '????-??-??.json' -printf '%f\n' | sed 's/.json$//' | sort -r | head -1)"
+          dated="$(curl -fsSL --retry 2 --retry-delay 3 --max-time 20 "$SITE/?date=$latest")"
+          grep -q "$latest" <<<"$dated"
+          ! grep -q "No published slate" <<<"$dated"
+          echo "Exact commit received a successful Vercel status and production serves archive $latest."
