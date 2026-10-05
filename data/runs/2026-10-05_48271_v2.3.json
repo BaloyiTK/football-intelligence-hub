@@ -1724,13 +1724,21 @@
     "fixturesProcessed": 16,
     "modelled": 16,
     "noModel": 0,
-    "recommendedSelections": 14,
-    "noSelection": 2
+    "recommendedSelections": 15,
+    "noSelection": 1
   },
   "publication": {
     "status": "published",
     "path": "data/predictions/2026-10-05.json",
-    "expectedRecommendations": 14
+    "expectedRecommendations": 15,
+    "marketContract": [
+      "1X2",
+      "Over/Under Goals",
+      "BTTS",
+      "Double Chance 1X/X2",
+      "Team to Score 1+",
+      "Correct Score"
+    ]
   },
   "current": {
     "date": "2026-10-05",
