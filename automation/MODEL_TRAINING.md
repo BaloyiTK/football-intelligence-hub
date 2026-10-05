@@ -13,9 +13,9 @@ The trainer:
 - optimizes a bounded probability-calibration temperature on chronological training data only;
 - evaluates the selected calibration on the untouched newest 20% holdout;
 - performs expanding-window walk-forward calibration, fitting each step only on observations strictly earlier than the scored observation;
-- filters current-production evaluation to v2.3.1-supported-selector recommendations and reports support-gated derivative picks separately from direct 1X2 picks; legacy records remain immutable historical audit data;
+- filters current-production evaluation to v2.9-market-specific-quality-selector recommendations across the approved production markets; legacy records remain immutable historical audit data;
 - reports performance by pick, support-gate type, rating and evidence/model level;
-- writes `data/training/candidate-v2.4.json`;
+- writes `data/training/candidate-v3.0.json`;
 - appends an immutable JSONL event to `data/training/training-log.jsonl`.
 
 ## Audit log
@@ -31,4 +31,4 @@ A candidate MUST NOT replace `lib/model.ts` merely because training ran. Promoti
 6. deterministic validation/backtest success;
 7. a versioned promotion log entry with old/new parameters and metrics.
 
-Until every gate passes, decision remains NOT_PROMOTED and V2.3 stays production. If every statistical gate passes, training may emit READY_FOR_EXPLICIT_PROMOTION; it still must not rewrite production automatically. Promotion requires an explicit versioned code change and validation.
+Until every gate passes, decision remains NOT_PROMOTED and V2.9 stays production. If every statistical gate passes, training may emit READY_FOR_EXPLICIT_PROMOTION; it still must not rewrite production automatically. Promotion requires an explicit versioned code change and validation.
