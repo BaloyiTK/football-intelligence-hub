@@ -5,13 +5,13 @@
     "start": "2026-04-08",
     "end": "2026-10-04"
   },
-  "researchMethod": "fresh historical web reconstruction; production model frozen before exact pre-kickoff bookmaker odds attachment and result grading",
+  "researchMethod": "fresh historical web reconstruction; V2.9 fixture modelling and exact pre-kickoff odds resolution performed in one processing pipeline before grading",
   "oddsMethod": {
     "source": "football-predictions.ai historical pages",
     "upstream": "API-Football bookmaker snapshot",
     "exactMarketsOnly": true,
     "missingOddsPolicy": "NO ODDS; excluded from ROI",
-    "note": "Average-market ROI uses arithmetic mean across verified bookmaker prices. Best-available ROI assumes line shopping. Bet365 ROI uses only fixtures with a verified Bet365 exact-market price."
+    "note": "Historical odds are resolved as each eligible fixture is processed. Average-market ROI uses arithmetic mean across verified bookmaker prices. Best-available ROI assumes line shopping. Bet365 ROI uses only fixtures with a verified Bet365 exact-market price."
   },
   "sourceScope": {
     "configuredLeagueCount": 61,
@@ -43767,5 +43767,5 @@
       }
     ]
   },
-  "generatedAt": "2026-10-05T14:55:21.267Z"
+  "generatedAt": "2026-10-05T15:33:31.802Z"
 }
