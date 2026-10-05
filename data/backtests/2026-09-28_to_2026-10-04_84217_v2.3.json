@@ -1,0 +1,24 @@
+{
+  "runId": "84217",
+  "from": "2026-09-28",
+  "to": "2026-10-04",
+  "modelVersion": "v2.3-backtest-calibrated-selector",
+  "status": "in-progress",
+  "createdAt": "2026-10-05T10:00:00+02:00",
+  "timezone": "Africa/Johannesburg",
+  "configuredLeagues": 61,
+  "dates": 7,
+  "current": {
+    "stage": "global-discovery",
+    "date": "2026-09-28",
+    "leagueIndex": 0
+  },
+  "dailyScan": [],
+  "leagueScan": [],
+  "fixtures": [],
+  "metrics": null,
+  "notes": [
+    "New historical backtest requested by user. No aggregate performance is final until all 7 dates x configured leagues are terminal.",
+    "Historical evidence must be reconstructed pre-kickoff; results are revealed only after prediction freeze."
+  ]
+}
