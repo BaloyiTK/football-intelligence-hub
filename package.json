@@ -17,7 +17,8 @@
     "backtest:resume": "tsx scripts/resume-backtests.ts",
     "backtest:audit": "tsx scripts/audit-backtest-grading.ts",
     "backtest:controller": "tsx scripts/backtest-controller.ts",
-    "predictions:verify": "tsx scripts/verify-predictions.ts"
+    "predictions:verify": "tsx scripts/verify-predictions.ts",
+    "model:train": "tsx scripts/train-model.ts"
   },
   "dependencies": {
     "next": "15.5.7",
