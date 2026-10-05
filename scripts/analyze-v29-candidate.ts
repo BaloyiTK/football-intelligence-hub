@@ -50,6 +50,17 @@ const rules={
    if(lh(x)>=1.6&&lh(x)<2.0) return false;
    return true;
  },
+ conservativeCandidate:(x:Bet)=>{
+   if(x.recommendedBet.pick==="1X"&&p(x)<82) return false;
+   if(x.recommendedBet.pick==="Over 1.5"&&supportMargin(x)<7) return false;
+   return true;
+ },
+ oneX82PlusLambdaSupport:(x:Bet)=>{
+   if(x.recommendedBet.pick!=="1X") return true;
+   if(p(x)<82) return false;
+   if(lh(x)>=2.0&&lh(x)<2.5&&supportMargin(x)<10) return false;
+   return true;
+ },
 
  marketCombined:(x:Bet)=>{
    if(x.recommendedBet.pick==="1X"){
