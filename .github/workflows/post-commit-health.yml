@@ -1,0 +1,71 @@
+name: Post-Commit Health Gate
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: post-commit-health-main
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+
+      - name: Build application
+        run: npm run build
+
+      - name: Validate changed FIH artifacts
+        if: github.event_name == 'push'
+        shell: bash
+        run: |
+          set -euo pipefail
+          BASE="${{ github.event.before }}"
+          if [[ "$BASE" == "0000000000000000000000000000000000000000" ]]; then
+            BASE="$(git rev-list --max-parents=0 HEAD)"
+          fi
+          mapfile -t RUNS < <(git diff --name-only "$BASE" HEAD -- 'data/runs/*.json' 'data/backtests/*.json')
+          for file in "${RUNS[@]}"; do
+            [[ -f "$file" ]] || continue
+            npm run run:validate -- "$file"
+            if grep -q '"status"[[:space:]]*:[[:space:]]*"complete"' "$file"; then
+              npm run run:finalize -- "$file"
+            fi
+          done
+          mapfile -t PREDICTIONS < <(git diff --name-only "$BASE" HEAD -- 'data/predictions/*.json')
+          for file in "${PREDICTIONS[@]}"; do
+            [[ -f "$file" ]] || continue
+            npm run predictions:verify -- "$(basename "$file" .json)"
+          done
+
+      - name: Wait for production deployment and verify site
+        shell: bash
+        env:
+          SITE: https://football-intelligence-hub.vercel.app
+        run: |
+          set -euo pipefail
+          latest="$(find data/predictions -maxdepth 1 -type f -name '????-??-??.json' -printf '%f\n' | sed 's/.json$//' | sort -r | head -1)"
+          echo "Latest archive: $latest"
+          for attempt in {1..12}; do
+            echo "Health check attempt $attempt/12"
+            root="$(curl -fsSL --retry 2 --retry-delay 3 --max-time 20 "$SITE/" || true)"
+            dated="$(curl -fsSL --retry 2 --retry-delay 3 --max-time 20 "$SITE/?date=$latest" || true)"
+            if [[ -n "$root" && -n "$dated" ]] && grep -q "$latest" <<<"$dated" && ! grep -q "No published slate" <<<"$dated"; then
+              echo "Production health check passed for $latest"
+              exit 0
+            fi
+            sleep 15
+          done
+          echo "::error::Production did not become healthy after bounded retries."
+          exit 1
