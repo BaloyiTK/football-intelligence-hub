@@ -27,6 +27,16 @@ Historical pre-match evidence MAY be reconstructed from the public web even when
 
 If the repository runner is temporarily unavailable in the active tool path, do not stop merely because of that choice. Continue all research/evidence construction that can be completed safely, persist it, and use any other repository-approved deterministic execution path available. Block only if exact production-model execution/finalization is genuinely impossible after approved fallbacks; never replace the model with hand approximations.
 
+
+## Historical evidence reconstruction is mandatory
+- A historical backtest MUST NOT depend on pre-existing repository ModelInput, prediction, training, or backtest files.
+- Repository historical data is an optional accelerator only. Its absence is NEVER a reason to mark a fixture NO MODEL before web reconstruction has been attempted.
+- For every historical fixture, reconstruct the pre-kickoff state from public web sources using the same `RESEARCH_RULES.md` hierarchy used for a live daily run, shifted to that fixture's historical cutoff.
+- Research must actively search the web for recent pre-kickoff results/goals for and against, venue form where available, league scoring baselines, and any additional Full/Standard evidence available at that historical time.
+- Derive the production ModelInput from that sourced historical evidence using the repository's documented input-building method. If the repository does not define a deterministic conversion required by the model, that is a contract defect to repair before large historical backtests; it is not permission to substitute repository snapshots as the historical-data requirement.
+- NO MODEL is permitted only after the web-based Full -> Standard -> Basic evidence hierarchy has actually been attempted for that fixture and reliable scoring/conceding evidence still cannot be obtained.
+- A completed backtest claiming historical coverage without performing fixture-level historical web reconstruction is invalid and must be discarded/restarted.
+
 ## Mandatory execution loop
 Do not substitute a sample, selected leagues, or a convenient competition for the requested range.
 
