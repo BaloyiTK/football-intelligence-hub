@@ -1,6 +1,6 @@
 {
   "schema": "fih-execution-contract-v1",
-  "contractVersion": "2.2.0",
+  "contractVersion": "2.3.0",
   "authority": "canonical-machine-readable",
   "mutationPolicy": {
     "runtimeRuleCreation": "forbidden",
@@ -147,7 +147,9 @@
     "supportGateRequiredForSaferMarkets": true,
     "extremeLambdaMustNotAutoPublish": true,
     "extremeMarketDivergenceMustNotAutoPublish": true,
-    "reviewBetIsNotPublicRecommendation": true
+    "reviewBetIsNotPublicRecommendation": true,
+    "backtestMayNotStopForMissingStoredInputs": true,
+    "fixtureLocalFailureMustNotStopRun": true
   },
   "selfCorrection": {
     "mayChangeExecutionPath": true,
@@ -162,6 +164,14 @@
   "completion": {
     "strictFinalizerRequired": true,
     "publicationVerificationRequiredForDailyArtifact": true,
-    "deploymentIsSeparateFromModelCompletion": true
+    "deploymentIsSeparateFromModelCompletion": true,
+    "backtestMustContinueUntilAllCheckpointsTerminal": true,
+    "fixtureLevelFailureAction": "NO_MODEL_AND_CONTINUE",
+    "progressResponseIsNeverExecutionBoundary": true,
+    "allowedEarlyStopReasons": [
+      "would-require-fabrication",
+      "future-leakage",
+      "unsafe-mutation"
+    ]
   }
 }
