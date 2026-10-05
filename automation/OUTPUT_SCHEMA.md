@@ -1,20 +1,25 @@
 # Daily Output Contract
 
-Daily public betting data contains only pre-match fixtures with a deterministic model AND a non-null `recommendedBet`.
+Daily public betting data contains only pre-match fixtures with a deterministic model and non-null recommendedBet.
 
-FIH public prediction scope is exclusively **Match Result (1X2)**.
+Approved recommendation markets:
+- 1X2: Home / Draw / Away
+- Total Goals: Over 1.5
+- Double Chance: 1X / X2
 
-Each published model includes modelLevel, confidence/evidence metadata, sampleSize when known, lambdas when used internally, and the three 1X2 outcome probabilities:
-- Home
-- Draw
-- Away
+Each model must expose the probabilities needed for support validation:
+- home, draw, away
+- doubleChance.homeOrDraw, doubleChance.awayOrDraw
+- over15, over25
 
-`recommendedBet` may contain only:
-`{ market: "1X2", pick: "Home" | "Draw" | "Away", probability, rawProbability, reliability, rating }`
+recommendedBet:
+`{ market, pick, probability, rawProbability, reliability, rating, support? }`
 
-- probability = reliability-adjusted recommendation probability
-- rawProbability = 1X2 probability from the production model
-- reliability = evidence/outcome reliability multiplier
-- rating uses adjusted probability
+For derivative picks, support is mandatory:
+- Over 1.5 -> support = Over 2.5 with rawProbability >=68
+- 1X -> support = Home with rawProbability >=62
+- X2 -> support = Away with rawProbability >=62
 
-NO BET fixtures are excluded from the main public betting list, but may be retained separately for research/backtesting. Never publish started/live/completed/cancelled/abandoned fixtures.
+Direct 1X2 picks do not require a support object.
+
+NO BET fixtures remain internal. Never publish started/live/completed/cancelled/abandoned fixtures.
