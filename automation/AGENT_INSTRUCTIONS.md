@@ -5,10 +5,14 @@ This is the mandatory entry point for ChatGPT football runs.
 Before any daily prediction run or historical backtest, read and obey:
 1. `automation/AGENT_INSTRUCTIONS.md` (this file)
 2. `data/leagues.json`
-3. `automation/RESEARCH_RULES.md`
-4. `automation/MODEL_RULES.md`
-5. For historical runs: `automation/HISTORICAL_BACKTEST.md`
-6. Production model: `lib/model.ts`
+3. `automation/FIXTURE_DISCOVERY.md`
+4. `automation/RESEARCH_RULES.md`
+5. `automation/MODEL_RULES.md`
+6. `automation/PREDICTION_WORKFLOW.md`
+7. `automation/OUTPUT_SCHEMA.md`
+8. `automation/DUPLICATE_RULES.md`
+9. For historical runs: `automation/HISTORICAL_BACKTEST.md`
+10. Production model: `lib/model.ts`
 
 Repository rules are authoritative. Do not substitute remembered conversation rules, provider coverage, a sample of leagues, or convenient competitions.
 
@@ -32,13 +36,13 @@ For each requested date, discover fixtures globally before league-by-league rese
 5. If sources disagree, a competition is ambiguous, a configured league is missing from source coverage, or a fixture/date/classification looks suspicious, perform targeted league/official-source verification for ONLY that exception.
 6. After discovery, process `data/leagues.json` in stored order. Set leagues with mapped fixtures to `processing`, save EVERY mapped fixture, and execute fixture research/model rules.
 7. Global discovery reduces search volume; it NEVER reduces the configured competition-universe coverage requirement.
-6. Process each fixture through `RESEARCH_RULES.md` in order: Full -> Standard -> Basic -> No Model.
-7. Preserve sources and evidence timestamp/cutoff. Missing data is null/unknown, never invented or silently zero.
-8. Run the exact production model from `lib/model.ts`.
-9. Save the frozen model output/recommended bet (or NO BET/NO MODEL) immediately.
-10. For historical runs only, reveal the final score after freezing and grade the recommendation.
-11. Mark the date/league `complete` only after every discovered fixture is processed.
-12. Save/checkpoint before moving to the next league.
+8. Process each fixture through `RESEARCH_RULES.md` in order: Full -> Standard -> Basic -> No Model.
+9. Preserve sources and evidence timestamp/cutoff. Missing data is null/unknown, never invented or silently zero.
+10. Run the exact production model from `lib/model.ts`.
+11. Save the frozen model output/recommended bet (or NO BET/NO MODEL) immediately.
+12. For historical runs only, reveal the final score after freezing and grade the recommendation.
+13. Mark the date/league `complete` only after every discovered fixture is processed.
+14. Save/checkpoint before moving to the next league.
 
 ## Global discovery source rules
 - A generic competition label such as "Premier League" or "Serie A" MUST be disambiguated by country before mapping to a configured league.
@@ -102,7 +106,8 @@ After every progress update, immediately continue with the next persisted non-te
 ## Completeness invariants
 - The run must contain exactly the current configured league IDs from `data/leagues.json`: no missing, duplicate or unknown league checkpoints.
 - Duplicate fixture identities are invalid.
-- Terminal BET/WIN/LOSS records require a persisted recommended bet; NO_MODEL requires a persisted reason; all terminal fixtures require sources.
+- Daily-run terminal BET records require a persisted recommended bet; daily NO_BET/NO_MODEL audit records require their decision/reason and sources.
+- Historical backtests follow `HISTORICAL_BACKTEST.md`: the backtest `fixtures` result array persists recommended-bet records only; NO_BET and NO_MODEL decisions remain auditable through league/date checkpoints and aggregate counts rather than being forced into the result array.
 - CI runs integrity validation for every changed run/backtest file and additionally runs strict finalization validation whenever a changed file declares `status: "complete"`.
 
 ## Prediction visibility and graceful partial results
