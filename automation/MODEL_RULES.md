@@ -13,32 +13,42 @@ Model level: Full 1.00, Standard 0.96, Basic 0.90.
 Sample depth: 8+ matches 1.00; 5–7 0.97; 3–4 0.92; 1–2 0.84.
 Combined factor affects both lambda shrinkage and recommendation reliability.
 
-## Approved prediction markets
-FIH predicts exactly these market families for every modelled fixture:
-1. Match Result (1X2): Home / Draw / Away
-2. Over/Under Goals: 1.5, 2.5 and 3.5 lines
-3. Both Teams to Score (BTTS): Yes / No
-4. Double Chance: 1X / X2 only; 12 is not an approved FIH market
-5. Team to Score 1+ Goal: Home 1+ / Away 1+
-6. Correct Score: most likely score plus alternatives; analytical prediction only, never the recommended betting market
+## Approved prediction markets — authoritative scope
+FIH predicts ONLY these six market families for every modelled fixture:
+1. **Match Result (1X2):** Home / Draw / Away
+2. **Over/Under Goals:** Over and Under at 1.5, 2.5 and 3.5
+3. **Both Teams to Score (BTTS):** Yes / No
+4. **Double Chance:** 1X / X2 only. **12 is forbidden.**
+5. **Team to Score 1+ Goal:** Home 1+ / Away 1+
+6. **Correct Score:** most likely score plus alternatives.
 
-Training/calibration must report these market families separately. Do not introduce a new public betting market without updating this contract.
+No Asian handicap, draw-no-bet, corners, cards, half-time, player props, win-to-nil, team 2+, Double Chance 12, or any other unlisted market may be predicted or recommended by the public FIH workflow. Adding a market requires an explicit rule change to this section, the output schema, validator and training diagnostics.
+
+Correct Score is a required published forecast but remains analytical/high-variance and is NOT eligible for `recommendedBet`. Training tracks Correct Score accuracy separately from betting recommendation performance.
 
 ## One recommended market
-Correct score remains analytical only. Select at most one betting market or NO BET.
+For each fixture, calculate all six approved prediction families, then select at most one eligible betting recommendation from families 1–5, otherwise NO BET.
 
-Raw floors remain market-specific, but ranking is now by reliability-adjusted probability rather than raw probability.
-- 1X/X2 raw >=72
-- O1.5 >=72
-- O2.5 >=68
-- U3.5 >=72, with a volatility penalty from recent O3.5 rate
-- BTTS Yes/No >=68
-- Home 1+ >=74 plus scoring-consistency penalty
-- Away 1+ >=78 plus stricter away-scoring consistency penalty
-- 1X2 Home/Away >=62
-Adjusted recommendation probability must also be >=68.
+Eligibility floors for the approved recommendation candidates:
+- 1X2 Home >=62 raw
+- 1X2 Draw >=62 raw
+- 1X2 Away >=62 raw
+- Over 1.5 >=72 raw
+- Under 1.5 >=72 raw
+- Over 2.5 >=68 raw
+- Under 2.5 >=68 raw
+- Over 3.5 >=72 raw
+- Under 3.5 >=72 raw, with the existing volatility/missing-data guard
+- BTTS Yes >=68 raw
+- BTTS No >=68 raw
+- Double Chance 1X >=72 raw
+- Double Chance X2 >=72 raw
+- Home Team 1+ >=74 raw plus scoring-consistency penalty
+- Away Team 1+ >=78 raw plus stricter away-scoring consistency penalty
 
-Store rawProbability, reliability and adjusted probability for auditability. Rating is based on adjusted probability: Elite >=85, Strong >=75, Good >=68.
+The reliability-adjusted recommendation probability must also be >=68. Ranking is by reliability-adjusted probability, not raw probability.
+
+Store `rawProbability`, `reliability` and adjusted `probability` for auditability. Rating is based on adjusted probability: Elite >=85, Strong >=75, Good >=68.
 
 ## Weekly calibration
 Backtests must be walk-forward with no future leakage. Track hit rate, Brier/log loss where applicable, market type, probability band, model level and sample depth.
