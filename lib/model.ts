@@ -22,7 +22,7 @@ export type BetRecommendation={
   support?:SupportSignal;
 };
 
-export const MODEL_VERSION="v2.4-calibrated-risk-selector";
+export const MODEL_VERSION="v2.5-x2-risk-calibrated-selector";
 export const V24=Object.freeze({
   marketDivergenceWatch:20,
   marketDivergenceReview:30,
@@ -32,6 +32,12 @@ export const V24=Object.freeze({
   confidenceShrink:{high:1.00,medium:.95,low:.90},
   competitionShrink:{club:1.00,international:.96,friendly:.92},
   divergenceShrink:{watch:.90,review:.80}
+});
+export const V25=Object.freeze({
+  ...V24,
+  x2RawMin:76,
+  x2AwaySupportMin:66,
+  x2CalibratedMin:72
 });
 
 const fact=(n:number):number=>n<2?1:n*fact(n-1);
@@ -93,14 +99,14 @@ const recommend=(m:{home:number;draw:number;away:number;homeOrDraw:number;awayOr
   {market:"1X2",pick:"Away",raw:m.away,min:62,mr:.90},
   {market:"Total Goals",pick:"Over 1.5",raw:m.o15,min:72,mr:.98,support:{market:"Total Goals",pick:"Over 2.5",rawProbability:m.o25,minimum:68}},
   {market:"Double Chance",pick:"1X",raw:m.homeOrDraw,min:72,mr:1,support:{market:"1X2",pick:"Home",rawProbability:m.home,minimum:62}},
-  {market:"Double Chance",pick:"X2",raw:m.awayOrDraw,min:72,mr:1,support:{market:"1X2",pick:"Away",rawProbability:m.away,minimum:62}}
+  {market:"Double Chance",pick:"X2",raw:m.awayOrDraw,min:V25.x2RawMin,mr:1,support:{market:"1X2",pick:"Away",rawProbability:m.away,minimum:V25.x2AwaySupportMin}}
  ];
  const candidates=rows.map(x=>{
    const reliability=ef*x.mr;
    const c=calibrate(x.raw,reliability,i,x.market,x.pick,lh,la);
    return {...x,reliability,...c};
   })
-  .filter(x=>x.raw>=x.min&&x.probability>=68&&(!x.support||x.support.rawProbability>=x.support.minimum))
+  .filter(x=>x.raw>=x.min&&x.probability>=(x.pick==="X2"?V25.x2CalibratedMin:68)&&(!x.support||x.support.rawProbability>=x.support.minimum))
   .sort((a,b)=>b.probability-a.probability);
  const publishable=candidates.find(x=>x.publishable);
  const review=candidates.find(x=>!x.publishable&&x.selectionStatus==="REVIEW");
