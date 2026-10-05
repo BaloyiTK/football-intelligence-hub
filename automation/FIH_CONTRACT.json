@@ -1,6 +1,6 @@
 {
   "schema": "fih-execution-contract-v1",
-  "contractVersion": "1.0.0",
+  "contractVersion": "2.0.0",
   "authority": "canonical-machine-readable",
   "mutationPolicy": {
     "runtimeRuleCreation": "forbidden",
@@ -26,7 +26,7 @@
     "persist-discovery",
     "verify-prematch",
     "research",
-    "calculate-six-market-families",
+    "calculate-1x2",
     "select-one-or-no-bet",
     "freeze-output",
     "complete-all-checkpoints",
@@ -53,46 +53,21 @@
   },
   "markets": {
     "requiredFamilies": [
-      "1X2",
-      "Total Goals",
-      "BTTS",
-      "Double Chance",
-      "Team Goals",
-      "Correct Score"
+      "1X2"
     ],
     "actionable": {
       "1X2": [
         "Home",
         "Draw",
         "Away"
-      ],
-      "Total Goals": [
-        "Over 1.5",
-        "Under 1.5",
-        "Over 2.5",
-        "Under 2.5",
-        "Over 3.5",
-        "Under 3.5"
-      ],
-      "BTTS": [
-        "Yes",
-        "No"
-      ],
-      "Double Chance": [
-        "1X",
-        "X2"
-      ],
-      "Team Goals": [
-        "Home 1+",
-        "Away 1+"
       ]
     },
-    "analyticalOnly": {
-      "Correct Score": "primary-plus-alternatives"
-    },
     "forbidden": [
-      "Double Chance 12",
-      "Team 2+",
+      "Total Goals",
+      "BTTS",
+      "Double Chance",
+      "Team Goals",
+      "Correct Score",
       "Asian Handicap",
       "Draw No Bet",
       "Corners",
@@ -109,17 +84,21 @@
       "Elite": 85,
       "Strong": 75,
       "Good": 68
+    },
+    "rawMinimums": {
+      "Home": 62,
+      "Draw": 62,
+      "Away": 62
     }
   },
   "invariants": {
-    "allSixFamiliesRequiredForEveryModelledFixture": true,
-    "correctScoreCannotBeRecommended": true,
     "exactProductionModelRequired": true,
     "preKickoffFreezeRequired": true,
     "duplicateFixtureIdentityForbidden": true,
     "allRegistryCheckpointsRequired": true,
     "noBetAndNoModelAreNotPerformanceResults": true,
-    "historicalResultVisibleOnlyAfterFreeze": true
+    "historicalResultVisibleOnlyAfterFreeze": true,
+    "only1X2RequiredForEveryModelledFixture": true
   },
   "selfCorrection": {
     "mayChangeExecutionPath": true,
