@@ -30,6 +30,21 @@ const extraPages:{key:string;page:string;leagueId:string;seasonMode:"calendar"|"
  {key:"SUI",page:"switzerland.php",leagueId:"sui-super-league",seasonMode:"europe"},
  {key:"USA",page:"usa.php",leagueId:"usa-mls",seasonMode:"calendar"}
 ];
+const mirror:{key:string;leagueId:string;seasonMode:"calendar"|"europe";competitionType:CompetitionType;files:string[]}[]=[
+ {key:"CZE",leagueId:"cze-first-league",seasonMode:"europe",competitionType:"club",files:["Czech First League Full Match List 25-26.csv","Czech First League Full Match List 26-27.csv"]},
+ {key:"CRO",leagueId:"cro-hnl",seasonMode:"europe",competitionType:"club",files:["1. HNL Full Match List 25-26.csv","1. HNL Full Match List 26-27.csv"]},
+ {key:"SER",leagueId:"ser-superliga",seasonMode:"europe",competitionType:"club",files:["Serbian Super Liga Full Match List 25-26.csv","Serbian Super Liga Full Match List 26-27.csv"]},
+ {key:"BRB",leagueId:"bra-serie-b",seasonMode:"calendar",competitionType:"club",files:["Brazil Serie B Full Match List 2026.csv"]},
+ {key:"COL",leagueId:"col-primera-a",seasonMode:"calendar",competitionType:"club",files:["Colombian Primera A Full Match List 2026.csv"]},
+ {key:"KOR",leagueId:"kor-k1",seasonMode:"calendar",competitionType:"club",files:["K League 1 Full Match List 2026.csv"]},
+ {key:"KSA",leagueId:"ksa-pro-league",seasonMode:"europe",competitionType:"club",files:["Saudi Pro League Full Match List 25-26.csv","Saudi Pro League Full Match List 26-27.csv"]},
+ {key:"QAT",leagueId:"qat-stars-league",seasonMode:"europe",competitionType:"club",files:["Qatari Stars League Full Match List 25-26.csv","Qatari Stars League Full Match List 26-27.csv"]},
+ {key:"UAE",leagueId:"uae-pro-league",seasonMode:"europe",competitionType:"club",files:["UAE Pro League Full Match List 25-26.csv","UAE Pro League Full Match List 26-27.csv"]},
+ {key:"RSA",leagueId:"rsa-premiership",seasonMode:"europe",competitionType:"club",files:["South Africa PSL Full Match List 25-26.csv","South Africa PSL Full Match List 26-27.csv"]},
+ {key:"EGY",leagueId:"egy-premier-league",seasonMode:"europe",competitionType:"club",files:["Egyptian Premier League Full Match List 25-26.csv","Egyptian Premier League Full Match List 26-27.csv"]},
+ {key:"J2",leagueId:"jpn-j2",seasonMode:"calendar",competitionType:"club",files:["J2-J3 Full Match List 100 Year Vision League.csv"]},
+ {key:"WC",leagueId:"fifa-world-cup",seasonMode:"calendar",competitionType:"international",files:["World Cup Full Match List 2026.csv"]}
+];
 const fbref:{key:string;leagueId:string;seasonMode:"calendar"|"europe";competitionType:CompetitionType;urls:string[]}[]=[
  {key:"CZE",leagueId:"cze-first-league",seasonMode:"europe",competitionType:"club",urls:["https://fbref.com/en/comps/66/2025-2026/schedule/2025-2026-Czech-First-League-Scores-and-Fixtures","https://fbref.com/en/comps/66/2026-2027/schedule/2026-2027-Czech-First-League-Scores-and-Fixtures"]},
  {key:"CRO",leagueId:"cro-hnl",seasonMode:"europe",competitionType:"club",urls:["https://fbref.com/en/comps/63/2025-2026/schedule/2025-2026-Croatian-Football-League-Scores-and-Fixtures","https://fbref.com/en/comps/63/2026-2027/schedule/2026-2027-Croatian-Football-League-Scores-and-Fixtures"]},
@@ -73,6 +88,7 @@ async function loadRows(){
  const rows:Row[]=[];
  for(const [division,leagueId] of Object.entries(primary))for(const season of ["2526","2627"]){const url=`https://www.football-data.co.uk/mmz4281/${season}/${division}.csv`;try{rows.push(...addCsv(await get(url),{division,leagueId,source:url,seasonMode:"europe"}))}catch(e){console.warn("primary",String(e))}}
  for(const x of extraPages){try{const pageUrl="https://www.football-data.co.uk/"+x.page,html=await get(pageUrl),hrefs=[...html.matchAll(/href=["']([^"']+\.csv(?:\?[^"']*)?)["']/gi)].map(m=>m[1]);for(const href of [...new Set(hrefs)]){const url=new URL(href,pageUrl).href;try{rows.push(...addCsv(await get(url),{division:x.key,leagueId:x.leagueId,source:url,seasonMode:x.seasonMode}))}catch(e){console.warn("extra csv",String(e))}}}catch(e){console.warn("extra page",x.page,String(e))}}
+ for(const ad of mirror)for(const file of ad.files){const url="https://raw.githubusercontent.com/griffisben/Post_Match_App/main/League_Files/"+encodeURIComponent(file).replace(/%2F/g,"/");try{const txt=await get(url),ls=txt.replace(/^\\uFEFF/,"").split(/\\r?\\n/).filter(Boolean);if(ls.length<2)continue;const h=splitCsv(ls[0]),ix=Object.fromEntries(h.map((x,i)=>[x.trim(),i]));for(const line of ls.slice(1)){const a=splitCsv(line),date=parseDate(a[ix.Date]),home=a[ix.Home],away=a[ix.Away],match=a[ix.Match]??"";const sm=match.match(/(\\d+)\\s*[-–]\\s*(\\d+)/);if(!date||!home||!away||!sm)continue;rows.push({division:ad.key,leagueId:ad.leagueId,date,home,away,hg:Number(sm[1]),ag:Number(sm[2]),source:url,seasonMode:ad.seasonMode,competitionType:ad.competitionType,international:ad.competitionType!=="club"})}}catch(e){console.warn("mirror",ad.key,String(e))}}
  for(const ad of fbref)for(const url of ad.urls){try{rows.push(...addFbref(await get(url),ad,url))}catch(e){console.warn("fbref",ad.key,String(e))}}
  const uniq=new Map<string,Row>();for(const r of rows){const k=[r.leagueId,r.date,r.home,r.away].join("|");if(!uniq.has(k))uniq.set(k,r)}return [...uniq.values()].sort((a,b)=>a.date.localeCompare(b.date))
 }
