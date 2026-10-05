@@ -92,6 +92,16 @@ A normal final response is allowed only when ONE of these is true:
 
 After every progress update, immediately continue with the next persisted non-terminal league/fixture. Never voluntarily end because discovery, a checkpoint, a batch, a league, or a progress message completed.
 
+## Search exhaustion and blocker discipline
+- A fixture or league MUST NOT become `blocked` merely because the first search failed, a preferred source is unavailable, research is slow, or a progress message was emitted.
+- Before blocking, exhaust reasonable public-web fallback paths: alternate global index, targeted competition search, official league/association/club source, reputable statistics source, and the Full -> Standard -> Basic evidence hierarchy.
+- Source disagreement triggers the mandatory data-repair loop; it is not itself a blocker.
+- If one fixture cannot safely reach BET/NO_BET/NO_MODEL after those fallbacks, persist the exact attempted sources, unresolved fact, `current.stage`, canonical fixture identity, and `resumeAction` describing the next research query/action.
+- Continue processing other independent fixtures/leagues whenever the unresolved item does not prevent them. A local fixture problem must not stop the rest of the worldwide scan.
+- A run-level blocker is permitted only when the unresolved dependency prevents further safe progress globally (for example tool/service unavailability, repository write failure, or an unresolved discovery fact that changes the fixture universe).
+- On the next manual or scheduled ChatGPT execution, inspect today's latest non-complete run first. If it is resumable, continue from its persisted cursor/resumeAction instead of starting a duplicate run.
+- Never convert an unresolved fixture to NO MODEL solely to make finalization pass. NO MODEL remains limited to the reasons in RESEARCH_RULES.md after the required fallback attempts.
+
 ## Resume determinism
 - Persist `current` with date, leagueIndex/leagueId, fixture index or fixture identity, and stage.
 - On resume, read the run file and continue from the first non-terminal checkpoint; do not rediscover completed work unless verification is contradicted.
