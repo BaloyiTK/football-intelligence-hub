@@ -8,11 +8,17 @@
   "researchMethod": "historical web data reconstructed chronologically; production lib/model.ts executed before grading",
   "sourceScope": {
     "configuredLeagueCount": 61,
-    "webModelledLeagueCount": 32,
+    "webModelledLeagueCount": 38,
     "webModelledLeagueIds": [
       "tur-super-lig",
       "gre-super-league",
       "mex-liga-mx",
+      "uefa-champions-league",
+      "uefa-europa-league",
+      "conmebol-libertadores",
+      "conmebol-sudamericana",
+      "rsa-premiership",
+      "uefa-conference-league",
       "eng-premier-league",
       "eng-championship",
       "eng-league-two",
@@ -93,6 +99,349 @@
       "sources": [
         "https://www.football-data.co.uk/mmz4281/2526/G1.csv",
         "https://www.soccerbase.com/matches/results.sd?date=2026-04-08"
+      ]
+    },
+    {
+      "date": "2026-04-08",
+      "leagueId": "uefa-champions-league",
+      "homeTeam": "Paris Saint-Germain",
+      "awayTeam": "Liverpool",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.3844444444444444,
+        "homeDefence": 1.3536121673003803,
+        "awayAttack": 1.2182509505703423,
+        "awayDefence": 0.29666666666666663,
+        "leagueHomeGoals": 2.0224719101123596,
+        "leagueAwayGoals": 1.4775280898876404,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 0.98,
+      "lambdaAway": 2.31,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 78.4,
+        "rawProbability": 86.1,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Away",
+          "rawProbability": 66.5,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 2,
+        "away": 0
+      },
+      "outcome": "LOSS",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_champions.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-04-08"
+      ]
+    },
+    {
+      "date": "2026-04-08",
+      "leagueId": "conmebol-sudamericana",
+      "homeTeam": "Boston River",
+      "awayTeam": "São Paulo",
+      "modelLevel": "basic",
+      "sampleSize": 4,
+      "inputs": {
+        "homeAttack": 1.75,
+        "homeDefence": 2.892857142857143,
+        "awayAttack": 1.2857142857142856,
+        "awayDefence": 0.6,
+        "leagueHomeGoals": 1,
+        "leagueAwayGoals": 0.7777777777777778,
+        "sampleSize": 4,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 1.04,
+      "lambdaAway": 2.53,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 77.6,
+        "rawProbability": 87,
+        "reliability": 0.828,
+        "rating": "Good",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Away",
+          "rawProbability": 69,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 0,
+        "away": 1
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_sudamericana.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-04-08"
+      ]
+    },
+    {
+      "date": "2026-04-08",
+      "leagueId": "conmebol-sudamericana",
+      "homeTeam": "Deportivo Cuenca",
+      "awayTeam": "Santos",
+      "modelLevel": "basic",
+      "sampleSize": 3,
+      "inputs": {
+        "homeAttack": 2,
+        "homeDefence": 3,
+        "awayAttack": 1.0285714285714287,
+        "awayDefence": 0.8,
+        "leagueHomeGoals": 1,
+        "leagueAwayGoals": 0.7777777777777778,
+        "sampleSize": 3,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 1.5,
+      "lambdaAway": 2.12,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 78,
+        "rawProbability": 88.3,
+        "reliability": 0.811,
+        "rating": "Good",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "Total Goals",
+          "pick": "Over 2.5",
+          "rawProbability": 70,
+          "minimum": 68
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 0
+      },
+      "outcome": "LOSS",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_sudamericana.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-04-08"
+      ]
+    },
+    {
+      "date": "2026-04-08",
+      "leagueId": "rsa-premiership",
+      "homeTeam": "TS Galaxy FC",
+      "awayTeam": "Polokwane City FC",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 0.5271844660194175,
+        "homeDefence": 2.07515923566879,
+        "awayAttack": 1.1528662420382165,
+        "awayDefence": 0.3514563106796117,
+        "leagueHomeGoals": 1.138121546961326,
+        "leagueAwayGoals": 0.8674033149171271,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 0.33,
+      "lambdaAway": 1.92,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 85.4,
+        "rawProbability": 95.1,
+        "reliability": 0.873,
+        "rating": "Elite",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Away",
+          "rawProbability": 75.7,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 2
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_rsa_premier.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-04-08"
+      ]
+    },
+    {
+      "date": "2026-04-09",
+      "leagueId": "conmebol-libertadores",
+      "homeTeam": "Independiente Medellín",
+      "awayTeam": "Estudiantes de La Plata",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 2.1375,
+        "homeDefence": 1.1875,
+        "awayAttack": 2.1375,
+        "awayDefence": 1.1875,
+        "leagueHomeGoals": 0.8421052631578947,
+        "leagueAwayGoals": 0.8421052631578947,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 1.97,
+      "lambdaAway": 1.97,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 81.6,
+        "rawProbability": 91,
+        "reliability": 0.856,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "Total Goals",
+          "pick": "Over 2.5",
+          "rawProbability": 75.4,
+          "minimum": 68
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 1
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_libertadores.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-04-09"
+      ]
+    },
+    {
+      "date": "2026-04-09",
+      "leagueId": "conmebol-libertadores",
+      "homeTeam": "Atlético Junior",
+      "awayTeam": "Palmeiras",
+      "modelLevel": "basic",
+      "sampleSize": 4,
+      "inputs": {
+        "homeAttack": 0.890625,
+        "homeDefence": 1.1875,
+        "awayAttack": 2.6125000000000003,
+        "awayDefence": 1.425,
+        "leagueHomeGoals": 0.8421052631578947,
+        "leagueAwayGoals": 0.8421052631578947,
+        "sampleSize": 4,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 1.03,
+      "lambdaAway": 2.31,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 76.2,
+        "rawProbability": 85.2,
+        "reliability": 0.828,
+        "rating": "Good",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Away",
+          "rawProbability": 65.3,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 1
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_libertadores.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-04-09"
+      ]
+    },
+    {
+      "date": "2026-04-09",
+      "leagueId": "conmebol-sudamericana",
+      "homeTeam": "Audax Italiano",
+      "awayTeam": "Club Olimpia",
+      "modelLevel": "basic",
+      "sampleSize": 3,
+      "inputs": {
+        "homeAttack": 1.460869565217391,
+        "homeDefence": 1.4117647058823528,
+        "awayAttack": 0.4705882352941176,
+        "awayDefence": 1.391304347826087,
+        "leagueHomeGoals": 0.9583333333333334,
+        "leagueAwayGoals": 0.7083333333333334,
+        "sampleSize": 3,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 1.78,
+      "lambdaAway": 0.51,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 80.3,
+        "rawProbability": 90.7,
+        "reliability": 0.828,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 67.6,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 0,
+        "away": 2
+      },
+      "outcome": "LOSS",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_sudamericana.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-04-09"
       ]
     },
     {
@@ -631,6 +980,55 @@
       "outcome": "LOSS",
       "sources": [
         "https://www.football-data.co.uk/new/POL.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-04-10"
+      ]
+    },
+    {
+      "date": "2026-04-10",
+      "leagueId": "rsa-premiership",
+      "homeTeam": "Richards Bay FC",
+      "awayTeam": "Orlando Pirates",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.4067632850241547,
+        "homeDefence": 0.9157232704402516,
+        "awayAttack": 2.976100628930818,
+        "awayDefence": 0.17584541062801934,
+        "leagueHomeGoals": 1.1373626373626373,
+        "leagueAwayGoals": 0.8736263736263736,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 0.39,
+      "lambdaAway": 2.19,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 85.5,
+        "rawProbability": 95.2,
+        "reliability": 0.873,
+        "rating": "Elite",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Away",
+          "rawProbability": 78.6,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 2,
+        "away": 2
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_rsa_premier.csv",
         "https://www.soccerbase.com/matches/results.sd?date=2026-04-10"
       ]
     },
@@ -4457,6 +4855,153 @@
       ]
     },
     {
+      "date": "2026-04-14",
+      "leagueId": "uefa-champions-league",
+      "homeTeam": "Atlético Madrid",
+      "awayTeam": "Barcelona",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.4917127071823204,
+        "homeDefence": 0.950943396226415,
+        "awayAttack": 1.3584905660377358,
+        "awayDefence": 0.994475138121547,
+        "leagueHomeGoals": 2.011111111111111,
+        "leagueAwayGoals": 1.4722222222222223,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.86,
+      "lambdaAway": 1.85,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 84.8,
+        "rawProbability": 95.2,
+        "reliability": 0.856,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "Total Goals",
+          "pick": "Over 2.5",
+          "rawProbability": 84.8,
+          "minimum": 68
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 2
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_champions.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-04-14"
+      ]
+    },
+    {
+      "date": "2026-04-14",
+      "leagueId": "uefa-champions-league",
+      "homeTeam": "Liverpool",
+      "awayTeam": "Paris Saint-Germain",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.4917127071823204,
+        "homeDefence": 0.8150943396226414,
+        "awayAttack": 1.90188679245283,
+        "awayDefence": 0.5966850828729282,
+        "leagueHomeGoals": 2.011111111111111,
+        "leagueAwayGoals": 1.4722222222222223,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 1.82,
+      "lambdaAway": 2.18,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 81.9,
+        "rawProbability": 91.4,
+        "reliability": 0.856,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "Total Goals",
+          "pick": "Over 2.5",
+          "rawProbability": 76.1,
+          "minimum": 68
+        }
+      },
+      "actualScore": {
+        "home": 0,
+        "away": 2
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_champions.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-04-14"
+      ]
+    },
+    {
+      "date": "2026-04-14",
+      "leagueId": "conmebol-libertadores",
+      "homeTeam": "Cerro Porteño",
+      "awayTeam": "Atlético Junior",
+      "modelLevel": "basic",
+      "sampleSize": 4,
+      "inputs": {
+        "homeAttack": 2.358974358974359,
+        "homeDefence": 2.0700000000000003,
+        "awayAttack": 1.4375,
+        "awayDefence": 0.8846153846153846,
+        "leagueHomeGoals": 0.8478260869565217,
+        "leagueAwayGoals": 0.8695652173913043,
+        "sampleSize": 4,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 1.61,
+      "lambdaAway": 2.29,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 79.7,
+        "rawProbability": 90.7,
+        "reliability": 0.811,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "Total Goals",
+          "pick": "Over 2.5",
+          "rawProbability": 74.7,
+          "minimum": 68
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 0
+      },
+      "outcome": "LOSS",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_libertadores.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-04-14"
+      ]
+    },
+    {
       "date": "2026-04-15",
       "leagueId": "eng-league-one",
       "homeTeam": "AFC Wimbledon",
@@ -4601,6 +5146,300 @@
       "sources": [
         "https://www.football-data.co.uk/new/NOR.csv",
         "https://www.soccerbase.com/matches/results.sd?date=2026-04-15"
+      ]
+    },
+    {
+      "date": "2026-04-15",
+      "leagueId": "uefa-champions-league",
+      "homeTeam": "Arsenal",
+      "awayTeam": "Sporting CP",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.4038567493112946,
+        "homeDefence": 0.4059479553903345,
+        "awayAttack": 0.811895910780669,
+        "awayDefence": 1.103030303030303,
+        "leagueHomeGoals": 1.9945054945054945,
+        "leagueAwayGoals": 1.478021978021978,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.95,
+      "lambdaAway": 0.61,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 85.7,
+        "rawProbability": 95.4,
+        "reliability": 0.873,
+        "rating": "Elite",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 83.7,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 0,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_champions.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-04-15"
+      ]
+    },
+    {
+      "date": "2026-04-15",
+      "leagueId": "uefa-champions-league",
+      "homeTeam": "Bayern Munich",
+      "awayTeam": "Real Madrid",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.6044077134986228,
+        "homeDefence": 0.4059479553903345,
+        "awayAttack": 1.2178438661710036,
+        "awayDefence": 0.9024793388429753,
+        "leagueHomeGoals": 1.9945054945054945,
+        "leagueAwayGoals": 1.478021978021978,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.77,
+      "lambdaAway": 0.83,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 83,
+        "rawProbability": 92,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 77.4,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 4,
+        "away": 3
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_champions.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-04-15"
+      ]
+    },
+    {
+      "date": "2026-04-15",
+      "leagueId": "conmebol-sudamericana",
+      "homeTeam": "Racing Club",
+      "awayTeam": "Botafogo",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 3.6,
+        "homeDefence": 1.1333333333333333,
+        "awayAttack": 1.6999999999999997,
+        "awayDefence": 0.8,
+        "leagueHomeGoals": 1,
+        "leagueAwayGoals": 0.7058823529411765,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.64,
+      "lambdaAway": 1.28,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 81.3,
+        "rawProbability": 90.7,
+        "reliability": 0.856,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "Total Goals",
+          "pick": "Over 2.5",
+          "rawProbability": 74.9,
+          "minimum": 68
+        }
+      },
+      "actualScore": {
+        "home": 2,
+        "away": 3
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_sudamericana.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-04-15"
+      ]
+    },
+    {
+      "date": "2026-04-16",
+      "leagueId": "uefa-conference-league",
+      "homeTeam": "AEK Athens",
+      "awayTeam": "Rayo Vallecano",
+      "modelLevel": "basic",
+      "sampleSize": 4,
+      "inputs": {
+        "homeAttack": 1.6822429906542056,
+        "homeDefence": 1.2857142857142858,
+        "awayAttack": 2.0571428571428574,
+        "awayDefence": 1.0093457943925233,
+        "leagueHomeGoals": 1.4861111111111112,
+        "leagueAwayGoals": 0.9722222222222222,
+        "sampleSize": 4,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.34,
+      "lambdaAway": 2.3,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 82.9,
+        "rawProbability": 95,
+        "reliability": 0.811,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "Total Goals",
+          "pick": "Over 2.5",
+          "rawProbability": 84.1,
+          "minimum": 68
+        }
+      },
+      "actualScore": {
+        "home": 3,
+        "away": 1
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_conference_league.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-04-16"
+      ]
+    },
+    {
+      "date": "2026-04-16",
+      "leagueId": "uefa-conference-league",
+      "homeTeam": "Fiorentina",
+      "awayTeam": "Crystal Palace",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.0766355140186916,
+        "homeDefence": 1.44,
+        "awayAttack": 1.8514285714285714,
+        "awayDefence": 0.5383177570093458,
+        "leagueHomeGoals": 1.4861111111111112,
+        "leagueAwayGoals": 0.9722222222222222,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 0.94,
+      "lambdaAway": 2.39,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 79.5,
+        "rawProbability": 87.5,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Away",
+          "rawProbability": 68.7,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 2,
+        "away": 1
+      },
+      "outcome": "LOSS",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_conference_league.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-04-16"
+      ]
+    },
+    {
+      "date": "2026-04-16",
+      "leagueId": "conmebol-libertadores",
+      "homeTeam": "Corinthians",
+      "awayTeam": "Independiente Santa Fe",
+      "modelLevel": "basic",
+      "sampleSize": 3,
+      "inputs": {
+        "homeAttack": 1.903846153846154,
+        "homeDefence": 1.1458333333333335,
+        "awayAttack": 1.5277777777777777,
+        "awayDefence": 1.4102564102564101,
+        "leagueHomeGoals": 0.9454545454545454,
+        "leagueAwayGoals": 0.8727272727272727,
+        "sampleSize": 3,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.26,
+      "lambdaAway": 1.42,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 78.3,
+        "rawProbability": 88.8,
+        "reliability": 0.811,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "Total Goals",
+          "pick": "Over 2.5",
+          "rawProbability": 71.1,
+          "minimum": 68
+        }
+      },
+      "actualScore": {
+        "home": 2,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_libertadores.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-04-16"
       ]
     },
     {
@@ -5041,6 +5880,104 @@
       "outcome": "WIN",
       "sources": [
         "https://www.football-data.co.uk/new/POL.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-04-17"
+      ]
+    },
+    {
+      "date": "2026-04-17",
+      "leagueId": "conmebol-libertadores",
+      "homeTeam": "Flamengo",
+      "awayTeam": "Independiente Medellín",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.3770491803278688,
+        "homeDefence": 0.23076923076923078,
+        "awayAttack": 1.3846153846153846,
+        "awayDefence": 1.3770491803278688,
+        "leagueHomeGoals": 1.0166666666666666,
+        "leagueAwayGoals": 0.8666666666666667,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 1.81,
+      "lambdaAway": 0.35,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 84.6,
+        "rawProbability": 94.1,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 72.9,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 4,
+        "away": 1
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_libertadores.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-04-17"
+      ]
+    },
+    {
+      "date": "2026-04-17",
+      "leagueId": "conmebol-sudamericana",
+      "homeTeam": "Cienciano del Cusco",
+      "awayTeam": "Academia Puerto Cabello",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.6,
+        "homeDefence": 1.0285714285714287,
+        "awayAttack": 1.0285714285714287,
+        "awayDefence": 1.8,
+        "leagueHomeGoals": 1,
+        "leagueAwayGoals": 0.7777777777777778,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.64,
+      "lambdaAway": 0.82,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 82.5,
+        "rawProbability": 91.4,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 75.6,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 2,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_sudamericana.csv",
         "https://www.soccerbase.com/matches/results.sd?date=2026-04-17"
       ]
     },
@@ -6707,6 +7644,104 @@
       "outcome": "WIN",
       "sources": [
         "https://www.football-data.co.uk/new/USA.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-04-18"
+      ]
+    },
+    {
+      "date": "2026-04-18",
+      "leagueId": "rsa-premiership",
+      "homeTeam": "Orbit College",
+      "awayTeam": "Golden Arrows",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 0.17442922374429226,
+        "homeDefence": 2.0464285714285713,
+        "awayAttack": 1.5916666666666666,
+        "awayDefence": 1.7442922374429224,
+        "leagueHomeGoals": 1.1465968586387434,
+        "leagueAwayGoals": 0.8795811518324608,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 0.45,
+      "lambdaAway": 2.61,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 86.1,
+        "rawProbability": 96,
+        "reliability": 0.873,
+        "rating": "Elite",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Away",
+          "rawProbability": 83.1,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 2
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_rsa_premier.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-04-18"
+      ]
+    },
+    {
+      "date": "2026-04-18",
+      "leagueId": "rsa-premiership",
+      "homeTeam": "Polokwane City FC",
+      "awayTeam": "Kaizer Chiefs",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 0.5232876712328767,
+        "homeDefence": 1.1369047619047619,
+        "awayAttack": 1.819047619047619,
+        "awayDefence": 0.5232876712328767,
+        "leagueHomeGoals": 1.1465968586387434,
+        "leagueAwayGoals": 0.8795811518324608,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 0.42,
+      "lambdaAway": 1.7,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 83.1,
+        "rawProbability": 92.1,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Away",
+          "rawProbability": 68.5,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 0,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_rsa_premier.csv",
         "https://www.soccerbase.com/matches/results.sd?date=2026-04-18"
       ]
     },
@@ -13473,6 +14508,55 @@
       ]
     },
     {
+      "date": "2026-04-26",
+      "leagueId": "rsa-premiership",
+      "homeTeam": "Richards Bay FC",
+      "awayTeam": "Mamelodi Sundowns",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.369491525423729,
+        "homeDefence": 1.3694915254237288,
+        "awayAttack": 1.8259887005649718,
+        "awayDefence": 0.17118644067796612,
+        "leagueHomeGoals": 1.1683168316831682,
+        "leagueAwayGoals": 0.8762376237623762,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 0.39,
+      "lambdaAway": 2.02,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 85,
+        "rawProbability": 94.6,
+        "reliability": 0.873,
+        "rating": "Elite",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Away",
+          "rawProbability": 75.9,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 0,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_rsa_premier.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-04-26"
+      ]
+    },
+    {
       "date": "2026-04-27",
       "leagueId": "esp-segunda",
       "homeTeam": "Cadiz",
@@ -13914,6 +14998,55 @@
       ]
     },
     {
+      "date": "2026-04-28",
+      "leagueId": "uefa-champions-league",
+      "homeTeam": "Paris Saint-Germain",
+      "awayTeam": "Bayern Munich",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.5040871934604905,
+        "homeDefence": 1.0823529411764707,
+        "awayAttack": 1.758823529411765,
+        "awayDefence": 0.7019073569482288,
+        "leagueHomeGoals": 1.9945652173913044,
+        "leagueAwayGoals": 1.4782608695652173,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.09,
+      "lambdaAway": 2.64,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 84.9,
+        "rawProbability": 95.3,
+        "reliability": 0.856,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "Total Goals",
+          "pick": "Over 2.5",
+          "rawProbability": 85.1,
+          "minimum": 68
+        }
+      },
+      "actualScore": {
+        "home": 5,
+        "away": 4
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_champions.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-04-28"
+      ]
+    },
+    {
       "date": "2026-04-29",
       "leagueId": "nor-eliteserien",
       "homeTeam": "Tromso",
@@ -13960,6 +15093,251 @@
       "sources": [
         "https://www.football-data.co.uk/new/NOR.csv",
         "https://www.soccerbase.com/matches/results.sd?date=2026-04-29"
+      ]
+    },
+    {
+      "date": "2026-04-29",
+      "leagueId": "uefa-champions-league",
+      "homeTeam": "Atlético Madrid",
+      "awayTeam": "Arsenal",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.2930107526881722,
+        "homeDefence": 1.0724637681159421,
+        "awayAttack": 1.4746376811594204,
+        "awayDefence": 0.19892473118279572,
+        "leagueHomeGoals": 2.0108108108108107,
+        "leagueAwayGoals": 1.491891891891892,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 0.71,
+      "lambdaAway": 2.25,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 81.8,
+        "rawProbability": 90.5,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Away",
+          "rawProbability": 71.8,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 1
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_champions.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-04-29"
+      ]
+    },
+    {
+      "date": "2026-04-29",
+      "leagueId": "conmebol-libertadores",
+      "homeTeam": "UCV FC",
+      "awayTeam": "Rosario Central",
+      "modelLevel": "basic",
+      "sampleSize": 4,
+      "inputs": {
+        "homeAttack": 1.6231884057971016,
+        "homeDefence": 2.206896551724138,
+        "awayAttack": 1.103448275862069,
+        "awayDefence": 1.1594202898550725,
+        "leagueHomeGoals": 1.078125,
+        "leagueAwayGoals": 0.90625,
+        "sampleSize": 4,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 1.87,
+      "lambdaAway": 1.98,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 79.4,
+        "rawProbability": 90.3,
+        "reliability": 0.811,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "Total Goals",
+          "pick": "Over 2.5",
+          "rawProbability": 73.9,
+          "minimum": 68
+        }
+      },
+      "actualScore": {
+        "home": 0,
+        "away": 3
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_libertadores.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-04-29"
+      ]
+    },
+    {
+      "date": "2026-04-30",
+      "leagueId": "conmebol-libertadores",
+      "homeTeam": "Cerro Porteño",
+      "awayTeam": "Palmeiras",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.240506329113924,
+        "homeDefence": 1.5806451612903225,
+        "awayAttack": 2.032258064516129,
+        "awayDefence": 0.8860759493670887,
+        "leagueHomeGoals": 1.1285714285714286,
+        "leagueAwayGoals": 0.8857142857142857,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 1.23,
+      "lambdaAway": 2.6,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 80.8,
+        "rawProbability": 90,
+        "reliability": 0.856,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "Total Goals",
+          "pick": "Over 2.5",
+          "rawProbability": 73.4,
+          "minimum": 68
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 1
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_libertadores.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-04-30"
+      ]
+    },
+    {
+      "date": "2026-04-30",
+      "leagueId": "conmebol-libertadores",
+      "homeTeam": "Universitario",
+      "awayTeam": "Nacional",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 0.35443037974683544,
+        "homeDefence": 1.806451612903226,
+        "awayAttack": 1.5806451612903225,
+        "awayDefence": 1.7721518987341773,
+        "leagueHomeGoals": 1.1285714285714286,
+        "leagueAwayGoals": 0.8857142857142857,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 0.76,
+      "lambdaAway": 2.32,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 81.5,
+        "rawProbability": 90.1,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Away",
+          "rawProbability": 71.7,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 4,
+        "away": 2
+      },
+      "outcome": "LOSS",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_libertadores.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-04-30"
+      ]
+    },
+    {
+      "date": "2026-04-30",
+      "leagueId": "conmebol-libertadores",
+      "homeTeam": "Bolívar",
+      "awayTeam": "Fluminense",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.949367088607595,
+        "homeDefence": 0.903225806451613,
+        "awayAttack": 0.4516129032258065,
+        "awayDefence": 0.7088607594936709,
+        "leagueHomeGoals": 1.1285714285714286,
+        "leagueAwayGoals": 0.8857142857142857,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 1.5,
+      "lambdaAway": 0.43,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 81.8,
+        "rawProbability": 90.5,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 63.5,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 2,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_libertadores.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-04-30"
       ]
     },
     {
@@ -14302,6 +15680,55 @@
       "outcome": "LOSS",
       "sources": [
         "https://www.football-data.co.uk/new/ROU.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-01"
+      ]
+    },
+    {
+      "date": "2026-05-01",
+      "leagueId": "conmebol-sudamericana",
+      "homeTeam": "Red Bull Bragantino",
+      "awayTeam": "River Plate",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.8638888888888892,
+        "homeDefence": 2.380487804878049,
+        "awayAttack": 1.4878048780487805,
+        "awayDefence": 0.6777777777777778,
+        "leagueHomeGoals": 1.180327868852459,
+        "leagueAwayGoals": 0.6721311475409836,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 1.45,
+      "lambdaAway": 2.16,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 79.5,
+        "rawProbability": 88.3,
+        "reliability": 0.856,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "Total Goals",
+          "pick": "Over 2.5",
+          "rawProbability": 70,
+          "minimum": 68
+        }
+      },
+      "actualScore": {
+        "home": 0,
+        "away": 1
+      },
+      "outcome": "LOSS",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_sudamericana.csv",
         "https://www.soccerbase.com/matches/results.sd?date=2026-05-01"
       ]
     },
@@ -17687,6 +19114,104 @@
       ]
     },
     {
+      "date": "2026-05-05",
+      "leagueId": "uefa-champions-league",
+      "homeTeam": "Arsenal",
+      "awayTeam": "Atlético Madrid",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.1967828418230562,
+        "homeDefence": 0.4028880866425993,
+        "awayAttack": 1.4772563176895308,
+        "awayDefence": 0.8975871313672923,
+        "leagueHomeGoals": 2.0053763440860215,
+        "leagueAwayGoals": 1.489247311827957,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.14,
+      "lambdaAway": 0.96,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 77.3,
+        "rawProbability": 84.8,
+        "reliability": 0.873,
+        "rating": "Good",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 63.5,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_champions.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-05"
+      ]
+    },
+    {
+      "date": "2026-05-05",
+      "leagueId": "rsa-premiership",
+      "homeTeam": "Stellenbosch",
+      "awayTeam": "Orlando Pirates",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.3761316872427984,
+        "homeDefence": 0.9340782122905028,
+        "awayAttack": 3.5027932960893855,
+        "awayDefence": 0.5160493827160494,
+        "leagueHomeGoals": 1.1626794258373205,
+        "leagueAwayGoals": 0.8564593301435407,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 0.87,
+      "lambdaAway": 2.56,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 81.4,
+        "rawProbability": 90,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Away",
+          "rawProbability": 73.2,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 0,
+        "away": 2
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_rsa_premier.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-05"
+      ]
+    },
+    {
       "date": "2026-05-06",
       "leagueId": "chn-super-league",
       "homeTeam": "Shanghai Port",
@@ -17782,6 +19307,447 @@
       "sources": [
         "https://www.football-data.co.uk/new/CHN.csv",
         "https://www.soccerbase.com/matches/results.sd?date=2026-05-06"
+      ]
+    },
+    {
+      "date": "2026-05-06",
+      "leagueId": "conmebol-libertadores",
+      "homeTeam": "UCV FC",
+      "awayTeam": "Independiente del Valle",
+      "modelLevel": "basic",
+      "sampleSize": 3,
+      "inputs": {
+        "homeAttack": 1.1111111111111112,
+        "homeDefence": 1.8779342723004697,
+        "awayAttack": 1.352112676056338,
+        "awayDefence": 1.6666666666666667,
+        "leagueHomeGoals": 1.2,
+        "leagueAwayGoals": 0.8875,
+        "sampleSize": 3,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.05,
+      "lambdaAway": 2.02,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 80.6,
+        "rawProbability": 91.9,
+        "reliability": 0.811,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "Total Goals",
+          "pick": "Over 2.5",
+          "rawProbability": 77.1,
+          "minimum": 68
+        }
+      },
+      "actualScore": {
+        "home": 2,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_libertadores.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-06"
+      ]
+    },
+    {
+      "date": "2026-05-06",
+      "leagueId": "conmebol-libertadores",
+      "homeTeam": "Cusco FC",
+      "awayTeam": "Estudiantes de La Plata",
+      "modelLevel": "basic",
+      "sampleSize": 3,
+      "inputs": {
+        "homeAttack": 0.2777777777777778,
+        "homeDefence": 1.8779342723004697,
+        "awayAttack": 1.802816901408451,
+        "awayDefence": 1,
+        "leagueHomeGoals": 1.2,
+        "leagueAwayGoals": 0.8875,
+        "sampleSize": 3,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 0.48,
+      "lambdaAway": 2.64,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 84.1,
+        "rawProbability": 95.8,
+        "reliability": 0.828,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Away",
+          "rawProbability": 82.8,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 1
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_libertadores.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-06"
+      ]
+    },
+    {
+      "date": "2026-05-06",
+      "leagueId": "conmebol-sudamericana",
+      "homeTeam": "Academia Puerto Cabello",
+      "awayTeam": "Cienciano del Cusco",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.3743589743589744,
+        "homeDefence": 1.2884615384615383,
+        "awayAttack": 1.546153846153846,
+        "awayDefence": 1.3743589743589744,
+        "leagueHomeGoals": 1.164179104477612,
+        "leagueAwayGoals": 0.7761194029850746,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.07,
+      "lambdaAway": 1.45,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 78.7,
+        "rawProbability": 87.3,
+        "reliability": 0.856,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "Total Goals",
+          "pick": "Over 2.5",
+          "rawProbability": 68.2,
+          "minimum": 68
+        }
+      },
+      "actualScore": {
+        "home": 3,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_sudamericana.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-06"
+      ]
+    },
+    {
+      "date": "2026-05-06",
+      "leagueId": "rsa-premiership",
+      "homeTeam": "Chippa United",
+      "awayTeam": "Sekhukhune United FC",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.3788617886178862,
+        "homeDefence": 0.9167567567567568,
+        "awayAttack": 1.145945945945946,
+        "awayDefence": 1.7235772357723576,
+        "leagueHomeGoals": 1.1603773584905661,
+        "leagueAwayGoals": 0.8726415094339622,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.55,
+      "lambdaAway": 0.91,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 80.9,
+        "rawProbability": 89.3,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 72.3,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 3
+      },
+      "outcome": "LOSS",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_rsa_premier.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-06"
+      ]
+    },
+    {
+      "date": "2026-05-06",
+      "leagueId": "rsa-premiership",
+      "homeTeam": "AmaZulu",
+      "awayTeam": "Golden Arrows",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.551219512195122,
+        "homeDefence": 1.145945945945946,
+        "awayAttack": 1.6043243243243244,
+        "awayDefence": 1.551219512195122,
+        "leagueHomeGoals": 1.1603773584905661,
+        "leagueAwayGoals": 0.8726415094339622,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.58,
+      "lambdaAway": 1.51,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 82.3,
+        "rawProbability": 92,
+        "reliability": 0.856,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "Total Goals",
+          "pick": "Over 2.5",
+          "rawProbability": 77.5,
+          "minimum": 68
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 1
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_rsa_premier.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-06"
+      ]
+    },
+    {
+      "date": "2026-05-07",
+      "leagueId": "uefa-europa-league",
+      "homeTeam": "SC Freiburg",
+      "awayTeam": "Braga",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.5942857142857143,
+        "homeDefence": 0.16832579185520363,
+        "awayAttack": 1.0099547511312217,
+        "awayDefence": 0.6642857142857143,
+        "leagueHomeGoals": 1.5053763440860215,
+        "leagueAwayGoals": 1.1881720430107527,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 1.58,
+      "lambdaAway": 0.33,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 84.1,
+        "rawProbability": 93.4,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 68.6,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 3,
+        "away": 1
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_europa_league.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-07"
+      ]
+    },
+    {
+      "date": "2026-05-07",
+      "leagueId": "uefa-conference-league",
+      "homeTeam": "Strasbourg",
+      "awayTeam": "Rayo Vallecano",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.4537444933920705,
+        "homeDefence": 0.8163265306122449,
+        "awayAttack": 1.836734693877551,
+        "awayDefence": 1.1894273127753303,
+        "leagueHomeGoals": 1.5133333333333334,
+        "leagueAwayGoals": 0.98,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.48,
+      "lambdaAway": 1.41,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 81.2,
+        "rawProbability": 90.5,
+        "reliability": 0.856,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "Total Goals",
+          "pick": "Over 2.5",
+          "rawProbability": 74.4,
+          "minimum": 68
+        }
+      },
+      "actualScore": {
+        "home": 0,
+        "away": 1
+      },
+      "outcome": "LOSS",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_conference_league.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-07"
+      ]
+    },
+    {
+      "date": "2026-05-07",
+      "leagueId": "conmebol-libertadores",
+      "homeTeam": "Independiente Rivadavia",
+      "awayTeam": "Fluminense",
+      "modelLevel": "basic",
+      "sampleSize": 3,
+      "inputs": {
+        "homeAttack": 1.8888888888888888,
+        "homeDefence": 0.776255707762557,
+        "awayAttack": 0.4657534246575343,
+        "awayDefence": 0.9714285714285713,
+        "leagueHomeGoals": 1.2352941176470589,
+        "leagueAwayGoals": 0.8588235294117647,
+        "sampleSize": 3,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.09,
+      "lambdaAway": 0.4,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 83.2,
+        "rawProbability": 94.6,
+        "reliability": 0.828,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 76.6,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 1
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_libertadores.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-07"
+      ]
+    },
+    {
+      "date": "2026-05-07",
+      "leagueId": "conmebol-sudamericana",
+      "homeTeam": "Boston River",
+      "awayTeam": "Millonarios",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.2,
+        "homeDefence": 2.618181818181818,
+        "awayAttack": 1.0472727272727274,
+        "awayDefence": 1.5428571428571427,
+        "leagueHomeGoals": 1.1666666666666667,
+        "leagueAwayGoals": 0.7638888888888888,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.03,
+      "lambdaAway": 1.93,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 81.6,
+        "rawProbability": 91.1,
+        "reliability": 0.856,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "Total Goals",
+          "pick": "Over 2.5",
+          "rawProbability": 75.6,
+          "minimum": 68
+        }
+      },
+      "actualScore": {
+        "home": 2,
+        "away": 4
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_sudamericana.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-07"
       ]
     },
     {
@@ -18173,6 +20139,55 @@
       "outcome": "WIN",
       "sources": [
         "https://www.football-data.co.uk/new/POL.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-08"
+      ]
+    },
+    {
+      "date": "2026-05-08",
+      "leagueId": "conmebol-sudamericana",
+      "homeTeam": "Blooming",
+      "awayTeam": "Red Bull Bragantino",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.2,
+        "homeDefence": 1.6545454545454545,
+        "awayAttack": 1.6545454545454545,
+        "awayDefence": 1.0285714285714285,
+        "leagueHomeGoals": 1.1666666666666667,
+        "leagueAwayGoals": 0.8461538461538461,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 1.41,
+      "lambdaAway": 2.13,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 78.9,
+        "rawProbability": 87.5,
+        "reliability": 0.856,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "Total Goals",
+          "pick": "Over 2.5",
+          "rawProbability": 68.5,
+          "minimum": 68
+        }
+      },
+      "actualScore": {
+        "home": 0,
+        "away": 6
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_sudamericana.csv",
         "https://www.soccerbase.com/matches/results.sd?date=2026-05-08"
       ]
     },
@@ -19643,6 +21658,55 @@
       "outcome": "WIN",
       "sources": [
         "https://www.football-data.co.uk/new/USA.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-09"
+      ]
+    },
+    {
+      "date": "2026-05-09",
+      "leagueId": "rsa-premiership",
+      "homeTeam": "TS Galaxy FC",
+      "awayTeam": "Chippa United",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 0.3488,
+        "homeDefence": 2.510994764397906,
+        "awayAttack": 1.1413612565445026,
+        "awayDefence": 2.2672,
+        "leagueHomeGoals": 1.146788990825688,
+        "leagueAwayGoals": 0.8761467889908257,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 0.94,
+      "lambdaAway": 2.3,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 79,
+        "rawProbability": 86.9,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Away",
+          "rawProbability": 67.3,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 1
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_rsa_premier.csv",
         "https://www.soccerbase.com/matches/results.sd?date=2026-05-09"
       ]
     },
@@ -23714,6 +25778,55 @@
       ]
     },
     {
+      "date": "2026-05-16",
+      "leagueId": "rsa-premiership",
+      "homeTeam": "Chippa United",
+      "awayTeam": "Golden Arrows",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.2076335877862594,
+        "homeDefence": 1.5509803921568628,
+        "awayAttack": 1.3294117647058823,
+        "awayDefence": 1.7251908396946565,
+        "leagueHomeGoals": 1.1592920353982301,
+        "leagueAwayGoals": 0.9026548672566371,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.26,
+      "lambdaAway": 1.74,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 81.9,
+        "rawProbability": 91.4,
+        "reliability": 0.856,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "Total Goals",
+          "pick": "Over 2.5",
+          "rawProbability": 76.1,
+          "minimum": 68
+        }
+      },
+      "actualScore": {
+        "home": 0,
+        "away": 2
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_rsa_premier.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-16"
+      ]
+    },
+    {
       "date": "2026-05-17",
       "leagueId": "eng-premier-league",
       "homeTeam": "Man United",
@@ -25870,6 +27983,153 @@
       ]
     },
     {
+      "date": "2026-05-19",
+      "leagueId": "conmebol-libertadores",
+      "homeTeam": "Coquimbo Unido",
+      "awayTeam": "Deportes Tolima",
+      "modelLevel": "basic",
+      "sampleSize": 4,
+      "inputs": {
+        "homeAttack": 1.0217391304347827,
+        "homeDefence": 1.4506172839506173,
+        "awayAttack": 0.6962962962962963,
+        "awayDefence": 1.9617391304347827,
+        "leagueHomeGoals": 1.2234042553191489,
+        "leagueAwayGoals": 0.8617021276595744,
+        "sampleSize": 4,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.24,
+      "lambdaAway": 0.87,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 78,
+        "rawProbability": 87.6,
+        "reliability": 0.828,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 67.7,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 3,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_libertadores.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-19"
+      ]
+    },
+    {
+      "date": "2026-05-19",
+      "leagueId": "conmebol-libertadores",
+      "homeTeam": "Fluminense",
+      "awayTeam": "Bolívar",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.471304347826087,
+        "homeDefence": 1.3925925925925926,
+        "awayAttack": 0.9283950617283951,
+        "awayDefence": 1.6347826086956523,
+        "leagueHomeGoals": 1.2234042553191489,
+        "leagueAwayGoals": 0.8617021276595744,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.72,
+      "lambdaAway": 1.08,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 80.6,
+        "rawProbability": 89.8,
+        "reliability": 0.856,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "Total Goals",
+          "pick": "Over 2.5",
+          "rawProbability": 73.2,
+          "minimum": 68
+        }
+      },
+      "actualScore": {
+        "home": 2,
+        "away": 1
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_libertadores.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-19"
+      ]
+    },
+    {
+      "date": "2026-05-19",
+      "leagueId": "conmebol-libertadores",
+      "homeTeam": "Rosario Central",
+      "awayTeam": "UCV FC",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 0.9808695652173913,
+        "homeDefence": 0.46419753086419757,
+        "awayAttack": 1.8567901234567903,
+        "awayDefence": 1.6347826086956523,
+        "leagueHomeGoals": 1.2234042553191489,
+        "leagueAwayGoals": 0.8617021276595744,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 1.87,
+      "lambdaAway": 0.76,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 78.5,
+        "rawProbability": 86.3,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 62.9,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 4,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_libertadores.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-19"
+      ]
+    },
+    {
       "date": "2026-05-20",
       "leagueId": "chn-super-league",
       "homeTeam": "Chongqing Tonglianglong",
@@ -26017,6 +28277,104 @@
       ]
     },
     {
+      "date": "2026-05-20",
+      "leagueId": "conmebol-libertadores",
+      "homeTeam": "Independiente del Valle",
+      "awayTeam": "Libertad",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.5645161290322582,
+        "homeDefence": 1.1829268292682926,
+        "awayAttack": 0.7097560975609756,
+        "awayDefence": 0.9387096774193548,
+        "leagueHomeGoals": 1.2783505154639174,
+        "leagueAwayGoals": 0.845360824742268,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 1.8,
+      "lambdaAway": 0.73,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 78.5,
+        "rawProbability": 86.3,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 62.2,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 4,
+        "away": 1
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_libertadores.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-20"
+      ]
+    },
+    {
+      "date": "2026-05-20",
+      "leagueId": "conmebol-sudamericana",
+      "homeTeam": "Boston River",
+      "awayTeam": "O'Higgins",
+      "modelLevel": "basic",
+      "sampleSize": 4,
+      "inputs": {
+        "homeAttack": 1.0040816326530613,
+        "homeDefence": 2.4053333333333335,
+        "awayAttack": 1.0933333333333333,
+        "awayDefence": 0.41836734693877553,
+        "leagueHomeGoals": 1.1951219512195121,
+        "leagueAwayGoals": 0.9146341463414634,
+        "sampleSize": 4,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 0.62,
+      "lambdaAway": 2.15,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 80.8,
+        "rawProbability": 91.3,
+        "reliability": 0.828,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Away",
+          "rawProbability": 72.1,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 3,
+        "away": 2
+      },
+      "outcome": "LOSS",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_sudamericana.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-20"
+      ]
+    },
+    {
       "date": "2026-05-21",
       "leagueId": "bel-pro-league",
       "homeTeam": "Mechelen",
@@ -26066,6 +28424,251 @@
       ]
     },
     {
+      "date": "2026-05-21",
+      "leagueId": "conmebol-libertadores",
+      "homeTeam": "Flamengo",
+      "awayTeam": "Estudiantes de La Plata",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.3909090909090909,
+        "homeDefence": 0.46896551724137936,
+        "awayAttack": 1.4068965517241379,
+        "awayDefence": 1.0818181818181818,
+        "leagueHomeGoals": 1.2941176470588236,
+        "leagueAwayGoals": 0.8529411764705882,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 1.86,
+      "lambdaAway": 0.6,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 81.1,
+        "rawProbability": 89.6,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 67,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_libertadores.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-21"
+      ]
+    },
+    {
+      "date": "2026-05-21",
+      "leagueId": "conmebol-libertadores",
+      "homeTeam": "Palmeiras",
+      "awayTeam": "Cerro Porteño",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.3909090909090909,
+        "homeDefence": 0.7034482758620689,
+        "awayAttack": 0.46896551724137936,
+        "awayDefence": 0.7727272727272727,
+        "leagueHomeGoals": 1.2941176470588236,
+        "leagueAwayGoals": 0.8529411764705882,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 1.38,
+      "lambdaAway": 0.35,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 82.4,
+        "rawProbability": 91.3,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 62.5,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 0,
+        "away": 1
+      },
+      "outcome": "LOSS",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_libertadores.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-21"
+      ]
+    },
+    {
+      "date": "2026-05-21",
+      "leagueId": "conmebol-libertadores",
+      "homeTeam": "Cusco FC",
+      "awayTeam": "Independiente Medellín",
+      "modelLevel": "basic",
+      "sampleSize": 4,
+      "inputs": {
+        "homeAttack": 0.38636363636363635,
+        "homeDefence": 1.7586206896551724,
+        "awayAttack": 1.4068965517241379,
+        "awayDefence": 1.3909090909090909,
+        "leagueHomeGoals": 1.2941176470588236,
+        "leagueAwayGoals": 0.8529411764705882,
+        "sampleSize": 4,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 0.8,
+      "lambdaAway": 1.89,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 76.6,
+        "rawProbability": 85.7,
+        "reliability": 0.828,
+        "rating": "Good",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Away",
+          "rawProbability": 62.4,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 2,
+        "away": 3
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_libertadores.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-21"
+      ]
+    },
+    {
+      "date": "2026-05-21",
+      "leagueId": "conmebol-sudamericana",
+      "homeTeam": "Independiente Petrolero",
+      "awayTeam": "Botafogo",
+      "modelLevel": "basic",
+      "sampleSize": 3,
+      "inputs": {
+        "homeAttack": 0.8,
+        "homeDefence": 2.0952380952380953,
+        "awayAttack": 1.2571428571428571,
+        "awayDefence": 0.64,
+        "leagueHomeGoals": 1.25,
+        "leagueAwayGoals": 0.9545454545454546,
+        "sampleSize": 3,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 0.74,
+      "lambdaAway": 2.25,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 79.7,
+        "rawProbability": 89.8,
+        "reliability": 0.828,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Away",
+          "rawProbability": 70.8,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 0,
+        "away": 3
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_sudamericana.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-21"
+      ]
+    },
+    {
+      "date": "2026-05-21",
+      "leagueId": "conmebol-sudamericana",
+      "homeTeam": "Atlético-MG",
+      "awayTeam": "Cienciano del Cusco",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.28,
+        "homeDefence": 0.8380952380952381,
+        "awayAttack": 0.8380952380952381,
+        "awayDefence": 1.44,
+        "leagueHomeGoals": 1.25,
+        "leagueAwayGoals": 0.9545454545454546,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.17,
+      "lambdaAway": 0.71,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 81.3,
+        "rawProbability": 89.9,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 70.3,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 2,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_sudamericana.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-21"
+      ]
+    },
+    {
       "date": "2026-05-22",
       "leagueId": "swe-allsvenskan",
       "homeTeam": "Djurgarden",
@@ -26111,6 +28714,55 @@
       "outcome": "WIN",
       "sources": [
         "https://www.football-data.co.uk/new/SWE.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-22"
+      ]
+    },
+    {
+      "date": "2026-05-22",
+      "leagueId": "conmebol-sudamericana",
+      "homeTeam": "Blooming",
+      "awayTeam": "Carabobo",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.1224137931034481,
+        "homeDefence": 2.507865168539326,
+        "awayAttack": 1.044943820224719,
+        "awayDefence": 0.6413793103448276,
+        "leagueHomeGoals": 1.2473118279569892,
+        "leagueAwayGoals": 0.956989247311828,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 0.94,
+      "lambdaAway": 2.31,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 78.9,
+        "rawProbability": 86.8,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Away",
+          "rawProbability": 67.3,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 0,
+        "away": 2
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_sudamericana.csv",
         "https://www.soccerbase.com/matches/results.sd?date=2026-05-22"
       ]
     },
@@ -26601,6 +29253,55 @@
       "outcome": "WIN",
       "sources": [
         "https://www.football-data.co.uk/new/USA.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-23"
+      ]
+    },
+    {
+      "date": "2026-05-23",
+      "leagueId": "rsa-premiership",
+      "homeTeam": "Kaizer Chiefs",
+      "awayTeam": "Chippa United",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.047191011235955,
+        "homeDefence": 1.1148325358851674,
+        "awayAttack": 1.3377990430622009,
+        "awayDefence": 2.443445692883895,
+        "leagueHomeGoals": 1.145922746781116,
+        "leagueAwayGoals": 0.8969957081545065,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.71,
+      "lambdaAway": 1.28,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 81.7,
+        "rawProbability": 91.2,
+        "reliability": 0.856,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "Total Goals",
+          "pick": "Over 2.5",
+          "rawProbability": 76,
+          "minimum": 68
+        }
+      },
+      "actualScore": {
+        "home": 0,
+        "away": 1
+      },
+      "outcome": "LOSS",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_rsa_premier.csv",
         "https://www.soccerbase.com/matches/results.sd?date=2026-05-23"
       ]
     },
@@ -27876,6 +30577,496 @@
       "sources": [
         "https://www.football-data.co.uk/new/USA.csv",
         "https://www.soccerbase.com/matches/results.sd?date=2026-05-25"
+      ]
+    },
+    {
+      "date": "2026-05-26",
+      "leagueId": "conmebol-libertadores",
+      "homeTeam": "Lanús",
+      "awayTeam": "Mirassol",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 0.303448275862069,
+        "homeDefence": 1.5714285714285714,
+        "awayAttack": 1.5714285714285714,
+        "awayDefence": 0.45517241379310347,
+        "leagueHomeGoals": 1.3181818181818181,
+        "leagueAwayGoals": 0.8909090909090909,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 0.33,
+      "lambdaAway": 2.03,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 85.8,
+        "rawProbability": 95.6,
+        "reliability": 0.873,
+        "rating": "Elite",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Away",
+          "rawProbability": 77.7,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 0
+      },
+      "outcome": "LOSS",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_libertadores.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-26"
+      ]
+    },
+    {
+      "date": "2026-05-26",
+      "leagueId": "conmebol-sudamericana",
+      "homeTeam": "São Paulo",
+      "awayTeam": "Boston River",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.3016949152542372,
+        "homeDefence": 0.2064516129032258,
+        "awayAttack": 1.238709677419355,
+        "awayDefence": 1.3016949152542372,
+        "leagueHomeGoals": 1.2291666666666667,
+        "leagueAwayGoals": 0.96875,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 1.97,
+      "lambdaAway": 0.34,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 85.4,
+        "rawProbability": 95.1,
+        "reliability": 0.873,
+        "rating": "Elite",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 76.4,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 2,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_sudamericana.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-26"
+      ]
+    },
+    {
+      "date": "2026-05-27",
+      "leagueId": "conmebol-libertadores",
+      "homeTeam": "Estudiantes de La Plata",
+      "awayTeam": "Independiente Medellín",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 0.9020134228187919,
+        "homeDefence": 0.448,
+        "awayAttack": 1.792,
+        "awayDefence": 1.6536912751677855,
+        "leagueHomeGoals": 1.3303571428571428,
+        "leagueAwayGoals": 0.8928571428571429,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 1.9,
+      "lambdaAway": 0.74,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 79.1,
+        "rawProbability": 87,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 64.1,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_libertadores.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-27"
+      ]
+    },
+    {
+      "date": "2026-05-27",
+      "leagueId": "conmebol-libertadores",
+      "homeTeam": "Flamengo",
+      "awayTeam": "Cusco FC",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.353020134228188,
+        "homeDefence": 0.448,
+        "awayAttack": 0.896,
+        "awayDefence": 1.353020134228188,
+        "leagueHomeGoals": 1.3303571428571428,
+        "leagueAwayGoals": 0.8928571428571429,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.3,
+      "lambdaAway": 0.43,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 85.5,
+        "rawProbability": 95.2,
+        "reliability": 0.873,
+        "rating": "Elite",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 79.3,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 3,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_libertadores.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-27"
+      ]
+    },
+    {
+      "date": "2026-05-27",
+      "leagueId": "conmebol-libertadores",
+      "homeTeam": "Libertad",
+      "awayTeam": "UCV FC",
+      "modelLevel": "basic",
+      "sampleSize": 3,
+      "inputs": {
+        "homeAttack": 0.6013422818791947,
+        "homeDefence": 1.792,
+        "awayAttack": 1.1199999999999999,
+        "awayDefence": 2.505592841163311,
+        "leagueHomeGoals": 1.3303571428571428,
+        "leagueAwayGoals": 0.8928571428571429,
+        "sampleSize": 3,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 1.89,
+      "lambdaAway": 1.64,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 77.3,
+        "rawProbability": 87.4,
+        "reliability": 0.811,
+        "rating": "Good",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "Total Goals",
+          "pick": "Over 2.5",
+          "rawProbability": 68.4,
+          "minimum": 68
+        }
+      },
+      "actualScore": {
+        "home": 0,
+        "away": 1
+      },
+      "outcome": "LOSS",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_libertadores.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-27"
+      ]
+    },
+    {
+      "date": "2026-05-27",
+      "leagueId": "conmebol-sudamericana",
+      "homeTeam": "San Lorenzo",
+      "awayTeam": "Deportivo Recoleta",
+      "modelLevel": "basic",
+      "sampleSize": 3,
+      "inputs": {
+        "homeAttack": 1.6129032258064517,
+        "homeDefence": 0.40816326530612246,
+        "awayAttack": 1.3605442176870748,
+        "awayDefence": 1.075268817204301,
+        "leagueHomeGoals": 1.24,
+        "leagueAwayGoals": 0.98,
+        "sampleSize": 3,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 1.99,
+      "lambdaAway": 0.62,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 80,
+        "rawProbability": 90.2,
+        "reliability": 0.828,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 69.2,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 0,
+        "away": 1
+      },
+      "outcome": "LOSS",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_sudamericana.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-27"
+      ]
+    },
+    {
+      "date": "2026-05-27",
+      "leagueId": "conmebol-sudamericana",
+      "homeTeam": "Atlético-MG",
+      "awayTeam": "Academia Puerto Cabello",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.6129032258064517,
+        "homeDefence": 0.6122448979591837,
+        "awayAttack": 0.40816326530612246,
+        "awayDefence": 1.6129032258064517,
+        "leagueHomeGoals": 1.24,
+        "leagueAwayGoals": 0.98,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.97,
+      "lambdaAway": 0.34,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 87.7,
+        "rawProbability": 98,
+        "reliability": 0.873,
+        "rating": "Elite",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 89,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_sudamericana.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-27"
+      ]
+    },
+    {
+      "date": "2026-05-28",
+      "leagueId": "conmebol-libertadores",
+      "homeTeam": "Bolívar",
+      "awayTeam": "Independiente Rivadavia",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.8270967741935482,
+        "homeDefence": 0.9346534653465346,
+        "awayAttack": 2.803960396039604,
+        "awayDefence": 0.7612903225806451,
+        "leagueHomeGoals": 1.3135593220338984,
+        "leagueAwayGoals": 0.8559322033898306,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 1.76,
+      "lambdaAway": 2.07,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 80.9,
+        "rawProbability": 90.1,
+        "reliability": 0.856,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "Total Goals",
+          "pick": "Over 2.5",
+          "rawProbability": 73.6,
+          "minimum": 68
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 3
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_libertadores.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-28"
+      ]
+    },
+    {
+      "date": "2026-05-28",
+      "leagueId": "conmebol-libertadores",
+      "homeTeam": "Corinthians",
+      "awayTeam": "Platense",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.8270967741935482,
+        "homeDefence": 0.4673267326732673,
+        "awayAttack": 1.401980198019802,
+        "awayDefence": 1.065806451612903,
+        "leagueHomeGoals": 1.3135593220338984,
+        "leagueAwayGoals": 0.8559322033898306,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.4,
+      "lambdaAway": 0.6,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 83.9,
+        "rawProbability": 93.2,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 76.8,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 0,
+        "away": 2
+      },
+      "outcome": "LOSS",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_libertadores.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-28"
+      ]
+    },
+    {
+      "date": "2026-05-28",
+      "leagueId": "conmebol-libertadores",
+      "homeTeam": "Fluminense",
+      "awayTeam": "Deportivo La Guaira",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.3703225806451613,
+        "homeDefence": 1.401980198019802,
+        "awayAttack": 1.1683168316831682,
+        "awayDefence": 1.5225806451612902,
+        "leagueHomeGoals": 1.3135593220338984,
+        "leagueAwayGoals": 0.8559322033898306,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.56,
+      "lambdaAway": 1.33,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 81.3,
+        "rawProbability": 90.6,
+        "reliability": 0.856,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "Total Goals",
+          "pick": "Over 2.5",
+          "rawProbability": 74.5,
+          "minimum": 68
+        }
+      },
+      "actualScore": {
+        "home": 3,
+        "away": 1
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_libertadores.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-28"
       ]
     },
     {
@@ -31064,6 +34255,104 @@
       ]
     },
     {
+      "date": "2026-07-23",
+      "leagueId": "conmebol-sudamericana",
+      "homeTeam": "Lanús",
+      "awayTeam": "Cienciano del Cusco",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 0.7770270270270271,
+        "homeDefence": 0.40707964601769914,
+        "awayAttack": 0.40707964601769914,
+        "awayDefence": 1.3986486486486487,
+        "leagueHomeGoals": 1.2869565217391303,
+        "leagueAwayGoals": 0.9826086956521739,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 1.38,
+      "lambdaAway": 0.27,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 84.3,
+        "rawProbability": 93.6,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 65.5,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 2,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_sudamericana.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-07-23"
+      ]
+    },
+    {
+      "date": "2026-07-23",
+      "leagueId": "conmebol-sudamericana",
+      "homeTeam": "Sporting Cristal",
+      "awayTeam": "Red Bull Bragantino",
+      "modelLevel": "basic",
+      "sampleSize": 3,
+      "inputs": {
+        "homeAttack": 0.7770270270270271,
+        "homeDefence": 1.696165191740413,
+        "awayAttack": 2.0353982300884956,
+        "awayDefence": 0.6216216216216217,
+        "leagueHomeGoals": 1.2869565217391303,
+        "leagueAwayGoals": 0.9826086956521739,
+        "sampleSize": 3,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 0.74,
+      "lambdaAway": 2.98,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 82.9,
+        "rawProbability": 94.2,
+        "reliability": 0.828,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Away",
+          "rawProbability": 81.7,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 0,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_sudamericana.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-07-23"
+      ]
+    },
+    {
       "date": "2026-07-24",
       "leagueId": "arg-primera",
       "homeTeam": "Gimnasia Mendoza",
@@ -31256,6 +34545,104 @@
       "outcome": "LOSS",
       "sources": [
         "https://www.football-data.co.uk/new/ROU.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-07-24"
+      ]
+    },
+    {
+      "date": "2026-07-24",
+      "leagueId": "conmebol-sudamericana",
+      "homeTeam": "Boca Juniors",
+      "awayTeam": "O'Higgins",
+      "modelLevel": "basic",
+      "sampleSize": 3,
+      "inputs": {
+        "homeAttack": 1.2339869281045752,
+        "homeDefence": 0.20521739130434785,
+        "awayAttack": 1.3681159420289855,
+        "awayDefence": 1.5424836601307188,
+        "leagueHomeGoals": 1.2966101694915255,
+        "leagueAwayGoals": 0.9745762711864406,
+        "sampleSize": 3,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.27,
+      "lambdaAway": 0.39,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 83.9,
+        "rawProbability": 95.5,
+        "reliability": 0.828,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 79.7,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_sudamericana.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-07-24"
+      ]
+    },
+    {
+      "date": "2026-07-24",
+      "leagueId": "conmebol-sudamericana",
+      "homeTeam": "Independiente Santa Fe",
+      "awayTeam": "Caracas FC",
+      "modelLevel": "basic",
+      "sampleSize": 3,
+      "inputs": {
+        "homeAttack": 1.2854030501089324,
+        "homeDefence": 1.0260869565217392,
+        "awayAttack": 1.6417391304347828,
+        "awayDefence": 1.6967320261437908,
+        "leagueHomeGoals": 1.2966101694915255,
+        "leagueAwayGoals": 0.9745762711864406,
+        "sampleSize": 3,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.56,
+      "lambdaAway": 1.53,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 80.7,
+        "rawProbability": 92,
+        "reliability": 0.811,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "Total Goals",
+          "pick": "Over 2.5",
+          "rawProbability": 77.5,
+          "minimum": 68
+        }
+      },
+      "actualScore": {
+        "home": 2,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_sudamericana.csv",
         "https://www.soccerbase.com/matches/results.sd?date=2026-07-24"
       ]
     },
@@ -34102,6 +37489,55 @@
       ]
     },
     {
+      "date": "2026-08-02",
+      "leagueId": "rsa-premiership",
+      "homeTeam": "Siwelele",
+      "awayTeam": "TS Galaxy FC",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.7499999999999998,
+        "homeDefence": 0.7499999999999999,
+        "awayAttack": 0.5,
+        "awayDefence": 1.25,
+        "leagueHomeGoals": 0.8,
+        "leagueAwayGoals": 0.8,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 1.63,
+      "lambdaAway": 0.36,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 83.6,
+        "rawProbability": 92.8,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 68.6,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 2,
+        "away": 2
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_rsa_premier.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-08-02"
+      ]
+    },
+    {
       "date": "2026-08-03",
       "leagueId": "arg-primera",
       "homeTeam": "Platense",
@@ -35768,6 +39204,153 @@
       ]
     },
     {
+      "date": "2026-08-11",
+      "leagueId": "conmebol-libertadores",
+      "homeTeam": "Fluminense",
+      "awayTeam": "Independiente Rivadavia",
+      "modelLevel": "basic",
+      "sampleSize": 3,
+      "inputs": {
+        "homeAttack": 1.3420118343195269,
+        "homeDefence": 1.1454545454545455,
+        "awayAttack": 3.4363636363636365,
+        "awayDefence": 0.9940828402366864,
+        "leagueHomeGoals": 1.3412698412698412,
+        "leagueAwayGoals": 0.873015873015873,
+        "sampleSize": 3,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 1.71,
+      "lambdaAway": 3,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 83,
+        "rawProbability": 95.2,
+        "reliability": 0.811,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "Total Goals",
+          "pick": "Over 2.5",
+          "rawProbability": 84.8,
+          "minimum": 68
+        }
+      },
+      "actualScore": {
+        "home": 0,
+        "away": 0
+      },
+      "outcome": "LOSS",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_libertadores.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-08-11"
+      ]
+    },
+    {
+      "date": "2026-08-12",
+      "leagueId": "conmebol-libertadores",
+      "homeTeam": "Palmeiras",
+      "awayTeam": "Cerro Porteño",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.5029585798816567,
+        "homeDefence": 0.9236363636363637,
+        "awayAttack": 0.46181818181818185,
+        "awayDefence": 0.7514792899408284,
+        "leagueHomeGoals": 1.330708661417323,
+        "leagueAwayGoals": 0.8661417322834646,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 1.48,
+      "lambdaAway": 0.43,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 81.5,
+        "rawProbability": 90.1,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 62.8,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 1
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_libertadores.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-08-12"
+      ]
+    },
+    {
+      "date": "2026-08-12",
+      "leagueId": "rsa-premiership",
+      "homeTeam": "AmaZulu",
+      "awayTeam": "Orlando Pirates",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.6923076923076923,
+        "homeDefence": 0.88,
+        "awayAttack": 2.2,
+        "awayDefence": 0.3384615384615385,
+        "leagueHomeGoals": 1.1818181818181819,
+        "leagueAwayGoals": 1.3636363636363635,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 0.74,
+      "lambdaAway": 2.48,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 82.6,
+        "rawProbability": 91.5,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Away",
+          "rawProbability": 74.8,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 1
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_rsa_premier.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-08-12"
+      ]
+    },
+    {
       "date": "2026-08-14",
       "leagueId": "fra-ligue-2",
       "homeTeam": "Nancy",
@@ -36009,6 +39592,55 @@
       "outcome": "WIN",
       "sources": [
         "https://www.football-data.co.uk/new/POL.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-08-14"
+      ]
+    },
+    {
+      "date": "2026-08-14",
+      "leagueId": "conmebol-libertadores",
+      "homeTeam": "Rosario Central",
+      "awayTeam": "Corinthians",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.3655172413793104,
+        "homeDefence": 0.45913043478260873,
+        "awayAttack": 1.1478260869565218,
+        "awayDefence": 0.9103448275862069,
+        "leagueHomeGoals": 1.3181818181818181,
+        "leagueAwayGoals": 0.8712121212121212,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 1.6,
+      "lambdaAway": 0.51,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 80.8,
+        "rawProbability": 89.2,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 63.4,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 0,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_libertadores.csv",
         "https://www.soccerbase.com/matches/results.sd?date=2026-08-14"
       ]
     },
@@ -36548,6 +40180,55 @@
       "outcome": "LOSS",
       "sources": [
         "https://www.football-data.co.uk/new/SWE.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-08-15"
+      ]
+    },
+    {
+      "date": "2026-08-15",
+      "leagueId": "rsa-premiership",
+      "homeTeam": "AmaZulu",
+      "awayTeam": "Siwelele",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.44,
+        "homeDefence": 1.1294117647058823,
+        "awayAttack": 1.1294117647058823,
+        "awayDefence": 1.6,
+        "leagueHomeGoals": 1.25,
+        "leagueAwayGoals": 1.0625,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.67,
+      "lambdaAway": 1.32,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 81.8,
+        "rawProbability": 91.3,
+        "reliability": 0.856,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "Total Goals",
+          "pick": "Over 2.5",
+          "rawProbability": 76,
+          "minimum": 68
+        }
+      },
+      "actualScore": {
+        "home": 2,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_rsa_premier.csv",
         "https://www.soccerbase.com/matches/results.sd?date=2026-08-15"
       ]
     },
@@ -37679,6 +41360,55 @@
       ]
     },
     {
+      "date": "2026-08-16",
+      "leagueId": "rsa-premiership",
+      "homeTeam": "Chippa United",
+      "awayTeam": "Orlando Pirates",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 0.6000000000000001,
+        "homeDefence": 1.47,
+        "awayAttack": 2.1,
+        "awayDefence": 0.45,
+        "leagueHomeGoals": 1.3333333333333333,
+        "leagueAwayGoals": 0.9523809523809523,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 0.48,
+      "lambdaAway": 2.69,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 86.1,
+        "rawProbability": 95.9,
+        "reliability": 0.873,
+        "rating": "Elite",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Away",
+          "rawProbability": 83.3,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 0,
+        "away": 3
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_rsa_premier.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-08-16"
+      ]
+    },
+    {
       "date": "2026-08-17",
       "leagueId": "tur-super-lig",
       "homeTeam": "Samsunspor",
@@ -38071,6 +41801,104 @@
       ]
     },
     {
+      "date": "2026-08-18",
+      "leagueId": "conmebol-libertadores",
+      "homeTeam": "Independiente Rivadavia",
+      "awayTeam": "Fluminense",
+      "modelLevel": "basic",
+      "sampleSize": 3,
+      "inputs": {
+        "homeAttack": 1.528735632183908,
+        "homeDefence": 0.7710144927536231,
+        "awayAttack": 0.46260869565217394,
+        "awayDefence": 1.0701149425287355,
+        "leagueHomeGoals": 1.3082706766917294,
+        "leagueAwayGoals": 0.8646616541353384,
+        "sampleSize": 3,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2,
+      "lambdaAway": 0.4,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 82.9,
+        "rawProbability": 94.1,
+        "reliability": 0.828,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 75,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 1
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_libertadores.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-08-18"
+      ]
+    },
+    {
+      "date": "2026-08-19",
+      "leagueId": "conmebol-libertadores",
+      "homeTeam": "Deportes Tolima",
+      "awayTeam": "Independiente del Valle",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.225142857142857,
+        "homeDefence": 0.2310344827586207,
+        "awayAttack": 1.3862068965517242,
+        "awayDefence": 1.6845714285714286,
+        "leagueHomeGoals": 1.3059701492537314,
+        "leagueAwayGoals": 0.8656716417910447,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.52,
+      "lambdaAway": 0.35,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 86.8,
+        "rawProbability": 96.9,
+        "reliability": 0.873,
+        "rating": "Elite",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 84.1,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 0,
+        "away": 1
+      },
+      "outcome": "LOSS",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_libertadores.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-08-19"
+      ]
+    },
+    {
       "date": "2026-08-20",
       "leagueId": "esp-la-liga",
       "homeTeam": "Vallecano",
@@ -38414,6 +42242,104 @@
       ]
     },
     {
+      "date": "2026-08-20",
+      "leagueId": "conmebol-libertadores",
+      "homeTeam": "Liga de Quito",
+      "awayTeam": "Mirassol",
+      "modelLevel": "basic",
+      "sampleSize": 3,
+      "inputs": {
+        "homeAttack": 1.8925714285714283,
+        "homeDefence": 0.45619834710743806,
+        "awayAttack": 0.7603305785123966,
+        "awayDefence": 1.0514285714285714,
+        "leagueHomeGoals": 1.2681159420289856,
+        "leagueAwayGoals": 0.8768115942028986,
+        "sampleSize": 3,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.31,
+      "lambdaAway": 0.4,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 83.9,
+        "rawProbability": 95.5,
+        "reliability": 0.828,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 80.1,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 0,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_libertadores.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-08-20"
+      ]
+    },
+    {
+      "date": "2026-08-20",
+      "leagueId": "conmebol-sudamericana",
+      "homeTeam": "Club Olimpia",
+      "awayTeam": "Vasco da Gama",
+      "modelLevel": "basic",
+      "sampleSize": 4,
+      "inputs": {
+        "homeAttack": 1.491891891891892,
+        "homeDefence": 0.5073529411764706,
+        "awayAttack": 1.0147058823529411,
+        "awayDefence": 1.491891891891892,
+        "leagueHomeGoals": 1.3405797101449275,
+        "leagueAwayGoals": 0.9855072463768116,
+        "sampleSize": 4,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.7,
+      "lambdaAway": 0.59,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 83.3,
+        "rawProbability": 94.7,
+        "reliability": 0.828,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 81.3,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 4
+      },
+      "outcome": "LOSS",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_sudamericana.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-08-20"
+      ]
+    },
+    {
       "date": "2026-08-21",
       "leagueId": "fra-ligue-2",
       "homeTeam": "Boulogne",
@@ -38606,6 +42532,55 @@
       "outcome": "WIN",
       "sources": [
         "https://www.football-data.co.uk/new/SWE.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-08-21"
+      ]
+    },
+    {
+      "date": "2026-08-21",
+      "leagueId": "conmebol-sudamericana",
+      "homeTeam": "Botafogo",
+      "awayTeam": "Cienciano del Cusco",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.3595744680851065,
+        "homeDefence": 0.8056737588652483,
+        "awayAttack": 0.20141843971631207,
+        "awayDefence": 1.5106382978723405,
+        "leagueHomeGoals": 1.323943661971831,
+        "leagueAwayGoals": 0.9929577464788732,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.54,
+      "lambdaAway": 0.27,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 87.6,
+        "rawProbability": 97.8,
+        "reliability": 0.873,
+        "rating": "Elite",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 86.3,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_sudamericana.csv",
         "https://www.soccerbase.com/matches/results.sd?date=2026-08-21"
       ]
     },
@@ -41060,6 +45035,104 @@
       ]
     },
     {
+      "date": "2026-08-25",
+      "leagueId": "rsa-premiership",
+      "homeTeam": "Orlando Pirates",
+      "awayTeam": "Sekhukhune United FC",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.7600000000000002,
+        "homeDefence": 0.20869565217391306,
+        "awayAttack": 1.460869565217391,
+        "awayDefence": 1.44,
+        "leagueHomeGoals": 1.25,
+        "leagueAwayGoals": 0.9583333333333334,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.92,
+      "lambdaAway": 0.38,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 87.4,
+        "rawProbability": 97.6,
+        "reliability": 0.873,
+        "rating": "Elite",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 87.9,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 2,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_rsa_premier.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-08-25"
+      ]
+    },
+    {
+      "date": "2026-08-25",
+      "leagueId": "rsa-premiership",
+      "homeTeam": "Siwelele",
+      "awayTeam": "Chippa United",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.28,
+        "homeDefence": 1.0434782608695652,
+        "awayAttack": 0.8347826086956522,
+        "awayDefence": 1.6,
+        "leagueHomeGoals": 1.25,
+        "leagueAwayGoals": 0.9583333333333334,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.39,
+      "lambdaAway": 0.85,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 80.7,
+        "rawProbability": 89.1,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 70.9,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 1
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_rsa_premier.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-08-25"
+      ]
+    },
+    {
       "date": "2026-08-26",
       "leagueId": "esp-la-liga",
       "homeTeam": "Real Madrid",
@@ -41105,6 +45178,55 @@
       "outcome": "WIN",
       "sources": [
         "https://www.football-data.co.uk/mmz4281/2627/SP1.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-08-26"
+      ]
+    },
+    {
+      "date": "2026-08-26",
+      "leagueId": "conmebol-libertadores",
+      "homeTeam": "Independiente del Valle",
+      "awayTeam": "Deportes Tolima",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.9011235955056178,
+        "homeDefence": 1.1557377049180328,
+        "awayAttack": 0.46229508196721314,
+        "awayDefence": 1.1089887640449436,
+        "leagueHomeGoals": 1.2624113475177305,
+        "leagueAwayGoals": 0.8652482269503546,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.48,
+      "lambdaAway": 0.51,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 85.2,
+        "rawProbability": 94.8,
+        "reliability": 0.873,
+        "rating": "Elite",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 80,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 3,
+        "away": 1
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_libertadores.csv",
         "https://www.soccerbase.com/matches/results.sd?date=2026-08-26"
       ]
     },
@@ -49635,6 +53757,55 @@
       ]
     },
     {
+      "date": "2026-09-06",
+      "leagueId": "rsa-premiership",
+      "homeTeam": "Kaizer Chiefs",
+      "awayTeam": "Siwelele",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.1375,
+        "homeDefence": 0.3804878048780488,
+        "awayAttack": 1.1414634146341462,
+        "awayDefence": 1.9499999999999997,
+        "leagueHomeGoals": 1.2307692307692308,
+        "leagueAwayGoals": 1.0512820512820513,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.54,
+      "lambdaAway": 0.53,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 85.2,
+        "rawProbability": 94.8,
+        "reliability": 0.873,
+        "rating": "Elite",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 80.4,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 3,
+        "away": 2
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_rsa_premier.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-09-06"
+      ]
+    },
+    {
       "date": "2026-09-07",
       "leagueId": "fra-ligue-2",
       "homeTeam": "Nantes",
@@ -50468,6 +54639,104 @@
       ]
     },
     {
+      "date": "2026-09-09",
+      "leagueId": "uefa-champions-league",
+      "homeTeam": "Sporting CP",
+      "awayTeam": "Galatasaray",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.44,
+        "homeDefence": 0.32727272727272727,
+        "awayAttack": 0.5454545454545455,
+        "awayDefence": 1.2,
+        "leagueHomeGoals": 1.6666666666666667,
+        "leagueAwayGoals": 1.8333333333333333,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.73,
+      "lambdaAway": 0.52,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 85.8,
+        "rawProbability": 95.6,
+        "reliability": 0.873,
+        "rating": "Elite",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 83,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 3,
+        "away": 1
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_champions.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-09-09"
+      ]
+    },
+    {
+      "date": "2026-09-09",
+      "leagueId": "conmebol-libertadores",
+      "homeTeam": "Palmeiras",
+      "awayTeam": "Liga de Quito",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.0939890710382512,
+        "homeDefence": 1.1626016260162602,
+        "awayAttack": 0.4650406504065041,
+        "awayDefence": 1.2502732240437158,
+        "leagueHomeGoals": 1.2797202797202798,
+        "leagueAwayGoals": 0.8601398601398601,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 1.69,
+      "lambdaAway": 0.52,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 81.3,
+        "rawProbability": 89.9,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 65.5,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_libertadores.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-09-09"
+      ]
+    },
+    {
       "date": "2026-09-10",
       "leagueId": "eng-league-one",
       "homeTeam": "Stevenage",
@@ -50758,6 +55027,55 @@
       "outcome": "WIN",
       "sources": [
         "https://www.football-data.co.uk/new/USA.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-09-10"
+      ]
+    },
+    {
+      "date": "2026-09-10",
+      "leagueId": "uefa-champions-league",
+      "homeTeam": "Bayern Munich",
+      "awayTeam": "Bodo/Glimt",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.1586206896551725,
+        "homeDefence": 0.8470588235294116,
+        "awayAttack": 0.988235294117647,
+        "awayDefence": 0.993103448275862,
+        "leagueHomeGoals": 2.4166666666666665,
+        "leagueAwayGoals": 1.4166666666666667,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.73,
+      "lambdaAway": 1.22,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 81.6,
+        "rawProbability": 91,
+        "reliability": 0.856,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "Total Goals",
+          "pick": "Over 2.5",
+          "rawProbability": 75.4,
+          "minimum": 68
+        }
+      },
+      "actualScore": {
+        "home": 5,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_champions.csv",
         "https://www.soccerbase.com/matches/results.sd?date=2026-09-10"
       ]
     },
@@ -51297,6 +55615,104 @@
       "outcome": "WIN",
       "sources": [
         "https://www.football-data.co.uk/new/POL.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-09-11"
+      ]
+    },
+    {
+      "date": "2026-09-11",
+      "leagueId": "conmebol-sudamericana",
+      "homeTeam": "Cienciano del Cusco",
+      "awayTeam": "Montevideo City Torque",
+      "modelLevel": "basic",
+      "sampleSize": 4,
+      "inputs": {
+        "homeAttack": 2.132642487046632,
+        "homeDefence": 0.4140845070422536,
+        "awayAttack": 1.5528169014084507,
+        "awayDefence": 0.7616580310880829,
+        "leagueHomeGoals": 1.3129251700680271,
+        "leagueAwayGoals": 0.9659863945578231,
+        "sampleSize": 4,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 1.99,
+      "lambdaAway": 0.68,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 79.1,
+        "rawProbability": 89,
+        "reliability": 0.828,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 67.5,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 2,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_sudamericana.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-09-11"
+      ]
+    },
+    {
+      "date": "2026-09-11",
+      "leagueId": "rsa-premiership",
+      "homeTeam": "Stellenbosch",
+      "awayTeam": "Sekhukhune United FC",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.221818181818182,
+        "homeDefence": 0.9333333333333333,
+        "awayAttack": 0.9333333333333333,
+        "awayDefence": 1.3745454545454545,
+        "leagueHomeGoals": 1.3095238095238095,
+        "leagueAwayGoals": 1.0714285714285714,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.09,
+      "lambdaAway": 0.95,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 77.1,
+        "rawProbability": 84.5,
+        "reliability": 0.873,
+        "rating": "Good",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 62.8,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 1
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_rsa_premier.csv",
         "https://www.soccerbase.com/matches/results.sd?date=2026-09-11"
       ]
     },
@@ -53163,6 +57579,104 @@
       ]
     },
     {
+      "date": "2026-09-12",
+      "leagueId": "rsa-premiership",
+      "homeTeam": "AmaZulu",
+      "awayTeam": "Marumo Gallants",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.3821428571428571,
+        "homeDefence": 0.7478260869565219,
+        "awayAttack": 0.5608695652173913,
+        "awayDefence": 1.5357142857142856,
+        "leagueHomeGoals": 1.302325581395349,
+        "leagueAwayGoals": 1.069767441860465,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.58,
+      "lambdaAway": 0.53,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 85.4,
+        "rawProbability": 95,
+        "reliability": 0.873,
+        "rating": "Elite",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 81,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_rsa_premier.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-09-12"
+      ]
+    },
+    {
+      "date": "2026-09-12",
+      "leagueId": "rsa-premiership",
+      "homeTeam": "Chippa United",
+      "awayTeam": "Mamelodi Sundowns",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 0.30714285714285716,
+        "homeDefence": 1.6826086956521742,
+        "awayAttack": 1.6826086956521742,
+        "awayDefence": 1.075,
+        "leagueHomeGoals": 1.302325581395349,
+        "leagueAwayGoals": 1.069767441860465,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 0.54,
+      "lambdaAway": 2.78,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 85.8,
+        "rawProbability": 95.6,
+        "reliability": 0.873,
+        "rating": "Elite",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Away",
+          "rawProbability": 83.2,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 1
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_rsa_premier.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-09-12"
+      ]
+    },
+    {
       "date": "2026-09-13",
       "leagueId": "eng-premier-league",
       "homeTeam": "Coventry",
@@ -54482,6 +58996,55 @@
       "outcome": "LOSS",
       "sources": [
         "https://www.football-data.co.uk/new/USA.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-09-13"
+      ]
+    },
+    {
+      "date": "2026-09-13",
+      "leagueId": "rsa-premiership",
+      "homeTeam": "TS Galaxy FC",
+      "awayTeam": "Kruger United",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 0.9355932203389831,
+        "homeDefence": 1.15,
+        "awayAttack": 0.38333333333333336,
+        "awayDefence": 1.7152542372881359,
+        "leagueHomeGoals": 1.2826086956521738,
+        "leagueAwayGoals": 1.0434782608695652,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 1.96,
+      "lambdaAway": 0.53,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 82.7,
+        "rawProbability": 91.6,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 70.7,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 0,
+        "away": 1
+      },
+      "outcome": "LOSS",
+      "sources": [
+        "https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_rsa_premier.csv",
         "https://www.soccerbase.com/matches/results.sd?date=2026-09-13"
       ]
     },
@@ -61053,35 +65616,35 @@
     }
   ],
   "aggregateMetrics": {
-    "webFixturesInRange": 4281,
-    "modelledFixtures": 4016,
-    "noModel": 265,
-    "noBet": 2771,
-    "recommendedBets": 1245,
-    "wins": 973,
-    "losses": 272,
+    "webFixturesInRange": 4688,
+    "modelledFixtures": 4359,
+    "noModel": 329,
+    "noBet": 3021,
+    "recommendedBets": 1338,
+    "wins": 1046,
+    "losses": 292,
     "hitRate": 78.2,
     "byPick": [
       {
         "key": "1X",
-        "bets": 560,
-        "wins": 449,
-        "losses": 111,
-        "hitRate": 80.2
-      },
-      {
-        "key": "Over 1.5",
-        "bets": 484,
-        "wins": 388,
-        "losses": 96,
+        "bets": 602,
+        "wins": 483,
+        "losses": 119,
         "hitRate": 80.2
       },
       {
         "key": "X2",
-        "bets": 201,
-        "wins": 136,
-        "losses": 65,
-        "hitRate": 67.7
+        "bets": 224,
+        "wins": 154,
+        "losses": 70,
+        "hitRate": 68.8
+      },
+      {
+        "key": "Over 1.5",
+        "bets": 512,
+        "wins": 409,
+        "losses": 103,
+        "hitRate": 79.9
       }
     ],
     "byLeague": [
@@ -61091,6 +65654,34 @@
         "wins": 12,
         "losses": 2,
         "hitRate": 85.7
+      },
+      {
+        "key": "uefa-champions-league",
+        "bets": 10,
+        "wins": 9,
+        "losses": 1,
+        "hitRate": 90
+      },
+      {
+        "key": "conmebol-sudamericana",
+        "bets": 23,
+        "wins": 17,
+        "losses": 6,
+        "hitRate": 73.9
+      },
+      {
+        "key": "rsa-premiership",
+        "bets": 22,
+        "wins": 19,
+        "losses": 3,
+        "hitRate": 86.4
+      },
+      {
+        "key": "conmebol-libertadores",
+        "bets": 34,
+        "wins": 26,
+        "losses": 8,
+        "hitRate": 76.5
       },
       {
         "key": "esp-segunda",
@@ -61303,6 +65894,20 @@
         "hitRate": 82.2
       },
       {
+        "key": "uefa-conference-league",
+        "bets": 3,
+        "wins": 1,
+        "losses": 2,
+        "hitRate": 33.3
+      },
+      {
+        "key": "uefa-europa-league",
+        "bets": 1,
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 100
+      },
+      {
         "key": "jpn-j1",
         "bets": 20,
         "wins": 15,
@@ -61313,26 +65918,26 @@
     "byRating": [
       {
         "key": "Strong",
-        "bets": 1054,
-        "wins": 820,
-        "losses": 234,
-        "hitRate": 77.8
+        "bets": 1122,
+        "wins": 872,
+        "losses": 250,
+        "hitRate": 77.7
       },
       {
         "key": "Good",
-        "bets": 69,
-        "wins": 58,
-        "losses": 11,
-        "hitRate": 84.1
+        "bets": 76,
+        "wins": 63,
+        "losses": 13,
+        "hitRate": 82.9
       },
       {
         "key": "Elite",
-        "bets": 122,
-        "wins": 95,
-        "losses": 27,
-        "hitRate": 77.9
+        "bets": 140,
+        "wins": 111,
+        "losses": 29,
+        "hitRate": 79.3
       }
     ]
   },
-  "generatedAt": "2026-10-05T11:27:00.167Z"
+  "generatedAt": "2026-10-05T11:29:33.963Z"
 }
