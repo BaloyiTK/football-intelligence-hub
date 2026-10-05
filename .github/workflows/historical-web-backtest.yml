@@ -33,6 +33,7 @@ jobs:
             echo "No backtest changes to commit"
           else
             git commit -m "Run 180-day web-reconstructed v2.4 backtest"
+            git pull --rebase origin main
             git push
           fi
       - name: Regression tests
