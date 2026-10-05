@@ -8,7 +8,7 @@ for(const url of urls){
     const r=await fetch(url,{headers:{"user-agent":"Mozilla/5.0 FIH-Odds-Probe/1.0"}});
     const t=await r.text();
     console.log("URL",url,"STATUS",r.status,"LEN",t.length);
-    for(const term of ["Over 1.5","Double Chance","1X","bookmakers","__NEXT_DATA__","odds"]){
+    for(const term of ["Over 1.5","Home or Draw","Home/Draw","Double Chance","1X","bookmakers","__NEXT_DATA__","odds"]){
       const i=t.toLowerCase().indexOf(term.toLowerCase());
       console.log("TERM",term,"IDX",i,i>=0?t.slice(Math.max(0,i-300),i+1200).replace(/\s+/g," "):"");
     }
