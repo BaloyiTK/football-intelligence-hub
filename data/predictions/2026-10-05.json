@@ -1,7 +1,7 @@
 {
   "date": "2026-10-05",
   "timezone": "Africa/Johannesburg",
-  "generatedAt": "2026-10-05T10:02:59+02:00",
+  "generatedAt": "2026-10-05T10:29:59+02:00",
   "fixtures": [
     {
       "fixtureKey": "2026-10-05|uefa-nations-league|france|belgium",
@@ -1210,8 +1210,8 @@
       "Correct Score"
     ],
     "rerun": {
-      "at": "2026-10-05T10:02:59+02:00",
-      "reason": "Fresh run under authoritative six-market selector; recommendation selector aligned with MODEL_RULES.md",
+      "at": "2026-10-05T10:29:59+02:00",
+      "reason": "Current-day discovery, status and evidence refresh under locked V2.3 contract; preserved valid frozen recommendations.",
       "discoverySources": [
         "UEFA Nations League official fixtures",
         "LiveScore 2026-10-05",
@@ -1227,6 +1227,7 @@
         "reason": "Kickoff 09:30 SAST had passed before refreshed publication; pre-match-only rule"
       }
     ],
-    "publishableRecommendations": 14
+    "publishableRecommendations": 14,
+    "refreshedAt": "2026-10-05T10:29:59+02:00"
   }
 }
