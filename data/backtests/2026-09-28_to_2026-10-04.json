@@ -10,37 +10,463 @@
   "dailyScan": [
     {
       "date": "2026-09-28",
-      "status": "pending"
+      "status": "evidence-gap",
+      "reason": "Fixtures verified, but current-model pre-kickoff attack/defence input objects not reconstructed sufficiently for exact v2.4 execution."
     },
     {
       "date": "2026-09-29",
-      "status": "pending"
+      "status": "evidence-gap",
+      "reason": "Fixtures verified, but current-model pre-kickoff attack/defence input objects not reconstructed sufficiently for exact v2.4 execution."
     },
     {
       "date": "2026-09-30",
-      "status": "pending"
+      "status": "evidence-gap",
+      "reason": "Fixtures verified, but current-model pre-kickoff attack/defence input objects not reconstructed sufficiently for exact v2.4 execution."
     },
     {
       "date": "2026-10-01",
-      "status": "pending"
+      "status": "evidence-gap",
+      "reason": "Fixtures verified, but current-model pre-kickoff attack/defence input objects not reconstructed sufficiently for exact v2.4 execution."
     },
     {
       "date": "2026-10-02",
-      "status": "pending"
+      "status": "partial-exact",
+      "modelExecution": "end-to-end v2.4 on preserved pre-kickoff inputs"
     },
     {
       "date": "2026-10-03",
-      "status": "pending"
+      "status": "partial-exact",
+      "modelExecution": "end-to-end v2.4 on preserved pre-kickoff inputs"
     },
     {
       "date": "2026-10-04",
-      "status": "pending"
+      "status": "partial-selector-replay",
+      "modelExecution": "v2.4 selector/calibration on preserved pre-kickoff lambdas; original input objects unavailable"
     }
   ],
   "leagueScan": [],
-  "fixtures": [],
+  "fixtures": [
+    {
+      "date": "2026-10-02",
+      "leagueId": "bra-serie-b",
+      "homeTeam": "São Bernardo",
+      "awayTeam": "CRB",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "lambdaHome": 1.62,
+      "lambdaAway": 0.41,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 82.8,
+        "rawProbability": 91.8,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "pick": "Home",
+          "rawProbability": 67,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 3,
+        "away": 1
+      },
+      "outcome": "WIN"
+    },
+    {
+      "date": "2026-10-02",
+      "leagueId": "bra-serie-b",
+      "homeTeam": "Londrina",
+      "awayTeam": "Criciúma",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "lambdaHome": 2.24,
+      "lambdaAway": 1.35,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 79.3,
+        "rawProbability": 88,
+        "reliability": 0.856,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "pick": "Over 2.5",
+          "rawProbability": 69.5,
+          "minimum": 68
+        }
+      },
+      "actualScore": {
+        "home": 0,
+        "away": 2
+      },
+      "outcome": "WIN"
+    },
+    {
+      "date": "2026-10-02",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Bosnia & Herzegovina",
+      "awayTeam": "Sweden",
+      "modelLevel": "basic",
+      "sampleSize": 6,
+      "lambdaHome": 2.44,
+      "lambdaAway": 2.36,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 85.1,
+        "rawProbability": 95.6,
+        "reliability": 0.856,
+        "rating": "Elite",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "pick": "Over 2.5",
+          "rawProbability": 85.7,
+          "minimum": 68
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 1
+      },
+      "outcome": "WIN"
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "eng-league-two",
+      "homeTeam": "Accrington Stanley",
+      "awayTeam": "Cheltenham Town",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "lambdaHome": 1.44,
+      "lambdaAway": 2.48,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 81.4,
+        "rawProbability": 90.8,
+        "reliability": 0.856,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "pick": "Over 2.5",
+          "rawProbability": 75,
+          "minimum": 68
+        }
+      },
+      "actualScore": "2-0",
+      "outcome": "WIN"
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "international-friendlies",
+      "homeTeam": "USA",
+      "awayTeam": "Mexico",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "lambdaHome": 1.5,
+      "lambdaAway": 3,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 81.4,
+        "rawProbability": 94.3,
+        "reliability": 0.856,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "pick": "Over 2.5",
+          "rawProbability": 82.6,
+          "minimum": 68
+        }
+      },
+      "actualScore": "3-0",
+      "outcome": "WIN"
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "international-friendlies",
+      "homeTeam": "India",
+      "awayTeam": "Brazil",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "lambdaHome": 0.58,
+      "lambdaAway": 2.93,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 83,
+        "rawProbability": 95.7,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "pick": "Away",
+          "rawProbability": 84.2,
+          "minimum": 62
+        }
+      },
+      "actualScore": "0-4",
+      "outcome": "WIN"
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "jpn-j2",
+      "homeTeam": "Ventforet Kofu",
+      "awayTeam": "Kataller Toyama",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "lambdaHome": 0.79,
+      "lambdaAway": 2.33,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 81.1,
+        "rawProbability": 89.6,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "pick": "Away",
+          "rawProbability": 71.2,
+          "minimum": 62
+        }
+      },
+      "actualScore": "1-2",
+      "outcome": "WIN"
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "ned-eerste-divisie",
+      "homeTeam": "TOP Oss",
+      "awayTeam": "MVV Maastricht",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "lambdaHome": 1.99,
+      "lambdaAway": 1.62,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 79.4,
+        "rawProbability": 88.2,
+        "reliability": 0.856,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "pick": "Over 2.5",
+          "rawProbability": 69.8,
+          "minimum": 68
+        }
+      },
+      "actualScore": "4-1",
+      "outcome": "WIN"
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "ned-eerste-divisie",
+      "homeTeam": "Vitesse",
+      "awayTeam": "NAC Breda",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "lambdaHome": 2.24,
+      "lambdaAway": 2.53,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 85,
+        "rawProbability": 95.5,
+        "reliability": 0.856,
+        "rating": "Elite",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "pick": "Over 2.5",
+          "rawProbability": 85.4,
+          "minimum": 68
+        }
+      },
+      "actualScore": "2-2",
+      "outcome": "WIN"
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "ned-eerste-divisie",
+      "homeTeam": "FC Den Bosch",
+      "awayTeam": "FC Dordrecht",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "lambdaHome": 2.5,
+      "lambdaAway": 2.24,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 84.9,
+        "rawProbability": 95.3,
+        "reliability": 0.856,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "pick": "Over 2.5",
+          "rawProbability": 85.1,
+          "minimum": 68
+        }
+      },
+      "actualScore": "1-1",
+      "outcome": "WIN"
+    },
+    {
+      "date": "2026-10-03",
+      "leagueId": "ned-eerste-divisie",
+      "homeTeam": "FC Eindhoven",
+      "awayTeam": "De Graafschap",
+      "modelLevel": "basic",
+      "sampleSize": 6,
+      "lambdaHome": 2.33,
+      "lambdaAway": 1.63,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 81.6,
+        "rawProbability": 91.1,
+        "reliability": 0.856,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "pick": "Over 2.5",
+          "rawProbability": 75.5,
+          "minimum": 68
+        }
+      },
+      "actualScore": "2-2",
+      "outcome": "WIN"
+    },
+    {
+      "homeTeam": "Castellón",
+      "awayTeam": "Ceuta",
+      "leagueId": "esp-segunda",
+      "modelLevel": "full",
+      "lambdaHome": 2.21,
+      "lambdaAway": 0.57,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 91.2,
+        "rawProbability": 92.5,
+        "reliability": 0.97,
+        "rating": "Elite",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "pick": "Home",
+          "rawProbability": 74.4,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 1
+      },
+      "outcome": "WIN",
+      "evidenceSource": "data/training/model-training-data.jsonl frozen 2026-10-04 snapshot",
+      "date": "2026-10-04"
+    },
+    {
+      "homeTeam": "Netherlands",
+      "awayTeam": "Serbia",
+      "leagueId": "uefa-nations-league",
+      "modelLevel": "full",
+      "lambdaHome": 2.3,
+      "lambdaAway": 0.9,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 84.9,
+        "rawProbability": 87.5,
+        "reliability": 0.97,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "pick": "Home",
+          "rawProbability": 68.1,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 2,
+        "away": 1
+      },
+      "outcome": "WIN",
+      "evidenceSource": "data/training/model-training-data.jsonl frozen 2026-10-04 snapshot",
+      "date": "2026-10-04"
+    }
+  ],
   "aggregateMetrics": null,
   "failureAnalysis": [],
   "improvementCandidates": [],
-  "note": "Fresh seven-day v2.4 backtest. No prior backtest fixtures, checkpoints or metrics carried forward."
+  "note": "Fresh seven-day v2.4 backtest. No prior backtest fixtures, checkpoints or metrics carried forward.",
+  "discovery": {
+    "globalSourcesByDate": {
+      "2026-09-28": [
+        "https://www.skysports.com/football-scores-fixtures/2026-09-28",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-09-28"
+      ],
+      "2026-09-29": [
+        "https://www.skysports.com/football-scores-fixtures/2026-09-29",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-09-29"
+      ],
+      "2026-09-30": [
+        "https://www.skysports.com/football-scores-fixtures/2026-09-30"
+      ],
+      "2026-10-01": [
+        "https://www.skysports.com/football-scores-fixtures/2026-10-01",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-10-01"
+      ],
+      "2026-10-02": [
+        "https://www.skysports.com/football-scores-fixtures/2026-10-02"
+      ],
+      "2026-10-03": [
+        "https://www.skysports.com/football-scores-fixtures/2026-10-03"
+      ],
+      "2026-10-04": [
+        "https://www.skysports.com/football-scores-fixtures/2026-10-04",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-10-04"
+      ]
+    },
+    "coverageComplete": false
+  },
+  "measuredPartialMetrics": {
+    "recommendedBets": 13,
+    "wins": 13,
+    "losses": 0,
+    "hitRate": 100,
+    "exactEndToEndBets": 11,
+    "selectorReplayBets": 2
+  },
+  "blocker": "A complete seven-day v2.4 backtest cannot be certified from the currently reconstructable evidence: 28 Sep–1 Oct lack preserved/reliably reconstructed current-model attack/defence inputs, and 4 Oct lacks original input objects for all archived/discovered fixtures. These are recorded as evidence gaps rather than fabricated inputs."
 }
