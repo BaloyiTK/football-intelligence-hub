@@ -12,6 +12,15 @@ Before any daily prediction run or historical backtest, read and obey:
 
 Repository rules are authoritative. Do not substitute remembered conversation rules, provider coverage, a sample of leagues, or convenient competitions.
 
+## Worldwide coverage policy
+- FIH targets worldwide senior football coverage. The configured competition universe is dynamic and MUST NOT be constrained by a hard-coded league count.
+- `data/leagues.json` is the current verified registry, not a permanent ceiling. Newly verified senior domestic leagues/divisions and senior international/continental competitions may be added as coverage expands.
+- Global discovery MUST consider fixtures worldwide, including competitions not yet present in the registry. When a legitimate senior competition is discovered outside the registry, record it as a coverage-gap candidate for verification rather than silently discarding it.
+- Only verified senior competitions enter automatic modelling. Youth, academy, reserve/U21/U23 and other age-group competitions remain excluded unless explicitly configured.
+- Women's competitions are a separate coverage category and MUST NOT be silently mixed with men's competitions. They may be added explicitly with distinct competition identities.
+- Club friendlies remain excluded from automatic league modelling unless explicitly configured. Senior international friendlies may remain configured separately.
+- Completeness is measured against the competition registry snapshot frozen at the start of each run. Expanding the registry later MUST NOT invalidate completed historical runs.
+
 ## Controller
 ChatGPT web research is the primary discovery/research layer. Structured datasets/APIs may be used as evidence accelerators, but they MUST NOT determine which configured leagues are checked.
 
@@ -22,7 +31,7 @@ For each requested date, discover fixtures globally before league-by-league rese
 4. If the global sources agree that a configured league has no fixtures, record a verified zero-fixture checkpoint using those global sources. Do NOT perform a separate league search merely to prove the same zero.
 5. If sources disagree, a competition is ambiguous, a configured league is missing from source coverage, or a fixture/date/classification looks suspicious, perform targeted league/official-source verification for ONLY that exception.
 6. After discovery, process `data/leagues.json` in stored order. Set leagues with mapped fixtures to `processing`, save EVERY mapped fixture, and execute fixture research/model rules.
-7. Global discovery reduces search volume; it NEVER reduces the configured 61-league coverage requirement.
+7. Global discovery reduces search volume; it NEVER reduces the configured competition-universe coverage requirement.
 6. Process each fixture through `RESEARCH_RULES.md` in order: Full -> Standard -> Basic -> No Model.
 7. Preserve sources and evidence timestamp/cutoff. Missing data is null/unknown, never invented or silently zero.
 8. Run the exact production model from `lib/model.ts`.
@@ -37,7 +46,7 @@ For each requested date, discover fixtures globally before league-by-league rese
 - Youth, women, reserves/U23, club friendlies and other competitions must not be mapped to a senior configured league unless that exact competition is configured.
 - Postponed/cancelled fixtures may be retained for audit but are not modelled as playable fixtures.
 - One global source is insufficient to certify the entire daily universe. Use at least two independent global sources, and targeted verification for disagreements.
-- Cache/reuse the date-level global discovery result across all 61 leagues.
+- Cache/reuse the date-level global discovery result across the entire configured competition universe.
 
 ## Web-first rule
 - Lack of coverage in Football-Data, OpenFootball, an API, or any other dataset is NEVER permission to skip a league.
