@@ -207,7 +207,7 @@ When fixture, date, competition, team, result, or evidence data conflicts, looks
 
 
 ## Controlled training and deployment boundary
-- After result reconciliation, run `npm run model:train` only when new verified graded outcomes are available or when explicitly requested. Persist `data/training/candidate-v2.4.json` and append `data/training/training-log.jsonl` in the same controlled repository update; CI uses `model:train:check` and MUST NOT create ephemeral training history.
+- After result reconciliation, run `npm run model:train` only when new verified graded outcomes are available or when explicitly requested. Persist `data/training/candidate-v3.0.json` and append `data/training/training-log.jsonl` in the same controlled repository update; CI uses `model:train:check` and MUST NOT create ephemeral training history.
 - Daily research may checkpoint freely, but website delivery should be consolidated: avoid chains of cosmetic/intermediate commits that each trigger a production build. Prefer one final validated publication commit after the run, prediction archive, result reconciliation and training artifacts are ready.
 - A production health gate is truthful only when the Vercel status for the exact triggering GitHub SHA is successful. A healthy older deployment is not evidence that the new commit deployed.
 - If Vercel reports rate limiting/quota exhaustion, mark website delivery blocked/deferred while preserving validated GitHub artifacts. Never claim production delivery until the exact-SHA gate succeeds.
