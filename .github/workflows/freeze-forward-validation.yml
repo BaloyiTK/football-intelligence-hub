@@ -1,0 +1,41 @@
+name: Freeze Forward Validation
+
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Prediction date (YYYY-MM-DD); blank uses Johannesburg date"
+        required: false
+        type: string
+
+jobs:
+  freeze:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+      - name: Resolve date
+        id: date
+        shell: bash
+        run: |
+          DATE="${{ inputs.date }}"
+          if [[ -z "$DATE" ]]; then DATE="$(TZ=Africa/Johannesburg date +%F)"; fi
+          echo "date=$DATE" >> "$GITHUB_OUTPUT"
+      - name: Verify locked V2.9 publication
+        run: npm run predictions:verify -- "${{ steps.date.outputs.date }}"
+      - name: Freeze forward-validation evidence
+        run: npx tsx scripts/freeze-forward-validation.ts "${{ steps.date.outputs.date }}"
+      - name: Commit immutable evidence
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "data/forward-validation/${{ steps.date.outputs.date }}.json"
+          git diff --cached --quiet && exit 0
+          git commit -m "evidence: freeze V2.9 forward validation ${{ steps.date.outputs.date }}"
+          git push
