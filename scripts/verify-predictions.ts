@@ -39,8 +39,14 @@ for(const x of data.fixtures as any[]){
   if(model.modelVersion==="v2.3-backtest-calibrated-selector"){
     const approvedMarkets=new Set(["1X2","Total Goals","BTTS","Double Chance","Team Goals"]);
     if(!approvedMarkets.has(bet.market)) throw new Error("Unapproved recommended market: "+x.fixtureKey);
-    if(bet.market==="Double Chance"&&!["1X","X2"].includes(bet.pick)) throw new Error("Unapproved Double Chance pick: "+x.fixtureKey);
-    if(bet.market==="Correct Score") throw new Error("Correct Score cannot be recommendedBet: "+x.fixtureKey);
+    const approvedPicks:Record<string,Set<string>>={
+      "1X2":new Set(["Home","Draw","Away"]),
+      "Total Goals":new Set(["Over 1.5","Under 1.5","Over 2.5","Under 2.5","Over 3.5","Under 3.5"]),
+      "BTTS":new Set(["Yes","No"]),
+      "Double Chance":new Set(["1X","X2"]),
+      "Team Goals":new Set(["Home 1+","Away 1+"])
+    };
+    if(!approvedPicks[bet.market]?.has(bet.pick)) throw new Error("Unapproved recommended market/pick: "+bet.market+" / "+bet.pick+" "+x.fixtureKey);
   }
   if(x.recommendedBet&&JSON.stringify(x.recommendedBet)!==JSON.stringify(bet)) throw new Error("Top-level/model recommendedBet mismatch: "+x.fixtureKey);
 }
