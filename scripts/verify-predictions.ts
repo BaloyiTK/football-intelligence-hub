@@ -36,6 +36,12 @@ for(const x of data.fixtures as any[]){
     if(bet.probability<68||bet.rawProbability<0||bet.rawProbability>100||bet.reliability<=0||bet.reliability>1) throw new Error("recommendedBet probability/reliability out of range: "+x.fixtureKey);
   }
   if(!["Elite","Strong","Good"].includes(bet.rating)) throw new Error("Invalid recommendation rating: "+x.fixtureKey);
+  if(model.modelVersion==="v2.3-backtest-calibrated-selector"){
+    const approvedMarkets=new Set(["1X2","Total Goals","BTTS","Double Chance","Team Goals"]);
+    if(!approvedMarkets.has(bet.market)) throw new Error("Unapproved recommended market: "+x.fixtureKey);
+    if(bet.market==="Double Chance"&&!["1X","X2"].includes(bet.pick)) throw new Error("Unapproved Double Chance pick: "+x.fixtureKey);
+    if(bet.market==="Correct Score") throw new Error("Correct Score cannot be recommendedBet: "+x.fixtureKey);
+  }
   if(x.recommendedBet&&JSON.stringify(x.recommendedBet)!==JSON.stringify(bet)) throw new Error("Top-level/model recommendedBet mismatch: "+x.fixtureKey);
 }
 console.log(JSON.stringify({date,fixtures:data.fixtures.length,recommended:data.fixtures.length,status:"publish-verified"}));
