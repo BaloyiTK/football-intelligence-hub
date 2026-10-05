@@ -1,5 +1,5 @@
 {
-  "status": "complete-supported-web-scope",
+  "status": "complete",
   "modelVersion": "v2.4-calibrated-risk-selector",
   "range": {
     "start": "2026-04-08",
@@ -8,7 +8,7 @@
   "researchMethod": "historical web data reconstructed chronologically; production lib/model.ts executed before grading",
   "sourceScope": {
     "configuredLeagueCount": 61,
-    "webModelledLeagueCount": 54,
+    "webModelledLeagueCount": 55,
     "webModelledLeagueIds": [
       "tur-super-lig",
       "gre-super-league",
@@ -49,6 +49,7 @@
       "aus-a-league",
       "bra-serie-b",
       "col-primera-a",
+      "ukr-premier-league",
       "eng-league-one",
       "sco-premiership",
       "arg-primera",
@@ -65,8 +66,350 @@
       "jpn-j1",
       "uefa-nations-league"
     ],
-    "note": "All fixtures found by the installed web adapters were processed. Configured leagues without an installed auditable adapter remain outside performance statistics."
+    "verifiedZeroFixtureLeagueIds": [
+      "uefa-euro"
+    ],
+    "terminalNoModelLeagueIds": [
+      "rsa-first-division",
+      "mar-botola",
+      "tun-ligue-1",
+      "caf-champions-league",
+      "caf-confederation-cup"
+    ],
+    "note": "All 61 configured leagues are terminal: web-modelled, verified zero-fixture, or NO MODEL only after explicit historical web-source attempts."
   },
+  "leagueScan": [
+    {
+      "leagueId": "eng-premier-league",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "eng-championship",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "eng-league-one",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "eng-league-two",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "esp-la-liga",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "esp-segunda",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "ita-serie-a",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "ita-serie-b",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "ger-bundesliga",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "ger-2-bundesliga",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "fra-ligue-1",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "fra-ligue-2",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "ned-eredivisie",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "ned-eerste-divisie",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "por-primeira-liga",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "bel-pro-league",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "sco-premiership",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "tur-super-lig",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "gre-super-league",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "aut-bundesliga",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "sui-super-league",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "den-superliga",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "nor-eliteserien",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "swe-allsvenskan",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "fin-veikkausliiga",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "pol-ekstraklasa",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "cze-first-league",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "cro-hnl",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "ser-superliga",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "rou-liga-1",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "ukr-premier-league",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "uefa-champions-league",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "uefa-europa-league",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "uefa-conference-league",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "uefa-nations-league",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "uefa-euro",
+      "status": "complete",
+      "terminalState": "verified-zero-fixture",
+      "reason": "UEFA EURO 2028 qualifying begins March 2027; no competition fixtures fall in the requested window.",
+      "sources": [
+        "https://www.uefa.com/euro2028/news/028f-1b599fe02d18-0c758142f5e4-1000--euro-2028-all-you-need-to-know/",
+        "https://www.uefa.com/euro2028/news/029f-1f2ff991e87b-345fffcd69c3-1000--euro-2028-qualifying-draw-to-take-place-in-belfast/"
+      ]
+    },
+    {
+      "leagueId": "conmebol-libertadores",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "conmebol-sudamericana",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "bra-serie-a",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "bra-serie-b",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "arg-primera",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "usa-mls",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "mex-liga-mx",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "col-primera-a",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "jpn-j1",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "jpn-j2",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "kor-k1",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "chn-super-league",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "aus-a-league",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "ksa-pro-league",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "qat-stars-league",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "uae-pro-league",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "rsa-premiership",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "rsa-first-division",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [
+        "https://www.psl.co.za/",
+        "https://diskilive.co.za/",
+        "https://afriscores.com/"
+      ],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "egy-premier-league",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "mar-botola",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [
+        "https://footystats.org/morocco/botola-pro/datasets",
+        "https://www.worldfootball.net/"
+      ],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "tun-ligue-1",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [
+        "https://footystats.org/tunisia/ligue-1/datasets",
+        "https://www.worldfootball.net/"
+      ],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "caf-champions-league",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "caf-confederation-cup",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "fifa-world-cup",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    },
+    {
+      "leagueId": "international-friendlies",
+      "status": "complete",
+      "terminalState": "web-modelled"
+    }
+  ],
   "fixtures": [
     {
       "date": "2026-04-08",
@@ -3989,6 +4332,55 @@
       ]
     },
     {
+      "date": "2026-04-11",
+      "leagueId": "ukr-premier-league",
+      "homeTeam": "Karpaty",
+      "awayTeam": "Olexandriya",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.0999999999999999,
+        "homeDefence": 0.6175438596491228,
+        "awayAttack": 0.7719298245614036,
+        "awayDefence": 1.7285714285714286,
+        "leagueHomeGoals": 1.2727272727272727,
+        "leagueAwayGoals": 1.2954545454545454,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.27,
+      "lambdaAway": 0.7,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 82,
+        "rawProbability": 90.7,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 72.3,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 2,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://www.upl.ua/en/tournaments/championship/428/calendar",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-04-11"
+      ]
+    },
+    {
       "date": "2026-04-12",
       "leagueId": "esp-la-liga",
       "homeTeam": "Mallorca",
@@ -5504,6 +5896,55 @@
       "outcome": "WIN",
       "sources": [
         "https://raw.githubusercontent.com/griffisben/Post_Match_App/main/League_Files/J2-J3%20Full%20Match%20List%20100%20Year%20Vision%20League.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-04-12"
+      ]
+    },
+    {
+      "date": "2026-04-12",
+      "leagueId": "ukr-premier-league",
+      "homeTeam": "Zorya",
+      "awayTeam": "Epicentr",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.4069868995633188,
+        "homeDefence": 0.47105263157894733,
+        "awayAttack": 0.6280701754385966,
+        "awayDefence": 1.7196506550218342,
+        "leagueHomeGoals": 1.2793296089385475,
+        "leagueAwayGoals": 1.2737430167597765,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.86,
+      "lambdaAway": 0.49,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 86.5,
+        "rawProbability": 96.4,
+        "reliability": 0.873,
+        "rating": "Elite",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 85.2,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://www.upl.ua/en/tournaments/championship/428/calendar",
         "https://www.soccerbase.com/matches/results.sd?date=2026-04-12"
       ]
     },
@@ -7415,6 +7856,55 @@
       "outcome": "LOSS",
       "sources": [
         "https://raw.githubusercontent.com/griffisben/Post_Match_App/main/League_Files/1.%20HNL%20Full%20Match%20List%2025-26.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-04-17"
+      ]
+    },
+    {
+      "date": "2026-04-17",
+      "leagueId": "ukr-premier-league",
+      "homeTeam": "Obolon",
+      "awayTeam": "Poltava",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 0.7721518987341771,
+        "homeDefence": 0.946551724137931,
+        "awayAttack": 0.7887931034482758,
+        "awayDefence": 2.6253164556962023,
+        "leagueHomeGoals": 1.2950819672131149,
+        "leagueAwayGoals": 1.2677595628415301,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.46,
+      "lambdaAway": 0.99,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 79.3,
+        "rawProbability": 87.3,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 68.9,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 1
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://www.upl.ua/en/tournaments/championship/428/calendar",
         "https://www.soccerbase.com/matches/results.sd?date=2026-04-17"
       ]
     },
@@ -11335,6 +11825,55 @@
       "outcome": "WIN",
       "sources": [
         "https://raw.githubusercontent.com/griffisben/Post_Match_App/main/League_Files/J2-J3%20Full%20Match%20List%20100%20Year%20Vision%20League.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-04-19"
+      ]
+    },
+    {
+      "date": "2026-04-19",
+      "leagueId": "ukr-premier-league",
+      "homeTeam": "Kryvbas",
+      "awayTeam": "Ruh",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.385185185185185,
+        "homeDefence": 0.958974358974359,
+        "awayAttack": 0.3196581196581197,
+        "awayDefence": 1.231275720164609,
+        "leagueHomeGoals": 1.2994652406417113,
+        "leagueAwayGoals": 1.2513368983957218,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.1,
+      "lambdaAway": 0.49,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 83.9,
+        "rawProbability": 93.2,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 74.4,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 3,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://www.upl.ua/en/tournaments/championship/428/calendar",
         "https://www.soccerbase.com/matches/results.sd?date=2026-04-19"
       ]
     },
@@ -18297,6 +18836,104 @@
       ]
     },
     {
+      "date": "2026-04-26",
+      "leagueId": "ukr-premier-league",
+      "homeTeam": "Kudrivka",
+      "awayTeam": "Shakhtar",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 0.6208,
+        "homeDefence": 1.2826446280991737,
+        "awayAttack": 1.7636363636363637,
+        "awayDefence": 0.46559999999999996,
+        "leagueHomeGoals": 1.288659793814433,
+        "leagueAwayGoals": 1.2474226804123711,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 0.49,
+      "lambdaAway": 2.62,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 85.8,
+        "rawProbability": 95.6,
+        "reliability": 0.873,
+        "rating": "Elite",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Away",
+          "rawProbability": 82.4,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 3
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://www.upl.ua/en/tournaments/championship/428/calendar",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-04-26"
+      ]
+    },
+    {
+      "date": "2026-04-26",
+      "leagueId": "ukr-premier-league",
+      "homeTeam": "Polissya",
+      "awayTeam": "Obolon",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.3968,
+        "homeDefence": 0.8016528925619835,
+        "awayAttack": 0.6413223140495868,
+        "awayDefence": 1.7072,
+        "leagueHomeGoals": 1.288659793814433,
+        "leagueAwayGoals": 1.2474226804123711,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.85,
+      "lambdaAway": 0.72,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 84.4,
+        "rawProbability": 93.8,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 80.5,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 3,
+        "away": 1
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://www.upl.ua/en/tournaments/championship/428/calendar",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-04-26"
+      ]
+    },
+    {
       "date": "2026-04-27",
       "leagueId": "esp-segunda",
       "homeTeam": "Cadiz",
@@ -18783,6 +19420,55 @@
       "outcome": "WIN",
       "sources": [
         "https://raw.githubusercontent.com/griffisben/Post_Match_App/main/League_Files/Qatari%20Stars%20League%20Full%20Match%20List%2025-26.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-04-27"
+      ]
+    },
+    {
+      "date": "2026-04-27",
+      "leagueId": "ukr-premier-league",
+      "homeTeam": "Epicentr",
+      "awayTeam": "Olexandriya",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.066153846153846,
+        "homeDefence": 0.3130434782608696,
+        "awayAttack": 0.46956521739130436,
+        "awayDefence": 1.6753846153846155,
+        "leagueHomeGoals": 1.3131313131313131,
+        "leagueAwayGoals": 1.2777777777777777,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.21,
+      "lambdaAway": 0.33,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 86.3,
+        "rawProbability": 96.2,
+        "reliability": 0.873,
+        "rating": "Elite",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 80.6,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 1
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://www.upl.ua/en/tournaments/championship/428/calendar",
         "https://www.soccerbase.com/matches/results.sd?date=2026-04-27"
       ]
     },
@@ -20204,6 +20890,55 @@
       "outcome": "LOSS",
       "sources": [
         "https://raw.githubusercontent.com/griffisben/Post_Match_App/main/League_Files/Egyptian%20Premier%20League%20Full%20Match%20List%2025-26.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-01"
+      ]
+    },
+    {
+      "date": "2026-05-01",
+      "leagueId": "ukr-premier-league",
+      "homeTeam": "Poltava",
+      "awayTeam": "Kryvbas",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 0.6083650190114069,
+        "homeDefence": 2.3622047244094486,
+        "awayAttack": 0.6299212598425197,
+        "awayDefence": 0.7604562737642586,
+        "leagueHomeGoals": 1.315,
+        "leagueAwayGoals": 1.27,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 0.7,
+      "lambdaAway": 1.81,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 79.1,
+        "rawProbability": 87,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Away",
+          "rawProbability": 63.2,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 3,
+        "away": 3
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://www.upl.ua/en/tournaments/championship/428/calendar",
         "https://www.soccerbase.com/matches/results.sd?date=2026-05-01"
       ]
     },
@@ -22458,6 +23193,55 @@
       "outcome": "LOSS",
       "sources": [
         "https://raw.githubusercontent.com/griffisben/Post_Match_App/main/League_Files/J2-J3%20Full%20Match%20List%20100%20Year%20Vision%20League.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-02"
+      ]
+    },
+    {
+      "date": "2026-05-02",
+      "leagueId": "ukr-premier-league",
+      "homeTeam": "Olexandriya",
+      "awayTeam": "Kolos",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 0.1511278195488722,
+        "homeDefence": 2.033463035019455,
+        "awayAttack": 0.6256809338521401,
+        "awayDefence": 0.9067669172932331,
+        "leagueHomeGoals": 1.3233830845771144,
+        "leagueAwayGoals": 1.2786069651741294,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 0.33,
+      "lambdaAway": 1.58,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 84.1,
+        "rawProbability": 93.4,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Away",
+          "rawProbability": 68.6,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 0,
+        "away": 3
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://www.upl.ua/en/tournaments/championship/428/calendar",
         "https://www.soccerbase.com/matches/results.sd?date=2026-05-02"
       ]
     },
@@ -26382,6 +27166,104 @@
       ]
     },
     {
+      "date": "2026-05-08",
+      "leagueId": "ukr-premier-league",
+      "homeTeam": "Kryvbas",
+      "awayTeam": "Karpaty",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.988235294117647,
+        "homeDefence": 1.7011152416356878,
+        "awayAttack": 1.2371747211895912,
+        "awayDefence": 0.4588235294117647,
+        "leagueHomeGoals": 1.3076923076923077,
+        "leagueAwayGoals": 1.2932692307692308,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 1.21,
+      "lambdaAway": 2.54,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 80.3,
+        "rawProbability": 89.4,
+        "reliability": 0.856,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "Total Goals",
+          "pick": "Over 2.5",
+          "rawProbability": 72.2,
+          "minimum": 68
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 0
+      },
+      "outcome": "LOSS",
+      "sources": [
+        "https://www.upl.ua/en/tournaments/championship/428/calendar",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-08"
+      ]
+    },
+    {
+      "date": "2026-05-08",
+      "leagueId": "ukr-premier-league",
+      "homeTeam": "Polissya",
+      "awayTeam": "Olexandriya",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.5294117647058822,
+        "homeDefence": 0.9278810408921933,
+        "awayAttack": 0.6185873605947956,
+        "awayDefence": 1.3764705882352941,
+        "leagueHomeGoals": 1.3076923076923077,
+        "leagueAwayGoals": 1.2932692307692308,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.57,
+      "lambdaAway": 0.81,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 82.2,
+        "rawProbability": 91,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 74.6,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 2,
+        "away": 1
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://www.upl.ua/en/tournaments/championship/428/calendar",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-08"
+      ]
+    },
+    {
       "date": "2026-05-09",
       "leagueId": "eng-premier-league",
       "homeTeam": "Liverpool",
@@ -28289,6 +29171,104 @@
       "outcome": "LOSS",
       "sources": [
         "https://raw.githubusercontent.com/griffisben/Post_Match_App/main/League_Files/J2-J3%20Full%20Match%20List%20100%20Year%20Vision%20League.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-09"
+      ]
+    },
+    {
+      "date": "2026-05-09",
+      "leagueId": "ukr-premier-league",
+      "homeTeam": "LNZ",
+      "awayTeam": "Dynamo",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.2231884057971016,
+        "homeDefence": 0.9377777777777778,
+        "awayAttack": 2.3444444444444446,
+        "awayDefence": 1.2231884057971016,
+        "leagueHomeGoals": 1.3080568720379147,
+        "leagueAwayGoals": 1.2796208530805686,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 1.87,
+      "lambdaAway": 2.62,
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 84.1,
+        "rawProbability": 94.3,
+        "reliability": 0.856,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "Total Goals",
+          "pick": "Over 2.5",
+          "rawProbability": 82.5,
+          "minimum": 68
+        }
+      },
+      "actualScore": {
+        "home": 0,
+        "away": 0
+      },
+      "outcome": "LOSS",
+      "sources": [
+        "https://www.upl.ua/en/tournaments/championship/428/calendar",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-09"
+      ]
+    },
+    {
+      "date": "2026-05-09",
+      "leagueId": "ukr-premier-league",
+      "homeTeam": "Obolon",
+      "awayTeam": "Epicentr",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 0.9173913043478261,
+        "homeDefence": 0.7814814814814816,
+        "awayAttack": 0.6251851851851853,
+        "awayDefence": 2.2934782608695654,
+        "leagueHomeGoals": 1.3080568720379147,
+        "leagueAwayGoals": 1.2796208530805686,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.57,
+      "lambdaAway": 0.71,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 83.4,
+        "rawProbability": 92.5,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 76.9,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 2,
+        "away": 2
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://www.upl.ua/en/tournaments/championship/428/calendar",
         "https://www.soccerbase.com/matches/results.sd?date=2026-05-09"
       ]
     },
@@ -31429,6 +32409,55 @@
       ]
     },
     {
+      "date": "2026-05-13",
+      "leagueId": "ukr-premier-league",
+      "homeTeam": "LNZ",
+      "awayTeam": "Poltava",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 0.923076923076923,
+        "homeDefence": 0.923076923076923,
+        "awayAttack": 0.4615384615384615,
+        "awayDefence": 1.846153846153846,
+        "leagueHomeGoals": 1.3,
+        "leagueAwayGoals": 1.3,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.1,
+      "lambdaAway": 0.65,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 81.7,
+        "rawProbability": 90.4,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 70.4,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 2,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://www.upl.ua/en/tournaments/championship/428/calendar",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-13"
+      ]
+    },
+    {
       "date": "2026-05-14",
       "leagueId": "esp-la-liga",
       "homeTeam": "Real Madrid",
@@ -34173,6 +35202,55 @@
       ]
     },
     {
+      "date": "2026-05-16",
+      "leagueId": "ukr-premier-league",
+      "homeTeam": "Metalist 1925",
+      "awayTeam": "Epicentr",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.214915254237288,
+        "homeDefence": 0.46505190311418687,
+        "awayAttack": 0.9301038062283737,
+        "awayDefence": 1.822372881355932,
+        "leagueHomeGoals": 1.3169642857142858,
+        "leagueAwayGoals": 1.2901785714285714,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.71,
+      "lambdaAway": 0.65,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 84.6,
+        "rawProbability": 94,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 80.1,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 1
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://www.upl.ua/en/tournaments/championship/428/calendar",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-16"
+      ]
+    },
+    {
       "date": "2026-05-17",
       "leagueId": "eng-premier-league",
       "homeTeam": "Man United",
@@ -36427,6 +37505,55 @@
       ]
     },
     {
+      "date": "2026-05-17",
+      "leagueId": "ukr-premier-league",
+      "homeTeam": "Karpaty",
+      "awayTeam": "Veres",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.0689189189189188,
+        "homeDefence": 0.3095890410958904,
+        "awayAttack": 0.6191780821917808,
+        "awayDefence": 1.0689189189189188,
+        "leagueHomeGoals": 1.3097345132743363,
+        "leagueAwayGoals": 1.2920353982300885,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 1.47,
+      "lambdaAway": 0.38,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 82.5,
+        "rawProbability": 91.4,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 64.2,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 2,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://www.upl.ua/en/tournaments/championship/428/calendar",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-17"
+      ]
+    },
+    {
       "date": "2026-05-18",
       "leagueId": "eng-premier-league",
       "homeTeam": "Arsenal",
@@ -36619,6 +37746,55 @@
       "outcome": "WIN",
       "sources": [
         "https://www.football-data.co.uk/new/USA.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-18"
+      ]
+    },
+    {
+      "date": "2026-05-18",
+      "leagueId": "ukr-premier-league",
+      "homeTeam": "Kudrivka",
+      "awayTeam": "LNZ",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 0.6112956810631229,
+        "homeDefence": 1.2266666666666668,
+        "awayAttack": 1.2266666666666668,
+        "awayDefence": 0.30564784053156147,
+        "leagueHomeGoals": 1.308695652173913,
+        "leagueAwayGoals": 1.3043478260869565,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 0.38,
+      "lambdaAway": 1.88,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 84.6,
+        "rawProbability": 94,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Away",
+          "rawProbability": 73.4,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 0
+      },
+      "outcome": "LOSS",
+      "sources": [
+        "https://www.upl.ua/en/tournaments/championship/428/calendar",
         "https://www.soccerbase.com/matches/results.sd?date=2026-05-18"
       ]
     },
@@ -37697,6 +38873,55 @@
       "outcome": "WIN",
       "sources": [
         "https://raw.githubusercontent.com/griffisben/Post_Match_App/main/League_Files/Egyptian%20Premier%20League%20Full%20Match%20List%2025-26.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-21"
+      ]
+    },
+    {
+      "date": "2026-05-21",
+      "leagueId": "ukr-premier-league",
+      "homeTeam": "Shakhtar",
+      "awayTeam": "Kolos",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.3827814569536425,
+        "homeDefence": 0.15466666666666667,
+        "awayAttack": 0.9279999999999999,
+        "awayDefence": 1.0754966887417219,
+        "leagueHomeGoals": 1.3017241379310345,
+        "leagueAwayGoals": 1.293103448275862,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 1.86,
+      "lambdaAway": 0.33,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 85.2,
+        "rawProbability": 94.8,
+        "reliability": 0.873,
+        "rating": "Elite",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 74.5,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 0,
+        "away": 1
+      },
+      "outcome": "LOSS",
+      "sources": [
+        "https://www.upl.ua/en/tournaments/championship/428/calendar",
         "https://www.soccerbase.com/matches/results.sd?date=2026-05-21"
       ]
     },
@@ -38824,6 +40049,55 @@
       "outcome": "WIN",
       "sources": [
         "https://raw.githubusercontent.com/griffisben/Post_Match_App/main/League_Files/J2-J3%20Full%20Match%20List%20100%20Year%20Vision%20League.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-23"
+      ]
+    },
+    {
+      "date": "2026-05-23",
+      "leagueId": "ukr-premier-league",
+      "homeTeam": "Karpaty",
+      "awayTeam": "Zorya",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.3887417218543048,
+        "homeDefence": 0.15481727574750834,
+        "awayAttack": 1.3933554817275748,
+        "awayDefence": 1.3887417218543048,
+        "leagueHomeGoals": 1.296137339055794,
+        "leagueAwayGoals": 1.2918454935622317,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.35,
+      "lambdaAway": 0.41,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 85.8,
+        "rawProbability": 95.6,
+        "reliability": 0.873,
+        "rating": "Elite",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 80.6,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 1,
+        "away": 2
+      },
+      "outcome": "LOSS",
+      "sources": [
+        "https://www.upl.ua/en/tournaments/championship/428/calendar",
         "https://www.soccerbase.com/matches/results.sd?date=2026-05-23"
       ]
     },
@@ -40245,6 +41519,55 @@
       "outcome": "WIN",
       "sources": [
         "https://raw.githubusercontent.com/griffisben/Post_Match_App/main/League_Files/Brazil%20Serie%20B%20Full%20Match%20List%202026.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-05-24"
+      ]
+    },
+    {
+      "date": "2026-05-24",
+      "leagueId": "ukr-premier-league",
+      "homeTeam": "Polissya",
+      "awayTeam": "Ruh",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "inputs": {
+        "homeAttack": 1.3973684210526318,
+        "homeDefence": 0.7763157894736843,
+        "awayAttack": 0.15526315789473685,
+        "awayDefence": 1.7078947368421056,
+        "leagueHomeGoals": 1.2881355932203389,
+        "leagueAwayGoals": 1.2881355932203389,
+        "sampleSize": 5,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.85,
+      "lambdaAway": 0.3,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 87.8,
+        "rawProbability": 98.1,
+        "reliability": 0.873,
+        "rating": "Elite",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 88.7,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 2,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://www.upl.ua/en/tournaments/championship/428/calendar",
         "https://www.soccerbase.com/matches/results.sd?date=2026-05-24"
       ]
     },
@@ -64602,6 +65925,104 @@
       ]
     },
     {
+      "date": "2026-08-29",
+      "leagueId": "ukr-premier-league",
+      "homeTeam": "Kudrivka",
+      "awayTeam": "Epicentr",
+      "modelLevel": "basic",
+      "sampleSize": 3,
+      "inputs": {
+        "homeAttack": 0.25555555555555554,
+        "homeDefence": 1.9166666666666667,
+        "awayAttack": 1.1500000000000001,
+        "awayDefence": 0.5111111111111111,
+        "leagueHomeGoals": 1.3043478260869565,
+        "leagueAwayGoals": 0.8695652173913043,
+        "sampleSize": 3,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 0.37,
+      "lambdaAway": 1.74,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 82.3,
+        "rawProbability": 93.4,
+        "reliability": 0.828,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Away",
+          "rawProbability": 70.9,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 0,
+        "away": 3
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://upl.ua/en/tournaments/championship/432/calendar?id=432&tab=calendar",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-08-29"
+      ]
+    },
+    {
+      "date": "2026-08-29",
+      "leagueId": "ukr-premier-league",
+      "homeTeam": "Shakhtar",
+      "awayTeam": "Polissya",
+      "modelLevel": "basic",
+      "sampleSize": 3,
+      "inputs": {
+        "homeAttack": 2.0444444444444443,
+        "homeDefence": 0.3833333333333333,
+        "awayAttack": 2.3000000000000003,
+        "awayDefence": 1.0222222222222221,
+        "leagueHomeGoals": 1.3043478260869565,
+        "leagueAwayGoals": 0.8695652173913043,
+        "sampleSize": 3,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 2.48,
+      "lambdaAway": 0.78,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 80.4,
+        "rawProbability": 90.8,
+        "reliability": 0.828,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 73.9,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 0,
+        "away": 2
+      },
+      "outcome": "LOSS",
+      "sources": [
+        "https://upl.ua/en/tournaments/championship/432/calendar?id=432&tab=calendar",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-08-29"
+      ]
+    },
+    {
       "date": "2026-08-30",
       "leagueId": "eng-premier-league",
       "homeTeam": "Chelsea",
@@ -83957,6 +85378,55 @@
       ]
     },
     {
+      "date": "2026-09-19",
+      "leagueId": "ukr-premier-league",
+      "homeTeam": "Zorya",
+      "awayTeam": "Dynamo",
+      "modelLevel": "basic",
+      "sampleSize": 3,
+      "inputs": {
+        "homeAttack": 0.7540983606557378,
+        "homeDefence": 2.2439024390243905,
+        "awayAttack": 1.5707317073170732,
+        "awayDefence": 0.7540983606557378,
+        "leagueHomeGoals": 1.326086956521739,
+        "leagueAwayGoals": 0.8913043478260869,
+        "sampleSize": 3,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 0.85,
+      "lambdaAway": 2.75,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 80.9,
+        "rawProbability": 91.5,
+        "reliability": 0.828,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Away",
+          "rawProbability": 76.5,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 0,
+        "away": 2
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://upl.ua/en/tournaments/championship/432/calendar?id=432&tab=calendar",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-09-19"
+      ]
+    },
+    {
       "date": "2026-09-20",
       "leagueId": "eng-premier-league",
       "homeTeam": "Bournemouth",
@@ -85913,6 +87383,55 @@
       "outcome": "WIN",
       "sources": [
         "https://raw.githubusercontent.com/griffisben/Post_Match_App/main/League_Files/South%20Africa%20PSL%20Full%20Match%20List%2026-27.csv",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-09-20"
+      ]
+    },
+    {
+      "date": "2026-09-20",
+      "leagueId": "ukr-premier-league",
+      "homeTeam": "Kudrivka",
+      "awayTeam": "Kolos",
+      "modelLevel": "basic",
+      "sampleSize": 3,
+      "inputs": {
+        "homeAttack": 0.3111111111111111,
+        "homeDefence": 2.8311111111111114,
+        "awayAttack": 1.0888888888888888,
+        "awayDefence": 1.5555555555555554,
+        "leagueHomeGoals": 1.2857142857142858,
+        "leagueAwayGoals": 0.9183673469387755,
+        "sampleSize": 3,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 0.74,
+      "lambdaAway": 2.5,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 81.1,
+        "rawProbability": 91.7,
+        "reliability": 0.828,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Away",
+          "rawProbability": 75.3,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 2,
+        "away": 3
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://upl.ua/en/tournaments/championship/432/calendar?id=432&tab=calendar",
         "https://www.soccerbase.com/matches/results.sd?date=2026-09-20"
       ]
     },
@@ -90131,6 +91650,55 @@
       ]
     },
     {
+      "date": "2026-10-03",
+      "leagueId": "ukr-premier-league",
+      "homeTeam": "Veres",
+      "awayTeam": "Kudrivka",
+      "modelLevel": "basic",
+      "sampleSize": 3,
+      "inputs": {
+        "homeAttack": 0.6028985507246377,
+        "homeDefence": 0.8489795918367348,
+        "awayAttack": 0.7074829931972789,
+        "awayDefence": 2.5120772946859904,
+        "leagueHomeGoals": 1.3269230769230769,
+        "leagueAwayGoals": 0.9423076923076923,
+        "sampleSize": 3,
+        "modelLevel": "basic",
+        "confidence": "low",
+        "competitionType": "club",
+        "dataQuality": "usable"
+      },
+      "lambdaHome": 1.89,
+      "lambdaAway": 0.63,
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 79.2,
+        "rawProbability": 89.2,
+        "reliability": 0.828,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 66.8,
+          "minimum": 62
+        }
+      },
+      "actualScore": {
+        "home": 2,
+        "away": 1
+      },
+      "outcome": "WIN",
+      "sources": [
+        "https://upl.ua/en/tournaments/championship/432/calendar?id=432&tab=calendar",
+        "https://www.soccerbase.com/matches/results.sd?date=2026-10-03"
+      ]
+    },
+    {
       "date": "2026-10-04",
       "leagueId": "esp-segunda",
       "homeTeam": "Sabadell",
@@ -90573,35 +92141,35 @@
     }
   ],
   "aggregateMetrics": {
-    "webFixturesInRange": 6772,
-    "modelledFixtures": 6352,
-    "noModel": 420,
-    "noBet": 4505,
-    "recommendedBets": 1847,
-    "wins": 1434,
-    "losses": 413,
+    "webFixturesInRange": 6891,
+    "modelledFixtures": 6445,
+    "noModel": 446,
+    "noBet": 4573,
+    "recommendedBets": 1872,
+    "wins": 1453,
+    "losses": 419,
     "hitRate": 77.6,
     "byPick": [
       {
         "key": "1X",
-        "bets": 846,
-        "wins": 668,
-        "losses": 178,
+        "bets": 862,
+        "wins": 681,
+        "losses": 181,
         "hitRate": 79
       },
       {
         "key": "X2",
-        "bets": 346,
-        "wins": 242,
-        "losses": 104,
-        "hitRate": 69.9
+        "bets": 353,
+        "wins": 248,
+        "losses": 105,
+        "hitRate": 70.3
       },
       {
         "key": "Over 1.5",
-        "bets": 655,
+        "bets": 657,
         "wins": 524,
-        "losses": 131,
-        "hitRate": 80
+        "losses": 133,
+        "hitRate": 79.8
       }
     ],
     "byLeague": [
@@ -90893,6 +92461,13 @@
         "hitRate": 76.7
       },
       {
+        "key": "ukr-premier-league",
+        "bets": 25,
+        "wins": 19,
+        "losses": 6,
+        "hitRate": 76
+      },
+      {
         "key": "esp-la-liga",
         "bets": 45,
         "wins": 36,
@@ -90987,9 +92562,9 @@
     "byRating": [
       {
         "key": "Strong",
-        "bets": 1540,
-        "wins": 1200,
-        "losses": 340,
+        "bets": 1559,
+        "wins": 1215,
+        "losses": 344,
         "hitRate": 77.9
       },
       {
@@ -91001,12 +92576,12 @@
       },
       {
         "key": "Elite",
-        "bets": 179,
-        "wins": 140,
-        "losses": 39,
-        "hitRate": 78.2
+        "bets": 185,
+        "wins": 144,
+        "losses": 41,
+        "hitRate": 77.8
       }
     ]
   },
-  "generatedAt": "2026-10-05T11:36:45.342Z"
+  "generatedAt": "2026-10-05T11:42:14.447Z"
 }
