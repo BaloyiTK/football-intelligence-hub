@@ -1,6 +1,6 @@
-# Deterministic Model Rules — V2.8 Support-Quality Selector
+# Deterministic Model Rules — V2.9 Market-Specific Quality Selector
 
-V2.8 preserves the v2.7 calibrated >=78% publication floor and adds a support-quality requirement: the supporting market signal must clear its existing minimum by at least 5 percentage points. Candidates that fail this cushion remain internal REVIEW rather than auto-publish.
+V2.9 preserves the v2.8 calibrated and support-quality framework, then applies market-specific publication gates. 1X now requires >=82% calibrated probability. Over 1.5 keeps the >=78% calibrated floor but requires a >=7 percentage-point support cushion. Other approved markets retain the v2.8 defaults.
 
 ## Core engine
 - Separate attack/defence strengths and league home/away baselines.
@@ -112,3 +112,20 @@ Using the v2.7 180-day result with the same chronological split:
 - untouched holdout with support margin >=5pp: 429 bets, 79.3%.
 
 A weak-league-specific layer reached a slightly higher holdout result, but it was not promoted because hard-coded league identities are more prone to overfitting. The generic support-margin rule was preferred.
+
+
+## V2.9 market-specific refinement
+Chronological validation on the v2.8 180-day backtest:
+- v2.8 training baseline: 582 bets, 80.4%;
+- v2.8 untouched holdout baseline: 431 bets, 79.4%;
+- conservative v2.9 training candidate: 379 bets, 83.6%;
+- conservative v2.9 untouched holdout: 310 bets, 81.0%.
+
+Promoted rules:
+- 1X: calibrated public probability >=82%;
+- Over 1.5: calibrated public probability >=78% and support margin >=7pp;
+- no league-specific bans;
+- no raw-probability anomaly hard-block;
+- no lambda-band hard-block.
+
+The more aggressive candidate achieved a higher historical hit rate but removed much more volume and showed a larger train/holdout gap, so it was not promoted.
