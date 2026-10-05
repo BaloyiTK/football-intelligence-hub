@@ -1728,7 +1728,7 @@
     "noSelection": 1
   },
   "publication": {
-    "status": "published",
+    "status": "published-to-github",
     "path": "data/predictions/2026-10-05.json",
     "expectedRecommendations": 15,
     "marketContract": [
@@ -1738,10 +1738,28 @@
       "Double Chance 1X/X2",
       "Team to Score 1+",
       "Correct Score"
+    ],
+    "publishableRecommendations": 14,
+    "refreshedAt": "2026-10-05T10:02:59+02:00",
+    "excludedAfterRecheck": [
+      {
+        "fixtureKey": "2026-10-05|international-friendlies|ecuador|panama",
+        "reason": "started before refreshed publication"
+      }
     ]
   },
   "current": {
     "date": "2026-10-05",
     "stage": "publication-verification"
-  }
+  },
+  "coverageGaps": [
+    {
+      "competition": "CONCACAF Nations League",
+      "date": "2026-10-05",
+      "reason": "Senior fixtures found in worldwide discovery but competition is not in frozen registry snapshot",
+      "sources": [
+        "https://www.livescores.com/football/2026-10-05/?tz=0"
+      ]
+    }
+  ]
 }
