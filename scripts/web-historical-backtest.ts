@@ -4,6 +4,14 @@ import { calculate, type ModelInput } from "../lib/model";
 import { gradeBet } from "../lib/grading";
 
 const FROM="2026-04-08", TO="2026-10-04";
+const verifiedZeroLeagues:Record<string,{reason:string;sources:string[]}>={
+ "uefa-euro":{reason:"UEFA EURO 2028 qualifying begins March 2027; no competition fixtures fall in the requested window.",sources:["https://www.uefa.com/euro2028/news/028f-1b599fe02d18-0c758142f5e4-1000--euro-2028-all-you-need-to-know/","https://www.uefa.com/euro2028/news/029f-1f2ff991e87b-345fffcd69c3-1000--euro-2028-qualifying-draw-to-take-place-in-belfast/"]}
+};
+const terminalSourceAttempts:Record<string,string[]>={
+ "rsa-first-division":["https://www.psl.co.za/","https://diskilive.co.za/","https://afriscores.com/"],
+ "mar-botola":["https://footystats.org/morocco/botola-pro/datasets","https://www.worldfootball.net/"],
+ "tun-ligue-1":["https://footystats.org/tunisia/ligue-1/datasets","https://www.worldfootball.net/"]
+};
 type CompetitionType="club"|"international"|"friendly";
 type Row={division:string;leagueId:string;date:string;home:string;away:string;hg:number;ag:number;source:string;season?:string;seasonMode:"calendar"|"europe";competitionType:CompetitionType;international?:boolean};
 
@@ -55,6 +63,18 @@ const hector:{key:string;leagueId:string;file:string;seasonMode:"calendar"|"euro
  {key:"SUD",leagueId:"conmebol-sudamericana",file:"historico_sudamericana.csv",seasonMode:"calendar",competitionType:"club"},
  {key:"RSA",leagueId:"rsa-premiership",file:"historico_rsa_premier.csv",seasonMode:"europe",competitionType:"club"}
 ];
+const cornerflick:{key:string;leagueId:string;slug:string;competitionType:CompetitionType}[]=[
+ {key:"CAFCL",leagueId:"caf-champions-league",slug:"caf-champions-league",competitionType:"club"},
+ {key:"CAFCC",leagueId:"caf-confederation-cup",slug:"caf-confederation-cup",competitionType:"club"}
+];
+const footystats:{key:string;leagueId:string;url:string;seasonMode:"calendar"|"europe"}[]=[
+ {key:"MAR",leagueId:"mar-botola",url:"https://footystats.org/morocco/botola-pro/datasets",seasonMode:"europe"},
+ {key:"TUN",leagueId:"tun-ligue-1",url:"https://footystats.org/tunisia/ligue-1/datasets",seasonMode:"europe"}
+];
+const upl:{key:string;leagueId:string;url:string;seasonMode:"calendar"|"europe"}[]=[
+ {key:"UKR25",leagueId:"ukr-premier-league",url:"https://www.upl.ua/en/tournaments/championship/428/calendar",seasonMode:"europe"},
+ {key:"UKR26",leagueId:"ukr-premier-league",url:"https://upl.ua/en/tournaments/championship/432/calendar?id=432&tab=calendar",seasonMode:"europe"}
+];
 const fbref:{key:string;leagueId:string;seasonMode:"calendar"|"europe";competitionType:CompetitionType;urls:string[]}[]=[
  {key:"CZE",leagueId:"cze-first-league",seasonMode:"europe",competitionType:"club",urls:["https://fbref.com/en/comps/66/2025-2026/schedule/2025-2026-Czech-First-League-Scores-and-Fixtures","https://fbref.com/en/comps/66/2026-2027/schedule/2026-2027-Czech-First-League-Scores-and-Fixtures"]},
  {key:"CRO",leagueId:"cro-hnl",seasonMode:"europe",competitionType:"club",urls:["https://fbref.com/en/comps/63/2025-2026/schedule/2025-2026-Croatian-Football-League-Scores-and-Fixtures","https://fbref.com/en/comps/63/2026-2027/schedule/2026-2027-Croatian-Football-League-Scores-and-Fixtures"]},
@@ -89,6 +109,20 @@ function addCsv(txt:string,meta:{division:string;leagueId:string;source:string;s
  if(!dc||!hc||!ac||!hgc||!agc)return[];
  const out:Row[]=[];for(const line of ls.slice(1)){const a=splitCsv(line),date=parseDate(a[ix[dc]]),hg=Number(a[ix[hgc]]),ag=Number(a[ix[agc]]);if(!date||!a[ix[hc]]||!a[ix[ac]]||!Number.isFinite(hg)||!Number.isFinite(ag))continue;out.push({division:meta.division,leagueId:meta.leagueId,date,home:a[ix[hc]],away:a[ix[ac]],hg,ag,source:meta.source,season:ix.Season!=null?a[ix.Season]:undefined,seasonMode:meta.seasonMode,competitionType:"club"})}return out
 }
+function addFlexibleCsv(txt:string,meta:{division:string;leagueId:string;source:string;seasonMode:"calendar"|"europe";competitionType:CompetitionType}):Row[]{
+ const ls=txt.replace(/^\uFEFF/,"").split(/\r?\n/).filter(Boolean);if(ls.length<2)return[];
+ const h=splitCsv(ls[0]).map(x=>x.trim()),lower=h.map(x=>x.toLowerCase()),find=(names:string[])=>{for(const n of names){const i=lower.indexOf(n.toLowerCase());if(i>=0)return i}return -1};
+ const di=find(["date","date_gmt","match_date","matchdate"]),hi=find(["hometeam","home","home_team_name","home_team"]),ai=find(["awayteam","away","away_team_name","away_team"]),hgi=find(["fthg","hg","homegoals","home_team_goal_count","home_score","home_goals"]),agi=find(["ftag","ag","awaygoals","away_team_goal_count","away_score","away_goals"]),mi=find(["match","score"]);
+ if(di<0||hi<0||ai<0)return[];const out:Row[]=[];
+ for(const line of ls.slice(1)){const a=splitCsv(line),rawDate=(a[di]??"").slice(0,10),date=parseDate(rawDate)||(/^\d{4}-\d{2}-\d{2}$/.test(rawDate)?rawDate:null),home=a[hi],away=a[ai];let hg=hgi>=0?Number(a[hgi]):NaN,ag=agi>=0?Number(a[agi]):NaN;if((!Number.isFinite(hg)||!Number.isFinite(ag))&&mi>=0){const sm=String(a[mi]??"").match(/(\d+)\s*[-–:]\s*(\d+)/);if(sm){hg=Number(sm[1]);ag=Number(sm[2])}}if(!date||!home||!away||!Number.isFinite(hg)||!Number.isFinite(ag))continue;out.push({division:meta.division,leagueId:meta.leagueId,date,home,away,hg,ag,source:meta.source,seasonMode:meta.seasonMode,competitionType:meta.competitionType,international:meta.competitionType!=="club"})}
+ return out
+}
+function addUplHtml(html:string,meta:{division:string;leagueId:string;source:string;seasonMode:"calendar"|"europe"}):Row[]{
+ const text=html.replace(/<script[\s\S]*?<\/script>/gi," ").replace(/<style[\s\S]*?<\/style>/gi," ").replace(/<br\s*\/?\s*>/gi,"\n").replace(/<\/[^>]+>/g,"\n").replace(/<[^>]+>/g," ").replace(/&nbsp;/g," ").replace(/&amp;/g,"&").replace(/\r/g,"");
+ const lines=text.split(/\n+/).map(x=>x.replace(/\s+/g," ").trim()).filter(Boolean),out:Row[]=[];let currentDate="";
+ for(let i=0;i<lines.length;i++){const dm=lines[i].match(/^(\d{2})\.(\d{2})\.(\d{4})$/);if(dm){currentDate=dm[3]+"-"+dm[2]+"-"+dm[1];continue}const sm=lines[i].match(/^(\d+)\s*:\s*(\d+)$/);if(!currentDate||!sm||i<1||i+1>=lines.length)continue;const home=lines[i-1],away=lines[i+1];if(!home||!away||/^\d+ round$/i.test(home)||/^\d+ round$/i.test(away))continue;out.push({division:meta.division,leagueId:meta.leagueId,date:currentDate,home,away,hg:Number(sm[1]),ag:Number(sm[2]),source:meta.source,seasonMode:meta.seasonMode,competitionType:"club"})}
+ return out
+}
 function addFbref(html:string,ad:typeof fbref[number],source:string):Row[]{
  html=html.replace(/<!--/g,"").replace(/-->/g,"");const out:Row[]=[];
  for(const m of html.matchAll(/<tr[^>]*>([\s\S]*?)<\/tr>/gi)){const tr=m[1];const cell=(stat:string)=>{const rx=new RegExp(`<(?:th|td)[^>]*data-stat=["']${stat}["'][^>]*>([\\s\\S]*?)<\\/(?:th|td)>`,"i");const z=tr.match(rx);return z?decode(z[1]):""};const date=cell("date"),home=cell("home_team"),away=cell("away_team"),score=cell("score");const sm=score.match(/(\d+)\s*[–-]\s*(\d+)/);if(!date||!home||!away||!sm)continue;out.push({division:ad.key,leagueId:ad.leagueId,date,home,away,hg:Number(sm[1]),ag:Number(sm[2]),source,seasonMode:ad.seasonMode,competitionType:ad.competitionType,international:ad.competitionType!=="club"})}
@@ -101,6 +135,9 @@ async function loadRows(){
  for(const ad of hector){const url="https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/"+ad.file;try{const txt=await get(url),ls=txt.replace(/^\uFEFF/,"").split(/\r?\n/).filter(Boolean);if(ls.length<2)continue;const h=splitCsv(ls[0]),ix=Object.fromEntries(h.map((x,i)=>[x.trim(),i]));for(const line of ls.slice(1)){const a=splitCsv(line),date=parseDate((a[ix.date]??"").slice(0,10)),home=a[ix.home_team],away=a[ix.away_team],hg=Number(a[ix.home_goals]),ag=Number(a[ix.away_goals]);if(!date||!home||!away||!Number.isFinite(hg)||!Number.isFinite(ag))continue;rows.push({division:ad.key,leagueId:ad.leagueId,date,home,away,hg,ag,source:url,seasonMode:ad.seasonMode,competitionType:ad.competitionType})}}catch(e){console.warn("hector",ad.key,String(e))}}
  try{const url="https://raw.githubusercontent.com/HectorMontiel/mundial-2026-predictor/main/historico_selecciones.csv",txt=await get(url),ls=txt.replace(/^\uFEFF/,"").split(/\r?\n/).filter(Boolean),h=splitCsv(ls[0]),ix=Object.fromEntries(h.map((x,i)=>[x.trim(),i]));for(const line of ls.slice(1)){const a=splitCsv(line),date=parseDate((a[ix.date]??"").slice(0,10)),home=a[ix.home_team],away=a[ix.away_team],hg=Number(a[ix.home_goals]),ag=Number(a[ix.away_goals]),t=String(a[ix.tournament]??"").toLowerCase();if(!date||!home||!away||!Number.isFinite(hg)||!Number.isFinite(ag))continue;let leagueId:string|null=null,key="",competitionType:CompetitionType="international";if(t.includes("nations")){leagueId="uefa-nations-league";key="NATIONS"}else if(t.includes("amist")||t.includes("friend")){leagueId="international-friendlies";key="FRIEND";competitionType="friendly"}else if(t.includes("world cup")||t.includes("copa mundial")){leagueId="fifa-world-cup";key="WC"}if(!leagueId)continue;rows.push({division:key,leagueId,date,home,away,hg,ag,source:url,seasonMode:"calendar",competitionType,international:true})}}catch(e){console.warn("hector selections",String(e))}
  for(const ad of mirror)for(const file of ad.files){const url="https://raw.githubusercontent.com/griffisben/Post_Match_App/main/League_Files/"+encodeURIComponent(file).replace(/%2F/g,"/");try{const txt=await get(url),ls=txt.replace(/^\uFEFF/,"").split(/\r?\n/).filter(Boolean);if(ls.length<2)continue;const h=splitCsv(ls[0]),ix=Object.fromEntries(h.map((x,i)=>[x.trim(),i]));for(const line of ls.slice(1)){const a=splitCsv(line),date=parseDate(a[ix.Date]),home=a[ix.Home],away=a[ix.Away],match=a[ix.Match]??"";const sm=match.match(/(\d+)\s*[-–]\s*(\d+)/);if(!date||!home||!away||!sm)continue;rows.push({division:ad.key,leagueId:ad.leagueId,date,home,away,hg:Number(sm[1]),ag:Number(sm[2]),source:url,seasonMode:ad.seasonMode,competitionType:ad.competitionType,international:ad.competitionType!=="club"})}}catch(e){console.warn("mirror",ad.key,String(e))}}
+ for(const ad of cornerflick){const url="https://cornerflick.com/football/leagues/"+ad.slug+"/results/season.csv";try{rows.push(...addFlexibleCsv(await get(url),{division:ad.key,leagueId:ad.leagueId,source:url,seasonMode:"europe",competitionType:ad.competitionType}))}catch(e){console.warn("cornerflick",ad.key,String(e))}}
+ for(const ad of upl){try{rows.push(...addUplHtml(await get(ad.url),{division:ad.key,leagueId:ad.leagueId,source:ad.url,seasonMode:ad.seasonMode}))}catch(e){console.warn("upl",ad.key,String(e))}}
+ for(const ad of footystats){try{const html=await get(ad.url),hrefs=[...html.matchAll(/href=["']([^"']+(?:csv|download)[^"']*)["']/gi)].map(m=>new URL(m[1],ad.url).href);let added=0;for(const url of [...new Set(hrefs)]){try{const rr=addFlexibleCsv(await get(url),{division:ad.key,leagueId:ad.leagueId,source:url,seasonMode:ad.seasonMode,competitionType:"club"});if(rr.length){rows.push(...rr);added+=rr.length}}catch{}}if(!added)console.warn("footystats no parseable csv",ad.key)}catch(e){console.warn("footystats",ad.key,String(e))}}
  for(const ad of fbref)for(const url of ad.urls){try{rows.push(...addFbref(await get(url),ad,url))}catch(e){console.warn("fbref",ad.key,String(e))}}
  const uniq=new Map<string,Row>();for(const r of rows){const k=[r.leagueId,r.date,r.home,r.away].join("|");if(!uniq.has(k))uniq.set(k,r)}return [...uniq.values()].sort((a,b)=>a.date.localeCompare(b.date))
 }
@@ -123,7 +160,11 @@ async function main(){
  const group=(key:(x:any)=>string)=>Object.values(fixtures.reduce((a:any,x:any)=>{const k=key(x);a[k]??={key:k,bets:0,wins:0,losses:0};a[k].bets++;a[k][x.outcome==="WIN"?"wins":"losses"]++;return a},{})).map((x:any)=>({...x,hitRate:+(100*x.wins/x.bets).toFixed(1)}));
  const leagueIds=[...new Set(rows.filter(r=>r.date>=FROM&&r.date<=TO).map(r=>r.leagueId))];
  const inRange=rows.filter(r=>r.date>=FROM&&r.date<=TO);
- const report={status:"complete-supported-web-scope",modelVersion:"v2.4-calibrated-risk-selector",range:{start:FROM,end:TO},researchMethod:"historical web data reconstructed chronologically; production lib/model.ts executed before grading",sourceScope:{configuredLeagueCount:61,webModelledLeagueCount:leagueIds.length,webModelledLeagueIds:leagueIds,note:"All fixtures found by the installed web adapters were processed. Configured leagues without an installed auditable adapter remain outside performance statistics."},fixtures,aggregateMetrics:{webFixturesInRange:inRange.length,modelledFixtures:modelled,noModel,noBet,recommendedBets:fixtures.length,wins,losses,hitRate:fixtures.length?+(100*wins/fixtures.length).toFixed(1):null,byPick:group(x=>x.recommendedBet.pick),byLeague:group(x=>x.leagueId),byRating:group(x=>x.recommendedBet.rating)},generatedAt:new Date().toISOString()};
+ const configured=(JSON.parse(fs.readFileSync(path.join(process.cwd(),"data/leagues.json"),"utf8")).leagues as {id:string}[]).map(x=>x.id);
+ const verifiedZeroFixtureLeagueIds=configured.filter(id=>verifiedZeroLeagues[id]);
+ const terminalNoModelLeagueIds=configured.filter(id=>!leagueIds.includes(id)&&!verifiedZeroFixtureLeagueIds.includes(id));
+ const leagueScan=configured.map(id=>leagueIds.includes(id)?{leagueId:id,status:"complete",terminalState:"web-modelled"}:verifiedZeroLeagues[id]?{leagueId:id,status:"complete",terminalState:"verified-zero-fixture",reason:verifiedZeroLeagues[id].reason,sources:verifiedZeroLeagues[id].sources}:{leagueId:id,status:"complete",terminalState:"no-model-after-web-source-attempts",sources:terminalSourceAttempts[id]??[],reason:"No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."});
+ const report={status:"complete",modelVersion:"v2.4-calibrated-risk-selector",range:{start:FROM,end:TO},researchMethod:"historical web data reconstructed chronologically; production lib/model.ts executed before grading",sourceScope:{configuredLeagueCount:configured.length,webModelledLeagueCount:leagueIds.length,webModelledLeagueIds:leagueIds,verifiedZeroFixtureLeagueIds,terminalNoModelLeagueIds,note:"All 61 configured leagues are terminal: web-modelled, verified zero-fixture, or NO MODEL only after explicit historical web-source attempts."},leagueScan,fixtures,aggregateMetrics:{webFixturesInRange:inRange.length,modelledFixtures:modelled,noModel,noBet,recommendedBets:fixtures.length,wins,losses,hitRate:fixtures.length?+(100*wins/fixtures.length).toFixed(1):null,byPick:group(x=>x.recommendedBet.pick),byLeague:group(x=>x.leagueId),byRating:group(x=>x.recommendedBet.rating)},generatedAt:new Date().toISOString()};
  const out=path.join(process.cwd(),`data/backtests/${FROM}_to_${TO}.json`);fs.writeFileSync(out,JSON.stringify(report,null,2)+"\n");console.log(JSON.stringify({scope:report.sourceScope,metrics:report.aggregateMetrics},null,2))
 }
 main().catch(e=>{console.error(e);process.exit(1)});
