@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import {calculate,MODEL_VERSION} from "../lib/model";
 
-assert.equal(MODEL_VERSION,"v2.6-market-calibrated-selector");
+assert.equal(MODEL_VERSION,"v2.7-quality-gated-selector");
 
 const normal=calculate({
   homeAttack:1.55,awayAttack:.75,homeDefence:.70,awayDefence:1.35,
@@ -39,4 +39,12 @@ if(marketConflict.reviewBet){
   assert.ok(marketConflict.reviewBet.riskFlags.includes("extreme-market-divergence"));
 }
 
-console.log(JSON.stringify({status:"v2.6-tests-passed",modelVersion:MODEL_VERSION}));
+const borderline=calculate({
+  homeAttack:1.15,awayAttack:.82,homeDefence:.88,awayDefence:1.08,
+  leagueHomeGoals:1.45,leagueAwayGoals:1.15,
+  sampleSize:5,modelLevel:"basic",confidence:"low",competitionType:"club"
+});
+if(borderline.reviewBet?.riskFlags.includes("quality-public-probability")){
+  assert.equal(borderline.reviewBet.publishable,false,"quality publication gate must quarantine sub-78 calibrated recommendations");
+}
+console.log(JSON.stringify({status:"v2.7-tests-passed",modelVersion:MODEL_VERSION}));
