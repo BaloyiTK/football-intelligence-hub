@@ -22,6 +22,11 @@ for(const x of data.fixtures as any[]){
   if(!x.researchedAt&&!data.generatedAt) throw new Error("Published fixture missing evidence timestamp: "+x.fixtureKey);
   const model=x.model;
   if(!model||!model.recommendedBet) throw new Error("Public prediction fixture missing recommendedBet: "+x.fixtureKey);
+  if(model.modelVersion==="v2.3-backtest-calibrated-selector"){
+    const requiredSixFamilyFields=["home","draw","away","over15","under15","over25","under25","over35","under35","bttsYes","bttsNo","doubleChance","teamToScore","likelyScores"];
+    for(const field of requiredSixFamilyFields) if(model[field]===undefined||model[field]===null) throw new Error("V2.3 fixture missing required six-market output "+field+": "+x.fixtureKey);
+    if(!Array.isArray(model.likelyScores)||model.likelyScores.length===0) throw new Error("V2.3 fixture missing Correct Score forecast: "+x.fixtureKey);
+  }
   const supportedModelVersions=new Set(["v2.1-dixon-coles-market-selector","v2.2-backtest-calibrated-selector","v2.3-backtest-calibrated-selector"]);
   if(!supportedModelVersions.has(model.modelVersion)) throw new Error("Unexpected modelVersion: "+x.fixtureKey);
   if(date>="2026-10-05"&&model.modelVersion!=="v2.3-backtest-calibrated-selector") throw new Error("Current publication must use V2.3: "+x.fixtureKey);
