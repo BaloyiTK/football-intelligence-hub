@@ -17,7 +17,7 @@ const dcTau=(x:number,y:number,lh:number,la:number,rho:number)=>{if(x===0&&y===0
 const evidenceFactor=(i:ModelInput)=>{const level=i.modelLevel==="full"?1:i.modelLevel==="standard"?.96:.90;const n=i.sampleSize??5;const sample=n>=8?1:n>=5?.97:n>=3?.92:.84;return level*sample;};
 // Missing volatility is uncertainty, not evidence of a quiet game. Basic/Standard Under 3.5 selections
 // therefore receive a conservative reliability haircut unless recent O3.5 history is actually supplied.
-const under35Reliability=(i:ModelInput,ef:number)=>{const known=i.recentOver35Rate!=null;const over35=known?Math.max(0,Math.min(1,i.recentOver35Rate!)):null;const volatility=over35==null?(i.modelLevel==="full"?.90:.84):Math.max(.72,.98-over35*.22);return ef*volatility;};
+const under35Reliability=(i:ModelInput,ef:number)=>{const known=i.recentOver35Rate!=null;const over35=known?Math.max(0,Math.min(1,i.recentOver35Rate!)):null;const volatility=over35==null?.90:Math.max(.72,.98-over35*.22);return ef*volatility;};
 const rating=(p:number):BetRecommendation["rating"]=>p>=85?"Elite":p>=75?"Strong":"Good";
 const recommend=(m:{home:number;draw:number;away:number;dc:{homeOrDraw:number;awayOrDraw:number;homeOrAway:number};btts:number;o15:number;o25:number;o35:number;lh:number;la:number},i:ModelInput):BetRecommendation|null=>{
  const ef=evidenceFactor(i);
@@ -43,5 +43,5 @@ export function calculate(i:ModelInput){
  for(const row of scores){row.p/=total;const[x,y]=row.s.split("-").map(Number);if(x>y)h+=row.p;else if(x===y)d+=row.p;else a+=row.p;if(x>0&&y>0)btts+=row.p;if(x+y>1)o15+=row.p;if(x+y>2)o25+=row.p;if(x+y>3)o35+=row.p;}
  scores.sort((x,y)=>y.p-x.p);const pct=(v:number)=>Math.round(v*1000)/10;const dc={homeOrDraw:pct(h+d),awayOrDraw:pct(a+d),homeOrAway:pct(h+a)};
  const markets={home:pct(h),draw:pct(d),away:pct(a),dc,btts:pct(btts),o15:pct(o15),o25:pct(o25),o35:pct(o35),lh,la};
- return {modelVersion:"v2.2-calibrated-selector",lambdaHome:+lh.toFixed(2),lambdaAway:+la.toFixed(2),home:markets.home,draw:markets.draw,away:markets.away,doubleChance:dc,btts:markets.btts,over15:markets.o15,over25:markets.o25,over35:markets.o35,home2Plus:pct(1-pois(0,lh)-pois(1,lh)),away2Plus:pct(1-pois(0,la)-pois(1,la)),likelyScores:scores.slice(0,4).map(x=>({score:x.s,probability:pct(x.p)})),recommendedBet:recommend(markets,i)};
+ return {modelVersion:"v2.3-backtest-calibrated-selector",lambdaHome:+lh.toFixed(2),lambdaAway:+la.toFixed(2),home:markets.home,draw:markets.draw,away:markets.away,doubleChance:dc,btts:markets.btts,over15:markets.o15,over25:markets.o25,over35:markets.o35,home2Plus:pct(1-pois(0,lh)-pois(1,lh)),away2Plus:pct(1-pois(0,la)-pois(1,la)),likelyScores:scores.slice(0,4).map(x=>({score:x.s,probability:pct(x.p)})),recommendedBet:recommend(markets,i)};
 }
