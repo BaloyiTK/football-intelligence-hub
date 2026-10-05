@@ -26,6 +26,16 @@ function group(xs:Bet[],key:(x:Bet)=>string){
 }
 
 const variants:Record<string,(x:Bet)=>boolean>={
+ publicP72:x=>x.recommendedBet.probability>=72,
+ publicP74:x=>x.recommendedBet.probability>=74,
+ publicP76:x=>x.recommendedBet.probability>=76,
+ publicP78:x=>x.recommendedBet.probability>=78,
+ publicP80:x=>x.recommendedBet.probability>=80,
+ selectionP72:x=>(x.recommendedBet.selectionProbability??x.recommendedBet.probability)>=72,
+ selectionP74:x=>(x.recommendedBet.selectionProbability??x.recommendedBet.probability)>=74,
+ selectionP76:x=>(x.recommendedBet.selectionProbability??x.recommendedBet.probability)>=76,
+ selectionP78:x=>(x.recommendedBet.selectionProbability??x.recommendedBet.probability)>=78,
+ selectionP80:x=>(x.recommendedBet.selectionProbability??x.recommendedBet.probability)>=80,
  baseline:()=>true,
  noFriendlies:x=>x.competitionType!=="friendly",
  stricterInternational:x=>x.competitionType!=="international" || (x.recommendedBet.selectionProbability??x.recommendedBet.probability)>=80,
