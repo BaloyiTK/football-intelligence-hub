@@ -183,11 +183,13 @@ async function loadOddsSitemap(){
 }
 function urlTeams(url:string){const last=url.split("/").filter(Boolean).pop()??"";const base=last.replace(/-prediction-betting-tips-\d{4}-\d{2}-\d{2}$/,"");const parts=base.split("-vs-");return parts.length===2?parts:null}
 function shiftDay(d:string,off:number){const x=new Date(d+"T00:00:00Z");x.setUTCDate(x.getUTCDate()+off);return x.toISOString().slice(0,10)}
+function directSlug(s:string){return s.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/&/g," and ").replace(/['’]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"")}
+function directOddsUrl(f:Row){return "https://football-predictions.ai/"+directSlug(f.home)+"-vs-"+directSlug(f.away)+"-prediction-betting-tips-"+f.date}
 function chooseOddsUrl(byDate:Map<string,string[]>,f:Row){
  const candidates=[...(byDate.get(f.date)??[]),...(byDate.get(shiftDay(f.date,-1))??[]),...(byDate.get(shiftDay(f.date,1))??[])];
  let best:{url:string;score:number}|null=null;
  for(const url of candidates){const parts=urlTeams(url);if(!parts)continue;const hs=tokenScore(f.home,parts[0].replace(/-/g," ")),as=tokenScore(f.away,parts[1].replace(/-/g," "));const score=(hs+as)/2;if(hs>=.35&&as>=.35&&(!best||score>best.score))best={url,score}}
- return best?.url??null;
+ return best?.url??directOddsUrl(f);
 }
 function median(xs:number[]){const a=[...xs].sort((x,y)=>x-y),n=a.length;return n?(a[Math.floor((n-1)/2)]+a[Math.ceil((n-1)/2)])/2:NaN}
 async function fetchHistoricalOdds(url:string|null,pick:string,modelProbability:number):Promise<HistoricalOdds>{
