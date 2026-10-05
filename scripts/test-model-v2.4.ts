@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import {calculate,MODEL_VERSION} from "../lib/model";
 
-assert.equal(MODEL_VERSION,"v2.4-calibrated-risk-selector");
+assert.equal(MODEL_VERSION,"v2.5-x2-risk-calibrated-selector");
 
 const normal=calculate({
   homeAttack:1.55,awayAttack:.75,homeDefence:.70,awayDefence:1.35,
@@ -30,7 +30,7 @@ const marketConflict=calculate({
   homeAttack:1.7,awayAttack:.65,homeDefence:.70,awayDefence:1.4,
   leagueHomeGoals:1.5,leagueAwayGoals:1.15,
   sampleSize:8,modelLevel:"full",confidence:"high",competitionType:"club",
-  marketProbabilityByPick:{"Double Chance|1X":55}
+  marketProbabilityByPick:{"Double Chance|1X":40}
 });
 if(marketConflict.reviewBet){
   assert.equal(marketConflict.reviewBet.selectionStatus,"REVIEW");
@@ -38,4 +38,4 @@ if(marketConflict.reviewBet){
   assert.ok(marketConflict.reviewBet.riskFlags.includes("extreme-market-divergence"));
 }
 
-console.log(JSON.stringify({status:"v2.4-tests-passed",modelVersion:MODEL_VERSION}));
+console.log(JSON.stringify({status:"v2.5-tests-passed",modelVersion:MODEL_VERSION}));
