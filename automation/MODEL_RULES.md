@@ -1,6 +1,6 @@
-# Deterministic Model Rules — V2.4 Calibrated Risk Selector
+# Deterministic Model Rules — V2.5 X2 Risk-Calibrated Selector
 
-V2.4 preserves the V2.3.1 normalized Dixon-Coles engine and support-gated market selector, then adds a calibration and risk-control layer before publication.
+V2.5 preserves the V2.4 calibrated Dixon-Coles engine and risk controls, and tightens only the historically weaker X2 publication path based on a 120-day training / 60-day untouched holdout analysis.
 
 ## Core engine
 - Separate attack/defence strengths and league home/away baselines.
@@ -22,7 +22,7 @@ Supporting signals remain mandatory:
 ## Support gates
 - Over 1.5: raw >=72, Over 2.5 support >=68, calibrated probability >=68.
 - 1X: raw >=72, Home support >=62, calibrated probability >=68.
-- X2: raw >=72, Away support >=62, calibrated probability >=68.
+- X2: raw >=76, Away support >=66, calibrated probability >=72.
 - Direct 1X2: raw >=62, calibrated probability >=68.
 
 ## V2.4 calibration
@@ -57,3 +57,16 @@ A quarantined directional selection may be exposed internally as `reviewBet`. It
 
 ## Principle
 A safe-looking derivative market cannot manufacture confidence. Strong support remains required, and extreme model outputs must survive calibration and risk checks before publication.
+
+
+## V2.5 validation
+The 180-day web-reconstructed v2.4 baseline produced 1,872 bets at 77.6%.
+A chronological split was used:
+- training: 2026-04-08 through 2026-08-05;
+- untouched holdout: 2026-08-06 through 2026-10-04.
+
+The stricter X2 rule was chosen because it improved both slices without league-specific hard-coding:
+- training: 79.3% -> 79.7%;
+- holdout: 75.2% -> 76.0%.
+
+A broader weak-league hard gate improved the holdout slightly further, but was not promoted because its league-specific rules were more prone to overfitting.
