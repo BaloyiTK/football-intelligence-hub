@@ -21,25 +21,28 @@ const train=bets.filter(x=>x.date<=trainEnd),hold=bets.filter(x=>x.date>=holdSta
 
 const weakTrainLeagues=new Set((summarize(train).byLeague as any[]).filter(x=>x.bets>=15&&x.hitRate<72).map(x=>x.key));
 
-function v25Keep(x:Bet){
+function keepX2(x:Bet){
   const b=x.recommendedBet;
-  if(b.pick==="X2"){
-    if(b.rawProbability<76) return false;
-    if((b.support?.rawProbability??0)<66) return false;
-    if(b.probability<72) return false;
-  }
-  if(weakTrainLeagues.has(x.leagueId)){
-    if(b.probability<78) return false;
-    if(b.pick==="X2") return false;
-  }
-  return true;
+  if(b.pick!=="X2") return true;
+  return b.rawProbability>=76 && (b.support?.rawProbability??0)>=66 && b.probability>=72;
 }
-
-const train25=train.filter(v25Keep),hold25=hold.filter(v25Keep);
+function keepWeakLeague(x:Bet){
+  const b=x.recommendedBet;
+  if(!weakTrainLeagues.has(x.leagueId)) return true;
+  return b.probability>=78 && b.pick!=="X2";
+}
+const variants={
+  x2Strict:(x:Bet)=>keepX2(x),
+  weakLeagueGate:(x:Bet)=>keepWeakLeague(x),
+  combined:(x:Bet)=>keepX2(x)&&keepWeakLeague(x)
+};
+const evaluated=Object.fromEntries(Object.entries(variants).map(([name,fn])=>{
+  const tr=train.filter(fn),ho=hold.filter(fn);
+  return [name,{train:summarize(tr),holdout:summarize(ho),removed:{train:train.length-tr.length,holdout:hold.length-ho.length}}];
+}));
 console.log(JSON.stringify({
   split:{train:{start:"2026-04-08",end:trainEnd},holdout:{start:holdStart,end:"2026-10-04"}},
   weakTrainLeagues:[...weakTrainLeagues],
   v24:{train:summarize(train),holdout:summarize(hold)},
-  v25Candidate:{train:summarize(train25),holdout:summarize(hold25)},
-  removed:{train:train.length-train25.length,holdout:hold.length-hold25.length}
+  variants:evaluated
 },null,2));
