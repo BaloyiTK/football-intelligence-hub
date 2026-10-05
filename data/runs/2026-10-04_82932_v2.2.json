@@ -860,7 +860,15 @@
         "https://tipsterarea.com/statistics/spain/segunda-division",
         "https://www.laliga.com/en-US/match/temporada-2026-2027-laliga-hypermotion-cd-castellon-ad-ceuta-fc-8"
       ],
-      "researchTimestamp": "2026-10-04T18:17:10+02:00"
+      "researchTimestamp": "2026-10-04T18:17:10+02:00",
+      "actualScore": {
+        "home": 1,
+        "away": 1
+      },
+      "outcome": "WIN",
+      "resultSources": [
+        "https://www.betclan.com/livescoresless1/"
+      ]
     },
     {
       "leagueId": "esp-segunda",
@@ -923,7 +931,15 @@
         "https://tipsterarea.com/statistics/spain/segunda-division",
         "https://www.laliga.com/en-US/match/temporada-2026-2027-laliga-hypermotion-girona-fc-rcd-mallorca-8"
       ],
-      "researchTimestamp": "2026-10-04T18:17:10+02:00"
+      "researchTimestamp": "2026-10-04T18:17:10+02:00",
+      "actualScore": {
+        "home": 0,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "resultSources": [
+        "https://www.betclan.com/livescoresless1/"
+      ]
     },
     {
       "leagueId": "ned-eerste-divisie",
@@ -1002,6 +1018,14 @@
         "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
         "https://www.onlinebettingacademy.com/stats/competition/europe/1661",
         "https://www.tntsports.co.uk/football/uefa-nations-league/2026-2027/portugal-norway_mtc20005931/live-stats.shtml"
+      ],
+      "actualScore": {
+        "home": 2,
+        "away": 1
+      },
+      "outcome": "WIN",
+      "resultSources": [
+        "https://www.betclan.com/livescoresless1/"
       ]
     },
     {
@@ -1063,6 +1087,14 @@
         "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
         "https://www.onlinebettingacademy.com/stats/competition/europe/1661",
         "https://mundialoop.com/teams/ned/vs/srb"
+      ],
+      "actualScore": {
+        "home": 2,
+        "away": 1
+      },
+      "outcome": "WIN",
+      "resultSources": [
+        "https://www.betclan.com/livescoresless1/"
       ]
     },
     {
@@ -1097,6 +1129,14 @@
         "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
         "https://www.onlinebettingacademy.com/stats/competition/europe/1661",
         "https://www.tntsports.co.uk/football/uefa-nations-league/2026-2027/republic-of-ireland-israel_mtc20005873/live-stats.shtml"
+      ],
+      "actualScore": {
+        "home": 1,
+        "away": 1
+      },
+      "outcome": "WIN",
+      "resultSources": [
+        "https://www.betclan.com/livescoresless1/"
       ]
     },
     {
@@ -1131,6 +1171,14 @@
         "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
         "https://www.onlinebettingacademy.com/stats/competition/europe/1661",
         "https://dailysports.net/stat/football/germany-2-vs-greece-2/"
+      ],
+      "actualScore": {
+        "home": 0,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "resultSources": [
+        "https://www.betclan.com/livescoresless1/"
       ]
     },
     {
@@ -1165,6 +1213,14 @@
         "https://www.dimayor.com.co/",
         "https://www.soccerstats.com/table.asp?league=colombia2&tid=ha",
         "https://www.fotmob.com/en/matches/deportivo-pasto-vs-fortaleza-fc/e6xktdn"
+      ],
+      "actualScore": {
+        "home": 0,
+        "away": 0
+      },
+      "outcome": "LOSS",
+      "resultSources": [
+        "https://www.betclan.com/livescoresless1/"
       ]
     },
     {
@@ -1199,6 +1255,14 @@
         "https://www.dimayor.com.co/",
         "https://www.soccerstats.com/table.asp?league=colombia2&tid=ha",
         "https://last5games.com/matches/cucuta-deportivo-vs-deportivo-pereira-19712987/"
+      ],
+      "actualScore": {
+        "home": 4,
+        "away": 0
+      },
+      "outcome": "WIN",
+      "resultSources": [
+        "https://www.betclan.com/livescoresless1/"
       ]
     },
     {
@@ -1354,6 +1418,14 @@
         "https://www.beinsports.com/en-mena/football/friendlies/egypt-vs-south-africa-2026-10-04",
         "https://footystats.org/international/international-friendlies",
         "https://m.aiscore.com/head-to-head/soccer-egypt-vs-south-africa"
+      ],
+      "actualScore": {
+        "home": 0,
+        "away": 1
+      },
+      "outcome": "WIN",
+      "resultSources": [
+        "https://www.betclan.com/livescoresless1/"
       ]
     },
     {
@@ -1400,6 +1472,14 @@
         "https://www.footymetrics.com/leagues/51-liga-profesional-de-futbol",
         "https://shutli.com/en/match-detail/27587",
         "https://www.fotmob.com/matches/huracan-vs-aldosivi/6s3dgmp"
+      ],
+      "actualScore": {
+        "home": 1,
+        "away": 0
+      },
+      "outcome": "LOSS",
+      "resultSources": [
+        "https://www.betclan.com/livescoresless1/"
       ]
     },
     {
@@ -1435,6 +1515,14 @@
         "https://www.footymetrics.com/leagues/51-liga-profesional-de-futbol",
         "https://last5games.com/matches/belgrano-vs-talleres-cordoba-19636617/",
         "https://www.fotmob.com/en-GB/matches/belgrano-vs-talleres/3de9c6"
+      ],
+      "actualScore": {
+        "home": 0,
+        "away": 1
+      },
+      "outcome": "WIN",
+      "resultSources": [
+        "https://www.betclan.com/livescoresless1/"
       ]
     },
     {
@@ -1470,6 +1558,14 @@
         "https://www.footymetrics.com/leagues/51-liga-profesional-de-futbol",
         "https://last5games.com/matches/argentinos-juniors-vs-tigre-19636603/",
         "https://shutli.com/en/match-detail/27579"
+      ],
+      "actualScore": {
+        "home": 2,
+        "away": 1
+      },
+      "outcome": "WIN",
+      "resultSources": [
+        "https://www.betclan.com/livescoresless1/"
       ]
     },
     {
@@ -1505,6 +1601,14 @@
         "https://www.footymetrics.com/leagues/51-liga-profesional-de-futbol",
         "https://last5games.com/head-to-head/estudiantes-de-rio-cuarto-vs-racing-club/3608-12186/",
         "https://fbref.com/en/squads/8277fe2e/2026/matchlogs/all_comps/schedule/Estudiantes-de-Rio-Cuarto-Scores-and-Fixtures-All-Competitions"
+      ],
+      "actualScore": {
+        "home": 1,
+        "away": 2
+      },
+      "outcome": "WIN",
+      "resultSources": [
+        "https://www.betclan.com/livescoresless1/"
       ]
     }
   ],
@@ -1539,5 +1643,13 @@
       "leagueId": "international-friendlies",
       "stage": "exhaustive-fixture-discovery"
     }
+  },
+  "resultAudit": {
+    "gradedAt": "2026-10-05T06:03:09.565Z",
+    "recommendedBetsGraded": 13,
+    "wins": 11,
+    "losses": 2,
+    "hitRate": 84.6,
+    "note": "Frozen predictions graded after final-score verification; Talleres-Belgrano source score conflict does not affect Under 3.5 outcome."
   }
 }
