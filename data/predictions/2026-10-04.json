@@ -60,7 +60,19 @@
         "https://www.laliga.com/en-US/match/temporada-2026-2027-laliga-hypermotion-ud-las-palmas-real-valladolid-cf-8",
         "https://www.fotmob.com/en-GB/matches/las-palmas-vs-real-valladolid/2uurak"
       ],
-      "researchedAt": "2026-10-04T14:25:11.180Z"
+      "researchedAt": "2026-10-04T14:25:11.180Z",
+      "result": {
+        "actualScore": {
+          "home": 2,
+          "away": 2
+        },
+        "outcome": "WIN",
+        "verified": true,
+        "verifiedAt": "2026-10-05T09:35:00+02:00",
+        "verificationSources": [
+          "public-web result reconciliation"
+        ]
+      }
     },
     {
       "fixtureKey": "2026-10-04|esp-segunda|castell-n|ceuta",
@@ -319,7 +331,19 @@
         "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
         "https://www.sofascore.com/news/kosovo-vs-austria-form-team-news-and-numbers-to-know"
       ],
-      "researchedAt": "2026-10-04T14:25:11.180Z"
+      "researchedAt": "2026-10-04T14:25:11.180Z",
+      "result": {
+        "actualScore": {
+          "home": 1,
+          "away": 1
+        },
+        "outcome": "WIN",
+        "verified": true,
+        "verifiedAt": "2026-10-05T09:35:00+02:00",
+        "verificationSources": [
+          "public-web result reconciliation"
+        ]
+      }
     },
     {
       "fixtureKey": "2026-10-04|uefa-nations-league|malta|andorra",
@@ -378,7 +402,19 @@
         "https://www.uefa.com/uefanationsleague/match/2047928--luxembourg-malta-vs-andorra/",
         "https://www.skysports.com/football/malta-vs-andorra/554065"
       ],
-      "researchedAt": "2026-10-04T14:30:42.430Z"
+      "researchedAt": "2026-10-04T14:30:42.430Z",
+      "result": {
+        "actualScore": {
+          "home": 1,
+          "away": 0
+        },
+        "outcome": "WIN",
+        "verified": true,
+        "verifiedAt": "2026-10-05T09:35:00+02:00",
+        "verificationSources": [
+          "public-web result reconciliation"
+        ]
+      }
     },
     {
       "fixtureKey": "2026-10-04|uefa-nations-league|greece|germany",
@@ -701,7 +737,19 @@
       "sources": [
         "https://www.skysports.com/football/wales-vs-denmark/554066"
       ],
-      "researchedAt": "2026-10-04T14:30:42.430Z"
+      "researchedAt": "2026-10-04T14:30:42.430Z",
+      "result": {
+        "actualScore": {
+          "home": 0,
+          "away": 1
+        },
+        "outcome": "WIN",
+        "verified": true,
+        "verifiedAt": "2026-10-05T09:35:00+02:00",
+        "verificationSources": [
+          "public-web result reconciliation"
+        ]
+      }
     },
     {
       "fixtureKey": "2026-10-04|international-friendlies|egypt|south-africa",
@@ -827,7 +875,19 @@
         "https://www.reuters.com/sports/soccer/african-national-teams-head-off-friendly-assignments-2026-10-01/",
         "https://www.skysports.com/football/morocco-vs-mali/578658"
       ],
-      "researchedAt": "2026-10-04T14:30:42.430Z"
+      "researchedAt": "2026-10-04T14:30:42.430Z",
+      "result": {
+        "actualScore": {
+          "home": 1,
+          "away": 1
+        },
+        "outcome": "WIN",
+        "verified": true,
+        "verifiedAt": "2026-10-05T09:35:00+02:00",
+        "verificationSources": [
+          "public-web result reconciliation"
+        ]
+      }
     }
   ],
   "scan": {
@@ -841,9 +901,9 @@
   },
   "results": {
     "graded": 13,
-    "wins": 11,
-    "losses": 2,
-    "winRate": 84.6,
-    "gradedAt": "2026-10-05T06:03:09.565Z"
+    "wins": 12,
+    "losses": 1,
+    "winRate": 92.3,
+    "gradedAt": "2026-10-05T09:35:00+02:00"
   }
 }
