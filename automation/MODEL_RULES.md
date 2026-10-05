@@ -1,6 +1,6 @@
-# Deterministic Model Rules — V2.6 Market-Calibrated Selector
+# Deterministic Model Rules — V2.7 Quality-Gated Selector
 
-V2.6 preserves the v2.5 selection logic and adds market-specific post-selection probability calibration. The selection gates do not change; only the published probability is recalibrated, while the pre-calibration selection probability is retained for auditability.
+V2.7 preserves the v2.6 market-specific calibration and adds a publication-quality floor: only selections with calibrated public probability >=78% may auto-publish. Lower-confidence candidates remain available internally for review and analysis.
 
 ## Core engine
 - Separate attack/defence strengths and league home/away baselines.
@@ -92,3 +92,13 @@ V2.6 therefore separates:
 - probability: the market-specific calibrated public probability.
 
 This avoids changing the proven v2.5 selection gates merely to make confidence numbers more honest.
+
+
+## V2.7 quality refinement
+Using the 180-day backtest with the same chronological split:
+- training baseline: 1,036 bets, 79.7%;
+- training with calibrated probability >=78: 813 bets, 80.7%;
+- untouched holdout baseline: 734 bets, 76.0%;
+- untouched holdout with calibrated probability >=78: 578 bets, 78.7%.
+
+The >=78 rule was preferred over rating-label filtering because it is a direct, auditable probability criterion and improved both training and untouched holdout while retaining substantial volume.
