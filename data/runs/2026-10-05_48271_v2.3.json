@@ -2,7 +2,7 @@
   "runId": "2026-10-05_48271_v2.3",
   "date": "2026-10-05",
   "timezone": "Africa/Johannesburg",
-  "status": "complete",
+  "status": "blocked",
   "storagePolicy": "recommended-bets-only",
   "modelVersion": "v2.3-backtest-calibrated-selector",
   "researchCutoff": "2026-10-05T10:42:03+02:00",
@@ -1834,7 +1834,7 @@
   },
   "current": {
     "date": "2026-10-05",
-    "stage": "validation"
+    "stage": "strict-finalization"
   },
   "coverageGaps": [
     {
@@ -1850,5 +1850,7 @@
     "at": "2026-10-05T10:42:03+02:00",
     "result": "six-market-contract-executed",
     "note": "Repaired omitted Uganda-DR Congo NO_BET audit record. Public BET list remains 14 after Ecuador-Panama post-kickoff exclusion. All public model records carry the six approved market-family outputs."
-  }
+  },
+  "blocker": "Strict npm finalization could not be executed in the active environment: the local execution fallback cannot resolve github.com to materialize the repository, and no workflow run exists for the corrected artifact commits. Repository-level deterministic integrity checks show 61/61 complete, 16/16 terminal, and all 14 public BET records contain the six required market-family outputs.",
+  "resumeAction": "Execute npm run contract:verify, npm run model:preflight, npm run run:validate -- data/runs/2026-10-05_48271_v2.3.json, npm run run:finalize -- data/runs/2026-10-05_48271_v2.3.json, and npm run predictions:verify -- 2026-10-05 when an execution runner is available; preserve the corrected prediction and Uganda NO_BET audit records."
 }
