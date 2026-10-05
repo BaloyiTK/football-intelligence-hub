@@ -12,7 +12,36 @@
   "production": {
     "modelVersion": "v2.9-market-specific-quality-selector",
     "modelPath": "lib/model.ts",
-    "timezone": "Africa/Johannesburg"
+    "timezone": "Africa/Johannesburg",
+    "status": "locked",
+    "lockedBaseline": "v2.9",
+    "lockedOn": "2026-10-05",
+    "futureRuleChangesRequireNewModelVersion": true,
+    "oddsRole": "analysis-and-roi-only-not-publication-gate",
+    "validationBenchmark": {
+      "train": {
+        "start": "2026-04-08",
+        "end": "2026-08-05",
+        "bets": 374,
+        "wins": 313,
+        "losses": 61,
+        "hitRate": 83.7
+      },
+      "holdout": {
+        "start": "2026-08-06",
+        "end": "2026-10-04",
+        "bets": 310,
+        "wins": 251,
+        "losses": 59,
+        "hitRate": 81
+      },
+      "combined": {
+        "bets": 684,
+        "wins": 564,
+        "losses": 120,
+        "hitRate": 82.5
+      }
+    }
   },
   "pipeline": [
     "load-contract",
@@ -188,7 +217,9 @@
     "historicalBacktestMustReconstructPrematchEvidenceFromWeb": true,
     "repositoryHistoricalInputsAreNeverRequired": true,
     "marketSpecificPublicationGateRequired": true,
-    "publicProbabilityMustUseMarketSpecificCalibration": true
+    "publicProbabilityMustUseMarketSpecificCalibration": true,
+    "lockedV29BusinessRulesImmutable": true,
+    "oddsMustNotGateV29Publication": true
   },
   "selfCorrection": {
     "mayChangeExecutionPath": true,
