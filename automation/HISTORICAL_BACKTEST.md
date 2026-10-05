@@ -99,13 +99,12 @@ Report at minimum:
 If verified historical odds are available, ROI may be reported separately. Never invent odds.
 
 ## Output
-Save every backtest as a NEW file. Never overwrite or reuse an earlier run.
+Use one canonical backtest file per requested date range. A fresh backtest always starts from scratch and overwrites the canonical file for that period.
 
 Filename format:
-`data/backtests/YYYY-MM-DD_to_YYYY-MM-DD_<5DIGIT>_vMODEL.json`
+`data/backtests/YYYY-MM-DD_to_YYYY-MM-DD.json`
 
-The 5-digit run ID must be newly generated for each requested backtest, including reruns of the same period. Example:
-`data/backtests/2026-09-27_to_2026-10-03_48317_v2.2.json`
+If the canonical file already exists, reset it before processing. Use `--resume` only when explicitly continuing the same interrupted run. A new user-requested backtest must not inherit prior checkpoints, fixtures, metrics, or conclusions from an older run.
 
 The report must contain:
 - `status: "complete"` only after the completion rule is satisfied.
@@ -138,7 +137,7 @@ After a complete run, identify recurring failure patterns. Candidate parameter c
 When the user asks for a backtest, treat the request as a complete execution task, not as a request for methodology or a partial sample.
 
 Required sequence:
-1. Generate a new unique 5-digit run ID and create a NEW report file for the requested period at the start of execution with `status: "in-progress"`. Never overwrite a previous backtest, even when the date range is identical.
+1. Create or reset the canonical report file for the requested period at the start of execution with `status: "in-progress"`. Every newly requested backtest starts from scratch and overwrites any existing canonical report for that exact period. Only an explicit resume operation may continue prior checkpoints.
 2. Execute the entire requested date range and configured league universe according to this file.
 3. During a long run, give progress updates using ONLY measured checkpoint data from the actual report/run. Never use illustrative, estimated, simulated or invented progress counters.
 4. Do not end the task merely because a progress update was shown. Continue execution in the same active run.
@@ -148,7 +147,7 @@ Required sequence:
 8. Any proposed model change must be evidence-based and tested against the same walk-forward sample plus a holdout before production promotion.
 9. Save the complete audit, aggregate metrics, failure analysis and improvement candidates in the backtest file.
 
-If execution genuinely cannot be completed, leave the report `in-progress`, state exactly what blocked completion, and never imply that work continues after the active response ends.
+If execution genuinely cannot be completed, leave the canonical report `in-progress`, state exactly what blocked completion, and never imply that work continues after the active response ends.
 
 
 ## Execution architecture
