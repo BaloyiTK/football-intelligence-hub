@@ -23,9 +23,7 @@ for(const x of data.fixtures as any[]){
   const model=x.model;
   if(!model||!model.recommendedBet) throw new Error("Public prediction fixture missing recommendedBet: "+x.fixtureKey);
   if(model.modelVersion==="v2.3-backtest-calibrated-selector"){
-    const requiredSixFamilyFields=["home","draw","away","over15","under15","over25","under25","over35","under35","btts","bttsNo","doubleChance","home1Plus","away1Plus","likelyScores"];
-    for(const field of requiredSixFamilyFields) if(model[field]===undefined||model[field]===null) throw new Error("V2.3 fixture missing required six-market output "+field+": "+x.fixtureKey);
-    if(!Array.isArray(model.likelyScores)||model.likelyScores.length===0) throw new Error("V2.3 fixture missing Correct Score forecast: "+x.fixtureKey);
+    for(const field of ["home","draw","away"]) if(model[field]===undefined||model[field]===null) throw new Error("V2.3 fixture missing required 1X2 output "+field+": "+x.fixtureKey);
   }
   const supportedModelVersions=new Set(["v2.1-dixon-coles-market-selector","v2.2-backtest-calibrated-selector","v2.3-backtest-calibrated-selector"]);
   if(!supportedModelVersions.has(model.modelVersion)) throw new Error("Unexpected modelVersion: "+x.fixtureKey);
@@ -34,25 +32,15 @@ for(const x of data.fixtures as any[]){
   const bet=model.recommendedBet;
   const requiredBet=model.modelVersion==="v2.3-backtest-calibrated-selector"?requiredBetV23:requiredBetLegacy;
   for(const field of requiredBet) if(bet[field]===undefined||bet[field]===null||bet[field]==="") throw new Error(`recommendedBet missing ${field}: ${x.fixtureKey}`);
-  for(const field of ["probability"]) if(typeof bet[field]!=="number"||!Number.isFinite(bet[field])) throw new Error(`recommendedBet invalid ${field}: ${x.fixtureKey}`);
+  if(typeof bet.probability!=="number"||!Number.isFinite(bet.probability)) throw new Error("recommendedBet invalid probability: "+x.fixtureKey);
   if(bet.probability<0||bet.probability>100) throw new Error("recommendedBet probability out of range: "+x.fixtureKey);
   if(model.modelVersion==="v2.3-backtest-calibrated-selector"){
     for(const field of ["rawProbability","reliability"]) if(typeof bet[field]!=="number"||!Number.isFinite(bet[field])) throw new Error(`recommendedBet invalid ${field}: ${x.fixtureKey}`);
     if(bet.probability<68||bet.rawProbability<0||bet.rawProbability>100||bet.reliability<=0||bet.reliability>1) throw new Error("recommendedBet probability/reliability out of range: "+x.fixtureKey);
+    if(bet.market!=="1X2") throw new Error("Only 1X2 recommendations are approved: "+x.fixtureKey);
+    if(!["Home","Draw","Away"].includes(bet.pick)) throw new Error("Unapproved 1X2 pick: "+bet.pick+" "+x.fixtureKey);
   }
   if(!["Elite","Strong","Good"].includes(bet.rating)) throw new Error("Invalid recommendation rating: "+x.fixtureKey);
-  if(model.modelVersion==="v2.3-backtest-calibrated-selector"){
-    const approvedMarkets=new Set(["1X2","Total Goals","BTTS","Double Chance","Team Goals"]);
-    if(!approvedMarkets.has(bet.market)) throw new Error("Unapproved recommended market: "+x.fixtureKey);
-    const approvedPicks:Record<string,Set<string>>={
-      "1X2":new Set(["Home","Draw","Away"]),
-      "Total Goals":new Set(["Over 1.5","Under 1.5","Over 2.5","Under 2.5","Over 3.5","Under 3.5"]),
-      "BTTS":new Set(["Yes","No"]),
-      "Double Chance":new Set(["1X","X2"]),
-      "Team Goals":new Set(["Home 1+","Away 1+"])
-    };
-    if(!approvedPicks[bet.market]?.has(bet.pick)) throw new Error("Unapproved recommended market/pick: "+bet.market+" / "+bet.pick+" "+x.fixtureKey);
-  }
   if(x.recommendedBet&&JSON.stringify(x.recommendedBet)!==JSON.stringify(bet)) throw new Error("Top-level/model recommendedBet mismatch: "+x.fixtureKey);
 }
-console.log(JSON.stringify({date,fixtures:data.fixtures.length,recommended:data.fixtures.length,status:"publish-verified"}));
+console.log(JSON.stringify({date,fixtures:data.fixtures.length,recommended:data.fixtures.length,status:"publish-verified",market:"1X2"}));
