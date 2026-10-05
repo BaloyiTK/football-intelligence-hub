@@ -1,6 +1,6 @@
-# Deterministic Model Rules — V2.7 Quality-Gated Selector
+# Deterministic Model Rules — V2.8 Support-Quality Selector
 
-V2.7 preserves the v2.6 market-specific calibration and adds a publication-quality floor: only selections with calibrated public probability >=78% may auto-publish. Lower-confidence candidates remain available internally for review and analysis.
+V2.8 preserves the v2.7 calibrated >=78% publication floor and adds a support-quality requirement: the supporting market signal must clear its existing minimum by at least 5 percentage points. Candidates that fail this cushion remain internal REVIEW rather than auto-publish.
 
 ## Core engine
 - Separate attack/defence strengths and league home/away baselines.
@@ -102,3 +102,13 @@ Using the 180-day backtest with the same chronological split:
 - untouched holdout with calibrated probability >=78: 578 bets, 78.7%.
 
 The >=78 rule was preferred over rating-label filtering because it is a direct, auditable probability criterion and improved both training and untouched holdout while retaining substantial volume.
+
+
+## V2.8 support-margin refinement
+Using the v2.7 180-day result with the same chronological split:
+- training baseline: 824 bets, 80.5%;
+- training with support margin >=5pp: 579 bets, 80.7%;
+- untouched holdout baseline: 589 bets, 78.8%;
+- untouched holdout with support margin >=5pp: 429 bets, 79.3%.
+
+A weak-league-specific layer reached a slightly higher holdout result, but it was not promoted because hard-coded league identities are more prone to overfitting. The generic support-margin rule was preferred.
