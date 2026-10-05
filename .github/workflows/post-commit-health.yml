@@ -26,6 +26,9 @@ jobs:
       - name: Build application
         run: npm run build
 
+      - name: Exercise model training pipeline
+        run: npm run model:train
+
       - name: Validate changed FIH artifacts
         if: github.event_name == 'push'
         shell: bash
