@@ -13,8 +13,8 @@ The trainer:
 - optimizes a bounded probability-calibration temperature on chronological training data only;
 - evaluates the selected calibration on the untouched newest 20% holdout;
 - performs expanding-window walk-forward calibration, fitting each step only on observations strictly earlier than the scored observation;
-- filters current-production evaluation to 1X2 recommendations only; legacy non-1X2 records remain immutable historical audit data and must not drive current promotion decisions;
-- reports performance by 1X2 pick (Home/Draw/Away), rating and evidence/model level;
+- filters current-production evaluation to v2.3.1-supported-selector recommendations and reports support-gated derivative picks separately from direct 1X2 picks; legacy records remain immutable historical audit data;
+- reports performance by pick, support-gate type, rating and evidence/model level;
 - writes `data/training/candidate-v2.4.json`;
 - appends an immutable JSONL event to `data/training/training-log.jsonl`.
 
