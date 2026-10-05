@@ -13,6 +13,20 @@ Backtests are INTERNAL model validation. They are never added to the public dail
 - Production calculation code: `lib/model.ts`.
 - Model/research rules: `automation/MODEL_RULES.md` and `automation/RESEARCH_RULES.md`.
 
+## Daily-workflow equivalence and preflight
+A historical backtest is the daily prediction workflow replayed at a historical timestamp, followed by grading. Before creating or resuming a backtest, the agent MUST pre-read the full rule chain and current production model and confirm these invariants:
+- same worldwide fixture-discovery policy as the daily run;
+- same Full -> Standard -> Basic -> No Model research hierarchy;
+- same exact current `lib/model.ts`, market contract, thresholds and selector;
+- evidence cutoff strictly before kickoff;
+- prediction frozen before the final result is consulted;
+- final result used only for grading;
+- verified graded BET records flow into the canonical training dataset after completion.
+
+Historical pre-match evidence MAY be reconstructed from the public web even when no prior FIH input file exists. Missing stored historical inputs are never a blocker by themselves. The agent must research the historical pre-kickoff state just as it researches the current pre-kickoff state for a daily prediction.
+
+If the repository runner is temporarily unavailable in the active tool path, do not stop merely because of that choice. Continue all research/evidence construction that can be completed safely, persist it, and use any other repository-approved deterministic execution path available. Block only if exact production-model execution/finalization is genuinely impossible after approved fallbacks; never replace the model with hand approximations.
+
 ## Mandatory execution loop
 Do not substitute a sample, selected leagues, or a convenient competition for the requested range.
 
