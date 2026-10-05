@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import {calculate,MODEL_VERSION} from "../lib/model";
 
-assert.equal(MODEL_VERSION,"v2.5-x2-risk-calibrated-selector");
+assert.equal(MODEL_VERSION,"v2.6-market-calibrated-selector");
 
 const normal=calculate({
   homeAttack:1.55,awayAttack:.75,homeDefence:.70,awayDefence:1.35,
@@ -11,6 +11,7 @@ const normal=calculate({
 assert.equal(normal.modelVersion,MODEL_VERSION);
 assert.ok(normal.recommendedBet,"normal supported fixture should remain publishable");
 assert.equal(normal.recommendedBet?.publishable,true);
+assert.ok((normal.recommendedBet?.selectionProbability??0)>0,"v2.6 must retain the pre-public-calibration selection probability for auditability");
 assert.ok(["PUBLISH","WATCH"].includes(normal.recommendedBet?.selectionStatus??""));
 
 const extreme=calculate({
@@ -38,4 +39,4 @@ if(marketConflict.reviewBet){
   assert.ok(marketConflict.reviewBet.riskFlags.includes("extreme-market-divergence"));
 }
 
-console.log(JSON.stringify({status:"v2.5-tests-passed",modelVersion:MODEL_VERSION}));
+console.log(JSON.stringify({status:"v2.6-tests-passed",modelVersion:MODEL_VERSION}));
