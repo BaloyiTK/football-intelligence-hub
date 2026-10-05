@@ -13,12 +13,22 @@ Model level: Full 1.00, Standard 0.96, Basic 0.90.
 Sample depth: 8+ matches 1.00; 5–7 0.97; 3–4 0.92; 1–2 0.84.
 Combined factor affects both lambda shrinkage and recommendation reliability.
 
+## Approved prediction markets
+FIH predicts exactly these market families for every modelled fixture:
+1. Match Result (1X2): Home / Draw / Away
+2. Over/Under Goals: 1.5, 2.5 and 3.5 lines
+3. Both Teams to Score (BTTS): Yes / No
+4. Double Chance: 1X / X2 only; 12 is not an approved FIH market
+5. Team to Score 1+ Goal: Home 1+ / Away 1+
+6. Correct Score: most likely score plus alternatives; analytical prediction only, never the recommended betting market
+
+Training/calibration must report these market families separately. Do not introduce a new public betting market without updating this contract.
+
 ## One recommended market
 Correct score remains analytical only. Select at most one betting market or NO BET.
 
 Raw floors remain market-specific, but ranking is now by reliability-adjusted probability rather than raw probability.
 - 1X/X2 raw >=72
-- 12 >=75
 - O1.5 >=72
 - O2.5 >=68
 - U3.5 >=72, with a volatility penalty from recent O3.5 rate
