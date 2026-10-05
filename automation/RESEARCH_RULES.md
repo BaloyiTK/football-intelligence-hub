@@ -41,3 +41,16 @@ If venue splits or league baselines are unavailable, use each team's recent 5-10
 Use No Model only when reliable recent scoring/conceding evidence cannot be obtained for one or both teams, the fixture itself cannot be verified, or the match has already started/finished before research is completed. Record the exact reason.
 
 The agent must try Full, then Standard, then Basic before choosing No Model.
+
+## Deterministic Basic ModelInput builder
+When a historical or live club fixture reaches Level C — Basic, derive ModelInput from completed matches that occurred strictly before the fixture kickoff:
+1. Use up to the team's latest 5 **venue-matched** league matches where available: home team's prior home matches and away team's prior away matches. If fewer than 3 venue-matched matches exist, fall back to up to 5 latest league matches overall and downgrade confidence accordingly.
+2. Compute the contemporaneous league baseline from all completed league matches strictly before kickoff: `leagueHomeGoals = total home goals / matches`, `leagueAwayGoals = total away goals / matches`.
+3. `homeAttack = homeTeamAvgGoalsScored / leagueHomeGoals`.
+4. `homeDefence = homeTeamAvgGoalsConceded / leagueAwayGoals`.
+5. `awayAttack = awayTeamAvgGoalsScored / leagueAwayGoals`.
+6. `awayDefence = awayTeamAvgGoalsConceded / leagueHomeGoals`.
+7. Set `sampleSize` to the smaller usable team sample and `modelLevel: "basic"`. Never use the fixture being predicted or any later match in these calculations.
+8. If a denominator is zero or fewer than 3 reliable prior matches are available after fallback, do not invent a strength value; continue the evidence hierarchy toward NO MODEL.
+
+For international/friendly fixtures where home/away venue splits are not meaningful, use the latest 5 senior international matches for each team before kickoff, with competition-level scoring baselines when reconstructable; otherwise retain the existing Basic/NO MODEL hierarchy.
