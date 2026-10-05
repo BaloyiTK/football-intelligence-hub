@@ -12,7 +12,7 @@ if(fs.existsSync(dir)) for(const name of fs.readdirSync(dir).filter(x=>x.endsWit
   const byKey=new Map((current.fixtures??[]).map((x:any)=>[x.fixtureKey,x]));
   for(const f of freeze.fixtures??[]){
     const now:any=byKey.get(f.fixtureKey);
-    const score=parseScore(now?.result?.score??now?.result?.finalScore??now?.result);
+    const score=parseScore(now?.result?.actualScore??now?.result?.score??now?.result?.finalScore??now?.result);
     if(!score) continue;
     const grade=gradeBet(f.prediction.recommendedBet,score);
     rows.push({date:freeze.date,fixtureKey:f.fixtureKey,pick:f.prediction.recommendedBet.pick,probability:f.prediction.recommendedBet.probability,grade});
