@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { gradeBet, parseScore } from "../lib/grading";
 
-type VerifiedResult={fixtureKey:string;actualScore:{home:number;away:number};sources?:string[];verifiedAt?:string};
+type ReconciliationResult={fixtureKey:string;actualScore?:{home:number;away:number};sources?:string[];verifiedAt?:string;status?:string;attemptedSources?:string[];verificationAttemptedAt?:string};
 const date=process.argv[2], input=process.argv[3];
 if(!date||!/^\d{4}-\d{2}-\d{2}$/.test(date)||!input) throw new Error("Usage: npm run results:reconcile -- YYYY-MM-DD <verified-results.json>");
 const predictionPath=path.join(process.cwd(),"data","predictions",date+".json");
@@ -10,19 +10,28 @@ if(!fs.existsSync(predictionPath)) throw new Error("Prediction archive not found
 const archive=JSON.parse(fs.readFileSync(predictionPath,"utf8"));
 const before=JSON.stringify(archive.fixtures.map((f:any)=>({fixtureKey:f.fixtureKey,leagueId:f.leagueId,league:f.league,homeTeam:f.homeTeam,awayTeam:f.awayTeam,kickoff:f.kickoff,model:f.model,recommendedBet:f.recommendedBet})));
 const payload=JSON.parse(fs.readFileSync(path.resolve(input),"utf8"));
-const rows:VerifiedResult[]=Array.isArray(payload)?payload:payload.results;
+const rows:ReconciliationResult[]=Array.isArray(payload)?payload:payload.results;
 if(!Array.isArray(rows)) throw new Error("Verified results input must be an array or {results:[...]}");
 const byKey=new Map(rows.map(r=>[r.fixtureKey,r]));
 let updated=0;
 for(const f of archive.fixtures){
  const r=byKey.get(f.fixtureKey); if(!r) continue;
- const score=parseScore(r.actualScore); if(!score) throw new Error("Invalid score for "+f.fixtureKey);
  const bet=f.recommendedBet??f.model?.recommendedBet;
  if(!bet) continue;
- const sources=Array.isArray(r.sources)?r.sources.filter(Boolean):[];
- if(sources.length===0) throw new Error("Verified result requires at least one source: "+f.fixtureKey);
- const outcome=gradeBet(bet,score);
- f.result={actualScore:score,outcome,verifiedAt:r.verifiedAt??new Date().toISOString(),sources};
+ const score=parseScore(r.actualScore);
+ if(score){
+   const sources=Array.isArray(r.sources)?r.sources.filter(Boolean):[];
+   if(sources.length===0) throw new Error("Verified result requires at least one source: "+f.fixtureKey);
+   const outcome=gradeBet(bet,score);
+   f.result={actualScore:score,outcome,verifiedAt:r.verifiedAt??new Date().toISOString(),sources};
+   updated++;
+   continue;
+ }
+ const pending=String(r.status??"").toUpperCase()==="PENDING";
+ if(!pending) throw new Error("Unresolved result must declare status PENDING: "+f.fixtureKey);
+ const attemptedSources=(Array.isArray(r.attemptedSources)?r.attemptedSources:r.sources)?.filter(Boolean)??[];
+ if(attemptedSources.length===0) throw new Error("Pending result requires at least one attempted source: "+f.fixtureKey);
+ f.result={status:"PENDING",verificationAttemptedAt:r.verificationAttemptedAt??r.verifiedAt??new Date().toISOString(),attemptedSources};
  updated++;
 }
 const after=JSON.stringify(archive.fixtures.map((f:any)=>({fixtureKey:f.fixtureKey,leagueId:f.leagueId,league:f.league,homeTeam:f.homeTeam,awayTeam:f.awayTeam,kickoff:f.kickoff,model:f.model,recommendedBet:f.recommendedBet})));
