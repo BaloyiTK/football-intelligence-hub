@@ -9,7 +9,7 @@ function unflatten(input:any[]){
    const value=input[idx];
    if(value===null||typeof value!=="object") return value;
    seen.add(idx);
-   const out=Array.isArray(value)?[]:{};
+   const out:any=Array.isArray(value)?[]:{};
    hydrated[idx]=out;
    if(Array.isArray(value)) for(const x of value) out.push(hydrate(x));
    else for(const [k,v] of Object.entries(value)) out[k]=hydrate(v);
@@ -18,24 +18,21 @@ function unflatten(input:any[]){
  return hydrate(0);
 }
 async function main(){
+ const sm=await fetch("https://football-predictions.ai/sitemap.xml",{headers:{"user-agent":"Mozilla/5.0 FIH-Odds-Probe/1.0"}}).then(r=>r.text());
+ console.log("SITEMAP",sm.replace(/\s+/g," ").slice(0,5000));
  const url="https://football-predictions.ai/wanderers-vs-albion-fc-prediction-betting-tips-2026-09-28";
- const r=await fetch(url,{headers:{"user-agent":"Mozilla/5.0 FIH-Odds-Probe/1.0"}});
- const t=await r.text();
+ const t=await fetch(url,{headers:{"user-agent":"Mozilla/5.0 FIH-Odds-Probe/1.0"}}).then(r=>r.text());
  const m=t.match(/<script[^>]*type=["']application\/json["'][^>]*>([\s\S]*?)<\/script>/i);
  if(!m) throw new Error("no payload");
- const flat=JSON.parse(m[1]);
- const root=unflatten(flat);
- console.log("ROOT_KEYS",Object.keys(root||{}));
- const found:any[]=[]; const visited=new Set<any>();
- const walk=(x:any,path:string)=>{
-   if(!x||typeof x!=="object"||visited.has(x)||found.length>100)return;visited.add(x);
-   if(typeof x.label==="string" && /Double Chance|Over\/Under|Goals Over\/Under/i.test(x.label)){
-     found.push({path,label:x.label,values:x.values});
+ const root=unflatten(JSON.parse(m[1]));
+ const data=(root as any)?.[1]?.data?.[1]??{};
+ const match=Object.values(data).find((x:any)=>x&&x.odds) as any;
+ console.log("ODDS_KEYS",Object.keys(match?.odds??{}));
+ for(const k of Object.keys(match?.odds??{})){
+   const market=match.odds[k];
+   if(/double|over|under|goal/i.test(k)||/Double Chance|Over\/Under|Goals/i.test(market?.label??"")){
+     console.log("MARKET",k,JSON.stringify(market));
    }
-   for(const [k,v] of Object.entries(x)) walk(v,path+"."+k);
- };
- walk(root,"$");
- console.log("FOUND_COUNT",found.length);
- for(const x of found.slice(0,50)) console.log("FOUND",JSON.stringify(x));
+ }
 }
 main().catch(e=>{console.error(e);process.exit(1)});
