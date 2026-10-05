@@ -3,9 +3,9 @@
 Research every verified upcoming fixture. The goal is to produce the strongest defensible pre-match model possible from public evidence, not to require premium statistics before modelling.
 
 ## Market scope
-Research must support only the authoritative FIH prediction market in `MODEL_RULES.md`: Match Result (1X2) — Home / Draw / Away. Do not produce or recommend any other market.
+Research must support the authoritative FIH recommendation scope in `MODEL_RULES.md`: 1X2, Over 1.5 with Over 2.5 support, and Double Chance 1X/X2 with Home/Away win support.
 
-Research inputs such as goals, xG, form, venue splits, table context, H2H and team news may still be used when they improve the 1X2 estimate; they are evidence inputs, not separate prediction markets.
+Research inputs such as goals, xG, form, venue splits, table context, H2H and team news must support both the primary recommendation and any required underlying support signal.
 
 ## Research targets
 Collect where available:
