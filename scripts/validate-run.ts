@@ -4,6 +4,17 @@ if(!file)throw new Error("Usage: npm run run:validate -- <run-file> [--finalize]
 const r=JSON.parse(fs.readFileSync(file,"utf8")),root=process.cwd(),configured=(JSON.parse(fs.readFileSync(path.join(root,"data/leagues.json"),"utf8")).leagues as any[]).map(x=>x.id);
 const terminal=new Set(["BET","NO_BET","NO_MODEL","WIN","LOSS"]),allowedLeague=new Set(["pending","discovering","researching","processing","complete","blocked"]);
 const errors:string[]=[],warnings:string[]=[],scan=r.leagueScan??[],fixtures=r.fixtures??[];
+const contract=JSON.parse(fs.readFileSync(path.join(root,"automation/FIH_CONTRACT.json"),"utf8"));
+const mandatoryStages:string[]=contract.pipeline??[];
+const stageManifest=r.pipelineManifest;
+if(finalize){
+ if(!stageManifest||typeof stageManifest!=="object") errors.push("Missing mandatory pipelineManifest");
+ else for(const stage of mandatoryStages){
+   const entry=stageManifest[stage];
+   if(!entry) errors.push("Missing pipeline stage checkpoint: "+stage);
+   else if(!["passed","complete","skipped-not-applicable"].includes(String(entry.status??"").toLowerCase())) errors.push("Pipeline stage not terminal: "+stage+" status="+String(entry.status??"missing"));
+ }
+}
 if(!Array.isArray(r.leagueScan)||!Array.isArray(r.fixtures))errors.push("Missing leagueScan/fixtures arrays");
 const ids=scan.map((x:any)=>x.leagueId),missing=configured.filter(x=>!ids.includes(x)),extra=ids.filter((x:string)=>!configured.includes(x));
 if(missing.length)errors.push("Missing configured leagues: "+missing.join(", "));
