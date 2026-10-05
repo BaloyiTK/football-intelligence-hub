@@ -41,7 +41,13 @@ If execution deviates from the contract, a validation step fails, a tool path is
 6. Resume execution immediately from the first non-terminal item.
 7. Repeat until strict finalization succeeds or every approved fallback is genuinely unavailable.
 
-A run-level blocker is allowed only when ALL applicable approved execution paths have been attempted or are unavailable and continuing would require fabrication, future leakage, or unsafe mutation. "I used the wrong approach", "the preferred runner is unavailable", "research is large", "stored evidence is missing", and "a progress update was emitted" are NEVER sufficient blocker reasons by themselves.
+A run-level blocker is allowed only when ALL applicable approved execution paths have been attempted or are unavailable and continuing would require fabrication, future leakage, or unsafe mutation.
+
+### Locked backtest continuation invariant
+- Once a user-requested historical backtest starts, the assistant MUST NOT end execution merely because some fixtures lack stored inputs, a source fails, a model returns NO BET/NO MODEL, the preferred runner is unavailable, or a progress response was emitted.
+- Fixture-local failures are terminalized as NO MODEL after the mandated research/repair hierarchy, then execution continues to the next fixture/checkpoint.
+- The run continues until every requested date × configured-league checkpoint is terminal and strict completion metrics can be produced.
+- A response boundary is never a backtest execution boundary. "I used the wrong approach", "the preferred runner is unavailable", "research is large", "stored evidence is missing", and "a progress update was emitted" are NEVER sufficient blocker reasons by themselves.
 
 ## Worldwide coverage policy
 - FIH targets worldwide senior football coverage. The configured competition universe is dynamic and MUST NOT be constrained by a hard-coded league count.
