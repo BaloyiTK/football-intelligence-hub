@@ -140,3 +140,14 @@ When fixture, date, competition, team, result, or evidence data conflicts, looks
 6. Continue from the corrected cursor automatically; a correction is NOT a stopping condition.
 7. Only persist status=blocked after all reasonable repair paths above have actually been attempted and the unresolved fact is necessary to model or grade safely. Persist attempted sources and exact unresolved fact.
 8. Never invent missing data merely to avoid a blocker.
+
+
+## Mandatory website publication gate
+A daily run is not operationally delivered until its prediction artifact is published and verified.
+1. After freezing eligible BET records, write `data/predictions/YYYY-MM-DD.json` for the run date. The website must never depend on a hard-coded dated import.
+2. If a full payload write is rejected, retry by reducing the payload to the website-required frozen fields; if the storage mechanism supports chunking, persist in bounded chunks and assemble/verify the final artifact. A large-write rejection is a transient publication failure, not permission to discard already-frozen BET records.
+3. Run `npm run predictions:verify -- YYYY-MM-DD` after publication. The artifact date must match, fixtures must be an array, and every published recommendation must have a fixture identity, teams and recommended pick.
+4. Re-read the published artifact after writing and compare its recommendation count with the frozen publishable BET count. A mismatch is a publication failure and must be retried/blocked explicitly.
+5. Run completion and website delivery are separate fields. Persist publication status/cursor when possible. Never report predictions as published merely because modelling completed.
+6. If publication remains blocked after bounded retries, keep the frozen predictions accessible as PARTIAL and persist the exact publication blocker. Never replace them with fabricated data.
+7. The homepage must select the latest successfully published dated artifact automatically; adding a new date must not require editing application source code.
