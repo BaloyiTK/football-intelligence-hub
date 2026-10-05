@@ -5,7 +5,9 @@ const r=JSON.parse(fs.readFileSync(file,"utf8")),root=process.cwd(),configured=(
 const terminal=new Set(["BET","NO_BET","NO_MODEL","WIN","LOSS"]),allowedLeague=new Set(["pending","discovering","researching","processing","complete","blocked"]);
 const errors:string[]=[],warnings:string[]=[],scan=r.leagueScan??[],fixtures=r.fixtures??[];
 const contract=JSON.parse(fs.readFileSync(path.join(root,"automation/FIH_CONTRACT.json"),"utf8"));
-const mandatoryStages:string[]=contract.pipeline??[];
+const pipelineStages:string[]=contract.pipeline??[];
+const finalizeIndex=pipelineStages.indexOf("finalize");
+const mandatoryStages:string[]=finalizeIndex>=0?pipelineStages.slice(0,finalizeIndex):pipelineStages;
 const stageManifest=r.pipelineManifest;
 if(finalize){
  if(!stageManifest||typeof stageManifest!=="object") errors.push("Missing mandatory pipelineManifest");
