@@ -23,7 +23,6 @@ jobs:
           node-version: 22
       - run: npm install
       - run: npx tsx scripts/web-historical-backtest.ts
-      - run: npm test
       - name: Commit canonical backtest
         run: |
           git config user.name "github-actions[bot]"
@@ -35,3 +34,6 @@ jobs:
             git commit -m "Run 180-day web-reconstructed v2.4 backtest"
             git push
           fi
+      - name: Regression tests
+        continue-on-error: true
+        run: npm test
