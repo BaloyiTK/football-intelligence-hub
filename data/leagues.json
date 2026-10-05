@@ -1,68 +1,395 @@
 {
-  "version": 1,
-  "purpose": "League universe for autonomous fixture discovery and web research",
-  "updated": "2026-10-04",
+  "version": 2,
+  "purpose": "Expandable worldwide senior football competition registry for autonomous fixture discovery, research and modelling",
+  "updated": "2026-10-05",
   "leagues": [
-    {"id":"eng-premier-league","country":"England","name":"Premier League","tier":1},
-    {"id":"eng-championship","country":"England","name":"Championship","tier":2},
-    {"id":"eng-league-one","country":"England","name":"League One","tier":3},
-    {"id":"eng-league-two","country":"England","name":"League Two","tier":4},
-    {"id":"esp-la-liga","country":"Spain","name":"La Liga","tier":1},
-    {"id":"esp-segunda","country":"Spain","name":"Segunda Division","tier":2},
-    {"id":"ita-serie-a","country":"Italy","name":"Serie A","tier":1},
-    {"id":"ita-serie-b","country":"Italy","name":"Serie B","tier":2},
-    {"id":"ger-bundesliga","country":"Germany","name":"Bundesliga","tier":1},
-    {"id":"ger-2-bundesliga","country":"Germany","name":"2. Bundesliga","tier":2},
-    {"id":"fra-ligue-1","country":"France","name":"Ligue 1","tier":1},
-    {"id":"fra-ligue-2","country":"France","name":"Ligue 2","tier":2},
-    {"id":"ned-eredivisie","country":"Netherlands","name":"Eredivisie","tier":1},
-    {"id":"ned-eerste-divisie","country":"Netherlands","name":"Eerste Divisie","tier":2},
-    {"id":"por-primeira-liga","country":"Portugal","name":"Primeira Liga","tier":1},
-    {"id":"bel-pro-league","country":"Belgium","name":"Belgian Pro League","tier":1},
-    {"id":"sco-premiership","country":"Scotland","name":"Scottish Premiership","tier":1},
-    {"id":"tur-super-lig","country":"Turkey","name":"Super Lig","tier":1},
-    {"id":"gre-super-league","country":"Greece","name":"Super League Greece","tier":1},
-    {"id":"aut-bundesliga","country":"Austria","name":"Austrian Bundesliga","tier":1},
-    {"id":"sui-super-league","country":"Switzerland","name":"Swiss Super League","tier":1},
-    {"id":"den-superliga","country":"Denmark","name":"Danish Superliga","tier":1},
-    {"id":"nor-eliteserien","country":"Norway","name":"Eliteserien","tier":1},
-    {"id":"swe-allsvenskan","country":"Sweden","name":"Allsvenskan","tier":1},
-    {"id":"fin-veikkausliiga","country":"Finland","name":"Veikkausliiga","tier":1},
-    {"id":"pol-ekstraklasa","country":"Poland","name":"Ekstraklasa","tier":1},
-    {"id":"cze-first-league","country":"Czech Republic","name":"Czech First League","tier":1},
-    {"id":"cro-hnl","country":"Croatia","name":"HNL","tier":1},
-    {"id":"ser-superliga","country":"Serbia","name":"Serbian SuperLiga","tier":1},
-    {"id":"rou-liga-1","country":"Romania","name":"Liga I","tier":1},
-    {"id":"ukr-premier-league","country":"Ukraine","name":"Ukrainian Premier League","tier":1},
-    {"id":"uefa-champions-league","country":"Europe","name":"UEFA Champions League","tier":0},
-    {"id":"uefa-europa-league","country":"Europe","name":"UEFA Europa League","tier":0},
-    {"id":"uefa-conference-league","country":"Europe","name":"UEFA Conference League","tier":0},
-    {"id":"uefa-nations-league","country":"Europe","name":"UEFA Nations League","tier":0},
-    {"id":"uefa-euro","country":"Europe","name":"UEFA European Championship","tier":0},
-    {"id":"conmebol-libertadores","country":"South America","name":"Copa Libertadores","tier":0},
-    {"id":"conmebol-sudamericana","country":"South America","name":"Copa Sudamericana","tier":0},
-    {"id":"bra-serie-a","country":"Brazil","name":"Serie A","tier":1},
-    {"id":"bra-serie-b","country":"Brazil","name":"Serie B","tier":2},
-    {"id":"arg-primera","country":"Argentina","name":"Primera Division","tier":1},
-    {"id":"usa-mls","country":"United States","name":"Major League Soccer","tier":1},
-    {"id":"mex-liga-mx","country":"Mexico","name":"Liga MX","tier":1},
-    {"id":"col-primera-a","country":"Colombia","name":"Categoria Primera A","tier":1},
-    {"id":"jpn-j1","country":"Japan","name":"J1 League","tier":1},
-    {"id":"jpn-j2","country":"Japan","name":"J2 League","tier":2},
-    {"id":"kor-k1","country":"South Korea","name":"K League 1","tier":1},
-    {"id":"chn-super-league","country":"China","name":"Chinese Super League","tier":1},
-    {"id":"aus-a-league","country":"Australia","name":"A-League Men","tier":1},
-    {"id":"ksa-pro-league","country":"Saudi Arabia","name":"Saudi Pro League","tier":1},
-    {"id":"qat-stars-league","country":"Qatar","name":"Qatar Stars League","tier":1},
-    {"id":"uae-pro-league","country":"United Arab Emirates","name":"UAE Pro League","tier":1},
-    {"id":"rsa-premiership","country":"South Africa","name":"Betway Premiership","tier":1},
-    {"id":"rsa-first-division","country":"South Africa","name":"Motsepe Foundation Championship","tier":2},
-    {"id":"egy-premier-league","country":"Egypt","name":"Egyptian Premier League","tier":1},
-    {"id":"mar-botola","country":"Morocco","name":"Botola Pro","tier":1},
-    {"id":"tun-ligue-1","country":"Tunisia","name":"Tunisian Ligue Professionnelle 1","tier":1},
-    {"id":"caf-champions-league","country":"Africa","name":"CAF Champions League","tier":0},
-    {"id":"caf-confederation-cup","country":"Africa","name":"CAF Confederation Cup","tier":0},
-    {"id":"fifa-world-cup","country":"International","name":"FIFA World Cup","tier":0},
-    {"id":"international-friendlies","country":"International","name":"International Friendlies","tier":0}
-  ]
+    {
+      "id": "eng-premier-league",
+      "country": "England",
+      "name": "Premier League",
+      "tier": 1
+    },
+    {
+      "id": "eng-championship",
+      "country": "England",
+      "name": "Championship",
+      "tier": 2
+    },
+    {
+      "id": "eng-league-one",
+      "country": "England",
+      "name": "League One",
+      "tier": 3
+    },
+    {
+      "id": "eng-league-two",
+      "country": "England",
+      "name": "League Two",
+      "tier": 4
+    },
+    {
+      "id": "esp-la-liga",
+      "country": "Spain",
+      "name": "La Liga",
+      "tier": 1
+    },
+    {
+      "id": "esp-segunda",
+      "country": "Spain",
+      "name": "Segunda Division",
+      "tier": 2
+    },
+    {
+      "id": "ita-serie-a",
+      "country": "Italy",
+      "name": "Serie A",
+      "tier": 1
+    },
+    {
+      "id": "ita-serie-b",
+      "country": "Italy",
+      "name": "Serie B",
+      "tier": 2
+    },
+    {
+      "id": "ger-bundesliga",
+      "country": "Germany",
+      "name": "Bundesliga",
+      "tier": 1
+    },
+    {
+      "id": "ger-2-bundesliga",
+      "country": "Germany",
+      "name": "2. Bundesliga",
+      "tier": 2
+    },
+    {
+      "id": "fra-ligue-1",
+      "country": "France",
+      "name": "Ligue 1",
+      "tier": 1
+    },
+    {
+      "id": "fra-ligue-2",
+      "country": "France",
+      "name": "Ligue 2",
+      "tier": 2
+    },
+    {
+      "id": "ned-eredivisie",
+      "country": "Netherlands",
+      "name": "Eredivisie",
+      "tier": 1
+    },
+    {
+      "id": "ned-eerste-divisie",
+      "country": "Netherlands",
+      "name": "Eerste Divisie",
+      "tier": 2
+    },
+    {
+      "id": "por-primeira-liga",
+      "country": "Portugal",
+      "name": "Primeira Liga",
+      "tier": 1
+    },
+    {
+      "id": "bel-pro-league",
+      "country": "Belgium",
+      "name": "Belgian Pro League",
+      "tier": 1
+    },
+    {
+      "id": "sco-premiership",
+      "country": "Scotland",
+      "name": "Scottish Premiership",
+      "tier": 1
+    },
+    {
+      "id": "tur-super-lig",
+      "country": "Turkey",
+      "name": "Super Lig",
+      "tier": 1
+    },
+    {
+      "id": "gre-super-league",
+      "country": "Greece",
+      "name": "Super League Greece",
+      "tier": 1
+    },
+    {
+      "id": "aut-bundesliga",
+      "country": "Austria",
+      "name": "Austrian Bundesliga",
+      "tier": 1
+    },
+    {
+      "id": "sui-super-league",
+      "country": "Switzerland",
+      "name": "Swiss Super League",
+      "tier": 1
+    },
+    {
+      "id": "den-superliga",
+      "country": "Denmark",
+      "name": "Danish Superliga",
+      "tier": 1
+    },
+    {
+      "id": "nor-eliteserien",
+      "country": "Norway",
+      "name": "Eliteserien",
+      "tier": 1
+    },
+    {
+      "id": "swe-allsvenskan",
+      "country": "Sweden",
+      "name": "Allsvenskan",
+      "tier": 1
+    },
+    {
+      "id": "fin-veikkausliiga",
+      "country": "Finland",
+      "name": "Veikkausliiga",
+      "tier": 1
+    },
+    {
+      "id": "pol-ekstraklasa",
+      "country": "Poland",
+      "name": "Ekstraklasa",
+      "tier": 1
+    },
+    {
+      "id": "cze-first-league",
+      "country": "Czech Republic",
+      "name": "Czech First League",
+      "tier": 1
+    },
+    {
+      "id": "cro-hnl",
+      "country": "Croatia",
+      "name": "HNL",
+      "tier": 1
+    },
+    {
+      "id": "ser-superliga",
+      "country": "Serbia",
+      "name": "Serbian SuperLiga",
+      "tier": 1
+    },
+    {
+      "id": "rou-liga-1",
+      "country": "Romania",
+      "name": "Liga I",
+      "tier": 1
+    },
+    {
+      "id": "ukr-premier-league",
+      "country": "Ukraine",
+      "name": "Ukrainian Premier League",
+      "tier": 1
+    },
+    {
+      "id": "uefa-champions-league",
+      "country": "Europe",
+      "name": "UEFA Champions League",
+      "tier": 0
+    },
+    {
+      "id": "uefa-europa-league",
+      "country": "Europe",
+      "name": "UEFA Europa League",
+      "tier": 0
+    },
+    {
+      "id": "uefa-conference-league",
+      "country": "Europe",
+      "name": "UEFA Conference League",
+      "tier": 0
+    },
+    {
+      "id": "uefa-nations-league",
+      "country": "Europe",
+      "name": "UEFA Nations League",
+      "tier": 0
+    },
+    {
+      "id": "uefa-euro",
+      "country": "Europe",
+      "name": "UEFA European Championship",
+      "tier": 0
+    },
+    {
+      "id": "conmebol-libertadores",
+      "country": "South America",
+      "name": "Copa Libertadores",
+      "tier": 0
+    },
+    {
+      "id": "conmebol-sudamericana",
+      "country": "South America",
+      "name": "Copa Sudamericana",
+      "tier": 0
+    },
+    {
+      "id": "bra-serie-a",
+      "country": "Brazil",
+      "name": "Serie A",
+      "tier": 1
+    },
+    {
+      "id": "bra-serie-b",
+      "country": "Brazil",
+      "name": "Serie B",
+      "tier": 2
+    },
+    {
+      "id": "arg-primera",
+      "country": "Argentina",
+      "name": "Primera Division",
+      "tier": 1
+    },
+    {
+      "id": "usa-mls",
+      "country": "United States",
+      "name": "Major League Soccer",
+      "tier": 1
+    },
+    {
+      "id": "mex-liga-mx",
+      "country": "Mexico",
+      "name": "Liga MX",
+      "tier": 1
+    },
+    {
+      "id": "col-primera-a",
+      "country": "Colombia",
+      "name": "Categoria Primera A",
+      "tier": 1
+    },
+    {
+      "id": "jpn-j1",
+      "country": "Japan",
+      "name": "J1 League",
+      "tier": 1
+    },
+    {
+      "id": "jpn-j2",
+      "country": "Japan",
+      "name": "J2 League",
+      "tier": 2
+    },
+    {
+      "id": "kor-k1",
+      "country": "South Korea",
+      "name": "K League 1",
+      "tier": 1
+    },
+    {
+      "id": "chn-super-league",
+      "country": "China",
+      "name": "Chinese Super League",
+      "tier": 1
+    },
+    {
+      "id": "aus-a-league",
+      "country": "Australia",
+      "name": "A-League Men",
+      "tier": 1
+    },
+    {
+      "id": "ksa-pro-league",
+      "country": "Saudi Arabia",
+      "name": "Saudi Pro League",
+      "tier": 1
+    },
+    {
+      "id": "qat-stars-league",
+      "country": "Qatar",
+      "name": "Qatar Stars League",
+      "tier": 1
+    },
+    {
+      "id": "uae-pro-league",
+      "country": "United Arab Emirates",
+      "name": "UAE Pro League",
+      "tier": 1
+    },
+    {
+      "id": "rsa-premiership",
+      "country": "South Africa",
+      "name": "Betway Premiership",
+      "tier": 1
+    },
+    {
+      "id": "rsa-first-division",
+      "country": "South Africa",
+      "name": "Motsepe Foundation Championship",
+      "tier": 2
+    },
+    {
+      "id": "egy-premier-league",
+      "country": "Egypt",
+      "name": "Egyptian Premier League",
+      "tier": 1
+    },
+    {
+      "id": "mar-botola",
+      "country": "Morocco",
+      "name": "Botola Pro",
+      "tier": 1
+    },
+    {
+      "id": "tun-ligue-1",
+      "country": "Tunisia",
+      "name": "Tunisian Ligue Professionnelle 1",
+      "tier": 1
+    },
+    {
+      "id": "caf-champions-league",
+      "country": "Africa",
+      "name": "CAF Champions League",
+      "tier": 0
+    },
+    {
+      "id": "caf-confederation-cup",
+      "country": "Africa",
+      "name": "CAF Confederation Cup",
+      "tier": 0
+    },
+    {
+      "id": "fifa-world-cup",
+      "country": "International",
+      "name": "FIFA World Cup",
+      "tier": 0
+    },
+    {
+      "id": "international-friendlies",
+      "country": "International",
+      "name": "International Friendlies",
+      "tier": 0
+    }
+  ],
+  "coveragePolicy": {
+    "scope": "worldwide-senior",
+    "dynamic": true,
+    "registryIsCeiling": false,
+    "include": [
+      "verified senior domestic leagues/divisions",
+      "verified senior continental competitions",
+      "verified senior international competitions"
+    ],
+    "excludeByDefault": [
+      "youth",
+      "academy",
+      "reserve",
+      "U21",
+      "U23",
+      "club friendlies"
+    ],
+    "separateCategories": [
+      "women"
+    ],
+    "discoveryRule": "Record legitimate senior competitions found outside this registry as coverage-gap candidates for verification and later inclusion."
+  }
 }
