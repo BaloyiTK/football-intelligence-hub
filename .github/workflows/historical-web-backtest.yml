@@ -12,6 +12,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: historical-web-backtest-main
+  cancel-in-progress: true
+
 jobs:
   backtest:
     runs-on: ubuntu-latest
@@ -28,12 +32,15 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          cp data/backtests/2026-04-08_to_2026-10-04.json /tmp/fih-180-backtest.json
+          git fetch origin main
+          git reset --hard origin/main
+          cp /tmp/fih-180-backtest.json data/backtests/2026-04-08_to_2026-10-04.json
           git add data/backtests/2026-04-08_to_2026-10-04.json
           if git diff --cached --quiet; then
             echo "No backtest changes to commit"
           else
             git commit -m "Run 180-day web-reconstructed v2.4 backtest"
-            git pull --rebase origin main
             git push
           fi
       - name: Regression tests
