@@ -1740,7 +1740,7 @@
       "Correct Score"
     ],
     "publishableRecommendations": 14,
-    "refreshedAt": "2026-10-05T10:02:59+02:00",
+    "refreshedAt": "2026-10-05T10:29:59+02:00",
     "excludedAfterRecheck": [
       {
         "fixtureKey": "2026-10-05|international-friendlies|ecuador|panama",
@@ -1761,5 +1761,16 @@
         "https://www.livescores.com/football/2026-10-05/?tz=0"
       ]
     }
-  ]
+  ],
+  "refreshAudit": {
+    "at": "2026-10-05T10:29:59+02:00",
+    "result": "complete",
+    "note": "Fresh current-day discovery/status/evidence verification preserved the 14 still-prematch frozen recommendations. The 16-modelled/15-recommended counters include one internal NO BET; Ecuador-Panama remains excluded after kickoff.",
+    "verifiedUniverse": {
+      "uefaNationsLeague": 8,
+      "espSegunda": 1,
+      "internationalFriendlies": 6,
+      "argPrimeraWithinJohannesburgDate": 1
+    }
+  }
 }
