@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const MODEL_VERSION="v2.4-calibrated-risk-selector";
+const MODEL_VERSION="v2.9-market-specific-quality-selector";
 const date=process.argv[2]||new Date().toISOString().slice(0,10);
 const file=path.join(process.cwd(),"data","predictions",date+".json");
 if(!fs.existsSync(file)) throw new Error("Missing published prediction artifact: "+file);
@@ -26,7 +26,10 @@ for(const x of data.fixtures as any[]){
   const bet=model.recommendedBet;
   for(const field of ["market","pick","probability","rawProbability","reliability","rating","selectionStatus","publishable","riskFlags"]) if(bet[field]===undefined||bet[field]===null||bet[field]==="") throw new Error("recommendedBet missing "+field+": "+x.fixtureKey);
   if(bet.publishable!==true||!["PUBLISH","WATCH"].includes(bet.selectionStatus)) throw new Error("Non-publishable selection leaked: "+x.fixtureKey);
-  if(typeof bet.probability!=="number"||bet.probability<68) throw new Error("Calibrated probability below floor: "+x.fixtureKey);
+  if(typeof bet.probability!=="number"||typeof bet.selectionProbability!=="number") throw new Error("Missing calibrated probabilities: "+x.fixtureKey);
+  const publishFloor=bet.pick==="1X"?82:78;
+  if(bet.probability<publishFloor) throw new Error("V2.9 public probability below market-specific floor: "+x.fixtureKey);
+  if(bet.selectionProbability<(bet.pick==="X2"?72:68)) throw new Error("Selection probability below floor: "+x.fixtureKey);
   if(!Array.isArray(bet.riskFlags)) throw new Error("riskFlags must be an array: "+x.fixtureKey);
   if(bet.riskFlags.includes("high-lambda")||bet.riskFlags.includes("low-lambda")||bet.riskFlags.includes("high-total-lambda")||bet.riskFlags.includes("extreme-market-divergence")) throw new Error("Review-level risk leaked into public recommendation: "+x.fixtureKey);
   const allowed={
@@ -37,15 +40,15 @@ for(const x of data.fixtures as any[]){
   if(!allowed[bet.market]?.has(bet.pick)) throw new Error("Unapproved market/pick: "+bet.market+" / "+bet.pick+" "+x.fixtureKey);
   if(bet.market==="Total Goals"&&bet.pick==="Over 1.5"){
     if(bet.rawProbability<72) throw new Error("Over 1.5 raw below floor: "+x.fixtureKey);
-    if(!bet.support||bet.support.pick!=="Over 2.5"||bet.support.rawProbability<68) throw new Error("Over 1.5 lacks strong Over 2.5 support: "+x.fixtureKey);
+    if(!bet.support||bet.support.pick!=="Over 2.5"||bet.support.rawProbability<75) throw new Error("Over 1.5 lacks V2.9 support margin: "+x.fixtureKey);
   }
   if(bet.market==="Double Chance"&&bet.pick==="1X"){
     if(bet.rawProbability<72) throw new Error("1X raw below floor: "+x.fixtureKey);
-    if(!bet.support||bet.support.pick!=="Home"||bet.support.rawProbability<62) throw new Error("1X lacks strong Home support: "+x.fixtureKey);
+    if(!bet.support||bet.support.pick!=="Home"||bet.support.rawProbability<67) throw new Error("1X lacks V2.9 support margin: "+x.fixtureKey);
   }
   if(bet.market==="Double Chance"&&bet.pick==="X2"){
-    if(bet.rawProbability<72) throw new Error("X2 raw below floor: "+x.fixtureKey);
-    if(!bet.support||bet.support.pick!=="Away"||bet.support.rawProbability<62) throw new Error("X2 lacks strong Away support: "+x.fixtureKey);
+    if(bet.rawProbability<76) throw new Error("X2 raw below V2.9 floor: "+x.fixtureKey);
+    if(!bet.support||bet.support.pick!=="Away"||bet.support.rawProbability<71) throw new Error("X2 lacks V2.9 support margin: "+x.fixtureKey);
   }
   if(bet.market==="1X2"&&bet.rawProbability<62) throw new Error("1X2 raw below floor: "+x.fixtureKey);
   if(!["Elite","Strong","Good"].includes(bet.rating)) throw new Error("Invalid recommendation rating: "+x.fixtureKey);
