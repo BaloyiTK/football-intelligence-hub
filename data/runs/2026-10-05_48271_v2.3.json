@@ -5,7 +5,7 @@
   "status": "complete",
   "storagePolicy": "recommended-bets-only",
   "modelVersion": "v2.3-backtest-calibrated-selector",
-  "researchCutoff": "2026-10-05T09:15:51+02:00",
+  "researchCutoff": "2026-10-05T10:42:03+02:00",
   "globalDiscovery": {
     "sources": [
       "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
@@ -1715,6 +1715,90 @@
         "https://footystats.org/argentina/primera-division"
       ],
       "researchedAt": "2026-10-05T09:15:51+02:00"
+    },
+    {
+      "date": "2026-10-05",
+      "fixtureKey": "2026-10-05|international-friendlies|uganda|dr-congo",
+      "leagueId": "international-friendlies",
+      "league": "International Friendlies",
+      "homeTeam": "Uganda",
+      "awayTeam": "DR Congo",
+      "kickoff": "15:00 SAST",
+      "status": "NO_BET",
+      "decision": "NO BET — no family 1-5 candidate clears both raw and reliability-adjusted V2.3 floors.",
+      "modelLevel": "basic",
+      "sampleSize": 5,
+      "model": {
+        "modelVersion": "v2.3-backtest-calibrated-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "sampleSize": 5,
+        "lambdaHome": 0.93,
+        "lambdaAway": 1.41,
+        "home": 23.9,
+        "draw": 29.1,
+        "away": 47,
+        "homeWin": 23.9,
+        "awayWin": 47,
+        "doubleChance": {
+          "homeOrDraw": 53,
+          "awayOrDraw": 76.1
+        },
+        "btts": 46.8,
+        "bttsNo": 53.2,
+        "over15": 68.9,
+        "under15": 31.1,
+        "over25": 41.5,
+        "under25": 58.5,
+        "over35": 20.9,
+        "under35": 79.1,
+        "home1Plus": 60.6,
+        "away1Plus": 75.6,
+        "likelyScores": [
+          {
+            "score": "1-1",
+            "probability": 13.6
+          },
+          {
+            "score": "0-1",
+            "probability": 12.5
+          },
+          {
+            "score": "0-0",
+            "probability": 10.6
+          },
+          {
+            "score": "0-2",
+            "probability": 9.6
+          }
+        ],
+        "correctScore": {
+          "score": "1-1",
+          "probability": 13.6
+        },
+        "alternatives": [
+          {
+            "score": "0-1",
+            "probability": 12.5
+          },
+          {
+            "score": "0-0",
+            "probability": 10.6
+          },
+          {
+            "score": "0-2",
+            "probability": 9.6
+          }
+        ],
+        "recommendedBet": null
+      },
+      "sources": [
+        "https://www.footballwebpages.co.uk/international-friendly/20261005",
+        "https://www.windrawwin.com/us/picks/international-friendly/uganda-v-congo-dr/901426/",
+        "https://footystats.org/international/international-friendlies",
+        "https://fufa.co.ug/international-friendly-uganda-cranes-secure-2-0-victory-over-dr-congo-in-johannesburg/"
+      ],
+      "researchedAt": "2026-10-05T10:42:03+02:00"
     }
   ],
   "metrics": {
@@ -1750,7 +1834,7 @@
   },
   "current": {
     "date": "2026-10-05",
-    "stage": "publication-verification"
+    "stage": "validation"
   },
   "coverageGaps": [
     {
@@ -1763,14 +1847,8 @@
     }
   ],
   "refreshAudit": {
-    "at": "2026-10-05T10:29:59+02:00",
-    "result": "complete",
-    "note": "Fresh current-day discovery/status/evidence verification preserved the 14 still-prematch frozen recommendations. The 16-modelled/15-recommended counters include one internal NO BET; Ecuador-Panama remains excluded after kickoff.",
-    "verifiedUniverse": {
-      "uefaNationsLeague": 8,
-      "espSegunda": 1,
-      "internationalFriendlies": 6,
-      "argPrimeraWithinJohannesburgDate": 1
-    }
+    "at": "2026-10-05T10:42:03+02:00",
+    "result": "six-market-contract-executed",
+    "note": "Repaired omitted Uganda-DR Congo NO_BET audit record. Public BET list remains 14 after Ecuador-Panama post-kickoff exclusion. All public model records carry the six approved market-family outputs."
   }
 }
