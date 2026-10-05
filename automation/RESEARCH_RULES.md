@@ -2,6 +2,9 @@
 
 Research every verified upcoming fixture. The goal is to produce the strongest defensible pre-match model possible from public evidence, not to require premium statistics before modelling.
 
+## Market scope
+Research must support the six authoritative FIH prediction families in `MODEL_RULES.md`: 1X2, Over/Under Goals, BTTS, Double Chance 1X/X2, Team to Score 1+, and Correct Score. Do not spend the daily workflow producing or recommending markets outside that scope.
+
 ## Research targets
 Collect where available:
 - recent 5-10 results and goals for/against
