@@ -1,9 +1,15 @@
 import fs from "node:fs";
 const c=JSON.parse(fs.readFileSync("automation/FIH_CONTRACT.json","utf8"));
-if(JSON.stringify(c.markets.requiredFamilies)!==JSON.stringify(["1X2"])) throw new Error("Canonical market scope must be 1X2 only");
-if(JSON.stringify(c.markets.actionable?.["1X2"])!==JSON.stringify(["Home","Draw","Away"])) throw new Error("1X2 picks must be Home/Draw/Away");
+const required=["1X2","Total Goals","Double Chance"];
+if(JSON.stringify(c.markets.requiredFamilies)!==JSON.stringify(required)) throw new Error("Canonical market scope mismatch");
+if(JSON.stringify(c.markets.actionable?.["1X2"])!==JSON.stringify(["Home","Draw","Away"])) throw new Error("1X2 picks mismatch");
+if(JSON.stringify(c.markets.actionable?.["Total Goals"])!==JSON.stringify(["Over 1.5"])) throw new Error("Total Goals picks mismatch");
+if(JSON.stringify(c.markets.actionable?.["Double Chance"])!==JSON.stringify(["1X","X2"])) throw new Error("Double Chance picks mismatch");
+if(c.markets.supportingSignals?.["Over 1.5"]?.rawMinimum!==68) throw new Error("Over 1.5 must require strong Over 2.5 support");
+if(c.markets.supportingSignals?.["1X"]?.rawMinimum!==62) throw new Error("1X must require strong Home support");
+if(c.markets.supportingSignals?.["X2"]?.rawMinimum!==62) throw new Error("X2 must require strong Away support");
 if(c.mutationPolicy.runtimeRuleCreation!=="forbidden") throw new Error("Runtime rule creation must remain forbidden");
 if(c.selfCorrection.mayChangeBusinessRules!==false) throw new Error("Self-correction may not change business rules");
-if(c.invariants.only1X2RequiredForEveryModelledFixture!==true) throw new Error("1X2-only invariant must remain enabled");
+if(c.invariants.supportGateRequiredForSaferMarkets!==true) throw new Error("Support-gate invariant must remain enabled");
 if(c.markets.maximumRecommendedBetsPerFixture!==1) throw new Error("One-bet invariant changed");
 console.log(JSON.stringify({status:"contract-verified",contractVersion:c.contractVersion,modelVersion:c.production.modelVersion,markets:c.markets.requiredFamilies}));
