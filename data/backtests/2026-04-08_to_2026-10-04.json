@@ -8,7 +8,7 @@
   "researchMethod": "historical web data reconstructed chronologically; production lib/model.ts executed before grading",
   "sourceScope": {
     "configuredLeagueCount": 61,
-    "webModelledLeagueCount": 55,
+    "webModelledLeagueCount": 57,
     "webModelledLeagueIds": [
       "tur-super-lig",
       "gre-super-league",
@@ -64,6 +64,8 @@
       "international-friendlies",
       "fifa-world-cup",
       "jpn-j1",
+      "caf-champions-league",
+      "caf-confederation-cup",
       "uefa-nations-league"
     ],
     "verifiedZeroFixtureLeagueIds": [
@@ -72,9 +74,7 @@
     "terminalNoModelLeagueIds": [
       "rsa-first-division",
       "mar-botola",
-      "tun-ligue-1",
-      "caf-champions-league",
-      "caf-confederation-cup"
+      "tun-ligue-1"
     ],
     "note": "All 61 configured leagues are terminal: web-modelled, verified zero-fixture, or NO MODEL only after explicit historical web-source attempts."
   },
@@ -388,16 +388,12 @@
     {
       "leagueId": "caf-champions-league",
       "status": "complete",
-      "terminalState": "no-model-after-web-source-attempts",
-      "sources": [],
-      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+      "terminalState": "web-modelled"
     },
     {
       "leagueId": "caf-confederation-cup",
       "status": "complete",
-      "terminalState": "no-model-after-web-source-attempts",
-      "sources": [],
-      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+      "terminalState": "web-modelled"
     },
     {
       "leagueId": "fifa-world-cup",
@@ -92141,9 +92137,9 @@
     }
   ],
   "aggregateMetrics": {
-    "webFixturesInRange": 6891,
+    "webFixturesInRange": 6996,
     "modelledFixtures": 6445,
-    "noModel": 446,
+    "noModel": 551,
     "noBet": 4573,
     "recommendedBets": 1872,
     "wins": 1453,
@@ -92583,5 +92579,5 @@
       }
     ]
   },
-  "generatedAt": "2026-10-05T11:45:11.239Z"
+  "generatedAt": "2026-10-05T11:47:20.613Z"
 }
