@@ -1,7 +1,7 @@
 {
   "date": "2026-10-05",
   "timezone": "Africa/Johannesburg",
-  "generatedAt": "2026-10-05T10:29:59+02:00",
+  "generatedAt": "2026-10-05T10:42:03+02:00",
   "fixtures": [
     {
       "fixtureKey": "2026-10-05|uefa-nations-league|france|belgium",
@@ -1189,13 +1189,13 @@
     "status": "complete",
     "leagueEntriesChecked": 61,
     "totalLeagueEntries": 61,
-    "fixturesDiscovered": 16,
-    "fixturesProcessed": 16,
-    "modelled": 16,
+    "fixturesDiscovered": 17,
+    "fixturesProcessed": 17,
+    "modelled": 17,
     "recommendedBets": 15,
-    "noBet": 1,
+    "noBet": 2,
     "modelVersion": "v2.3-backtest-calibrated-selector",
-    "researchCutoff": "2026-10-05T09:15:51+02:00",
+    "researchCutoff": "2026-10-05T10:42:03+02:00",
     "globalSources": [
       "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
       "https://fbref.com/en/matches/2026-10-05",
@@ -1210,15 +1210,16 @@
       "Correct Score"
     ],
     "rerun": {
-      "at": "2026-10-05T10:29:59+02:00",
-      "reason": "Current-day discovery, status and evidence refresh under locked V2.3 contract; preserved valid frozen recommendations.",
+      "at": "2026-10-05T10:42:03+02:00",
+      "reason": "Locked-contract execution recalculated six approved market families and repaired discovery with Uganda vs DR Congo as internal NO BET.",
       "discoverySources": [
-        "UEFA Nations League official fixtures",
-        "LiveScore 2026-10-05",
-        "Soccerbase 2026-10-05"
+        "UEFA official fixtures",
+        "PlanetSport worldwide date index",
+        "FootballFixtures worldwide date index",
+        "Football Web Pages friendlies index"
       ],
       "coverageGaps": [
-        "CONCACAF Nations League fixtures discovered outside current registry"
+        "CONCACAF Nations League fixtures remain outside frozen registry"
       ]
     },
     "excludedAfterRecheck": [
