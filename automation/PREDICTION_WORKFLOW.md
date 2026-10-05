@@ -1,17 +1,22 @@
 # Daily Prediction Workflow
 
-1. Resolve Africa/Johannesburg date/time.
-2. Process every league in `data/leagues.json` through the FINAL entry.
-3. Verify today's fixtures and exclude non-pre-match fixtures.
-4. Research each fixture and record evidence depth: sampleSize, modelLevel, scoring consistency and recent goal volatility where available.
-5. Attempt Full -> Standard -> Basic without fabricating inputs.
-6. Run the production V2.3 calibrated Dixon-Coles model from `lib/model.ts`.
-7. Calculate all markets and correct score.
-8. Run reliability-adjusted one-market selector; store one recommendedBet or null.
-9. PUBLIC BETTING LIST: publish only fixtures with recommendedBet != null. NO BET/model-only fixtures may be retained in internal/archive analytics but must not appear in the main betting list.
-10. Continue through final league; recheck kickoff/status before writing.
-11. Verify all league entries were checked.
-12. Write daily/archive data, commit main, verify Vercel production.
-13. Report recommendations, NO BET count and evidence mix.
+ChatGPT is the research/orchestration layer. GitHub stores the auditable inputs, checkpoints and frozen outputs; repository automation validates/publishes evidence already written to the repository and must never invent missing research.
 
-Correct score is supporting forecast information. recommendedBet is the single actionable selection.
+1. Resolve the requested daily run date/time in Africa/Johannesburg.
+2. Read the complete mandatory rule chain from `automation/AGENT_INSTRUCTIONS.md` and freeze the current `data/leagues.json` registry snapshot for this run.
+3. Discover the requested date's worldwide senior-football fixture universe using at least TWO independent global date-indexed sources, following `FIXTURE_DISCOVERY.md`.
+4. Normalize/map fixtures to every competition in the frozen registry. Persist discovery sources, mapped fixtures, verified zero-fixture checkpoints, and legitimate out-of-registry senior competition coverage-gap candidates before modelling.
+5. Process every configured competition through the FINAL entry. Resolve discovery disagreements/ambiguities with targeted verification rather than skipping them.
+6. Before researching each fixture, verify it is still pre-match. Exclude/invalidate started, live, completed, cancelled or abandoned fixtures from new predictions.
+7. Research each verified upcoming fixture under `RESEARCH_RULES.md`; attempt Full -> Standard -> Basic -> No Model and preserve evidence sources/cutoff, sampleSize, modelLevel, scoring consistency and recent goal volatility where available. Never fabricate missing inputs.
+8. Run the exact production V2.3 model from `lib/model.ts`. Calculate the score distribution/markets and deterministic reliability-adjusted selector.
+9. Freeze one `recommendedBet` or NO BET/NO MODEL immediately with its evidence/model state. Follow `DUPLICATE_RULES.md`; never append the same fixture twice.
+10. Continue through the final configured competition. Re-check kickoff/status immediately before publication.
+11. Validate the run with `npm run run:validate -- <run-file>`. A run may be called complete/final only after `npm run run:finalize -- <run-file>` succeeds.
+12. Build `data/predictions/YYYY-MM-DD.json` under `OUTPUT_SCHEMA.md`. The public betting list contains only still-valid pre-match fixtures with non-null `recommendedBet`; create the dated artifact even when that list is empty.
+13. Run `npm run predictions:verify -- YYYY-MM-DD`, re-read the artifact, and confirm its recommendation count equals the frozen publishable BET count.
+14. Commit the validated run/prediction artifacts to `main`. GitHub/Vercel automation may deploy/verify repository state, but it does not replace ChatGPT research.
+15. Verify the production deployment/site is serving the successfully published archive before describing website delivery as complete.
+16. Report recommendations and measured persisted coverage. Before strict finalization, label eligible surfaced bets `PARTIAL — verified/frozen so far`; after finalization and publication verification, they may be labelled final.
+
+Correct score is supporting forecast information. `recommendedBet` is the single actionable selection. NO BET and NO MODEL are internal audit decisions and are not public recommendations.
