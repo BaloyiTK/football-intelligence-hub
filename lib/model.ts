@@ -54,7 +54,7 @@ const clamp=(v:number,lo=.2,hi=4)=>Math.min(hi,Math.max(lo,v));
 const blend=(base:number,recent?:number)=>recent==null?base:0.65*base+0.35*recent;
 const dcTau=(x:number,y:number,lh:number,la:number,rho:number)=>{if(x===0&&y===0)return 1-lh*la*rho;if(x===0&&y===1)return 1+lh*rho;if(x===1&&y===0)return 1+la*rho;if(x===1&&y===1)return 1-rho;return 1;};
 const evidenceFactor=(i:ModelInput)=>{const level=i.modelLevel==="full"?1:i.modelLevel==="standard"?.96:.90;const n=i.sampleSize??5;const sample=n>=8?1:n>=5?.97:n>=3?.92:.84;return level*sample;};
-const rating=(p:number):BetRecommendation["rating"]=>p>=88?"Elite":p>=78?"Strong":"Good";
+const rating=(p:number):BetRecommendation["rating"]=>p>=85?"Elite":p>=78?"Strong":"Good";
 const shrink=(p:number,f:number)=>50+(p-50)*f;
 const keyFor=(market:string,pick:string)=>market+"|"+pick;
 const temperatureCalibrate=(pct:number,t:number)=>{
