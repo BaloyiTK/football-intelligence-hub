@@ -1,9 +1,14 @@
 # Football Intelligence Agent Execution Contract
 
+## Canonical contract authority
+`automation/FIH_CONTRACT.json` is the canonical machine-readable contract and must be read before execution. During run, backtest, resume, reconciliation, grading, or training, the agent may not create, reinterpret, relax, extend, remove, or substitute FIH business rules. Self-correction may repair state or change an execution path, but may not change business rules. If a policy question is genuinely unanswered, record `SPEC_GAP`, preserve safe progress, and do not invent a rule; an explicit user-approved contract change is required outside execution.
+
+
 This is the mandatory entry point for ChatGPT football runs.
 
 Before any daily prediction run or historical backtest, read and obey:
-1. `automation/AGENT_INSTRUCTIONS.md` (this file)
+1. `automation/FIH_CONTRACT.json`
+2. `automation/AGENT_INSTRUCTIONS.md` (this file)
 2. `data/leagues.json`
 3. `automation/FIXTURE_DISCOVERY.md`
 4. `automation/RESEARCH_RULES.md`
