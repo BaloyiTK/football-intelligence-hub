@@ -1,5 +1,5 @@
 name: Historical Web Backtest
-# manual-trigger-marker: 2026-10-05
+# V2.9-only validation pipeline
 
 on:
   push:
@@ -8,11 +8,6 @@ on:
       - "scripts/web-historical-backtest.ts"
       - "scripts/debug-odds-coverage.ts"
       - "scripts/debug-odds-market-keys.ts"
-      - "scripts/analyze-v25-candidate.ts"
-      - "scripts/analyze-v26-calibration.ts"
-      - "scripts/analyze-v27-quality.ts"
-      - "scripts/analyze-v28-loss-patterns.ts"
-      - "scripts/analyze-v28-candidate.ts"
       - "scripts/analyze-v29-losses.ts"
       - "scripts/analyze-v29-candidate.ts"
       - "lib/model.ts"
@@ -41,17 +36,8 @@ jobs:
         run: npx tsx scripts/debug-odds-coverage.ts
       - name: Debug odds market keys
         run: npx tsx scripts/debug-odds-market-keys.ts
-      - run: npx tsx scripts/web-historical-backtest.ts
-      - name: Analyze v2.5 candidate
-        run: npx tsx scripts/analyze-v25-candidate.ts
-      - name: Analyze v2.6 calibration
-        run: npx tsx scripts/analyze-v26-calibration.ts
-      - name: Analyze v2.7 quality
-        run: npx tsx scripts/analyze-v27-quality.ts
-      - name: Analyze v2.8 loss patterns
-        run: npx tsx scripts/analyze-v28-loss-patterns.ts
-      - name: Analyze v2.8 candidate
-        run: npx tsx scripts/analyze-v28-candidate.ts
+      - name: Run 180-day V2.9 historical backtest
+        run: npx tsx scripts/web-historical-backtest.ts
       - name: Analyze v2.9 losses
         run: npx tsx scripts/analyze-v29-losses.ts
       - name: Analyze v2.9 candidate
@@ -68,7 +54,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No backtest changes to commit"
           else
-            git commit -m "Run 180-day web backtest with historical odds"
+            git commit -m "Run 180-day V2.9 web backtest with historical odds"
             git push
           fi
       - name: Regression tests
