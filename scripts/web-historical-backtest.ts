@@ -197,11 +197,22 @@ async function fetchHistoricalOdds(url:string|null,pick:string,modelProbability:
  try{
   const html=await get(url),m=html.match(/<script[^>]*type=["']application\/json["'][^>]*>([\s\S]*?)<\/script>/i);
   if(!m)return{...base,status:"no-odds",bookmakerCount:0,source:url,reason:"Historical page has no machine-readable odds payload"};
-  const root=unflattenOddsPayload(JSON.parse(m[1]));let match:any=null,visited=new Set<any>();
-  const walk=(x:any)=>{if(match||!x||typeof x!=="object"||visited.has(x))return;visited.add(x);if(x.odds&&typeof x.odds==="object"){match=x;return}for(const v of Object.values(x))walk(v)};walk(root);
-  const key=pick==="1X"?"double_chance":pick==="Over 1.5"?"over_under":null,values=key?match?.odds?.[key]?.values:null;
-  if(!Array.isArray(values))return{...base,status:"no-odds",bookmakerCount:0,source:url,reason:"Exact recommended market unavailable"};
-  const quotes:OddsQuote[]=values.filter((v:any)=>v?.value===selection&&Number.isFinite(Number(v?.odd))&&Number(v.odd)>1).map((v:any)=>({bookmaker:String(v.bookmaker??"Unknown"),odd:Number(v.odd),isMain:Boolean(v.isMain)}));
+  const root=unflattenOddsPayload(JSON.parse(m[1]));
+  const marketBlocks:any[]=[];const visited=new Set<any>();
+  const walk=(x:any)=>{
+   if(!x||typeof x!=="object"||visited.has(x))return;visited.add(x);
+   if(typeof x.label==="string"&&Array.isArray(x.values)) marketBlocks.push(x);
+   for(const v of Object.values(x))walk(v);
+  };walk(root);
+  const wanted=marketBlocks.filter((b:any)=>{
+   const label=String(b.label||"").trim().toLowerCase();
+   if(pick==="1X") return label==="double chance";
+   if(pick==="Over 1.5") return label==="goals over/under"||label==="over/under"||label==="goals over under";
+   return false;
+  });
+  const values=wanted.flatMap((b:any)=>b.values||[]);
+  if(!values.length)return{...base,status:"no-odds",bookmakerCount:0,source:url,reason:"Exact recommended market unavailable"};
+  const quotes:OddsQuote[]=values.filter((v:any)=>String(v?.value).trim()===selection&&Number.isFinite(Number(v?.odd))&&Number(v.odd)>1).map((v:any)=>({bookmaker:String(v.bookmaker??"Unknown"),odd:Number(v.odd),isMain:Boolean(v.isMain)}));
   const dedup=[...new Map(quotes.map(q=>[q.bookmaker.toLowerCase(),q])).values()];
   if(!dedup.length)return{...base,status:"no-odds",bookmakerCount:0,source:url,reason:"Exact selection price unavailable"};
   const odds=dedup.map(q=>q.odd),averageOdds=odds.reduce((s,x)=>s+x,0)/odds.length,best=dedup.reduce((a,b)=>b.odd>a.odd?b:a),b365=dedup.find(q=>/bet365/i.test(q.bookmaker)),naive=100/averageOdds;
