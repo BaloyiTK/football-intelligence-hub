@@ -1189,11 +1189,11 @@
     "status": "complete",
     "leagueEntriesChecked": 61,
     "totalLeagueEntries": 61,
-    "fixturesDiscovered": 17,
-    "fixturesProcessed": 17,
-    "modelled": 17,
+    "fixturesDiscovered": 16,
+    "fixturesProcessed": 16,
+    "modelled": 16,
     "recommendedBets": 15,
-    "noBet": 2,
+    "noBet": 1,
     "modelVersion": "v2.3-backtest-calibrated-selector",
     "researchCutoff": "2026-10-05T10:42:03+02:00",
     "globalSources": [
@@ -1211,7 +1211,7 @@
     ],
     "rerun": {
       "at": "2026-10-05T10:42:03+02:00",
-      "reason": "Locked-contract execution recalculated six approved market families and repaired discovery with Uganda vs DR Congo as internal NO BET.",
+      "reason": "Locked-contract execution recalculated all six approved market families. Uganda vs DR Congo is the previously omitted internal NO BET audit fixture; total discovered universe remains 16.",
       "discoverySources": [
         "UEFA official fixtures",
         "PlanetSport worldwide date index",
