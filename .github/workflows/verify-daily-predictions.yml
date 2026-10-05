@@ -14,7 +14,7 @@ jobs:
   verify-publication:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -33,3 +33,16 @@ jobs:
           echo "date=$DATE" >> "$GITHUB_OUTPUT"
       - name: Verify daily prediction artifact
         run: npm run predictions:verify -- "${{ steps.date.outputs.date }}"
+      - name: Freeze immutable forward-validation evidence
+        run: npm run forward:freeze -- "${{ steps.date.outputs.date }}"
+      - name: Commit new forward evidence
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "data/forward-validation/${{ steps.date.outputs.date }}.json"
+          git diff --cached --quiet && exit 0
+          git commit -m "evidence: freeze V2.9 forward validation ${{ steps.date.outputs.date }}"
+          git push
+      - name: Report forward scorecard
+        run: npm run forward:score
