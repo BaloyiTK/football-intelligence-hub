@@ -1,0 +1,445 @@
+{
+  "status": "in-progress",
+  "modelVersion": "v2.4-calibrated-risk-selector",
+  "range": {
+    "start": "2026-09-05",
+    "end": "2026-10-04"
+  },
+  "timezone": "Africa/Johannesburg",
+  "startedFromScratch": true,
+  "storagePolicy": "recommended-bets-only",
+  "continuationInvariant": "fixture-local failures terminalize NO_MODEL and never stop the run",
+  "dailyScan": [
+    {
+      "date": "2026-09-05",
+      "status": "pending"
+    },
+    {
+      "date": "2026-09-06",
+      "status": "pending"
+    },
+    {
+      "date": "2026-09-07",
+      "status": "pending"
+    },
+    {
+      "date": "2026-09-08",
+      "status": "pending"
+    },
+    {
+      "date": "2026-09-09",
+      "status": "pending"
+    },
+    {
+      "date": "2026-09-10",
+      "status": "pending"
+    },
+    {
+      "date": "2026-09-11",
+      "status": "pending"
+    },
+    {
+      "date": "2026-09-12",
+      "status": "pending"
+    },
+    {
+      "date": "2026-09-13",
+      "status": "pending"
+    },
+    {
+      "date": "2026-09-14",
+      "status": "pending"
+    },
+    {
+      "date": "2026-09-15",
+      "status": "pending"
+    },
+    {
+      "date": "2026-09-16",
+      "status": "pending"
+    },
+    {
+      "date": "2026-09-17",
+      "status": "pending"
+    },
+    {
+      "date": "2026-09-18",
+      "status": "pending"
+    },
+    {
+      "date": "2026-09-19",
+      "status": "pending"
+    },
+    {
+      "date": "2026-09-20",
+      "status": "pending"
+    },
+    {
+      "date": "2026-09-21",
+      "status": "pending"
+    },
+    {
+      "date": "2026-09-22",
+      "status": "pending"
+    },
+    {
+      "date": "2026-09-23",
+      "status": "pending"
+    },
+    {
+      "date": "2026-09-24",
+      "status": "pending"
+    },
+    {
+      "date": "2026-09-25",
+      "status": "pending"
+    },
+    {
+      "date": "2026-09-26",
+      "status": "pending"
+    },
+    {
+      "date": "2026-09-27",
+      "status": "pending"
+    },
+    {
+      "date": "2026-09-28",
+      "status": "pending"
+    },
+    {
+      "date": "2026-09-29",
+      "status": "pending"
+    },
+    {
+      "date": "2026-09-30",
+      "status": "pending"
+    },
+    {
+      "date": "2026-10-01",
+      "status": "pending"
+    },
+    {
+      "date": "2026-10-02",
+      "status": "pending"
+    },
+    {
+      "date": "2026-10-03",
+      "status": "pending"
+    },
+    {
+      "date": "2026-10-04",
+      "status": "pending"
+    }
+  ],
+  "leagueScan": [
+    {
+      "leagueId": "eng-premier-league",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "eng-championship",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "eng-league-one",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "eng-league-two",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "esp-la-liga",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "esp-segunda",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "ita-serie-a",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "ita-serie-b",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "ger-bundesliga",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "ger-2-bundesliga",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "fra-ligue-1",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "fra-ligue-2",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "ned-eredivisie",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "ned-eerste-divisie",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "por-primeira-liga",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "bel-pro-league",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "sco-premiership",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "tur-super-lig",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "gre-super-league",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "aut-bundesliga",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "sui-super-league",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "den-superliga",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "nor-eliteserien",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "swe-allsvenskan",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "fin-veikkausliiga",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "pol-ekstraklasa",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "cze-first-league",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "cro-hnl",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "ser-superliga",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "rou-liga-1",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "ukr-premier-league",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "uefa-champions-league",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "uefa-europa-league",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "uefa-conference-league",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "uefa-nations-league",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "uefa-euro",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "conmebol-libertadores",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "conmebol-sudamericana",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "bra-serie-a",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "bra-serie-b",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "arg-primera",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "usa-mls",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "mex-liga-mx",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "col-primera-a",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "jpn-j1",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "jpn-j2",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "kor-k1",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "chn-super-league",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "aus-a-league",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "ksa-pro-league",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "qat-stars-league",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "uae-pro-league",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "rsa-premiership",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "rsa-first-division",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "egy-premier-league",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "mar-botola",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "tun-ligue-1",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "caf-champions-league",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "caf-confederation-cup",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "fifa-world-cup",
+      "status": "pending",
+      "dates": {}
+    },
+    {
+      "leagueId": "international-friendlies",
+      "status": "pending",
+      "dates": {}
+    }
+  ],
+  "fixtures": [],
+  "aggregateMetrics": null,
+  "failureAnalysis": [],
+  "improvementCandidates": []
+}
