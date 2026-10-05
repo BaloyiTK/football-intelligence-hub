@@ -1,8 +1,8 @@
-# Deterministic Model Rules — V2.3.1 Supported Selector
+# Deterministic Model Rules — V2.4 Calibrated Risk Selector
 
-V2.3.1 keeps the normalized Dixon-Coles score engine and reliability adjustment, and adds mandatory support-gating for safer derivative picks.
+V2.4 preserves the V2.3.1 normalized Dixon-Coles engine and support-gated market selector, then adds a calibration and risk-control layer before publication.
 
-## Core
+## Core engine
 - Separate attack/defence strengths and league home/away baselines.
 - 65/35 stable/recent blend where both exist.
 - Lambda clamp 0.2–4.0; rho default -0.08; normalized 0–8 score grid.
@@ -14,38 +14,46 @@ FIH may recommend only:
 - Total Goals: Over 1.5
 - Double Chance: 1X / X2
 
-The model must also calculate the supporting probabilities needed to justify safer picks:
+Supporting signals remain mandatory:
 - Over 2.5 supports Over 1.5
 - Home win supports 1X
 - Away win supports X2
 
-## Support-gated recommendation rules
-A safer derivative pick is eligible only when BOTH the safer line and the underlying harder signal are strong enough.
+## Support gates
+- Over 1.5: raw >=72, Over 2.5 support >=68, calibrated probability >=68.
+- 1X: raw >=72, Home support >=62, calibrated probability >=68.
+- X2: raw >=72, Away support >=62, calibrated probability >=68.
+- Direct 1X2: raw >=62, calibrated probability >=68.
 
-- Over 1.5:
-  - Over 1.5 raw >=72
-  - Over 2.5 raw >=68
-  - adjusted Over 1.5 >=68
-- 1X:
-  - 1X raw >=72
-  - Home win raw >=62
-  - adjusted 1X >=68
-- X2:
-  - X2 raw >=72
-  - Away win raw >=62
-  - adjusted X2 >=68
-- Direct 1X2:
-  - Home / Draw / Away raw >=62
-  - adjusted probability >=68
+## V2.4 calibration
+The old adjusted score `raw × reliability` is retained only as historical context. Public probability is now calibrated by shrinking the raw probability toward 50%.
 
-Rank eligible candidates by reliability-adjusted probability. Recommend at most one; otherwise NO BET.
+Calibration sequence:
+1. shrink raw probability toward 50% by evidence/market reliability;
+2. shrink again by evidence confidence: high 1.00, medium 0.95, low 0.90;
+3. shrink again by competition uncertainty: club 1.00, international 0.96, friendly 0.92;
+4. when an external market probability is supplied, shrink further for material model-market disagreement.
 
-Store rawProbability, reliability, adjusted probability and the support signal for derivative picks.
+This prevents a generic reliability multiplier from being presented as a calibrated probability.
 
-Rating: Elite >=85, Strong >=75, Good >=68.
+## Risk gates
+A selection becomes REVIEW and cannot auto-publish when any lambda risk is present:
+- either team lambda >=3.00;
+- either team lambda <=0.25;
+- total lambda >=4.80.
+
+Market disagreement:
+- >=20 percentage points: WATCH; still publishable but penalized.
+- >=30 percentage points: REVIEW; not auto-publishable.
+
+Poor research/data quality is NO BET.
+
+A quarantined directional selection may be exposed internally as `reviewBet`. It is not a public recommendation and is excluded from recommendation performance metrics.
+
+## Ratings
+- Elite >=85
+- Strong >=78
+- Good >=68
 
 ## Principle
-A high-probability safer market is not enough by itself. The underlying harder outcome must also be strong. Do not use the draw or the lower goal line to manufacture confidence.
-
-## NO BET
-NO BET and NO MODEL remain audit decisions and are excluded from recommendation performance metrics.
+A safe-looking derivative market cannot manufacture confidence. Strong support remains required, and extreme model outputs must survive calibration and risk checks before publication.
