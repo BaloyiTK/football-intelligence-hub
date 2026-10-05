@@ -21,7 +21,7 @@ recommendedBet:
 For derivative picks, support is mandatory:
 - Over 1.5 -> Over 2.5 rawProbability >=68
 - 1X -> Home rawProbability >=62
-- X2 -> Away rawProbability >=62
+- X2 -> Away rawProbability >=66
 
 Only `selectionStatus: PUBLISH|WATCH` with `publishable: true` may appear publicly.
 
