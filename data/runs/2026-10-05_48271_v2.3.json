@@ -1,0 +1,1664 @@
+{
+  "runId": "2026-10-05_48271_v2.3",
+  "date": "2026-10-05",
+  "timezone": "Africa/Johannesburg",
+  "status": "complete",
+  "storagePolicy": "recommended-bets-only",
+  "modelVersion": "v2.3-backtest-calibrated-selector",
+  "researchCutoff": "2026-10-05T08:20:54+02:00",
+  "globalDiscovery": {
+    "sources": [
+      "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+      "https://fbref.com/en/matches/2026-10-05",
+      "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+    ],
+    "method": "two-plus global date-indexed sources with targeted official/statistical verification",
+    "correctedUniverse": true
+  },
+  "leagueScan": [
+    {
+      "leagueId": "eng-premier-league",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "eng-championship",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "eng-league-one",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "eng-league-two",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "esp-la-liga",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "esp-segunda",
+      "status": "complete",
+      "fixturesDiscovered": 1,
+      "fixturesProcessed": 1,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "ita-serie-a",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "ita-serie-b",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "ger-bundesliga",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "ger-2-bundesliga",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "fra-ligue-1",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "fra-ligue-2",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "ned-eredivisie",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "ned-eerste-divisie",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "por-primeira-liga",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "bel-pro-league",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "sco-premiership",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "tur-super-lig",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "gre-super-league",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "aut-bundesliga",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "sui-super-league",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "den-superliga",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "nor-eliteserien",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "swe-allsvenskan",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "fin-veikkausliiga",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "pol-ekstraklasa",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "cze-first-league",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "cro-hnl",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "ser-superliga",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "rou-liga-1",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "ukr-premier-league",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "uefa-champions-league",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "uefa-europa-league",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "uefa-conference-league",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "uefa-nations-league",
+      "status": "complete",
+      "fixturesDiscovered": 8,
+      "fixturesProcessed": 8,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "uefa-euro",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "conmebol-libertadores",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "conmebol-sudamericana",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "bra-serie-a",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "bra-serie-b",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "arg-primera",
+      "status": "complete",
+      "fixturesDiscovered": 1,
+      "fixturesProcessed": 1,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "usa-mls",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "mex-liga-mx",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "col-primera-a",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "jpn-j1",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "jpn-j2",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "kor-k1",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "chn-super-league",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "aus-a-league",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "ksa-pro-league",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "qat-stars-league",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "uae-pro-league",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "rsa-premiership",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "rsa-first-division",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "egy-premier-league",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "mar-botola",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "tun-ligue-1",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "caf-champions-league",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "caf-confederation-cup",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "fifa-world-cup",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    },
+    {
+      "leagueId": "international-friendlies",
+      "status": "complete",
+      "fixturesDiscovered": 6,
+      "fixturesProcessed": 6,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+      ]
+    }
+  ],
+  "fixtures": [
+    {
+      "date": "2026-10-05",
+      "fixtureKey": "2026-10-05|uefa-nations-league|france|belgium",
+      "leagueId": "uefa-nations-league",
+      "league": "UEFA Nations League",
+      "homeTeam": "France",
+      "awayTeam": "Belgium",
+      "kickoff": "20:45 SAST",
+      "status": "BET",
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 70.8,
+        "rawProbability": 81.1,
+        "reliability": 0.873,
+        "rating": "Good"
+      },
+      "model": {
+        "modelVersion": "v2.3-backtest-calibrated-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 0.95,
+        "lambdaAway": 1.78,
+        "correctScore": {
+          "score": "1-1",
+          "probability": 11.9
+        },
+        "alternatives": [
+          {
+            "score": "0-1",
+            "probability": 10.8
+          },
+          {
+            "score": "0-2",
+            "probability": 10.4
+          },
+          {
+            "score": "1-2",
+            "probability": 9.8
+          }
+        ],
+        "homeWin": 18.9,
+        "draw": 24.9,
+        "awayWin": 56.1,
+        "doubleChance": {
+          "homeOrDraw": 43.9,
+          "awayOrDraw": 81.1,
+          "homeOrAway": 75.1
+        },
+        "btts": 51.8,
+        "over15": 76.5,
+        "over25": 51.3,
+        "over35": 29.2,
+        "recommendedBet": {
+          "market": "Double Chance",
+          "pick": "X2",
+          "probability": 70.8,
+          "rawProbability": 81.1,
+          "reliability": 0.873,
+          "rating": "Good"
+        }
+      },
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea7079900a-801b2c5f6c9e-1000--2026-27-uefa-nations-league-league-phase-fixtures-by-team/",
+        "https://www.skysports.com/football/france-vs-belgium/554069"
+      ],
+      "researchedAt": "2026-10-05T08:20:54+02:00"
+    },
+    {
+      "date": "2026-10-05",
+      "fixtureKey": "2026-10-05|uefa-nations-league|italy|t-rkiye",
+      "leagueId": "uefa-nations-league",
+      "league": "UEFA Nations League",
+      "homeTeam": "Italy",
+      "awayTeam": "Türkiye",
+      "kickoff": "20:45 SAST",
+      "status": "BET",
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 82.2,
+        "rawProbability": 94.2,
+        "reliability": 0.873,
+        "rating": "Strong"
+      },
+      "model": {
+        "modelVersion": "v2.3-backtest-calibrated-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 2.65,
+        "lambdaAway": 0.61,
+        "correctScore": {
+          "score": "2-0",
+          "probability": 13.5
+        },
+        "alternatives": [
+          {
+            "score": "3-0",
+            "probability": 11.9
+          },
+          {
+            "score": "1-0",
+            "probability": 9.7
+          },
+          {
+            "score": "2-1",
+            "probability": 8.2
+          }
+        ],
+        "homeWin": 80.1,
+        "draw": 14.1,
+        "awayWin": 5.8,
+        "doubleChance": {
+          "homeOrDraw": 94.2,
+          "awayOrDraw": 19.9,
+          "homeOrAway": 85.9
+        },
+        "btts": 43,
+        "over15": 84.1,
+        "over25": 63.2,
+        "over35": 41,
+        "recommendedBet": {
+          "market": "Double Chance",
+          "pick": "1X",
+          "probability": 82.2,
+          "rawProbability": 94.2,
+          "reliability": 0.873,
+          "rating": "Strong"
+        }
+      },
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://www.skysports.com/football/italy-vs-turkey/554070"
+      ],
+      "researchedAt": "2026-10-05T08:20:54+02:00"
+    },
+    {
+      "date": "2026-10-05",
+      "fixtureKey": "2026-10-05|uefa-nations-league|northern-ireland|georgia",
+      "leagueId": "uefa-nations-league",
+      "league": "UEFA Nations League",
+      "homeTeam": "Northern Ireland",
+      "awayTeam": "Georgia",
+      "kickoff": "20:45 SAST",
+      "status": "BET",
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Under 3.5",
+        "probability": 75.6,
+        "rawProbability": 96.2,
+        "reliability": 0.786,
+        "rating": "Strong"
+      },
+      "model": {
+        "modelVersion": "v2.3-backtest-calibrated-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 0.64,
+        "lambdaAway": 0.61,
+        "correctScore": {
+          "score": "0-0",
+          "probability": 29.6
+        },
+        "alternatives": [
+          {
+            "score": "1-0",
+            "probability": 17.4
+          },
+          {
+            "score": "0-1",
+            "probability": 16.7
+          },
+          {
+            "score": "1-1",
+            "probability": 12.1
+          }
+        ],
+        "homeWin": 29.4,
+        "draw": 42.8,
+        "awayWin": 27.8,
+        "doubleChance": {
+          "homeOrDraw": 72.2,
+          "awayOrDraw": 70.6,
+          "homeOrAway": 57.2
+        },
+        "btts": 22.4,
+        "over15": 36.4,
+        "over25": 13.1,
+        "over35": 3.8,
+        "recommendedBet": {
+          "market": "Total Goals",
+          "pick": "Under 3.5",
+          "probability": 75.6,
+          "rawProbability": 96.2,
+          "reliability": 0.786,
+          "rating": "Strong"
+        }
+      },
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/match/2047934--northern-ireland-vs-georgia/",
+        "https://www.skysports.com/football/northern-ireland-vs-georgia/554072"
+      ],
+      "researchedAt": "2026-10-05T08:20:54+02:00"
+    },
+    {
+      "date": "2026-10-05",
+      "fixtureKey": "2026-10-05|uefa-nations-league|ukraine|hungary",
+      "leagueId": "uefa-nations-league",
+      "league": "UEFA Nations League",
+      "homeTeam": "Ukraine",
+      "awayTeam": "Hungary",
+      "kickoff": "20:45 SAST",
+      "status": "BET",
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 72.7,
+        "rawProbability": 83.3,
+        "reliability": 0.873,
+        "rating": "Good"
+      },
+      "model": {
+        "modelVersion": "v2.3-backtest-calibrated-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 0.51,
+        "lambdaAway": 1.07,
+        "correctScore": {
+          "score": "0-0",
+          "probability": 21.5
+        },
+        "alternatives": [
+          {
+            "score": "0-1",
+            "probability": 21.1
+          },
+          {
+            "score": "1-1",
+            "probability": 12.2
+          },
+          {
+            "score": "0-2",
+            "probability": 11.7
+          }
+        ],
+        "homeWin": 16.7,
+        "draw": 35.3,
+        "awayWin": 48.1,
+        "doubleChance": {
+          "homeOrDraw": 51.9,
+          "awayOrDraw": 83.3,
+          "homeOrAway": 64.7
+        },
+        "btts": 27.3,
+        "over15": 47.8,
+        "over25": 21.2,
+        "over35": 7.6,
+        "recommendedBet": {
+          "market": "Double Chance",
+          "pick": "X2",
+          "probability": 72.7,
+          "rawProbability": 83.3,
+          "reliability": 0.873,
+          "rating": "Good"
+        }
+      },
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://www.skysports.com/football/ukraine-vs-hungary/554074"
+      ],
+      "researchedAt": "2026-10-05T08:20:54+02:00"
+    },
+    {
+      "date": "2026-10-05",
+      "fixtureKey": "2026-10-05|uefa-nations-league|bosnia-and-herzegovina|poland",
+      "leagueId": "uefa-nations-league",
+      "league": "UEFA Nations League",
+      "homeTeam": "Bosnia and Herzegovina",
+      "awayTeam": "Poland",
+      "kickoff": "20:45 SAST",
+      "status": "BET",
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 73,
+        "rawProbability": 85.3,
+        "reliability": 0.856,
+        "rating": "Good"
+      },
+      "model": {
+        "modelVersion": "v2.3-backtest-calibrated-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 1.52,
+        "lambdaAway": 1.81,
+        "correctScore": {
+          "score": "1-1",
+          "probability": 10.6
+        },
+        "alternatives": [
+          {
+            "score": "1-2",
+            "probability": 8.9
+          },
+          {
+            "score": "2-1",
+            "probability": 7.5
+          },
+          {
+            "score": "2-2",
+            "probability": 6.8
+          }
+        ],
+        "homeWin": 31.8,
+        "draw": 24.2,
+        "awayWin": 44,
+        "doubleChance": {
+          "homeOrDraw": 56,
+          "awayOrDraw": 68.2,
+          "homeOrAway": 75.8
+        },
+        "btts": 66.2,
+        "over15": 85.3,
+        "over25": 64.7,
+        "over35": 42.7,
+        "recommendedBet": {
+          "market": "Total Goals",
+          "pick": "Over 1.5",
+          "probability": 73,
+          "rawProbability": 85.3,
+          "reliability": 0.856,
+          "rating": "Good"
+        }
+      },
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea7079900a-801b2c5f6c9e-1000--2026-27-uefa-nations-league-league-phase-fixtures-by-team/",
+        "https://www.skysports.com/football/bosnia-and-herzegovina-vs-poland/554067"
+      ],
+      "researchedAt": "2026-10-05T08:20:54+02:00"
+    },
+    {
+      "date": "2026-10-05",
+      "fixtureKey": "2026-10-05|uefa-nations-league|romania|sweden",
+      "leagueId": "uefa-nations-league",
+      "league": "UEFA Nations League",
+      "homeTeam": "Romania",
+      "awayTeam": "Sweden",
+      "kickoff": "20:45 SAST",
+      "status": "BET",
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 80.5,
+        "rawProbability": 94.1,
+        "reliability": 0.856,
+        "rating": "Strong"
+      },
+      "model": {
+        "modelVersion": "v2.3-backtest-calibrated-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 1.64,
+        "lambdaAway": 2.81,
+        "correctScore": {
+          "score": "1-2",
+          "probability": 7.6
+        },
+        "alternatives": [
+          {
+            "score": "1-3",
+            "probability": 7.1
+          },
+          {
+            "score": "2-2",
+            "probability": 6.2
+          },
+          {
+            "score": "2-3",
+            "probability": 5.8
+          }
+        ],
+        "homeWin": 20.6,
+        "draw": 18,
+        "awayWin": 61.5,
+        "doubleChance": {
+          "homeOrDraw": 38.5,
+          "awayOrDraw": 79.4,
+          "homeOrAway": 82
+        },
+        "btts": 76.3,
+        "over15": 94.1,
+        "over25": 82.1,
+        "over35": 64.9,
+        "recommendedBet": {
+          "market": "Total Goals",
+          "pick": "Over 1.5",
+          "probability": 80.5,
+          "rawProbability": 94.1,
+          "reliability": 0.856,
+          "rating": "Strong"
+        }
+      },
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea7079900a-801b2c5f6c9e-1000--2026-27-uefa-nations-league-league-phase-fixtures-by-team/",
+        "https://www.skysports.com/football/romania-vs-sweden/554073"
+      ],
+      "researchedAt": "2026-10-05T08:20:54+02:00"
+    },
+    {
+      "date": "2026-10-05",
+      "fixtureKey": "2026-10-05|uefa-nations-league|montenegro|armenia",
+      "leagueId": "uefa-nations-league",
+      "league": "UEFA Nations League",
+      "homeTeam": "Montenegro",
+      "awayTeam": "Armenia",
+      "kickoff": "20:45 SAST",
+      "status": "BET",
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 70.1,
+        "rawProbability": 81.9,
+        "reliability": 0.856,
+        "rating": "Good"
+      },
+      "model": {
+        "modelVersion": "v2.3-backtest-calibrated-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 1.72,
+        "lambdaAway": 1.34,
+        "correctScore": {
+          "score": "1-1",
+          "probability": 11.7
+        },
+        "alternatives": [
+          {
+            "score": "2-1",
+            "probability": 9.3
+          },
+          {
+            "score": "1-2",
+            "probability": 7.3
+          },
+          {
+            "score": "1-0",
+            "probability": 7.2
+          }
+        ],
+        "homeWin": 45.5,
+        "draw": 25.3,
+        "awayWin": 29.2,
+        "doubleChance": {
+          "homeOrDraw": 70.8,
+          "awayOrDraw": 54.5,
+          "homeOrAway": 74.7
+        },
+        "btts": 61.5,
+        "over15": 81.9,
+        "over25": 59.1,
+        "over35": 36.7,
+        "recommendedBet": {
+          "market": "Total Goals",
+          "pick": "Over 1.5",
+          "probability": 70.1,
+          "rawProbability": 81.9,
+          "reliability": 0.856,
+          "rating": "Good"
+        }
+      },
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://www.skysports.com/football/montenegro-vs-armenia/4838076920034867232"
+      ],
+      "researchedAt": "2026-10-05T08:20:54+02:00"
+    },
+    {
+      "date": "2026-10-05",
+      "fixtureKey": "2026-10-05|uefa-nations-league|cyprus|latvia",
+      "leagueId": "uefa-nations-league",
+      "league": "UEFA Nations League",
+      "homeTeam": "Cyprus",
+      "awayTeam": "Latvia",
+      "kickoff": "18:00 SAST",
+      "status": "BET",
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 73.9,
+        "rawProbability": 84.7,
+        "reliability": 0.873,
+        "rating": "Good"
+      },
+      "model": {
+        "modelVersion": "v2.3-backtest-calibrated-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 1.35,
+        "lambdaAway": 0.59,
+        "correctScore": {
+          "score": "1-0",
+          "probability": 18.6
+        },
+        "alternatives": [
+          {
+            "score": "0-0",
+            "probability": 15.4
+          },
+          {
+            "score": "2-0",
+            "probability": 13.1
+          },
+          {
+            "score": "1-1",
+            "probability": 12.3
+          }
+        ],
+        "homeWin": 54.5,
+        "draw": 30.2,
+        "awayWin": 15.3,
+        "doubleChance": {
+          "homeOrDraw": 84.7,
+          "awayOrDraw": 45.5,
+          "homeOrAway": 69.8
+        },
+        "btts": 33.7,
+        "over15": 58.4,
+        "over25": 30.5,
+        "over35": 13.1,
+        "recommendedBet": {
+          "market": "Double Chance",
+          "pick": "1X",
+          "probability": 73.9,
+          "rawProbability": 84.7,
+          "reliability": 0.873,
+          "rating": "Good"
+        }
+      },
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/match/2047936--cyprus-vs-latvia-/",
+        "https://www.skysports.com/football/cyprus-vs-latvia/554068"
+      ],
+      "researchedAt": "2026-10-05T08:20:54+02:00"
+    },
+    {
+      "date": "2026-10-05",
+      "fixtureKey": "2026-10-05|esp-segunda|c-rdoba|tenerife",
+      "leagueId": "esp-segunda",
+      "league": "Segunda Division",
+      "homeTeam": "Córdoba",
+      "awayTeam": "Tenerife",
+      "kickoff": "20:30 SAST",
+      "status": "BET",
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Over 1.5",
+        "probability": 73,
+        "rawProbability": 85.3,
+        "reliability": 0.856,
+        "rating": "Good"
+      },
+      "model": {
+        "modelVersion": "v2.3-backtest-calibrated-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 1.78,
+        "lambdaAway": 1.55,
+        "correctScore": {
+          "score": "1-1",
+          "probability": 10.7
+        },
+        "alternatives": [
+          {
+            "score": "2-1",
+            "probability": 8.8
+          },
+          {
+            "score": "1-2",
+            "probability": 7.6
+          },
+          {
+            "score": "2-2",
+            "probability": 6.8
+          }
+        ],
+        "homeWin": 42.7,
+        "draw": 24.3,
+        "awayWin": 33,
+        "doubleChance": {
+          "homeOrDraw": 67,
+          "awayOrDraw": 57.3,
+          "homeOrAway": 75.7
+        },
+        "btts": 66.3,
+        "over15": 85.3,
+        "over25": 64.7,
+        "over35": 42.6,
+        "recommendedBet": {
+          "market": "Total Goals",
+          "pick": "Over 1.5",
+          "probability": 73,
+          "rawProbability": 85.3,
+          "reliability": 0.856,
+          "rating": "Good"
+        }
+      },
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://www.fotmob.com/matches/cordoba-vs-tenerife/2lniof"
+      ],
+      "researchedAt": "2026-10-05T08:20:54+02:00"
+    },
+    {
+      "date": "2026-10-05",
+      "fixtureKey": "2026-10-05|international-friendlies|ecuador|panama",
+      "leagueId": "international-friendlies",
+      "league": "International Friendlies",
+      "homeTeam": "Ecuador",
+      "awayTeam": "Panama",
+      "kickoff": "09:30 SAST",
+      "status": "BET",
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 72.6,
+        "rawProbability": 83.2,
+        "reliability": 0.873,
+        "rating": "Good"
+      },
+      "model": {
+        "modelVersion": "v2.3-backtest-calibrated-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 0.8,
+        "lambdaAway": 1.68,
+        "correctScore": {
+          "score": "0-1",
+          "probability": 13.1
+        },
+        "alternatives": [
+          {
+            "score": "1-1",
+            "probability": 12.2
+          },
+          {
+            "score": "0-2",
+            "probability": 11.8
+          },
+          {
+            "score": "1-2",
+            "probability": 9.5
+          }
+        ],
+        "homeWin": 16.8,
+        "draw": 25.8,
+        "awayWin": 57.4,
+        "doubleChance": {
+          "homeOrDraw": 42.6,
+          "awayOrDraw": 83.2,
+          "homeOrAway": 74.2
+        },
+        "btts": 45.8,
+        "over15": 71.9,
+        "over25": 45.2,
+        "over35": 23.9,
+        "recommendedBet": {
+          "market": "Double Chance",
+          "pick": "X2",
+          "probability": 72.6,
+          "rawProbability": 83.2,
+          "reliability": 0.873,
+          "rating": "Good"
+        }
+      },
+      "sources": [
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05",
+        "https://www.sportytrader.com/en/results-live/ecuador-panama-8876231/"
+      ],
+      "researchedAt": "2026-10-05T08:20:54+02:00"
+    },
+    {
+      "date": "2026-10-05",
+      "fixtureKey": "2026-10-05|international-friendlies|japan|new-zealand",
+      "leagueId": "international-friendlies",
+      "league": "International Friendlies",
+      "homeTeam": "Japan",
+      "awayTeam": "New Zealand",
+      "kickoff": "13:30 SAST",
+      "status": "BET",
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 73.8,
+        "rawProbability": 84.5,
+        "reliability": 0.873,
+        "rating": "Good"
+      },
+      "model": {
+        "modelVersion": "v2.3-backtest-calibrated-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 2.25,
+        "lambdaAway": 1.04,
+        "correctScore": {
+          "score": "2-1",
+          "probability": 9.8
+        },
+        "alternatives": [
+          {
+            "score": "2-0",
+            "probability": 9.5
+          },
+          {
+            "score": "1-1",
+            "probability": 9.4
+          },
+          {
+            "score": "1-0",
+            "probability": 7.7
+          }
+        ],
+        "homeWin": 64,
+        "draw": 20.5,
+        "awayWin": 15.5,
+        "doubleChance": {
+          "homeOrDraw": 84.5,
+          "awayOrDraw": 36,
+          "homeOrAway": 79.5
+        },
+        "btts": 58.5,
+        "over15": 84.7,
+        "over25": 63.8,
+        "over35": 41.6,
+        "recommendedBet": {
+          "market": "Double Chance",
+          "pick": "1X",
+          "probability": 73.8,
+          "rawProbability": 84.5,
+          "reliability": 0.873,
+          "rating": "Good"
+        }
+      },
+      "sources": [
+        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05",
+        "https://www.fotmob.com/matches/new-zealand-vs-japan/1as5pb"
+      ],
+      "researchedAt": "2026-10-05T08:20:54+02:00"
+    },
+    {
+      "date": "2026-10-05",
+      "fixtureKey": "2026-10-05|international-friendlies|rwanda|kenya",
+      "leagueId": "international-friendlies",
+      "league": "International Friendlies",
+      "homeTeam": "Rwanda",
+      "awayTeam": "Kenya",
+      "kickoff": "18:00 SAST",
+      "status": "BET",
+      "recommendedBet": {
+        "market": "Total Goals",
+        "pick": "Under 3.5",
+        "probability": 68.9,
+        "rawProbability": 87.7,
+        "reliability": 0.786,
+        "rating": "Good"
+      },
+      "model": {
+        "modelVersion": "v2.3-backtest-calibrated-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 0.83,
+        "lambdaAway": 1.05,
+        "correctScore": {
+          "score": "0-0",
+          "probability": 16.2
+        },
+        "alternatives": [
+          {
+            "score": "0-1",
+            "probability": 14.9
+          },
+          {
+            "score": "1-1",
+            "probability": 14.4
+          },
+          {
+            "score": "1-0",
+            "probability": 11.6
+          }
+        ],
+        "homeWin": 27.2,
+        "draw": 33.8,
+        "awayWin": 39,
+        "doubleChance": {
+          "homeOrDraw": 61,
+          "awayOrDraw": 72.8,
+          "homeOrAway": 66.2
+        },
+        "btts": 37.9,
+        "over15": 57.3,
+        "over25": 29.3,
+        "over35": 12.3,
+        "recommendedBet": {
+          "market": "Total Goals",
+          "pick": "Under 3.5",
+          "probability": 68.9,
+          "rawProbability": 87.7,
+          "reliability": 0.786,
+          "rating": "Good"
+        }
+      },
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://tipsterarea.com/match/rwanda-kenya-national-friendly-948244"
+      ],
+      "researchedAt": "2026-10-05T08:20:54+02:00"
+    },
+    {
+      "date": "2026-10-05",
+      "fixtureKey": "2026-10-05|international-friendlies|mauritius|sri-lanka",
+      "leagueId": "international-friendlies",
+      "league": "International Friendlies",
+      "homeTeam": "Mauritius",
+      "awayTeam": "Sri Lanka",
+      "kickoff": "17:00 SAST",
+      "status": "BET",
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 79.2,
+        "rawProbability": 90.7,
+        "reliability": 0.873,
+        "rating": "Strong"
+      },
+      "model": {
+        "modelVersion": "v2.3-backtest-calibrated-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 0.25,
+        "lambdaAway": 0.91,
+        "correctScore": {
+          "score": "0-0",
+          "probability": 32
+        },
+        "alternatives": [
+          {
+            "score": "0-1",
+            "probability": 28
+          },
+          {
+            "score": "0-2",
+            "probability": 13
+          },
+          {
+            "score": "1-1",
+            "probability": 7.7
+          }
+        ],
+        "homeWin": 9.3,
+        "draw": 40,
+        "awayWin": 50.7,
+        "doubleChance": {
+          "homeOrDraw": 49.3,
+          "awayOrDraw": 90.7,
+          "homeOrAway": 60
+        },
+        "btts": 13.7,
+        "over15": 32.8,
+        "over25": 11.2,
+        "over35": 3,
+        "recommendedBet": {
+          "market": "Double Chance",
+          "pick": "X2",
+          "probability": 79.2,
+          "rawProbability": 90.7,
+          "reliability": 0.873,
+          "rating": "Strong"
+        }
+      },
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://www.sportsmole.co.uk/football/international-friendlies/mauritius-vs-sri-lanka_game_259425.html"
+      ],
+      "researchedAt": "2026-10-05T08:20:54+02:00"
+    },
+    {
+      "date": "2026-10-05",
+      "fixtureKey": "2026-10-05|international-friendlies|liechtenstein|gibraltar",
+      "leagueId": "international-friendlies",
+      "league": "International Friendlies",
+      "homeTeam": "Liechtenstein",
+      "awayTeam": "Gibraltar",
+      "kickoff": "20:45 SAST",
+      "status": "BET",
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "X2",
+        "probability": 86.6,
+        "rawProbability": 99.2,
+        "reliability": 0.873,
+        "rating": "Elite"
+      },
+      "model": {
+        "modelVersion": "v2.3-backtest-calibrated-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 0.2,
+        "lambdaAway": 3.25,
+        "correctScore": {
+          "score": "0-3",
+          "probability": 18.3
+        },
+        "alternatives": [
+          {
+            "score": "0-2",
+            "probability": 16.9
+          },
+          {
+            "score": "0-4",
+            "probability": 14.8
+          },
+          {
+            "score": "0-1",
+            "probability": 10.2
+          }
+        ],
+        "homeWin": 0.8,
+        "draw": 6,
+        "awayWin": 93.2,
+        "doubleChance": {
+          "homeOrDraw": 6.8,
+          "awayOrDraw": 99.2,
+          "homeOrAway": 94
+        },
+        "btts": 17.6,
+        "over15": 85.9,
+        "over25": 66.7,
+        "over35": 44.9,
+        "recommendedBet": {
+          "market": "Double Chance",
+          "pick": "X2",
+          "probability": 86.6,
+          "rawProbability": 99.2,
+          "reliability": 0.873,
+          "rating": "Elite"
+        }
+      },
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-05",
+        "https://www.skysports.com/football/liechtenstein-vs-gibraltar/stats/569578"
+      ],
+      "researchedAt": "2026-10-05T08:20:54+02:00"
+    }
+  ],
+  "metrics": {
+    "leagueDaysComplete": 61,
+    "leagueDaysTotal": 61,
+    "fixturesDiscovered": 16,
+    "fixturesProcessed": 16,
+    "modelled": 16,
+    "noModel": 0,
+    "recommendedSelections": 14,
+    "noSelection": 2
+  },
+  "publication": {
+    "status": "published",
+    "path": "data/predictions/2026-10-05.json",
+    "expectedRecommendations": 14
+  },
+  "current": {
+    "date": "2026-10-05",
+    "stage": "publication-verification"
+  }
+}
