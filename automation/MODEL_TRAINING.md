@@ -25,7 +25,7 @@ Every attempt records timestamp, production/candidate versions, source files, sa
 A candidate MUST NOT replace `lib/model.ts` merely because training ran. Promotion requires:
 1. at least 100 unique graded bets total;
 2. at least 20 chronological holdout bets;
-3. leakage-free expanding-window walk-forward evaluation with at least 20 scored folds and lower aggregate Brier score than V2.3;
+3. leakage-free expanding-window walk-forward evaluation with at least 20 scored folds and lower aggregate Brier score than V2.9;
 4. improved calibration/Brier score;
 5. no material hit-rate regression;
 6. deterministic validation/backtest success;
