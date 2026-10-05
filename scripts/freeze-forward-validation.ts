@@ -11,7 +11,12 @@ if(!fs.existsSync(predictionFile)) throw new Error("Missing published prediction
 
 const raw=fs.readFileSync(predictionFile);
 const data=JSON.parse(raw.toString("utf8"));
-const sha256=crypto.createHash("sha256").update(raw).digest("hex");
+const immutableProjection=(d:any)=>({date:d.date,timezone:d.timezone??null,fixtures:(d.fixtures??[]).map((x:any)=>({
+  fixtureKey:x.fixtureKey,date:x.date??d.date,competition:x.competition??null,leagueId:x.leagueId??null,
+  kickoff:x.kickoff??x.kickoffTime??null,homeTeam:x.homeTeam,awayTeam:x.awayTeam,
+  sources:x.sources??null,model:x.model
+}))});
+const sha256=crypto.createHash("sha256").update(JSON.stringify(immutableProjection(data))).digest("hex");
 if(data.date!==date||!Array.isArray(data.fixtures)) throw new Error("Invalid prediction artifact for "+date);
 
 const frozen=data.fixtures.map((x:any)=>{
@@ -27,7 +32,8 @@ const frozen=data.fixtures.map((x:any)=>{
 
 if(fs.existsSync(evidenceFile)){
   const existing=JSON.parse(fs.readFileSync(evidenceFile,"utf8"));
-  if(existing.predictionArtifactSha256!==sha256) throw new Error("IMMUTABILITY VIOLATION: prediction artifact changed after forward-validation freeze for "+date);
+  const existingHash=existing.immutablePredictionSha256??existing.predictionArtifactSha256;
+  if(existingHash!==sha256) throw new Error("IMMUTABILITY VIOLATION: frozen prediction fields changed after forward-validation freeze for "+date);
   console.log(JSON.stringify({date,status:"forward-validation-already-frozen",fixtures:frozen.length,sha256}));
   process.exit(0);
 }
@@ -36,7 +42,7 @@ fs.mkdirSync(evidenceDir,{recursive:true});
 const record={
   schemaVersion:"1.0",date,modelVersion:MODEL_VERSION,
   frozenAt:new Date().toISOString(),predictionArtifact:"data/predictions/"+date+".json",
-  predictionArtifactSha256:sha256,fixtureCount:frozen.length,fixtures:frozen
+  predictionArtifactSha256:sha256,immutablePredictionSha256:sha256,hashScope:"prediction-fields-only-results-may-be-appended",fixtureCount:frozen.length,fixtures:frozen
 };
 fs.writeFileSync(evidenceFile,JSON.stringify(record,null,2)+"\n");
 console.log(JSON.stringify({date,status:"forward-validation-frozen",fixtures:frozen.length,sha256,evidenceFile}));
