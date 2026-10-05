@@ -219,7 +219,9 @@
     "marketSpecificPublicationGateRequired": true,
     "publicProbabilityMustUseMarketSpecificCalibration": true,
     "lockedV29BusinessRulesImmutable": true,
-    "oddsMustNotGateV29Publication": true
+    "oddsMustNotGateV29Publication": true,
+    "resultReconciliationRequiredBeforeNewDailyRun": true,
+    "resultReconciliationMustNotMutateFrozenPrediction": true
   },
   "selfCorrection": {
     "mayChangeExecutionPath": true,
@@ -243,5 +245,18 @@
       "future-leakage",
       "unsafe-mutation"
     ]
+  },
+  "reconciliation": {
+    "required": true,
+    "command": "npm run results:reconcile -- YYYY-MM-DD <verified-results.json>",
+    "verifiedFinalScoreRequired": true,
+    "minimumResultSources": 1,
+    "gradeOriginalPublishedRecommendation": true,
+    "mayAppend": [
+      "fixture.result",
+      "daily.results"
+    ],
+    "mayMutateFrozenPredictionFields": false,
+    "failureBlocksCompletion": true
   }
 }
