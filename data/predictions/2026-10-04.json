@@ -119,7 +119,15 @@
         "https://www.laliga.com/en-US/match/temporada-2026-2027-laliga-hypermotion-cd-castellon-ad-ceuta-fc-8",
         "https://www.fotmob.com/en-GB/matches/castellon-vs-ad-ceuta-fc/v11507a"
       ],
-      "researchedAt": "2026-10-04T14:25:11.180Z"
+      "researchedAt": "2026-10-04T14:25:11.180Z",
+      "result": {
+        "actualScore": {
+          "home": 1,
+          "away": 1
+        },
+        "outcome": "WIN",
+        "verified": true
+      }
     },
     {
       "fixtureKey": "2026-10-04|esp-segunda|girona|mallorca",
@@ -177,7 +185,15 @@
       "sources": [
         "https://iaas-public-front-pro.laliga.com/partido/temporada-2026-2027-laliga-hypermotion-girona-fc-rcd-mallorca-8"
       ],
-      "researchedAt": "2026-10-04T14:25:11.180Z"
+      "researchedAt": "2026-10-04T14:25:11.180Z",
+      "result": {
+        "actualScore": {
+          "home": 0,
+          "away": 0
+        },
+        "outcome": "WIN",
+        "verified": true
+      }
     },
     {
       "fixtureKey": "2026-10-04|col-primera-a|deportivo-pasto|fortaleza",
@@ -236,7 +252,15 @@
         "https://www.fotmob.com/es-419/matches/deportivo-pasto-vs-fortaleza-fc/e6xktdn",
         "https://fbref.com/en/squads/72f9f06e/2026/matchlogs/all_comps/schedule/Deportivo-Pasto-Scores-and-Fixtures-All-Competitions"
       ],
-      "researchedAt": "2026-10-04T14:30:42.429Z"
+      "researchedAt": "2026-10-04T14:30:42.429Z",
+      "result": {
+        "actualScore": {
+          "home": 0,
+          "away": 0
+        },
+        "outcome": "LOSS",
+        "verified": true
+      }
     },
     {
       "fixtureKey": "2026-10-04|uefa-nations-league|kosovo|austria",
@@ -413,7 +437,15 @@
         "https://www.uefa.com/uefanationsleague/match/2047926--greece-vs-germany/",
         "https://www.skysports.com/football/greece-vs-germany/554060"
       ],
-      "researchedAt": "2026-10-04T14:30:42.430Z"
+      "researchedAt": "2026-10-04T14:30:42.430Z",
+      "result": {
+        "actualScore": {
+          "home": 0,
+          "away": 0
+        },
+        "outcome": "WIN",
+        "verified": true
+      }
     },
     {
       "fixtureKey": "2026-10-04|uefa-nations-league|netherlands|serbia",
@@ -471,7 +503,15 @@
       "sources": [
         "https://www.skysports.com/football/netherlands-vs-serbia/554062"
       ],
-      "researchedAt": "2026-10-04T14:25:11.180Z"
+      "researchedAt": "2026-10-04T14:25:11.180Z",
+      "result": {
+        "actualScore": {
+          "home": 2,
+          "away": 1
+        },
+        "outcome": "WIN",
+        "verified": true
+      }
     },
     {
       "fixtureKey": "2026-10-04|uefa-nations-league|portugal|norway",
@@ -529,7 +569,15 @@
       "sources": [
         "https://www.fotmob.com/en-GB/matches/portugal-vs-norway/2ck62b"
       ],
-      "researchedAt": "2026-10-04T14:25:11.180Z"
+      "researchedAt": "2026-10-04T14:25:11.180Z",
+      "result": {
+        "actualScore": {
+          "home": 2,
+          "away": 1
+        },
+        "outcome": "WIN",
+        "verified": true
+      }
     },
     {
       "fixtureKey": "2026-10-04|uefa-nations-league|republic-of-ireland|israel",
@@ -587,7 +635,15 @@
       "sources": [
         "https://www.fotmob.com/en-GB/matches/ireland-vs-israel/1pdm5w"
       ],
-      "researchedAt": "2026-10-04T14:25:11.180Z"
+      "researchedAt": "2026-10-04T14:25:11.180Z",
+      "result": {
+        "actualScore": {
+          "home": 1,
+          "away": 1
+        },
+        "outcome": "WIN",
+        "verified": true
+      }
     },
     {
       "fixtureKey": "2026-10-04|uefa-nations-league|wales|denmark",
@@ -704,7 +760,15 @@
         "https://www.goal.com/en-za/lists/egypt-vs-south-africa-international-friendly-how-to-watch-bafana-bafana-kick-off-time-venue-squad-news-team-form-and-predictions/bltb3df3373c71f0a97",
         "https://www.skysports.com/football/egypt-vs-south-africa/578215"
       ],
-      "researchedAt": "2026-10-04T14:30:42.430Z"
+      "researchedAt": "2026-10-04T14:30:42.430Z",
+      "result": {
+        "actualScore": {
+          "home": 0,
+          "away": 1
+        },
+        "outcome": "WIN",
+        "verified": true
+      }
     },
     {
       "fixtureKey": "2026-10-04|international-friendlies|morocco|mali",
