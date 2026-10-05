@@ -1,0 +1,103 @@
+{
+  "runId": "99537",
+  "from": "2026-09-28",
+  "to": "2026-10-04",
+  "modelVersion": "v2.4-calibrated-risk-selector",
+  "status": "in-progress",
+  "timezone": "Africa/Johannesburg",
+  "requestedDates": 7,
+  "evidenceAvailableDates": [
+    "2026-10-02",
+    "2026-10-03",
+    "2026-10-04"
+  ],
+  "evidenceMissingDates": [
+    "2026-09-28",
+    "2026-09-29",
+    "2026-09-30",
+    "2026-10-01"
+  ],
+  "partialMetrics": {
+    "sourceRows": 67,
+    "publishableRecommendations": 11,
+    "wins": 11,
+    "losses": 0,
+    "hitRate": 100,
+    "byDate": {
+      "2026-10-02": {
+        "bets": 3,
+        "wins": 3,
+        "losses": 0,
+        "hitRate": 100
+      },
+      "2026-10-03": {
+        "bets": 8,
+        "wins": 8,
+        "losses": 0,
+        "hitRate": 100
+      },
+      "2026-10-04": {
+        "bets": 0,
+        "wins": 0,
+        "losses": 0,
+        "hitRate": null
+      }
+    },
+    "byMarket": {
+      "Double Chance 1X": {
+        "bets": 1,
+        "wins": 1,
+        "losses": 0,
+        "hitRate": 100
+      },
+      "Double Chance X2": {
+        "bets": 2,
+        "wins": 2,
+        "losses": 0,
+        "hitRate": 100
+      },
+      "Total Goals Over 1.5": {
+        "bets": 8,
+        "wins": 8,
+        "losses": 0,
+        "hitRate": 100
+      }
+    }
+  },
+  "comparisonSameStoredRows": {
+    "v231": {
+      "recommendedBets": 22,
+      "wins": 20,
+      "losses": 2,
+      "hitRate": 90.9
+    },
+    "v24": {
+      "recommendedBets": 11,
+      "wins": 11,
+      "losses": 0,
+      "hitRate": 100
+    },
+    "removedLosingExamples": [
+      {
+        "date": "2026-10-02",
+        "fixture": "Mauritius vs Sri Lanka",
+        "oldPick": "X2",
+        "oldAdjustedProbability": 84.8,
+        "lambdaHome": 0.72,
+        "lambdaAway": 3.85,
+        "reason": "v2.4 high-lambda quarantine"
+      },
+      {
+        "date": "2026-10-03",
+        "fixture": "Almere City FC vs FC Volendam",
+        "oldPick": "Over 1.5",
+        "oldAdjustedProbability": 84.2,
+        "lambdaHome": 4,
+        "lambdaAway": 1.98,
+        "reason": "v2.4 high-lambda/high-total-lambda quarantine"
+      }
+    ]
+  },
+  "blocker": "Leakage-safe stored evidence in the repository currently covers only 2026-10-02 through 2026-10-04 for this seven-day window. 2026-09-28 through 2026-10-01 require historical pre-kickoff evidence reconstruction before the exact v2.4 runner can complete the requested seven-day universe.",
+  "note": "Partial metrics are measured on stored evidence only and are not the final seven-day backtest."
+}
