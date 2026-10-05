@@ -1,7 +1,7 @@
 {
   "date": "2026-10-05",
   "timezone": "Africa/Johannesburg",
-  "generatedAt": "2026-10-05T09:15:51+02:00",
+  "generatedAt": "2026-10-05T10:05:00+02:00",
   "fixtures": [
     {
       "fixtureKey": "2026-10-05|uefa-nations-league|france|belgium",
@@ -40,8 +40,7 @@
         "awayWin": 56.1,
         "doubleChance": {
           "homeOrDraw": 43.9,
-          "awayOrDraw": 81.1,
-          "homeOrAway": 75.1
+          "awayOrDraw": 81.1
         },
         "btts": 51.8,
         "over15": 76.5,
@@ -54,7 +53,13 @@
           "rawProbability": 81.1,
           "reliability": 0.873,
           "rating": "Good"
-        }
+        },
+        "bttsNo": 48.2,
+        "under15": 23.5,
+        "under25": 48.7,
+        "under35": 70.8,
+        "home1Plus": 61.3,
+        "away1Plus": 83.1
       },
       "sources": [
         "https://www.uefa.com/uefanationsleague/news/02a2-1fea7079900a-801b2c5f6c9e-1000--2026-27-uefa-nations-league-league-phase-fixtures-by-team/",
@@ -99,8 +104,7 @@
         "awayWin": 5.8,
         "doubleChance": {
           "homeOrDraw": 94.2,
-          "awayOrDraw": 19.9,
-          "homeOrAway": 85.9
+          "awayOrDraw": 19.9
         },
         "btts": 43,
         "over15": 84.1,
@@ -113,7 +117,13 @@
           "rawProbability": 94.2,
           "reliability": 0.873,
           "rating": "Strong"
-        }
+        },
+        "bttsNo": 57,
+        "under15": 15.9,
+        "under25": 36.8,
+        "under35": 59,
+        "home1Plus": 92.9,
+        "away1Plus": 45.7
       },
       "sources": [
         "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
@@ -158,8 +168,7 @@
         "awayWin": 27.8,
         "doubleChance": {
           "homeOrDraw": 72.2,
-          "awayOrDraw": 70.6,
-          "homeOrAway": 57.2
+          "awayOrDraw": 70.6
         },
         "btts": 22.4,
         "over15": 36.4,
@@ -172,7 +181,13 @@
           "rawProbability": 96.2,
           "reliability": 0.786,
           "rating": "Strong"
-        }
+        },
+        "bttsNo": 77.6,
+        "under15": 63.6,
+        "under25": 86.9,
+        "under35": 96.2,
+        "home1Plus": 47.3,
+        "away1Plus": 45.7
       },
       "sources": [
         "https://www.uefa.com/uefanationsleague/match/2047934--northern-ireland-vs-georgia/",
@@ -217,8 +232,7 @@
         "awayWin": 48.1,
         "doubleChance": {
           "homeOrDraw": 51.9,
-          "awayOrDraw": 83.3,
-          "homeOrAway": 64.7
+          "awayOrDraw": 83.3
         },
         "btts": 27.3,
         "over15": 47.8,
@@ -231,7 +245,13 @@
           "rawProbability": 83.3,
           "reliability": 0.873,
           "rating": "Good"
-        }
+        },
+        "bttsNo": 72.7,
+        "under15": 52.2,
+        "under25": 78.8,
+        "under35": 92.4,
+        "home1Plus": 40,
+        "away1Plus": 65.7
       },
       "sources": [
         "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
@@ -276,8 +296,7 @@
         "awayWin": 44,
         "doubleChance": {
           "homeOrDraw": 56,
-          "awayOrDraw": 68.2,
-          "homeOrAway": 75.8
+          "awayOrDraw": 68.2
         },
         "btts": 66.2,
         "over15": 85.3,
@@ -290,7 +309,13 @@
           "rawProbability": 85.3,
           "reliability": 0.856,
           "rating": "Good"
-        }
+        },
+        "bttsNo": 33.8,
+        "under15": 14.7,
+        "under25": 35.3,
+        "under35": 57.3,
+        "home1Plus": 78.1,
+        "away1Plus": 83.6
       },
       "sources": [
         "https://www.uefa.com/uefanationsleague/news/02a2-1fea7079900a-801b2c5f6c9e-1000--2026-27-uefa-nations-league-league-phase-fixtures-by-team/",
@@ -335,8 +360,7 @@
         "awayWin": 61.5,
         "doubleChance": {
           "homeOrDraw": 38.5,
-          "awayOrDraw": 79.4,
-          "homeOrAway": 82
+          "awayOrDraw": 79.4
         },
         "btts": 76.3,
         "over15": 94.1,
@@ -349,7 +373,13 @@
           "rawProbability": 94.1,
           "reliability": 0.856,
           "rating": "Strong"
-        }
+        },
+        "bttsNo": 23.7,
+        "under15": 5.9,
+        "under25": 17.9,
+        "under35": 35.1,
+        "home1Plus": 80.6,
+        "away1Plus": 94
       },
       "sources": [
         "https://www.uefa.com/uefanationsleague/news/02a2-1fea7079900a-801b2c5f6c9e-1000--2026-27-uefa-nations-league-league-phase-fixtures-by-team/",
@@ -394,8 +424,7 @@
         "awayWin": 29.2,
         "doubleChance": {
           "homeOrDraw": 70.8,
-          "awayOrDraw": 54.5,
-          "homeOrAway": 74.7
+          "awayOrDraw": 54.5
         },
         "btts": 61.5,
         "over15": 81.9,
@@ -408,7 +437,13 @@
           "rawProbability": 81.9,
           "reliability": 0.856,
           "rating": "Good"
-        }
+        },
+        "bttsNo": 38.5,
+        "under15": 18.1,
+        "under25": 40.9,
+        "under35": 63.3,
+        "home1Plus": 82.1,
+        "away1Plus": 73.8
       },
       "sources": [
         "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
@@ -453,8 +488,7 @@
         "awayWin": 15.3,
         "doubleChance": {
           "homeOrDraw": 84.7,
-          "awayOrDraw": 45.5,
-          "homeOrAway": 69.8
+          "awayOrDraw": 45.5
         },
         "btts": 33.7,
         "over15": 58.4,
@@ -467,7 +501,13 @@
           "rawProbability": 84.7,
           "reliability": 0.873,
           "rating": "Good"
-        }
+        },
+        "bttsNo": 66.3,
+        "under15": 41.6,
+        "under25": 69.5,
+        "under35": 86.9,
+        "home1Plus": 74.1,
+        "away1Plus": 44.6
       },
       "sources": [
         "https://www.uefa.com/uefanationsleague/match/2047936--cyprus-vs-latvia-/",
@@ -512,8 +552,7 @@
         "awayWin": 33,
         "doubleChance": {
           "homeOrDraw": 67,
-          "awayOrDraw": 57.3,
-          "homeOrAway": 75.7
+          "awayOrDraw": 57.3
         },
         "btts": 66.3,
         "over15": 85.3,
@@ -526,7 +565,13 @@
           "rawProbability": 85.3,
           "reliability": 0.856,
           "rating": "Good"
-        }
+        },
+        "bttsNo": 33.7,
+        "under15": 14.7,
+        "under25": 35.3,
+        "under35": 57.4,
+        "home1Plus": 83.1,
+        "away1Plus": 78.8
       },
       "sources": [
         "https://fbref.com/en/matches/2026-10-05",
@@ -571,8 +616,7 @@
         "awayWin": 57.4,
         "doubleChance": {
           "homeOrDraw": 42.6,
-          "awayOrDraw": 83.2,
-          "homeOrAway": 74.2
+          "awayOrDraw": 83.2
         },
         "btts": 45.8,
         "over15": 71.9,
@@ -585,7 +629,13 @@
           "rawProbability": 83.2,
           "reliability": 0.873,
           "rating": "Good"
-        }
+        },
+        "bttsNo": 54.2,
+        "under15": 28.1,
+        "under25": 54.8,
+        "under35": 76.1,
+        "home1Plus": 55.1,
+        "away1Plus": 81.4
       },
       "sources": [
         "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05",
@@ -630,8 +680,7 @@
         "awayWin": 15.5,
         "doubleChance": {
           "homeOrDraw": 84.5,
-          "awayOrDraw": 36,
-          "homeOrAway": 79.5
+          "awayOrDraw": 36
         },
         "btts": 58.5,
         "over15": 84.7,
@@ -644,7 +693,13 @@
           "rawProbability": 84.5,
           "reliability": 0.873,
           "rating": "Good"
-        }
+        },
+        "bttsNo": 41.5,
+        "under15": 15.3,
+        "under25": 36.2,
+        "under35": 58.4,
+        "home1Plus": 89.5,
+        "away1Plus": 64.7
       },
       "sources": [
         "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05",
@@ -689,8 +744,7 @@
         "awayWin": 39,
         "doubleChance": {
           "homeOrDraw": 61,
-          "awayOrDraw": 72.8,
-          "homeOrAway": 66.2
+          "awayOrDraw": 72.8
         },
         "btts": 37.9,
         "over15": 57.3,
@@ -703,7 +757,13 @@
           "rawProbability": 87.7,
           "reliability": 0.786,
           "rating": "Good"
-        }
+        },
+        "bttsNo": 62.1,
+        "under15": 42.7,
+        "under25": 70.7,
+        "under35": 87.7,
+        "home1Plus": 56.4,
+        "away1Plus": 65
       },
       "sources": [
         "https://fbref.com/en/matches/2026-10-05",
@@ -748,8 +808,7 @@
         "awayWin": 50.7,
         "doubleChance": {
           "homeOrDraw": 49.3,
-          "awayOrDraw": 90.7,
-          "homeOrAway": 60
+          "awayOrDraw": 90.7
         },
         "btts": 13.7,
         "over15": 32.8,
@@ -762,7 +821,13 @@
           "rawProbability": 90.7,
           "reliability": 0.873,
           "rating": "Strong"
-        }
+        },
+        "bttsNo": 86.3,
+        "under15": 67.2,
+        "under25": 88.8,
+        "under35": 97,
+        "home1Plus": 22.1,
+        "away1Plus": 59.7
       },
       "sources": [
         "https://fbref.com/en/matches/2026-10-05",
@@ -807,8 +872,7 @@
         "awayWin": 93.2,
         "doubleChance": {
           "homeOrDraw": 6.8,
-          "awayOrDraw": 99.2,
-          "homeOrAway": 94
+          "awayOrDraw": 99.2
         },
         "btts": 17.6,
         "over15": 85.9,
@@ -821,7 +885,13 @@
           "rawProbability": 99.2,
           "reliability": 0.873,
           "rating": "Elite"
-        }
+        },
+        "bttsNo": 82.4,
+        "under15": 14.1,
+        "under25": 33.3,
+        "under35": 55.1,
+        "home1Plus": 18.1,
+        "away1Plus": 96.1
       },
       "sources": [
         "https://fbref.com/en/matches/2026-10-05",
@@ -867,8 +937,7 @@
         "awayWin": 37.2,
         "doubleChance": {
           "homeOrDraw": 62.8,
-          "awayOrDraw": 71.4,
-          "homeOrAway": 65.8
+          "awayOrDraw": 71.4
         },
         "btts": 37.5,
         "over15": 56.6,
@@ -883,7 +952,13 @@
           "rawProbability": 88.1,
           "reliability": 0.786,
           "rating": "Good"
-        }
+        },
+        "bttsNo": 62.5,
+        "under15": 43.4,
+        "under25": 71.4,
+        "under35": 88.1,
+        "home1Plus": 57.3,
+        "away1Plus": 63.6
       },
       "sources": [
         "https://www.ligaprofesional.ar/torneo-clausura-mercado-libre-2026/",
@@ -908,6 +983,14 @@
       "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
       "https://fbref.com/en/matches/2026-10-05",
       "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05"
+    ],
+    "marketContract": [
+      "1X2",
+      "Over/Under Goals",
+      "BTTS",
+      "Double Chance 1X/X2",
+      "Team to Score 1+",
+      "Correct Score"
     ]
   }
 }
