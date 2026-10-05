@@ -101,7 +101,7 @@ const splitCsv=(line:string)=>{const out:string[]=[];let cur="",q=false;for(let 
 const parseDate=(raw:string)=>{if(!raw)return null;if(/^\d{4}-\d{2}-\d{2}$/.test(raw))return raw;const m=raw.match(/^(\d{2})[\/-](\d{2})[\/-](\d{4}|\d{2})$/);if(!m)return null;let y=Number(m[3]);if(y<100)y+=2000;return `${y}-${m[2]}-${m[1]}`};
 const decode=(s:string)=>s.replace(/<[^>]+>/g," ").replace(/&amp;/g,"&").replace(/&#x27;|&#39;/g,"'").replace(/&nbsp;/g," ").replace(/&quot;/g,'"').replace(/\s+/g," ").trim();
 const seasonKey=(r:Row)=>{if(r.season)return r.season;const y=+r.date.slice(0,4),m=+r.date.slice(5,7);return r.seasonMode==="calendar"?String(y):(m>=7?`${y}-${y+1}`:`${y-1}-${y}`)};
-async function get(url:string){const r=await fetch(url,{headers:{"user-agent":"Mozilla/5.0 FIHHistoricalBacktest/1.0"}});if(!r.ok)throw new Error(`${r.status} ${url}`);return r.text()}
+async function get(url:string){const controller=new AbortController();const timer=setTimeout(()=>controller.abort(),12000);try{const r=await fetch(url,{headers:{"user-agent":"Mozilla/5.0 FIHHistoricalBacktest/1.0"},signal:controller.signal});if(!r.ok)throw new Error(`${r.status} ${url}`);return await r.text()}finally{clearTimeout(timer)}}
 
 function addCsv(txt:string,meta:{division:string;leagueId:string;source:string;seasonMode:"calendar"|"europe"}):Row[]{
  const ls=txt.split(/\r?\n/).filter(Boolean);if(ls.length<2)return[];const h=splitCsv(ls[0]).map(x=>x.trim()),ix=Object.fromEntries(h.map((x,i)=>[x,i]));
