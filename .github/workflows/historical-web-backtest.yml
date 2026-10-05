@@ -7,6 +7,7 @@ on:
     paths:
       - "scripts/web-historical-backtest.ts"
       - "scripts/analyze-v25-candidate.ts"
+      - "lib/model.ts"
       - ".github/workflows/historical-web-backtest.yml"
   workflow_dispatch:
 
