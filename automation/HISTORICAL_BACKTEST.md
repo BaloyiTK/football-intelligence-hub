@@ -41,7 +41,7 @@ For EACH calendar date from start through end:
 6. Never use the fixture's own result or any later match as an input.
 7. If reliable pre-match scoring/conceding evidence cannot be reconstructed, record NO MODEL with the reason and continue.
 8. Run the exact current production model in `lib/model.ts`.
-9. Freeze the model output BEFORE grading: model level, sample size, lambdas, probabilities, correct-score forecast and the single `recommendedBet` or NO BET.
+9. Freeze the model output BEFORE grading: model level, sample size, lambdas, 1X2 probabilities and the single 1X2 `recommendedBet` or NO BET.
 10. Reveal/use the already-known final score only after the model output is frozen.
 11. Grade the ONE `recommendedBet` as WIN or LOSS. NO BET and NO MODEL are neither wins nor losses.
 12. The completed result may then become historical evidence for a later kickoff, never an earlier one.
@@ -72,7 +72,6 @@ For each verified fixture retain:
 - reconstructed model inputs
 - lambdaHome / lambdaAway
 - recommendedBet, including market, pick, rawProbability, reliability, adjusted probability and rating
-- correctScore forecast (analysis only)
 - actualScore
 - outcome: WIN | LOSS | NO_BET | NO_MODEL
 - source references sufficient to audit fixture/result and material historical inputs
@@ -89,7 +88,7 @@ Report at minimum:
 - wins
 - losses
 - overall hit rate = wins / recommended bets
-- results by market
+- results by 1X2 pick: Home / Draw / Away
 - results by Elite / Strong / Good
 - results by Full / Standard / Basic
 - results by sample-depth band: 1-2, 3-4, 5-7, 8+
@@ -126,7 +125,6 @@ After a complete run, identify recurring failure patterns. Candidate parameter c
 - Do not skip leagues because they are inconvenient to research.
 - Do not replace the requested range with a smaller sample.
 - Do not count NO BET as a win.
-- Correct score is analytical only and is graded separately from the recommended bet.
 - A known historical final score is explicitly allowed for grading AFTER the reconstructed prediction has been frozen.
 
 ## NO BET reporting rule
