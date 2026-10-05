@@ -774,5 +774,12 @@
     "duplicatePolicy": "fixtureKey",
     "failures": [],
     "notes": "Full manual run using GitHub automation rules. Removed fixtures falling on 5 Oct SAST, corrected friendly replacements/orientation, and did not retrospectively predict matches already completed before this run. Improved fallback pass applied: Full -> Standard -> Basic; reliable recent-score evidence converted eligible No Model fixtures to Basic predictions. Completed fixtures removed from prediction feed by policy. Live status refresh: started/live/completed fixtures purged and are not listed. No Model fixtures removed from public feed; published fixtures are prediction-only. 16:35 SAST rerun: prediction-only filter reapplied; any fixture already kicked off removed. V2 rerun: Dixon-Coles low-score correction applied to all still-published pre-match predictions. V2.1 market selector added: one recommended market per modelled fixture or NO BET."
+  },
+  "results": {
+    "graded": 13,
+    "wins": 11,
+    "losses": 2,
+    "winRate": 84.6,
+    "gradedAt": "2026-10-05T06:03:09.565Z"
   }
 }
