@@ -28,6 +28,8 @@ jobs:
           node-version: 22
       - run: npm install
       - run: npx tsx scripts/web-historical-backtest.ts
+      - name: Analyze v2.5 candidate
+        run: npx tsx scripts/analyze-v25-candidate.ts
       - name: Commit canonical backtest
         run: |
           git config user.name "github-actions[bot]"
