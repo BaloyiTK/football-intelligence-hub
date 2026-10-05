@@ -5,22 +5,87 @@ export type ModelInput={
   recentHomeDefence?:number; recentAwayDefence?:number;
   homeAdvantage?:number; rho?:number;
   sampleSize?:number; modelLevel?:"full"|"standard"|"basic";
+  confidence?:"high"|"medium"|"low";
+  competitionType?:"club"|"international"|"friendly";
+  dataQuality?:"good"|"usable"|"poor";
+  marketProbabilityByPick?:Record<string,number>;
 };
 export type SupportSignal={market:"1X2"|"Total Goals";pick:"Home"|"Away"|"Over 2.5";rawProbability:number;minimum:number;};
+export type SelectionStatus="PUBLISH"|"WATCH"|"REVIEW"|"NO_BET";
 export type BetRecommendation={
   market:"1X2"|"Total Goals"|"Double Chance";
   pick:"Home"|"Draw"|"Away"|"Over 1.5"|"1X"|"X2";
   probability:number;rawProbability:number;reliability:number;rating:"Elite"|"Strong"|"Good";
+  selectionStatus:SelectionStatus; publishable:boolean;
+  marketProbability?:number; marketDivergence?:number;
+  riskFlags:string[];
   support?:SupportSignal;
 };
+
+export const MODEL_VERSION="v2.4-calibrated-risk-selector";
+export const V24=Object.freeze({
+  marketDivergenceWatch:20,
+  marketDivergenceReview:30,
+  lambdaHigh:3.00,
+  lambdaLow:0.25,
+  lambdaTotalHigh:4.80,
+  confidenceShrink:{high:1.00,medium:.95,low:.90},
+  competitionShrink:{club:1.00,international:.96,friendly:.92},
+  divergenceShrink:{watch:.90,review:.80}
+});
+
 const fact=(n:number):number=>n<2?1:n*fact(n-1);
 const pois=(k:number,l:number):number=>Math.exp(-l)*Math.pow(l,k)/fact(k);
 const clamp=(v:number,lo=.2,hi=4)=>Math.min(hi,Math.max(lo,v));
 const blend=(base:number,recent?:number)=>recent==null?base:0.65*base+0.35*recent;
 const dcTau=(x:number,y:number,lh:number,la:number,rho:number)=>{if(x===0&&y===0)return 1-lh*la*rho;if(x===0&&y===1)return 1+lh*rho;if(x===1&&y===0)return 1+la*rho;if(x===1&&y===1)return 1-rho;return 1;};
 const evidenceFactor=(i:ModelInput)=>{const level=i.modelLevel==="full"?1:i.modelLevel==="standard"?.96:.90;const n=i.sampleSize??5;const sample=n>=8?1:n>=5?.97:n>=3?.92:.84;return level*sample;};
-const rating=(p:number):BetRecommendation["rating"]=>p>=85?"Elite":p>=75?"Strong":"Good";
-const recommend=(m:{home:number;draw:number;away:number;homeOrDraw:number;awayOrDraw:number;o15:number;o25:number},i:ModelInput):BetRecommendation|null=>{
+const rating=(p:number):BetRecommendation["rating"]=>p>=85?"Elite":p>=78?"Strong":"Good";
+const shrink=(p:number,f:number)=>50+(p-50)*f;
+const keyFor=(market:string,pick:string)=>market+"|"+pick;
+
+function calibrate(raw:number,reliability:number,i:ModelInput,market:string,pick:string,lh:number,la:number){
+  const confidence=i.confidence??(i.modelLevel==="full"?"high":i.modelLevel==="standard"?"medium":"low");
+  const competition=i.competitionType??"club";
+  const conf=(V24.confidenceShrink as Record<string,number>)[confidence]??.95;
+  const comp=(V24.competitionShrink as Record<string,number>)[competition]??1;
+  const mpRaw=i.marketProbabilityByPick?.[keyFor(market,pick)];
+  const marketProbability=Number.isFinite(mpRaw)?Number(mpRaw):undefined;
+  const marketDivergence=marketProbability===undefined?undefined:Math.abs(raw-marketProbability);
+  const flags:string[]=[];
+  let status:SelectionStatus="PUBLISH";
+  let divergenceFactor=1;
+
+  if(lh>=V24.lambdaHigh||la>=V24.lambdaHigh) flags.push("high-lambda");
+  if(lh<=V24.lambdaLow||la<=V24.lambdaLow) flags.push("low-lambda");
+  if(lh+la>=V24.lambdaTotalHigh) flags.push("high-total-lambda");
+  if(flags.length) status="REVIEW";
+
+  if(i.dataQuality==="poor"){
+    flags.push("poor-data-quality");
+    status="NO_BET";
+  }
+
+  if(marketDivergence!==undefined&&marketDivergence>=V24.marketDivergenceReview){
+    flags.push("extreme-market-divergence");
+    divergenceFactor=V24.divergenceShrink.review;
+    if(status!=="NO_BET") status="REVIEW";
+  }else if(marketDivergence!==undefined&&marketDivergence>=V24.marketDivergenceWatch){
+    flags.push("market-divergence");
+    divergenceFactor=V24.divergenceShrink.watch;
+    if(status==="PUBLISH") status="WATCH";
+  }
+
+  let probability=shrink(raw,reliability);
+  probability=shrink(probability,conf);
+  probability=shrink(probability,comp);
+  probability=shrink(probability,divergenceFactor);
+  probability=Math.max(1,Math.min(99,probability));
+
+  return {probability,selectionStatus:status,publishable:status==="PUBLISH"||status==="WATCH",marketProbability,marketDivergence,riskFlags:flags};
+}
+
+const recommend=(m:{home:number;draw:number;away:number;homeOrDraw:number;awayOrDraw:number;o15:number;o25:number},i:ModelInput,lh:number,la:number)=>{
  const ef=evidenceFactor(i);
  const rows:Array<{market:BetRecommendation["market"];pick:BetRecommendation["pick"];raw:number;min:number;mr:number;support?:SupportSignal}>=[
   {market:"1X2",pick:"Home",raw:m.home,min:62,mr:.92},
@@ -30,17 +95,27 @@ const recommend=(m:{home:number;draw:number;away:number;homeOrDraw:number;awayOr
   {market:"Double Chance",pick:"1X",raw:m.homeOrDraw,min:72,mr:1,support:{market:"1X2",pick:"Home",rawProbability:m.home,minimum:62}},
   {market:"Double Chance",pick:"X2",raw:m.awayOrDraw,min:72,mr:1,support:{market:"1X2",pick:"Away",rawProbability:m.away,minimum:62}}
  ];
- const candidates=rows.map(x=>({...x,reliability:ef*x.mr,adjusted:x.raw*ef*x.mr}))
-  .filter(x=>x.raw>=x.min&&x.adjusted>=68&&(!x.support||x.support.rawProbability>=x.support.minimum))
-  .sort((a,b)=>b.adjusted-a.adjusted);
- const x=candidates[0];
- if(!x)return null;
- return {
-  market:x.market,pick:x.pick,probability:+x.adjusted.toFixed(1),rawProbability:+x.raw.toFixed(1),
-  reliability:+x.reliability.toFixed(3),rating:rating(x.adjusted),
+ const candidates=rows.map(x=>{
+   const reliability=ef*x.mr;
+   const c=calibrate(x.raw,reliability,i,x.market,x.pick,lh,la);
+   return {...x,reliability,...c};
+  })
+  .filter(x=>x.raw>=x.min&&x.probability>=68&&(!x.support||x.support.rawProbability>=x.support.minimum))
+  .sort((a,b)=>b.probability-a.probability);
+ const publishable=candidates.find(x=>x.publishable);
+ const review=candidates.find(x=>!x.publishable&&x.selectionStatus==="REVIEW");
+ const shape=(x:typeof candidates[number]):BetRecommendation=>({
+  market:x.market,pick:x.pick,probability:+x.probability.toFixed(1),rawProbability:+x.raw.toFixed(1),
+  reliability:+x.reliability.toFixed(3),rating:rating(x.probability),
+  selectionStatus:x.selectionStatus,publishable:x.publishable,
+  ...(x.marketProbability!==undefined?{marketProbability:+x.marketProbability.toFixed(1)}:{}),
+  ...(x.marketDivergence!==undefined?{marketDivergence:+x.marketDivergence.toFixed(1)}:{}),
+  riskFlags:x.riskFlags,
   ...(x.support?{support:{...x.support,rawProbability:+x.support.rawProbability.toFixed(1)}}:{})
- };
+ });
+ return {recommendedBet:publishable?shape(publishable):null,reviewBet:review?shape(review):null};
 };
+
 export function calculate(i:ModelInput){
  const hAtt=blend(i.homeAttack,i.recentHomeAttack),aAtt=blend(i.awayAttack,i.recentAwayAttack),hDef=blend(i.homeDefence,i.recentHomeDefence),aDef=blend(i.awayDefence,i.recentAwayDefence);
  const ef=evidenceFactor(i);const rawH=i.leagueHomeGoals*hAtt*aDef*(i.homeAdvantage??1),rawA=i.leagueAwayGoals*aAtt*hDef;
@@ -51,12 +126,14 @@ export function calculate(i:ModelInput){
  for(const row of cells){const p=row.p/total;if(row.x>row.y)h+=p;else if(row.x===row.y)d+=p;else a+=p;if(row.x+row.y>1)o15+=p;if(row.x+row.y>2)o25+=p;}
  const pct=(v:number)=>Math.round(v*1000)/10;
  const markets={home:pct(h),draw:pct(d),away:pct(a),homeOrDraw:pct(h+d),awayOrDraw:pct(a+d),o15:pct(o15),o25:pct(o25)};
+ const selection=recommend(markets,i,lh,la);
  return {
-  modelVersion:"v2.3.1-supported-selector",
+  modelVersion:MODEL_VERSION,
   lambdaHome:+lh.toFixed(2),lambdaAway:+la.toFixed(2),
   home:markets.home,draw:markets.draw,away:markets.away,
   doubleChance:{homeOrDraw:markets.homeOrDraw,awayOrDraw:markets.awayOrDraw},
   over15:markets.o15,over25:markets.o25,
-  recommendedBet:recommend(markets,i)
+  recommendedBet:selection.recommendedBet,
+  reviewBet:selection.reviewBet
  };
 }
