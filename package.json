@@ -19,7 +19,8 @@
     "backtest:controller": "tsx scripts/backtest-controller.ts",
     "predictions:verify": "tsx scripts/verify-predictions.ts",
     "model:train": "tsx scripts/train-model.ts",
-    "model:train:check": "tsx scripts/train-model.ts --check"
+    "model:train:check": "tsx scripts/train-model.ts --check",
+    "model:preflight": "tsx -e \"import {gradeBet} from './lib/grading'; const bets=[['1X2','Home'],['1X2','Draw'],['1X2','Away'],['Total Goals','Over 1.5'],['Total Goals','Under 1.5'],['Total Goals','Over 2.5'],['Total Goals','Under 2.5'],['Total Goals','Over 3.5'],['Total Goals','Under 3.5'],['BTTS','Yes'],['BTTS','No'],['Double Chance','1X'],['Double Chance','X2'],['Team Goals','Home 1+'],['Team Goals','Away 1+']]; for(const [market,pick] of bets) gradeBet({market,pick},{home:2,away:1}); console.log('FIH model contract OK:',bets.length,'picks')\""
   },
   "dependencies": {
     "next": "15.5.7",
