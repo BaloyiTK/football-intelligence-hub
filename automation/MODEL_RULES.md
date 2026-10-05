@@ -1,6 +1,6 @@
-# Deterministic Model Rules — V2.9 Market-Specific Quality Selector
+# Deterministic Model Rules — V2.9 Market-Specific Quality Selector — LOCKED PRODUCTION BASELINE
 
-V2.9 preserves the v2.8 calibrated and support-quality framework, then applies market-specific publication gates. 1X now requires >=82% calibrated probability. Over 1.5 keeps the >=78% calibrated floor but requires a >=7 percentage-point support cushion. Other approved markets retain the v2.8 defaults.
+**Status: LOCKED.** V2.9 is the production baseline. Its selection thresholds, support gates, calibration, risk gates, approved markets, and publishing logic must not change in-place. Any model-rule experiment must use a new version (V3.0+), be backtested separately, and require explicit user approval before promotion. Historical/live odds may be recorded for ROI and market analysis but are not a mandatory publication gate and must not override the football-model selection.\n\nV2.9 preserves the v2.8 calibrated and support-quality framework, then applies market-specific publication gates. 1X now requires >=82% calibrated probability. Over 1.5 keeps the >=78% calibrated floor but requires a >=7 percentage-point support cushion. Other approved markets retain the v2.8 defaults.
 
 ## Core engine
 - Separate attack/defence strengths and league home/away baselines.
@@ -129,3 +129,13 @@ Promoted rules:
 - no lambda-band hard-block.
 
 The more aggressive candidate achieved a higher historical hit rate but removed much more volume and showed a larger train/holdout gap, so it was not promoted.
+
+
+## Locked production benchmark
+- Lock decision: 2026-10-05.
+- Untouched holdout: 2026-08-06 through 2026-10-04.
+- Holdout result: 310 bets, 251 wins, 59 losses, 81.0% hit rate.
+- Training result: 374 bets, 313 wins, 61 losses, 83.7% hit rate.
+- Combined validated sample: 684 bets, 564 wins, 120 losses, 82.5% hit rate.
+- Historical odds remain analytical for ROI/value reporting; they do not decide publication in locked V2.9.
+- Future business-rule changes belong to V3.0+ and must not silently mutate this baseline.
