@@ -45,7 +45,7 @@ For EACH calendar date from start through end:
 10. Reveal/use the already-known final score only after the model output is frozen.
 11. Grade the ONE `recommendedBet` as WIN or LOSS. NO BET and NO MODEL are neither wins nor losses.
 12. The completed result may then become historical evidence for a later kickoff, never an earlier one.
-13. Continue to the next fixture, next league, and next date. Do not stop early.
+13. Continue to the next fixture, next league, and next date. Do not stop early. A fixture-level research/data failure MUST terminate that fixture as NO MODEL and execution MUST continue automatically.
 
 ## Historical global-discovery safeguards
 - Global discovery is a search-efficiency optimization, not permission to shrink the league universe.
@@ -57,7 +57,7 @@ For EACH calendar date from start through end:
 - Cache each date-level global fixture universe so it is researched once and reused across all configured leagues.
 
 ## Completion rule
-A requested backtest is NOT COMPLETE until every date in the requested range and every league entry in `data/leagues.json` has a recorded scan status.
+A requested backtest is NOT COMPLETE until every date in the requested range and every league entry in `data/leagues.json` has a terminal recorded scan status. The active execution MUST continue until this condition is reached; missing stored inputs, individual source failures, ambiguous fixtures, NO MODEL decisions, runner-path failures, or progress updates are never valid reasons to stop the run.
 
 Never call a partial league, partial date, or partial fixture sample the requested backtest.
 
@@ -147,7 +147,7 @@ Required sequence:
 8. Any proposed model change must be evidence-based and tested against the same walk-forward sample plus a holdout before production promotion.
 9. Save the complete audit, aggregate metrics, failure analysis and improvement candidates in the backtest file.
 
-If execution genuinely cannot be completed, leave the canonical report `in-progress`, state exactly what blocked completion, and never imply that work continues after the active response ends.
+Do not end an active user-requested backtest before all requested date × league checkpoints are terminal. For any fixture that cannot be modelled safely after the required evidence hierarchy and repair paths, record NO MODEL and continue. Early termination is permitted only when continuing would require fabricated data, future leakage, or unsafe mutation; tool-path failures must be repaired or bypassed through another approved deterministic path.
 
 
 ## Execution architecture
