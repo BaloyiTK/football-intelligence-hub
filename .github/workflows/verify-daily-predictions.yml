@@ -1,0 +1,35 @@
+name: Verify Daily Prediction Publication
+
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Prediction date (YYYY-MM-DD); blank uses UTC date"
+        required: false
+        type: string
+  schedule:
+    - cron: "30 8 * * *"
+
+jobs:
+  verify-publication:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+      - name: Resolve prediction date
+        id: date
+        shell: bash
+        run: |
+          if [[ -n "${{ inputs.date }}" ]]; then
+            DATE="${{ inputs.date }}"
+          else
+            DATE="$(TZ=Africa/Johannesburg date +%F)"
+          fi
+          echo "date=$DATE" >> "$GITHUB_OUTPUT"
+      - name: Verify daily prediction artifact
+        run: npm run predictions:verify -- "${{ steps.date.outputs.date }}"
