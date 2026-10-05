@@ -49,6 +49,13 @@ A run-level blocker is allowed only when ALL applicable approved execution paths
 - The run continues until every requested date × configured-league checkpoint is terminal and strict completion metrics can be produced.
 - A response boundary is never a backtest execution boundary. "I used the wrong approach", "the preferred runner is unavailable", "research is large", "stored evidence is missing", and "a progress update was emitted" are NEVER sufficient blocker reasons by themselves.
 
+
+### Locked historical web-reconstruction rule
+- Historical backtests simulate the historical pre-kickoff research process. They MUST actively reconstruct evidence from the web fixture-by-fixture according to `RESEARCH_RULES.md`.
+- Existing repository predictions, training rows, ModelInput snapshots, or older backtests are optional accelerators only and MUST NOT determine whether a fixture can be modelled.
+- Never mark a historical fixture NO MODEL merely because repository inputs are absent. Attempt Full -> Standard -> Basic historical web research first.
+- Any backtest that substitutes repository-data availability for historical web reconstruction is invalid and must be restarted.
+
 ## Worldwide coverage policy
 - FIH targets worldwide senior football coverage. The configured competition universe is dynamic and MUST NOT be constrained by a hard-coded league count.
 - `data/leagues.json` is the current verified registry, not a permanent ceiling. Newly verified senior domestic leagues/divisions and senior international/continental competitions may be added as coverage expands.
