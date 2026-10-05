@@ -150,7 +150,7 @@ After every progress update, immediately continue with the next persisted non-te
 - `blocked` is reserved for genuine external/technical inability to proceed and requires a blocker reason. Pending research is `processing`, not blocked.
 
 ## Validation modes
-- Every daily run MUST persist a `pipelineManifest` object keyed by every stage in `automation/FIH_CONTRACT.json.pipeline`. Update each stage as execution advances. Before strict finalization, every mandatory stage must have a terminal status of `passed`, `complete`, or `skipped-not-applicable`; any skip must be genuinely inapplicable and retain its reason/evidence. Never mark an unexecuted required stage complete.
+- Every daily run MUST persist a `pipelineManifest` object keyed by every stage in `automation/FIH_CONTRACT.json.pipeline`. Update each stage as execution advances. Before strict finalization, every stage preceding `finalize` in that contract pipeline must have a terminal status of `passed`, `complete`, or `skipped-not-applicable`; any skip must be genuinely inapplicable and retain its reason/evidence. Record `finalize` only after the finalizer succeeds, then continue recording the post-finalization publication, verification, training and deployment stages. Never mark an unexecuted required stage complete.
 - `npm run run:validate -- <run-file>` checks checkpoint integrity and allows legitimate in-progress work.
 - `npm run run:finalize -- <run-file>` is the strict completion gate and must pass before a run is described as finished or final recommendations are presented as the completed run.
 
