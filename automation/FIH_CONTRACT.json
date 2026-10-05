@@ -221,7 +221,8 @@
     "lockedV29BusinessRulesImmutable": true,
     "oddsMustNotGateV29Publication": true,
     "resultReconciliationRequiredBeforeNewDailyRun": true,
-    "resultReconciliationMustNotMutateFrozenPrediction": true
+    "resultReconciliationMustNotMutateFrozenPrediction": true,
+    "pendingHistoricalResultsMustNotBlockCurrentDailyRun": true
   },
   "selfCorrection": {
     "mayChangeExecutionPath": true,
@@ -257,6 +258,10 @@
       "daily.results"
     ],
     "mayMutateFrozenPredictionFields": false,
-    "failureBlocksCompletion": true
+    "failureBlocksCompletion": false,
+    "attemptRequiredBeforeNewDailyRun": true,
+    "unresolvedResultAction": "persist-pending-with-attempted-sources-and-verification-timestamp",
+    "pendingResultsDoNotBlockNewDailyRun": true,
+    "revisitPendingResultsOnFutureRuns": true
   }
 }
