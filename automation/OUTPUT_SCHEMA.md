@@ -1,25 +1,30 @@
 # Daily Output Contract
 
-Daily public betting data contains only pre-match fixtures with a deterministic model and non-null recommendedBet.
+Daily public betting data contains only pre-match fixtures with the V2.4 deterministic model and a non-null, publishable `recommendedBet`.
 
 Approved recommendation markets:
 - 1X2: Home / Draw / Away
 - Total Goals: Over 1.5
 - Double Chance: 1X / X2
 
-Each model must expose the probabilities needed for support validation:
+Each model must expose:
 - home, draw, away
 - doubleChance.homeOrDraw, doubleChance.awayOrDraw
 - over15, over25
+- modelVersion
+- recommendedBet
+- optional reviewBet
 
 recommendedBet:
-`{ market, pick, probability, rawProbability, reliability, rating, support? }`
+`{ market, pick, probability, rawProbability, reliability, rating, selectionStatus, publishable, riskFlags, marketProbability?, marketDivergence?, support? }`
 
 For derivative picks, support is mandatory:
-- Over 1.5 -> support = Over 2.5 with rawProbability >=68
-- 1X -> support = Home with rawProbability >=62
-- X2 -> support = Away with rawProbability >=62
+- Over 1.5 -> Over 2.5 rawProbability >=68
+- 1X -> Home rawProbability >=62
+- X2 -> Away rawProbability >=62
 
-Direct 1X2 picks do not require a support object.
+Only `selectionStatus: PUBLISH|WATCH` with `publishable: true` may appear publicly.
 
-NO BET fixtures remain internal. Never publish started/live/completed/cancelled/abandoned fixtures.
+`reviewBet` is internal-only. It preserves a potentially useful directional pick that failed an outlier/divergence gate, but it must not be published, counted as a recommendation, emailed, or graded as a betting result.
+
+NO BET, REVIEW-only and NO MODEL fixtures remain internal. Never publish started/live/completed/cancelled/abandoned fixtures.
