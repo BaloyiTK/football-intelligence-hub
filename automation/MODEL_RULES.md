@@ -1,6 +1,6 @@
-# Deterministic Model Rules — V2.5 X2 Risk-Calibrated Selector
+# Deterministic Model Rules — V2.6 Market-Calibrated Selector
 
-V2.5 preserves the V2.4 calibrated Dixon-Coles engine and risk controls, and tightens only the historically weaker X2 publication path based on a 120-day training / 60-day untouched holdout analysis.
+V2.6 preserves the v2.5 selection logic and adds market-specific post-selection probability calibration. The selection gates do not change; only the published probability is recalibrated, while the pre-calibration selection probability is retained for auditability.
 
 ## Core engine
 - Separate attack/defence strengths and league home/away baselines.
@@ -70,3 +70,25 @@ The stricter X2 rule was chosen because it improved both slices without league-s
 - holdout: 75.2% -> 76.0%.
 
 A broader weak-league hard gate improved the holdout slightly further, but was not promoted because its league-specific rules were more prone to overfitting.
+
+
+## V2.6 market-specific calibration
+Chronological calibration split:
+- training: 2026-04-08 through 2026-08-05;
+- untouched holdout: 2026-08-06 through 2026-10-04.
+
+Temperature scaling learned on training predictions:
+- 1X: 1.025
+- X2: 1.55
+- Over 1.5: 1.025
+
+Untouched holdout Brier score improved from 0.18518 to 0.18252.
+The largest improvement was X2:
+- baseline Brier: 0.23419
+- calibrated Brier: 0.21764
+
+V2.6 therefore separates:
+- selectionProbability: the v2.5 probability used to determine whether a bet qualifies;
+- probability: the market-specific calibrated public probability.
+
+This avoids changing the proven v2.5 selection gates merely to make confidence numbers more honest.
