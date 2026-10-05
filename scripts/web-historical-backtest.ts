@@ -213,9 +213,29 @@ function roiBlock(fixtures:any[],field:"averageOdds"|"bestOdds"|"bet365Odds",sta
  for(const x of xs){const o=Number(x.historicalOdds[field]);oddsSum+=o;if(x.outcome==="WIN"){returns+=stake*o;profit+=stake*(o-1)}else profit-=stake}
  const totalStake=xs.length*stake;return{bets:xs.length,stakePerBet:stake,totalStake,averageOdds:xs.length?+(oddsSum/xs.length).toFixed(3):null,returns:+returns.toFixed(2),profit:+profit.toFixed(2),roiPct:totalStake?+(100*profit/totalStake).toFixed(2):null};
 }
+const sleep=(ms:number)=>new Promise(r=>setTimeout(r,ms));
 async function attachOdds(pending:any[],rowsByKey:Map<string,Row>,byDate:Map<string,string[]>){
- const out:any[]=[],batchSize=6;
- for(let i=0;i<pending.length;i+=batchSize){const batch=pending.slice(i,i+batchSize),enriched=await Promise.all(batch.map(async x=>{const f=rowsByKey.get(x.fixtureKey)!;const historicalOdds=await fetchHistoricalOdds(chooseOddsUrl(byDate,f),x.recommendedBet.pick,x.recommendedBet.probability);const actualScore={home:f.hg,away:f.ag};return{...x,historicalOdds,actualScore,outcome:gradeBet(x.recommendedBet,actualScore),sources:[f.source,"https://www.soccerbase.com/matches/results.sd?date="+f.date,...(historicalOdds.source?[historicalOdds.source]:[])]}}));out.push(...enriched);if((i/batchSize)%10===0)console.log("odds progress",Math.min(i+batch.length,pending.length),"/",pending.length)}
+ const out:any[]=[];
+ for(let i=0;i<pending.length;i++){
+  const x=pending[i],f=rowsByKey.get(x.fixtureKey)!,url=chooseOddsUrl(byDate,f);
+  let historicalOdds:HistoricalOdds;
+  if(!url){historicalOdds=await fetchHistoricalOdds(null,x.recommendedBet.pick,x.recommendedBet.probability)}
+  else{
+   historicalOdds=await fetchHistoricalOdds(url,x.recommendedBet.pick,x.recommendedBet.probability);
+   if(historicalOdds.status==="no-odds"&&/429|403|fetch failed/i.test(historicalOdds.reason??"")){
+    await sleep(1200);historicalOdds=await fetchHistoricalOdds(url,x.recommendedBet.pick,x.recommendedBet.probability);
+    if(historicalOdds.status==="no-odds"&&/429|403|fetch failed/i.test(historicalOdds.reason??"")){
+     await sleep(2500);historicalOdds=await fetchHistoricalOdds(url,x.recommendedBet.pick,x.recommendedBet.probability);
+    }
+   }
+   await sleep(350);
+  }
+  const actualScore={home:f.hg,away:f.ag};
+  out.push({...x,historicalOdds,actualScore,outcome:gradeBet(x.recommendedBet,actualScore),sources:[f.source,"https://www.soccerbase.com/matches/results.sd?date="+f.date,...(historicalOdds.source?[historicalOdds.source]:[])]});
+  if(i%25===0)console.log("odds progress",i+1,"/",pending.length,historicalOdds.status,historicalOdds.reason??"");
+ }
+ const reasons=out.reduce((a:any,x:any)=>{const k=x.historicalOdds?.status==="verified"?"VERIFIED":String(x.historicalOdds?.reason??"unknown");a[k]=(a[k]??0)+1;return a},{});
+ console.log("odds reasons",JSON.stringify(reasons));
  return out;
 }
 
