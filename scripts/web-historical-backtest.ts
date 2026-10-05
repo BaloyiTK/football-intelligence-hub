@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { calculate, type ModelInput } from "../lib/model";
+import { calculate, MODEL_VERSION, type ModelInput } from "../lib/model";
 import { gradeBet } from "../lib/grading";
 
 const FROM="2026-04-08", TO="2026-10-04";
@@ -153,18 +153,81 @@ function buildInput(rows:Row[],i:number):ModelInput|null{
  if(hp.length<3||ap.length<3)return null;const sampleSize=Math.min(hp.length,ap.length);
  return{homeAttack:avg(hp,"gf")/leagueHomeGoals,homeDefence:avg(hp,"ga")/leagueAwayGoals,awayAttack:avg(ap,"gf")/leagueAwayGoals,awayDefence:avg(ap,"ga")/leagueHomeGoals,leagueHomeGoals,leagueAwayGoals,sampleSize,modelLevel:"basic",confidence:"low",competitionType:f.competitionType,dataQuality:"usable"}
 }
+
+type OddsQuote={bookmaker:string;odd:number;isMain?:boolean};
+type HistoricalOdds={
+ status:"verified"|"no-odds"; source?:string;
+ provider:"football-predictions.ai / API-Football pre-kickoff snapshot";
+ market:string; selection:string; bookmakerCount:number;
+ averageOdds?:number; medianOdds?:number; bestOdds?:number; bestBookmaker?:string; bet365Odds?:number;
+ naiveImpliedProbability?:number; modelEdgePctPoints?:number; bookmakers?:OddsQuote[]; reason?:string;
+};
+function unflattenOddsPayload(input:any[]){
+ const hydrated:any[]=new Array(input.length),seen=new Set<number>();
+ const hydrate=(idx:any):any=>{
+  if(typeof idx!=="number")return idx;if(idx<0)return idx===-1?undefined:idx;if(idx>=input.length)return idx;
+  if(seen.has(idx))return hydrated[idx];const value=input[idx];if(value===null||typeof value!=="object")return value;
+  seen.add(idx);const out:any=Array.isArray(value)?[]:{};hydrated[idx]=out;
+  if(Array.isArray(value))for(const x of value)out.push(hydrate(x));else for(const [k,v] of Object.entries(value))out[k]=hydrate(v);
+  return out;
+ };return hydrate(0);
+}
+const normTokens=(s:string)=>s.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/&/g," and ").replace(/[^a-z0-9]+/g," ").trim().split(/\s+/).filter(x=>x&&!["fc","cf","sc","afc","fk","club","de","the","ac","cd","ca"].includes(x));
+const tokenScore=(a:string,b:string)=>{const aa=new Set(normTokens(a)),bb=new Set(normTokens(b));if(!aa.size||!bb.size)return 0;let hit=0;for(const x of aa)if(bb.has(x))hit++;return hit/Math.max(aa.size,bb.size)};
+const htmlDecode=(s:string)=>s.replace(/&amp;/g,"&").replace(/&#39;|&#x27;/g,"'").replace(/&quot;/g,'"');
+async function loadOddsSitemap(){
+ const xml=await get("https://football-predictions.ai/sitemap-en.xml");
+ const urls=[...xml.matchAll(/<loc>([^<]+)<\/loc>/gi)].map(m=>htmlDecode(m[1])),byDate=new Map<string,string[]>();
+ for(const url of urls){const m=url.match(/(\d{4}-\d{2}-\d{2})(?:\/)?$/);if(!m)continue;const arr=byDate.get(m[1])??[];arr.push(url);byDate.set(m[1],arr)}
+ console.log("odds sitemap",{urls:urls.length,dated:[...byDate.values()].reduce((s,x)=>s+x.length,0)});return byDate;
+}
+function urlTeams(url:string){const last=url.split("/").filter(Boolean).pop()??"";const base=last.replace(/-prediction-betting-tips-\d{4}-\d{2}-\d{2}$/,"");const parts=base.split("-vs-");return parts.length===2?parts:null}
+function chooseOddsUrl(byDate:Map<string,string[]>,f:Row){
+ const candidates=byDate.get(f.date)??[];let best:{url:string;score:number}|null=null;
+ for(const url of candidates){const parts=urlTeams(url);if(!parts)continue;const hs=tokenScore(f.home,parts[0].replace(/-/g," ")),as=tokenScore(f.away,parts[1].replace(/-/g," "));const score=Math.min(hs,as)*.7+(hs+as)*.15;if(hs>=.45&&as>=.45&&(!best||score>best.score))best={url,score}}
+ return best?.url??null;
+}
+function median(xs:number[]){const a=[...xs].sort((x,y)=>x-y),n=a.length;return n?(a[Math.floor((n-1)/2)]+a[Math.ceil((n-1)/2)])/2:NaN}
+async function fetchHistoricalOdds(url:string|null,pick:string,modelProbability:number):Promise<HistoricalOdds>{
+ const market=pick==="1X"?"Double Chance":pick==="Over 1.5"?"Goals Over/Under":pick,selection=pick==="1X"?"Home/Draw":pick;
+ const base={provider:"football-predictions.ai / API-Football pre-kickoff snapshot" as const,market,selection};
+ if(!url)return{...base,status:"no-odds",bookmakerCount:0,reason:"No matching historical odds page in English sitemap"};
+ try{
+  const html=await get(url),m=html.match(/<script[^>]*type=["']application\/json["'][^>]*>([\s\S]*?)<\/script>/i);
+  if(!m)return{...base,status:"no-odds",bookmakerCount:0,source:url,reason:"Historical page has no machine-readable odds payload"};
+  const root=unflattenOddsPayload(JSON.parse(m[1]));let match:any=null,visited=new Set<any>();
+  const walk=(x:any)=>{if(match||!x||typeof x!=="object"||visited.has(x))return;visited.add(x);if(x.odds&&typeof x.odds==="object"){match=x;return}for(const v of Object.values(x))walk(v)};walk(root);
+  const key=pick==="1X"?"double_chance":pick==="Over 1.5"?"over_under":null,values=key?match?.odds?.[key]?.values:null;
+  if(!Array.isArray(values))return{...base,status:"no-odds",bookmakerCount:0,source:url,reason:"Exact recommended market unavailable"};
+  const quotes:OddsQuote[]=values.filter((v:any)=>v?.value===selection&&Number.isFinite(Number(v?.odd))&&Number(v.odd)>1).map((v:any)=>({bookmaker:String(v.bookmaker??"Unknown"),odd:Number(v.odd),isMain:Boolean(v.isMain)}));
+  const dedup=[...new Map(quotes.map(q=>[q.bookmaker.toLowerCase(),q])).values()];
+  if(!dedup.length)return{...base,status:"no-odds",bookmakerCount:0,source:url,reason:"Exact selection price unavailable"};
+  const odds=dedup.map(q=>q.odd),averageOdds=odds.reduce((s,x)=>s+x,0)/odds.length,best=dedup.reduce((a,b)=>b.odd>a.odd?b:a),b365=dedup.find(q=>/bet365/i.test(q.bookmaker)),naive=100/averageOdds;
+  return{...base,status:"verified",source:url,bookmakerCount:dedup.length,averageOdds:+averageOdds.toFixed(3),medianOdds:+median(odds).toFixed(3),bestOdds:+best.odd.toFixed(3),bestBookmaker:best.bookmaker,...(b365?{bet365Odds:+b365.odd.toFixed(3)}:{}),naiveImpliedProbability:+naive.toFixed(1),modelEdgePctPoints:+(modelProbability-naive).toFixed(1),bookmakers:dedup};
+ }catch(e){return{...base,status:"no-odds",bookmakerCount:0,source:url,reason:String(e)}}
+}
+function roiBlock(fixtures:any[],field:"averageOdds"|"bestOdds"|"bet365Odds",stake=100){
+ const xs=fixtures.filter(x=>x.historicalOdds?.status==="verified"&&Number.isFinite(x.historicalOdds?.[field]));let profit=0,returns=0,oddsSum=0;
+ for(const x of xs){const o=Number(x.historicalOdds[field]);oddsSum+=o;if(x.outcome==="WIN"){returns+=stake*o;profit+=stake*(o-1)}else profit-=stake}
+ const totalStake=xs.length*stake;return{bets:xs.length,stakePerBet:stake,totalStake,averageOdds:xs.length?+(oddsSum/xs.length).toFixed(3):null,returns:+returns.toFixed(2),profit:+profit.toFixed(2),roiPct:totalStake?+(100*profit/totalStake).toFixed(2):null};
+}
+async function attachOdds(pending:any[],rowsByKey:Map<string,Row>,byDate:Map<string,string[]>){
+ const out:any[]=[],batchSize=6;
+ for(let i=0;i<pending.length;i+=batchSize){const batch=pending.slice(i,i+batchSize),enriched=await Promise.all(batch.map(async x=>{const f=rowsByKey.get(x.fixtureKey)!;const historicalOdds=await fetchHistoricalOdds(chooseOddsUrl(byDate,f),x.recommendedBet.pick,x.recommendedBet.probability);const actualScore={home:f.hg,away:f.ag};return{...x,historicalOdds,actualScore,outcome:gradeBet(x.recommendedBet,actualScore),sources:[f.source,"https://www.soccerbase.com/matches/results.sd?date="+f.date,...(historicalOdds.source?[historicalOdds.source]:[])]}}));out.push(...enriched);if((i/batchSize)%10===0)console.log("odds progress",Math.min(i+batch.length,pending.length),"/",pending.length)}
+ return out;
+}
+
 async function main(){
- const rows=await loadRows(),fixtures:any[]=[];let modelled=0,noModel=0,noBet=0;
- for(let i=0;i<rows.length;i++){const f=rows[i];if(f.date<FROM||f.date>TO)continue;const inputs=buildInput(rows,i);if(!inputs){noModel++;continue}modelled++;const m=calculate(inputs);if(!m.recommendedBet){noBet++;continue}fixtures.push({date:f.date,leagueId:f.leagueId,homeTeam:f.home,awayTeam:f.away,modelLevel:"basic",sampleSize:inputs.sampleSize,inputs,lambdaHome:m.lambdaHome,lambdaAway:m.lambdaAway,recommendedBet:m.recommendedBet,actualScore:{home:f.hg,away:f.ag},outcome:gradeBet(m.recommendedBet,{home:f.hg,away:f.ag}),sources:[f.source,"https://www.soccerbase.com/matches/results.sd?date="+f.date]})}
- const wins=fixtures.filter(x=>x.outcome==="WIN").length,losses=fixtures.length-wins;
+ const rows=await loadRows(),pending:any[]=[];let modelled=0,noModel=0,noBet=0;const rowsByKey=new Map<string,Row>();
+ for(let i=0;i<rows.length;i++){const f=rows[i];if(f.date<FROM||f.date>TO)continue;const inputs=buildInput(rows,i);if(!inputs){noModel++;continue}modelled++;const m=calculate(inputs);if(!m.recommendedBet){noBet++;continue}const fixtureKey=[f.leagueId,f.date,f.home,f.away].join("|");rowsByKey.set(fixtureKey,f);pending.push({fixtureKey,date:f.date,leagueId:f.leagueId,homeTeam:f.home,awayTeam:f.away,competitionType:f.competitionType,modelLevel:"basic",sampleSize:inputs.sampleSize,inputs,lambdaHome:m.lambdaHome,lambdaAway:m.lambdaAway,recommendedBet:m.recommendedBet})}
+ const fixtures=await attachOdds(pending,rowsByKey,await loadOddsSitemap()),wins=fixtures.filter(x=>x.outcome==="WIN").length,losses=fixtures.length-wins;
  const group=(key:(x:any)=>string)=>Object.values(fixtures.reduce((a:any,x:any)=>{const k=key(x);a[k]??={key:k,bets:0,wins:0,losses:0};a[k].bets++;a[k][x.outcome==="WIN"?"wins":"losses"]++;return a},{})).map((x:any)=>({...x,hitRate:+(100*x.wins/x.bets).toFixed(1)}));
- const leagueIds=[...new Set(rows.filter(r=>r.date>=FROM&&r.date<=TO).map(r=>r.leagueId))];
- const inRange=rows.filter(r=>r.date>=FROM&&r.date<=TO);
- const configured=(JSON.parse(fs.readFileSync(path.join(process.cwd(),"data/leagues.json"),"utf8")).leagues as {id:string}[]).map(x=>x.id);
- const verifiedZeroFixtureLeagueIds=configured.filter(id=>verifiedZeroLeagues[id]);
- const terminalNoModelLeagueIds=configured.filter(id=>!leagueIds.includes(id)&&!verifiedZeroFixtureLeagueIds.includes(id));
+ const leagueIds=[...new Set(rows.filter(r=>r.date>=FROM&&r.date<=TO).map(r=>r.leagueId))],inRange=rows.filter(r=>r.date>=FROM&&r.date<=TO),configured=(JSON.parse(fs.readFileSync(path.join(process.cwd(),"data/leagues.json"),"utf8")).leagues as {id:string}[]).map(x=>x.id);
+ const verifiedZeroFixtureLeagueIds=configured.filter(id=>verifiedZeroLeagues[id]),terminalNoModelLeagueIds=configured.filter(id=>!leagueIds.includes(id)&&!verifiedZeroFixtureLeagueIds.includes(id));
  const leagueScan=configured.map(id=>leagueIds.includes(id)?{leagueId:id,status:"complete",terminalState:"web-modelled"}:verifiedZeroLeagues[id]?{leagueId:id,status:"complete",terminalState:"verified-zero-fixture",reason:verifiedZeroLeagues[id].reason,sources:verifiedZeroLeagues[id].sources}:{leagueId:id,status:"complete",terminalState:"no-model-after-web-source-attempts",sources:terminalSourceAttempts[id]??[],reason:"No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."});
- const report={status:"complete",modelVersion:"v2.4-calibrated-risk-selector",range:{start:FROM,end:TO},researchMethod:"historical web data reconstructed chronologically; production lib/model.ts executed before grading",sourceScope:{configuredLeagueCount:configured.length,webModelledLeagueCount:leagueIds.length,webModelledLeagueIds:leagueIds,verifiedZeroFixtureLeagueIds,terminalNoModelLeagueIds,note:"All 61 configured leagues are terminal: web-modelled, verified zero-fixture, or NO MODEL only after explicit historical web-source attempts."},leagueScan,fixtures,aggregateMetrics:{webFixturesInRange:inRange.length,modelledFixtures:modelled,noModel,noBet,recommendedBets:fixtures.length,wins,losses,hitRate:fixtures.length?+(100*wins/fixtures.length).toFixed(1):null,byPick:group(x=>x.recommendedBet.pick),byLeague:group(x=>x.leagueId),byRating:group(x=>x.recommendedBet.rating)},generatedAt:new Date().toISOString()};
- const out=path.join(process.cwd(),`data/backtests/${FROM}_to_${TO}.json`);fs.writeFileSync(out,JSON.stringify(report,null,2)+"\n");console.log(JSON.stringify({scope:report.sourceScope,metrics:report.aggregateMetrics},null,2))
+ const verifiedOdds=fixtures.filter(x=>x.historicalOdds?.status==="verified"),noOdds=fixtures.length-verifiedOdds.length;
+ const oddsByPick=(pick:string)=>{const xs=fixtures.filter(x=>x.recommendedBet.pick===pick),v=xs.filter(x=>x.historicalOdds?.status==="verified");return{pick,recommendedBets:xs.length,verifiedOddsBets:v.length,coveragePct:xs.length?+(100*v.length/xs.length).toFixed(1):null,averageMarketExecution:roiBlock(xs,"averageOdds"),bestAvailableExecution:roiBlock(xs,"bestOdds"),bet365Execution:roiBlock(xs,"bet365Odds")}};
+ const report={status:"complete",modelVersion:MODEL_VERSION,range:{start:FROM,end:TO},researchMethod:"fresh historical web reconstruction; production model frozen before exact pre-kickoff bookmaker odds attachment and result grading",oddsMethod:{source:"football-predictions.ai historical pages",upstream:"API-Football bookmaker snapshot",exactMarketsOnly:true,missingOddsPolicy:"NO ODDS; excluded from ROI",note:"Average-market ROI uses arithmetic mean across verified bookmaker prices. Best-available ROI assumes line shopping. Bet365 ROI uses only fixtures with a verified Bet365 exact-market price."},sourceScope:{configuredLeagueCount:configured.length,webModelledLeagueCount:leagueIds.length,webModelledLeagueIds:leagueIds,verifiedZeroFixtureLeagueIds,terminalNoModelLeagueIds,note:"All 61 configured leagues are terminal: web-modelled, verified zero-fixture, or NO MODEL only after explicit historical web-source attempts."},leagueScan,fixtures,aggregateMetrics:{webFixturesInRange:inRange.length,modelledFixtures:modelled,noModel,noBet,recommendedBets:fixtures.length,wins,losses,hitRate:fixtures.length?+(100*wins/fixtures.length).toFixed(1):null,byPick:group(x=>x.recommendedBet.pick),byLeague:group(x=>x.leagueId),byRating:group(x=>x.recommendedBet.rating)},oddsMetrics:{verifiedOddsBets:verifiedOdds.length,noOdds,coveragePct:fixtures.length?+(100*verifiedOdds.length/fixtures.length).toFixed(1):null,averageMarketExecution:roiBlock(fixtures,"averageOdds"),bestAvailableExecution:roiBlock(fixtures,"bestOdds"),bet365Execution:roiBlock(fixtures,"bet365Odds"),byPick:[oddsByPick("1X"),oddsByPick("Over 1.5")]},generatedAt:new Date().toISOString()};
+ const out=path.join(process.cwd(),"data/backtests/"+FROM+"_to_"+TO+".json");fs.writeFileSync(out,JSON.stringify(report,null,2)+"\n");console.log(JSON.stringify({scope:report.sourceScope,metrics:report.aggregateMetrics,odds:report.oddsMetrics},null,2))
 }
 main().catch(e=>{console.error(e);process.exit(1)});
