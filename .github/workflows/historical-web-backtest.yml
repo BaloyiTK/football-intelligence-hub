@@ -10,6 +10,7 @@ on:
       - "scripts/analyze-v26-calibration.ts"
       - "scripts/analyze-v27-quality.ts"
       - "scripts/analyze-v28-loss-patterns.ts"
+      - "scripts/analyze-v28-candidate.ts"
       - "lib/model.ts"
       - ".github/workflows/historical-web-backtest.yml"
   workflow_dispatch:
@@ -41,6 +42,8 @@ jobs:
         run: npx tsx scripts/analyze-v27-quality.ts
       - name: Analyze v2.8 loss patterns
         run: npx tsx scripts/analyze-v28-loss-patterns.ts
+      - name: Analyze v2.8 candidate
+        run: npx tsx scripts/analyze-v28-candidate.ts
       - name: Commit canonical backtest
         run: |
           git config user.name "github-actions[bot]"
