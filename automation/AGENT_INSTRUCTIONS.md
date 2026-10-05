@@ -151,3 +151,13 @@ A daily run is not operationally delivered until its prediction artifact is publ
 5. Run completion and website delivery are separate fields. Persist publication status/cursor when possible. Never report predictions as published merely because modelling completed.
 6. If publication remains blocked after bounded retries, keep the frozen predictions accessible as PARTIAL and persist the exact publication blocker. Never replace them with fabricated data.
 7. The homepage must select the latest successfully published dated artifact automatically; adding a new date must not require editing application source code.
+
+
+## Daily prediction archive and result lifecycle
+- Every daily execution date MUST have its own immutable-address prediction artifact: `data/predictions/YYYY-MM-DD.json`. Never overwrite another date to publish today.
+- The artifact is created on every daily run even when there are zero publishable bets; in that case publish an empty `fixtures` array plus scan/publication metadata so the calendar has an auditable daily record.
+- Frozen pre-match prediction/model fields are immutable after kickoff. Result enrichment MUST add a separate `result` object and MUST NOT alter the frozen forecast or recommended bet.
+- After fixtures finish, verify final scores using the result-verification rules, grade with `lib/grading.ts`, and enrich matching archived fixtures with `result.actualScore`, `result.outcome` and verification state/sources when available.
+- Store a daily `results` aggregate with graded, wins, losses and winRate. Win rate is wins / graded recommended bets; exclude NO BET, NO MODEL and unverified/pending results.
+- Historical UI must allow selecting any available archive date and show the frozen prediction beside actual result and WIN/LOSS. Never manufacture an actual result for a fixture that cannot be identity-matched and verified.
+- Publication verification must run for every dated archive, including zero-bet days.
