@@ -460,8 +460,8 @@
     {
       "leagueId": "arg-primera",
       "status": "complete",
-      "fixturesDiscovered": 3,
-      "fixturesProcessed": 3,
+      "fixturesDiscovered": 1,
+      "fixturesProcessed": 1,
       "sources": [
         "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
         "https://fbref.com/en/matches/2026-10-05",
@@ -1712,78 +1712,6 @@
       "sources": [
         "https://www.ligaprofesional.ar/torneo-clausura-mercado-libre-2026/",
         "https://www.fotmob.com/matches/central-cordoba-de-santiago-vs-deportivo-riestra/1o9ltexi",
-        "https://footystats.org/argentina/primera-division"
-      ],
-      "researchedAt": "2026-10-05T09:15:51+02:00"
-    },
-    {
-      "date": "2026-10-05",
-      "fixtureKey": "2026-10-05|arg-primera|velez-sarsfield|platense",
-      "leagueId": "arg-primera",
-      "league": "Liga Profesional Argentina",
-      "homeTeam": "Vélez Sarsfield",
-      "awayTeam": "Platense",
-      "kickoff": "00:00 SAST",
-      "status": "BET",
-      "recommendedBet": {
-        "market": "Double Chance",
-        "pick": "1X",
-        "probability": 71.2,
-        "rawProbability": 81.6,
-        "reliability": 0.873,
-        "rating": "Good"
-      },
-      "model": {
-        "modelVersion": "v2.3-backtest-calibrated-selector",
-        "modelLevel": "basic",
-        "confidence": "low",
-        "sampleSize": 5,
-        "lambdaHome": 1.37,
-        "lambdaAway": 0.71,
-        "correctScore": {
-          "score": "1-0",
-          "probability": 16.1
-        },
-        "alternatives": [
-          {
-            "score": "0-0",
-            "probability": 13.4
-          },
-          {
-            "score": "1-1",
-            "probability": 13.1
-          },
-          {
-            "score": "2-0",
-            "probability": 11.7
-          }
-        ],
-        "homeWin": 51.7,
-        "draw": 29.8,
-        "awayWin": 18.4,
-        "doubleChance": {
-          "homeOrDraw": 81.6,
-          "awayOrDraw": 48.3,
-          "homeOrAway": 70.2
-        },
-        "btts": 39.1,
-        "over15": 62.7,
-        "over25": 34.7,
-        "over35": 15.9,
-        "home2Plus": 39.9,
-        "away2Plus": 16.1,
-        "recommendedBet": {
-          "market": "Double Chance",
-          "pick": "1X",
-          "probability": 71.2,
-          "rawProbability": 81.6,
-          "reliability": 0.873,
-          "rating": "Good"
-        }
-      },
-      "sources": [
-        "https://www.ligaprofesional.ar/torneo-clausura-mercado-libre-2026/",
-        "https://www.fotmob.com/en-GB/matches/velez-sarsfield-vs-club-atletico-platense/3d3g19",
         "https://footystats.org/argentina/primera-division"
       ],
       "researchedAt": "2026-10-05T09:15:51+02:00"
