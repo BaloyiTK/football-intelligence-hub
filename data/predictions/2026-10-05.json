@@ -760,96 +760,12 @@
       "researchedAt": "2026-10-05T08:20:54+02:00"
     },
     {
-      "fixtureKey": "2026-10-05|international-friendlies|ecuador|panama",
-      "leagueId": "international-friendlies",
-      "league": "International Friendlies",
-      "homeTeam": "Ecuador",
-      "awayTeam": "Panama",
-      "kickoff": "09:30 SAST",
-      "status": "Predicted",
-      "model": {
-        "modelVersion": "v2.3-backtest-calibrated-selector",
-        "modelLevel": "basic",
-        "confidence": "low",
-        "lambdaHome": 0.8,
-        "lambdaAway": 1.68,
-        "correctScore": {
-          "score": "0-1",
-          "probability": 13.1
-        },
-        "alternatives": [
-          {
-            "score": "1-1",
-            "probability": 12.2
-          },
-          {
-            "score": "0-2",
-            "probability": 11.8
-          },
-          {
-            "score": "1-2",
-            "probability": 9.5
-          }
-        ],
-        "homeWin": 16.8,
-        "draw": 25.8,
-        "awayWin": 57.4,
-        "doubleChance": {
-          "homeOrDraw": 42.6,
-          "awayOrDraw": 83.2
-        },
-        "btts": 45.8,
-        "over15": 71.9,
-        "over25": 45.2,
-        "over35": 23.9,
-        "recommendedBet": {
-          "market": "Double Chance",
-          "pick": "X2",
-          "probability": 72.6,
-          "rawProbability": 83.2,
-          "reliability": 0.873,
-          "rating": "Good"
-        },
-        "bttsNo": 54.2,
-        "under15": 28.1,
-        "under25": 54.8,
-        "under35": 76.1,
-        "home1Plus": 55.1,
-        "away1Plus": 81.4,
-        "home": 16.8,
-        "away": 57.4,
-        "likelyScores": [
-          {
-            "score": "0-1",
-            "probability": 13.1
-          },
-          {
-            "score": "1-1",
-            "probability": 12.2
-          },
-          {
-            "score": "0-2",
-            "probability": 11.8
-          },
-          {
-            "score": "1-2",
-            "probability": 9.5
-          }
-        ]
-      },
-      "sources": [
-        "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05",
-        "https://www.sportytrader.com/en/results-live/ecuador-panama-8876231/"
-      ],
-      "researchedAt": "2026-10-05T08:20:54+02:00"
-    },
-    {
       "fixtureKey": "2026-10-05|international-friendlies|japan|new-zealand",
       "leagueId": "international-friendlies",
       "league": "International Friendlies",
       "homeTeam": "Japan",
       "awayTeam": "New Zealand",
-      "kickoff": "13:30 SAST",
+      "kickoff": "12:30 SAST",
       "status": "Predicted",
       "model": {
         "modelVersion": "v2.3-backtest-calibrated-selector",
@@ -923,7 +839,8 @@
       },
       "sources": [
         "https://livesoccer.planetsport.com/live/soccer/all/2026-10-05",
-        "https://www.fotmob.com/matches/new-zealand-vs-japan/1as5pb"
+        "https://www.fotmob.com/matches/new-zealand-vs-japan/1as5pb",
+        "https://www.jfa.jp/eng/samuraiblue/kirincupsoccer_2026/"
       ],
       "researchedAt": "2026-10-05T08:20:54+02:00"
     },
@@ -1303,6 +1220,13 @@
       "coverageGaps": [
         "CONCACAF Nations League fixtures discovered outside current registry"
       ]
-    }
+    },
+    "excludedAfterRecheck": [
+      {
+        "fixtureKey": "2026-10-05|international-friendlies|ecuador|panama",
+        "reason": "Kickoff 09:30 SAST had passed before refreshed publication; pre-match-only rule"
+      }
+    ],
+    "publishableRecommendations": 14
   }
 }
