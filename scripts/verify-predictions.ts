@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
+const MODEL_VERSION="v2.4-calibrated-risk-selector";
 const date=process.argv[2]||new Date().toISOString().slice(0,10);
 const file=path.join(process.cwd(),"data","predictions",date+".json");
 if(!fs.existsSync(file)) throw new Error("Missing published prediction artifact: "+file);
@@ -19,11 +20,15 @@ for(const x of data.fixtures as any[]){
   if(!Array.isArray(x.sources)||x.sources.length===0) throw new Error("Published fixture missing sources: "+x.fixtureKey);
   const model=x.model;
   if(!model||!model.recommendedBet) throw new Error("Public prediction fixture missing recommendedBet: "+x.fixtureKey);
-  if(model.modelVersion!=="v2.3.1-supported-selector") throw new Error("Current publication must use v2.3.1-supported-selector: "+x.fixtureKey);
+  if(model.modelVersion!==MODEL_VERSION) throw new Error("Current publication must use "+MODEL_VERSION+": "+x.fixtureKey);
+  if(model.reviewBet) throw new Error("Internal reviewBet leaked into public prediction: "+x.fixtureKey);
   for(const field of ["home","draw","away","over15","over25","doubleChance"]) if(model[field]===undefined||model[field]===null) throw new Error("Missing required support output "+field+": "+x.fixtureKey);
   const bet=model.recommendedBet;
-  for(const field of ["market","pick","probability","rawProbability","reliability","rating"]) if(bet[field]===undefined||bet[field]===null||bet[field]==="") throw new Error("recommendedBet missing "+field+": "+x.fixtureKey);
-  if(typeof bet.probability!=="number"||bet.probability<68) throw new Error("Adjusted probability below floor: "+x.fixtureKey);
+  for(const field of ["market","pick","probability","rawProbability","reliability","rating","selectionStatus","publishable","riskFlags"]) if(bet[field]===undefined||bet[field]===null||bet[field]==="") throw new Error("recommendedBet missing "+field+": "+x.fixtureKey);
+  if(bet.publishable!==true||!["PUBLISH","WATCH"].includes(bet.selectionStatus)) throw new Error("Non-publishable selection leaked: "+x.fixtureKey);
+  if(typeof bet.probability!=="number"||bet.probability<68) throw new Error("Calibrated probability below floor: "+x.fixtureKey);
+  if(!Array.isArray(bet.riskFlags)) throw new Error("riskFlags must be an array: "+x.fixtureKey);
+  if(bet.riskFlags.includes("high-lambda")||bet.riskFlags.includes("low-lambda")||bet.riskFlags.includes("high-total-lambda")||bet.riskFlags.includes("extreme-market-divergence")) throw new Error("Review-level risk leaked into public recommendation: "+x.fixtureKey);
   const allowed={
     "1X2":new Set(["Home","Draw","Away"]),
     "Total Goals":new Set(["Over 1.5"]),
@@ -45,4 +50,4 @@ for(const x of data.fixtures as any[]){
   if(bet.market==="1X2"&&bet.rawProbability<62) throw new Error("1X2 raw below floor: "+x.fixtureKey);
   if(!["Elite","Strong","Good"].includes(bet.rating)) throw new Error("Invalid recommendation rating: "+x.fixtureKey);
 }
-console.log(JSON.stringify({date,fixtures:data.fixtures.length,recommended:data.fixtures.length,status:"publish-verified",model:"v2.3.1-supported-selector"}));
+console.log(JSON.stringify({date,fixtures:data.fixtures.length,recommended:data.fixtures.length,status:"publish-verified",model:MODEL_VERSION}));
