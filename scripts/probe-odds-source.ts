@@ -1,3 +1,4 @@
+async function main(){
 const urls=[
   "https://football-predictions.ai/sitemap.xml",
   "https://football-predictions.ai/wanderers-vs-albion-fc-prediction-betting-tips-2026-09-28"
@@ -13,3 +14,5 @@ for(const url of urls){
     }
   }catch(e){console.log("ERR",url,String(e))}
 }
+}
+main().catch(e=>{console.error(e);process.exit(1)});
