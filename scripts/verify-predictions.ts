@@ -23,7 +23,7 @@ for(const x of data.fixtures as any[]){
   const model=x.model;
   if(!model||!model.recommendedBet) throw new Error("Public prediction fixture missing recommendedBet: "+x.fixtureKey);
   if(model.modelVersion==="v2.3-backtest-calibrated-selector"){
-    const requiredSixFamilyFields=["home","draw","away","over15","under15","over25","under25","over35","under35","bttsYes","bttsNo","doubleChance","teamToScore","likelyScores"];
+    const requiredSixFamilyFields=["home","draw","away","over15","under15","over25","under25","over35","under35","btts","bttsNo","doubleChance","home1Plus","away1Plus","likelyScores"];
     for(const field of requiredSixFamilyFields) if(model[field]===undefined||model[field]===null) throw new Error("V2.3 fixture missing required six-market output "+field+": "+x.fixtureKey);
     if(!Array.isArray(model.likelyScores)||model.likelyScores.length===0) throw new Error("V2.3 fixture missing Correct Score forecast: "+x.fixtureKey);
   }
