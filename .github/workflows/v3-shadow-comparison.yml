@@ -1,0 +1,32 @@
+name: V3 Shadow Comparison
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "lib/model-v3.ts"
+      - "scripts/compare-v29-v30.ts"
+      - "data/backtests/2026-04-08_to_2026-10-04.json"
+
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+      - run: npm run test:v3
+      - run: npm run compare:v3
+      - name: Commit comparison artifact
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/v3-comparisons/v29-vs-v30-phase1.json
+          git diff --cached --quiet && exit 0
+          git commit -m "v3: record phase-1 shadow comparison"
+          git push
