@@ -2,7 +2,7 @@
   "runId": "2026-10-05_114912_v2.3.1",
   "date": "2026-10-05",
   "timezone": "Africa/Johannesburg",
-  "status": "complete",
+  "status": "blocked",
   "storagePolicy": "full-audit",
   "contractVersion": "2.1.0",
   "modelVersion": "v2.3.1-supported-selector",
@@ -1364,5 +1364,7 @@
     "contractVersion": "2.1.0",
     "supportGatesApplied": true,
     "note": "New production selector rejects safer picks unless the harder underlying signal also clears its configured floor."
-  }
+  },
+  "blocker": "Strict repository finalization could not be executed in the active environment. The corrected v2.3.1 artifacts pass repository-level structural/support-gate checks (61/61 leagues, 16/16 terminal fixtures, 4 publishable recommendations), but no GitHub Actions run was created for the artifact commits and the local environment cannot obtain tsx to execute npm run run:finalize. Vercel also reports a build-rate-limit failure for the exact commits.",
+  "resumeAction": "Run npm run contract:verify, npm run model:preflight, npm run run:validate -- data/runs/2026-10-05_114912_v2.3.1.json, npm run run:finalize -- data/runs/2026-10-05_114912_v2.3.1.json, and npm run predictions:verify -- 2026-10-05 when an execution runner is available. Do not alter the frozen v2.3.1 selections unless new pre-kickoff evidence requires a new run."
 }
