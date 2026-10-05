@@ -1,4 +1,5 @@
 name: Historical Web Backtest
+# manual-trigger-marker: 2026-10-05
 
 on:
   push:
