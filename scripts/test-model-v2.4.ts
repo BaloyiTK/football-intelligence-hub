@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import {calculate,MODEL_VERSION} from "../lib/model";
 
-assert.equal(MODEL_VERSION,"v2.8-support-quality-selector");
+assert.equal(MODEL_VERSION,"v2.9-market-specific-quality-selector");
 
 const normal=calculate({
   homeAttack:1.55,awayAttack:.75,homeDefence:.70,awayDefence:1.35,
@@ -52,7 +52,15 @@ const weakSupport=calculate({
   leagueHomeGoals:1.45,leagueAwayGoals:1.15,
   sampleSize:5,modelLevel:"basic",confidence:"medium",competitionType:"club"
 });
-if(weakSupport.reviewBet?.riskFlags.includes("weak-support-margin")){
+if(weakSupport.reviewBet?.riskFlags.includes("market-support-margin")){
   assert.equal(weakSupport.reviewBet.publishable,false,"sub-5-point support margin must be review-only");
 }
-console.log(JSON.stringify({status:"v2.8-tests-passed",modelVersion:MODEL_VERSION}));
+const marketSpecific=calculate({
+  homeAttack:1.25,awayAttack:.72,homeDefence:.75,awayDefence:1.15,
+  leagueHomeGoals:1.45,leagueAwayGoals:1.15,
+  sampleSize:5,modelLevel:"basic",confidence:"medium",competitionType:"club"
+});
+if(marketSpecific.reviewBet?.pick==="1X"&&marketSpecific.reviewBet.probability<82){
+  assert.equal(marketSpecific.reviewBet.publishable,false,"v2.9 1X must require at least 82% public probability");
+}
+console.log(JSON.stringify({status:"v2.9-tests-passed",modelVersion:MODEL_VERSION}));
