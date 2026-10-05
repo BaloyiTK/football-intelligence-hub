@@ -31,6 +31,8 @@ const extraPages:{key:string;page:string;leagueId:string;seasonMode:"calendar"|"
  {key:"USA",page:"usa.php",leagueId:"usa-mls",seasonMode:"calendar"}
 ];
 const mirror:{key:string;leagueId:string;seasonMode:"calendar"|"europe";competitionType:CompetitionType;files:string[]}[]=[
+ {key:"NED2",leagueId:"ned-eerste-divisie",seasonMode:"europe",competitionType:"club",files:["Eerste Divisie Full Match List 25-26.csv","Eerste Divisie Full Match List 26-27.csv"]},
+ {key:"AUS",leagueId:"aus-a-league",seasonMode:"europe",competitionType:"club",files:["A-League Men Full Match List 25-26.csv"]},
  {key:"CZE",leagueId:"cze-first-league",seasonMode:"europe",competitionType:"club",files:["Czech First League Full Match List 25-26.csv","Czech First League Full Match List 26-27.csv"]},
  {key:"CRO",leagueId:"cro-hnl",seasonMode:"europe",competitionType:"club",files:["1. HNL Full Match List 25-26.csv","1. HNL Full Match List 26-27.csv"]},
  {key:"SER",leagueId:"ser-superliga",seasonMode:"europe",competitionType:"club",files:["Serbian Super Liga Full Match List 25-26.csv","Serbian Super Liga Full Match List 26-27.csv"]},
