@@ -15,14 +15,14 @@ export type SelectionStatus="PUBLISH"|"WATCH"|"REVIEW"|"NO_BET";
 export type BetRecommendation={
   market:"1X2"|"Total Goals"|"Double Chance";
   pick:"Home"|"Draw"|"Away"|"Over 1.5"|"1X"|"X2";
-  probability:number;rawProbability:number;reliability:number;rating:"Elite"|"Strong"|"Good";
+  probability:number;selectionProbability:number;rawProbability:number;reliability:number;rating:"Elite"|"Strong"|"Good";
   selectionStatus:SelectionStatus; publishable:boolean;
   marketProbability?:number; marketDivergence?:number;
   riskFlags:string[];
   support?:SupportSignal;
 };
 
-export const MODEL_VERSION="v2.5-x2-risk-calibrated-selector";
+export const MODEL_VERSION="v2.6-market-calibrated-selector";
 export const V24=Object.freeze({
   marketDivergenceWatch:20,
   marketDivergenceReview:30,
@@ -39,6 +39,14 @@ export const V25=Object.freeze({
   x2AwaySupportMin:66,
   x2CalibratedMin:72
 });
+export const V26=Object.freeze({
+  ...V25,
+  marketTemperature:{
+    "1X":1.025,
+    "X2":1.55,
+    "Over 1.5":1.025
+  }
+});
 
 const fact=(n:number):number=>n<2?1:n*fact(n-1);
 const pois=(k:number,l:number):number=>Math.exp(-l)*Math.pow(l,k)/fact(k);
@@ -46,9 +54,14 @@ const clamp=(v:number,lo=.2,hi=4)=>Math.min(hi,Math.max(lo,v));
 const blend=(base:number,recent?:number)=>recent==null?base:0.65*base+0.35*recent;
 const dcTau=(x:number,y:number,lh:number,la:number,rho:number)=>{if(x===0&&y===0)return 1-lh*la*rho;if(x===0&&y===1)return 1+lh*rho;if(x===1&&y===0)return 1+la*rho;if(x===1&&y===1)return 1-rho;return 1;};
 const evidenceFactor=(i:ModelInput)=>{const level=i.modelLevel==="full"?1:i.modelLevel==="standard"?.96:.90;const n=i.sampleSize??5;const sample=n>=8?1:n>=5?.97:n>=3?.92:.84;return level*sample;};
-const rating=(p:number):BetRecommendation["rating"]=>p>=85?"Elite":p>=78?"Strong":"Good";
+const rating=(p:number):BetRecommendation["rating"]=>p>=88?"Elite":p>=78?"Strong":"Good";
 const shrink=(p:number,f:number)=>50+(p-50)*f;
 const keyFor=(market:string,pick:string)=>market+"|"+pick;
+const temperatureCalibrate=(pct:number,t:number)=>{
+  const p=Math.max(.001,Math.min(.999,pct/100));
+  const z=Math.log(p/(1-p));
+  return 100/(1+Math.exp(-z/t));
+};
 
 function calibrate(raw:number,reliability:number,i:ModelInput,market:string,pick:string,lh:number,la:number){
   const confidence=i.confidence??(i.modelLevel==="full"?"high":i.modelLevel==="standard"?"medium":"low");
@@ -110,15 +123,18 @@ const recommend=(m:{home:number;draw:number;away:number;homeOrDraw:number;awayOr
   .sort((a,b)=>b.probability-a.probability);
  const publishable=candidates.find(x=>x.publishable);
  const review=candidates.find(x=>!x.publishable&&x.selectionStatus==="REVIEW");
- const shape=(x:typeof candidates[number]):BetRecommendation=>({
-  market:x.market,pick:x.pick,probability:+x.probability.toFixed(1),rawProbability:+x.raw.toFixed(1),
-  reliability:+x.reliability.toFixed(3),rating:rating(x.probability),
+ const shape=(x:typeof candidates[number]):BetRecommendation=>{
+  const t=(V26.marketTemperature as Record<string,number>)[x.pick]??1;
+  const publicProbability=temperatureCalibrate(x.probability,t);
+  return {
+  market:x.market,pick:x.pick,probability:+publicProbability.toFixed(1),selectionProbability:+x.probability.toFixed(1),rawProbability:+x.raw.toFixed(1),
+  reliability:+x.reliability.toFixed(3),rating:rating(publicProbability),
   selectionStatus:x.selectionStatus,publishable:x.publishable,
   ...(x.marketProbability!==undefined?{marketProbability:+x.marketProbability.toFixed(1)}:{}),
   ...(x.marketDivergence!==undefined?{marketDivergence:+x.marketDivergence.toFixed(1)}:{}),
   riskFlags:x.riskFlags,
   ...(x.support?{support:{...x.support,rawProbability:+x.support.rawProbability.toFixed(1)}}:{})
- });
+ };};
  return {recommendedBet:publishable?shape(publishable):null,reviewBet:review?shape(review):null};
 };
 
