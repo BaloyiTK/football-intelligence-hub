@@ -41,3 +41,7 @@ Do not automatically promote a parameter change merely because it improves one w
 - Exclude `NO BET` fixtures from displayed backtest results, wins/losses, hit-rate denominators, market results, rating results, model-level performance results, sample-depth performance results, calibration results, and any headline performance statistics.
 - User-facing backtest result tables must show recommended bets only unless the user explicitly asks to inspect `NO BET` cases.
 - `NO MODEL` is likewise not a betting result and must not be mixed into recommended-bet performance statistics.
+
+
+## Backtest-calibrated U3.5 evidence guard
+Combined completed backtests 73956 and 65590 contain 54 deterministically graded recommendations (45W/9L, 83.3%). U3.5 is 14W/3L (82.4%), so the market remains eligible. However, Basic-evidence runs often omit recentOver35Rate; missing volatility must never be interpreted as zero volatility. When recentOver35Rate is unknown, apply a 0.90 U3.5 market-reliability multiplier before the evidence/sample factor. When known, retain the existing volatility formula. This is a conservative missing-data guard, not a ban on U3.5.
