@@ -1,4 +1,5 @@
 import fs from "node:fs";
+async function main(){
 const F="data/backtests/2026-04-08_to_2026-10-04.json";
 const j=JSON.parse(fs.readFileSync(F,"utf8"));
 const norm=(s:string)=>s.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/&/g," and ").replace(/[^a-z0-9]+/g," ").trim().split(/\s+/).filter(x=>x&&!["fc","cf","sc","afc","fk","club","de","the","ac","cd","ca"].includes(x));
@@ -19,3 +20,5 @@ for(const f of j.fixtures){
 }
 const dateKeys=[...by.keys()].sort();
 console.log(JSON.stringify({sitemapUrls:urls.length,dated:dateKeys.length,minDate:dateKeys[0],maxDate:dateKeys.at(-1),fixtures:j.fixtures.length,hasExactDateCandidates:exact,hasPm1Candidates:pm1,goodPm1TeamMatches:good,samples},null,2));
+}
+main().catch(e=>{console.error(e);process.exit(1)});
