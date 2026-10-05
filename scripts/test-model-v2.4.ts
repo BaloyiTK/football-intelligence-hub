@@ -31,7 +31,7 @@ const marketConflict=calculate({
   homeAttack:1.7,awayAttack:.65,homeDefence:.70,awayDefence:1.4,
   leagueHomeGoals:1.5,leagueAwayGoals:1.15,
   sampleSize:8,modelLevel:"full",confidence:"high",competitionType:"club",
-  marketProbabilityByPick:{"Double Chance|1X":40}
+  marketProbabilityByPick:{"Double Chance|1X":0}
 });
 if(marketConflict.reviewBet){
   assert.equal(marketConflict.reviewBet.selectionStatus,"REVIEW");
