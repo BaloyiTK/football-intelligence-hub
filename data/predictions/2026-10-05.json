@@ -1,7 +1,7 @@
 {
   "date": "2026-10-05",
   "timezone": "Africa/Johannesburg",
-  "generatedAt": "2026-10-05T08:20:54+02:00",
+  "generatedAt": "2026-10-05T09:15:51+02:00",
   "fixtures": [
     {
       "fixtureKey": "2026-10-05|uefa-nations-league|france|belgium",
@@ -828,6 +828,69 @@
         "https://www.skysports.com/football/liechtenstein-vs-gibraltar/stats/569578"
       ],
       "researchedAt": "2026-10-05T08:20:54+02:00"
+    },
+    {
+      "fixtureKey": "2026-10-05|arg-primera|deportivo-riestra|central-cordoba-sde",
+      "leagueId": "arg-primera",
+      "league": "Liga Profesional Argentina",
+      "homeTeam": "Deportivo Riestra",
+      "awayTeam": "Central Córdoba de Santiago",
+      "kickoff": "21:45 SAST",
+      "status": "Predicted",
+      "model": {
+        "modelVersion": "v2.3-backtest-calibrated-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "sampleSize": 5,
+        "lambdaHome": 0.85,
+        "lambdaAway": 1.01,
+        "correctScore": {
+          "score": "0-0",
+          "probability": 16.6
+        },
+        "alternatives": [
+          {
+            "score": "0-1",
+            "probability": 14.6
+          },
+          {
+            "score": "1-1",
+            "probability": 14.4
+          },
+          {
+            "score": "1-0",
+            "probability": 12.2
+          }
+        ],
+        "homeWin": 28.6,
+        "draw": 34.2,
+        "awayWin": 37.2,
+        "doubleChance": {
+          "homeOrDraw": 62.8,
+          "awayOrDraw": 71.4,
+          "homeOrAway": 65.8
+        },
+        "btts": 37.5,
+        "over15": 56.6,
+        "over25": 28.6,
+        "over35": 11.9,
+        "home2Plus": 21,
+        "away2Plus": 26.8,
+        "recommendedBet": {
+          "market": "Total Goals",
+          "pick": "Under 3.5",
+          "probability": 69.2,
+          "rawProbability": 88.1,
+          "reliability": 0.786,
+          "rating": "Good"
+        }
+      },
+      "sources": [
+        "https://www.ligaprofesional.ar/torneo-clausura-mercado-libre-2026/",
+        "https://www.fotmob.com/matches/central-cordoba-de-santiago-vs-deportivo-riestra/1o9ltexi",
+        "https://footystats.org/argentina/primera-division"
+      ],
+      "researchedAt": "2026-10-05T09:15:51+02:00"
     }
   ],
   "scan": {
@@ -837,10 +900,10 @@
     "fixturesDiscovered": 16,
     "fixturesProcessed": 16,
     "modelled": 16,
-    "recommendedBets": 14,
-    "noBet": 2,
+    "recommendedBets": 15,
+    "noBet": 1,
     "modelVersion": "v2.3-backtest-calibrated-selector",
-    "researchCutoff": "2026-10-05T08:20:54+02:00",
+    "researchCutoff": "2026-10-05T09:15:51+02:00",
     "globalSources": [
       "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000%E2%80%932026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
       "https://fbref.com/en/matches/2026-10-05",
