@@ -7,7 +7,7 @@
     "to": "2026-10-05",
     "days": 7
   },
-  "status": "READY_FOR_LIVESCORE_INGEST",
+  "status": "FIXTURES_VERIFIED",
   "rules": {
     "startFrom": "LiveScore daily fixture board for each historical date",
     "lookaheadLeakage": "Use only information that existed before each fixture kickoff.",
@@ -30,43 +30,51 @@
       "date": "2026-09-29",
       "fixtureFile": "data/backtest/fixtures/2026-09-29.json",
       "predictionFile": "data/backtest/predictions/2026-09-29.json",
-      "status": "PENDING"
+      "status": "FIXTURES_VERIFIED",
+      "fixtureCount": 168
     },
     {
       "date": "2026-09-30",
       "fixtureFile": "data/backtest/fixtures/2026-09-30.json",
       "predictionFile": "data/backtest/predictions/2026-09-30.json",
-      "status": "PENDING"
+      "status": "FIXTURES_VERIFIED",
+      "fixtureCount": 86
     },
     {
       "date": "2026-10-01",
       "fixtureFile": "data/backtest/fixtures/2026-10-01.json",
       "predictionFile": "data/backtest/predictions/2026-10-01.json",
-      "status": "PENDING"
+      "status": "FIXTURES_VERIFIED",
+      "fixtureCount": 75
     },
     {
       "date": "2026-10-02",
       "fixtureFile": "data/backtest/fixtures/2026-10-02.json",
       "predictionFile": "data/backtest/predictions/2026-10-02.json",
-      "status": "PENDING"
+      "status": "FIXTURES_VERIFIED",
+      "fixtureCount": 171
     },
     {
       "date": "2026-10-03",
       "fixtureFile": "data/backtest/fixtures/2026-10-03.json",
       "predictionFile": "data/backtest/predictions/2026-10-03.json",
-      "status": "PENDING"
+      "status": "FIXTURES_VERIFIED",
+      "fixtureCount": 718
     },
     {
       "date": "2026-10-04",
       "fixtureFile": "data/backtest/fixtures/2026-10-04.json",
       "predictionFile": "data/backtest/predictions/2026-10-04.json",
-      "status": "PENDING"
+      "status": "FIXTURES_VERIFIED",
+      "fixtureCount": 451
     },
     {
       "date": "2026-10-05",
       "fixtureFile": "data/backtest/fixtures/2026-10-05.json",
       "predictionFile": "data/backtest/predictions/2026-10-05.json",
-      "status": "PENDING"
+      "status": "FIXTURES_VERIFIED",
+      "fixtureCount": 78
     }
-  ]
+  ],
+  "fixtureCount": 1747
 }
