@@ -1,18 +1,14 @@
-name: FIH Daily Data Ingest
+name: FIH LiveScore Daily Ingest
 
 on:
   push:
     paths:
       - ".github/workflows/fih-daily-data-ingest.yml"
       - "scripts/ingest-daily-fixtures.ts"
-      - "scripts/ingest-daily-news.ts"
-      - "scripts/normalize-daily-fixtures.ts"
-      - "scripts/enrich-daily-evidence.ts"
-      - "scripts/web-historical-backtest.ts"
   workflow_dispatch:
     inputs:
       refresh:
-        description: Force refresh even if today's rolling file already exists
+        description: Force refresh even if today's rolling fixture file already exists
         required: false
         default: false
         type: boolean
@@ -23,7 +19,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: fih-daily-data-ingest
+  group: fih-livescore-daily-ingest
   cancel-in-progress: false
 
 jobs:
@@ -41,45 +37,26 @@ jobs:
       - name: Resolve SAST date
         id: date
         run: echo "date=$(TZ=Africa/Johannesburg date +%F)" >> "$GITHUB_OUTPUT"
-      - name: Fetch fixtures
+      - name: Fetch LiveScore fixtures
         env:
           RAPIDAPI_KEY: ${{ secrets.LS_API_KEY }}
         run: |
           EXTRA=""
           if [ "${{ inputs.refresh }}" = "true" ]; then EXTRA="--refresh"; fi
           npm run fixtures:ingest -- "${{ steps.date.outputs.date }}" $EXTRA
-      - name: Normalize LiveScore fixtures into model evidence
-        run: npm run daily:normalize -- "${{ steps.date.outputs.date }}"
-
-      - name: Enrich normalized evidence for V2.9
-        run: npm run daily:enrich -- "${{ steps.date.outputs.date }}"
-
-      - name: Fetch news
-        continue-on-error: true
-        env:
-          RAPIDAPI_KEY: ${{ secrets.LS_API_KEY }}
+      - name: Commit LiveScore snapshot
+        shell: bash
         run: |
-          EXTRA=""
-          if [ "${{ inputs.refresh }}" = "true" ]; then EXTRA="--refresh"; fi
-          npm run news:ingest -- "${{ steps.date.outputs.date }}" $EXTRA
-      - name: Commit rolling daily inputs
-        run: |
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/today_fixture.json
-          git add "data/daily-evidence/${{ steps.date.outputs.date }}.json"
-          if [ -f data/today_news.json ]; then git add data/today_news.json; fi
-          if git diff --cached --quiet; then
-            echo "No daily input changes to commit."
-            exit 0
-          fi
-          git commit -m "data: refresh FIH daily inputs ${{ steps.date.outputs.date }}"
+          git diff --cached --quiet && exit 0
+          git commit -m "data: refresh LiveScore fixtures ${{ steps.date.outputs.date }}"
           for attempt in 1 2 3; do
             git push origin HEAD:main && exit 0
-            echo "::warning::push attempt $attempt/3 failed; rebasing onto latest main"
             git fetch origin main
             git rebase origin/main
             sleep $((attempt*15))
           done
-          echo "::error::failed to push daily inputs after 3 attempts"
           exit 1
