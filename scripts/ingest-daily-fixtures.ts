@@ -22,8 +22,8 @@ if (fs.existsSync(outputFile) && !force) {
   process.exit(0);
 }
 
-const apiKey = process.env.RAPIDAPI_KEY;
-if (!apiKey) throw new Error("Missing RAPIDAPI_KEY environment variable");
+const apiKey = process.env.RAPIDAPI_KEY ?? process.env.ls_api_key;
+if (!apiKey) throw new Error("Missing RAPIDAPI_KEY or ls_api_key environment variable");
 
 const host = "livescore6.p.rapidapi.com";
 const dateParam = date.replace(/-/g, "");
