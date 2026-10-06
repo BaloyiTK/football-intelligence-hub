@@ -44,14 +44,21 @@
       "date": "2026-09-29",
       "fixtureFile": "data/backtest/fixtures/2026-09-29.json",
       "predictionFile": "data/backtest/predictions/2026-09-29.json",
-      "status": "RESEARCH_REQUIRED",
+      "status": "RESEARCH_IN_PROGRESS",
       "fixtureCount": 152,
       "modelCalculated": 0,
       "insufficientData": null,
       "scoredActuals": null,
       "researchCutoff": "2026-09-29T06:00:00+02:00",
       "rawFixtureCount": 168,
-      "excludedAtOrBefore0600": 16
+      "excludedAtOrBefore0600": 16,
+      "researchProgress": {
+        "eligibleFixtures": 152,
+        "method": "FREE_WEB_FIXTURE_SPECIFIC",
+        "cutoff": "2026-09-29T06:00:00+02:00",
+        "verifiedSourceCoverage": "PARTIAL",
+        "notes": "Research actively executed in fixture order. Pre-cutoff dated previews and historical/stat pages are accepted only when their evidence can be tied to the 06:00 snapshot; post-cutoff/result-dependent data is rejected. Missing fields remain UNAVAILABLE."
+      }
     },
     {
       "date": "2026-09-30",
@@ -168,5 +175,6 @@
     "engine": "scripts/fih-probability-v2.ts",
     "mode": "V2_ONLY",
     "v1": "ARCHIVED_REFERENCE_NOT_EXECUTED"
-  }
+  },
+  "currentDay": "2026-09-29"
 }
