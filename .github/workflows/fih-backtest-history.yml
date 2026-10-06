@@ -1,0 +1,31 @@
+name: FIH Backtest History
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/collect-backtest-history.ts'
+      - '.github/workflows/fih-backtest-history.yml'
+permissions:
+  contents: write
+jobs:
+  history:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install
+      - name: Collect pre-match history
+        run: npx tsx scripts/collect-backtest-history.ts
+        env:
+          RAPIDAPI_KEY: ${{ secrets.LS_API_KEY }}
+      - name: Persist history
+        run: |
+          git config user.name "fih-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/backtest/history
+          git diff --cached --quiet && exit 0
+          git commit -m "backtest: persist pre-match history"
+          git pull --rebase origin main
+          git push origin HEAD:main
