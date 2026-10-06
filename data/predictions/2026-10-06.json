@@ -91,7 +91,8 @@
     "85": "e",
     "86": "t",
     "marketOddsRule": "For every published prediction, persist a verified market snapshot for 1X2, Over/Under 2.5 and BTTS Yes/No. Missing prices remain unavailable; never infer them.",
-    "fihProbabilityEngine": "FIH-Poisson-V1: last-five goals scored/conceded -> expected goals -> Poisson score matrix -> 1X2/O-U2.5/BTTS probabilities and fair odds. V1 is an unvalidated baseline; recommendation thresholds require calibration."
+    "fihProbabilityEngine": "FIH-Poisson-V1: last-five goals scored/conceded -> expected goals -> Poisson score matrix -> 1X2/O-U2.5/BTTS probabilities and fair odds. V1 is an unvalidated baseline; recommendation thresholds require calibration.",
+    "scoreFieldsRule": "predictedHomeGoals/predictedAwayGoals are FIH model expected goals at prediction time; actualHomeGoals/actualAwayGoals remain null until a verified final result is ingested."
   },
   "generatedAt": "2026-10-06T20:43:00+02:00",
   "markets": [
@@ -334,7 +335,11 @@
             "no": -0.08
           }
         }
-      }
+      },
+      "predictedHomeGoals": 3.7,
+      "predictedAwayGoals": 0.7,
+      "actualHomeGoals": null,
+      "actualAwayGoals": null
     },
     {
       "fixtureId": "1856603",
@@ -556,7 +561,11 @@
             "no": -0.0652
           }
         }
-      }
+      },
+      "predictedHomeGoals": 1.8,
+      "predictedAwayGoals": 1.4,
+      "actualHomeGoals": null,
+      "actualAwayGoals": null
     }
   ],
   "researchedButNotPublished": [
