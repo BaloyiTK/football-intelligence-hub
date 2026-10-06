@@ -1,6 +1,6 @@
 {
   "schema": "fih-execution-contract-v1",
-  "contractVersion": "2.9.1",
+  "contractVersion": "2.9.2",
   "authority": "canonical-machine-readable",
   "mutationPolicy": {
     "runtimeRuleCreation": "forbidden",
@@ -233,7 +233,9 @@
       "awayTeam",
       "kickoff"
     ],
-    "missingKickoffBlocksPublication": true
+    "missingKickoffBlocksPublication": true,
+    "activeRunCannotEndAtResponseBoundary": true,
+    "nonTerminalCheckpointRequiresContinuation": true
   },
   "selfCorrection": {
     "mayChangeExecutionPath": true,
@@ -256,7 +258,30 @@
       "would-require-fabrication",
       "future-leakage",
       "unsafe-mutation"
-    ]
+    ],
+    "responseGate": {
+      "enabled": true,
+      "activeRunStates": [
+        "pending",
+        "discovering",
+        "processing",
+        "recovering",
+        "publishing"
+      ],
+      "terminalRunStates": [
+        "complete",
+        "blocked"
+      ],
+      "finalResponseForbiddenWhileActive": true,
+      "progressUpdateMustResumeImmediately": true,
+      "successResponseRequires": "completionController.successRequires",
+      "blockedResponseRequires": [
+        "persisted-blocker",
+        "persisted-resume-cursor",
+        "approved-fallbacks-exhausted"
+      ],
+      "noToolCallGapMayBeTreatedAsCompletion": true
+    }
   },
   "reconciliation": {
     "required": true,
@@ -401,6 +426,22 @@
       "persistFailureClass": true,
       "persistResumeCursor": true,
       "persistRepairOutcome": true
+    },
+    "watchdog": {
+      "enabled": true,
+      "invariant": "active-run-with-nonterminal-checkpoints-must-resume",
+      "checkAfter": [
+        "progress-update",
+        "stage-success",
+        "recoverable-stage-failure",
+        "publication-write"
+      ],
+      "action": "load-persisted-cursor-and-run-next-nonterminal-stage",
+      "staleActiveRunAction": "resume-not-duplicate",
+      "mayTerminateOnlyOn": [
+        "completion-controller-success",
+        "genuine-persisted-blocker"
+      ]
     }
   }
 }
