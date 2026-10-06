@@ -141,3 +141,13 @@ For each historical target date:
 4. Match results, later lineups, later injury news, later odds movement, and all post-06:00 information must not influence the frozen FIH assessment.
 5. Persist the research cutoff as `06:00 Africa/Johannesburg` with each backtest date/evidence package.
 6. Freeze the model assessment from this 06:00 snapshot before attaching actual results for evaluation.
+
+
+## Backtest 06:00 fixture eligibility boundary
+For each historical backtest date, fixture eligibility is determined using kickoff time in Africa/Johannesburg (SAST, UTC+02:00).
+
+- Kickoff before 06:00 SAST: EXCLUDED.
+- Kickoff exactly at 06:00 SAST: EXCLUDED.
+- Kickoff after 06:00 SAST: ELIGIBLE for research and subsequent backtest stages.
+
+Therefore the eligibility condition is strictly `kickoff > 06:00 SAST`. Excluded fixtures must not be counted in the backtest denominator, researched as target fixtures, modeled, selected, or evaluated. They may only appear in historical evidence for later eligible fixtures when they were completed and their information was available by the applicable 06:00 research snapshot.
