@@ -25,7 +25,8 @@
     "test": "tsx scripts/test-model-v2.9.ts && npm run contract:verify",
     "forward:freeze": "tsx scripts/freeze-forward-validation.ts",
     "forward:score": "tsx scripts/score-forward-validation.ts",
-    "results:reconcile": "tsx scripts/reconcile-results.ts"
+    "results:reconcile": "tsx scripts/reconcile-results.ts",
+    "predictions:publish-from-run": "tsx scripts/publish-from-run.ts"
   },
   "dependencies": {
     "next": "15.5.7",
