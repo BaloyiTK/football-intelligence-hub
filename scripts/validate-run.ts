@@ -1,7 +1,11 @@
-import {gradeBet,parseScore} from "../lib/grading";import fs from "node:fs";import path from "node:path";
+import {gradeBet,parseScore} from "../lib/grading";
+import fs from "node:fs";
+import path from "node:path";
 const args=process.argv.slice(2),finalize=args.includes("--finalize"),file=args.find(x=>!x.startsWith("--"));
 if(!file)throw new Error("Usage: npm run run:validate -- <run-file> [--finalize]");
-const r=JSON.parse(fs.readFileSync(file,"utf8")),root=process.cwd();\nconst configured:string[]=snapshotMode?[]:(JSON.parse(fs.readFileSync(path.join(root,"data/leagues.json"),"utf8")).leagues as any[]).map(x=>x.id);
+const r=JSON.parse(fs.readFileSync(file,"utf8")),root=process.cwd();
+const snapshotMode=r.completionPolicy==="daily-fixture-snapshot";
+const configured:string[]=snapshotMode?[]:(JSON.parse(fs.readFileSync(path.join(root,"data/leagues.json"),"utf8")).leagues as any[]).map(x=>x.id);
 const terminal=new Set(["BET","NO_BET","NO_MODEL","WIN","LOSS"]),allowedLeague=new Set(["pending","discovering","researching","processing","complete","blocked"]);
 const errors:string[]=[],warnings:string[]=[],scan=r.leagueScan??[],fixtures=r.fixtures??[];
 const contract=JSON.parse(fs.readFileSync(path.join(root,"automation/FIH_CONTRACT.json"),"utf8"));
@@ -17,14 +21,32 @@ if(finalize){
    else if(!["passed","complete","skipped-not-applicable"].includes(String(entry.status??"").toLowerCase())) errors.push("Pipeline stage not terminal: "+stage+" status="+String(entry.status??"missing"));
  }
 }
-if(!Array.isArray(r.fixtures))errors.push("Missing fixtures array");\nconst snapshotMode=r.completionPolicy==="daily-fixture-snapshot";\nif(!snapshotMode&&!Array.isArray(r.leagueScan))errors.push("Missing leagueScan array");\nif(snapshotMode&&!r.dailyCache?.fixtureSnapshot)errors.push("Snapshot-mode run missing daily fixture snapshot reference");
+if(!Array.isArray(r.fixtures))errors.push("Missing fixtures array");
+if(!snapshotMode&&!Array.isArray(r.leagueScan))errors.push("Missing leagueScan array");
+if(snapshotMode&&!r.dailyCache?.fixtureSnapshot)errors.push("Snapshot-mode run missing daily fixture snapshot reference");
+if(snapshotMode&&r.dailyCache?.fixtureSnapshot!=="data/today_fixture.json")errors.push("Snapshot-mode run must use data/today_fixture.json");
+if(snapshotMode&&r.dailyCache?.fixtureDate!==r.date)errors.push("Snapshot-mode fixture date does not match run date");
 const ids=scan.map((x:any)=>x.leagueId),missing=configured.filter(x=>!ids.includes(x)),extra=ids.filter((x:string)=>!configured.includes(x));
 if(!snapshotMode&&missing.length)errors.push("Missing configured leagues: "+missing.join(", "));
 if(!snapshotMode&&extra.length)errors.push("Unknown leagues: "+extra.join(", "));
 if(new Set(ids).size!==ids.length)errors.push("Duplicate league checkpoints");
 const fixtureKeys=new Set<string>();
-for(const f of fixtures){const norm=(v:any)=>String(v??"").normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");const key=[f.date??r.date,f.leagueId,norm(f.homeTeam),norm(f.awayTeam)].join("|");if(fixtureKeys.has(key))errors.push("Duplicate fixture: "+key);fixtureKeys.add(key);if(!snapshotMode&&!configured.includes(f.leagueId))errors.push("Fixture references unknown league: "+f.leagueId);if((!snapshotMode&&!f.leagueId)||!f.homeTeam||!f.awayTeam||!f.league||!f.country)errors.push("Fixture missing competition/country/homeTeam/awayTeam identity");if((f.status==="BET"||f.outcome==="WIN"||f.outcome==="LOSS")&&!f.kickoff)errors.push(`${f.homeTeam} v ${f.awayTeam}: publishable/graded fixture missing verified kickoff`);if(terminal.has(f.status)||terminal.has(f.outcome)){if(!Array.isArray(f.sources)||!f.sources.length)errors.push(`${f.leagueId} ${f.homeTeam} v ${f.awayTeam}: terminal fixture missing sources`);if((f.status==="BET"||f.outcome==="WIN"||f.outcome==="LOSS")&&!f.recommendedBet)errors.push(`${f.homeTeam} v ${f.awayTeam}: BET/WIN/LOSS missing recommendedBet`);if((f.status==="NO_MODEL"||f.outcome==="NO_MODEL")&&!f.noModelReason)errors.push(`${f.homeTeam} v ${f.awayTeam}: NO_MODEL missing reason`);if(f.recommendedBet&&(f.outcome==="WIN"||f.outcome==="LOSS")){const s=parseScore(f.actualScore);if(!s)errors.push(`${f.homeTeam} v ${f.awayTeam}: graded bet missing valid actualScore`);else{try{const expected=gradeBet(f.recommendedBet,s);if(f.outcome!==expected)errors.push(`${f.homeTeam} v ${f.awayTeam}: grading mismatch stored=${f.outcome} expected=${expected}`)}catch(e:any){errors.push(`${f.homeTeam} v ${f.awayTeam}: ${e.message}`)}}}}}
-for(const l of scan){if(!allowedLeague.has(l.status))errors.push(`${l.leagueId}: invalid league status ${l.status}`);const fx=fixtures.filter((f:any)=>f.leagueId===l.leagueId),unfinished=fx.filter((f:any)=>!terminal.has(f.status)&&!terminal.has(f.outcome));const discovered=Number(l.fixturesDiscovered??fx.length),processed=Number(l.fixturesProcessed??0),recommendationsOnly=r.storagePolicy==="recommended-bets-only";if(!recommendationsOnly&&discovered!==fx.length)errors.push(`${l.leagueId}: fixturesDiscovered does not match saved fixtures`);if(!recommendationsOnly&&processed!==fx.length-unfinished.length)errors.push(`${l.leagueId}: fixturesProcessed does not match terminal fixtures`);if(recommendationsOnly&&processed>discovered)errors.push(`${l.leagueId}: fixturesProcessed exceeds fixturesDiscovered`);if(recommendationsOnly&&fx.length>processed)errors.push(`${l.leagueId}: saved recommendations exceed processed fixtures`);if(recommendationsOnly&&l.status==="complete"&&processed!==discovered)errors.push(`${l.leagueId}: complete but processed ${processed}/${discovered}`);if(l.status==="complete"&&unfinished.length)errors.push(`${l.leagueId}: complete with ${unfinished.length} unfinished saved recommendation(s)`);if(l.status==="complete"&&discovered===0&&(!Array.isArray(l.sources)||l.sources.length===0))errors.push(`${l.leagueId}: zero-fixture completion has no verification source`);if(l.status==="blocked"&&!l.blocker)errors.push(`${l.leagueId}: blocked without blocker reason`);}
+const norm=(v:any)=>String(v??"").normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+for(const f of fixtures){
+ const competitionKey=f.competitionId??f.leagueId??norm(String(f.country??"global")+"-"+String(f.league));
+ const key=[f.date??r.date,competitionKey,norm(f.homeTeam),norm(f.awayTeam)].join("|");
+ if(fixtureKeys.has(key))errors.push("Duplicate fixture: "+key); fixtureKeys.add(key);
+ if(!snapshotMode&&!configured.includes(f.leagueId))errors.push("Fixture references unknown league: "+f.leagueId);
+ if((!snapshotMode&&!f.leagueId)||!f.homeTeam||!f.awayTeam||!f.league||!f.country)errors.push("Fixture missing competition/country/homeTeam/awayTeam identity");
+ if((f.status==="BET"||f.outcome==="WIN"||f.outcome==="LOSS")&&!f.kickoff)errors.push(`${f.homeTeam} v ${f.awayTeam}: publishable/graded fixture missing verified kickoff`);
+ if(terminal.has(f.status)||terminal.has(f.outcome)){
+  if(!Array.isArray(f.sources)||!f.sources.length)errors.push(`${f.leagueId??competitionKey} ${f.homeTeam} v ${f.awayTeam}: terminal fixture missing sources`);
+  if((f.status==="BET"||f.outcome==="WIN"||f.outcome==="LOSS")&&!f.recommendedBet)errors.push(`${f.homeTeam} v ${f.awayTeam}: BET/WIN/LOSS missing recommendedBet`);
+  if((f.status==="NO_MODEL"||f.outcome==="NO_MODEL")&&!f.noModelReason)errors.push(`${f.homeTeam} v ${f.awayTeam}: NO_MODEL missing reason`);
+  if(f.recommendedBet&&(f.outcome==="WIN"||f.outcome==="LOSS")){const s=parseScore(f.actualScore);if(!s)errors.push(`${f.homeTeam} v ${f.awayTeam}: graded bet missing valid actualScore`);else{try{const expected=gradeBet(f.recommendedBet,s);if(f.outcome!==expected)errors.push(`${f.homeTeam} v ${f.awayTeam}: grading mismatch stored=${f.outcome} expected=${expected}`)}catch(e:any){errors.push(`${f.homeTeam} v ${f.awayTeam}: ${e.message}`)}}}
+ }
+}
+for(const l of scan){if(!allowedLeague.has(l.status))errors.push(`${l.leagueId}: invalid league status ${l.status}`);}
 const unfinished=fixtures.filter((f:any)=>!terminal.has(f.status)&&!terminal.has(f.outcome)),incomplete=scan.filter((l:any)=>l.status!=="complete");
 let ready=errors.length===0&&unfinished.length===0&&(snapshotMode||scan.length===configured.length&&incomplete.length===0);
 if(r.status==="complete"&&!ready)errors.push("Run status complete but finalization invariants fail");
