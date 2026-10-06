@@ -1,0 +1,36 @@
+{
+  "schema": "fih-model-comparison-v1",
+  "date": "2026-10-05",
+  "cutoff": "2026-10-05T06:00:00+02:00",
+  "status": "COMPLETE",
+  "fairness": {
+    "sameEligibleUniverse": 53,
+    "sameFrozenEvidence": true,
+    "postResultFeatureEngineering": false,
+    "note": "V2-only features were not reconstructed after outcomes. V2 was evaluated only with numeric inputs already frozen for V1."
+  },
+  "coverage": {
+    "eligible": 53,
+    "v1Calculated": 6,
+    "v2CalculatedFairSubset": 6,
+    "insufficientBoth": 47
+  },
+  "comparison": {
+    "probabilityDifference": "NONE on fair six-fixture subset",
+    "reason": "No persisted structured venue/PPG/xG/opponent-strength inputs existed in the frozen evidence artifact, so V2's optional refinements cannot legally activate.",
+    "v1DiagnosticHits": 3,
+    "v1DiagnosticCandidates": 6,
+    "v2DiagnosticHits": 3,
+    "v2DiagnosticCandidates": 6,
+    "diagnosticHitRateV1": 0.5,
+    "diagnosticHitRateV2": 0.5
+  },
+  "v2AddedValue": {
+    "separateReliability": true,
+    "reliabilityOnFairSubset": 0.3,
+    "interpretation": "LOW",
+    "effect": "The same raw signals are explicitly tagged low-reliability rather than treated as fully supported selections."
+  },
+  "conclusion": "DRAW on predictive accuracy for Oct 5 under a leak-free apples-to-apples test. V2 architecture is better for uncertainty handling, but its predictive refinements require structured pre-cutoff venue/standings/xG/opponent-strength evidence to be persisted before the match.",
+  "nextValidation": "Populate structured research fields before model freeze, then compare V1 vs V2 over the full seven-day backtest without changing weights from results."
+}
