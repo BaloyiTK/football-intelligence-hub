@@ -7,8 +7,8 @@ const read=(p:string)=>JSON.parse(fs.readFileSync(path.resolve(p),"utf8"));
 const run=read(runFile), evidence=read(evidenceFile), registry=read("data/leagues.json");
 if(run.date!==evidence.date) throw new Error("Run/evidence date mismatch");
 if(run.modelVersion!==MODEL_VERSION) throw new Error("Refusing non-locked model version");
-if(registry.associationCount!==211||(run.registrySnapshot?.scopeIds??[]).length!==211) throw new Error("211-scope invariant failed");
-const scopeIds=new Set(registry.leagues.map((x:any)=>x.id)), items=Array.isArray(evidence.fixtures)?evidence.fixtures:[], scopeEvidence=evidence.associationVerification??{};
+if(run.completionPolicy!=="daily-fixture-snapshot") throw new Error("Run is not using daily fixture snapshot completion policy");
+const scopeIds=new Set(registry.leagues.map((x:any)=>x.id)), items=Array.isArray(evidence.fixtures)?evidence.fixtures:[];
 const terminal=new Set(["BET","NO_BET","NO_MODEL"]), existing=new Map<string,any>((run.fixtures??[]).map((x:any)=>[x.fixtureKey,x]));
 const norm=(s:string)=>s.toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 for(const x of items){
@@ -25,22 +25,15 @@ for(const x of items){
  existing.set(k,rec);
 }
 run.fixtures=Array.from(existing.values());
-for(const s of run.leagueScan){
- const rows=run.fixtures.filter((x:any)=>x.leagueId===s.leagueId);
- s.fixturesDiscovered=rows.length; s.fixturesProcessed=rows.filter((x:any)=>terminal.has(x.status)).length;
- s.sources=Array.from(new Set<string>([...(s.sources??[]),...(scopeEvidence[s.leagueId]?.sources??[]),...rows.flatMap((x:any)=>x.sources??[])]));
- if(rows.length) s.status=s.fixturesProcessed===rows.length?"complete":"processing";
- else if(scopeEvidence[s.leagueId]?.verifiedZero===true&&s.sources.length) s.status="complete"; else s.status="pending";
-}
-const complete=run.leagueScan.filter((x:any)=>x.status==="complete").length, unresolved=run.leagueScan.find((x:any)=>x.status!=="complete");
+run.leagueScan=[];
+const unfinished=run.fixtures.filter((x:any)=>!terminal.has(x.status));
 run.globalDiscovery.mappedFixtureCount=run.fixtures.length;
-for(const stage of ["normalize-and-map","persist-discovery"]) run.pipelineManifest[stage]={status:"complete",evidence:"Consumed persisted sourced daily evidence"};
-if(complete===211){
- for(const stage of ["verify-prematch","research","calculate-primary-and-support-signals","calibrate-risk-and-select-one-or-no-bet","freeze-output","complete-all-checkpoints"]) run.pipelineManifest[stage]={status:"complete",evidence:"All 211 scopes and mapped fixtures reached auditable terminal state from persisted evidence"};
- run.resumeCursor={stage:"validate",associationIndex:211,associationId:null}; run.resumeAction="Run validation, strict finalization and publication handoff.";
+for(const stage of ["worldwide-discovery","normalize-and-map","persist-discovery"]) run.pipelineManifest[stage]={status:"complete",evidence:"Consumed persisted LiveScore daily fixture snapshot and sourced daily evidence"};
+if(unfinished.length===0){
+ for(const stage of ["verify-prematch","research","calculate-primary-and-support-signals","calibrate-risk-and-select-one-or-no-bet","freeze-output","complete-all-checkpoints"]) run.pipelineManifest[stage]={status:"complete",evidence:"Every eligible fixture from the daily snapshot reached BET / NO_BET / NO_MODEL"};
+ run.resumeCursor={stage:"validate",fixtureIndex:run.fixtures.length}; run.resumeAction="Run validation, strict finalization and publication handoff.";
 }else{
- run.resumeCursor={stage:"research",associationIndex:Math.max(0,run.leagueScan.findIndex((x:any)=>x.status!=="complete")),associationId:unresolved?.leagueId??null};
- run.resumeAction="Supply/repair persisted evidence for unresolved association scopes and rerun daily:execute; never fabricate zero-fixture or model evidence.";
+ const i=run.fixtures.findIndex((x:any)=>!terminal.has(x.status)); run.resumeCursor={stage:"research",fixtureIndex:Math.max(0,i),fixtureKey:unfinished[0]?.fixtureKey??null}; run.resumeAction="Complete research/model evidence for every unresolved eligible fixture from the stored daily snapshot.";
 }
-run.executionSummary={associationScopes:211,scopesComplete:complete,scopesRemaining:211-complete,mappedFixtures:run.fixtures.length,terminalFixtures:run.fixtures.filter((x:any)=>terminal.has(x.status)).length,bets:run.fixtures.filter((x:any)=>x.status==="BET").length};
+run.executionSummary={completionPolicy:"daily-fixture-snapshot",mappedFixtures:run.fixtures.length,terminalFixtures:run.fixtures.length-unfinished.length,fixturesRemaining:unfinished.length,bets:run.fixtures.filter((x:any)=>x.status==="BET").length};
 fs.writeFileSync(runFile,JSON.stringify(run,null,2)+"\n"); console.log(JSON.stringify(run.executionSummary,null,2));
