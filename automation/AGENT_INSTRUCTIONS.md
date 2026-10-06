@@ -255,3 +255,11 @@ If any publication/write/deployment stage fails:
 6. Never disable the scheduled daily automation merely because one run has a recoverable technical/publication failure. The next execution must inspect and resume unfinished safe work before creating a duplicate run.
 7. A normal completion response is permitted only after strict finalization, `data/predictions/YYYY-MM-DD.json` creation, prediction verification, commit to `main`, and exact deployed-SHA verification all pass.
 8. If every approved recovery path is exhausted, persist the exact failed stage, attempts and resume action. This is the only technical-blocker exit; model/business rules remain unchanged.
+
+## Mandatory response gate and execution watchdog
+- An ACTIVE run is any run in pending, discovering, processing, recovering, or publishing state, or any run containing a non-terminal required checkpoint.
+- While a run is ACTIVE, a normal final response is forbidden. A progress message MUST be followed by execution of the persisted next non-terminal checkpoint in the same active execution whenever tools remain available.
+- Before ending an execution response, inspect persisted run state. If any required checkpoint is non-terminal, load the persisted cursor/resumeAction and continue. Do not treat a response boundary, tool-call gap, batch boundary, source batch, or user-visible update as completion.
+- The only terminal response states are COMPLETE, after the full completion-controller success requirements pass, or BLOCKED, after approved fallbacks are exhausted and the exact blocker plus resume cursor are persisted.
+- If an ACTIVE run is found on a later manual or scheduled invocation, resume it before creating a duplicate run for the same target date/range.
+- This watchdog may change execution path and repair deterministic state, but may never fabricate evidence/results, relax V2.9, or bypass strict finalization/publication/deployment gates.
