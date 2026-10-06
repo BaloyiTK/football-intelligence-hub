@@ -86,8 +86,20 @@ jobs:
           npm run model:preflight
           node -e 'const c=require("./automation/FIH_CONTRACT.json"); if(!c.recoveryPolicy?.enabled) throw new Error("FIH recovery policy is not enabled"); if(c.recoveryPolicy.businessRuleMutationForbidden!==true||c.recoveryPolicy.evidenceFabricationForbidden!==true) throw new Error("Unsafe recovery policy");'
 
-      - name: Validate run
-        run: npm run run:validate -- "${{ steps.command.outputs.run_file }}"
+      - name: Validate run with bounded self-recovery
+        shell: bash
+        run: |
+          set -uo pipefail
+          RUN="${{ steps.command.outputs.run_file }}"
+          for attempt in 1 2 3; do
+            if npm run run:validate -- "$RUN"; then exit 0; fi
+            echo "::warning::validation failed; autonomous repair cycle $attempt/3"
+            # Deterministic repairs only. Never alter model rules/evidence/results.
+            node -e 'const fs=require("fs"); const p=process.argv[1]; const r=JSON.parse(fs.readFileSync(p,"utf8")); let changed=false; if(r.status==="complete" && Array.isArray(r.leagueScan) && r.leagueScan.some(x=>x.status!=="complete")){r.status="processing"; changed=true;} if(changed) fs.writeFileSync(p,JSON.stringify(r,null,2)+"\\n");' "$RUN"
+            sleep $((attempt*5))
+          done
+          echo "::error::validation recovery budget exhausted"
+          exit 2
 
       - name: Strict finalize
         if: steps.command.outputs.action == 'finalize' || steps.command.outputs.action == 'verify-publication'
