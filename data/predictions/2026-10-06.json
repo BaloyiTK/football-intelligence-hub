@@ -1,7 +1,7 @@
 {
   "schema": "fih-daily-predictions-v1",
   "date": "2026-10-06",
-  "status": "TEST",
+  "status": "FRESH_BOARD_TEST",
   "methodology": "LiveScore fixture board -> ChatGPT pre-match web research -> strongest supported market",
   "generatedAt": "2026-10-06T20:43:00+02:00",
   "markets": [
@@ -26,11 +26,11 @@
       "away": "Bahamas",
       "market": "HOME",
       "evidenceSummary": [
-        "Saint Martin beat Bahamas 8-0 on 2026-09-23.",
-        "Saint Martin recent sequence includes 8-0 Bahamas, 0-2 US Virgin Islands, 5-0 US Virgin Islands, plus wins over Anguilla and Grenada.",
-        "Bahamas recent sequence includes losses 2-3 US Virgin Islands, 1-3 US Virgin Islands, 0-8 Saint Martin, 0-1 Cayman Islands and 1-3 Anguilla.",
-        "Direct matchup and current scoring/defensive profile strongly favor Saint Martin.",
-        "Reliable pre-match xG and detailed squad-availability data were not found in this research pass and were not fabricated."
+        "Fresh board-run selection, not inherited from the prior prediction file.",
+        "Saint Martin recent verified results include 8-0 away to Bahamas, 0-2 vs US Virgin Islands and 5-0 away to US Virgin Islands.",
+        "Bahamas recent verified results include 0-8 vs Saint Martin, 1-3 at US Virgin Islands and 2-3 vs US Virgin Islands.",
+        "The available H2H record shows Saint Martin wins of 8-0 (2026) and 2-0 (2022).",
+        "Reliable xG was unavailable in the fresh research pass and was not fabricated."
       ],
       "sources": [
         "TNT Sports: Saint-Martin vs Bahamas statistics, 2026-10-06",
@@ -162,12 +162,11 @@
       "away": "Sint Maarten",
       "market": "HOME",
       "evidenceSummary": [
-        "Saint Vincent and the Grenadines are 3-0-0 in the current group with 9 points; Sint Maarten are 0-0-3 with 0 points.",
-        "Saint Vincent beat Sint Maarten 4-2 on 2026-10-03, three days before this return fixture.",
-        "Saint Vincent also beat French Guiana 2-1 and Belize 1-0 in the group.",
-        "Sint Maarten lost 0-1 to Belize and 0-1 to French Guiana before the 2-4 loss to Saint Vincent.",
-        "Oalex Anderson scored a hat-trick in the 4-2 direct meeting.",
-        "Reliable pre-match xG and detailed squad-availability data were not found in this research pass and were not fabricated."
+        "Fresh board-run selection, not inherited from the prior prediction file.",
+        "Saint Vincent and the Grenadines won the first three current Nations League group matches: 2-1 French Guiana, 1-0 Belize, 4-2 Sint Maarten.",
+        "Sint Maarten lost the first three current group matches: 0-1 Belize, 0-1 French Guiana, 2-4 Saint Vincent and the Grenadines.",
+        "The direct meeting three days earlier was won 4-2 by Saint Vincent and the Grenadines.",
+        "Reliable xG was unavailable in the fresh research pass and was not fabricated."
       ],
       "sources": [
         "Concacaf: St. Vincent and the Grenadines secures top of Group D, 2026-10-04",
@@ -289,13 +288,25 @@
       "fixtureId": "1856587",
       "home": "Montserrat",
       "away": "Turks and Caicos Islands",
-      "reason": "Montserrat have strong recent results and won the first meeting 2-0, but the available evidence pass did not yet satisfy the full venue/xG/squad/context standard strongly enough to publish a test selection."
+      "reason": "Strong HOME case (Montserrat 3-0-0, 7-0 goals in current group and won first H2H 2-0), but the fresh run did not complete the full required evidence package before publication cutoff; NO BET rather than force."
     },
     {
       "fixtureId": "1876569",
       "home": "Sportivo Ameliano",
       "away": "Rubio Nu",
-      "reason": "Ameliano have the stronger table position and H2H, but recent draw-heavy form and incomplete xG/squad evidence made the strongest market insufficiently clear for this test."
+      "reason": "Ameliano stronger table position, but recent draw-heavy form and mixed recent H2H make HOME insufficiently clear; no goals market had enough complete evidence."
+    },
+    {
+      "fixtureId": "1896810",
+      "home": "Club Dr Benjamin Aceval",
+      "away": "Independiente CG",
+      "reason": "Insufficient reliable web evidence in the fresh research pass; NO BET."
+    },
+    {
+      "fixtureId": "1896301",
+      "home": "Universidad San Martin",
+      "away": "Alianza Universidad",
+      "reason": "Insufficient reliable web evidence in the fresh research pass; NO BET."
     }
   ],
   "storageTest": {
@@ -306,5 +317,20 @@
     ],
     "rule": "Store up to 5 verified records. Never pad missing H2H history.",
     "tested": true
+  },
+  "run": {
+    "startedFrom": "data/today_fixture.json",
+    "boardFixtureCount": 172,
+    "runStartedAt": "2026-10-06T20:45:19+02:00",
+    "rule": "Only fixtures with kickoff after research start were eligible for fresh pre-match publication.",
+    "eligibleFutureFixturesAtStart": [
+      "Montserrat vs Turks and Caicos Islands",
+      "Saint Martin vs Bahamas",
+      "Sportivo Ameliano vs Rubio Nu",
+      "Club Dr Benjamin Aceval vs Independiente CG",
+      "Universidad San Martin vs Alianza Universidad",
+      "Saint Vincent and The Grenadines vs Sint Maarten"
+    ],
+    "excluded": "Fixtures already finished, live, postponed, or at/past kickoff when the fresh run began."
   }
 }
