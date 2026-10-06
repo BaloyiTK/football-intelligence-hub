@@ -1,291 +1,3139 @@
 {
+  "schema": "fih-daily-evidence-v1",
   "date": "2026-10-06",
   "timezone": "Africa/Johannesburg",
-  "status": "partial",
-  "generatedBy": "ChatGPT public-web research",
-  "globalSources": [
-    "https://www.footballfixtures.org/fixtures/2026-10-06",
-    "https://www.planetsport.com/soccer/matches/all/2026-10-06",
-    "https://fbref.com/en/matches/2026-10-06",
-    "https://www.sportsgambler.com/fixtures-results/football/"
-  ],
-  "notes": [
-    "Partial sourced feed. No association is marked verifiedZero without association-level evidence.",
-    "Youth/U21/U23 and club friendlies are excluded from candidate feed.",
-    "Conflicting Brazil source date/time listings are not treated as a single-date full round; only independently corroborated Oct 6 fixtures are included here."
-  ],
-  "associationVerification": {},
+  "source": "data/today_fixture.json",
+  "sourceFetchedAt": "2026-10-06T13:55:55.935Z",
+  "sourceStageCount": 75,
+  "sourceFixtureCount": 172,
+  "normalizedFixtureCount": 172,
   "fixtures": [
     {
-      "leagueId": "assoc-england",
-      "country": "England",
+      "date": "2026-10-06",
+      "providerFixtureId": "1738299",
+      "competitionId": "523",
+      "leagueId": "523",
+      "country": "UEFA",
       "league": "UEFA Nations League",
-      "homeTeam": "England",
-      "awayTeam": "Czech Republic",
-      "kickoff": "2026-10-06T18:45:00Z",
-      "sources": [
-        "https://www.westeurope.englandfootball.com/articles/2026/Feb/13/uefa-nations-league-2026-27-fixture-dates-confirmed-20261302",
-        "https://fbref.com/en/matches/2026-10-06"
-      ],
-      "researchComplete": false
-    },
-    {
-      "leagueId": "assoc-croatia",
-      "country": "Croatia",
-      "league": "UEFA Nations League",
+      "stage": "League A: Group 3",
       "homeTeam": "Croatia",
       "awayTeam": "Spain",
-      "kickoff": "2026-10-06T18:45:00Z",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
       "sources": [
-        "https://fbref.com/en/matches/2026-10-06",
-        "https://www.fotmob.com/en-GB/matches/spain-vs-croatia/2cs2z6"
+        "data/today_fixture.json"
       ],
       "researchComplete": false
     },
     {
-      "leagueId": "assoc-scotland",
-      "country": "Scotland",
+      "date": "2026-10-06",
+      "providerFixtureId": "1738300",
+      "competitionId": "523",
+      "leagueId": "523",
+      "country": "UEFA",
       "league": "UEFA Nations League",
+      "stage": "League A: Group 3",
+      "homeTeam": "England",
+      "awayTeam": "Czechia",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1738257",
+      "competitionId": "523",
+      "leagueId": "523",
+      "country": "UEFA",
+      "league": "UEFA Nations League",
+      "stage": "League B: Group 1",
       "homeTeam": "Scotland",
       "awayTeam": "Slovenia",
-      "kickoff": "2026-10-06T18:45:00Z",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
       "sources": [
-        "https://fbref.com/en/matches/2026-10-06",
-        "https://www.livesoccertv.com/schedules/2026-10-06/"
+        "data/today_fixture.json"
       ],
       "researchComplete": false
     },
     {
-      "leagueId": "assoc-estonia",
-      "country": "Estonia",
+      "date": "2026-10-06",
+      "providerFixtureId": "1738258",
+      "competitionId": "523",
+      "leagueId": "523",
+      "country": "UEFA",
       "league": "UEFA Nations League",
-      "homeTeam": "Estonia",
-      "awayTeam": "Iceland",
-      "kickoff": "2026-10-06T18:45:00Z",
-      "sources": [
-        "https://fbref.com/en/matches/2026-10-06",
-        "https://www.livesoccertv.com/schedules/2026-10-06/"
-      ],
-      "researchComplete": false
-    },
-    {
-      "leagueId": "assoc-luxembourg",
-      "country": "Luxembourg",
-      "league": "UEFA Nations League",
-      "homeTeam": "Luxembourg",
-      "awayTeam": "Bulgaria",
-      "kickoff": "2026-10-06T18:45:00Z",
-      "sources": [
-        "https://fbref.com/en/matches/2026-10-06",
-        "https://www.sportsgambler.com/fixtures-results/football/"
-      ],
-      "researchComplete": false
-    },
-    {
-      "leagueId": "assoc-belarus",
-      "country": "Belarus",
-      "league": "UEFA Nations League",
-      "homeTeam": "Belarus",
-      "awayTeam": "Finland",
-      "kickoff": "2026-10-06T18:45:00Z",
-      "sources": [
-        "https://fbref.com/en/matches/2026-10-06",
-        "https://www.livesoccertv.com/schedules/2026-10-06/"
-      ],
-      "researchComplete": false
-    },
-    {
-      "leagueId": "assoc-switzerland",
-      "country": "Switzerland",
-      "league": "UEFA Nations League",
+      "stage": "League B: Group 1",
       "homeTeam": "Switzerland",
       "awayTeam": "North Macedonia",
-      "kickoff": "2026-10-06T18:45:00Z",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
       "sources": [
-        "https://fbref.com/en/matches/2026-10-06",
-        "https://www.livesoccertv.com/schedules/2026-10-06/"
+        "data/today_fixture.json"
       ],
       "researchComplete": false
     },
     {
-      "leagueId": "assoc-moldova",
-      "country": "Moldova",
+      "date": "2026-10-06",
+      "providerFixtureId": "1738311",
+      "competitionId": "523",
+      "leagueId": "523",
+      "country": "UEFA",
       "league": "UEFA Nations League",
-      "homeTeam": "Moldova",
-      "awayTeam": "Slovakia",
-      "kickoff": "2026-10-06T18:45:00Z",
-      "sources": [
-        "https://fbref.com/en/matches/2026-10-06",
-        "https://www.livesoccertv.com/schedules/2026-10-06/"
-      ],
-      "researchComplete": false
-    },
-    {
-      "leagueId": "assoc-albania",
-      "country": "Albania",
-      "league": "UEFA Nations League",
+      "stage": "League C: Group 1",
       "homeTeam": "Albania",
       "awayTeam": "San Marino",
-      "kickoff": "2026-10-06T18:45:00Z",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
       "sources": [
-        "https://fbref.com/en/matches/2026-10-06",
-        "https://nasiscore.co.za/matches/albania-vs-san-marino-x1fgh9iw"
+        "data/today_fixture.json"
       ],
       "researchComplete": false
     },
     {
-      "leagueId": "assoc-kazakhstan",
-      "country": "Kazakhstan",
+      "date": "2026-10-06",
+      "providerFixtureId": "1738312",
+      "competitionId": "523",
+      "leagueId": "523",
+      "country": "UEFA",
       "league": "UEFA Nations League",
+      "stage": "League C: Group 1",
+      "homeTeam": "Belarus",
+      "awayTeam": "Finland",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1738392",
+      "competitionId": "523",
+      "leagueId": "523",
+      "country": "UEFA",
+      "league": "UEFA Nations League",
+      "stage": "League C: Group 3",
       "homeTeam": "Kazakhstan",
       "awayTeam": "Faroe Islands",
-      "kickoff": "2026-10-06T14:00:00Z",
+      "kickoff": "2026-10-06T16:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
       "sources": [
-        "https://fbref.com/en/matches/2026-10-06",
-        "https://nasiscore.co.za/matches/kazakhstan-vs-faroe-islands-x1fgh9is"
+        "data/today_fixture.json"
       ],
       "researchComplete": false
     },
     {
-      "leagueId": "assoc-brazil",
-      "country": "Brazil",
-      "league": "Serie B",
-      "homeTeam": "Sport Recife",
-      "awayTeam": "São Bernardo",
-      "kickoff": "2026-10-06T22:30:00Z",
+      "date": "2026-10-06",
+      "providerFixtureId": "1738393",
+      "competitionId": "523",
+      "leagueId": "523",
+      "country": "UEFA",
+      "league": "UEFA Nations League",
+      "stage": "League C: Group 3",
+      "homeTeam": "Moldova",
+      "awayTeam": "Slovakia",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
       "sources": [
-        "https://www.soccerpunter.com/football/Brazil-Serie-B/651/",
-        "https://www.sportytrader.com/en/odds/sport-recife-sao-bernardo-8315582/"
+        "data/today_fixture.json"
       ],
       "researchComplete": false
     },
     {
-      "leagueId": "assoc-brazil",
-      "country": "Brazil",
-      "league": "Serie B",
-      "homeTeam": "Goiás",
-      "awayTeam": "Athletic Club",
-      "kickoff": "2026-10-06T23:30:00Z",
+      "date": "2026-10-06",
+      "providerFixtureId": "1738402",
+      "competitionId": "523",
+      "leagueId": "523",
+      "country": "UEFA",
+      "league": "UEFA Nations League",
+      "stage": "League C: Group 4",
+      "homeTeam": "Estonia",
+      "awayTeam": "Iceland",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
       "sources": [
-        "https://www.soccerpunter.com/football/Brazil-Serie-B/651/",
-        "https://www.fotmob.com/en-GB/matches/goias-vs-athletic-club-mg/9oc5dm0d"
+        "data/today_fixture.json"
       ],
       "researchComplete": false
     },
     {
-      "leagueId": "assoc-norway",
-      "country": "Norway",
-      "league": "NM Cupen",
-      "homeTeam": "Raufoss",
-      "awayTeam": "Start",
-      "kickoff": "2026-10-06T15:00:00Z",
+      "date": "2026-10-06",
+      "providerFixtureId": "1738403",
+      "competitionId": "523",
+      "leagueId": "523",
+      "country": "UEFA",
+      "league": "UEFA Nations League",
+      "stage": "League C: Group 4",
+      "homeTeam": "Luxembourg",
+      "awayTeam": "Bulgaria",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
       "sources": [
-        "https://www.footballfixtures.org/fixtures/2026-10-06",
-        "https://footsam.com/?dag=2026-10-06"
+        "data/today_fixture.json"
       ],
       "researchComplete": false
     },
     {
-      "leagueId": "assoc-south-korea",
-      "country": "South Korea",
+      "date": "2026-10-06",
+      "providerFixtureId": "1872921",
+      "competitionId": "137",
+      "leagueId": "137",
+      "country": "CAF",
+      "league": "Africa Cup of Nations Qualification",
+      "stage": "Qualification: Group B",
+      "homeTeam": "Angola",
+      "awayTeam": "Malawi",
+      "kickoff": "2026-10-06T21:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1856629",
+      "competitionId": "57",
+      "leagueId": "57",
+      "country": "CONCACAF",
+      "league": "CONCACAF Nations League",
+      "stage": "League A: Group 2",
+      "homeTeam": "Martinique",
+      "awayTeam": "El Salvador",
+      "kickoff": "2026-10-06T00:00:00+02:00",
+      "providerStatus": "FT",
+      "eligibility": "excluded",
+      "exclusionReason": "Not a pre-match fixture at normalization time",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1856627",
+      "competitionId": "57",
+      "leagueId": "57",
+      "country": "CONCACAF",
+      "league": "CONCACAF Nations League",
+      "stage": "League A: Group 2",
+      "homeTeam": "Guatemala",
+      "awayTeam": "Suriname",
+      "kickoff": "2026-10-06T02:00:00+02:00",
+      "providerStatus": "FT",
+      "eligibility": "excluded",
+      "exclusionReason": "Not a pre-match fixture at normalization time",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1856628",
+      "competitionId": "57",
+      "leagueId": "57",
+      "country": "CONCACAF",
+      "league": "CONCACAF Nations League",
+      "stage": "League A: Group 2",
+      "homeTeam": "Honduras",
+      "awayTeam": "Jamaica",
+      "kickoff": "2026-10-06T04:00:00+02:00",
+      "providerStatus": "FT",
+      "eligibility": "excluded",
+      "exclusionReason": "Not a pre-match fixture at normalization time",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1856616",
+      "competitionId": "57",
+      "leagueId": "57",
+      "country": "CONCACAF",
+      "league": "CONCACAF Nations League",
+      "stage": "League B: Group 2",
+      "homeTeam": "Bermuda",
+      "awayTeam": "Barbados",
+      "kickoff": "2026-10-06T02:00:00+02:00",
+      "providerStatus": "FT",
+      "eligibility": "excluded",
+      "exclusionReason": "Not a pre-match fixture at normalization time",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1856595",
+      "competitionId": "57",
+      "leagueId": "57",
+      "country": "CONCACAF",
+      "league": "CONCACAF Nations League",
+      "stage": "League B: Group 3",
+      "homeTeam": "Grenada",
+      "awayTeam": "Bonaire",
+      "kickoff": "2026-10-06T02:00:00+02:00",
+      "providerStatus": "FT",
+      "eligibility": "excluded",
+      "exclusionReason": "Not a pre-match fixture at normalization time",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1856603",
+      "competitionId": "57",
+      "leagueId": "57",
+      "country": "CONCACAF",
+      "league": "CONCACAF Nations League",
+      "stage": "League B: Group 4",
+      "homeTeam": "Saint Vincent and The Grenadines",
+      "awayTeam": "Sint Maarten",
+      "kickoff": "2026-10-06T23:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1856587",
+      "competitionId": "57",
+      "leagueId": "57",
+      "country": "CONCACAF",
+      "league": "CONCACAF Nations League",
+      "stage": "League C: Group 1",
+      "homeTeam": "Montserrat",
+      "awayTeam": "Turks and Caicos Islands",
+      "kickoff": "2026-10-06T22:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1856609",
+      "competitionId": "57",
+      "leagueId": "57",
+      "country": "CONCACAF",
+      "league": "CONCACAF Nations League",
+      "stage": "League C: Group 3",
+      "homeTeam": "Saint Martin",
+      "awayTeam": "Bahamas",
+      "kickoff": "2026-10-06T22:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1902097",
+      "competitionId": "537",
+      "leagueId": "537",
+      "country": "2026",
       "league": "International Friendlies",
+      "stage": "Friendlies",
       "homeTeam": "South Korea",
       "awayTeam": "Uzbekistan",
-      "kickoff": "2026-10-06T10:00:00Z",
+      "kickoff": "2026-10-06T13:00:00+02:00",
+      "providerStatus": "FT",
+      "eligibility": "excluded",
+      "exclusionReason": "Not a pre-match fixture at normalization time",
       "sources": [
-        "https://www.footballfixtures.org/fixtures/2026-10-06",
-        "https://www.planetsport.com/soccer/matches/all/2026-10-06"
+        "data/today_fixture.json"
       ],
       "researchComplete": false
     },
     {
-      "leagueId": "assoc-china-pr",
-      "country": "China PR",
+      "date": "2026-10-06",
+      "providerFixtureId": "1902102",
+      "competitionId": "537",
+      "leagueId": "537",
+      "country": "2026",
       "league": "International Friendlies",
+      "stage": "Friendlies",
       "homeTeam": "China",
       "awayTeam": "Tajikistan",
-      "kickoff": "2026-10-06T11:35:00Z",
+      "kickoff": "2026-10-06T13:35:00+02:00",
+      "providerStatus": "FT",
+      "eligibility": "excluded",
+      "exclusionReason": "Not a pre-match fixture at normalization time",
       "sources": [
-        "https://www.footballfixtures.org/fixtures/2026-10-06",
-        "https://www.planetsport.com/soccer/matches/all/2026-10-06"
+        "data/today_fixture.json"
       ],
       "researchComplete": false
     },
     {
-      "leagueId": "assoc-india",
-      "country": "India",
+      "date": "2026-10-06",
+      "providerFixtureId": "1888515",
+      "competitionId": "537",
+      "leagueId": "537",
+      "country": "2026",
       "league": "International Friendlies",
+      "stage": "Friendlies",
       "homeTeam": "India",
       "awayTeam": "Uruguay",
-      "kickoff": "2026-10-06T14:00:00Z",
+      "kickoff": "2026-10-06T16:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
       "sources": [
-        "https://www.footballfixtures.org/fixtures/2026-10-06",
-        "https://www.planetsport.com/soccer/matches/all/2026-10-06"
+        "data/today_fixture.json"
       ],
       "researchComplete": false
     },
     {
-      "leagueId": "assoc-jordan",
-      "country": "Jordan",
+      "date": "2026-10-06",
+      "providerFixtureId": "1901956",
+      "competitionId": "537",
+      "leagueId": "537",
+      "country": "2026",
       "league": "International Friendlies",
-      "homeTeam": "Jordan",
-      "awayTeam": "Venezuela",
-      "kickoff": "2026-10-06T17:00:00Z",
-      "sources": [
-        "https://www.footballfixtures.org/fixtures/2026-10-06",
-        "https://www.planetsport.com/soccer/matches/all/2026-10-06"
-      ],
-      "researchComplete": false
-    },
-    {
-      "leagueId": "assoc-russia",
-      "country": "Russia",
-      "league": "International Friendlies",
-      "homeTeam": "Russia",
-      "awayTeam": "Nigeria",
-      "kickoff": "2026-10-06T17:00:00Z",
-      "sources": [
-        "https://www.footballfixtures.org/fixtures/2026-10-06",
-        "https://www.planetsport.com/soccer/matches/all/2026-10-06"
-      ],
-      "researchComplete": false
-    },
-    {
-      "leagueId": "assoc-algeria",
-      "country": "Algeria",
-      "league": "International Friendlies",
+      "stage": "Friendlies",
       "homeTeam": "Algeria",
       "awayTeam": "Niger",
-      "kickoff": "2026-10-06T19:30:00Z",
+      "kickoff": "2026-10-06T19:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
       "sources": [
-        "https://www.footballfixtures.org/fixtures/2026-10-06",
-        "https://www.planetsport.com/soccer/matches/all/2026-10-06"
+        "data/today_fixture.json"
       ],
       "researchComplete": false
     },
     {
-      "leagueId": "assoc-argentina",
-      "country": "Argentina",
+      "date": "2026-10-06",
+      "providerFixtureId": "1902099",
+      "competitionId": "537",
+      "leagueId": "537",
+      "country": "2026",
       "league": "International Friendlies",
-      "homeTeam": "Argentina",
-      "awayTeam": "Benin",
-      "kickoff": "2026-10-06T20:00:00Z",
+      "stage": "Friendlies",
+      "homeTeam": "Jordan",
+      "awayTeam": "Venezuela",
+      "kickoff": "2026-10-06T19:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
       "sources": [
-        "https://www.footballfixtures.org/fixtures/2026-10-06",
-        "https://www.planetsport.com/soccer/matches/all/2026-10-06"
+        "data/today_fixture.json"
       ],
       "researchComplete": false
     },
     {
-      "leagueId": "assoc-colombia",
+      "date": "2026-10-06",
+      "providerFixtureId": "1903106",
+      "competitionId": "310",
+      "leagueId": "310",
+      "country": "International",
+      "league": "Club Friendlies",
+      "stage": "Club Friendlies 2026",
+      "homeTeam": "IFK Norrkoeping",
+      "awayTeam": "Kalmar FF",
+      "kickoff": "2026-10-06T13:15:00+02:00",
+      "providerStatus": "FT",
+      "eligibility": "excluded",
+      "exclusionReason": "Not a pre-match fixture at normalization time",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1672089",
+      "competitionId": "21518",
+      "leagueId": "21518",
+      "country": "International",
+      "league": "Euro U21 2027",
+      "stage": "Qualification: Group A",
+      "homeTeam": "Cyprus U21",
+      "awayTeam": "San Marino U21",
+      "kickoff": "2026-10-06T19:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1672088",
+      "competitionId": "21518",
+      "leagueId": "21518",
+      "country": "International",
+      "league": "Euro U21 2027",
+      "stage": "Qualification: Group A",
+      "homeTeam": "Kosovo U21",
+      "awayTeam": "Finland U21",
+      "kickoff": "2026-10-06T19:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1672082",
+      "competitionId": "21518",
+      "leagueId": "21518",
+      "country": "International",
+      "league": "Euro U21 2027",
+      "stage": "Qualification: Group A",
+      "homeTeam": "Spain U21",
+      "awayTeam": "Romania U21",
+      "kickoff": "2026-10-06T19:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1672091",
+      "competitionId": "21519",
+      "leagueId": "21519",
+      "country": "International",
+      "league": "Euro U21 2027",
+      "stage": "Qualification: Group B",
+      "homeTeam": "Azerbaijan U21",
+      "awayTeam": "Gibraltar U21",
+      "kickoff": "2026-10-06T15:45:00+02:00",
+      "providerStatus": "11'",
+      "eligibility": "excluded",
+      "exclusionReason": "Not a pre-match fixture at normalization time",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1672095",
+      "competitionId": "21519",
+      "leagueId": "21519",
+      "country": "International",
+      "league": "Euro U21 2027",
+      "stage": "Qualification: Group B",
+      "homeTeam": "Bulgaria U21",
+      "awayTeam": "Scotland U21",
+      "kickoff": "2026-10-06T18:30:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1672093",
+      "competitionId": "21519",
+      "leagueId": "21519",
+      "country": "International",
+      "league": "Euro U21 2027",
+      "stage": "Qualification: Group B",
+      "homeTeam": "Portugal U21",
+      "awayTeam": "Czechia U21",
+      "kickoff": "2026-10-06T18:30:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1646237",
+      "competitionId": "21520",
+      "leagueId": "21520",
+      "country": "International",
+      "league": "Euro U21 2027",
+      "stage": "Qualification: Group C",
+      "homeTeam": "Faroe Islands U21",
+      "awayTeam": "Iceland U21",
+      "kickoff": "2026-10-06T19:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1672096",
+      "competitionId": "21520",
+      "leagueId": "21520",
+      "country": "International",
+      "league": "Euro U21 2027",
+      "stage": "Qualification: Group C",
+      "homeTeam": "France U21",
+      "awayTeam": "Switzerland U21",
+      "kickoff": "2026-10-06T19:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1672094",
+      "competitionId": "21520",
+      "leagueId": "21520",
+      "country": "International",
+      "league": "Euro U21 2027",
+      "stage": "Qualification: Group C",
+      "homeTeam": "Luxembourg U21",
+      "awayTeam": "Estonia U21",
+      "kickoff": "2026-10-06T19:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1672092",
+      "competitionId": "21521",
+      "leagueId": "21521",
+      "country": "International",
+      "league": "Euro U21 2027",
+      "stage": "Qualification: Group D",
+      "homeTeam": "Moldova U21",
+      "awayTeam": "Kazakhstan U21",
+      "kickoff": "2026-10-06T16:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1647373",
+      "competitionId": "21521",
+      "leagueId": "21521",
+      "country": "International",
+      "league": "Euro U21 2027",
+      "stage": "Qualification: Group D",
+      "homeTeam": "Andorra U21",
+      "awayTeam": "Slovakia U21",
+      "kickoff": "2026-10-06T19:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1672097",
+      "competitionId": "21521",
+      "leagueId": "21521",
+      "country": "International",
+      "league": "Euro U21 2027",
+      "stage": "Qualification: Group D",
+      "homeTeam": "Ireland U21",
+      "awayTeam": "England U21",
+      "kickoff": "2026-10-06T19:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1672080",
+      "competitionId": "21523",
+      "leagueId": "21523",
+      "country": "International",
+      "league": "Euro U21 2027",
+      "stage": "Qualification: Group F",
+      "homeTeam": "Germany U21",
+      "awayTeam": "Georgia U21",
+      "kickoff": "2026-10-06T18:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1672086",
+      "competitionId": "21523",
+      "leagueId": "21523",
+      "country": "International",
+      "league": "Euro U21 2027",
+      "stage": "Qualification: Group F",
+      "homeTeam": "Latvia U21",
+      "awayTeam": "Malta U21",
+      "kickoff": "2026-10-06T18:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1672085",
+      "competitionId": "21523",
+      "leagueId": "21523",
+      "country": "International",
+      "league": "Euro U21 2027",
+      "stage": "Qualification: Group F",
+      "homeTeam": "Northern Ireland U21",
+      "awayTeam": "Greece U21",
+      "kickoff": "2026-10-06T18:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1672084",
+      "competitionId": "21524",
+      "leagueId": "21524",
+      "country": "International",
+      "league": "Euro U21 2027",
+      "stage": "Qualification: Group G",
+      "homeTeam": "Netherlands U21",
+      "awayTeam": "Bosnia and Herzegovina U21",
+      "kickoff": "2026-10-06T18:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1672090",
+      "competitionId": "21524",
+      "leagueId": "21524",
+      "country": "International",
+      "league": "Euro U21 2027",
+      "stage": "Qualification: Group G",
+      "homeTeam": "Norway U21",
+      "awayTeam": "Israel U21",
+      "kickoff": "2026-10-06T18:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1672083",
+      "competitionId": "21525",
+      "leagueId": "21525",
+      "country": "International",
+      "league": "Euro U21 2027",
+      "stage": "Qualification: Group H",
+      "homeTeam": "Lithuania U21",
+      "awayTeam": "Croatia U21",
+      "kickoff": "2026-10-06T19:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1672079",
+      "competitionId": "21525",
+      "leagueId": "21525",
+      "country": "International",
+      "league": "Euro U21 2027",
+      "stage": "Qualification: Group H",
+      "homeTeam": "Turkiye U21",
+      "awayTeam": "Hungary U21",
+      "kickoff": "2026-10-06T19:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1672087",
+      "competitionId": "21526",
+      "leagueId": "21526",
+      "country": "International",
+      "league": "Euro U21 2027",
+      "stage": "Qualification: Group I",
+      "homeTeam": "Denmark U21",
+      "awayTeam": "Belgium U21",
+      "kickoff": "2026-10-06T18:30:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1672081",
+      "competitionId": "21526",
+      "leagueId": "21526",
+      "country": "International",
+      "league": "Euro U21 2027",
+      "stage": "Qualification: Group I",
+      "homeTeam": "Wales U21",
+      "awayTeam": "Austria U21",
+      "kickoff": "2026-10-06T18:30:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1873814",
+      "competitionId": "338",
+      "leagueId": "338",
+      "country": "International",
+      "league": "Gulf Cup",
+      "stage": "Gulf Cup: Knockout Stage",
+      "homeTeam": "Saudi Arabia",
+      "awayTeam": "UAE",
+      "kickoff": "2026-10-06T20:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1854204",
+      "competitionId": "733",
+      "leagueId": "733",
+      "country": "Algeria",
+      "league": "Ligue 1",
+      "stage": "Ligue 1",
+      "homeTeam": "JS Kabylie",
+      "awayTeam": "MC Alger",
+      "kickoff": "2026-10-06T20:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1854200",
+      "competitionId": "733",
+      "leagueId": "733",
+      "country": "Algeria",
+      "league": "Ligue 1",
+      "stage": "Ligue 1",
+      "homeTeam": "JS Saoura",
+      "awayTeam": "USM Khenchela",
+      "kickoff": "2026-10-06T20:00:00+02:00",
+      "providerStatus": "POSTP.",
+      "eligibility": "excluded",
+      "exclusionReason": "Not a pre-match fixture at normalization time",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1747223",
+      "competitionId": "24690",
+      "leagueId": "24690",
+      "country": "International",
+      "league": "China",
+      "stage": "League One",
+      "homeTeam": "Changchun Yatai",
+      "awayTeam": "Yanbian Longding",
+      "kickoff": "2026-10-06T13:00:00+02:00",
+      "providerStatus": "FT",
+      "eligibility": "excluded",
+      "exclusionReason": "Not a pre-match fixture at normalization time",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1747222",
+      "competitionId": "24690",
+      "leagueId": "24690",
+      "country": "International",
+      "league": "China",
+      "stage": "League One",
+      "homeTeam": "Wuxi Wugou FC",
+      "awayTeam": "Suzhou Dongwu",
+      "kickoff": "2026-10-06T13:00:00+02:00",
+      "providerStatus": "FT",
+      "eligibility": "excluded",
+      "exclusionReason": "Not a pre-match fixture at normalization time",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1747221",
+      "competitionId": "24690",
+      "leagueId": "24690",
+      "country": "International",
+      "league": "China",
+      "stage": "League One",
+      "homeTeam": "Jiangxi Dingnan United",
+      "awayTeam": "Meizhou Hakka",
+      "kickoff": "2026-10-06T13:30:00+02:00",
+      "providerStatus": "FT",
+      "eligibility": "excluded",
+      "exclusionReason": "Not a pre-match fixture at normalization time",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1747220",
+      "competitionId": "24690",
+      "leagueId": "24690",
+      "country": "International",
+      "league": "China",
+      "stage": "League One",
+      "homeTeam": "Nantong Zhiyun FC",
+      "awayTeam": "Ningbo Professional",
+      "kickoff": "2026-10-06T13:30:00+02:00",
+      "providerStatus": "FT",
+      "eligibility": "excluded",
+      "exclusionReason": "Not a pre-match fixture at normalization time",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1747219",
+      "competitionId": "24690",
+      "leagueId": "24690",
+      "country": "International",
+      "league": "China",
+      "stage": "League One",
+      "homeTeam": "Shijiazhuang Gongfu",
+      "awayTeam": "Dalian Kuncheng City",
+      "kickoff": "2026-10-06T13:30:00+02:00",
+      "providerStatus": "FT",
+      "eligibility": "excluded",
+      "exclusionReason": "Not a pre-match fixture at normalization time",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1806378",
+      "competitionId": "667",
+      "leagueId": "667",
       "country": "Colombia",
-      "league": "International Friendlies",
-      "homeTeam": "Colombia",
-      "awayTeam": "Peru",
-      "kickoff": "2026-10-06T23:45:00Z",
+      "league": "Primera A: Clausura",
+      "stage": "Primera A: Clausura",
+      "homeTeam": "Independiente Medellin",
+      "awayTeam": "Santa Fe",
+      "kickoff": "2026-10-06T02:00:00+02:00",
+      "providerStatus": "FT",
+      "eligibility": "excluded",
+      "exclusionReason": "Not a pre-match fixture at normalization time",
       "sources": [
-        "https://www.footballfixtures.org/fixtures/2026-10-06",
-        "https://www.planetsport.com/soccer/matches/all/2026-10-06"
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1806527",
+      "competitionId": "25654",
+      "leagueId": "25654",
+      "country": "International",
+      "league": "Colombia",
+      "stage": "Primera B: Clausura",
+      "homeTeam": "Bogota FC",
+      "awayTeam": "Envigado",
+      "kickoff": "2026-10-06T00:00:00+02:00",
+      "providerStatus": "FT",
+      "eligibility": "excluded",
+      "exclusionReason": "Not a pre-match fixture at normalization time",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1806533",
+      "competitionId": "25654",
+      "leagueId": "25654",
+      "country": "International",
+      "league": "Colombia",
+      "stage": "Primera B: Clausura",
+      "homeTeam": "Orsomarso",
+      "awayTeam": "Deportes Quindio",
+      "kickoff": "2026-10-06T02:30:00+02:00",
+      "providerStatus": "FT",
+      "eligibility": "excluded",
+      "exclusionReason": "Not a pre-match fixture at normalization time",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1866774",
+      "competitionId": "118",
+      "leagueId": "118",
+      "country": "England",
+      "league": "EFL Trophy",
+      "stage": "EFL Trophy North: Group A",
+      "homeTeam": "Accrington Stanley",
+      "awayTeam": "Salford City",
+      "kickoff": "2026-10-06T20:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1866773",
+      "competitionId": "118",
+      "leagueId": "118",
+      "country": "England",
+      "league": "EFL Trophy",
+      "stage": "EFL Trophy North: Group A",
+      "homeTeam": "Sheffield Wednesday",
+      "awayTeam": "Sunderland U21",
+      "kickoff": "2026-10-06T20:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1866748",
+      "competitionId": "118",
+      "leagueId": "118",
+      "country": "England",
+      "league": "EFL Trophy",
+      "stage": "EFL Trophy North: Group B",
+      "homeTeam": "Blackpool",
+      "awayTeam": "Crewe Alexandra",
+      "kickoff": "2026-10-06T20:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1866779",
+      "competitionId": "118",
+      "leagueId": "118",
+      "country": "England",
+      "league": "EFL Trophy",
+      "stage": "EFL Trophy North: Group C",
+      "homeTeam": "Rotherham United",
+      "awayTeam": "Bradford City",
+      "kickoff": "2026-10-06T20:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1866736",
+      "competitionId": "118",
+      "leagueId": "118",
+      "country": "England",
+      "league": "EFL Trophy",
+      "stage": "EFL Trophy North: Group D",
+      "homeTeam": "Port Vale",
+      "awayTeam": "Mansfield Town",
+      "kickoff": "2026-10-06T20:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1866740",
+      "competitionId": "118",
+      "leagueId": "118",
+      "country": "England",
+      "league": "EFL Trophy",
+      "stage": "EFL Trophy North: Group E",
+      "homeTeam": "Shrewsbury Town",
+      "awayTeam": "Stockport County",
+      "kickoff": "2026-10-06T20:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1866833",
+      "competitionId": "118",
+      "leagueId": "118",
+      "country": "England",
+      "league": "EFL Trophy",
+      "stage": "EFL Trophy North: Group F",
+      "homeTeam": "Grimsby Town",
+      "awayTeam": "Burton Albion",
+      "kickoff": "2026-10-06T20:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1866816",
+      "competitionId": "118",
+      "leagueId": "118",
+      "country": "England",
+      "league": "EFL Trophy",
+      "stage": "EFL Trophy North: Group G",
+      "homeTeam": "Fleetwood Town",
+      "awayTeam": "Barnsley",
+      "kickoff": "2026-10-06T20:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1866801",
+      "competitionId": "118",
+      "leagueId": "118",
+      "country": "England",
+      "league": "EFL Trophy",
+      "stage": "EFL Trophy North: Group H",
+      "homeTeam": "Doncaster Rovers",
+      "awayTeam": "Liverpool U21",
+      "kickoff": "2026-10-06T20:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1866804",
+      "competitionId": "118",
+      "leagueId": "118",
+      "country": "England",
+      "league": "EFL Trophy",
+      "stage": "EFL Trophy North: Group H",
+      "homeTeam": "Huddersfield Town",
+      "awayTeam": "Rochdale",
+      "kickoff": "2026-10-06T20:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1866797",
+      "competitionId": "118",
+      "leagueId": "118",
+      "country": "England",
+      "league": "EFL Trophy",
+      "stage": "EFL Trophy South: Group A",
+      "homeTeam": "Exeter City",
+      "awayTeam": "Oxford United",
+      "kickoff": "2026-10-06T20:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1866839",
+      "competitionId": "118",
+      "leagueId": "118",
+      "country": "England",
+      "league": "EFL Trophy",
+      "stage": "EFL Trophy South: Group B",
+      "homeTeam": "Stevenage",
+      "awayTeam": "Leicester City",
+      "kickoff": "2026-10-06T20:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1866810",
+      "competitionId": "118",
+      "leagueId": "118",
+      "country": "England",
+      "league": "EFL Trophy",
+      "stage": "EFL Trophy South: Group C",
+      "homeTeam": "Wycombe Wanderers",
+      "awayTeam": "Bristol Rovers",
+      "kickoff": "2026-10-06T20:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1866821",
+      "competitionId": "118",
+      "leagueId": "118",
+      "country": "England",
+      "league": "EFL Trophy",
+      "stage": "EFL Trophy South: Group D",
+      "homeTeam": "Peterborough United",
+      "awayTeam": "Ipswich Town U21",
+      "kickoff": "2026-10-06T20:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1866828",
+      "competitionId": "118",
+      "leagueId": "118",
+      "country": "England",
+      "league": "EFL Trophy",
+      "stage": "EFL Trophy South: Group E",
+      "homeTeam": "Newport County",
+      "awayTeam": "Plymouth Argyle",
+      "kickoff": "2026-10-06T20:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1866786",
+      "competitionId": "118",
+      "leagueId": "118",
+      "country": "England",
+      "league": "EFL Trophy",
+      "stage": "EFL Trophy South: Group F",
+      "homeTeam": "AFC Wimbledon",
+      "awayTeam": "Barnet",
+      "kickoff": "2026-10-06T20:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1866791",
+      "competitionId": "118",
+      "leagueId": "118",
+      "country": "England",
+      "league": "EFL Trophy",
+      "stage": "EFL Trophy South: Group G",
+      "homeTeam": "Cambridge United",
+      "awayTeam": "Northampton Town",
+      "kickoff": "2026-10-06T20:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1866847",
+      "competitionId": "118",
+      "leagueId": "118",
+      "country": "England",
+      "league": "EFL Trophy",
+      "stage": "EFL Trophy South: Group H",
+      "homeTeam": "MK Dons",
+      "awayTeam": "Brentford Academy",
+      "kickoff": "2026-10-06T20:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1866846",
+      "competitionId": "118",
+      "leagueId": "118",
+      "country": "England",
+      "league": "EFL Trophy",
+      "stage": "EFL Trophy South: Group H",
+      "homeTeam": "Crawley Town",
+      "awayTeam": "Bromley",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1861868",
+      "competitionId": "26063",
+      "leagueId": "26063",
+      "country": "International",
+      "league": "England",
+      "stage": "National League Cup: Group B",
+      "homeTeam": "Hornchurch",
+      "awayTeam": "Fulham U21",
+      "kickoff": "2026-10-06T20:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1861853",
+      "competitionId": "26062",
+      "leagueId": "26062",
+      "country": "International",
+      "league": "England",
+      "stage": "National League Cup: Group C",
+      "homeTeam": "Solihull Moors",
+      "awayTeam": "Newcastle United U21",
+      "kickoff": "2026-10-06T20:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1861854",
+      "competitionId": "26062",
+      "leagueId": "26062",
+      "country": "International",
+      "league": "England",
+      "stage": "National League Cup: Group C",
+      "homeTeam": "Tamworth",
+      "awayTeam": "Leeds United U21",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1824052",
+      "competitionId": "569",
+      "leagueId": "569",
+      "country": "England",
+      "league": "National League South",
+      "stage": "National League: South",
+      "homeTeam": "Braintree Town",
+      "awayTeam": "Walton and Hersham",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1824001",
+      "competitionId": "569",
+      "leagueId": "569",
+      "country": "England",
+      "league": "National League South",
+      "stage": "National League: South",
+      "homeTeam": "Ebbsfleet United",
+      "awayTeam": "Folkestone Invicta",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1824050",
+      "competitionId": "569",
+      "leagueId": "569",
+      "country": "England",
+      "league": "National League South",
+      "stage": "National League: South",
+      "homeTeam": "Farnham Town",
+      "awayTeam": "Truro City",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1837444",
+      "competitionId": "571",
+      "leagueId": "571",
+      "country": "England",
+      "league": "Northern Premier League",
+      "stage": "Northern Premier League",
+      "homeTeam": "Alfreton Town",
+      "awayTeam": "FC United of Manchester",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1837455",
+      "competitionId": "571",
+      "leagueId": "571",
+      "country": "England",
+      "league": "Northern Premier League",
+      "stage": "Northern Premier League",
+      "homeTeam": "Cleethorpes Town",
+      "awayTeam": "Hyde United",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1837440",
+      "competitionId": "571",
+      "leagueId": "571",
+      "country": "England",
+      "league": "Northern Premier League",
+      "stage": "Northern Premier League",
+      "homeTeam": "Curzon Ashton",
+      "awayTeam": "Redcar Athletic",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1837442",
+      "competitionId": "571",
+      "leagueId": "571",
+      "country": "England",
+      "league": "Northern Premier League",
+      "stage": "Northern Premier League",
+      "homeTeam": "Emley",
+      "awayTeam": "Bamber Bridge",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1837448",
+      "competitionId": "571",
+      "leagueId": "571",
+      "country": "England",
+      "league": "Northern Premier League",
+      "stage": "Northern Premier League",
+      "homeTeam": "Ilkeston Town",
+      "awayTeam": "Guiseley",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1837446",
+      "competitionId": "571",
+      "leagueId": "571",
+      "country": "England",
+      "league": "Northern Premier League",
+      "stage": "Northern Premier League",
+      "homeTeam": "Leek Town",
+      "awayTeam": "Warrington Rylands",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1837438",
+      "competitionId": "571",
+      "leagueId": "571",
+      "country": "England",
+      "league": "Northern Premier League",
+      "stage": "Northern Premier League",
+      "homeTeam": "Quorn",
+      "awayTeam": "Ashton United",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1837445",
+      "competitionId": "571",
+      "leagueId": "571",
+      "country": "England",
+      "league": "Northern Premier League",
+      "stage": "Northern Premier League",
+      "homeTeam": "Stockton Town",
+      "awayTeam": "Bury",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1837451",
+      "competitionId": "571",
+      "leagueId": "571",
+      "country": "England",
+      "league": "Northern Premier League",
+      "stage": "Northern Premier League",
+      "homeTeam": "Warrington Town",
+      "awayTeam": "Workington",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1837437",
+      "competitionId": "571",
+      "leagueId": "571",
+      "country": "England",
+      "league": "Northern Premier League",
+      "stage": "Northern Premier League",
+      "homeTeam": "Whitby",
+      "awayTeam": "Gainsborough",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1839515",
+      "competitionId": "574",
+      "leagueId": "574",
+      "country": "England",
+      "league": "Southern League Premier: Central",
+      "stage": "Southern League Premier: Central",
+      "homeTeam": "Leamington",
+      "awayTeam": "Halesowen Town FC",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "POSTP.",
+      "eligibility": "excluded",
+      "exclusionReason": "Not a pre-match fixture at normalization time",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1836960",
+      "competitionId": "572",
+      "leagueId": "572",
+      "country": "England",
+      "league": "Isthmian League Premier Division",
+      "stage": "Isthmian League Premier Division",
+      "homeTeam": "Chatham Town",
+      "awayTeam": "Leatherhead",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1836969",
+      "competitionId": "572",
+      "leagueId": "572",
+      "country": "England",
+      "league": "Isthmian League Premier Division",
+      "stage": "Isthmian League Premier Division",
+      "homeTeam": "Cheshunt",
+      "awayTeam": "Aveley",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1836971",
+      "competitionId": "572",
+      "leagueId": "572",
+      "country": "England",
+      "league": "Isthmian League Premier Division",
+      "stage": "Isthmian League Premier Division",
+      "homeTeam": "Dartford",
+      "awayTeam": "Ramsgate",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1836961",
+      "competitionId": "572",
+      "leagueId": "572",
+      "country": "England",
+      "league": "Isthmian League Premier Division",
+      "stage": "Isthmian League Premier Division",
+      "homeTeam": "Maldon & Tiptree",
+      "awayTeam": "Welling United",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1836973",
+      "competitionId": "572",
+      "leagueId": "572",
+      "country": "England",
+      "league": "Isthmian League Premier Division",
+      "stage": "Isthmian League Premier Division",
+      "homeTeam": "Stanway Rovers",
+      "awayTeam": "Enfield Town",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1858049",
+      "competitionId": "1224",
+      "leagueId": "1224",
+      "country": "England",
+      "league": "Isthmian League Northern Division",
+      "stage": "Isthmian League: North Division",
+      "homeTeam": "AFC Sudbury",
+      "awayTeam": "Wroxham",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1858044",
+      "competitionId": "1224",
+      "leagueId": "1224",
+      "country": "England",
+      "league": "Isthmian League Northern Division",
+      "stage": "Isthmian League: North Division",
+      "homeTeam": "Brightlingsea Regent",
+      "awayTeam": "Lowestoft Town",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1880126",
+      "competitionId": "1224",
+      "leagueId": "1224",
+      "country": "England",
+      "league": "Isthmian League Northern Division",
+      "stage": "Isthmian League: North Division",
+      "homeTeam": "Buckhurst Hill",
+      "awayTeam": "Tilbury",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1857736",
+      "competitionId": "1224",
+      "leagueId": "1224",
+      "country": "England",
+      "league": "Isthmian League Northern Division",
+      "stage": "Isthmian League: North Division",
+      "homeTeam": "Canvey Island",
+      "awayTeam": "Takeley",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1880087",
+      "competitionId": "1224",
+      "leagueId": "1224",
+      "country": "England",
+      "league": "Isthmian League Northern Division",
+      "stage": "Isthmian League: North Division",
+      "homeTeam": "Little Oakley",
+      "awayTeam": "Fakenham Town",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1857801",
+      "competitionId": "1224",
+      "leagueId": "1224",
+      "country": "England",
+      "league": "Isthmian League Northern Division",
+      "stage": "Isthmian League: North Division",
+      "homeTeam": "Mulbarton Wanderers",
+      "awayTeam": "Cambridge City",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1857909",
+      "competitionId": "1224",
+      "leagueId": "1224",
+      "country": "England",
+      "league": "Isthmian League Northern Division",
+      "stage": "Isthmian League: North Division",
+      "homeTeam": "Walthamstow",
+      "awayTeam": "Bowers & Pitsea",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1857863",
+      "competitionId": "1224",
+      "leagueId": "1224",
+      "country": "England",
+      "league": "Isthmian League Northern Division",
+      "stage": "Isthmian League: North Division",
+      "homeTeam": "Witham Town",
+      "awayTeam": "Newmarket Town",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1858982",
+      "competitionId": "26050",
+      "leagueId": "26050",
+      "country": "International",
+      "league": "England",
+      "stage": "Isthmian League: South Central Division",
+      "homeTeam": "AFC Portchester",
+      "awayTeam": "Littlehampton Town",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1859104",
+      "competitionId": "26050",
+      "leagueId": "26050",
+      "country": "International",
+      "league": "England",
+      "stage": "Isthmian League: South Central Division",
+      "homeTeam": "AFC Stoneham",
+      "awayTeam": "Jersey Bulls",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1858965",
+      "competitionId": "26050",
+      "leagueId": "26050",
+      "country": "International",
+      "league": "England",
+      "stage": "Isthmian League: South Central Division",
+      "homeTeam": "Ascot United",
+      "awayTeam": "Hayes & Yeading United",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1879912",
+      "competitionId": "26050",
+      "leagueId": "26050",
+      "country": "International",
+      "league": "England",
+      "stage": "Isthmian League: South Central Division",
+      "homeTeam": "Ashford Town",
+      "awayTeam": "Egham Town FC",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1859004",
+      "competitionId": "26050",
+      "leagueId": "26050",
+      "country": "International",
+      "league": "England",
+      "stage": "Isthmian League: South Central Division",
+      "homeTeam": "Bedfont Sports Club",
+      "awayTeam": "Southall",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1880029",
+      "competitionId": "26050",
+      "leagueId": "26050",
+      "country": "International",
+      "league": "England",
+      "stage": "Isthmian League: South Central Division",
+      "homeTeam": "Bognor Regis Town",
+      "awayTeam": "Hartley Wintney",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1859158",
+      "competitionId": "26050",
+      "leagueId": "26050",
+      "country": "International",
+      "league": "England",
+      "stage": "Isthmian League: South Central Division",
+      "homeTeam": "Cobham",
+      "awayTeam": "Binfield",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1879963",
+      "competitionId": "26050",
+      "leagueId": "26050",
+      "country": "International",
+      "league": "England",
+      "stage": "Isthmian League: South Central Division",
+      "homeTeam": "Moneyfields FC",
+      "awayTeam": "Winchester City",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1858919",
+      "competitionId": "26050",
+      "leagueId": "26050",
+      "country": "International",
+      "league": "England",
+      "stage": "Isthmian League: South Central Division",
+      "homeTeam": "Raynes Park Vale",
+      "awayTeam": "Harrow Borough",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1858899",
+      "competitionId": "26050",
+      "leagueId": "26050",
+      "country": "International",
+      "league": "England",
+      "stage": "Isthmian League: South Central Division",
+      "homeTeam": "Westfield FC",
+      "awayTeam": "Kingstonian",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1879988",
+      "competitionId": "26050",
+      "leagueId": "26050",
+      "country": "International",
+      "league": "England",
+      "stage": "Isthmian League: South Central Division",
+      "homeTeam": "Windsor & Eton",
+      "awayTeam": "Hendon",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1885696",
+      "competitionId": "26051",
+      "leagueId": "26051",
+      "country": "International",
+      "league": "England",
+      "stage": "Isthmian League: South East Division",
+      "homeTeam": "Horley Town",
+      "awayTeam": "Peacehaven & Telscombe FC",
+      "kickoff": "2026-10-06T20:30:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1859255",
+      "competitionId": "26051",
+      "leagueId": "26051",
+      "country": "International",
+      "league": "England",
+      "stage": "Isthmian League: South East Division",
+      "homeTeam": "Ashford United",
+      "awayTeam": "Crowborough Athletic",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1859197",
+      "competitionId": "26051",
+      "leagueId": "26051",
+      "country": "International",
+      "league": "England",
+      "stage": "Isthmian League: South East Division",
+      "homeTeam": "Eastbourne Town",
+      "awayTeam": "South Park",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1859380",
+      "competitionId": "26051",
+      "leagueId": "26051",
+      "country": "International",
+      "league": "England",
+      "stage": "Isthmian League: South East Division",
+      "homeTeam": "Erith Town",
+      "awayTeam": "Sittingbourne",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1859181",
+      "competitionId": "26051",
+      "leagueId": "26051",
+      "country": "International",
+      "league": "England",
+      "stage": "Isthmian League: South East Division",
+      "homeTeam": "Hastings United",
+      "awayTeam": "Sevenoaks Town",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1859392",
+      "competitionId": "26051",
+      "leagueId": "26051",
+      "country": "International",
+      "league": "England",
+      "stage": "Isthmian League: South East Division",
+      "homeTeam": "Margate",
+      "awayTeam": "Faversham Town",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1859420",
+      "competitionId": "26051",
+      "leagueId": "26051",
+      "country": "International",
+      "league": "England",
+      "stage": "Isthmian League: South East Division",
+      "homeTeam": "Merstham",
+      "awayTeam": "Herne Bay",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1859264",
+      "competitionId": "26051",
+      "leagueId": "26051",
+      "country": "International",
+      "league": "England",
+      "stage": "Isthmian League: South East Division",
+      "homeTeam": "Sheppey United",
+      "awayTeam": "Deal Town",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1859467",
+      "competitionId": "26051",
+      "leagueId": "26051",
+      "country": "International",
+      "league": "England",
+      "stage": "Isthmian League: South East Division",
+      "homeTeam": "Steyning Town",
+      "awayTeam": "AFC Croydon Athletic",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1859432",
+      "competitionId": "26051",
+      "leagueId": "26051",
+      "country": "International",
+      "league": "England",
+      "stage": "Isthmian League: South East Division",
+      "homeTeam": "Whitstable Town",
+      "awayTeam": "AFC Croydon Athletic",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1902792",
+      "competitionId": "113",
+      "leagueId": "113",
+      "country": "England",
+      "league": "FA Cup",
+      "stage": "FA Cup: Qualification",
+      "homeTeam": "Atherton Collieries",
+      "awayTeam": "Trafford",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1902794",
+      "competitionId": "113",
+      "leagueId": "113",
+      "country": "England",
+      "league": "FA Cup",
+      "stage": "FA Cup: Qualification",
+      "homeTeam": "Halesowen Town FC",
+      "awayTeam": "Stafford Rangers",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1902793",
+      "competitionId": "113",
+      "leagueId": "113",
+      "country": "England",
+      "league": "FA Cup",
+      "stage": "FA Cup: Qualification",
+      "homeTeam": "Scarborough Athletic",
+      "awayTeam": "Macclesfield FC",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1902795",
+      "competitionId": "113",
+      "leagueId": "113",
+      "country": "England",
+      "league": "FA Cup",
+      "stage": "FA Cup: Qualification",
+      "homeTeam": "Spalding United",
+      "awayTeam": "Bury Town",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1902796",
+      "competitionId": "113",
+      "leagueId": "113",
+      "country": "England",
+      "league": "FA Cup",
+      "stage": "FA Cup: Qualification",
+      "homeTeam": "Wingate & Finchley",
+      "awayTeam": "Bedford Town",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1827061",
+      "competitionId": "25786",
+      "leagueId": "25786",
+      "country": "International",
+      "league": "Germany",
+      "stage": "Regionalliga Nord",
+      "homeTeam": "Werder Bremen II",
+      "awayTeam": "Hannover 96 II",
+      "kickoff": "2026-10-06T14:00:00+02:00",
+      "providerStatus": "FT",
+      "eligibility": "excluded",
+      "exclusionReason": "Not a pre-match fixture at normalization time",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1892465",
+      "competitionId": "26375",
+      "leagueId": "26375",
+      "country": "International",
+      "league": "Jamaica",
+      "stage": "Premier League",
+      "homeTeam": "Chapelton",
+      "awayTeam": "Waterhouse FC",
+      "kickoff": "2026-10-06T00:05:00+02:00",
+      "providerStatus": "FT",
+      "eligibility": "excluded",
+      "exclusionReason": "Not a pre-match fixture at normalization time",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1892486",
+      "competitionId": "26375",
+      "leagueId": "26375",
+      "country": "International",
+      "league": "Jamaica",
+      "stage": "Premier League",
+      "homeTeam": "Arnett Gardens",
+      "awayTeam": "Portmore United",
+      "kickoff": "2026-10-06T03:00:00+02:00",
+      "providerStatus": "FT",
+      "eligibility": "excluded",
+      "exclusionReason": "Not a pre-match fixture at normalization time",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1901867",
+      "competitionId": "26544",
+      "leagueId": "26544",
+      "country": "International",
+      "league": "Kenya",
+      "stage": "Premier League: Relegation Play-off",
+      "homeTeam": "Kariobangi Sharks",
+      "awayTeam": "Mombasa United",
+      "kickoff": "2026-10-06T14:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1883015",
+      "competitionId": "26266",
+      "leagueId": "26266",
+      "country": "International",
+      "league": "Mexico",
+      "stage": "Primera Premier",
+      "homeTeam": "Celaya",
+      "awayTeam": "Jaguares Chiapas",
+      "kickoff": "2026-10-06T04:05:00+02:00",
+      "providerStatus": "FT",
+      "eligibility": "excluded",
+      "exclusionReason": "Not a pre-match fixture at normalization time",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1894942",
+      "competitionId": "25601",
+      "leagueId": "25601",
+      "country": "International",
+      "league": "Norway",
+      "stage": "NM Cup: Round 3",
+      "homeTeam": "Raufoss",
+      "awayTeam": "IK Start",
+      "kickoff": "2026-10-06T17:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1725724",
+      "competitionId": "744",
+      "leagueId": "744",
+      "country": "Norway",
+      "league": "3. Divisjon",
+      "stage": "3. Division: Group 5",
+      "homeTeam": "Skjetten",
+      "awayTeam": "Kongsvinger 2",
+      "kickoff": "2026-10-06T18:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1876575",
+      "competitionId": "24231",
+      "leagueId": "24231",
+      "country": "International",
+      "league": "Paraguay",
+      "stage": "Division Profesional: Clausura",
+      "homeTeam": "Cerro Porteno",
+      "awayTeam": "2 de Mayo",
+      "kickoff": "2026-10-06T00:15:00+02:00",
+      "providerStatus": "FT",
+      "eligibility": "excluded",
+      "exclusionReason": "Not a pre-match fixture at normalization time",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1876569",
+      "competitionId": "24231",
+      "leagueId": "24231",
+      "country": "International",
+      "league": "Paraguay",
+      "stage": "Division Profesional: Clausura",
+      "homeTeam": "Sportivo Ameliano",
+      "awayTeam": "Rubio Nu",
+      "kickoff": "2026-10-06T22:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1896803",
+      "competitionId": "24823",
+      "leagueId": "24823",
+      "country": "International",
+      "league": "Paraguay",
+      "stage": "Division Intermedia",
+      "homeTeam": "Fernando de la Mora",
+      "awayTeam": "Club General Caballero JLM",
+      "kickoff": "2026-10-06T00:30:00+02:00",
+      "providerStatus": "FT",
+      "eligibility": "excluded",
+      "exclusionReason": "Not a pre-match fixture at normalization time",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1896810",
+      "competitionId": "24823",
+      "leagueId": "24823",
+      "country": "International",
+      "league": "Paraguay",
+      "stage": "Division Intermedia",
+      "homeTeam": "Club Dr Benjamin Aceval",
+      "awayTeam": "Independiente CG",
+      "kickoff": "2026-10-06T22:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1896292",
+      "competitionId": "26420",
+      "leagueId": "26420",
+      "country": "International",
+      "league": "Peru",
+      "stage": "Liga 2 Promotion Group A",
+      "homeTeam": "Pirata FC",
+      "awayTeam": "Ayacucho FC",
+      "kickoff": "2026-10-06T18:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1896293",
+      "competitionId": "26420",
+      "leagueId": "26420",
+      "country": "International",
+      "league": "Peru",
+      "stage": "Liga 2 Promotion Group A",
+      "homeTeam": "Union Minas",
+      "awayTeam": "Union Comercio",
+      "kickoff": "2026-10-06T20:15:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1896301",
+      "competitionId": "26422",
+      "leagueId": "26422",
+      "country": "International",
+      "league": "Peru",
+      "stage": "Liga 2 Promotion Group C",
+      "homeTeam": "Universidad San Martin",
+      "awayTeam": "Alianza Universidad",
+      "kickoff": "2026-10-06T22:30:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1801034",
+      "competitionId": "25597",
+      "leagueId": "25597",
+      "country": "International",
+      "league": "Slovenia",
+      "stage": "2. SNL",
+      "homeTeam": "ND Bilje",
+      "awayTeam": "Jadran",
+      "kickoff": "2026-10-06T16:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1797931",
+      "competitionId": "25337",
+      "leagueId": "25337",
+      "country": "International",
+      "league": "Sweden",
+      "stage": "Svenska Cupen: Qualification",
+      "homeTeam": "FC Trollhaettan",
+      "awayTeam": "Mjaellby",
+      "kickoff": "2026-10-06T17:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1898584",
+      "competitionId": "437",
+      "leagueId": "437",
+      "country": "Uruguay",
+      "league": "Primera Division: Clausura",
+      "stage": "Primera División: Clausura",
+      "homeTeam": "Nacional",
+      "awayTeam": "Montevideo City Torque",
+      "kickoff": "2026-10-06T01:00:00+02:00",
+      "providerStatus": "FT",
+      "eligibility": "excluded",
+      "exclusionReason": "Not a pre-match fixture at normalization time",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1885262",
+      "competitionId": "26297",
+      "leagueId": "26297",
+      "country": "International",
+      "league": "Vietnam",
+      "stage": "Cup",
+      "homeTeam": "Lam Dong",
+      "awayTeam": "Song Lam Nghe An",
+      "kickoff": "2026-10-06T10:30:00+02:00",
+      "providerStatus": "FT",
+      "eligibility": "excluded",
+      "exclusionReason": "Not a pre-match fixture at normalization time",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1885263",
+      "competitionId": "26297",
+      "leagueId": "26297",
+      "country": "International",
+      "league": "Vietnam",
+      "stage": "Cup",
+      "homeTeam": "Dong Nai FC",
+      "awayTeam": "Dong Thap Cao Lanh",
+      "kickoff": "2026-10-06T13:00:00+02:00",
+      "providerStatus": "FT",
+      "eligibility": "excluded",
+      "exclusionReason": "Not a pre-match fixture at normalization time",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1885261",
+      "competitionId": "26297",
+      "leagueId": "26297",
+      "country": "International",
+      "league": "Vietnam",
+      "stage": "Cup",
+      "homeTeam": "PVF-CAND",
+      "awayTeam": "Huda Hue",
+      "kickoff": "2026-10-06T13:00:00+02:00",
+      "providerStatus": "FT",
+      "eligibility": "excluded",
+      "exclusionReason": "Not a pre-match fixture at normalization time",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1899863",
+      "competitionId": "262",
+      "leagueId": "262",
+      "country": "Euro U19 Women",
+      "league": "Qualification Round 1 League B",
+      "stage": "Qualification Round 1: Group B6",
+      "homeTeam": "Romania U19 W",
+      "awayTeam": "Kazakhstan U19 W",
+      "kickoff": "2026-10-06T11:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1899864",
+      "competitionId": "262",
+      "leagueId": "262",
+      "country": "Euro U19 Women",
+      "league": "Qualification Round 1 League B",
+      "stage": "Qualification Round 1: Group B6",
+      "homeTeam": "Malta U19 W",
+      "awayTeam": "Czechia Women U19",
+      "kickoff": "2026-10-06T14:30:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1714025",
+      "competitionId": "24259",
+      "leagueId": "24259",
+      "country": "International",
+      "league": "Argentina",
+      "stage": "Primera B Metropolitana",
+      "homeTeam": "Deportivo Merlo",
+      "awayTeam": "Brown de Adrogue",
+      "kickoff": "2026-10-06T00:00:00+02:00",
+      "providerStatus": "FT",
+      "eligibility": "excluded",
+      "exclusionReason": "Not a pre-match fixture at normalization time",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1715137",
+      "competitionId": "24270",
+      "leagueId": "24270",
+      "country": "International",
+      "league": "Argentina",
+      "stage": "Liga Profesional: Clausura",
+      "homeTeam": "Estudiantes de la Plata",
+      "awayTeam": "Gimnasia Mendoza",
+      "kickoff": "2026-10-06T00:00:00+02:00",
+      "providerStatus": "FT",
+      "eligibility": "excluded",
+      "exclusionReason": "Not a pre-match fixture at normalization time",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1715147",
+      "competitionId": "24270",
+      "leagueId": "24270",
+      "country": "International",
+      "league": "Argentina",
+      "stage": "Liga Profesional: Clausura",
+      "homeTeam": "Velez Sarsfield",
+      "awayTeam": "Club Atletico Platense",
+      "kickoff": "2026-10-06T00:00:00+02:00",
+      "providerStatus": "FT",
+      "eligibility": "excluded",
+      "exclusionReason": "Not a pre-match fixture at normalization time",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1715136",
+      "competitionId": "24270",
+      "leagueId": "24270",
+      "country": "International",
+      "league": "Argentina",
+      "stage": "Liga Profesional: Clausura",
+      "homeTeam": "Banfield",
+      "awayTeam": "Rosario Central",
+      "kickoff": "2026-10-06T02:15:00+02:00",
+      "providerStatus": "FT",
+      "eligibility": "excluded",
+      "exclusionReason": "Not a pre-match fixture at normalization time",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1715665",
+      "competitionId": "24271",
+      "leagueId": "24271",
+      "country": "International",
+      "league": "Argentina",
+      "stage": "Primera C",
+      "homeTeam": "CA Fenix",
+      "awayTeam": "Atlas",
+      "kickoff": "2026-10-06T19:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1715663",
+      "competitionId": "24271",
+      "leagueId": "24271",
+      "country": "International",
+      "league": "Argentina",
+      "stage": "Primera C",
+      "homeTeam": "Central Ballester",
+      "awayTeam": "Deportivo Muniz",
+      "kickoff": "2026-10-06T19:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1715669",
+      "competitionId": "24271",
+      "leagueId": "24271",
+      "country": "International",
+      "league": "Argentina",
+      "stage": "Primera C",
+      "homeTeam": "Claypole",
+      "awayTeam": "Deportivo Espanol",
+      "kickoff": "2026-10-06T19:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1715666",
+      "competitionId": "24271",
+      "leagueId": "24271",
+      "country": "International",
+      "league": "Argentina",
+      "stage": "Primera C",
+      "homeTeam": "Leandro N. Alem",
+      "awayTeam": "Centro Espanol",
+      "kickoff": "2026-10-06T19:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1883261",
+      "competitionId": "26047",
+      "leagueId": "26047",
+      "country": "International",
+      "league": "England",
+      "stage": "Northern Premier League: East Division",
+      "homeTeam": "Ashington AFC",
+      "awayTeam": "Pontefract Collieries",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1887931",
+      "competitionId": "26047",
+      "leagueId": "26047",
+      "country": "International",
+      "league": "England",
+      "stage": "Northern Premier League: East Division",
+      "homeTeam": "Bradford PA",
+      "awayTeam": "Lincoln United",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1858087",
+      "competitionId": "26047",
+      "leagueId": "26047",
+      "country": "International",
+      "league": "England",
+      "stage": "Northern Premier League: East Division",
+      "homeTeam": "Garforth Town",
+      "awayTeam": "Ossett United",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1858147",
+      "competitionId": "26047",
+      "leagueId": "26047",
+      "country": "International",
+      "league": "England",
+      "stage": "Northern Premier League: East Division",
+      "homeTeam": "Matlock Town",
+      "awayTeam": "Heaton Stannington FC",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1858505",
+      "competitionId": "26048",
+      "leagueId": "26048",
+      "country": "International",
+      "league": "England",
+      "stage": "Northern Premier League: Midlands Division",
+      "homeTeam": "Boldmere St Michaels",
+      "awayTeam": "Bedworth United",
+      "kickoff": "2026-10-06T16:00:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1887950",
+      "competitionId": "26048",
+      "leagueId": "26048",
+      "country": "International",
+      "league": "England",
+      "stage": "Northern Premier League: Midlands Division",
+      "homeTeam": "Nuneaton Borough",
+      "awayTeam": "Boston Town",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1858677",
+      "competitionId": "26049",
+      "leagueId": "26049",
+      "country": "International",
+      "league": "England",
+      "stage": "Northern Premier League: West Division",
+      "homeTeam": "Clitheroe",
+      "awayTeam": "Congleton Town",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1858798",
+      "competitionId": "26049",
+      "leagueId": "26049",
+      "country": "International",
+      "league": "England",
+      "stage": "Northern Premier League: West Division",
+      "homeTeam": "Nantwich Town",
+      "awayTeam": "Runcorn Linnets",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1858876",
+      "competitionId": "26049",
+      "leagueId": "26049",
+      "country": "International",
+      "league": "England",
+      "stage": "Northern Premier League: West Division",
+      "homeTeam": "Vauxhall Motors",
+      "awayTeam": "Shifnal Town",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
+      ],
+      "researchComplete": false
+    },
+    {
+      "date": "2026-10-06",
+      "providerFixtureId": "1880960",
+      "competitionId": "26052",
+      "leagueId": "26052",
+      "country": "International",
+      "league": "England",
+      "stage": "Southern League: Central Divison",
+      "homeTeam": "Winslow United",
+      "awayTeam": "Aylesbury United",
+      "kickoff": "2026-10-06T20:45:00+02:00",
+      "providerStatus": "NS",
+      "eligibility": "pending-review",
+      "sources": [
+        "data/today_fixture.json"
       ],
       "researchComplete": false
     }
