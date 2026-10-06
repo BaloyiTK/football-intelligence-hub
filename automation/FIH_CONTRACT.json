@@ -222,7 +222,18 @@
     "oddsMustNotGateV29Publication": true,
     "resultReconciliationRequiredBeforeNewDailyRun": true,
     "resultReconciliationMustNotMutateFrozenPrediction": true,
-    "pendingHistoricalResultsMustNotBlockCurrentDailyRun": true
+    "pendingHistoricalResultsMustNotBlockCurrentDailyRun": true,
+    "publishableFixtureMetadataRequired": true,
+    "publishableFixtureMetadataFields": [
+      "date",
+      "country",
+      "leagueId",
+      "league",
+      "homeTeam",
+      "awayTeam",
+      "kickoff"
+    ],
+    "missingKickoffBlocksPublication": true
   },
   "selfCorrection": {
     "mayChangeExecutionPath": true,
