@@ -154,6 +154,7 @@ Write qualifying selections to:
 
 Each published selection should retain enough information to audit:
 - fixture identity
+- country/region
 - competition
 - kickoff
 - home team
