@@ -129,3 +129,15 @@ For every eligible fixture in a daily run or backtest:
 6. Missing categories must be explicitly `UNAVAILABLE`; they may not be silently skipped or replaced with same-window target results.
 7. The FIH probability stage may begin for a fixture only after its research record has been persisted and verified.
 8. A backtest cannot be marked complete if fixture-specific research was skipped. A LiveScore-only or same-window-form run must be labeled a baseline/data test, never a completed FIH backtest.
+
+
+## Backtest research snapshot time
+For historical FIH backtests, use a fixed daily information cutoff of **06:00 South Africa Standard Time (SAST), Africa/Johannesburg (UTC+02:00)**.
+
+For each historical target date:
+1. Reconstruct the fixture board and research state as it was available at 06:00 SAST on that date.
+2. Only evidence, news, statistics, injuries, standings, context, and historical market odds published or verifiably available by 06:00 SAST may be used.
+3. Information first available after 06:00 SAST is excluded even if it was available before kickoff.
+4. Match results, later lineups, later injury news, later odds movement, and all post-06:00 information must not influence the frozen FIH assessment.
+5. Persist the research cutoff as `06:00 Africa/Johannesburg` with each backtest date/evidence package.
+6. Freeze the model assessment from this 06:00 snapshot before attaching actual results for evaluation.
