@@ -71,6 +71,25 @@ Before every FIH execution/resumption:
 4. Resume from that stage.
 5. Continue until a permitted termination condition is reached.
 
+
+## Day-by-day backtest execution rule
+
+Every multi-day backtest MUST be executed as independent complete daily batches, matching the daily fixture-acquisition boundary.
+
+For `backtest N days` / `backrest N days`:
+1. Resolve the requested dates.
+2. Process the earliest unfinished date only.
+3. For that date, complete the entire backtest lifecycle: fixture verification -> >06:00 SAST eligibility -> fixture-specific research -> persist/verify evidence -> FIH V2 model -> persist/verify model -> historical odds/value where available -> decision/NO BET -> freeze -> actual results -> evaluation -> persist/verify daily metrics.
+4. Mark the date `DAY_COMPLETE` only after all required daily artifacts and metrics are persisted and verified.
+5. Immediately advance to the next unfinished date without requiring renewed user authorization.
+6. Never require all dates' research to finish before modeling/evaluating an already researched date.
+7. On resume, skip verified `DAY_COMPLETE` dates and restart from the earliest unfinished date/stage.
+8. After every requested date is `DAY_COMPLETE`, aggregate the backtest from the underlying daily counts/records and persist/verify the combined result.
+9. Combined percentages MUST be calculated from combined numerators and denominators (for example, total wins / total settled selections), never by taking an unweighted average of daily percentages.
+10. The multi-day backtest is `COMPLETE` only after the combined aggregate is persisted and verified.
+
+The active backtest model is FIH V2 unless the user explicitly requests a model comparison or another model. V1 is retained only as an archived/reference baseline and is not run during ordinary V2 backtests.
+
 ## Authority
 This contract and `FIH_EXECUTION_POLICY.md` jointly govern FIH execution. Where wording differs, use the interpretation that preserves data integrity while requiring continuation of an already-authorized full-cycle run.
 
