@@ -60,7 +60,19 @@
           "minimum": 62
         }
       },
-      "recalculatedAt": "2026-10-05T11:49:12+02:00"
+      "recalculatedAt": "2026-10-05T11:49:12+02:00",
+      "result": {
+        "actualScore": {
+          "home": 3,
+          "away": 1
+        },
+        "outcome": "WIN",
+        "verificationState": "verified-final",
+        "sources": [
+          "https://www.reuters.com/sports/soccer/france-come-behind-thrash-belgium-4-1-2026-10-05/"
+        ],
+        "verifiedAt": "2026-10-06T06:50:00+02:00"
+      }
     },
     {
       "fixtureKey": "2026-10-05|uefa-nations-league|romania|sweden",
@@ -119,7 +131,19 @@
           "minimum": 68
         }
       },
-      "recalculatedAt": "2026-10-05T11:49:12+02:00"
+      "recalculatedAt": "2026-10-05T11:49:12+02:00",
+      "result": {
+        "actualScore": {
+          "home": 0,
+          "away": 1
+        },
+        "outcome": "LOSS",
+        "verificationState": "verified-final",
+        "sources": [
+          "https://www.espn.co.uk/football/team-stats/_/gameId/401861128/league/uefa.nations"
+        ],
+        "verifiedAt": "2026-10-06T06:50:00+02:00"
+      }
     },
     {
       "fixtureKey": "2026-10-05|international-friendlies|japan|new-zealand",
@@ -179,7 +203,19 @@
           "minimum": 62
         }
       },
-      "recalculatedAt": "2026-10-05T11:49:12+02:00"
+      "recalculatedAt": "2026-10-05T11:49:12+02:00",
+      "result": {
+        "actualScore": {
+          "home": 2,
+          "away": 1
+        },
+        "outcome": "WIN",
+        "verificationState": "verified-final",
+        "sources": [
+          "https://www.365scores.com/football/match/friendly-international-570/japan-new-zealand-2382-2391-570"
+        ],
+        "verifiedAt": "2026-10-06T06:50:00+02:00"
+      }
     },
     {
       "fixtureKey": "2026-10-05|international-friendlies|liechtenstein|gibraltar",
@@ -238,7 +274,19 @@
           "minimum": 62
         }
       },
-      "recalculatedAt": "2026-10-05T11:49:12+02:00"
+      "recalculatedAt": "2026-10-05T11:49:12+02:00",
+      "result": {
+        "actualScore": {
+          "home": 0,
+          "away": 2
+        },
+        "outcome": "WIN",
+        "verificationState": "verified-final",
+        "sources": [
+          "https://www.espn.co.uk/football/match/_/gameId/401896386/gibraltar-liechtenstein"
+        ],
+        "verifiedAt": "2026-10-06T06:50:00+02:00"
+      }
     }
   ],
   "scan": {
@@ -274,5 +322,14 @@
       }
     ],
     "publishableRecommendations": 4
+  },
+  "results": {
+    "graded": 4,
+    "wins": 3,
+    "losses": 1,
+    "voids": 0,
+    "winRate": 75,
+    "verificationState": "complete",
+    "verifiedAt": "2026-10-06T06:50:00+02:00"
   }
 }
