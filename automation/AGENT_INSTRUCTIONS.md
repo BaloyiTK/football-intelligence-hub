@@ -234,6 +234,15 @@ A daily run is not operationally delivered until its prediction artifact is publ
 - Publication verification must run for every dated archive, including zero-bet days.
 
 
+## Mandatory prior-day result reconciliation gate
+Before today's daily run may be declared complete, reconcile the most recent prior published prediction day.
+- Verify each finished published fixture's final score from permitted public result sources and append result data without mutating frozen prediction/model fields.
+- Grade each finished recommendation WIN, LOSS, or VOID using the repository grading logic and update the daily results aggregate (graded, wins, losses, winRate).
+- If a fixture genuinely has not finished or a final score cannot yet be safely verified, persist it as verified-pending with attempted sources, verification timestamp, and exact pending reason. Never invent a score.
+- A reconciliation attempt that leaves neither a valid grade nor a verified-pending record is a completion failure and must be retried/resumed.
+- Only after every recommendation from the prior published day is either graded or verified-pending may today's pipeline pass the reconciliation completion gate.
+- Revisit verified-pending results on future runs until graded.
+
 ## End-to-end daily completion recovery invariant
 A daily execution does not end at research completion, validation, or strict finalization. The active controller MUST continue through dated artifact creation, publication verification, commit to `main`, and exact deployment-SHA verification.
 
