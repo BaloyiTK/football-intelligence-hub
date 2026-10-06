@@ -4,6 +4,9 @@ on:
   push:
     paths:
       - ".github/workflows/fih-daily-data-ingest.yml"
+      - "scripts/ingest-daily-fixtures.ts"
+      - "scripts/ingest-daily-news.ts"
+      - "scripts/normalize-daily-fixtures.ts"
   workflow_dispatch:
     inputs:
       refresh:
