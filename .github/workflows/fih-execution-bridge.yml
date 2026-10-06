@@ -51,11 +51,12 @@ jobs:
             FILE="$(git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" -- 'automation/commands/*.json' | tail -1)"
           fi
           [[ -n "$FILE" && -f "$FILE" ]] || { echo "::error::No command file found"; exit 1; }
-          node -e 'const fs=require("fs"); const p=process.argv[1]; const x=JSON.parse(fs.readFileSync(p,"utf8")); if(!["validate","finalize","verify-publication"].includes(x.action)) throw new Error("Unsupported action"); if(typeof x.runFile!=="string"||!x.runFile.startsWith("data/runs/")||x.runFile.includes("..")) throw new Error("Invalid runFile"); if(x.date!=null&&!/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(x.date)) throw new Error("Invalid date");' "$FILE"
+          node -e 'const fs=require("fs"); const p=process.argv[1]; const x=JSON.parse(fs.readFileSync(p,"utf8")); if(!["execute-daily","validate","finalize","verify-publication"].includes(x.action)) throw new Error("Unsupported action"); if(x.action==="execute-daily"&&(typeof x.evidenceFile!=="string"||!x.evidenceFile.startsWith("data/daily-evidence/")||x.evidenceFile.includes(".."))) throw new Error("Invalid evidenceFile"); if(typeof x.runFile!=="string"||!x.runFile.startsWith("data/runs/")||x.runFile.includes("..")) throw new Error("Invalid runFile"); if(x.date!=null&&!/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(x.date)) throw new Error("Invalid date");' "$FILE"
           echo "file=$FILE" >> "$GITHUB_OUTPUT"
           echo "action=$(node -p 'require("./"+process.argv[1]).action' "$FILE")" >> "$GITHUB_OUTPUT"
           echo "run_file=$(node -p 'require("./"+process.argv[1]).runFile' "$FILE")" >> "$GITHUB_OUTPUT"
           echo "date=$(node -p 'require("./"+process.argv[1]).date||""' "$FILE")" >> "$GITHUB_OUTPUT"
+          echo "evidence_file=$(node -p 'require("./"+process.argv[1]).evidenceFile||""' "$FILE")" >> "$GITHUB_OUTPUT"
 
       - name: Contract and model checks
         shell: bash
@@ -64,6 +65,12 @@ jobs:
           npm test
           npm run model:preflight
           node -e 'const c=require("./automation/FIH_CONTRACT.json"); if(!c.recoveryPolicy?.enabled) throw new Error("FIH recovery policy is not enabled"); if(c.recoveryPolicy.businessRuleMutationForbidden!==true||c.recoveryPolicy.evidenceFabricationForbidden!==true) throw new Error("Unsafe recovery policy");'
+
+      - name: Execute persisted daily evidence
+        if: steps.command.outputs.action == 'execute-daily'
+        run: |
+          [[ -n "${{ steps.command.outputs.evidence_file }}" ]] || { echo "::error::evidenceFile required"; exit 1; }
+          npm run daily:execute -- "${{ steps.command.outputs.run_file }}" "${{ steps.command.outputs.evidence_file }}"
 
       - name: Validate run
         run: npm run run:validate -- "${{ steps.command.outputs.run_file }}"
