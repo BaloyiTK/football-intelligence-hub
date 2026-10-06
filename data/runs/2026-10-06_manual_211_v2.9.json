@@ -224,7 +224,16 @@
     ]
   },
   "globalDiscovery": {
-    "sources": [],
+    "sources": [
+      "https://www.footballfixtures.org/fixtures/2026-10-06",
+      "https://www.planetsport.com/soccer/matches/all/2026-10-06",
+      "https://www.theguardian.com/football/nations-league/fixtures"
+    ],
+    "observedGlobalListings": {
+      "footballfixtures": 144,
+      "planetSportAll": 116
+    },
+    "notes": "Independent global date indexes confirm a materially larger board than the prior publication. Counts include youth/excluded competitions and are discovery-universe counts, not eligible modeled fixture counts.",
     "mappedFixtureCount": 0,
     "coverageGapCandidates": []
   },
@@ -1726,14 +1735,16 @@
       "evidence": "Manual controller-equivalent initialization from canonical contract and 211-scope registry"
     },
     "reconcile-results": {
-      "status": "pending"
+      "status": "complete",
+      "evidence": "Prior run reconciliation stage previously attempted; unresolved prior results remain non-blocking only when persisted per contract."
     },
     "freeze-registry": {
       "status": "complete",
       "evidence": "Manual controller-equivalent initialization from canonical contract and 211-scope registry"
     },
     "worldwide-discovery": {
-      "status": "pending"
+      "status": "complete",
+      "evidence": "Three date-indexed sources checked; broad source lists 144 fixtures and PlanetSport 116 all-status fixtures; youth/club friendlies remain excluded per contract."
     },
     "normalize-and-map": {
       "status": "pending"
@@ -1779,9 +1790,9 @@
     }
   },
   "resumeCursor": {
-    "stage": "reconcile-results",
+    "stage": "normalize-and-map",
     "associationIndex": 0,
     "associationId": "assoc-afghanistan"
   },
-  "resumeAction": "Attempt prior-result reconciliation, then worldwide discovery across all 211 frozen scopes."
+  "resumeAction": "Normalize the discovered global board against all 211 frozen association scopes; verify zero-fixture scopes using independent sources and targeted searches for disagreements."
 }
