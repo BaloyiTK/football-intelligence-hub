@@ -1,6 +1,6 @@
 {
   "schema": "fih-execution-contract-v1",
-  "contractVersion": "2.9.0",
+  "contractVersion": "2.9.1",
   "authority": "canonical-machine-readable",
   "mutationPolicy": {
     "runtimeRuleCreation": "forbidden",
@@ -364,6 +364,43 @@
       "neverDisableScheduledAutomationForRecoverableFailure": true,
       "scheduledNextRunMustResumeUnfinishedPriorPublicationBeforeStartingDuplicate": true,
       "finalResponseMayClaimCompleteOnlyAfterAllSuccessRequirementsPass": true
+    },
+    "maxAutomaticRepairCyclesPerStage": 3,
+    "errorClassification": [
+      "syntax-config",
+      "schema-migration",
+      "transient-infrastructure",
+      "validation-state",
+      "fixture-local-data",
+      "publication-write",
+      "global-integrity"
+    ],
+    "schemaMigrationRecovery": {
+      "enabled": true,
+      "preserveLegacyCompetitionIds": true,
+      "associationScopesAreDiscoveryLayer": true,
+      "competitionIdsRemainExecutionIdentity": true,
+      "automaticOnlyWhenDeterministic": true
+    },
+    "stageRecovery": {
+      "diagnoseBeforeExit": true,
+      "repairThenRerunFailedStage": true,
+      "resumeFromCheckpoint": true,
+      "doNotRestartCompletedStages": true,
+      "continueIndependentFixtures": true
+    },
+    "escalateOnlyWhen": [
+      "repair-would-change-business-rules",
+      "repair-would-fabricate-evidence-or-result",
+      "ambiguous-state-migration",
+      "corrupted-or-contradictory-global-integrity",
+      "approved-repair-budget-exhausted"
+    ],
+    "audit": {
+      "persistRepairAttempts": true,
+      "persistFailureClass": true,
+      "persistResumeCursor": true,
+      "persistRepairOutcome": true
     }
   }
 }
