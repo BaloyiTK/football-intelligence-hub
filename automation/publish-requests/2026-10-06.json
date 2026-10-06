@@ -1,0 +1,6 @@
+{
+  "schema": "fih-publication-request-v1",
+  "date": "2026-10-06",
+  "runFile": "data/runs/2026-10-06_0545_v2.9.json",
+  "reason": "publish validated frozen V2.9 daily artifact through GitHub Actions"
+}
