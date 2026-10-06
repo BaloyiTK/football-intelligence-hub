@@ -1,8 +1,8 @@
 {
   "schema": "fih-execution-command-v1",
   "action": "validate",
-  "runFile": "data/runs/2026-10-05_114912_v2.3.1.json",
-  "date": "2026-10-05",
-  "requestedAt": "2026-10-06T05:50:00+02:00",
-  "purpose": "verify locked fail-safe recovery policy and execution bridge"
+  "runFile": "data/runs/2026-10-06_0545_v2.9.json",
+  "date": "2026-10-06",
+  "requestedAt": "2026-10-06T05:41:00+02:00",
+  "purpose": "validate current daily run"
 }
