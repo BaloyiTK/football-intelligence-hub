@@ -42,6 +42,13 @@ jobs:
           for file in "${RUNS[@]}"; do
             [[ -f "$file" ]] || continue
             npm run run:validate -- "$file"
+            if ! npm run run:response-gate -- "$file"; then
+              if grep -q '"status"[[:space:]]*:[[:space:]]*"complete"' "$file" || grep -q '"status"[[:space:]]*:[[:space:]]*"blocked"' "$file"; then
+                echo "::error::terminal-labelled run failed response gate: $file"
+                exit 1
+              fi
+              echo "::notice::active run correctly held open by response gate: $file"
+            fi
             if grep -q '"status"[[:space:]]*:[[:space:]]*"complete"' "$file"; then
               npm run run:finalize -- "$file"
             fi
