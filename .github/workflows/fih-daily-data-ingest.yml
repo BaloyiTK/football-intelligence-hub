@@ -1,6 +1,9 @@
 name: FIH Daily Data Ingest
 
 on:
+  push:
+    paths:
+      - ".github/workflows/fih-daily-data-ingest.yml"
   workflow_dispatch:
     inputs:
       refresh:
