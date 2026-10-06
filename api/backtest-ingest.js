@@ -5,7 +5,7 @@ export default async function handler(req,res){
  if(!["GET","POST"].includes(req.method))return res.status(405).json({error:"GET or POST required"});
  const date=String(req.query.date||""); if(!DATES.has(date))return res.status(400).json({error:"date must be one of the configured 7-day backtest dates"});
  const key=process.env.ls_api_key,url=process.env.ls_api_url; if(!key||!url||!process.env.FIH_GITHUB_TOKEN)return res.status(500).json({error:"required production env vars missing"});
- const dp=date.replace(/-/g,""); const u=new URL(url); u.searchParams.set("Category","soccer");u.searchParams.set("Date",dp);u.searchParams.set("Timezone","2");
+ const dp=date.replace(/-/g,""); const base=/^https?:\/\//i.test(url)?url:"https://"+url; const u=new URL(base); u.searchParams.set("Category","soccer");u.searchParams.set("Date",dp);u.searchParams.set("Timezone","2");
  const lr=await fetch(u,{headers:{"X-RapidAPI-Key":key,"X-RapidAPI-Host":u.hostname}}); if(!lr.ok)return res.status(502).json({error:"LiveScore HTTP "+lr.status});
  const payload=await lr.json(); const stages=Array.isArray(payload?.Stages)?payload.Stages:[],fixtureCount=stages.reduce((n,s)=>n+(Array.isArray(s?.Events)?s.Events.length:0),0); if(!fixtureCount)return res.status(502).json({error:"LiveScore returned no fixtures"});
  const snapshot={schema:"fih-backtest-fixture-v1",date,timezone:"Africa/Johannesburg",provider:"LiveScore via RapidAPI",fetchedAt:new Date().toISOString(),stageCount:stages.length,fixtureCount,payload};
