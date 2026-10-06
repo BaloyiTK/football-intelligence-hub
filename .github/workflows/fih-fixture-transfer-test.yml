@@ -1,0 +1,37 @@
+name: FIH Fixture Transfer Test
+on:
+  push:
+    paths:
+      - '.github/workflows/fih-fixture-transfer-test.yml'
+permissions:
+  contents: write
+jobs:
+  transfer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reconstruct and validate
+        run: |
+          set -euo pipefail
+          : > /tmp/fixtures.json.gz
+          for f in data/.fixture-transfer/part-{00..11}.b64; do base64 -d "$f" >> /tmp/fixtures.json.gz; done
+          xxd -r -p data/.fixture-transfer/part-12.hex >> /tmp/fixtures.json.gz
+          gzip -dc /tmp/fixtures.json.gz > /tmp/fixtures.json
+          echo "5240a6aeee5231f278441b799cf142304867a743082c907e41d65f5cc9d01ec5  /tmp/fixtures.json" | sha256sum -c -
+          node - <<'NODE'
+          const fs=require('fs');
+          const payload=JSON.parse(fs.readFileSync('/tmp/fixtures.json','utf8'));
+          const stages=Array.isArray(payload.Stages)?payload.Stages:[];
+          const fixtureCount=stages.reduce((n,s)=>n+(Array.isArray(s.Events)?s.Events.length:0),0);
+          if(stages.length!==75 || fixtureCount!==172) throw new Error(`validation failed stages=${stages.length} fixtures=${fixtureCount}`);
+          const out={schema:'fih-today-fixture-v1',date:'2026-10-06',timezone:'Africa/Johannesburg',provider:'LiveScore via RapidAPI',source:'vercel-sandbox-transfer-test',sourceSha256:'5240a6aeee5231f278441b799cf142304867a743082c907e41d65f5cc9d01ec5',transferredAt:new Date().toISOString(),stageCount:stages.length,fixtureCount,payload};
+          fs.writeFileSync('data/today_fixture.json',JSON.stringify(out,null,2)+'\n');
+          NODE
+      - name: Commit fixture
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/today_fixture.json
+          git diff --cached --quiet && exit 0
+          git commit -m "data: replace today fixture from verified Vercel snapshot"
+          git push
