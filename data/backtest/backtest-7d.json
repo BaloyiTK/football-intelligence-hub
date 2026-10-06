@@ -153,13 +153,20 @@
     "cutoffValidation": "ENFORCED",
     "researchMethod": "FREE_WEB_RESEARCH",
     "paidResearchApiRequired": false,
-    "notes": "Research proceeds fixture by fixture. Enforce the 06:00 SAST cutoff, persist verified evidence, mark unavailable fields UNAVAILABLE, verify, and continue automatically. Evidence scarcity is not a hard stop.",
+    "notes": "Authorized seven-day V2-only full-cycle run. Research every eligible fixture using pre-06:00 SAST evidence; persist verified fields and mark unavailable fields UNAVAILABLE; continue automatically.",
     "verifiedFinding": "Current historical artifacts do not contain the structured pre-06:00 last-five/venue/PPG/xG/opponent-strength evidence required to run FIH V2 leak-free across 1,583 fixtures.",
     "currentTurnResearch": "Additional fixture-specific searches confirmed that valid pre-cutoff sources exist for a subset, while same-day/post-cutoff/current result pages must be rejected.",
     "previousIncorrectStop": {
       "status": "CORRECTED",
       "commit": "7427eb68e28498471e831cd845492b4e20ee7f4b",
       "reason": "Evidence scarcity/reconstruction difficulty was incorrectly classified as an integrity hard stop."
-    }
+    },
+    "executionModel": "V2_ONLY"
+  },
+  "model": {
+    "active": "FIH-V2-RESEARCH",
+    "engine": "scripts/fih-probability-v2.ts",
+    "mode": "V2_ONLY",
+    "v1": "ARCHIVED_REFERENCE_NOT_EXECUTED"
   }
 }
