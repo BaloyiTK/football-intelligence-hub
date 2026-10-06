@@ -2,7 +2,96 @@
   "schema": "fih-daily-predictions-v1",
   "date": "2026-10-06",
   "status": "FRESH_BOARD_TEST",
-  "methodology": "LiveScore fixture board -> ChatGPT pre-match web research -> strongest supported market",
+  "methodology": {
+    "0": "L",
+    "1": "i",
+    "2": "v",
+    "3": "e",
+    "4": "S",
+    "5": "c",
+    "6": "o",
+    "7": "r",
+    "8": "e",
+    "9": " ",
+    "10": "f",
+    "11": "i",
+    "12": "x",
+    "13": "t",
+    "14": "u",
+    "15": "r",
+    "16": "e",
+    "17": " ",
+    "18": "b",
+    "19": "o",
+    "20": "a",
+    "21": "r",
+    "22": "d",
+    "23": " ",
+    "24": "-",
+    "25": ">",
+    "26": " ",
+    "27": "C",
+    "28": "h",
+    "29": "a",
+    "30": "t",
+    "31": "G",
+    "32": "P",
+    "33": "T",
+    "34": " ",
+    "35": "p",
+    "36": "r",
+    "37": "e",
+    "38": "-",
+    "39": "m",
+    "40": "a",
+    "41": "t",
+    "42": "c",
+    "43": "h",
+    "44": " ",
+    "45": "w",
+    "46": "e",
+    "47": "b",
+    "48": " ",
+    "49": "r",
+    "50": "e",
+    "51": "s",
+    "52": "e",
+    "53": "a",
+    "54": "r",
+    "55": "c",
+    "56": "h",
+    "57": " ",
+    "58": "-",
+    "59": ">",
+    "60": " ",
+    "61": "s",
+    "62": "t",
+    "63": "r",
+    "64": "o",
+    "65": "n",
+    "66": "g",
+    "67": "e",
+    "68": "s",
+    "69": "t",
+    "70": " ",
+    "71": "s",
+    "72": "u",
+    "73": "p",
+    "74": "p",
+    "75": "o",
+    "76": "r",
+    "77": "t",
+    "78": "e",
+    "79": "d",
+    "80": " ",
+    "81": "m",
+    "82": "a",
+    "83": "r",
+    "84": "k",
+    "85": "e",
+    "86": "t",
+    "marketOddsRule": "For every published prediction, persist a verified market snapshot for 1X2, Over/Under 2.5 and BTTS Yes/No. Missing prices remain unavailable; never infer them."
+  },
   "generatedAt": "2026-10-06T20:43:00+02:00",
   "markets": [
     "HOME",
@@ -152,7 +241,25 @@
         ],
         "h2hAvailable": 2
       },
-      "country": "International"
+      "country": "International",
+      "marketOdds": {
+        "capturedAt": "2026-10-06T20:47:54+02:00",
+        "source": "PokerStars Sports",
+        "sourceUrl": "https://www.pokerstars.fr/en/sports/soccer/1/concacaf-nations-league-c/12269274/saint-martin-v-bahamas/36157105/",
+        "oneXTwo": {
+          "home": 1.02,
+          "draw": 16,
+          "away": 51
+        },
+        "overUnder25": {
+          "over": 1.08,
+          "under": 6
+        },
+        "btts": {
+          "yes": 2.25,
+          "no": 1.57
+        }
+      }
     },
     {
       "fixtureId": "1856603",
@@ -282,7 +389,25 @@
         ],
         "h2hAvailable": 1
       },
-      "country": "International"
+      "country": "International",
+      "marketOdds": {
+        "capturedAt": "2026-10-06T20:47:54+02:00",
+        "source": "Stake",
+        "sourceUrl": "https://stake1021.com/fi/sports/soccer/international/concacaf-nations-league/46954367-saint-vincent-and-the-grenadines-sint-maarten",
+        "oneXTwo": {
+          "home": 1.53,
+          "draw": 4.1,
+          "away": 4.8
+        },
+        "overUnder25": {
+          "over": 1.53,
+          "under": 2.24
+        },
+        "btts": {
+          "yes": 1.61,
+          "no": 2.08
+        }
+      }
     }
   ],
   "researchedButNotPublished": [
@@ -340,6 +465,7 @@
     "excluded": "Fixtures already finished, live, postponed, or at/past kickoff when the fresh run began.",
     "rerunAt": "2026-10-06T20:47:54+02:00",
     "countryFieldRequired": true,
-    "rerunRule": "Started from data/today_fixture.json. Only fixtures after rerun time remain eligible for fresh pre-match analysis; existing researched selections retain their original pre-match research provenance."
+    "rerunRule": "Started from data/today_fixture.json. Only fixtures after rerun time remain eligible for fresh pre-match analysis; existing researched selections retain their original pre-match research provenance.",
+    "testCompletionRule": "A tested step is complete only after verified output is persisted in the prediction file."
   }
 }
