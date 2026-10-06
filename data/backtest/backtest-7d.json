@@ -145,5 +145,12 @@
     "reason": "Fixture-specific external web research required by FIH_BUILD_STEPS.md was skipped."
   },
   "rawFixtureCount": 1747,
-  "excludedFixtureCount": 164
+  "excludedFixtureCount": 164,
+  "researchProgress": {
+    "eligibleFixtures": 1583,
+    "fixtureResearchCompleted": 0,
+    "fixtureResearchStarted": 3,
+    "cutoffValidation": "ENFORCED",
+    "notes": "Initial source validation performed for first Sep 29 fixtures. Post-06:00 and post-match sources are rejected from model evidence. No fixture is marked research-complete until all required evidence categories have been attempted and persisted."
+  }
 }
