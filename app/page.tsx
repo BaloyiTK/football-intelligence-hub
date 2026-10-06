@@ -34,7 +34,7 @@ export default async function Home({searchParams}:{searchParams:Promise<{date?:s
     <div className="fixture"><strong>{m.homeTeam}</strong><span>vs</span><strong>{m.awayTeam}</strong></div>
     <div className="pick"><div><small>MODEL PICK</small><strong>{b?.pick??"NO BET"}</strong><span>{b?.market??"No qualifying market"}</span></div><div className={"rating "+String(b?.rating??"").toLowerCase()}><b>{b?b.probability+"%":"—"}</b><small>{b?.rating??"—"}</small></div></div>
     <div className="probabilities"><span><small>HOME</small><b>{x?.home??x?.homeWin??"—"}%</b></span><span><small>DRAW</small><b>{x?.draw??"—"}%</b></span><span><small>AWAY</small><b>{x?.away??x?.awayWin??"—"}%</b></span></div>
-    <div className="cardFoot">{past?<span>Actual <b>{r?.actualScore?r.actualScore.home+"–"+r.actualScore.away:"Pending"}</b></span>:<span>Evidence <b>{x?.confidence??x?.modelLevel??"—"}</b></span>}</div>
+    {past&&<div className="cardFoot"><span>Actual <b>{r?.actualScore?r.actualScore.home+"–"+r.actualScore.away:"Pending"}</b></span></div>}
    </article>})}</section>
    {matches.length===0&&<div className="empty"><b>No published selections</b><span>There are no verified model picks for this date.</span></div>}
   </section>
