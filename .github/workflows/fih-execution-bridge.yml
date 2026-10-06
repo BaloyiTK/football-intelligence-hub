@@ -1,0 +1,70 @@
+name: FIH Execution Bridge
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "automation/commands/*.json"
+  workflow_dispatch:
+    inputs:
+      command_file:
+        description: "Path to an FIH command JSON"
+        required: true
+        type: string
+
+concurrency:
+  group: fih-execution-bridge
+  cancel-in-progress: false
+
+jobs:
+  execute:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+
+      - name: Resolve command
+        id: command
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            FILE="${{ inputs.command_file }}"
+          else
+            FILE="$(git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" -- 'automation/commands/*.json' | tail -1)"
+          fi
+          [[ -n "$FILE" && -f "$FILE" ]] || { echo "::error::No command file found"; exit 1; }
+          node -e 'const fs=require("fs"); const p=process.argv[1]; const x=JSON.parse(fs.readFileSync(p,"utf8")); if(!["validate","finalize","verify-publication"].includes(x.action)) throw new Error("Unsupported action"); if(typeof x.runFile!=="string"||!x.runFile.startsWith("data/runs/")||x.runFile.includes("..")) throw new Error("Invalid runFile"); if(x.date!=null&&!/^\\d{4}-\\d{2}-\\d{2}$/.test(x.date)) throw new Error("Invalid date");' "$FILE"
+          echo "file=$FILE" >> "$GITHUB_OUTPUT"
+          echo "action=$(node -p 'require("./"+process.argv[1]).action' "$FILE")" >> "$GITHUB_OUTPUT"
+          echo "run_file=$(node -p 'require("./"+process.argv[1]).runFile' "$FILE")" >> "$GITHUB_OUTPUT"
+          echo "date=$(node -p 'require("./"+process.argv[1]).date||""' "$FILE")" >> "$GITHUB_OUTPUT"
+
+      - name: Contract and model checks
+        run: |
+          npm test
+          npm run model:preflight
+
+      - name: Validate run
+        run: npm run run:validate -- "${{ steps.command.outputs.run_file }}"
+
+      - name: Strict finalize
+        if: steps.command.outputs.action == 'finalize' || steps.command.outputs.action == 'verify-publication'
+        run: npm run run:finalize -- "${{ steps.command.outputs.run_file }}"
+
+      - name: Verify publication
+        if: steps.command.outputs.action == 'verify-publication'
+        run: |
+          [[ -n "${{ steps.command.outputs.date }}" ]] || { echo "::error::date required"; exit 1; }
+          npm run predictions:verify -- "${{ steps.command.outputs.date }}"
+
+      - name: Build production app
+        if: steps.command.outputs.action == 'verify-publication'
+        run: npm run build
