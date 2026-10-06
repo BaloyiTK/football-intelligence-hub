@@ -1,8 +1,0 @@
-{
-  "schema": "fih-execution-command-v1",
-  "action": "verify-publication",
-  "runFile": "data/runs/2026-10-06_0545_v2.9.json",
-  "date": "2026-10-06",
-  "requestedAt": "2026-10-06T06:12:00+02:00",
-  "purpose": "publish October 6 via GitHub Actions contents-write bridge"
-}

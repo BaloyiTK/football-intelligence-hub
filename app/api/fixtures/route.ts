@@ -1,2 +1,0 @@
-import {NextResponse} from "next/server";import {getTodayFixtures} from "@/lib/fixtures";
-export async function GET(){try{const fixtures=await getTodayFixtures();return NextResponse.json({date:new Date().toISOString().slice(0,10),count:fixtures.length,configured:Boolean(process.env.FOOTBALL_DATA_TOKEN),fixtures});}catch(error){return NextResponse.json({error:error instanceof Error?error.message:"Fixture discovery failed"},{status:502});}}

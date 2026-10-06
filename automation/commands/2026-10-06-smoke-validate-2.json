@@ -1,8 +1,0 @@
-{
-  "schema": "fih-execution-command-v1",
-  "action": "validate",
-  "runFile": "data/runs/2026-10-05_114912_v2.3.1.json",
-  "date": "2026-10-05",
-  "requestedAt": "2026-10-06T05:40:00+02:00",
-  "purpose": "smoke-test retry after bridge parser repair"
-}

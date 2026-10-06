@@ -1,2 +1,0 @@
-import {NextRequest,NextResponse} from "next/server";import {researchMatch} from "@/lib/research";
-export async function POST(req:NextRequest){const body=await req.json() as {homeTeam?:string;awayTeam?:string};if(!body.homeTeam||!body.awayTeam)return NextResponse.json({error:"homeTeam and awayTeam are required"},{status:400});const research=await researchMatch(body.homeTeam,body.awayTeam);return NextResponse.json({configured:Boolean(process.env.TAVILY_API_KEY),research,noModel:research.quality==="insufficient"});}

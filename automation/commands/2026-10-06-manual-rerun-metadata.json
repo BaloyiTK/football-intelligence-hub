@@ -1,7 +1,0 @@
-{
-  "action": "verify-publication",
-  "runFile": "data/runs/2026-10-06_0545_v2.9.json",
-  "date": "2026-10-06",
-  "reason": "manual Run today from restored known-good automation baseline",
-  "requestedAt": "2026-10-06T08:51:43.223Z"
-}
