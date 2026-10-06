@@ -7,7 +7,7 @@
     "to": "2026-10-05",
     "days": 7
   },
-  "status": "BLOCKED_INTEGRITY_RESEARCH_RECONSTRUCTION",
+  "status": "RESEARCH_IN_PROGRESS",
   "rules": {
     "startFrom": "LiveScore daily fixture board for each historical date",
     "lookaheadLeakage": "Use only information that existed before each fixture kickoff.",
@@ -137,7 +137,7 @@
     "status": "NOT_EVALUATED",
     "eligibleFixtures": 1583,
     "excludedAtOrBefore0600": 164,
-    "reason": "Hard stop: full seven-day V1/V2 evaluation would be invalid until structured pre-06:00 evidence is reconstructed and persisted for every eligible fixture."
+    "reason": "Fixture-specific research remains in progress. Missing verified evidence is recorded as UNAVAILABLE and does not stop execution."
   },
   "previousBaseline": {
     "commit": "04dd1450b80af91ceb277f1f9690ed7492b1eeeb",
@@ -153,13 +153,13 @@
     "cutoffValidation": "ENFORCED",
     "researchMethod": "FREE_WEB_RESEARCH",
     "paidResearchApiRequired": false,
-    "notes": "Research resumed in fixture order on 2026-09-29. Pre-06:00 SAST dated sources are accepted; sources first published after cutoff and post-match information are rejected. Evidence fields unavailable from verified pre-cutoff sources remain UNAVAILABLE. No model stage is allowed until fixture research records are persisted and verified.",
+    "notes": "Research proceeds fixture by fixture. Enforce the 06:00 SAST cutoff, persist verified evidence, mark unavailable fields UNAVAILABLE, verify, and continue automatically. Evidence scarcity is not a hard stop.",
     "verifiedFinding": "Current historical artifacts do not contain the structured pre-06:00 last-five/venue/PPG/xG/opponent-strength evidence required to run FIH V2 leak-free across 1,583 fixtures.",
     "currentTurnResearch": "Additional fixture-specific searches confirmed that valid pre-cutoff sources exist for a subset, while same-day/post-cutoff/current result pages must be rejected.",
-    "hardStop": {
-      "type": "BACKTEST_INTEGRITY_RISK",
-      "reason": "Generating V2 inputs from current/post-result pages or treating preview-only searches as complete evidence would introduce look-ahead leakage or fabricated structure. The signed policy requires every eligible fixture to have persisted, verified fixture-specific evidence before modeling.",
-      "requiredResolution": "Create a scalable historical web-research reconstruction stage that records source publication time and structured evidence fields for every fixture before model execution. This is a material pipeline addition and cannot be silently substituted during a backtest."
+    "previousIncorrectStop": {
+      "status": "CORRECTED",
+      "commit": "7427eb68e28498471e831cd845492b4e20ee7f4b",
+      "reason": "Evidence scarcity/reconstruction difficulty was incorrectly classified as an integrity hard stop."
     }
   }
 }
