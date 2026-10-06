@@ -31,7 +31,8 @@
     "daily:execute": "tsx scripts/daily-execute.ts",
     "fixtures:ingest": "tsx scripts/ingest-daily-fixtures.ts",
     "news:ingest": "tsx scripts/ingest-daily-news.ts",
-    "daily:cache": "tsx scripts/ingest-daily-cache.ts"
+    "daily:cache": "tsx scripts/ingest-daily-cache.ts",
+    "daily:normalize": "tsx scripts/normalize-daily-fixtures.ts"
   },
   "dependencies": {
     "next": "15.5.7",
