@@ -1,5 +1,6 @@
 name: FIH Seven Day Backtest
 on:
+  workflow_dispatch:
   push:
     paths:
       - 'scripts/run-seven-day-backtest.ts'
