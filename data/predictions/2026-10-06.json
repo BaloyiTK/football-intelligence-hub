@@ -90,7 +90,8 @@
     "84": "k",
     "85": "e",
     "86": "t",
-    "marketOddsRule": "For every published prediction, persist a verified market snapshot for 1X2, Over/Under 2.5 and BTTS Yes/No. Missing prices remain unavailable; never infer them."
+    "marketOddsRule": "For every published prediction, persist a verified market snapshot for 1X2, Over/Under 2.5 and BTTS Yes/No. Missing prices remain unavailable; never infer them.",
+    "fihProbabilityEngine": "FIH-Poisson-V1: last-five goals scored/conceded -> expected goals -> Poisson score matrix -> 1X2/O-U2.5/BTTS probabilities and fair odds. V1 is an unvalidated baseline; recommendation thresholds require calibration."
   },
   "generatedAt": "2026-10-06T20:43:00+02:00",
   "markets": [
@@ -259,6 +260,80 @@
           "yes": 2.25,
           "no": 1.57
         }
+      },
+      "fihModel": {
+        "version": "FIH-Poisson-V1",
+        "status": "UNVALIDATED_BASELINE",
+        "inputs": {
+          "homeLast5GF": 3.8,
+          "homeLast5GA": 0.6,
+          "awayLast5GF": 0.8,
+          "awayLast5GA": 3.6
+        },
+        "expectedGoals": {
+          "home": 3.7,
+          "away": 0.7
+        },
+        "probabilities": {
+          "oneXTwo": {
+            "home": 0.8943,
+            "draw": 0.0718,
+            "away": 0.0339
+          },
+          "overUnder25": {
+            "over": 0.8146,
+            "under": 0.1854
+          },
+          "btts": {
+            "yes": 0.4909,
+            "no": 0.5091
+          }
+        },
+        "fairOdds": {
+          "oneXTwo": {
+            "home": 1.12,
+            "draw": 13.93,
+            "away": 29.5
+          },
+          "overUnder25": {
+            "over": 1.23,
+            "under": 5.39
+          },
+          "btts": {
+            "yes": 2.04,
+            "no": 1.96
+          }
+        },
+        "marketFairProbability": {
+          "oneXTwo": {
+            "home": 0.9227,
+            "draw": 0.0588,
+            "away": 0.0185
+          },
+          "overUnder25": {
+            "over": 0.8475,
+            "under": 0.1525
+          },
+          "btts": {
+            "yes": 0.411,
+            "no": 0.589
+          }
+        },
+        "edgeVsMarket": {
+          "oneXTwo": {
+            "home": -0.0284,
+            "draw": 0.0129,
+            "away": 0.0154
+          },
+          "overUnder25": {
+            "over": -0.0329,
+            "under": 0.0329
+          },
+          "btts": {
+            "yes": 0.08,
+            "no": -0.08
+          }
+        }
       }
     },
     {
@@ -406,6 +481,80 @@
         "btts": {
           "yes": 1.61,
           "no": 2.08
+        }
+      },
+      "fihModel": {
+        "version": "FIH-Poisson-V1",
+        "status": "UNVALIDATED_BASELINE",
+        "inputs": {
+          "homeLast5GF": 2,
+          "homeLast5GA": 1.8,
+          "awayLast5GF": 1,
+          "awayLast5GA": 1.6
+        },
+        "expectedGoals": {
+          "home": 1.8,
+          "away": 1.4
+        },
+        "probabilities": {
+          "oneXTwo": {
+            "home": 0.4702,
+            "draw": 0.2295,
+            "away": 0.3003
+          },
+          "overUnder25": {
+            "over": 0.6201,
+            "under": 0.3799
+          },
+          "btts": {
+            "yes": 0.6289,
+            "no": 0.3711
+          }
+        },
+        "fairOdds": {
+          "oneXTwo": {
+            "home": 2.13,
+            "draw": 4.36,
+            "away": 3.33
+          },
+          "overUnder25": {
+            "over": 1.61,
+            "under": 2.63
+          },
+          "btts": {
+            "yes": 1.59,
+            "no": 2.69
+          }
+        },
+        "marketFairProbability": {
+          "oneXTwo": {
+            "home": 0.591,
+            "draw": 0.2206,
+            "away": 0.1884
+          },
+          "overUnder25": {
+            "over": 0.5942,
+            "under": 0.4058
+          },
+          "btts": {
+            "yes": 0.5637,
+            "no": 0.4363
+          }
+        },
+        "edgeVsMarket": {
+          "oneXTwo": {
+            "home": -0.1208,
+            "draw": 0.0089,
+            "away": 0.1119
+          },
+          "overUnder25": {
+            "over": 0.0259,
+            "under": -0.0259
+          },
+          "btts": {
+            "yes": 0.0652,
+            "no": -0.0652
+          }
         }
       }
     }
