@@ -51,7 +51,28 @@ jobs:
             FILE="$(git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" -- 'automation/commands/*.json' | tail -1)"
           fi
           [[ -n "$FILE" && -f "$FILE" ]] || { echo "::error::No command file found"; exit 1; }
-          node -e 'const fs=require("fs"); const p=process.argv[1]; const x=JSON.parse(fs.readFileSync(p,"utf8")); if(!["validate","finalize","verify-publication"].includes(x.action)) throw new Error("Unsupported action"); if(typeof x.runFile!=="string"||!x.runFile.startsWith("data/runs/")||x.runFile.includes("..")) throw new Error("Invalid runFile"); if(x.date!=null&&!/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(x.date)) throw new Error("Invalid date");' "$FILE"
+          # Safe self-repair: normalize known aliases and recover a single unambiguous dated run.
+          node <<'NODE' "$FILE"
+          const fs=require("fs"), path=require("path");
+          const p=process.argv[2];
+          const x=JSON.parse(fs.readFileSync(p,"utf8"));
+          if (!x.action && typeof x.command==="string") {
+            x.action=x.command;
+            console.log("::notice::self-repair: normalized command -> action");
+          }
+          if (!["validate","finalize","verify-publication"].includes(x.action)) throw new Error("Unsupported action after safe normalization");
+          if (x.date!=null && !/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(x.date)) throw new Error("Invalid date");
+          const validRun=v=>typeof v==="string"&&v.startsWith("data/runs/")&&!v.includes("..")&&fs.existsSync(v);
+          if (!validRun(x.runFile)) {
+            if (!x.date) throw new Error("Invalid runFile and no date available for recovery");
+            const dir="data/runs";
+            const matches=fs.readdirSync(dir).filter(n=>n.startsWith(x.date+"_")&&n.endsWith(".json")).map(n=>path.join(dir,n));
+            if (matches.length!==1) throw new Error("Cannot safely recover runFile: expected exactly 1 dated run, found "+matches.length);
+            x.runFile=matches[0];
+            console.log("::notice::self-repair: recovered runFile="+x.runFile);
+          }
+          fs.writeFileSync(p,JSON.stringify(x,null,2)+"\n");
+          NODE
           echo "file=$FILE" >> "$GITHUB_OUTPUT"
           echo "action=$(node -p 'require("./"+process.argv[1]).action' "$FILE")" >> "$GITHUB_OUTPUT"
           echo "run_file=$(node -p 'require("./"+process.argv[1]).runFile' "$FILE")" >> "$GITHUB_OUTPUT"
