@@ -8,9 +8,11 @@ const activeStates=new Set(["pending","discovering","processing","recovering","p
 const active=runs.find(x=>activeStates.has(String(x.data.status??""))&&x.data.status!=="complete");
 if(active){
  const r=active.data;
+ const associations=Array.isArray(r.associationScan)?r.associationScan:[];
  const scan=Array.isArray(r.leagueScan)?r.leagueScan:[];
- const next=scan.find((x:any)=>x.status!=="complete");
- console.log(JSON.stringify({action:"RESUME",runFile:active.path,status:r.status,current:r.current??null,nextCheckpoint:next??null,resumeAction:r.resumeAction??r.current?.resumeAction??"continue-first-nonterminal-checkpoint"},null,2));
+ const nextAssociation=associations.find((x:any)=>x.status!=="complete");
+ const nextLeague=scan.find((x:any)=>x.status!=="complete");
+ console.log(JSON.stringify({action:"RESUME",runFile:active.path,status:r.status,current:r.current??null,nextCheckpoint:nextAssociation??nextLeague??null,resumeAction:r.resumeAction??r.current?.resumeAction??"continue-first-nonterminal-checkpoint"},null,2));
  process.exit(0);
 }
 const registry=JSON.parse(fs.readFileSync(path.join(root,"data/leagues.json"),"utf8"));
