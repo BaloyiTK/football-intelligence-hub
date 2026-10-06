@@ -29,6 +29,14 @@
       "timezone": "Africa/Johannesburg",
       "utcOffset": "+02:00",
       "rule": "Use only information verifiably available by 06:00 SAST on each historical target date; exclude all later information from the frozen FIH assessment."
+    },
+    "fixtureEligibility": {
+      "timezone": "Africa/Johannesburg",
+      "condition": "kickoff > 06:00 SAST",
+      "before0600": "EXCLUDED",
+      "at0600": "EXCLUDED",
+      "after0600": "ELIGIBLE",
+      "countingRule": "Only eligible fixtures are counted in the backtest denominator and proceed to research/model/evaluation."
     }
   },
   "days": [
