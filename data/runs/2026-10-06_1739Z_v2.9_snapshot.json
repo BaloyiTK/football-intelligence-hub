@@ -1,0 +1,104 @@
+{
+  "runId": "2026-10-06_1739Z_v2.9_snapshot",
+  "date": "2026-10-06",
+  "timezone": "Africa/Johannesburg",
+  "status": "active",
+  "storagePolicy": "full-audit",
+  "completionPolicy": "daily-fixture-snapshot",
+  "contractVersion": "2.9.0",
+  "modelVersion": "v2.9-market-specific-quality-selector",
+  "dailyCache": {
+    "fixtureSnapshot": "data/today_fixture.json",
+    "newsSnapshot": "data/today_news.json",
+    "fixtureDate": "2026-10-06",
+    "sourceFetchedAt": "2026-10-06T13:55:55.935Z",
+    "fixtureCount": 172,
+    "stageCount": 75,
+    "policy": "A fresh same-SAST-date LiveScore snapshot is mandatory before modeling; deployment state is not a data gate.",
+    "newsUsage": "Contextual research only; does not independently alter locked V2.9 probabilities."
+  },
+  "globalDiscovery": {
+    "sources": [
+      "data/today_fixture.json"
+    ],
+    "snapshot": "data/today_fixture.json",
+    "mappedFixtureCount": 0
+  },
+  "leagueScan": [],
+  "fixtures": [],
+  "pipelineManifest": {
+    "load-contract": {
+      "status": "complete",
+      "evidence": "Validated rolling LiveScore snapshot for 2026-10-06: 75 stages / 172 fixtures"
+    },
+    "freeze-contract-hash": {
+      "status": "complete",
+      "evidence": "Validated rolling LiveScore snapshot for 2026-10-06: 75 stages / 172 fixtures"
+    },
+    "preflight": {
+      "status": "complete",
+      "evidence": "Validated rolling LiveScore snapshot for 2026-10-06: 75 stages / 172 fixtures"
+    },
+    "resolve-run-and-resume": {
+      "status": "complete",
+      "evidence": "Validated rolling LiveScore snapshot for 2026-10-06: 75 stages / 172 fixtures"
+    },
+    "reconcile-results": {
+      "status": "pending"
+    },
+    "fresh-data-gate": {
+      "status": "complete",
+      "evidence": "Validated rolling LiveScore snapshot for 2026-10-06: 75 stages / 172 fixtures"
+    },
+    "worldwide-discovery": {
+      "status": "pending"
+    },
+    "normalize-and-map": {
+      "status": "pending"
+    },
+    "persist-discovery": {
+      "status": "pending"
+    },
+    "verify-prematch": {
+      "status": "pending"
+    },
+    "research": {
+      "status": "pending"
+    },
+    "calculate-primary-and-support-signals": {
+      "status": "pending"
+    },
+    "calibrate-risk-and-select-one-or-no-bet": {
+      "status": "pending"
+    },
+    "freeze-output": {
+      "status": "pending"
+    },
+    "complete-all-checkpoints": {
+      "status": "pending"
+    },
+    "validate": {
+      "status": "pending"
+    },
+    "finalize": {
+      "status": "pending"
+    },
+    "publish-daily-artifact": {
+      "status": "pending"
+    },
+    "verify-publication-artifact": {
+      "status": "pending"
+    },
+    "train-if-new-verified-outcomes": {
+      "status": "pending"
+    },
+    "verify-exact-deployment-sha": {
+      "status": "pending"
+    }
+  },
+  "resumeCursor": {
+    "stage": "normalize-and-map",
+    "fixtureIndex": 0
+  },
+  "resumeAction": "Normalize every eligible senior fixture from today's LiveScore board, research Full -> Standard -> Basic, then run exact V2.9."
+}
