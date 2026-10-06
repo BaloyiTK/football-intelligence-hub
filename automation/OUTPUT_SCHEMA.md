@@ -2,6 +2,8 @@
 
 Daily public betting data contains only pre-match fixtures with the V2.9 deterministic model and a non-null, publishable `recommendedBet`.
 
+Every publishable fixture must also contain complete verified fixture metadata: `date`, `country`, `leagueId`, `league`, `homeTeam`, `awayTeam`, and `kickoff`. Country/league identity comes from the frozen competition registry; kickoff must be established during discovery/research and persisted in the run. Missing required fixture metadata is a publication/finalization error, not a field the website may guess.
+
 Approved recommendation markets:
 - 1X2: Home / Draw / Away
 - Total Goals: Over 1.5
