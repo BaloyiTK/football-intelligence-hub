@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import Link from "next/link";
 import DatePicker from "./DatePicker";
+import KickoffTime from "./KickoffTime";
 
 type PF={date:string;fixtures:any[];modelVersion?:string;scan?:any;results?:{graded?:number;wins?:number;losses?:number;winRate?:number}};
 const dir=()=>path.join(process.cwd(),"data","predictions");
@@ -9,7 +10,7 @@ const dates=()=>fs.existsSync(dir())?fs.readdirSync(dir()).filter(x=>/^\d{4}-\d{
 const read=(date:string):PF=>JSON.parse(fs.readFileSync(path.join(dir(),date+".json"),"utf8"));
 const leagueRegistry=JSON.parse(fs.readFileSync(path.join(process.cwd(),"data","leagues.json"),"utf8")).leagues as {id:string;country:string;name:string}[];
 const leagueMeta=new Map(leagueRegistry.map(l=>[l.id,l]));
-const fmt=(date?:string)=>date?new Intl.DateTimeFormat("en-ZA",{weekday:"short",day:"2-digit",month:"short",year:"numeric",timeZone:"Africa/Johannesburg"}).format(new Date(date+"T12:00:00+02:00")):"No slate";
+const fmt=(date?:string)=>date?new Intl.DateTimeFormat("en-ZA",{weekday:"long",day:"numeric",month:"long",year:"numeric",timeZone:"Africa/Johannesburg"}).format(new Date(date+"T12:00:00+02:00")):"No slate";
 const kickoff=(value?:string)=>{if(!value)return "Time pending";const d=new Date(value);if(Number.isNaN(d.getTime()))return value;return new Intl.DateTimeFormat("en-ZA",{hour:"2-digit",minute:"2-digit",hour12:false,timeZone:"Africa/Johannesburg"}).format(d)+" SAST"};
 const modelLabel=(value?:string)=>value?.match(/v\\d+(?:\\.\\d+)*/)?.[0]?.toUpperCase()??"Model";
 export default async function Home({searchParams}:{searchParams:Promise<{date?:string}>}){
@@ -29,7 +30,7 @@ export default async function Home({searchParams}:{searchParams:Promise<{date?:s
    <div className="dateRail">{available.slice(0,7).map(d=><Link className={d===selected?"active":""} key={d} href={"/?date="+d}>{new Intl.DateTimeFormat("en-ZA",{day:"2-digit",month:"short",timeZone:"Africa/Johannesburg"}).format(new Date(d+"T12:00:00+02:00"))}</Link>)}</div>
    <div className="sectionTitle"><div><p className="kicker">{past?"HISTORICAL RESULTS":"VERIFIED PICKS"}</p><h2>{past?"How the model performed":"Today's 1X2 edge"}</h2></div><span>{matches.length} matches</span></div>
    <section className="matchGrid">{matches.map((m:any)=>{const x=m.model,b=x?.recommendedBet,r=m.result;const meta=leagueMeta.get(m.leagueId);return <article className="matchCard" key={m.fixtureKey}>
-    <div className="matchTop"><div className="competition"><span className="country">{m.country??meta?.country??"International"}</span><span className="league">{m.league??meta?.name??m.leagueId}</span></div><div className="matchMeta"><span className="kickoffLabel">KICKOFF</span><span className="kickoff">{kickoff(m.kickoff)}</span>{past&&<span className={"outcome "+(r?.outcome==="WIN"?"win":r?.outcome==="LOSS"?"loss":"pending")}>{r?.outcome??"PENDING"}</span>}</div></div>
+    <div className="matchTop"><div className="competition"><span className="country">{m.country??meta?.country??"International"}</span><span className="league">{m.league??meta?.name??m.leagueId}</span></div><div className="matchMeta"><span className="kickoffLabel">KICKOFF</span><KickoffTime value={m.kickoff}/>{past&&<span className={"outcome "+(r?.outcome==="WIN"?"win":r?.outcome==="LOSS"?"loss":"pending")}>{r?.outcome??"PENDING"}</span>}</div></div>
     <div className="fixture"><strong>{m.homeTeam}</strong><span>vs</span><strong>{m.awayTeam}</strong></div>
     <div className="pick"><div><small>MODEL PICK</small><strong>{b?.pick??"NO BET"}</strong><span>{b?.market??"No qualifying market"}</span></div><div className={"rating "+String(b?.rating??"").toLowerCase()}><b>{b?b.probability+"%":"—"}</b><small>{b?.rating??"—"}</small></div></div>
     <div className="probabilities"><span><small>HOME</small><b>{x?.home??x?.homeWin??"—"}%</b></span><span><small>DRAW</small><b>{x?.draw??"—"}%</b></span><span><small>AWAY</small><b>{x?.away??x?.awayWin??"—"}%</b></span></div>
