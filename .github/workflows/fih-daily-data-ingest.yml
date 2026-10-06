@@ -1,0 +1,62 @@
+name: FIH Daily Data Ingest
+
+on:
+  workflow_dispatch:
+    inputs:
+      refresh:
+        description: Force refresh even if today's rolling file already exists
+        required: false
+        default: false
+        type: boolean
+  schedule:
+    - cron: "50 4 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fih-daily-data-ingest
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Resolve SAST date
+        id: date
+        run: echo "date=$(TZ=Africa/Johannesburg date +%F)" >> "$GITHUB_OUTPUT"
+      - name: Fetch fixtures
+        env:
+          RAPIDAPI_KEY: ${{ secrets.LS_API_KEY }}
+        run: |
+          EXTRA=""
+          if [ "${{ inputs.refresh }}" = "true" ]; then EXTRA="--refresh"; fi
+          npm run fixtures:ingest -- "${{ steps.date.outputs.date }}" $EXTRA
+      - name: Fetch news
+        continue-on-error: true
+        env:
+          RAPIDAPI_KEY: ${{ secrets.LS_API_KEY }}
+        run: |
+          EXTRA=""
+          if [ "${{ inputs.refresh }}" = "true" ]; then EXTRA="--refresh"; fi
+          npm run news:ingest -- "${{ steps.date.outputs.date }}" $EXTRA
+      - name: Commit rolling daily inputs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/today_fixture.json
+          if [ -f data/today_news.json ]; then git add data/today_news.json; fi
+          if git diff --cached --quiet; then
+            echo "No daily input changes to commit."
+            exit 0
+          fi
+          git commit -m "data: refresh FIH daily inputs ${{ steps.date.outputs.date }}"
+          git push
