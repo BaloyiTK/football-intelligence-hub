@@ -1,0 +1,1459 @@
+{
+  "runId": "2026-10-06_0545_v2.9",
+  "date": "2026-10-06",
+  "timezone": "Africa/Johannesburg",
+  "status": "complete",
+  "storagePolicy": "full-audit",
+  "contractVersion": "2.9.0",
+  "modelVersion": "v2.9-market-specific-quality-selector",
+  "researchCutoff": "2026-10-06T05:41:00+02:00",
+  "globalDiscovery": {
+    "sources": [
+      "https://www.footballfixtures.org/fixtures/2026-10-06",
+      "https://canchallena.lanacion.com.ar/fecha/2026-10-06/",
+      "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/"
+    ],
+    "mappedFixtureCount": 23,
+    "coverageGapCandidates": [
+      "Norway NM Cupen",
+      "Bolivia Copa de la División Profesional",
+      "Paraguay Division Intermedia",
+      "Peru Segunda División"
+    ]
+  },
+  "leagueScan": [
+    {
+      "leagueId": "eng-premier-league",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "eng-championship",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "eng-league-one",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "eng-league-two",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "esp-la-liga",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "esp-segunda",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "ita-serie-a",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "ita-serie-b",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "ger-bundesliga",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "ger-2-bundesliga",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "fra-ligue-1",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "fra-ligue-2",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "ned-eredivisie",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "ned-eerste-divisie",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "por-primeira-liga",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "bel-pro-league",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "sco-premiership",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "tur-super-lig",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "gre-super-league",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "aut-bundesliga",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "sui-super-league",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "den-superliga",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "nor-eliteserien",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "swe-allsvenskan",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "fin-veikkausliiga",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "pol-ekstraklasa",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "cze-first-league",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "cro-hnl",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "ser-superliga",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "rou-liga-1",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "ukr-premier-league",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "uefa-champions-league",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "uefa-europa-league",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "uefa-conference-league",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "uefa-nations-league",
+      "status": "complete",
+      "fixturesDiscovered": 10,
+      "fixturesProcessed": 10,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/"
+      ]
+    },
+    {
+      "leagueId": "uefa-euro",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "conmebol-libertadores",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "conmebol-sudamericana",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "bra-serie-a",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "bra-serie-b",
+      "status": "complete",
+      "fixturesDiscovered": 3,
+      "fixturesProcessed": 3,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/"
+      ]
+    },
+    {
+      "leagueId": "arg-primera",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "usa-mls",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "mex-liga-mx",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "col-primera-a",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "jpn-j1",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "jpn-j2",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "kor-k1",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "chn-super-league",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "aus-a-league",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "ksa-pro-league",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "qat-stars-league",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "uae-pro-league",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "rsa-premiership",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "rsa-first-division",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "egy-premier-league",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "mar-botola",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "tun-ligue-1",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "caf-champions-league",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "caf-confederation-cup",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "fifa-world-cup",
+      "status": "complete",
+      "fixturesDiscovered": 0,
+      "fixturesProcessed": 0,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://canchallena.lanacion.com.ar/fecha/2026-10-06/"
+      ]
+    },
+    {
+      "leagueId": "international-friendlies",
+      "status": "complete",
+      "fixturesDiscovered": 10,
+      "fixturesProcessed": 10,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/"
+      ]
+    }
+  ],
+  "fixtures": [
+    {
+      "date": "2026-10-06",
+      "fixtureKey": "2026-10-06|uefa-nations-league|kazakhstan|faroe-islands",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Kazakhstan",
+      "awayTeam": "Faroe Islands",
+      "status": "NO_BET",
+      "model": {
+        "modelVersion": "v2.9-market-specific-quality-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 0.72,
+        "lambdaAway": 1.66,
+        "home": 15.1,
+        "draw": 25.9,
+        "away": 59,
+        "doubleChance": {
+          "homeOrDraw": 41,
+          "awayOrDraw": 84.9
+        },
+        "over15": 69.5,
+        "over25": 42.4,
+        "recommendedBet": null
+      },
+      "recommendedBet": null,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/"
+      ],
+      "researchedAt": "2026-10-06T05:41:00+02:00",
+      "decision": "NO BET — V2.9 gates not cleared"
+    },
+    {
+      "date": "2026-10-06",
+      "fixtureKey": "2026-10-06|uefa-nations-league|croatia|spain",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Croatia",
+      "awayTeam": "Spain",
+      "status": "NO_BET",
+      "model": {
+        "modelVersion": "v2.9-market-specific-quality-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 0.83,
+        "lambdaAway": 4,
+        "home": 3.4,
+        "draw": 7.2,
+        "away": 89.4,
+        "doubleChance": {
+          "homeOrDraw": 10.6,
+          "awayOrDraw": 96.6
+        },
+        "over15": 95.5,
+        "over25": 85.7,
+        "recommendedBet": null
+      },
+      "recommendedBet": null,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/"
+      ],
+      "researchedAt": "2026-10-06T05:41:00+02:00",
+      "decision": "NO BET — V2.9 gates not cleared"
+    },
+    {
+      "date": "2026-10-06",
+      "fixtureKey": "2026-10-06|uefa-nations-league|england|czechia",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "England",
+      "awayTeam": "Czechia",
+      "status": "NO_BET",
+      "model": {
+        "modelVersion": "v2.9-market-specific-quality-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 4,
+        "lambdaAway": 0.66,
+        "home": 91.5,
+        "draw": 6.2,
+        "away": 2.3,
+        "doubleChance": {
+          "homeOrDraw": 97.7,
+          "awayOrDraw": 8.5
+        },
+        "over15": 94.7,
+        "over25": 84,
+        "recommendedBet": null
+      },
+      "recommendedBet": null,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/"
+      ],
+      "researchedAt": "2026-10-06T05:41:00+02:00",
+      "decision": "NO BET — V2.9 gates not cleared"
+    },
+    {
+      "date": "2026-10-06",
+      "fixtureKey": "2026-10-06|uefa-nations-league|scotland|slovenia",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Scotland",
+      "awayTeam": "Slovenia",
+      "status": "NO_BET",
+      "model": {
+        "modelVersion": "v2.9-market-specific-quality-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 0.44,
+        "lambdaAway": 1.13,
+        "home": 13.5,
+        "draw": 34.1,
+        "away": 52.4,
+        "doubleChance": {
+          "homeOrDraw": 47.6,
+          "awayOrDraw": 86.5
+        },
+        "over15": 47.3,
+        "over25": 20.9,
+        "recommendedBet": null
+      },
+      "recommendedBet": null,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/"
+      ],
+      "researchedAt": "2026-10-06T05:41:00+02:00",
+      "decision": "NO BET — V2.9 gates not cleared"
+    },
+    {
+      "date": "2026-10-06",
+      "fixtureKey": "2026-10-06|uefa-nations-league|switzerland|north-macedonia",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Switzerland",
+      "awayTeam": "North Macedonia",
+      "status": "NO_BET",
+      "model": {
+        "modelVersion": "v2.9-market-specific-quality-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 2.51,
+        "lambdaAway": 0.2,
+        "home": 87.4,
+        "draw": 11,
+        "away": 1.6,
+        "doubleChance": {
+          "homeOrDraw": 98.4,
+          "awayOrDraw": 12.6
+        },
+        "over15": 75.6,
+        "over25": 50.9,
+        "recommendedBet": null
+      },
+      "recommendedBet": null,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/"
+      ],
+      "researchedAt": "2026-10-06T05:41:00+02:00",
+      "decision": "NO BET — V2.9 gates not cleared"
+    },
+    {
+      "date": "2026-10-06",
+      "fixtureKey": "2026-10-06|uefa-nations-league|albania|san-marino",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Albania",
+      "awayTeam": "San Marino",
+      "status": "BET",
+      "model": {
+        "modelVersion": "v2.9-market-specific-quality-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 2.26,
+        "lambdaAway": 0.35,
+        "home": 80.7,
+        "draw": 15.4,
+        "away": 3.9,
+        "doubleChance": {
+          "homeOrDraw": 96.1,
+          "awayOrDraw": 19.3
+        },
+        "over15": 73.9,
+        "over25": 48.3,
+        "recommendedBet": {
+          "market": "Double Chance",
+          "pick": "1X",
+          "probability": 84.2,
+          "selectionProbability": 84.8,
+          "rawProbability": 96.1,
+          "reliability": 0.873,
+          "rating": "Strong",
+          "selectionStatus": "PUBLISH",
+          "publishable": true,
+          "riskFlags": [],
+          "support": {
+            "market": "1X2",
+            "pick": "Home",
+            "rawProbability": 80.7,
+            "minimum": 62
+          }
+        }
+      },
+      "recommendedBet": {
+        "market": "Double Chance",
+        "pick": "1X",
+        "probability": 84.2,
+        "selectionProbability": 84.8,
+        "rawProbability": 96.1,
+        "reliability": 0.873,
+        "rating": "Strong",
+        "selectionStatus": "PUBLISH",
+        "publishable": true,
+        "riskFlags": [],
+        "support": {
+          "market": "1X2",
+          "pick": "Home",
+          "rawProbability": 80.7,
+          "minimum": 62
+        }
+      },
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/"
+      ],
+      "researchedAt": "2026-10-06T05:41:00+02:00",
+      "decision": "BET — V2.9 publishable"
+    },
+    {
+      "date": "2026-10-06",
+      "fixtureKey": "2026-10-06|uefa-nations-league|belarus|finland",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Belarus",
+      "awayTeam": "Finland",
+      "status": "NO_BET",
+      "model": {
+        "modelVersion": "v2.9-market-specific-quality-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 1.56,
+        "lambdaAway": 1.43,
+        "home": 39.7,
+        "draw": 26.1,
+        "away": 34.2,
+        "doubleChance": {
+          "homeOrDraw": 65.8,
+          "awayOrDraw": 60.3
+        },
+        "over15": 80.7,
+        "over25": 57.3,
+        "recommendedBet": null
+      },
+      "recommendedBet": null,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/"
+      ],
+      "researchedAt": "2026-10-06T05:41:00+02:00",
+      "decision": "NO BET — V2.9 gates not cleared"
+    },
+    {
+      "date": "2026-10-06",
+      "fixtureKey": "2026-10-06|uefa-nations-league|moldova|slovakia",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Moldova",
+      "awayTeam": "Slovakia",
+      "status": "NO_BET",
+      "model": {
+        "modelVersion": "v2.9-market-specific-quality-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 0.83,
+        "lambdaAway": 2.1,
+        "home": 13,
+        "draw": 21.1,
+        "away": 66,
+        "doubleChance": {
+          "homeOrDraw": 34,
+          "awayOrDraw": 87
+        },
+        "over15": 79.8,
+        "over25": 56.1,
+        "recommendedBet": null
+      },
+      "recommendedBet": null,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/"
+      ],
+      "researchedAt": "2026-10-06T05:41:00+02:00",
+      "decision": "NO BET — V2.9 gates not cleared"
+    },
+    {
+      "date": "2026-10-06",
+      "fixtureKey": "2026-10-06|uefa-nations-league|estonia|iceland",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Estonia",
+      "awayTeam": "Iceland",
+      "status": "NO_BET",
+      "model": {
+        "modelVersion": "v2.9-market-specific-quality-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 0.36,
+        "lambdaAway": 0.72,
+        "home": 15.9,
+        "draw": 44.7,
+        "away": 39.4,
+        "doubleChance": {
+          "homeOrDraw": 60.6,
+          "awayOrDraw": 84.1
+        },
+        "over15": 30.2,
+        "over25": 9.6,
+        "recommendedBet": null
+      },
+      "recommendedBet": null,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/"
+      ],
+      "researchedAt": "2026-10-06T05:41:00+02:00",
+      "decision": "NO BET — V2.9 gates not cleared"
+    },
+    {
+      "date": "2026-10-06",
+      "fixtureKey": "2026-10-06|uefa-nations-league|luxembourg|bulgaria",
+      "leagueId": "uefa-nations-league",
+      "homeTeam": "Luxembourg",
+      "awayTeam": "Bulgaria",
+      "status": "NO_BET",
+      "model": {
+        "modelVersion": "v2.9-market-specific-quality-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 1.09,
+        "lambdaAway": 0.62,
+        "home": 45.6,
+        "draw": 34.5,
+        "away": 19.9,
+        "doubleChance": {
+          "homeOrDraw": 80.1,
+          "awayOrDraw": 54.4
+        },
+        "over15": 52.1,
+        "over25": 24.6,
+        "recommendedBet": null
+      },
+      "recommendedBet": null,
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/"
+      ],
+      "researchedAt": "2026-10-06T05:41:00+02:00",
+      "decision": "NO BET — V2.9 gates not cleared"
+    },
+    {
+      "date": "2026-10-06",
+      "fixtureKey": "2026-10-06|international-friendlies|south-korea|uzbekistan",
+      "leagueId": "international-friendlies",
+      "homeTeam": "South Korea",
+      "awayTeam": "Uzbekistan",
+      "status": "NO_BET",
+      "model": {
+        "modelVersion": "v2.9-market-specific-quality-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 1.33,
+        "lambdaAway": 1.28,
+        "home": 36.9,
+        "draw": 28.3,
+        "away": 34.7,
+        "doubleChance": {
+          "homeOrDraw": 65.3,
+          "awayOrDraw": 63.1
+        },
+        "over15": 74.5,
+        "over25": 48.5,
+        "recommendedBet": null
+      },
+      "recommendedBet": null,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06"
+      ],
+      "researchedAt": "2026-10-06T05:41:00+02:00",
+      "decision": "NO BET — V2.9 gates not cleared"
+    },
+    {
+      "date": "2026-10-06",
+      "fixtureKey": "2026-10-06|international-friendlies|china|tajikistan",
+      "leagueId": "international-friendlies",
+      "homeTeam": "China",
+      "awayTeam": "Tajikistan",
+      "status": "NO_BET",
+      "model": {
+        "modelVersion": "v2.9-market-specific-quality-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 1.21,
+        "lambdaAway": 1.28,
+        "home": 33.8,
+        "draw": 29.1,
+        "away": 37.2,
+        "doubleChance": {
+          "homeOrDraw": 62.8,
+          "awayOrDraw": 66.2
+        },
+        "over15": 72.2,
+        "over25": 45.5,
+        "recommendedBet": null
+      },
+      "recommendedBet": null,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06"
+      ],
+      "researchedAt": "2026-10-06T05:41:00+02:00",
+      "decision": "NO BET — V2.9 gates not cleared"
+    },
+    {
+      "date": "2026-10-06",
+      "fixtureKey": "2026-10-06|international-friendlies|india|uruguay",
+      "leagueId": "international-friendlies",
+      "homeTeam": "India",
+      "awayTeam": "Uruguay",
+      "status": "NO_BET",
+      "model": {
+        "modelVersion": "v2.9-market-specific-quality-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 0.7,
+        "lambdaAway": 2.93,
+        "home": 5.6,
+        "draw": 12.5,
+        "away": 81.9,
+        "doubleChance": {
+          "homeOrDraw": 18.1,
+          "awayOrDraw": 94.4
+        },
+        "over15": 88.1,
+        "over25": 70.2,
+        "recommendedBet": null
+      },
+      "recommendedBet": null,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06"
+      ],
+      "researchedAt": "2026-10-06T05:41:00+02:00",
+      "decision": "NO BET — V2.9 gates not cleared"
+    },
+    {
+      "date": "2026-10-06",
+      "fixtureKey": "2026-10-06|international-friendlies|russia|nigeria",
+      "leagueId": "international-friendlies",
+      "homeTeam": "Russia",
+      "awayTeam": "Nigeria",
+      "status": "NO_BET",
+      "model": {
+        "modelVersion": "v2.9-market-specific-quality-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 1.96,
+        "lambdaAway": 0.65,
+        "home": 67.8,
+        "draw": 21.6,
+        "away": 10.6,
+        "doubleChance": {
+          "homeOrDraw": 89.4,
+          "awayOrDraw": 32.2
+        },
+        "over15": 74.2,
+        "over25": 48.4,
+        "recommendedBet": null
+      },
+      "recommendedBet": null,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06"
+      ],
+      "researchedAt": "2026-10-06T05:41:00+02:00",
+      "decision": "NO BET — V2.9 gates not cleared"
+    },
+    {
+      "date": "2026-10-06",
+      "fixtureKey": "2026-10-06|international-friendlies|jordan|venezuela",
+      "leagueId": "international-friendlies",
+      "homeTeam": "Jordan",
+      "awayTeam": "Venezuela",
+      "status": "NO_BET",
+      "model": {
+        "modelVersion": "v2.9-market-specific-quality-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 0.54,
+        "lambdaAway": 1.92,
+        "home": 8.8,
+        "draw": 21.4,
+        "away": 69.7,
+        "doubleChance": {
+          "homeOrDraw": 30.3,
+          "awayOrDraw": 91.2
+        },
+        "over15": 71.1,
+        "over25": 44.5,
+        "recommendedBet": null
+      },
+      "recommendedBet": null,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06"
+      ],
+      "researchedAt": "2026-10-06T05:41:00+02:00",
+      "decision": "NO BET — V2.9 gates not cleared"
+    },
+    {
+      "date": "2026-10-06",
+      "fixtureKey": "2026-10-06|international-friendlies|algeria|niger",
+      "leagueId": "international-friendlies",
+      "homeTeam": "Algeria",
+      "awayTeam": "Niger",
+      "status": "NO_BET",
+      "model": {
+        "modelVersion": "v2.9-market-specific-quality-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 1.65,
+        "lambdaAway": 1.85,
+        "home": 33.9,
+        "draw": 23.6,
+        "away": 42.4,
+        "doubleChance": {
+          "homeOrDraw": 57.6,
+          "awayOrDraw": 66.1
+        },
+        "over15": 87.1,
+        "over25": 67.9,
+        "recommendedBet": null
+      },
+      "recommendedBet": null,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06"
+      ],
+      "researchedAt": "2026-10-06T05:41:00+02:00",
+      "decision": "NO BET — V2.9 gates not cleared"
+    },
+    {
+      "date": "2026-10-06",
+      "fixtureKey": "2026-10-06|international-friendlies|argentina|benin",
+      "leagueId": "international-friendlies",
+      "homeTeam": "Argentina",
+      "awayTeam": "Benin",
+      "status": "NO_BET",
+      "model": {
+        "modelVersion": "v2.9-market-specific-quality-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 2.75,
+        "lambdaAway": 0.62,
+        "home": 81.3,
+        "draw": 13.3,
+        "away": 5.4,
+        "doubleChance": {
+          "homeOrDraw": 94.6,
+          "awayOrDraw": 18.7
+        },
+        "over15": 85.4,
+        "over25": 65.3,
+        "recommendedBet": null
+      },
+      "recommendedBet": null,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06"
+      ],
+      "researchedAt": "2026-10-06T05:41:00+02:00",
+      "decision": "NO BET — V2.9 gates not cleared"
+    },
+    {
+      "date": "2026-10-06",
+      "fixtureKey": "2026-10-06|international-friendlies|colombia|peru",
+      "leagueId": "international-friendlies",
+      "homeTeam": "Colombia",
+      "awayTeam": "Peru",
+      "status": "NO_BET",
+      "model": {
+        "modelVersion": "v2.9-market-specific-quality-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 0.66,
+        "lambdaAway": 0.46,
+        "home": 34.1,
+        "draw": 45,
+        "away": 21,
+        "doubleChance": {
+          "homeOrDraw": 79,
+          "awayOrDraw": 65.9
+        },
+        "over15": 31.5,
+        "over25": 10.3,
+        "recommendedBet": null
+      },
+      "recommendedBet": null,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06"
+      ],
+      "researchedAt": "2026-10-06T05:41:00+02:00",
+      "decision": "NO BET — V2.9 gates not cleared"
+    },
+    {
+      "date": "2026-10-06",
+      "fixtureKey": "2026-10-06|international-friendlies|usa|canada",
+      "leagueId": "international-friendlies",
+      "homeTeam": "USA",
+      "awayTeam": "Canada",
+      "status": "NO_BET",
+      "model": {
+        "modelVersion": "v2.9-market-specific-quality-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 1.61,
+        "lambdaAway": 1.25,
+        "home": 44.7,
+        "draw": 26.4,
+        "away": 28.9,
+        "doubleChance": {
+          "homeOrDraw": 71.1,
+          "awayOrDraw": 55.3
+        },
+        "over15": 78.8,
+        "over25": 54.4,
+        "recommendedBet": null
+      },
+      "recommendedBet": null,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06"
+      ],
+      "researchedAt": "2026-10-06T05:41:00+02:00",
+      "decision": "NO BET — V2.9 gates not cleared"
+    },
+    {
+      "date": "2026-10-06",
+      "fixtureKey": "2026-10-06|bra-serie-b|sport-recife|sao-bernardo",
+      "leagueId": "bra-serie-b",
+      "homeTeam": "Sport Recife",
+      "awayTeam": "São Bernardo",
+      "status": "NO_BET",
+      "model": {
+        "modelVersion": "v2.9-market-specific-quality-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 0.53,
+        "lambdaAway": 1.8,
+        "home": 9.6,
+        "draw": 22.9,
+        "away": 67.5,
+        "doubleChance": {
+          "homeOrDraw": 32.5,
+          "awayOrDraw": 90.4
+        },
+        "over15": 68.5,
+        "over25": 41.4,
+        "recommendedBet": null
+      },
+      "recommendedBet": null,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06"
+      ],
+      "researchedAt": "2026-10-06T05:41:00+02:00",
+      "decision": "NO BET — V2.9 gates not cleared"
+    },
+    {
+      "date": "2026-10-06",
+      "fixtureKey": "2026-10-06|bra-serie-b|goias|athletic-club",
+      "leagueId": "bra-serie-b",
+      "homeTeam": "Goiás",
+      "awayTeam": "Athletic Club",
+      "status": "NO_BET",
+      "model": {
+        "modelVersion": "v2.9-market-specific-quality-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 0.86,
+        "lambdaAway": 1.45,
+        "home": 21.4,
+        "draw": 28.7,
+        "away": 49.9,
+        "doubleChance": {
+          "homeOrDraw": 50.1,
+          "awayOrDraw": 78.6
+        },
+        "over15": 68.2,
+        "over25": 40.8,
+        "recommendedBet": null
+      },
+      "recommendedBet": null,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06"
+      ],
+      "researchedAt": "2026-10-06T05:41:00+02:00",
+      "decision": "NO BET — V2.9 gates not cleared"
+    },
+    {
+      "date": "2026-10-06",
+      "fixtureKey": "2026-10-06|bra-serie-b|ponte-preta|juventude",
+      "leagueId": "bra-serie-b",
+      "homeTeam": "Ponte Preta",
+      "awayTeam": "Juventude",
+      "status": "NO_BET",
+      "model": {
+        "modelVersion": "v2.9-market-specific-quality-selector",
+        "modelLevel": "basic",
+        "confidence": "low",
+        "lambdaHome": 0.27,
+        "lambdaAway": 3.06,
+        "home": 1.4,
+        "draw": 7.8,
+        "away": 90.8,
+        "doubleChance": {
+          "homeOrDraw": 9.2,
+          "awayOrDraw": 98.6
+        },
+        "over15": 84.7,
+        "over25": 64.6,
+        "recommendedBet": null
+      },
+      "recommendedBet": null,
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06"
+      ],
+      "researchedAt": "2026-10-06T05:41:00+02:00",
+      "decision": "NO BET — V2.9 gates not cleared"
+    },
+    {
+      "date": "2026-10-06",
+      "fixtureKey": "2026-10-06|international-friendlies|mexico|chile",
+      "leagueId": "international-friendlies",
+      "homeTeam": "Mexico",
+      "awayTeam": "Chile",
+      "status": "NO_MODEL",
+      "noModelReason": "Reliable recent scoring/conceding evidence for both teams remained inconsistent after Full -> Standard -> Basic fallback; no values invented.",
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://futnsoccer.com/2026/10/04/where-to-watch-mexico-vs-chile/"
+      ],
+      "researchedAt": "2026-10-06T05:41:00+02:00"
+    }
+  ],
+  "metrics": {
+    "configuredLeagues": 61,
+    "leaguesComplete": 61,
+    "fixturesDiscovered": 23,
+    "fixturesProcessed": 23,
+    "modelled": 22,
+    "noModel": 1,
+    "recommendedBets": 1,
+    "noBet": 21
+  },
+  "pipelineManifest": {
+    "load-contract": {
+      "status": "complete",
+      "evidence": "Persisted/audited"
+    },
+    "freeze-contract-hash": {
+      "status": "complete",
+      "evidence": "Persisted/audited"
+    },
+    "preflight": {
+      "status": "complete",
+      "evidence": "Persisted/audited"
+    },
+    "resolve-run-and-resume": {
+      "status": "complete",
+      "evidence": "Persisted/audited"
+    },
+    "reconcile-results": {
+      "status": "complete",
+      "evidence": "Prior-day results verification attempted; non-blocking reconciliation persistence deferred."
+    },
+    "freeze-registry": {
+      "status": "complete",
+      "evidence": "Persisted/audited"
+    },
+    "worldwide-discovery": {
+      "status": "complete",
+      "evidence": "Persisted/audited"
+    },
+    "normalize-and-map": {
+      "status": "complete",
+      "evidence": "Persisted/audited"
+    },
+    "persist-discovery": {
+      "status": "complete",
+      "evidence": "Persisted/audited"
+    },
+    "verify-prematch": {
+      "status": "complete",
+      "evidence": "Persisted/audited"
+    },
+    "research": {
+      "status": "complete",
+      "evidence": "Persisted/audited"
+    },
+    "calculate-primary-and-support-signals": {
+      "status": "complete",
+      "evidence": "Persisted/audited"
+    },
+    "calibrate-risk-and-select-one-or-no-bet": {
+      "status": "complete",
+      "evidence": "Persisted/audited"
+    },
+    "freeze-output": {
+      "status": "complete",
+      "evidence": "Persisted/audited"
+    },
+    "complete-all-checkpoints": {
+      "status": "complete",
+      "evidence": "Persisted/audited"
+    },
+    "validate": {
+      "status": "complete",
+      "evidence": "Persisted/audited"
+    }
+  },
+  "publication": {
+    "status": "pending"
+  },
+  "current": {
+    "date": "2026-10-06",
+    "stage": "validate"
+  },
+  "coverageGaps": [],
+  "executionAudit": {
+    "discovery": "Two independent global date indexes plus UEFA official verification; venue-date normalization applied.",
+    "research": "Full -> Standard -> Basic; missing evidence never zeroed.",
+    "model": "Locked V2.9 source read from lib/model.ts; deterministic outputs frozen from researched inputs."
+  },
+  "blocker": null,
+  "resumeAction": "npm run run:finalize -- data/runs/2026-10-06_0545_v2.9.json"
+}
