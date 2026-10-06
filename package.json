@@ -29,7 +29,8 @@
     "predictions:publish-from-run": "tsx scripts/publish-from-run.ts",
     "daily:controller": "tsx scripts/daily-controller.ts",
     "daily:execute": "tsx scripts/daily-execute.ts",
-    "fixtures:ingest": "tsx scripts/ingest-daily-fixtures.ts"
+    "fixtures:ingest": "tsx scripts/ingest-daily-fixtures.ts",
+    "news:ingest": "tsx scripts/ingest-daily-news.ts"
   },
   "dependencies": {
     "next": "15.5.7",
