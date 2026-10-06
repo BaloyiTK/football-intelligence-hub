@@ -25,7 +25,7 @@ export default async function Home({searchParams}:{searchParams:Promise<{date?:s
    <div className="metrics">
     <article><small>Selections</small><b>{matches.length}</b><span>published picks</span></article>
     <article><small>Strong + Elite</small><b>{rated("Strong")+rated("Elite")}</b><span>{rated("Elite")} elite</span></article>
-    <article><small>{rr?"Win rate":"Leagues scanned"}</small><b>{rr?rr.winRate+"%":predictions.scan?.leagueEntriesChecked??0}</b><span>{rr?((rr.wins??0)+"W · "+(rr.losses??0)+"L"):"worldwide coverage"}</span></article>
+    <article><small>{rr?"Win rate":"Leagues scanned"}</small><b>{rr?rr.winRate+"%":predictions.scan?.leaguesComplete??predictions.scan?.leagueEntriesChecked??predictions.scan?.configuredLeagues??predictions.scan?.totalLeagueEntries??0}</b><span>{rr?((rr.wins??0)+"W · "+(rr.losses??0)+"L"):"worldwide coverage"}</span></article>
    </div>
    <div className="dateRail">{available.slice(0,7).map(d=><Link className={d===selected?"active":""} key={d} href={"/?date="+d}>{new Intl.DateTimeFormat("en-ZA",{day:"2-digit",month:"short",timeZone:"Africa/Johannesburg"}).format(new Date(d+"T12:00:00+02:00"))}</Link>)}</div>
    <div className="sectionTitle"><div><p className="kicker">{past?"HISTORICAL RESULTS":"VERIFIED PICKS"}</p><h2>{past?"How the model performed":"Today's 1X2 edge"}</h2></div><span>{matches.length} matches</span></div>
