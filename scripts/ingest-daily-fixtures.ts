@@ -4,7 +4,7 @@ import path from "node:path";
 const date = process.argv[2];
 const force = process.argv.includes("--force");
 if (!date || !/^\d{4}-\d{2}-\d{2}$/.test(date)) {
-  throw new Error("Usage: npm run fixtures:ingest -- YYYY-MM-DD [--force]");
+  throw new Error("Usage: npm run fixtures:ingest -- YYYY-MM-DD");
 }
 
 const outputDir = path.join(process.cwd(), "data", "fixture-snapshots");
@@ -46,7 +46,7 @@ const stages = Array.isArray(payload?.Stages) ? payload.Stages : [];
 fs.mkdirSync(outputDir, { recursive: true });
 
 const snapshot = {
-  schema: "fih-livescore-daily-snapshot-v1",
+  schema: "fih-livescore-daily-snapshot-v1",\n  fetchPolicy: "HARD LIMIT: maximum one LiveScore fixture API fetch per SAST calendar date; all reruns must reuse this snapshot.",
   date,
   timezone: "Africa/Johannesburg",
   provider: "LiveScore via RapidAPI",
