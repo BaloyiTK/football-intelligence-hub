@@ -1,0 +1,85 @@
+{
+  "schema": "fih-backtest-research-checkpoint-v1",
+  "date": "2026-10-03",
+  "cutoff": "2026-10-03T06:00:00+02:00",
+  "model": "FIH-V2-RESEARCH",
+  "evaluationMode": "PROBABILITY_ACCURACY_AND_EVIDENCE_COVERAGE",
+  "status": "INCOMPLETE",
+  "eligibleFixtureCount": 687,
+  "fixtureSearchesAttempted": 4,
+  "researchRecordsComplete": 0,
+  "modelAssessmentsFrozen": 0,
+  "evaluationsComplete": 0,
+  "sourcesReviewed": [
+    {
+      "fixtureId": "1738301",
+      "home": "Croatia",
+      "away": "England",
+      "sources": [
+        {
+          "url": "https://www.rotowire.com/soccer/article/croatia-vs-england-prediction-predicted-lineups-team-news-137973",
+          "publication": "2026-10-02 10:07AM EST",
+          "review": "Pre-cutoff preview supports context and two recent Nations League results; insufficient individually dated recent overall/venue records for both teams. No source prediction used as FIH output."
+        },
+        {
+          "url": "https://www.sportsgambler.com/betting-tips/football/croatia-vs-england-prediction-lineups-odds-2026-10-03/",
+          "review": "REJECTED model input: updated after cutoff; live group table includes four games and confirmed lineups. Original publication alone does not prove the current page contents existed at cutoff."
+        }
+      ]
+    },
+    {
+      "fixtureId": "1738303",
+      "home": "Spain",
+      "away": "Czechia",
+      "sources": [
+        {
+          "url": "https://www.sofascore.com/news/spain-vs-czechia-nations-league-preview-form-guide-odds-and-players-to-watch",
+          "review": "Search candidate dated October 3 without verified time; not accepted as 06:00 evidence."
+        }
+      ]
+    },
+    {
+      "fixtureId": "1738260",
+      "home": "North Macedonia",
+      "away": "Scotland",
+      "sources": [
+        {
+          "url": "https://www.scottishfa.co.uk/en/news/north-macedonia-next-opponents-for-scotland-in-uefa-nations-league",
+          "publication": "2026-10-01",
+          "review": "Official dated article supports pre-match context, previous meetings and Scotland's recent goalless draw. Later related-content links excluded. Full last-five individual match records remain unverified."
+        },
+        {
+          "url": "https://footballwhispers.com/blog/north-macedonia-vs-scotland-prediction-03-10-2026/",
+          "review": "REJECTED model input: opened page says Updated October 3 with no verified time, despite search snippet previously suggesting October 1. Aggregate form cannot be expanded into invented individual match records."
+        },
+        {
+          "url": "https://www.sportsmole.co.uk/football/macedonia/uefa-nations-league/preview/n-macedonia-vs-scotland-prediction-team-news-lineups_606086.html",
+          "review": "Current page updated October 4 and contains actual target result. Not accepted as an immutable historical research snapshot."
+        }
+      ]
+    },
+    {
+      "fixtureId": "1738261",
+      "home": "Switzerland",
+      "away": "Slovenia",
+      "sources": [
+        {
+          "url": "https://www.sportsmole.co.uk/football/switzerland/uefa-nations-league/preview/switzerland-vs-slovenia-prediction-team-news-lineups_606081.html",
+          "publication": "2026-10-01 17:21",
+          "review": "Dated preview supports pre-match context and availability. Need independent dated match records for overall and venue form; page's own prediction excluded."
+        },
+        {
+          "url": "https://footballwhispers.com/blog/switzerland-vs-slovenia-prediction-03-10-2026/",
+          "review": "REJECTED model input: opened page says Updated October 3 without time, conflicting with earlier search metadata. Current historical availability cannot be established."
+        }
+      ]
+    }
+  ],
+  "nextStage": "Continue October 3 fixture-specific research, including unresolved fields for the four reviewed fixtures. Do not treat search attempts as completed research.",
+  "integrity": {
+    "actualResultsNotUsedAsModelInput": true,
+    "noSyntheticIndividualFormRecords": true,
+    "noBettingHitRateOrROI": true,
+    "noCompletionClaim": true
+  }
+}
