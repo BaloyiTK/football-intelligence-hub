@@ -12,8 +12,8 @@ const terminalSourceAttempts:Record<string,string[]>={
  "mar-botola":["https://footystats.org/morocco/botola-pro/datasets","https://www.worldfootball.net/"],
  "tun-ligue-1":["https://footystats.org/tunisia/ligue-1/datasets","https://www.worldfootball.net/"]
 };
-type CompetitionType="club"|"international"|"friendly";
-type Row={division:string;leagueId:string;date:string;home:string;away:string;hg:number;ag:number;source:string;season?:string;seasonMode:"calendar"|"europe";competitionType:CompetitionType;international?:boolean};
+export type CompetitionType="club"|"international"|"friendly";
+export type Row={division:string;leagueId:string;date:string;home:string;away:string;hg:number;ag:number;source:string;season?:string;seasonMode:"calendar"|"europe";competitionType:CompetitionType;international?:boolean};
 
 const primary:Record<string,string>={
  E0:"eng-premier-league",E1:"eng-championship",E2:"eng-league-one",E3:"eng-league-two",
@@ -128,7 +128,7 @@ function addFbref(html:string,ad:typeof fbref[number],source:string):Row[]{
  for(const m of html.matchAll(/<tr[^>]*>([\s\S]*?)<\/tr>/gi)){const tr=m[1];const cell=(stat:string)=>{const rx=new RegExp(`<(?:th|td)[^>]*data-stat=["']${stat}["'][^>]*>([\\s\\S]*?)<\\/(?:th|td)>`,"i");const z=tr.match(rx);return z?decode(z[1]):""};const date=cell("date"),home=cell("home_team"),away=cell("away_team"),score=cell("score");const sm=score.match(/(\d+)\s*[–-]\s*(\d+)/);if(!date||!home||!away||!sm)continue;out.push({division:ad.key,leagueId:ad.leagueId,date,home,away,hg:Number(sm[1]),ag:Number(sm[2]),source,seasonMode:ad.seasonMode,competitionType:ad.competitionType,international:ad.competitionType!=="club"})}
  return out
 }
-async function loadRows(){
+export async function loadRows(){
  const rows:Row[]=[];
  for(const [division,leagueId] of Object.entries(primary))for(const season of ["2526","2627"]){const url=`https://www.football-data.co.uk/mmz4281/${season}/${division}.csv`;try{rows.push(...addCsv(await get(url),{division,leagueId,source:url,seasonMode:"europe"}))}catch(e){console.warn("primary",String(e))}}
  for(const x of extraPages){try{const pageUrl="https://www.football-data.co.uk/"+x.page,html=await get(pageUrl),hrefs=[...html.matchAll(/href=["']([^"']+\.csv(?:\?[^"']*)?)["']/gi)].map(m=>m[1]);for(const href of [...new Set(hrefs)]){const url=new URL(href,pageUrl).href;try{rows.push(...addCsv(await get(url),{division:x.key,leagueId:x.leagueId,source:url,seasonMode:x.seasonMode}))}catch(e){console.warn("extra csv",String(e))}}}catch(e){console.warn("extra page",x.page,String(e))}}
@@ -142,7 +142,7 @@ async function loadRows(){
  const uniq=new Map<string,Row>();for(const r of rows){const k=[r.leagueId,r.date,r.home,r.away].join("|");if(!uniq.has(k))uniq.set(k,r)}return [...uniq.values()].sort((a,b)=>a.date.localeCompare(b.date))
 }
 const avg=(a:{gf:number;ga:number}[],k:"gf"|"ga")=>a.reduce((s,x)=>s+x[k],0)/a.length;
-function buildInput(rows:Row[],i:number):ModelInput|null{
+export function buildInput(rows:Row[],i:number):ModelInput|null{
  const f=rows[i],allPrior=rows.slice(0,i).filter(r=>r.date<f.date);
  const compPrior=allPrior.filter(r=>r.division===f.division),baseline=compPrior.filter(r=>seasonKey(r)===seasonKey(f));if(!baseline.length)return null;
  const leagueHomeGoals=baseline.reduce((s,r)=>s+r.hg,0)/baseline.length,leagueAwayGoals=baseline.reduce((s,r)=>s+r.ag,0)/baseline.length;if(!(leagueHomeGoals>0&&leagueAwayGoals>0))return null;
@@ -269,4 +269,6 @@ async function main(){
  const report={status:"complete",modelVersion:MODEL_VERSION,range:{start:FROM,end:TO},researchMethod:"fresh historical web reconstruction; V2.9 fixture modelling and exact pre-kickoff odds resolution performed in one processing pipeline before grading",oddsMethod:{source:"football-predictions.ai historical pages",upstream:"API-Football bookmaker snapshot",exactMarketsOnly:true,missingOddsPolicy:"NO ODDS; excluded from ROI",note:"Historical odds are resolved as each eligible fixture is processed. Average-market ROI uses arithmetic mean across verified bookmaker prices. Best-available ROI assumes line shopping. Bet365 ROI uses only fixtures with a verified Bet365 exact-market price."},sourceScope:{configuredLeagueCount:configured.length,webModelledLeagueCount:leagueIds.length,webModelledLeagueIds:leagueIds,verifiedZeroFixtureLeagueIds,terminalNoModelLeagueIds,note:"All 61 configured leagues are terminal: web-modelled, verified zero-fixture, or NO MODEL only after explicit historical web-source attempts."},leagueScan,fixtures,aggregateMetrics:{webFixturesInRange:inRange.length,modelledFixtures:modelled,noModel,noBet,recommendedBets:fixtures.length,wins,losses,hitRate:fixtures.length?+(100*wins/fixtures.length).toFixed(1):null,byPick:group(x=>x.recommendedBet.pick),byLeague:group(x=>x.leagueId),byRating:group(x=>x.recommendedBet.rating)},oddsMetrics:{verifiedOddsBets:verifiedOdds.length,noOdds,coveragePct:fixtures.length?+(100*verifiedOdds.length/fixtures.length).toFixed(1):null,averageMarketExecution:roiBlock(fixtures,"averageOdds"),bestAvailableExecution:roiBlock(fixtures,"bestOdds"),bet365Execution:roiBlock(fixtures,"bet365Odds"),byPick:[oddsByPick("1X"),oddsByPick("Over 1.5")]},generatedAt:new Date().toISOString()};
  const out=path.join(process.cwd(),"data/backtests/"+FROM+"_to_"+TO+".json");fs.writeFileSync(out,JSON.stringify(report,null,2)+"\n");console.log(JSON.stringify({scope:report.sourceScope,metrics:report.aggregateMetrics,odds:report.oddsMetrics},null,2))
 }
-main().catch(e=>{console.error(e);process.exit(1)});
+if (process.argv[1]?.replace(/\\/g,"/").endsWith("/web-historical-backtest.ts")) {
+ main().catch(e=>{console.error(e);process.exit(1)});
+}
