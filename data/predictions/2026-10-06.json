@@ -36,7 +36,122 @@
         "TNT Sports: Saint-Martin vs Bahamas statistics, 2026-10-06",
         "11v11: Saint Martin international match record",
         "FotMob: Saint Martin vs Bahamas recent results"
-      ]
+      ],
+      "websiteData": {
+        "homeLast5Overall": [
+          {
+            "date": "2026-10-01",
+            "competition": "CONCACAF Nations League",
+            "home": "US Virgin Islands",
+            "away": "Saint Martin",
+            "homeGoals": 0,
+            "awayGoals": 5,
+            "resultForTeam": "W"
+          },
+          {
+            "date": "2026-09-26",
+            "competition": "CONCACAF Nations League",
+            "home": "Saint Martin",
+            "away": "US Virgin Islands",
+            "homeGoals": 0,
+            "awayGoals": 2,
+            "resultForTeam": "L"
+          },
+          {
+            "date": "2026-09-23",
+            "competition": "CONCACAF Nations League",
+            "home": "Bahamas",
+            "away": "Saint Martin",
+            "homeGoals": 0,
+            "awayGoals": 8,
+            "resultForTeam": "W"
+          },
+          {
+            "date": "2026-03-30",
+            "competition": "CONCACAF Series",
+            "home": "Bonaire",
+            "away": "Saint Martin",
+            "homeGoals": 0,
+            "awayGoals": 3,
+            "resultForTeam": "W"
+          },
+          {
+            "date": "2026-03-26",
+            "competition": "CONCACAF Series",
+            "home": "Saint Martin",
+            "away": "Barbados",
+            "homeGoals": 3,
+            "awayGoals": 1,
+            "resultForTeam": "W"
+          }
+        ],
+        "awayLast5Overall": [
+          {
+            "date": "2026-10-04",
+            "competition": "CONCACAF Nations League",
+            "home": "Bahamas",
+            "away": "US Virgin Islands",
+            "homeGoals": 2,
+            "awayGoals": 3,
+            "resultForTeam": "L"
+          },
+          {
+            "date": "2026-09-29",
+            "competition": "CONCACAF Nations League",
+            "home": "US Virgin Islands",
+            "away": "Bahamas",
+            "homeGoals": 3,
+            "awayGoals": 1,
+            "resultForTeam": "L"
+          },
+          {
+            "date": "2026-09-23",
+            "competition": "CONCACAF Nations League",
+            "home": "Bahamas",
+            "away": "Saint Martin",
+            "homeGoals": 0,
+            "awayGoals": 8,
+            "resultForTeam": "L"
+          },
+          {
+            "date": "2026-03-30",
+            "competition": "International Friendly",
+            "home": "Cayman Islands",
+            "away": "Bahamas",
+            "homeGoals": 1,
+            "awayGoals": 0,
+            "resultForTeam": "L"
+          },
+          {
+            "date": "2026-03-26",
+            "competition": "International Friendly",
+            "home": "Bahamas",
+            "away": "Anguilla",
+            "homeGoals": 1,
+            "awayGoals": 3,
+            "resultForTeam": "L"
+          }
+        ],
+        "last5H2H": [
+          {
+            "date": "2026-09-23",
+            "competition": "CONCACAF Nations League",
+            "home": "Bahamas",
+            "away": "Saint Martin",
+            "homeGoals": 0,
+            "awayGoals": 8
+          },
+          {
+            "date": "2022-03-26",
+            "competition": "International Friendly",
+            "home": "Saint Martin",
+            "away": "Bahamas",
+            "homeGoals": 2,
+            "awayGoals": 0
+          }
+        ],
+        "h2hAvailable": 2
+      }
     },
     {
       "fixtureId": "1856603",
@@ -59,7 +174,114 @@
         "Concacaf: Group D wins, 2026-09-27",
         "Concacaf: straight wins in Group D, 2026-09-30",
         "Eurosport: Saint Vincent and the Grenadines vs Sint Maarten group table"
-      ]
+      ],
+      "websiteData": {
+        "homeLast5Overall": [
+          {
+            "date": "2026-10-03",
+            "competition": "CONCACAF Nations League",
+            "home": "Sint Maarten",
+            "away": "Saint Vincent and the Grenadines",
+            "homeGoals": 2,
+            "awayGoals": 4,
+            "resultForTeam": "W"
+          },
+          {
+            "date": "2026-09-30",
+            "competition": "CONCACAF Nations League",
+            "home": "Belize",
+            "away": "Saint Vincent and the Grenadines",
+            "homeGoals": 0,
+            "awayGoals": 1,
+            "resultForTeam": "W"
+          },
+          {
+            "date": "2026-09-26",
+            "competition": "CONCACAF Nations League",
+            "home": "Saint Vincent and the Grenadines",
+            "away": "French Guiana",
+            "homeGoals": 2,
+            "awayGoals": 1,
+            "resultForTeam": "W"
+          },
+          {
+            "date": "2026-03-29",
+            "competition": "CONCACAF Series",
+            "home": "Barbados",
+            "away": "Saint Vincent and the Grenadines",
+            "homeGoals": 2,
+            "awayGoals": 3,
+            "resultForTeam": "W"
+          },
+          {
+            "date": "2026-03-27",
+            "competition": "CONCACAF Series",
+            "home": "Bonaire",
+            "away": "Saint Vincent and the Grenadines",
+            "homeGoals": 3,
+            "awayGoals": 1,
+            "resultForTeam": "L"
+          }
+        ],
+        "awayLast5Overall": [
+          {
+            "date": "2026-10-03",
+            "competition": "CONCACAF Nations League",
+            "home": "Sint Maarten",
+            "away": "Saint Vincent and the Grenadines",
+            "homeGoals": 2,
+            "awayGoals": 4,
+            "resultForTeam": "L"
+          },
+          {
+            "date": "2026-09-29",
+            "competition": "CONCACAF Nations League",
+            "home": "French Guiana",
+            "away": "Sint Maarten",
+            "homeGoals": 1,
+            "awayGoals": 0,
+            "resultForTeam": "L"
+          },
+          {
+            "date": "2026-09-27",
+            "competition": "CONCACAF Nations League",
+            "home": "Sint Maarten",
+            "away": "Belize",
+            "homeGoals": 0,
+            "awayGoals": 1,
+            "resultForTeam": "L"
+          },
+          {
+            "date": "2026-03-31",
+            "competition": "International Friendly",
+            "home": "Dominica",
+            "away": "Sint Maarten",
+            "homeGoals": 0,
+            "awayGoals": 0,
+            "resultForTeam": "D"
+          },
+          {
+            "date": "2026-03-28",
+            "competition": "CONCACAF Series",
+            "home": "Belize",
+            "away": "Sint Maarten",
+            "homeGoals": 2,
+            "awayGoals": 3,
+            "resultForTeam": "W"
+          }
+        ],
+        "last5H2H": [
+          {
+            "date": "2026-10-03",
+            "competition": "CONCACAF Nations League",
+            "home": "Sint Maarten",
+            "away": "Saint Vincent and the Grenadines",
+            "homeGoals": 2,
+            "awayGoals": 4
+          }
+        ],
+        "h2hAvailable": 1
+      }
     }
   ],
   "researchedButNotPublished": [
@@ -75,5 +297,14 @@
       "away": "Rubio Nu",
       "reason": "Ameliano have the stronger table position and H2H, but recent draw-heavy form and incomplete xG/squad evidence made the strongest market insufficiently clear for this test."
     }
-  ]
+  ],
+  "storageTest": {
+    "requiredWebsiteFields": [
+      "homeLast5Overall",
+      "awayLast5Overall",
+      "last5H2H"
+    ],
+    "rule": "Store up to 5 verified records. Never pad missing H2H history.",
+    "tested": true
+  }
 }
