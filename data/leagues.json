@@ -1,8 +1,1700 @@
 {
-  "version": 2,
-  "purpose": "Expandable worldwide senior football competition registry for autonomous fixture discovery, research and modelling",
-  "updated": "2026-10-05",
+  "version": 3,
+  "purpose": "Global senior-football discovery registry covering all 211 FIFA member associations",
+  "updated": "2026-10-06",
+  "registryType": "fifa-member-association-discovery-scopes",
+  "associationCount": 211,
   "leagues": [
+    {
+      "id": "assoc-afghanistan",
+      "country": "Afghanistan",
+      "name": "Afghanistan senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-albania",
+      "country": "Albania",
+      "name": "Albania senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-algeria",
+      "country": "Algeria",
+      "name": "Algeria senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-american-samoa",
+      "country": "American Samoa",
+      "name": "American Samoa senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-andorra",
+      "country": "Andorra",
+      "name": "Andorra senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-angola",
+      "country": "Angola",
+      "name": "Angola senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-anguilla",
+      "country": "Anguilla",
+      "name": "Anguilla senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-antigua-and-barbuda",
+      "country": "Antigua and Barbuda",
+      "name": "Antigua and Barbuda senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-argentina",
+      "country": "Argentina",
+      "name": "Argentina senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-armenia",
+      "country": "Armenia",
+      "name": "Armenia senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-aruba",
+      "country": "Aruba",
+      "name": "Aruba senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-australia",
+      "country": "Australia",
+      "name": "Australia senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-austria",
+      "country": "Austria",
+      "name": "Austria senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-azerbaijan",
+      "country": "Azerbaijan",
+      "name": "Azerbaijan senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-bahamas",
+      "country": "Bahamas",
+      "name": "Bahamas senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-bahrain",
+      "country": "Bahrain",
+      "name": "Bahrain senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-bangladesh",
+      "country": "Bangladesh",
+      "name": "Bangladesh senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-barbados",
+      "country": "Barbados",
+      "name": "Barbados senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-belarus",
+      "country": "Belarus",
+      "name": "Belarus senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-belgium",
+      "country": "Belgium",
+      "name": "Belgium senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-belize",
+      "country": "Belize",
+      "name": "Belize senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-benin",
+      "country": "Benin",
+      "name": "Benin senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-bermuda",
+      "country": "Bermuda",
+      "name": "Bermuda senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-bhutan",
+      "country": "Bhutan",
+      "name": "Bhutan senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-bolivia",
+      "country": "Bolivia",
+      "name": "Bolivia senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-bosnia-and-herzegovina",
+      "country": "Bosnia and Herzegovina",
+      "name": "Bosnia and Herzegovina senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-botswana",
+      "country": "Botswana",
+      "name": "Botswana senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-brazil",
+      "country": "Brazil",
+      "name": "Brazil senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-british-virgin-islands",
+      "country": "British Virgin Islands",
+      "name": "British Virgin Islands senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-brunei-darussalam",
+      "country": "Brunei Darussalam",
+      "name": "Brunei Darussalam senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-bulgaria",
+      "country": "Bulgaria",
+      "name": "Bulgaria senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-burkina-faso",
+      "country": "Burkina Faso",
+      "name": "Burkina Faso senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-burundi",
+      "country": "Burundi",
+      "name": "Burundi senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-cabo-verde",
+      "country": "Cabo Verde",
+      "name": "Cabo Verde senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-cambodia",
+      "country": "Cambodia",
+      "name": "Cambodia senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-cameroon",
+      "country": "Cameroon",
+      "name": "Cameroon senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-canada",
+      "country": "Canada",
+      "name": "Canada senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-cayman-islands",
+      "country": "Cayman Islands",
+      "name": "Cayman Islands senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-central-african-republic",
+      "country": "Central African Republic",
+      "name": "Central African Republic senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-chad",
+      "country": "Chad",
+      "name": "Chad senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-chile",
+      "country": "Chile",
+      "name": "Chile senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-china-pr",
+      "country": "China PR",
+      "name": "China PR senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-chinese-taipei",
+      "country": "Chinese Taipei",
+      "name": "Chinese Taipei senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-colombia",
+      "country": "Colombia",
+      "name": "Colombia senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-comoros",
+      "country": "Comoros",
+      "name": "Comoros senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-congo",
+      "country": "Congo",
+      "name": "Congo senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-congo-dr",
+      "country": "Congo DR",
+      "name": "Congo DR senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-cook-islands",
+      "country": "Cook Islands",
+      "name": "Cook Islands senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-costa-rica",
+      "country": "Costa Rica",
+      "name": "Costa Rica senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-cote-d-ivoire",
+      "country": "Côte d'Ivoire",
+      "name": "Côte d'Ivoire senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-croatia",
+      "country": "Croatia",
+      "name": "Croatia senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-cuba",
+      "country": "Cuba",
+      "name": "Cuba senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-curacao",
+      "country": "Curaçao",
+      "name": "Curaçao senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-cyprus",
+      "country": "Cyprus",
+      "name": "Cyprus senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-czechia",
+      "country": "Czechia",
+      "name": "Czechia senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-denmark",
+      "country": "Denmark",
+      "name": "Denmark senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-djibouti",
+      "country": "Djibouti",
+      "name": "Djibouti senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-dominica",
+      "country": "Dominica",
+      "name": "Dominica senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-dominican-republic",
+      "country": "Dominican Republic",
+      "name": "Dominican Republic senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-dpr-korea",
+      "country": "DPR Korea",
+      "name": "DPR Korea senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-ecuador",
+      "country": "Ecuador",
+      "name": "Ecuador senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-egypt",
+      "country": "Egypt",
+      "name": "Egypt senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-el-salvador",
+      "country": "El Salvador",
+      "name": "El Salvador senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-england",
+      "country": "England",
+      "name": "England senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-equatorial-guinea",
+      "country": "Equatorial Guinea",
+      "name": "Equatorial Guinea senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-eritrea",
+      "country": "Eritrea",
+      "name": "Eritrea senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-estonia",
+      "country": "Estonia",
+      "name": "Estonia senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-eswatini",
+      "country": "Eswatini",
+      "name": "Eswatini senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-ethiopia",
+      "country": "Ethiopia",
+      "name": "Ethiopia senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-faroe-islands",
+      "country": "Faroe Islands",
+      "name": "Faroe Islands senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-fiji",
+      "country": "Fiji",
+      "name": "Fiji senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-finland",
+      "country": "Finland",
+      "name": "Finland senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-france",
+      "country": "France",
+      "name": "France senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-gabon",
+      "country": "Gabon",
+      "name": "Gabon senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-georgia",
+      "country": "Georgia",
+      "name": "Georgia senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-germany",
+      "country": "Germany",
+      "name": "Germany senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-ghana",
+      "country": "Ghana",
+      "name": "Ghana senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-gibraltar",
+      "country": "Gibraltar",
+      "name": "Gibraltar senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-greece",
+      "country": "Greece",
+      "name": "Greece senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-grenada",
+      "country": "Grenada",
+      "name": "Grenada senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-guam",
+      "country": "Guam",
+      "name": "Guam senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-guatemala",
+      "country": "Guatemala",
+      "name": "Guatemala senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-guinea",
+      "country": "Guinea",
+      "name": "Guinea senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-guinea-bissau",
+      "country": "Guinea-Bissau",
+      "name": "Guinea-Bissau senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-guyana",
+      "country": "Guyana",
+      "name": "Guyana senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-haiti",
+      "country": "Haiti",
+      "name": "Haiti senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-honduras",
+      "country": "Honduras",
+      "name": "Honduras senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-hong-kong-china",
+      "country": "Hong Kong, China",
+      "name": "Hong Kong, China senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-hungary",
+      "country": "Hungary",
+      "name": "Hungary senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-iceland",
+      "country": "Iceland",
+      "name": "Iceland senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-india",
+      "country": "India",
+      "name": "India senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-indonesia",
+      "country": "Indonesia",
+      "name": "Indonesia senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-ir-iran",
+      "country": "IR Iran",
+      "name": "IR Iran senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-iraq",
+      "country": "Iraq",
+      "name": "Iraq senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-israel",
+      "country": "Israel",
+      "name": "Israel senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-italy",
+      "country": "Italy",
+      "name": "Italy senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-jamaica",
+      "country": "Jamaica",
+      "name": "Jamaica senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-japan",
+      "country": "Japan",
+      "name": "Japan senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-jordan",
+      "country": "Jordan",
+      "name": "Jordan senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-kazakhstan",
+      "country": "Kazakhstan",
+      "name": "Kazakhstan senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-kenya",
+      "country": "Kenya",
+      "name": "Kenya senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-korea-republic",
+      "country": "Korea Republic",
+      "name": "Korea Republic senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-kosovo",
+      "country": "Kosovo",
+      "name": "Kosovo senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-kuwait",
+      "country": "Kuwait",
+      "name": "Kuwait senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-kyrgyz-republic",
+      "country": "Kyrgyz Republic",
+      "name": "Kyrgyz Republic senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-laos",
+      "country": "Laos",
+      "name": "Laos senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-latvia",
+      "country": "Latvia",
+      "name": "Latvia senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-lebanon",
+      "country": "Lebanon",
+      "name": "Lebanon senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-lesotho",
+      "country": "Lesotho",
+      "name": "Lesotho senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-liberia",
+      "country": "Liberia",
+      "name": "Liberia senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-libya",
+      "country": "Libya",
+      "name": "Libya senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-liechtenstein",
+      "country": "Liechtenstein",
+      "name": "Liechtenstein senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-lithuania",
+      "country": "Lithuania",
+      "name": "Lithuania senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-luxembourg",
+      "country": "Luxembourg",
+      "name": "Luxembourg senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-macau-china",
+      "country": "Macau, China",
+      "name": "Macau, China senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-madagascar",
+      "country": "Madagascar",
+      "name": "Madagascar senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-malawi",
+      "country": "Malawi",
+      "name": "Malawi senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-malaysia",
+      "country": "Malaysia",
+      "name": "Malaysia senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-maldives",
+      "country": "Maldives",
+      "name": "Maldives senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-mali",
+      "country": "Mali",
+      "name": "Mali senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-malta",
+      "country": "Malta",
+      "name": "Malta senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-mauritania",
+      "country": "Mauritania",
+      "name": "Mauritania senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-mauritius",
+      "country": "Mauritius",
+      "name": "Mauritius senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-mexico",
+      "country": "Mexico",
+      "name": "Mexico senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-moldova",
+      "country": "Moldova",
+      "name": "Moldova senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-mongolia",
+      "country": "Mongolia",
+      "name": "Mongolia senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-montenegro",
+      "country": "Montenegro",
+      "name": "Montenegro senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-montserrat",
+      "country": "Montserrat",
+      "name": "Montserrat senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-morocco",
+      "country": "Morocco",
+      "name": "Morocco senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-mozambique",
+      "country": "Mozambique",
+      "name": "Mozambique senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-myanmar",
+      "country": "Myanmar",
+      "name": "Myanmar senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-namibia",
+      "country": "Namibia",
+      "name": "Namibia senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-nepal",
+      "country": "Nepal",
+      "name": "Nepal senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-netherlands",
+      "country": "Netherlands",
+      "name": "Netherlands senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-new-caledonia",
+      "country": "New Caledonia",
+      "name": "New Caledonia senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-new-zealand",
+      "country": "New Zealand",
+      "name": "New Zealand senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-nicaragua",
+      "country": "Nicaragua",
+      "name": "Nicaragua senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-niger",
+      "country": "Niger",
+      "name": "Niger senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-nigeria",
+      "country": "Nigeria",
+      "name": "Nigeria senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-north-macedonia",
+      "country": "North Macedonia",
+      "name": "North Macedonia senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-northern-ireland",
+      "country": "Northern Ireland",
+      "name": "Northern Ireland senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-norway",
+      "country": "Norway",
+      "name": "Norway senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-oman",
+      "country": "Oman",
+      "name": "Oman senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-pakistan",
+      "country": "Pakistan",
+      "name": "Pakistan senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-palestine",
+      "country": "Palestine",
+      "name": "Palestine senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-panama",
+      "country": "Panama",
+      "name": "Panama senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-papua-new-guinea",
+      "country": "Papua New Guinea",
+      "name": "Papua New Guinea senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-paraguay",
+      "country": "Paraguay",
+      "name": "Paraguay senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-peru",
+      "country": "Peru",
+      "name": "Peru senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-philippines",
+      "country": "Philippines",
+      "name": "Philippines senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-poland",
+      "country": "Poland",
+      "name": "Poland senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-portugal",
+      "country": "Portugal",
+      "name": "Portugal senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-puerto-rico",
+      "country": "Puerto Rico",
+      "name": "Puerto Rico senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-qatar",
+      "country": "Qatar",
+      "name": "Qatar senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-republic-of-ireland",
+      "country": "Republic of Ireland",
+      "name": "Republic of Ireland senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-romania",
+      "country": "Romania",
+      "name": "Romania senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-russia",
+      "country": "Russia",
+      "name": "Russia senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-rwanda",
+      "country": "Rwanda",
+      "name": "Rwanda senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-samoa",
+      "country": "Samoa",
+      "name": "Samoa senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-san-marino",
+      "country": "San Marino",
+      "name": "San Marino senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-sao-tome-and-principe",
+      "country": "São Tomé and Príncipe",
+      "name": "São Tomé and Príncipe senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-saudi-arabia",
+      "country": "Saudi Arabia",
+      "name": "Saudi Arabia senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-scotland",
+      "country": "Scotland",
+      "name": "Scotland senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-senegal",
+      "country": "Senegal",
+      "name": "Senegal senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-serbia",
+      "country": "Serbia",
+      "name": "Serbia senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-seychelles",
+      "country": "Seychelles",
+      "name": "Seychelles senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-sierra-leone",
+      "country": "Sierra Leone",
+      "name": "Sierra Leone senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-singapore",
+      "country": "Singapore",
+      "name": "Singapore senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-slovakia",
+      "country": "Slovakia",
+      "name": "Slovakia senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-slovenia",
+      "country": "Slovenia",
+      "name": "Slovenia senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-solomon-islands",
+      "country": "Solomon Islands",
+      "name": "Solomon Islands senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-somalia",
+      "country": "Somalia",
+      "name": "Somalia senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-south-africa",
+      "country": "South Africa",
+      "name": "South Africa senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-south-sudan",
+      "country": "South Sudan",
+      "name": "South Sudan senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-spain",
+      "country": "Spain",
+      "name": "Spain senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-sri-lanka",
+      "country": "Sri Lanka",
+      "name": "Sri Lanka senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-st-kitts-and-nevis",
+      "country": "St Kitts and Nevis",
+      "name": "St Kitts and Nevis senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-st-lucia",
+      "country": "St Lucia",
+      "name": "St Lucia senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-st-vincent-and-the-grenadines",
+      "country": "St Vincent and the Grenadines",
+      "name": "St Vincent and the Grenadines senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-sudan",
+      "country": "Sudan",
+      "name": "Sudan senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-suriname",
+      "country": "Suriname",
+      "name": "Suriname senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-sweden",
+      "country": "Sweden",
+      "name": "Sweden senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-switzerland",
+      "country": "Switzerland",
+      "name": "Switzerland senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-syria",
+      "country": "Syria",
+      "name": "Syria senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-tahiti",
+      "country": "Tahiti",
+      "name": "Tahiti senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-tajikistan",
+      "country": "Tajikistan",
+      "name": "Tajikistan senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-tanzania",
+      "country": "Tanzania",
+      "name": "Tanzania senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-thailand",
+      "country": "Thailand",
+      "name": "Thailand senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-the-gambia",
+      "country": "The Gambia",
+      "name": "The Gambia senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-timor-leste",
+      "country": "Timor-Leste",
+      "name": "Timor-Leste senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-togo",
+      "country": "Togo",
+      "name": "Togo senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-tonga",
+      "country": "Tonga",
+      "name": "Tonga senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-trinidad-and-tobago",
+      "country": "Trinidad and Tobago",
+      "name": "Trinidad and Tobago senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-tunisia",
+      "country": "Tunisia",
+      "name": "Tunisia senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-turkiye",
+      "country": "Türkiye",
+      "name": "Türkiye senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-turkmenistan",
+      "country": "Turkmenistan",
+      "name": "Turkmenistan senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-turks-and-caicos-islands",
+      "country": "Turks and Caicos Islands",
+      "name": "Turks and Caicos Islands senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-uganda",
+      "country": "Uganda",
+      "name": "Uganda senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-ukraine",
+      "country": "Ukraine",
+      "name": "Ukraine senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-united-arab-emirates",
+      "country": "United Arab Emirates",
+      "name": "United Arab Emirates senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-uruguay",
+      "country": "Uruguay",
+      "name": "Uruguay senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-us-virgin-islands",
+      "country": "US Virgin Islands",
+      "name": "US Virgin Islands senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-usa",
+      "country": "USA",
+      "name": "USA senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-uzbekistan",
+      "country": "Uzbekistan",
+      "name": "Uzbekistan senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-vanuatu",
+      "country": "Vanuatu",
+      "name": "Vanuatu senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-venezuela",
+      "country": "Venezuela",
+      "name": "Venezuela senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-vietnam",
+      "country": "Vietnam",
+      "name": "Vietnam senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-wales",
+      "country": "Wales",
+      "name": "Wales senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-yemen",
+      "country": "Yemen",
+      "name": "Yemen senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-zambia",
+      "country": "Zambia",
+      "name": "Zambia senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    },
+    {
+      "id": "assoc-zimbabwe",
+      "country": "Zimbabwe",
+      "name": "Zimbabwe senior competitions",
+      "tier": 0,
+      "scope": "association",
+      "dynamicCompetitions": true
+    }
+  ],
+  "knownCompetitions": [
     {
       "id": "eng-premier-league",
       "country": "England",
@@ -371,11 +2063,12 @@
     }
   ],
   "coveragePolicy": {
-    "scope": "worldwide-senior",
+    "scope": "all-211-fifa-member-associations-senior-football",
     "dynamic": true,
     "registryIsCeiling": false,
     "include": [
       "verified senior domestic leagues/divisions",
+      "verified senior domestic cups",
       "verified senior continental competitions",
       "verified senior international competitions"
     ],
@@ -390,6 +2083,7 @@
     "separateCategories": [
       "women"
     ],
-    "discoveryRule": "Record legitimate senior competitions found outside this registry as coverage-gap candidates for verification and later inclusion."
+    "discoveryRule": "For every association scope, discover all legitimate senior competitions and fixtures available for the target date. A competition does not need to be pre-listed in knownCompetitions. Model only when required pre-match evidence passes the research and model contracts.",
+    "source": "FIFA member associations"
   }
 }
