@@ -232,3 +232,17 @@ A daily run is not operationally delivered until its prediction artifact is publ
 - Store a daily `results` aggregate with graded, wins, losses and winRate. Win rate is wins / graded recommended bets; exclude NO BET, NO MODEL and unverified/pending results.
 - Historical UI must allow selecting any available archive date and show the frozen prediction beside actual result and WIN/LOSS. Never manufacture an actual result for a fixture that cannot be identity-matched and verified.
 - Publication verification must run for every dated archive, including zero-bet days.
+
+
+## End-to-end daily completion recovery invariant
+A daily execution does not end at research completion, validation, or strict finalization. The active controller MUST continue through dated artifact creation, publication verification, commit to `main`, and exact deployment-SHA verification.
+
+If any publication/write/deployment stage fails:
+1. Classify the failure and preserve all valid frozen run/model state.
+2. Retry transient failures according to `FIH_CONTRACT.json.recoveryPolicy.transientRetry`.
+3. For repository write failures, refetch current repository/head/file state and use another approved GitHub write path when the first path fails. A rejected create/update call is recoverable unless all approved write paths are genuinely unavailable.
+4. Resume from the failed pipeline stage; never restart completed research/model work merely because publication failed.
+5. Re-run the verification belonging to the repaired stage, then continue automatically to the next stage.
+6. Never disable the scheduled daily automation merely because one run has a recoverable technical/publication failure. The next execution must inspect and resume unfinished safe work before creating a duplicate run.
+7. A normal completion response is permitted only after strict finalization, `data/predictions/YYYY-MM-DD.json` creation, prediction verification, commit to `main`, and exact deployed-SHA verification all pass.
+8. If every approved recovery path is exhausted, persist the exact failed stage, attempts and resume action. This is the only technical-blocker exit; model/business rules remain unchanged.
