@@ -307,7 +307,34 @@
     "publication": {
       "neverPublishIncompleteAsFinal": true,
       "partialFrozenBetsMayBeSurfacedAsPartial": true,
-      "exactDeploymentVerificationRequired": true
+      "exactDeploymentVerificationRequired": true,
+      "writeRecoveryOrder": [
+        "retry-primary-repository-write",
+        "refetch-target-and-head-state",
+        "retry-with-current-sha-or-create-file-as-applicable",
+        "use-alternate-approved-github-write-path",
+        "verify-artifact-content-and-count",
+        "commit-to-main",
+        "verify-exact-deployment-sha"
+      ]
+    },
+    "completionController": {
+      "enabled": true,
+      "successRequires": [
+        "strict-finalization",
+        "daily-artifact-written",
+        "publication-verified",
+        "publication-commit-on-main",
+        "exact-deployment-sha-verified"
+      ],
+      "stopAfterValidationForbidden": true,
+      "stopAfterFinalizationForbidden": true,
+      "publicationWriteFailureIsRecoverable": true,
+      "alternateRepositoryWritePathRequired": true,
+      "retryFromFailedStageNotFromStart": true,
+      "neverDisableScheduledAutomationForRecoverableFailure": true,
+      "scheduledNextRunMustResumeUnfinishedPriorPublicationBeforeStartingDuplicate": true,
+      "finalResponseMayClaimCompleteOnlyAfterAllSuccessRequirementsPass": true
     }
   }
 }
