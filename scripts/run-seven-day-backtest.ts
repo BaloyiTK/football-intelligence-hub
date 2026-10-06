@@ -19,3 +19,5 @@ for(const date of dates){const raw=JSON.parse(fs.readFileSync("data/backtest/fix
  const out={schema:"fih-backtest-predictions-v1",date,generatedAt:new Date().toISOString(),integrity:{lookahead:"Only matches from earlier dates in this 7-day window used as model evidence.",model:"UNVALIDATED_BASELINE",historicalMarketOdds:"UNAVAILABLE unless separately verified"},fixtureCount:rows.length,fixtures:rows};fs.mkdirSync("data/backtest/predictions",{recursive:true});fs.writeFileSync("data/backtest/predictions/"+date+".json",JSON.stringify(out)+"\n");
  for(const s of raw.payload?.Stages||[])for(const e of s.Events||[]){const h=e.T1?.[0],a=e.T2?.[0],hg=Number(e.Tr1),ag=Number(e.Tr2);if(!h||!a||!Number.isFinite(hg)||!Number.isFinite(ag))continue;prior.push({date,fixtureId:String(e.Eid||""),competition:s.Cnm||s.CompN||"",country:s.CompCnmt||s.CompD||"",homeId:String(h.ID||""),home:h.Nm,awayId:String(a.ID||""),away:a.Nm,homeGoals:hg,awayGoals:ag})}
 }
+
+// execution trigger 2026-10-06
