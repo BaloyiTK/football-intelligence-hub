@@ -7,7 +7,7 @@
     "to": "2026-10-05",
     "days": 7
   },
-  "status": "COMPLETE_INSUFFICIENT_PREMATCH_HISTORY",
+  "status": "RESEARCH_REQUIRED",
   "rules": {
     "startFrom": "LiveScore daily fixture board for each historical date",
     "lookaheadLeakage": "Use only information that existed before each fixture kickoff.",
@@ -30,7 +30,7 @@
       "date": "2026-09-29",
       "fixtureFile": "data/backtest/fixtures/2026-09-29.json",
       "predictionFile": "data/backtest/predictions/2026-09-29.json",
-      "status": "BACKTEST_PROCESSED",
+      "status": "RESEARCH_REQUIRED",
       "fixtureCount": 168,
       "modelCalculated": 0,
       "insufficientData": 168,
@@ -40,7 +40,7 @@
       "date": "2026-09-30",
       "fixtureFile": "data/backtest/fixtures/2026-09-30.json",
       "predictionFile": "data/backtest/predictions/2026-09-30.json",
-      "status": "BACKTEST_PROCESSED",
+      "status": "RESEARCH_REQUIRED",
       "fixtureCount": 86,
       "modelCalculated": 0,
       "insufficientData": 86,
@@ -50,7 +50,7 @@
       "date": "2026-10-01",
       "fixtureFile": "data/backtest/fixtures/2026-10-01.json",
       "predictionFile": "data/backtest/predictions/2026-10-01.json",
-      "status": "BACKTEST_PROCESSED",
+      "status": "RESEARCH_REQUIRED",
       "fixtureCount": 75,
       "modelCalculated": 0,
       "insufficientData": 75,
@@ -60,7 +60,7 @@
       "date": "2026-10-02",
       "fixtureFile": "data/backtest/fixtures/2026-10-02.json",
       "predictionFile": "data/backtest/predictions/2026-10-02.json",
-      "status": "BACKTEST_PROCESSED",
+      "status": "RESEARCH_REQUIRED",
       "fixtureCount": 171,
       "modelCalculated": 0,
       "insufficientData": 171,
@@ -70,7 +70,7 @@
       "date": "2026-10-03",
       "fixtureFile": "data/backtest/fixtures/2026-10-03.json",
       "predictionFile": "data/backtest/predictions/2026-10-03.json",
-      "status": "BACKTEST_PROCESSED",
+      "status": "RESEARCH_REQUIRED",
       "fixtureCount": 718,
       "modelCalculated": 0,
       "insufficientData": 718,
@@ -80,7 +80,7 @@
       "date": "2026-10-04",
       "fixtureFile": "data/backtest/fixtures/2026-10-04.json",
       "predictionFile": "data/backtest/predictions/2026-10-04.json",
-      "status": "BACKTEST_PROCESSED",
+      "status": "RESEARCH_REQUIRED",
       "fixtureCount": 451,
       "modelCalculated": 0,
       "insufficientData": 451,
@@ -90,7 +90,7 @@
       "date": "2026-10-05",
       "fixtureFile": "data/backtest/fixtures/2026-10-05.json",
       "predictionFile": "data/backtest/predictions/2026-10-05.json",
-      "status": "BACKTEST_PROCESSED",
+      "status": "RESEARCH_REQUIRED",
       "fixtureCount": 78,
       "modelCalculated": 0,
       "insufficientData": 78,
@@ -98,15 +98,13 @@
     }
   ],
   "fixtureCount": 1747,
-  "completedAt": "2026-10-06T20:35:51.719Z",
   "metrics": {
-    "totalFixtures": 1747,
-    "modelCalculated": 0,
-    "insufficientData": 1747,
-    "noBet": 0,
-    "fixturesWithSomePriorInWindowEvidence": 338,
-    "fixturesWithScoredActuals": 1723,
-    "modelEvaluation": "NOT_APPLICABLE",
-    "reason": "The leak-free seven-day window did not provide at least 3 verified prior matches for both teams in any target fixture. No FIH probabilities or bets were fabricated. Historical market odds were unavailable."
+    "status": "NOT_EVALUATED",
+    "reason": "Full FIH backtest reopened at fixture-specific pre-kickoff web research stage."
+  },
+  "previousBaseline": {
+    "commit": "04dd1450b80af91ceb277f1f9690ed7492b1eeeb",
+    "classification": "INVALID_AS_FULL_FIH_BACKTEST",
+    "reason": "Fixture-specific external web research required by FIH_BUILD_STEPS.md was skipped."
   }
 }
