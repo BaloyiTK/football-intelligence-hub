@@ -1,5 +1,7 @@
 # FIH Autonomous Execution Policy
 
+> **Binding contract:** Before applying this policy, read `FIH_EXECUTION_CONTRACT.md`. The contract and this policy jointly govern every FIH run/resumption. A previously authorized full-cycle run remains authorized through intermediate stages and progress updates.
+
 For an explicitly authorized FIH task, recoverable technical failures do not end the task.
 
 ## Mandatory policy preflight
