@@ -1,17 +1,31 @@
 {
   "date": "2026-10-06",
   "timezone": "Africa/Johannesburg",
-  "generatedAt": "2026-10-06T04:04:32.842Z",
+  "runId": "2026-10-06_0545_v2.9",
+  "modelVersion": "v2.9-market-specific-quality-selector",
+  "generatedFrom": "strict-finalized-run",
+  "publishedAt": "2026-10-06T04:07:27.007Z",
+  "scan": {
+    "configuredLeagues": 61,
+    "leaguesComplete": 61,
+    "fixturesDiscovered": 23,
+    "fixturesProcessed": 23,
+    "modelled": 22,
+    "noModel": 1,
+    "recommendedBets": 1
+  },
   "fixtures": [
     {
       "date": "2026-10-06",
       "fixtureKey": "2026-10-06|uefa-nations-league|albania|san-marino",
       "leagueId": "uefa-nations-league",
-      "league": "uefa-nations-league",
       "homeTeam": "Albania",
       "awayTeam": "San Marino",
-      "kickoff": "TBD",
-      "status": "Predicted",
+      "status": "prematch",
+      "sources": [
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/"
+      ],
+      "researchedAt": "2026-10-06T05:41:00+02:00",
       "model": {
         "modelVersion": "v2.9-market-specific-quality-selector",
         "modelLevel": "basic",
@@ -45,39 +59,7 @@
             "minimum": 62
           }
         }
-      },
-      "sources": [
-        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/"
-      ],
-      "researchedAt": "2026-10-06T05:41:00+02:00",
-      "recommendedBet": {
-        "market": "Double Chance",
-        "pick": "1X",
-        "probability": 84.2,
-        "selectionProbability": 84.8,
-        "rawProbability": 96.1,
-        "reliability": 0.873,
-        "rating": "Strong",
-        "selectionStatus": "PUBLISH",
-        "publishable": true,
-        "riskFlags": [],
-        "support": {
-          "market": "1X2",
-          "pick": "Home",
-          "rawProbability": 80.7,
-          "minimum": 62
-        }
       }
     }
-  ],
-  "scan": {
-    "status": "complete",
-    "leagueEntriesChecked": 0,
-    "totalLeagueEntries": 0,
-    "fixturesDiscovered": 23,
-    "fixturesProcessed": 23,
-    "recommendedBets": 1,
-    "modelVersion": "v2.9-market-specific-quality-selector",
-    "sourceRun": "2026-10-06_0545_v2.9"
-  }
+  ]
 }
