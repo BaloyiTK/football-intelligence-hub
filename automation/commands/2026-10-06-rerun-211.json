@@ -1,0 +1,9 @@
+{
+  "command": "verify-publication",
+  "date": "2026-10-06",
+  "requestedBy": "manual",
+  "registryVersion": 3,
+  "expectedScopes": 211,
+  "freshDiscovery": true,
+  "note": "Re-run today's FIH analysis from fresh public-web discovery using all association scopes in data/leagues.json. Do not reuse the earlier 61-entry completion. Apply the current production model and repository contracts, persist the new run, refresh today's published artifact, validate and build."
+}
