@@ -30,7 +30,8 @@
     "daily:controller": "tsx scripts/daily-controller.ts",
     "daily:execute": "tsx scripts/daily-execute.ts",
     "fixtures:ingest": "tsx scripts/ingest-daily-fixtures.ts",
-    "news:ingest": "tsx scripts/ingest-daily-news.ts"
+    "news:ingest": "tsx scripts/ingest-daily-news.ts",
+    "daily:cache": "npm run fixtures:ingest -- && npm run news:ingest --"
   },
   "dependencies": {
     "next": "15.5.7",
