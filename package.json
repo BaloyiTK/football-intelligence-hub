@@ -27,7 +27,8 @@
     "forward:score": "tsx scripts/score-forward-validation.ts",
     "results:reconcile": "tsx scripts/reconcile-results.ts",
     "predictions:publish-from-run": "tsx scripts/publish-from-run.ts",
-    "daily:controller": "tsx scripts/daily-controller.ts"
+    "daily:controller": "tsx scripts/daily-controller.ts",
+    "daily:execute": "tsx scripts/daily-execute.ts"
   },
   "dependencies": {
     "next": "15.5.7",
