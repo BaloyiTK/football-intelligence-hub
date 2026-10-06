@@ -13,6 +13,7 @@ if(!Array.isArray(data.fixtures)) throw new Error("Prediction artifact fixtures 
 const seen=new Set<string>();
 for(const x of data.fixtures as any[]){
   if(!x.fixtureKey||!x.homeTeam||!x.awayTeam) throw new Error("Malformed published fixture identity");
+  if(!x.country||!x.league||!x.kickoff) throw new Error("Published fixture missing required country/league/kickoff metadata: "+x.fixtureKey);
   if(seen.has(x.fixtureKey)) throw new Error("Duplicate published fixtureKey: "+x.fixtureKey);
   seen.add(x.fixtureKey);
   if(x.date&&x.date!==date) throw new Error("Published fixture date mismatch: "+x.fixtureKey);
