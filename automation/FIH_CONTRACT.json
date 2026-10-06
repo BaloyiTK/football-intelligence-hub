@@ -258,11 +258,28 @@
       "daily.results"
     ],
     "mayMutateFrozenPredictionFields": false,
-    "failureBlocksCompletion": false,
+    "failureBlocksCompletion": true,
     "attemptRequiredBeforeNewDailyRun": true,
     "unresolvedResultAction": "persist-pending-with-attempted-sources-and-verification-timestamp",
     "pendingResultsDoNotBlockNewDailyRun": true,
-    "revisitPendingResultsOnFutureRuns": true
+    "revisitPendingResultsOnFutureRuns": true,
+    "completionGate": "previous-published-day-reconciled-or-verified-pending",
+    "requirePreviousPublishedDayBeforeDailyCompletion": true,
+    "requiredTerminalStates": [
+      "graded",
+      "verified-pending"
+    ],
+    "gradedResultRequires": [
+      "verified-final-score",
+      "WIN-LOSS-VOID-grade",
+      "daily-results-aggregate"
+    ],
+    "verifiedPendingRequires": [
+      "verification-attempt",
+      "attempted-sources",
+      "verification-timestamp",
+      "pending-reason"
+    ]
   },
   "recoveryPolicy": {
     "enabled": true,
@@ -321,6 +338,7 @@
     "completionController": {
       "enabled": true,
       "successRequires": [
+        "previous-published-day-reconciled-or-verified-pending",
         "strict-finalization",
         "daily-artifact-written",
         "publication-verified",
