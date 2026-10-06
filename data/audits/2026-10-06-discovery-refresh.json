@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-06",
+  "timezone": "Africa/Johannesburg",
+  "checkedAt": "2026-10-06T06:29:00+02:00",
+  "baseRun": "data/runs/2026-10-06_0545_v2.9.json",
+  "action": "same-day-discovery-refresh",
+  "newConfiguredFixtures": 0,
+  "frozenResearchReused": true,
+  "coverageGapCandidates": [
+    "Norway NM Cupen",
+    "Bolivia Copa de la División Profesional",
+    "Paraguay Division Intermedia",
+    "Peru Segunda División",
+    "Kenya FKF Premier League",
+    "Chile Copa Chile",
+    "Arabian Gulf Cup (Khaleeji 27)",
+    "CAF Africa Cup of Nations Qualification"
+  ],
+  "sources": [
+    "https://www.footballfixtures.org/fixtures/2026-10-06",
+    "https://www.theguardian.com/football/fixtures/2026/Oct/01",
+    "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+    "https://afcontanzaniaguide.com/afcon-2027-qualifiers-fixtures-matchday-1-2/"
+  ],
+  "note": "Coverage gaps are audit candidates only; they were not silently added to the frozen registry and were not auto-modelled."
+}
