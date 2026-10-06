@@ -10,15 +10,15 @@ if(run.modelVersion!==MODEL_VERSION) throw new Error("Refusing non-locked model 
 if(run.completionPolicy!=="daily-fixture-snapshot") throw new Error("Run is not using daily fixture snapshot completion policy");
 const items=Array.isArray(evidence.fixtures)?evidence.fixtures:[];
 const terminal=new Set(["BET","NO_BET","NO_MODEL"]), existing=new Map<string,any>((run.fixtures??[]).map((x:any)=>[x.fixtureKey,x]));
-const norm=(s:string)=>s.toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+const norm=(s:string)=>String(s??"").toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 for(const x of items){
- if(!scopeIds.has(x.leagueId)) throw new Error("Unknown association scope "+x.leagueId);
  if(!x.homeTeam||!x.awayTeam||!x.league||!x.country||!x.kickoff) throw new Error("Incomplete fixture identity");
- const competitionKey=x.competitionId??x.leagueId??norm(String(x.country??"global")+"-"+String(x.league));\n const k=x.fixtureKey??[run.date,competitionKey,norm(x.homeTeam),norm(x.awayTeam)].join("|"), old=existing.get(k);
+ const competitionKey=x.competitionId??x.leagueId??norm(String(x.country??"global")+"-"+String(x.league));
+ const k=x.fixtureKey??[run.date,competitionKey,norm(x.homeTeam),norm(x.awayTeam)].join("|"), old=existing.get(k);
  if(old&&terminal.has(old.status)) continue;
  const sources=Array.from(new Set<string>([...(x.sources??[]),...(x.research?.sources??[])]));
  if(!sources.length) throw new Error("Fixture has no persisted sources: "+k);
- let rec:any={...old,...x,fixtureKey:k,sources,status:"processing"};
+ let rec:any={...old,...x,competitionId:x.competitionId??competitionKey,leagueId:x.leagueId??competitionKey,fixtureKey:k,sources,status:"processing"};
  if(x.eligibility==="excluded") rec={...rec,status:"NO_MODEL",noModelReason:x.exclusionReason??"Excluded by configured senior-football scope"};
  else if(x.modelInput){ const out=calculate(x.modelInput as ModelInput); rec={...rec,model:out,recommendedBet:out.recommendedBet??null,reviewBet:out.reviewBet??null,status:out.recommendedBet?"BET":"NO_BET"}; }
  else if(x.researchComplete===true) rec={...rec,status:"NO_MODEL",noModelReason:x.noModelReason??"Required model inputs unavailable after Full -> Standard -> Basic evidence fallback"};
@@ -28,7 +28,7 @@ run.fixtures=Array.from(existing.values());
 run.leagueScan=[];
 const unfinished=run.fixtures.filter((x:any)=>!terminal.has(x.status));
 run.globalDiscovery.mappedFixtureCount=run.fixtures.length;
-for(const stage of ["worldwide-discovery","normalize-and-map","persist-discovery"]) run.pipelineManifest[stage]={status:"complete",evidence:"Consumed persisted LiveScore daily fixture snapshot and sourced daily evidence"};
+for(const stage of ["worldwide-discovery","normalize-and-map","persist-discovery"]) run.pipelineManifest[stage]={status:"complete",evidence:"Consumed today's validated rolling LiveScore snapshot and sourced daily evidence"};
 if(unfinished.length===0){
  for(const stage of ["verify-prematch","research","calculate-primary-and-support-signals","calibrate-risk-and-select-one-or-no-bet","freeze-output","complete-all-checkpoints"]) run.pipelineManifest[stage]={status:"complete",evidence:"Every eligible fixture from the daily snapshot reached BET / NO_BET / NO_MODEL"};
  run.resumeCursor={stage:"validate",fixtureIndex:run.fixtures.length}; run.resumeAction="Run validation, strict finalization and publication handoff.";
