@@ -1,0 +1,72 @@
+{
+  "schema": "fih-backtest-v1",
+  "createdAt": "2026-10-06",
+  "timezone": "Africa/Johannesburg",
+  "range": {
+    "from": "2026-09-29",
+    "to": "2026-10-05",
+    "days": 7
+  },
+  "status": "READY_FOR_LIVESCORE_INGEST",
+  "rules": {
+    "startFrom": "LiveScore daily fixture board for each historical date",
+    "lookaheadLeakage": "Use only information that existed before each fixture kickoff.",
+    "marketOdds": "Historical pre-match odds only; unavailable stays unavailable.",
+    "actualResults": "Verified final scores only.",
+    "pipeline": [
+      "LiveScore fixtures",
+      "pre-kickoff research data",
+      "FIH probability engine",
+      "FIH fair odds",
+      "historical market odds",
+      "margin-free market probabilities",
+      "decision or NO BET",
+      "actual result",
+      "evaluation"
+    ]
+  },
+  "days": [
+    {
+      "date": "2026-09-29",
+      "fixtureFile": "data/backtest/fixtures/2026-09-29.json",
+      "predictionFile": "data/backtest/predictions/2026-09-29.json",
+      "status": "PENDING"
+    },
+    {
+      "date": "2026-09-30",
+      "fixtureFile": "data/backtest/fixtures/2026-09-30.json",
+      "predictionFile": "data/backtest/predictions/2026-09-30.json",
+      "status": "PENDING"
+    },
+    {
+      "date": "2026-10-01",
+      "fixtureFile": "data/backtest/fixtures/2026-10-01.json",
+      "predictionFile": "data/backtest/predictions/2026-10-01.json",
+      "status": "PENDING"
+    },
+    {
+      "date": "2026-10-02",
+      "fixtureFile": "data/backtest/fixtures/2026-10-02.json",
+      "predictionFile": "data/backtest/predictions/2026-10-02.json",
+      "status": "PENDING"
+    },
+    {
+      "date": "2026-10-03",
+      "fixtureFile": "data/backtest/fixtures/2026-10-03.json",
+      "predictionFile": "data/backtest/predictions/2026-10-03.json",
+      "status": "PENDING"
+    },
+    {
+      "date": "2026-10-04",
+      "fixtureFile": "data/backtest/fixtures/2026-10-04.json",
+      "predictionFile": "data/backtest/predictions/2026-10-04.json",
+      "status": "PENDING"
+    },
+    {
+      "date": "2026-10-05",
+      "fixtureFile": "data/backtest/fixtures/2026-10-05.json",
+      "predictionFile": "data/backtest/predictions/2026-10-05.json",
+      "status": "PENDING"
+    }
+  ]
+}
