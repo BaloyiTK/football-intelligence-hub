@@ -849,10 +849,14 @@
         }
       },
       "sources": [
-        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/"
+        "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures-a/",
+        "https://www.uefa.com/uefanationsleague/match/2047941--albania-vs-san-marino/",
+        "https://www.fsgc.sm/en/game/albania-san-marino/1697",
+        "https://fshf.org/akreditimi/"
       ],
       "researchedAt": "2026-10-06T05:41:00+02:00",
-      "decision": "BET — V2.9 publishable"
+      "decision": "BET — V2.9 publishable",
+      "kickoff": "2026-10-06T20:45:00+02:00"
     },
     {
       "date": "2026-10-06",
