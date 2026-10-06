@@ -49,7 +49,7 @@
     "preflight",
     "resolve-run-and-resume",
     "reconcile-results",
-    "freeze-registry",
+    "fresh-data-gate",
     "worldwide-discovery",
     "normalize-and-map",
     "persist-discovery",
@@ -67,9 +67,10 @@
     "verify-exact-deployment-sha"
   ],
   "discovery": {
-    "minimumIndependentGlobalDateSources": 2,
-    "worldwideSenior": true,
-    "registryIsCoverageFloorNotCeiling": true
+    "dailyUniverse": "LiveScore complete daily soccer board",
+    "source": "data/today_fixture.json",
+    "registryRequired": false,
+    "normalization": "Use provider competition/country/team/kickoff metadata; every eligible senior prematch fixture must reach BET / NO_BET / NO_MODEL."
   },
   "research": {
     "hierarchy": [
@@ -205,7 +206,7 @@
     "exactProductionModelRequired": true,
     "preKickoffFreezeRequired": true,
     "duplicateFixtureIdentityForbidden": true,
-    "allRegistryCheckpointsRequired": true,
+    "allRegistryCheckpointsRequired": false,
     "noBetAndNoModelAreNotPerformanceResults": true,
     "historicalResultVisibleOnlyAfterFreeze": true,
     "supportGateRequiredForSaferMarkets": true,
@@ -233,7 +234,10 @@
       "awayTeam",
       "kickoff"
     ],
-    "missingKickoffBlocksPublication": true
+    "missingKickoffBlocksPublication": true,
+    "dailyLiveScoreSnapshotRequired": true,
+    "dailySnapshotDateMustMatchRunDate": true,
+    "deploymentFailureDoesNotBlockValidatedDailyData": true
   },
   "selfCorrection": {
     "mayChangeExecutionPath": true,
