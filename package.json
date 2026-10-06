@@ -28,7 +28,8 @@
     "results:reconcile": "tsx scripts/reconcile-results.ts",
     "predictions:publish-from-run": "tsx scripts/publish-from-run.ts",
     "daily:controller": "tsx scripts/daily-controller.ts",
-    "daily:execute": "tsx scripts/daily-execute.ts"
+    "daily:execute": "tsx scripts/daily-execute.ts",
+    "fixtures:ingest": "tsx scripts/ingest-daily-fixtures.ts"
   },
   "dependencies": {
     "next": "15.5.7",
