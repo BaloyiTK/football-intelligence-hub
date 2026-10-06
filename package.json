@@ -3,7 +3,8 @@
   "version": "0.1.1",
   "private": true,
   "scripts": {
-    "fixtures:ingest": "tsx scripts/ingest-daily-fixtures.ts"
+    "fixtures:ingest": "tsx scripts/ingest-daily-fixtures.ts",
+    "fixtures:backtest-ingest": "tsx scripts/ingest-backtest-fixtures.ts"
   },
   "dependencies": {},
   "devDependencies": {
