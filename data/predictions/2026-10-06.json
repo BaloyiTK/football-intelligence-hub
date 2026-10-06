@@ -151,7 +151,8 @@
           }
         ],
         "h2hAvailable": 2
-      }
+      },
+      "country": "International"
     },
     {
       "fixtureId": "1856603",
@@ -280,7 +281,8 @@
           }
         ],
         "h2hAvailable": 1
-      }
+      },
+      "country": "International"
     }
   ],
   "researchedButNotPublished": [
@@ -288,25 +290,29 @@
       "fixtureId": "1856587",
       "home": "Montserrat",
       "away": "Turks and Caicos Islands",
-      "reason": "Strong HOME case (Montserrat 3-0-0, 7-0 goals in current group and won first H2H 2-0), but the fresh run did not complete the full required evidence package before publication cutoff; NO BET rather than force."
+      "reason": "Strong HOME case (Montserrat 3-0-0, 7-0 goals in current group and won first H2H 2-0), but the fresh run did not complete the full required evidence package before publication cutoff; NO BET rather than force.",
+      "country": "International"
     },
     {
       "fixtureId": "1876569",
       "home": "Sportivo Ameliano",
       "away": "Rubio Nu",
-      "reason": "Ameliano stronger table position, but recent draw-heavy form and mixed recent H2H make HOME insufficiently clear; no goals market had enough complete evidence."
+      "reason": "Ameliano stronger table position, but recent draw-heavy form and mixed recent H2H make HOME insufficiently clear; no goals market had enough complete evidence.",
+      "country": "Paraguay"
     },
     {
       "fixtureId": "1896810",
       "home": "Club Dr Benjamin Aceval",
       "away": "Independiente CG",
-      "reason": "Insufficient reliable web evidence in the fresh research pass; NO BET."
+      "reason": "Insufficient reliable web evidence in the fresh research pass; NO BET.",
+      "country": "Paraguay"
     },
     {
       "fixtureId": "1896301",
       "home": "Universidad San Martin",
       "away": "Alianza Universidad",
-      "reason": "Insufficient reliable web evidence in the fresh research pass; NO BET."
+      "reason": "Insufficient reliable web evidence in the fresh research pass; NO BET.",
+      "country": "Peru"
     }
   ],
   "storageTest": {
@@ -331,6 +337,9 @@
       "Universidad San Martin vs Alianza Universidad",
       "Saint Vincent and The Grenadines vs Sint Maarten"
     ],
-    "excluded": "Fixtures already finished, live, postponed, or at/past kickoff when the fresh run began."
+    "excluded": "Fixtures already finished, live, postponed, or at/past kickoff when the fresh run began.",
+    "rerunAt": "2026-10-06T20:47:54+02:00",
+    "countryFieldRequired": true,
+    "rerunRule": "Started from data/today_fixture.json. Only fixtures after rerun time remain eligible for fresh pre-match analysis; existing researched selections retain their original pre-match research provenance."
   }
 }
