@@ -1,0 +1,16 @@
+import fs from "node:fs";
+const file=process.argv[2];
+if(!file) throw new Error("Usage: tsx scripts/check-response-gate.ts <run-file>");
+const r=JSON.parse(fs.readFileSync(file,"utf8"));
+const active=new Set(["pending","discovering","processing","recovering","publishing"]);
+const terminalFixture=new Set(["BET","NO_BET","NO_MODEL","WIN","LOSS","VOID"]);
+const scan=Array.isArray(r.leagueScan)?r.leagueScan:[];
+const fixtures=Array.isArray(r.fixtures)?r.fixtures:[];
+const unfinishedScopes=scan.filter((x:any)=>x.status!=="complete");
+const unfinishedFixtures=fixtures.filter((x:any)=>!terminalFixture.has(x.status)&&!terminalFixture.has(x.outcome));
+const isActive=active.has(String(r.status??""))||unfinishedScopes.length>0||unfinishedFixtures.length>0;
+const blocked=r.status==="blocked"&&r.blocker&&r.current;
+const complete=r.status==="complete"&&!unfinishedScopes.length&&!unfinishedFixtures.length;
+const mayFinalRespond=Boolean(complete||blocked);
+console.log(JSON.stringify({file,status:r.status,isActive,unfinishedScopes:unfinishedScopes.length,unfinishedFixtures:unfinishedFixtures.length,mayFinalRespond},null,2));
+if(isActive&&!mayFinalRespond) process.exit(3);
