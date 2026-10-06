@@ -1,0 +1,10 @@
+{
+  "schema": "fih-daily-run-request-v1",
+  "action": "run-today",
+  "date": "2026-10-06",
+  "timezone": "Africa/Johannesburg",
+  "registryMode": "current-dynamic",
+  "replaceOnlyAfterSuccessfulFinalization": true,
+  "requestedBy": "chatgpt",
+  "purpose": "Fresh production rerun using current worldwide association registry"
+}
