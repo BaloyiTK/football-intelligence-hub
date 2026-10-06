@@ -1,0 +1,293 @@
+{
+  "date": "2026-10-06",
+  "timezone": "Africa/Johannesburg",
+  "status": "partial",
+  "generatedBy": "ChatGPT public-web research",
+  "globalSources": [
+    "https://www.footballfixtures.org/fixtures/2026-10-06",
+    "https://www.planetsport.com/soccer/matches/all/2026-10-06",
+    "https://fbref.com/en/matches/2026-10-06",
+    "https://www.sportsgambler.com/fixtures-results/football/"
+  ],
+  "notes": [
+    "Partial sourced feed. No association is marked verifiedZero without association-level evidence.",
+    "Youth/U21/U23 and club friendlies are excluded from candidate feed.",
+    "Conflicting Brazil source date/time listings are not treated as a single-date full round; only independently corroborated Oct 6 fixtures are included here."
+  ],
+  "associationVerification": {},
+  "fixtures": [
+    {
+      "leagueId": "assoc-england",
+      "country": "England",
+      "league": "UEFA Nations League",
+      "homeTeam": "England",
+      "awayTeam": "Czech Republic",
+      "kickoff": "2026-10-06T18:45:00Z",
+      "sources": [
+        "https://www.westeurope.englandfootball.com/articles/2026/Feb/13/uefa-nations-league-2026-27-fixture-dates-confirmed-20261302",
+        "https://fbref.com/en/matches/2026-10-06"
+      ],
+      "researchComplete": false
+    },
+    {
+      "leagueId": "assoc-croatia",
+      "country": "Croatia",
+      "league": "UEFA Nations League",
+      "homeTeam": "Croatia",
+      "awayTeam": "Spain",
+      "kickoff": "2026-10-06T18:45:00Z",
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-06",
+        "https://www.fotmob.com/en-GB/matches/spain-vs-croatia/2cs2z6"
+      ],
+      "researchComplete": false
+    },
+    {
+      "leagueId": "assoc-scotland",
+      "country": "Scotland",
+      "league": "UEFA Nations League",
+      "homeTeam": "Scotland",
+      "awayTeam": "Slovenia",
+      "kickoff": "2026-10-06T18:45:00Z",
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-06",
+        "https://www.livesoccertv.com/schedules/2026-10-06/"
+      ],
+      "researchComplete": false
+    },
+    {
+      "leagueId": "assoc-estonia",
+      "country": "Estonia",
+      "league": "UEFA Nations League",
+      "homeTeam": "Estonia",
+      "awayTeam": "Iceland",
+      "kickoff": "2026-10-06T18:45:00Z",
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-06",
+        "https://www.livesoccertv.com/schedules/2026-10-06/"
+      ],
+      "researchComplete": false
+    },
+    {
+      "leagueId": "assoc-luxembourg",
+      "country": "Luxembourg",
+      "league": "UEFA Nations League",
+      "homeTeam": "Luxembourg",
+      "awayTeam": "Bulgaria",
+      "kickoff": "2026-10-06T18:45:00Z",
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-06",
+        "https://www.sportsgambler.com/fixtures-results/football/"
+      ],
+      "researchComplete": false
+    },
+    {
+      "leagueId": "assoc-belarus",
+      "country": "Belarus",
+      "league": "UEFA Nations League",
+      "homeTeam": "Belarus",
+      "awayTeam": "Finland",
+      "kickoff": "2026-10-06T18:45:00Z",
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-06",
+        "https://www.livesoccertv.com/schedules/2026-10-06/"
+      ],
+      "researchComplete": false
+    },
+    {
+      "leagueId": "assoc-switzerland",
+      "country": "Switzerland",
+      "league": "UEFA Nations League",
+      "homeTeam": "Switzerland",
+      "awayTeam": "North Macedonia",
+      "kickoff": "2026-10-06T18:45:00Z",
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-06",
+        "https://www.livesoccertv.com/schedules/2026-10-06/"
+      ],
+      "researchComplete": false
+    },
+    {
+      "leagueId": "assoc-moldova",
+      "country": "Moldova",
+      "league": "UEFA Nations League",
+      "homeTeam": "Moldova",
+      "awayTeam": "Slovakia",
+      "kickoff": "2026-10-06T18:45:00Z",
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-06",
+        "https://www.livesoccertv.com/schedules/2026-10-06/"
+      ],
+      "researchComplete": false
+    },
+    {
+      "leagueId": "assoc-albania",
+      "country": "Albania",
+      "league": "UEFA Nations League",
+      "homeTeam": "Albania",
+      "awayTeam": "San Marino",
+      "kickoff": "2026-10-06T18:45:00Z",
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-06",
+        "https://nasiscore.co.za/matches/albania-vs-san-marino-x1fgh9iw"
+      ],
+      "researchComplete": false
+    },
+    {
+      "leagueId": "assoc-kazakhstan",
+      "country": "Kazakhstan",
+      "league": "UEFA Nations League",
+      "homeTeam": "Kazakhstan",
+      "awayTeam": "Faroe Islands",
+      "kickoff": "2026-10-06T14:00:00Z",
+      "sources": [
+        "https://fbref.com/en/matches/2026-10-06",
+        "https://nasiscore.co.za/matches/kazakhstan-vs-faroe-islands-x1fgh9is"
+      ],
+      "researchComplete": false
+    },
+    {
+      "leagueId": "assoc-brazil",
+      "country": "Brazil",
+      "league": "Serie B",
+      "homeTeam": "Sport Recife",
+      "awayTeam": "São Bernardo",
+      "kickoff": "2026-10-06T22:30:00Z",
+      "sources": [
+        "https://www.soccerpunter.com/football/Brazil-Serie-B/651/",
+        "https://www.sportytrader.com/en/odds/sport-recife-sao-bernardo-8315582/"
+      ],
+      "researchComplete": false
+    },
+    {
+      "leagueId": "assoc-brazil",
+      "country": "Brazil",
+      "league": "Serie B",
+      "homeTeam": "Goiás",
+      "awayTeam": "Athletic Club",
+      "kickoff": "2026-10-06T23:30:00Z",
+      "sources": [
+        "https://www.soccerpunter.com/football/Brazil-Serie-B/651/",
+        "https://www.fotmob.com/en-GB/matches/goias-vs-athletic-club-mg/9oc5dm0d"
+      ],
+      "researchComplete": false
+    },
+    {
+      "leagueId": "assoc-norway",
+      "country": "Norway",
+      "league": "NM Cupen",
+      "homeTeam": "Raufoss",
+      "awayTeam": "Start",
+      "kickoff": "2026-10-06T15:00:00Z",
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://footsam.com/?dag=2026-10-06"
+      ],
+      "researchComplete": false
+    },
+    {
+      "leagueId": "assoc-south-korea",
+      "country": "South Korea",
+      "league": "International Friendlies",
+      "homeTeam": "South Korea",
+      "awayTeam": "Uzbekistan",
+      "kickoff": "2026-10-06T10:00:00Z",
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://www.planetsport.com/soccer/matches/all/2026-10-06"
+      ],
+      "researchComplete": false
+    },
+    {
+      "leagueId": "assoc-china-pr",
+      "country": "China PR",
+      "league": "International Friendlies",
+      "homeTeam": "China",
+      "awayTeam": "Tajikistan",
+      "kickoff": "2026-10-06T11:35:00Z",
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://www.planetsport.com/soccer/matches/all/2026-10-06"
+      ],
+      "researchComplete": false
+    },
+    {
+      "leagueId": "assoc-india",
+      "country": "India",
+      "league": "International Friendlies",
+      "homeTeam": "India",
+      "awayTeam": "Uruguay",
+      "kickoff": "2026-10-06T14:00:00Z",
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://www.planetsport.com/soccer/matches/all/2026-10-06"
+      ],
+      "researchComplete": false
+    },
+    {
+      "leagueId": "assoc-jordan",
+      "country": "Jordan",
+      "league": "International Friendlies",
+      "homeTeam": "Jordan",
+      "awayTeam": "Venezuela",
+      "kickoff": "2026-10-06T17:00:00Z",
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://www.planetsport.com/soccer/matches/all/2026-10-06"
+      ],
+      "researchComplete": false
+    },
+    {
+      "leagueId": "assoc-russia",
+      "country": "Russia",
+      "league": "International Friendlies",
+      "homeTeam": "Russia",
+      "awayTeam": "Nigeria",
+      "kickoff": "2026-10-06T17:00:00Z",
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://www.planetsport.com/soccer/matches/all/2026-10-06"
+      ],
+      "researchComplete": false
+    },
+    {
+      "leagueId": "assoc-algeria",
+      "country": "Algeria",
+      "league": "International Friendlies",
+      "homeTeam": "Algeria",
+      "awayTeam": "Niger",
+      "kickoff": "2026-10-06T19:30:00Z",
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://www.planetsport.com/soccer/matches/all/2026-10-06"
+      ],
+      "researchComplete": false
+    },
+    {
+      "leagueId": "assoc-argentina",
+      "country": "Argentina",
+      "league": "International Friendlies",
+      "homeTeam": "Argentina",
+      "awayTeam": "Benin",
+      "kickoff": "2026-10-06T20:00:00Z",
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://www.planetsport.com/soccer/matches/all/2026-10-06"
+      ],
+      "researchComplete": false
+    },
+    {
+      "leagueId": "assoc-colombia",
+      "country": "Colombia",
+      "league": "International Friendlies",
+      "homeTeam": "Colombia",
+      "awayTeam": "Peru",
+      "kickoff": "2026-10-06T23:45:00Z",
+      "sources": [
+        "https://www.footballfixtures.org/fixtures/2026-10-06",
+        "https://www.planetsport.com/soccer/matches/all/2026-10-06"
+      ],
+      "researchComplete": false
+    }
+  ]
+}
