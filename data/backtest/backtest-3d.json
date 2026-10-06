@@ -1,0 +1,59 @@
+{
+  "schema": "fih-backtest-v2-daily",
+  "createdAt": "2026-10-06",
+  "timezone": "Africa/Johannesburg",
+  "range": {
+    "from": "2026-10-03",
+    "to": "2026-10-05",
+    "days": 3
+  },
+  "status": "RESEARCH_IN_PROGRESS",
+  "model": {
+    "active": "FIH-V2-RESEARCH",
+    "mode": "V2_ONLY",
+    "engine": "scripts/fih-probability-v2.ts",
+    "v1": "ARCHIVED_REFERENCE_NOT_EXECUTED"
+  },
+  "execution": {
+    "mode": "DAY_BY_DAY",
+    "currentDay": "2026-10-03",
+    "aggregateOnlyAfterAllDaysComplete": true,
+    "combinedPercentages": "COMBINED_NUMERATORS_AND_DENOMINATORS"
+  },
+  "days": [
+    {
+      "date": "2026-10-03",
+      "rawFixtureCount": 718,
+      "eligibleFixtureCount": 687,
+      "excludedAtOrBefore0600": 31,
+      "status": "RESEARCH_IN_PROGRESS",
+      "cutoff": "2026-10-03T06:00:00+02:00"
+    },
+    {
+      "date": "2026-10-04",
+      "rawFixtureCount": 451,
+      "eligibleFixtureCount": 398,
+      "excludedAtOrBefore0600": 53,
+      "status": "PENDING_PREVIOUS_DAY",
+      "cutoff": "2026-10-04T06:00:00+02:00"
+    },
+    {
+      "date": "2026-10-05",
+      "rawFixtureCount": 78,
+      "eligibleFixtureCount": 53,
+      "excludedAtOrBefore0600": 25,
+      "status": "PENDING_PREVIOUS_DAY",
+      "cutoff": "2026-10-05T06:00:00+02:00"
+    }
+  ],
+  "totals": {
+    "rawFixtures": 1247,
+    "eligibleFixtures": 1138,
+    "excludedAtOrBefore0600": 109
+  },
+  "integrity": {
+    "missingEvidence": "UNAVAILABLE_CONTINUE",
+    "targetResultsExcludedUntilFreeze": true,
+    "post0600EvidenceExcluded": true
+  }
+}
