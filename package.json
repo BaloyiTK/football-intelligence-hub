@@ -26,7 +26,8 @@
     "forward:freeze": "tsx scripts/freeze-forward-validation.ts",
     "forward:score": "tsx scripts/score-forward-validation.ts",
     "results:reconcile": "tsx scripts/reconcile-results.ts",
-    "predictions:publish-from-run": "tsx scripts/publish-from-run.ts"
+    "predictions:publish-from-run": "tsx scripts/publish-from-run.ts",
+    "run:response-gate": "tsx scripts/check-response-gate.ts"
   },
   "dependencies": {
     "next": "15.5.7",
