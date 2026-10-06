@@ -7,7 +7,7 @@
     "to": "2026-10-05",
     "days": 7
   },
-  "status": "RESEARCH_REQUIRED",
+  "status": "RESEARCH_IN_PROGRESS",
   "rules": {
     "startFrom": "LiveScore daily fixture board for each historical date",
     "lookaheadLeakage": "Use only information that existed before each fixture kickoff.",
@@ -45,87 +45,105 @@
       "fixtureFile": "data/backtest/fixtures/2026-09-29.json",
       "predictionFile": "data/backtest/predictions/2026-09-29.json",
       "status": "RESEARCH_REQUIRED",
-      "fixtureCount": 168,
+      "fixtureCount": 152,
       "modelCalculated": 0,
-      "insufficientData": 168,
-      "scoredActuals": 168,
-      "researchCutoff": "2026-09-29T06:00:00+02:00"
+      "insufficientData": null,
+      "scoredActuals": null,
+      "researchCutoff": "2026-09-29T06:00:00+02:00",
+      "rawFixtureCount": 168,
+      "excludedAtOrBefore0600": 16
     },
     {
       "date": "2026-09-30",
       "fixtureFile": "data/backtest/fixtures/2026-09-30.json",
       "predictionFile": "data/backtest/predictions/2026-09-30.json",
       "status": "RESEARCH_REQUIRED",
-      "fixtureCount": 86,
+      "fixtureCount": 78,
       "modelCalculated": 0,
-      "insufficientData": 86,
-      "scoredActuals": 85,
-      "researchCutoff": "2026-09-30T06:00:00+02:00"
+      "insufficientData": null,
+      "scoredActuals": null,
+      "researchCutoff": "2026-09-30T06:00:00+02:00",
+      "rawFixtureCount": 86,
+      "excludedAtOrBefore0600": 8
     },
     {
       "date": "2026-10-01",
       "fixtureFile": "data/backtest/fixtures/2026-10-01.json",
       "predictionFile": "data/backtest/predictions/2026-10-01.json",
       "status": "RESEARCH_REQUIRED",
-      "fixtureCount": 75,
+      "fixtureCount": 56,
       "modelCalculated": 0,
-      "insufficientData": 75,
-      "scoredActuals": 73,
-      "researchCutoff": "2026-10-01T06:00:00+02:00"
+      "insufficientData": null,
+      "scoredActuals": null,
+      "researchCutoff": "2026-10-01T06:00:00+02:00",
+      "rawFixtureCount": 75,
+      "excludedAtOrBefore0600": 19
     },
     {
       "date": "2026-10-02",
       "fixtureFile": "data/backtest/fixtures/2026-10-02.json",
       "predictionFile": "data/backtest/predictions/2026-10-02.json",
       "status": "RESEARCH_REQUIRED",
-      "fixtureCount": 171,
+      "fixtureCount": 159,
       "modelCalculated": 0,
-      "insufficientData": 171,
-      "scoredActuals": 161,
-      "researchCutoff": "2026-10-02T06:00:00+02:00"
+      "insufficientData": null,
+      "scoredActuals": null,
+      "researchCutoff": "2026-10-02T06:00:00+02:00",
+      "rawFixtureCount": 171,
+      "excludedAtOrBefore0600": 12
     },
     {
       "date": "2026-10-03",
       "fixtureFile": "data/backtest/fixtures/2026-10-03.json",
       "predictionFile": "data/backtest/predictions/2026-10-03.json",
       "status": "RESEARCH_REQUIRED",
-      "fixtureCount": 718,
+      "fixtureCount": 687,
       "modelCalculated": 0,
-      "insufficientData": 718,
-      "scoredActuals": 712,
-      "researchCutoff": "2026-10-03T06:00:00+02:00"
+      "insufficientData": null,
+      "scoredActuals": null,
+      "researchCutoff": "2026-10-03T06:00:00+02:00",
+      "rawFixtureCount": 718,
+      "excludedAtOrBefore0600": 31
     },
     {
       "date": "2026-10-04",
       "fixtureFile": "data/backtest/fixtures/2026-10-04.json",
       "predictionFile": "data/backtest/predictions/2026-10-04.json",
       "status": "RESEARCH_REQUIRED",
-      "fixtureCount": 451,
+      "fixtureCount": 398,
       "modelCalculated": 0,
-      "insufficientData": 451,
-      "scoredActuals": 447,
-      "researchCutoff": "2026-10-04T06:00:00+02:00"
+      "insufficientData": null,
+      "scoredActuals": null,
+      "researchCutoff": "2026-10-04T06:00:00+02:00",
+      "rawFixtureCount": 451,
+      "excludedAtOrBefore0600": 53
     },
     {
       "date": "2026-10-05",
       "fixtureFile": "data/backtest/fixtures/2026-10-05.json",
       "predictionFile": "data/backtest/predictions/2026-10-05.json",
       "status": "RESEARCH_REQUIRED",
-      "fixtureCount": 78,
+      "fixtureCount": 53,
       "modelCalculated": 0,
-      "insufficientData": 78,
-      "scoredActuals": 77,
-      "researchCutoff": "2026-10-05T06:00:00+02:00"
+      "insufficientData": null,
+      "scoredActuals": null,
+      "researchCutoff": "2026-10-05T06:00:00+02:00",
+      "rawFixtureCount": 78,
+      "excludedAtOrBefore0600": 25
     }
   ],
-  "fixtureCount": 1747,
+  "fixtureCount": 1583,
   "metrics": {
     "status": "NOT_EVALUATED",
-    "reason": "Full FIH backtest reopened at fixture-specific pre-kickoff web research stage."
+    "eligibleFixtures": 1583,
+    "excludedAtOrBefore0600": 164,
+    "reason": "Fixture eligibility verified; fixture-specific 06:00 SAST research required before model evaluation."
   },
   "previousBaseline": {
     "commit": "04dd1450b80af91ceb277f1f9690ed7492b1eeeb",
     "classification": "INVALID_AS_FULL_FIH_BACKTEST",
     "reason": "Fixture-specific external web research required by FIH_BUILD_STEPS.md was skipped."
-  }
+  },
+  "rawFixtureCount": 1747,
+  "excludedFixtureCount": 164
 }
