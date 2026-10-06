@@ -7,7 +7,7 @@
     "to": "2026-10-05",
     "days": 7
   },
-  "status": "FIXTURES_VERIFIED",
+  "status": "COMPLETE_INSUFFICIENT_PREMATCH_HISTORY",
   "rules": {
     "startFrom": "LiveScore daily fixture board for each historical date",
     "lookaheadLeakage": "Use only information that existed before each fixture kickoff.",
@@ -30,51 +30,83 @@
       "date": "2026-09-29",
       "fixtureFile": "data/backtest/fixtures/2026-09-29.json",
       "predictionFile": "data/backtest/predictions/2026-09-29.json",
-      "status": "FIXTURES_VERIFIED",
-      "fixtureCount": 168
+      "status": "BACKTEST_PROCESSED",
+      "fixtureCount": 168,
+      "modelCalculated": 0,
+      "insufficientData": 168,
+      "scoredActuals": 168
     },
     {
       "date": "2026-09-30",
       "fixtureFile": "data/backtest/fixtures/2026-09-30.json",
       "predictionFile": "data/backtest/predictions/2026-09-30.json",
-      "status": "FIXTURES_VERIFIED",
-      "fixtureCount": 86
+      "status": "BACKTEST_PROCESSED",
+      "fixtureCount": 86,
+      "modelCalculated": 0,
+      "insufficientData": 86,
+      "scoredActuals": 85
     },
     {
       "date": "2026-10-01",
       "fixtureFile": "data/backtest/fixtures/2026-10-01.json",
       "predictionFile": "data/backtest/predictions/2026-10-01.json",
-      "status": "FIXTURES_VERIFIED",
-      "fixtureCount": 75
+      "status": "BACKTEST_PROCESSED",
+      "fixtureCount": 75,
+      "modelCalculated": 0,
+      "insufficientData": 75,
+      "scoredActuals": 73
     },
     {
       "date": "2026-10-02",
       "fixtureFile": "data/backtest/fixtures/2026-10-02.json",
       "predictionFile": "data/backtest/predictions/2026-10-02.json",
-      "status": "FIXTURES_VERIFIED",
-      "fixtureCount": 171
+      "status": "BACKTEST_PROCESSED",
+      "fixtureCount": 171,
+      "modelCalculated": 0,
+      "insufficientData": 171,
+      "scoredActuals": 161
     },
     {
       "date": "2026-10-03",
       "fixtureFile": "data/backtest/fixtures/2026-10-03.json",
       "predictionFile": "data/backtest/predictions/2026-10-03.json",
-      "status": "FIXTURES_VERIFIED",
-      "fixtureCount": 718
+      "status": "BACKTEST_PROCESSED",
+      "fixtureCount": 718,
+      "modelCalculated": 0,
+      "insufficientData": 718,
+      "scoredActuals": 712
     },
     {
       "date": "2026-10-04",
       "fixtureFile": "data/backtest/fixtures/2026-10-04.json",
       "predictionFile": "data/backtest/predictions/2026-10-04.json",
-      "status": "FIXTURES_VERIFIED",
-      "fixtureCount": 451
+      "status": "BACKTEST_PROCESSED",
+      "fixtureCount": 451,
+      "modelCalculated": 0,
+      "insufficientData": 451,
+      "scoredActuals": 447
     },
     {
       "date": "2026-10-05",
       "fixtureFile": "data/backtest/fixtures/2026-10-05.json",
       "predictionFile": "data/backtest/predictions/2026-10-05.json",
-      "status": "FIXTURES_VERIFIED",
-      "fixtureCount": 78
+      "status": "BACKTEST_PROCESSED",
+      "fixtureCount": 78,
+      "modelCalculated": 0,
+      "insufficientData": 78,
+      "scoredActuals": 77
     }
   ],
-  "fixtureCount": 1747
+  "fixtureCount": 1747,
+  "completedAt": "2026-10-06T20:35:51.719Z",
+  "metrics": {
+    "totalFixtures": 1747,
+    "modelCalculated": 0,
+    "insufficientData": 1747,
+    "noBet": 0,
+    "fixturesWithSomePriorInWindowEvidence": 338,
+    "fixturesWithScoredActuals": 1723,
+    "modelEvaluation": "NOT_APPLICABLE",
+    "reason": "The leak-free seven-day window did not provide at least 3 verified prior matches for both teams in any target fixture. No FIH probabilities or bets were fabricated. Historical market odds were unavailable."
+  }
 }
