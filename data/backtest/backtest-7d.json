@@ -149,8 +149,10 @@
   "researchProgress": {
     "eligibleFixtures": 1583,
     "fixtureResearchCompleted": 0,
-    "fixtureResearchStarted": 3,
+    "fixtureResearchStarted": 20,
     "cutoffValidation": "ENFORCED",
-    "notes": "Initial source validation performed for first Sep 29 fixtures. Post-06:00 and post-match sources are rejected from model evidence. No fixture is marked research-complete until all required evidence categories have been attempted and persisted."
+    "researchMethod": "FREE_WEB_RESEARCH",
+    "paidResearchApiRequired": false,
+    "notes": "Research resumed in fixture order on 2026-09-29. Pre-06:00 SAST dated sources are accepted; sources first published after cutoff and post-match information are rejected. Evidence fields unavailable from verified pre-cutoff sources remain UNAVAILABLE. No model stage is allowed until fixture research records are persisted and verified."
   }
 }
