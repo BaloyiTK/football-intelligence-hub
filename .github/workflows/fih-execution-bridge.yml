@@ -72,12 +72,32 @@ jobs:
         if: steps.command.outputs.action == 'finalize' || steps.command.outputs.action == 'verify-publication'
         run: npm run run:finalize -- "${{ steps.command.outputs.run_file }}"
 
-      - name: Verify publication
+      - name: Create and verify publication
         if: steps.command.outputs.action == 'verify-publication'
         run: |
           [[ -n "${{ steps.command.outputs.date }}" ]] || { echo "::error::date required"; exit 1; }
+          npm run predictions:publish-from-run -- "${{ steps.command.outputs.run_file }}"
           npm run predictions:verify -- "${{ steps.command.outputs.date }}"
 
       - name: Build production app
         if: steps.command.outputs.action == 'verify-publication'
         run: npm run build
+
+      - name: Commit and push publication
+        if: steps.command.outputs.action == 'verify-publication'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          FILE="data/predictions/${{ steps.command.outputs.date }}.json"
+          git add "$FILE"
+          git diff --cached --quiet && exit 0
+          git commit -m "predictions: publish ${{ steps.command.outputs.date }}"
+          for attempt in 1 2 3; do
+            git push origin HEAD:main && exit 0
+            git fetch origin main
+            git rebase origin/main
+            sleep $((attempt*15))
+          done
+          exit 1
