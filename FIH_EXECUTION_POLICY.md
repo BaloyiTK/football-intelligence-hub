@@ -2,6 +2,15 @@
 
 For an explicitly authorized FIH task, recoverable technical failures do not end the task.
 
+## Mandatory policy preflight
+Before executing or resuming any FIH command, status-triggered continuation, daily run, or backtest:
+1. Fetch and read the current `FIH_EXECUTION_POLICY.md` from the repository.
+2. Treat the repository version as the authoritative execution contract for that run.
+3. Check the current pipeline stage against the policy before taking the next action.
+4. After every stage result, re-apply the mandatory lifecycle and continuation rules before deciding whether to continue or stop.
+5. Never stop because of an intermediate success, recoverable failure, status update, or chat response boundary.
+6. A response may end only when the full authorized cycle is complete, a defined Hard Stop is reached, or an external system is genuinely still processing and no further action can yet be taken.
+
 ## Mandatory stage lifecycle
 Every daily-run and backtest stage must follow:
 
