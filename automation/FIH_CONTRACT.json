@@ -263,5 +263,51 @@
     "unresolvedResultAction": "persist-pending-with-attempted-sources-and-verification-timestamp",
     "pendingResultsDoNotBlockNewDailyRun": true,
     "revisitPendingResultsOnFutureRuns": true
+  },
+  "recoveryPolicy": {
+    "enabled": true,
+    "mode": "fail-safe-auto-recovery",
+    "preserveCheckpoints": true,
+    "resumeLatestNonCompleteRunFirst": true,
+    "resumeFromExactCursorAndResumeAction": true,
+    "fixtureLocalFailureMustNotStopIndependentWork": true,
+    "autoRepairExecutionPath": true,
+    "businessRuleMutationForbidden": true,
+    "evidenceFabricationForbidden": true,
+    "unresolvedResearchMayNotBeConvertedToNoModelForFinalization": true,
+    "transientRetry": {
+      "enabled": true,
+      "maxAttempts": 3,
+      "backoffSeconds": [
+        15,
+        45,
+        120
+      ],
+      "retryableClasses": [
+        "network",
+        "github-api",
+        "runner",
+        "dependency-install",
+        "deployment-status",
+        "temporary-source-unavailability"
+      ]
+    },
+    "validationRecovery": {
+      "rereadControllingRule": true,
+      "preserveValidFrozenState": true,
+      "repairOnlyInvalidState": true,
+      "rerunValidationAfterRepair": true,
+      "strictFinalizerStillRequired": true
+    },
+    "blockerPolicy": {
+      "fixtureLocal": "persist-attempted-sources-unresolved-fact-stage-canonical-identity-resumeAction-and-continue",
+      "runLevel": "only-genuine-global-external-or-technical-dependency-after-approved-fallbacks-exhausted",
+      "persistExactResumeCursor": true
+    },
+    "publication": {
+      "neverPublishIncompleteAsFinal": true,
+      "partialFrozenBetsMayBeSurfacedAsPartial": true,
+      "exactDeploymentVerificationRequired": true
+    }
   }
 }
