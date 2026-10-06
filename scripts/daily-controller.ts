@@ -9,13 +9,27 @@ const scopes=registry.leagues??[];
 if(registry.associationCount!==211||scopes.length!==211) throw new Error(`FIH registry must contain exactly 211 frozen association scopes; associationCount=${registry.associationCount} scopes=${scopes.length}`);
 const runsDir=path.join(root,"data/runs");
 fs.mkdirSync(runsDir,{recursive:true});
-const existing=fs.readdirSync(runsDir).filter(n=>n.startsWith(date+"_")&&n.endsWith(".json")).sort().reverse();
-for(const name of existing){
+const existing=fs.readdirSync(runsDir)
+  .filter(n=>n.startsWith(date+"_")&&n.endsWith(".json"))
+  .map(name=>({name,mtime:fs.statSync(path.join(runsDir,name)).mtimeMs}))
+  .sort((a,b)=>b.mtime-a.mtime);
+for(const {name} of existing){
   const p=path.join(runsDir,name), r=JSON.parse(fs.readFileSync(p,"utf8"));
   const ids=new Set((r.leagueScan??[]).map((x:any)=>x.leagueId));
   const all211=scopes.every((s:any)=>ids.has(s.id))&&ids.size===211;
   if(r.status!=="complete"&&all211){
-    console.log(JSON.stringify({action:"RESUME",runFile:path.relative(root,p),associationScopes:211,resumeCursor:r.resumeCursor??null},null,2));
+    const incomplete=(r.leagueScan??[]).filter((x:any)=>x.status!=="complete");
+    const cursor=r.resumeCursor??{stage:"normalize-and-map",associationIndex:0,associationId:incomplete[0]?.leagueId??scopes[0]?.id??null};
+    console.log(JSON.stringify({
+      action:"RESUME",
+      runFile:path.relative(root,p),
+      associationScopes:211,
+      scopesComplete:211-incomplete.length,
+      scopesRemaining:incomplete.length,
+      resumeCursor:cursor,
+      resumeAction:r.resumeAction??"Continue from the persisted cursor. Do not restart completed stages.",
+      requiresExternalResearch:["worldwide-discovery","normalize-and-map","verify-prematch","research"].includes(String(cursor.stage??""))
+    },null,2));
     process.exit(0);
   }
 }
