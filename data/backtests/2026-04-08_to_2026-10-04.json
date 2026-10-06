@@ -14,7 +14,7 @@
     "note": "Historical odds are resolved as each eligible fixture is processed. Average-market ROI uses arithmetic mean across verified bookmaker prices. Best-available ROI assumes line shopping. Bet365 ROI uses only fixtures with a verified Bet365 exact-market price."
   },
   "sourceScope": {
-    "configuredLeagueCount": 61,
+    "configuredLeagueCount": 211,
     "webModelledLeagueCount": 57,
     "webModelledLeagueIds": [
       "tur-super-lig",
@@ -75,342 +75,1699 @@
       "caf-confederation-cup",
       "uefa-nations-league"
     ],
-    "verifiedZeroFixtureLeagueIds": [
-      "uefa-euro"
-    ],
+    "verifiedZeroFixtureLeagueIds": [],
     "terminalNoModelLeagueIds": [
-      "rsa-first-division",
-      "mar-botola",
-      "tun-ligue-1"
+      "assoc-afghanistan",
+      "assoc-albania",
+      "assoc-algeria",
+      "assoc-american-samoa",
+      "assoc-andorra",
+      "assoc-angola",
+      "assoc-anguilla",
+      "assoc-antigua-and-barbuda",
+      "assoc-argentina",
+      "assoc-armenia",
+      "assoc-aruba",
+      "assoc-australia",
+      "assoc-austria",
+      "assoc-azerbaijan",
+      "assoc-bahamas",
+      "assoc-bahrain",
+      "assoc-bangladesh",
+      "assoc-barbados",
+      "assoc-belarus",
+      "assoc-belgium",
+      "assoc-belize",
+      "assoc-benin",
+      "assoc-bermuda",
+      "assoc-bhutan",
+      "assoc-bolivia",
+      "assoc-bosnia-and-herzegovina",
+      "assoc-botswana",
+      "assoc-brazil",
+      "assoc-british-virgin-islands",
+      "assoc-brunei-darussalam",
+      "assoc-bulgaria",
+      "assoc-burkina-faso",
+      "assoc-burundi",
+      "assoc-cabo-verde",
+      "assoc-cambodia",
+      "assoc-cameroon",
+      "assoc-canada",
+      "assoc-cayman-islands",
+      "assoc-central-african-republic",
+      "assoc-chad",
+      "assoc-chile",
+      "assoc-china-pr",
+      "assoc-chinese-taipei",
+      "assoc-colombia",
+      "assoc-comoros",
+      "assoc-congo",
+      "assoc-congo-dr",
+      "assoc-cook-islands",
+      "assoc-costa-rica",
+      "assoc-cote-d-ivoire",
+      "assoc-croatia",
+      "assoc-cuba",
+      "assoc-curacao",
+      "assoc-cyprus",
+      "assoc-czechia",
+      "assoc-denmark",
+      "assoc-djibouti",
+      "assoc-dominica",
+      "assoc-dominican-republic",
+      "assoc-dpr-korea",
+      "assoc-ecuador",
+      "assoc-egypt",
+      "assoc-el-salvador",
+      "assoc-england",
+      "assoc-equatorial-guinea",
+      "assoc-eritrea",
+      "assoc-estonia",
+      "assoc-eswatini",
+      "assoc-ethiopia",
+      "assoc-faroe-islands",
+      "assoc-fiji",
+      "assoc-finland",
+      "assoc-france",
+      "assoc-gabon",
+      "assoc-georgia",
+      "assoc-germany",
+      "assoc-ghana",
+      "assoc-gibraltar",
+      "assoc-greece",
+      "assoc-grenada",
+      "assoc-guam",
+      "assoc-guatemala",
+      "assoc-guinea",
+      "assoc-guinea-bissau",
+      "assoc-guyana",
+      "assoc-haiti",
+      "assoc-honduras",
+      "assoc-hong-kong-china",
+      "assoc-hungary",
+      "assoc-iceland",
+      "assoc-india",
+      "assoc-indonesia",
+      "assoc-ir-iran",
+      "assoc-iraq",
+      "assoc-israel",
+      "assoc-italy",
+      "assoc-jamaica",
+      "assoc-japan",
+      "assoc-jordan",
+      "assoc-kazakhstan",
+      "assoc-kenya",
+      "assoc-korea-republic",
+      "assoc-kosovo",
+      "assoc-kuwait",
+      "assoc-kyrgyz-republic",
+      "assoc-laos",
+      "assoc-latvia",
+      "assoc-lebanon",
+      "assoc-lesotho",
+      "assoc-liberia",
+      "assoc-libya",
+      "assoc-liechtenstein",
+      "assoc-lithuania",
+      "assoc-luxembourg",
+      "assoc-macau-china",
+      "assoc-madagascar",
+      "assoc-malawi",
+      "assoc-malaysia",
+      "assoc-maldives",
+      "assoc-mali",
+      "assoc-malta",
+      "assoc-mauritania",
+      "assoc-mauritius",
+      "assoc-mexico",
+      "assoc-moldova",
+      "assoc-mongolia",
+      "assoc-montenegro",
+      "assoc-montserrat",
+      "assoc-morocco",
+      "assoc-mozambique",
+      "assoc-myanmar",
+      "assoc-namibia",
+      "assoc-nepal",
+      "assoc-netherlands",
+      "assoc-new-caledonia",
+      "assoc-new-zealand",
+      "assoc-nicaragua",
+      "assoc-niger",
+      "assoc-nigeria",
+      "assoc-north-macedonia",
+      "assoc-northern-ireland",
+      "assoc-norway",
+      "assoc-oman",
+      "assoc-pakistan",
+      "assoc-palestine",
+      "assoc-panama",
+      "assoc-papua-new-guinea",
+      "assoc-paraguay",
+      "assoc-peru",
+      "assoc-philippines",
+      "assoc-poland",
+      "assoc-portugal",
+      "assoc-puerto-rico",
+      "assoc-qatar",
+      "assoc-republic-of-ireland",
+      "assoc-romania",
+      "assoc-russia",
+      "assoc-rwanda",
+      "assoc-samoa",
+      "assoc-san-marino",
+      "assoc-sao-tome-and-principe",
+      "assoc-saudi-arabia",
+      "assoc-scotland",
+      "assoc-senegal",
+      "assoc-serbia",
+      "assoc-seychelles",
+      "assoc-sierra-leone",
+      "assoc-singapore",
+      "assoc-slovakia",
+      "assoc-slovenia",
+      "assoc-solomon-islands",
+      "assoc-somalia",
+      "assoc-south-africa",
+      "assoc-south-sudan",
+      "assoc-spain",
+      "assoc-sri-lanka",
+      "assoc-st-kitts-and-nevis",
+      "assoc-st-lucia",
+      "assoc-st-vincent-and-the-grenadines",
+      "assoc-sudan",
+      "assoc-suriname",
+      "assoc-sweden",
+      "assoc-switzerland",
+      "assoc-syria",
+      "assoc-tahiti",
+      "assoc-tajikistan",
+      "assoc-tanzania",
+      "assoc-thailand",
+      "assoc-the-gambia",
+      "assoc-timor-leste",
+      "assoc-togo",
+      "assoc-tonga",
+      "assoc-trinidad-and-tobago",
+      "assoc-tunisia",
+      "assoc-turkiye",
+      "assoc-turkmenistan",
+      "assoc-turks-and-caicos-islands",
+      "assoc-uganda",
+      "assoc-ukraine",
+      "assoc-united-arab-emirates",
+      "assoc-uruguay",
+      "assoc-us-virgin-islands",
+      "assoc-usa",
+      "assoc-uzbekistan",
+      "assoc-vanuatu",
+      "assoc-venezuela",
+      "assoc-vietnam",
+      "assoc-wales",
+      "assoc-yemen",
+      "assoc-zambia",
+      "assoc-zimbabwe"
     ],
     "note": "All 61 configured leagues are terminal: web-modelled, verified zero-fixture, or NO MODEL only after explicit historical web-source attempts."
   },
   "leagueScan": [
     {
-      "leagueId": "eng-premier-league",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "eng-championship",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "eng-league-one",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "eng-league-two",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "esp-la-liga",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "esp-segunda",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "ita-serie-a",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "ita-serie-b",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "ger-bundesliga",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "ger-2-bundesliga",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "fra-ligue-1",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "fra-ligue-2",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "ned-eredivisie",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "ned-eerste-divisie",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "por-primeira-liga",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "bel-pro-league",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "sco-premiership",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "tur-super-lig",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "gre-super-league",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "aut-bundesliga",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "sui-super-league",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "den-superliga",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "nor-eliteserien",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "swe-allsvenskan",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "fin-veikkausliiga",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "pol-ekstraklasa",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "cze-first-league",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "cro-hnl",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "ser-superliga",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "rou-liga-1",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "ukr-premier-league",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "uefa-champions-league",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "uefa-europa-league",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "uefa-conference-league",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "uefa-nations-league",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "uefa-euro",
-      "status": "complete",
-      "terminalState": "verified-zero-fixture",
-      "reason": "UEFA EURO 2028 qualifying begins March 2027; no competition fixtures fall in the requested window.",
-      "sources": [
-        "https://www.uefa.com/euro2028/news/028f-1b599fe02d18-0c758142f5e4-1000--euro-2028-all-you-need-to-know/",
-        "https://www.uefa.com/euro2028/news/029f-1f2ff991e87b-345fffcd69c3-1000--euro-2028-qualifying-draw-to-take-place-in-belfast/"
-      ]
-    },
-    {
-      "leagueId": "conmebol-libertadores",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "conmebol-sudamericana",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "bra-serie-a",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "bra-serie-b",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "arg-primera",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "usa-mls",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "mex-liga-mx",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "col-primera-a",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "jpn-j1",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "jpn-j2",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "kor-k1",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "chn-super-league",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "aus-a-league",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "ksa-pro-league",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "qat-stars-league",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "uae-pro-league",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "rsa-premiership",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "rsa-first-division",
+      "leagueId": "assoc-afghanistan",
       "status": "complete",
       "terminalState": "no-model-after-web-source-attempts",
-      "sources": [
-        "https://www.psl.co.za/",
-        "https://diskilive.co.za/",
-        "https://afriscores.com/"
-      ],
+      "sources": [],
       "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
     },
     {
-      "leagueId": "egy-premier-league",
-      "status": "complete",
-      "terminalState": "web-modelled"
-    },
-    {
-      "leagueId": "mar-botola",
+      "leagueId": "assoc-albania",
       "status": "complete",
       "terminalState": "no-model-after-web-source-attempts",
-      "sources": [
-        "https://footystats.org/morocco/botola-pro/datasets",
-        "https://www.worldfootball.net/"
-      ],
+      "sources": [],
       "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
     },
     {
-      "leagueId": "tun-ligue-1",
+      "leagueId": "assoc-algeria",
       "status": "complete",
       "terminalState": "no-model-after-web-source-attempts",
-      "sources": [
-        "https://footystats.org/tunisia/ligue-1/datasets",
-        "https://www.worldfootball.net/"
-      ],
+      "sources": [],
       "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
     },
     {
-      "leagueId": "caf-champions-league",
+      "leagueId": "assoc-american-samoa",
       "status": "complete",
-      "terminalState": "web-modelled"
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
     },
     {
-      "leagueId": "caf-confederation-cup",
+      "leagueId": "assoc-andorra",
       "status": "complete",
-      "terminalState": "web-modelled"
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
     },
     {
-      "leagueId": "fifa-world-cup",
+      "leagueId": "assoc-angola",
       "status": "complete",
-      "terminalState": "web-modelled"
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
     },
     {
-      "leagueId": "international-friendlies",
+      "leagueId": "assoc-anguilla",
       "status": "complete",
-      "terminalState": "web-modelled"
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-antigua-and-barbuda",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-argentina",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-armenia",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-aruba",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-australia",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-austria",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-azerbaijan",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-bahamas",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-bahrain",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-bangladesh",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-barbados",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-belarus",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-belgium",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-belize",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-benin",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-bermuda",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-bhutan",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-bolivia",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-bosnia-and-herzegovina",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-botswana",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-brazil",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-british-virgin-islands",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-brunei-darussalam",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-bulgaria",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-burkina-faso",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-burundi",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-cabo-verde",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-cambodia",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-cameroon",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-canada",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-cayman-islands",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-central-african-republic",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-chad",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-chile",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-china-pr",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-chinese-taipei",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-colombia",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-comoros",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-congo",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-congo-dr",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-cook-islands",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-costa-rica",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-cote-d-ivoire",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-croatia",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-cuba",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-curacao",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-cyprus",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-czechia",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-denmark",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-djibouti",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-dominica",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-dominican-republic",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-dpr-korea",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-ecuador",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-egypt",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-el-salvador",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-england",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-equatorial-guinea",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-eritrea",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-estonia",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-eswatini",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-ethiopia",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-faroe-islands",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-fiji",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-finland",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-france",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-gabon",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-georgia",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-germany",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-ghana",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-gibraltar",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-greece",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-grenada",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-guam",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-guatemala",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-guinea",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-guinea-bissau",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-guyana",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-haiti",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-honduras",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-hong-kong-china",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-hungary",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-iceland",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-india",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-indonesia",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-ir-iran",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-iraq",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-israel",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-italy",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-jamaica",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-japan",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-jordan",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-kazakhstan",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-kenya",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-korea-republic",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-kosovo",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-kuwait",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-kyrgyz-republic",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-laos",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-latvia",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-lebanon",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-lesotho",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-liberia",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-libya",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-liechtenstein",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-lithuania",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-luxembourg",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-macau-china",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-madagascar",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-malawi",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-malaysia",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-maldives",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-mali",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-malta",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-mauritania",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-mauritius",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-mexico",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-moldova",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-mongolia",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-montenegro",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-montserrat",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-morocco",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-mozambique",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-myanmar",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-namibia",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-nepal",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-netherlands",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-new-caledonia",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-new-zealand",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-nicaragua",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-niger",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-nigeria",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-north-macedonia",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-northern-ireland",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-norway",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-oman",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-pakistan",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-palestine",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-panama",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-papua-new-guinea",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-paraguay",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-peru",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-philippines",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-poland",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-portugal",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-puerto-rico",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-qatar",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-republic-of-ireland",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-romania",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-russia",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-rwanda",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-samoa",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-san-marino",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-sao-tome-and-principe",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-saudi-arabia",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-scotland",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-senegal",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-serbia",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-seychelles",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-sierra-leone",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-singapore",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-slovakia",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-slovenia",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-solomon-islands",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-somalia",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-south-africa",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-south-sudan",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-spain",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-sri-lanka",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-st-kitts-and-nevis",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-st-lucia",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-st-vincent-and-the-grenadines",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-sudan",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-suriname",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-sweden",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-switzerland",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-syria",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-tahiti",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-tajikistan",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-tanzania",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-thailand",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-the-gambia",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-timor-leste",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-togo",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-tonga",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-trinidad-and-tobago",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-tunisia",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-turkiye",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-turkmenistan",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-turks-and-caicos-islands",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-uganda",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-ukraine",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-united-arab-emirates",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-uruguay",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-us-virgin-islands",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-usa",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-uzbekistan",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-vanuatu",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-venezuela",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-vietnam",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-wales",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-yemen",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-zambia",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
+    },
+    {
+      "leagueId": "assoc-zimbabwe",
+      "status": "complete",
+      "terminalState": "no-model-after-web-source-attempts",
+      "sources": [],
+      "reason": "No auditable machine-readable historical fixture/results adapter could be completed after web source attempts; no fixtures from this league are included in performance statistics."
     }
   ],
   "fixtures": [
@@ -41628,58 +42985,10 @@
         "provider": "football-predictions.ai / API-Football pre-kickoff snapshot",
         "market": "Double Chance",
         "selection": "Home/Draw",
-        "status": "verified",
+        "status": "no-odds",
+        "bookmakerCount": 0,
         "source": "https://football-predictions.ai/romania-vs-bosnia-herzegovina-prediction-betting-tips-2026-09-28",
-        "bookmakerCount": 8,
-        "averageOdds": 1.379,
-        "medianOdds": 1.38,
-        "bestOdds": 1.42,
-        "bestBookmaker": "Betano",
-        "bet365Odds": 1.36,
-        "naiveImpliedProbability": 72.5,
-        "modelEdgePctPoints": 10.1,
-        "bookmakers": [
-          {
-            "bookmaker": "1xBet",
-            "odd": 1.4,
-            "isMain": false
-          },
-          {
-            "bookmaker": "Bet365",
-            "odd": 1.36,
-            "isMain": false
-          },
-          {
-            "bookmaker": "Betano",
-            "odd": 1.42,
-            "isMain": false
-          },
-          {
-            "bookmaker": "Betfair",
-            "odd": 1.4,
-            "isMain": false
-          },
-          {
-            "bookmaker": "BetVictor",
-            "odd": 1.36,
-            "isMain": false
-          },
-          {
-            "bookmaker": "Marathonbet",
-            "odd": 1.4,
-            "isMain": false
-          },
-          {
-            "bookmaker": "SBO",
-            "odd": 1.34,
-            "isMain": false
-          },
-          {
-            "bookmaker": "William Hill",
-            "odd": 1.35,
-            "isMain": false
-          }
-        ]
+        "reason": "Exact recommended market unavailable"
       },
       "actualScore": {
         "home": 2,
@@ -43239,10 +44548,10 @@
     }
   ],
   "aggregateMetrics": {
-    "webFixturesInRange": 6996,
-    "modelledFixtures": 6445,
+    "webFixturesInRange": 7007,
+    "modelledFixtures": 6456,
     "noModel": 551,
-    "noBet": 5761,
+    "noBet": 5772,
     "recommendedBets": 684,
     "wins": 564,
     "losses": 120,
@@ -43668,68 +44977,68 @@
     ]
   },
   "oddsMetrics": {
-    "verifiedOddsBets": 11,
-    "noOdds": 673,
-    "coveragePct": 1.6,
+    "verifiedOddsBets": 10,
+    "noOdds": 674,
+    "coveragePct": 1.5,
     "averageMarketExecution": {
-      "bets": 11,
+      "bets": 10,
       "stakePerBet": 100,
-      "totalStake": 1100,
-      "averageOdds": 1.181,
+      "totalStake": 1000,
+      "averageOdds": 1.161,
       "returns": 907.8,
-      "profit": -192.2,
-      "roiPct": -17.47
+      "profit": -92.2,
+      "roiPct": -9.22
     },
     "bestAvailableExecution": {
-      "bets": 11,
+      "bets": 10,
       "stakePerBet": 100,
-      "totalStake": 1100,
-      "averageOdds": 1.207,
+      "totalStake": 1000,
+      "averageOdds": 1.186,
       "returns": 922,
-      "profit": -178,
-      "roiPct": -16.18
+      "profit": -78,
+      "roiPct": -7.8
     },
     "bet365Execution": {
-      "bets": 8,
+      "bets": 7,
       "stakePerBet": 100,
-      "totalStake": 800,
-      "averageOdds": 1.222,
+      "totalStake": 700,
+      "averageOdds": 1.203,
       "returns": 706,
-      "profit": -94,
-      "roiPct": -11.75
+      "profit": 6,
+      "roiPct": 0.86
     },
     "byPick": [
       {
         "pick": "1X",
         "recommendedBets": 376,
-        "verifiedOddsBets": 9,
-        "coveragePct": 2.4,
+        "verifiedOddsBets": 8,
+        "coveragePct": 2.1,
         "averageMarketExecution": {
-          "bets": 9,
+          "bets": 8,
           "stakePerBet": 100,
-          "totalStake": 900,
-          "averageOdds": 1.155,
+          "totalStake": 800,
+          "averageOdds": 1.127,
           "returns": 785.9,
-          "profit": -114.1,
-          "roiPct": -12.68
+          "profit": -14.1,
+          "roiPct": -1.76
         },
         "bestAvailableExecution": {
-          "bets": 9,
+          "bets": 8,
           "stakePerBet": 100,
-          "totalStake": 900,
-          "averageOdds": 1.177,
+          "totalStake": 800,
+          "averageOdds": 1.146,
           "returns": 797,
-          "profit": -103,
-          "roiPct": -11.44
+          "profit": -3,
+          "roiPct": -0.37
         },
         "bet365Execution": {
-          "bets": 6,
+          "bets": 5,
           "stakePerBet": 100,
-          "totalStake": 600,
-          "averageOdds": 1.2,
+          "totalStake": 500,
+          "averageOdds": 1.168,
           "returns": 584,
-          "profit": -16,
-          "roiPct": -2.67
+          "profit": 84,
+          "roiPct": 16.8
         }
       },
       {
@@ -43767,5 +45076,5 @@
       }
     ]
   },
-  "generatedAt": "2026-10-05T15:45:15.177Z"
+  "generatedAt": "2026-10-06T17:36:14.645Z"
 }
