@@ -67,3 +67,42 @@ Never imply that ordinary chat/tool work is continuing in the background after a
 
 ## FIH completion rule
 Do not report a recoverable intermediate failure or an intermediate stage completion as the final task result. Investigate, fix, retry, verify, persist, verify the persisted state, and continue through the next defined stage until the requested run completes or a hard-stop condition is reached.
+
+
+## Command semantics — full-cycle execution
+The following user commands authorize the complete FIH pipeline, not a single stage:
+
+### `run today`
+Interpret `run today` as authorization to execute the full daily cycle end-to-end:
+1. Acquire the complete current LiveScore fixture board.
+2. Verify and persist fixture data.
+3. Research/evidence collection for every eligible pre-match fixture.
+4. Persist and verify required evidence.
+5. Calculate FIH probabilities, expected goals, and fair odds.
+6. Persist and verify model output.
+7. Collect current market odds only after the FIH assessment is frozen.
+8. Remove bookmaker margin and compare FIH probabilities with market fair probabilities.
+9. Select the strongest qualifying actionable market or NO BET.
+10. Persist and verify the day's prediction output.
+11. Complete all defined daily-run validation/audit steps.
+
+Do not stop after fixtures, research, model calculation, odds collection, or any other intermediate stage.
+
+### `backtest <scope>` / `backrest <scope>`
+Treat `backrest` as an accepted shorthand/typo for `backtest`.
+
+Interpret either command as authorization to execute the full requested historical cycle end-to-end for the stated date/range/scope:
+1. Acquire every historical fixture board in scope.
+2. Verify and persist immutable dated fixture snapshots.
+3. Reconstruct pre-kickoff research/evidence without look-ahead leakage.
+4. Persist and verify evidence.
+5. Calculate and freeze FIH probabilities, expected goals, and fair odds.
+6. Persist and verify model output.
+7. Collect historical market odds only where legitimately available; unavailable data remains unavailable.
+8. Remove bookmaker margin and compare FIH with the historical market where possible.
+9. Freeze the strongest qualifying market or NO BET decision before using the actual result.
+10. Persist and verify reconstructed predictions/decisions.
+11. Ingest and verify actual results.
+12. Evaluate performance and persist/verify backtest metrics and outputs.
+
+A status request may report current progress, but it does not cancel or redefine the full-cycle authorization. Intermediate completion is not task completion. Continue automatically until the full cycle completes or a Hard Stop defined in this policy is reached.
