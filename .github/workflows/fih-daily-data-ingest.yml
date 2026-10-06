@@ -6,7 +6,9 @@ on:
       - ".github/workflows/fih-daily-data-ingest.yml"
       - "scripts/ingest-daily-fixtures.ts"
       - "scripts/ingest-daily-news.ts"
-      - "scripts/normalize-daily-fixtures.ts"\n      - "scripts/enrich-daily-evidence.ts"\n      - "scripts/web-historical-backtest.ts"
+      - "scripts/normalize-daily-fixtures.ts"
+      - "scripts/enrich-daily-evidence.ts"
+      - "scripts/web-historical-backtest.ts"
   workflow_dispatch:
     inputs:
       refresh:
@@ -49,7 +51,10 @@ jobs:
       - name: Normalize LiveScore fixtures into model evidence
         run: npm run daily:normalize -- "${{ steps.date.outputs.date }}"
 
-      - name: Enrich normalized evidence for V2.9\n        run: npm run daily:enrich -- "${{ steps.date.outputs.date }}"\n\n      - name: Fetch news
+      - name: Enrich normalized evidence for V2.9
+        run: npm run daily:enrich -- "${{ steps.date.outputs.date }}"
+
+      - name: Fetch news
         continue-on-error: true
         env:
           RAPIDAPI_KEY: ${{ secrets.LS_API_KEY }}
