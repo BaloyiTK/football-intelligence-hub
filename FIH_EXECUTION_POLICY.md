@@ -153,3 +153,20 @@ For each historical backtest date, fixture eligibility is determined using kicko
 - Kickoff after 06:00 SAST: ELIGIBLE for research and subsequent backtest stages.
 
 Therefore the eligibility condition is strictly `kickoff > 06:00 SAST`. Excluded fixtures must not be counted in the backtest denominator, researched as target fixtures, modeled, selected, or evaluated. They may only appear in historical evidence for later eligible fixtures when they were completed and their information was available by the applicable 06:00 research snapshot.
+
+
+## Missing-evidence continuation guardrail
+
+Difficulty finding or reconstructing historical evidence is **not, by itself, a Hard Stop**.
+
+For every eligible fixture, the mandatory research loop is:
+
+**Search -> enforce cutoff -> persist verified evidence -> mark each unverifiable field `UNAVAILABLE` -> verify persisted research record -> continue to the next fixture.**
+
+Rules:
+- A missing last-five record, venue split, H2H, xG/xGA value, standing, injury, motivation item, opponent-strength measure, rest datum, or historical market price does not require user approval and does not terminate the run.
+- Sparse evidence may cause a market or entire fixture to become `INSUFFICIENT_DATA` or `NO_BET`; that is a valid model/decision outcome, not an execution failure.
+- Historical research being slow, difficult, incomplete, or spread across many fixtures is not a material architecture change and is not a reason to pause.
+- Do not fabricate or use post-cutoff evidence to fill a gap. Record the gap as `UNAVAILABLE` and continue.
+- A genuine integrity Hard Stop exists only when proceeding would require using known invalid/leaked/fabricated data, corrupting persisted data, or materially changing architecture/scope. The mere existence of unavailable evidence does not meet that condition.
+- After the final eligible fixture research record is persisted and verified, continue automatically through model calculation, odds/value comparison where available, decisions/NO BET, result ingestion for backtests, evaluation, persistence, and final verification.
