@@ -43,6 +43,9 @@ jobs:
           EXTRA=""
           if [ "${{ inputs.refresh }}" = "true" ]; then EXTRA="--refresh"; fi
           npm run fixtures:ingest -- "${{ steps.date.outputs.date }}" $EXTRA
+      - name: Normalize LiveScore fixtures into model evidence
+        run: npm run daily:normalize -- "${{ steps.date.outputs.date }}"
+
       - name: Fetch news
         continue-on-error: true
         env:
@@ -56,6 +59,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/today_fixture.json
+          git add "data/daily-evidence/${{ steps.date.outputs.date }}.json"
           if [ -f data/today_news.json ]; then git add data/today_news.json; fi
           if git diff --cached --quiet; then
             echo "No daily input changes to commit."
