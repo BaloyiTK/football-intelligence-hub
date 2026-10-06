@@ -28,7 +28,17 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: npm install --no-audit --no-fund
+      - name: Install dependencies with bounded retry
+        shell: bash
+        run: |
+          set -euo pipefail
+          delays=(0 15 45)
+          for attempt in 1 2 3; do
+            (( delays[attempt-1] > 0 )) && sleep "${delays[attempt-1]}"
+            npm install --no-audit --no-fund && exit 0
+            echo "::warning::dependency install attempt $attempt/3 failed"
+          done
+          exit 1
 
       - name: Resolve command
         id: command
@@ -48,9 +58,12 @@ jobs:
           echo "date=$(node -p 'require("./"+process.argv[1]).date||""' "$FILE")" >> "$GITHUB_OUTPUT"
 
       - name: Contract and model checks
+        shell: bash
         run: |
+          set -euo pipefail
           npm test
           npm run model:preflight
+          node -e 'const c=require("./automation/FIH_CONTRACT.json"); if(!c.recoveryPolicy?.enabled) throw new Error("FIH recovery policy is not enabled"); if(c.recoveryPolicy.businessRuleMutationForbidden!==true||c.recoveryPolicy.evidenceFabricationForbidden!==true) throw new Error("Unsafe recovery policy");'
 
       - name: Validate run
         run: npm run run:validate -- "${{ steps.command.outputs.run_file }}"
