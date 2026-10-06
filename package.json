@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "fixtures:ingest": "tsx scripts/ingest-daily-fixtures.ts",
-    "fixtures:backtest-ingest": "tsx scripts/ingest-backtest-fixtures.ts"
+    "fixtures:backtest-ingest": "tsx scripts/ingest-backtest-fixtures.ts",
+    "model:v2": "tsx scripts/fih-probability-v2.ts"
   },
   "dependencies": {},
   "devDependencies": {
