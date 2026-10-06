@@ -167,3 +167,20 @@ Each published selection should retain enough information to audit:
 Daily flow:
 
 `LiveScore fixtures -> Web research for every eligible fixture -> Compare HOME / AWAY / OVER 2.5 / BTTS -> Strongest qualifying market -> Today's prediction file`
+
+
+## FIH V2 research-to-model layer
+
+The active development model is `FIH-V2-RESEARCH` in `scripts/fih-probability-v2.ts`.
+
+V2 principles:
+- Recent overall form remains the anchor, but it is no longer the only usable evidence.
+- Home venue form and away venue form refine expected-goal estimates when verified.
+- xG/xGA may refine expected goals when trustworthy data exists; unavailable xG is not treated as zero.
+- PPG and goal-difference-per-game provide a conservative longer-strength adjustment.
+- Individual recent matches may be opponent-strength weighted when a verified opponent-strength factor exists.
+- Squad/availability adjustments are small and only applied when evidence is structured and verified.
+- HOME/AWAY, OVER 2.5, and BTTS have separate reliability values. Model probability and evidence reliability are different concepts.
+- DRAW remains internal and only blocks HOME/AWAY; it does not block goals markets.
+- No new qualification/value threshold is locked from a tiny sample. Thresholds must be calibrated on a materially larger leak-free backtest.
+- V1 remains retained as an auditable baseline; V2 is the active development engine.
