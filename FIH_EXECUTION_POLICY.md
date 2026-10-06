@@ -115,3 +115,17 @@ Interpret either command as authorization to execute the full requested historic
 12. Evaluate performance and persist/verify backtest metrics and outputs.
 
 A status request may report current progress, but it does not cancel or redefine the full-cycle authorization. Intermediate completion is not task completion. Continue automatically until the full cycle completes or a Hard Stop defined in this policy is reached.
+
+
+## Mandatory fixture-by-fixture research gate
+The research/evidence stage is not satisfied by reusing the target fixture boards, by deriving form only from other fixtures inside the requested backtest window, or by running the probability model directly from LiveScore results.
+
+For every eligible fixture in a daily run or backtest:
+1. Start from that fixture on the verified LiveScore board.
+2. Perform fixture-specific external web research using credible sources.
+3. For a backtest, restrict evidence to information that existed before that fixture's kickoff; never use the target match result or later information as research input.
+4. Attempt all evidence categories defined in `FIH_BUILD_STEPS.md`, including last-five overall, venue form, H2H, standings, goals profile, xG/xGA where reliable, squad availability, motivation/context, opponent strength, and rest/schedule.
+5. Persist source references/URLs and retrieval/reconstruction metadata with the fixture evidence.
+6. Missing categories must be explicitly `UNAVAILABLE`; they may not be silently skipped or replaced with same-window target results.
+7. The FIH probability stage may begin for a fixture only after its research record has been persisted and verified.
+8. A backtest cannot be marked complete if fixture-specific research was skipped. A LiveScore-only or same-window-form run must be labeled a baseline/data test, never a completed FIH backtest.
