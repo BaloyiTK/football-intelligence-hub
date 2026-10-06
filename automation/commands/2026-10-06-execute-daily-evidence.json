@@ -1,0 +1,8 @@
+{
+  "action": "execute-daily",
+  "runFile": "data/runs/2026-10-06_manual_211_v2.9.json",
+  "evidenceFile": "data/daily-evidence/2026-10-06.json",
+  "date": "2026-10-06",
+  "requestedAt": "2026-10-06",
+  "reason": "Consume sourced Oct 6 evidence and persist deterministic resumable progress; do not finalize while scopes/research remain unresolved."
+}
