@@ -23,7 +23,13 @@
       "decision or NO BET",
       "actual result",
       "evaluation"
-    ]
+    ],
+    "researchSnapshot": {
+      "localTime": "06:00",
+      "timezone": "Africa/Johannesburg",
+      "utcOffset": "+02:00",
+      "rule": "Use only information verifiably available by 06:00 SAST on each historical target date; exclude all later information from the frozen FIH assessment."
+    }
   },
   "days": [
     {
@@ -34,7 +40,8 @@
       "fixtureCount": 168,
       "modelCalculated": 0,
       "insufficientData": 168,
-      "scoredActuals": 168
+      "scoredActuals": 168,
+      "researchCutoff": "2026-09-29T06:00:00+02:00"
     },
     {
       "date": "2026-09-30",
@@ -44,7 +51,8 @@
       "fixtureCount": 86,
       "modelCalculated": 0,
       "insufficientData": 86,
-      "scoredActuals": 85
+      "scoredActuals": 85,
+      "researchCutoff": "2026-09-30T06:00:00+02:00"
     },
     {
       "date": "2026-10-01",
@@ -54,7 +62,8 @@
       "fixtureCount": 75,
       "modelCalculated": 0,
       "insufficientData": 75,
-      "scoredActuals": 73
+      "scoredActuals": 73,
+      "researchCutoff": "2026-10-01T06:00:00+02:00"
     },
     {
       "date": "2026-10-02",
@@ -64,7 +73,8 @@
       "fixtureCount": 171,
       "modelCalculated": 0,
       "insufficientData": 171,
-      "scoredActuals": 161
+      "scoredActuals": 161,
+      "researchCutoff": "2026-10-02T06:00:00+02:00"
     },
     {
       "date": "2026-10-03",
@@ -74,7 +84,8 @@
       "fixtureCount": 718,
       "modelCalculated": 0,
       "insufficientData": 718,
-      "scoredActuals": 712
+      "scoredActuals": 712,
+      "researchCutoff": "2026-10-03T06:00:00+02:00"
     },
     {
       "date": "2026-10-04",
@@ -84,7 +95,8 @@
       "fixtureCount": 451,
       "modelCalculated": 0,
       "insufficientData": 451,
-      "scoredActuals": 447
+      "scoredActuals": 447,
+      "researchCutoff": "2026-10-04T06:00:00+02:00"
     },
     {
       "date": "2026-10-05",
@@ -94,7 +106,8 @@
       "fixtureCount": 78,
       "modelCalculated": 0,
       "insufficientData": 78,
-      "scoredActuals": 77
+      "scoredActuals": 77,
+      "researchCutoff": "2026-10-05T06:00:00+02:00"
     }
   ],
   "fixtureCount": 1747,
