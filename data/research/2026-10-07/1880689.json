@@ -1,0 +1,64 @@
+{
+  "schema": "fih-research-v1",
+  "date": "2026-10-07",
+  "fixtureId": "1880689",
+  "fixture": {
+    "home": "Coventry United",
+    "away": "Shepshed Dynamo",
+    "competition": "Northern Division 1 Midlands",
+    "kickoff": "20261007160000"
+  },
+  "researchedAt": "2026-10-07T12:16:42.000Z",
+  "sourceUrls": [
+    "https://www.skysports.com/football/coventry-united-vs-shepshed-dynamo/574353"
+  ],
+  "evidenceStatus": "VERIFIED_MINIMUM",
+  "requiredModelMatchSeries": "AVAILABLE",
+  "overallSeriesSummary": {
+    "home": [
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "away": [
+      [
+        4,
+        0
+      ],
+      [
+        3,
+        2
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        3,
+        2
+      ]
+    ]
+  },
+  "integrity": "Five recent overall results for each team verified from fixture-specific source; no unavailable fields fabricated."
+}
