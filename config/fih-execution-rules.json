@@ -2,18 +2,54 @@
   "schema": "fih-execution-rules-v1",
   "locked": true,
   "rules": {
-    "PRE-001": {"kind":"preflight","requirement":"Current contract and policy must be read before execution or resumption."},
-    "LIFE-001": {"kind":"lifecycle","requirement":"Every stage follows invoke, verify, persist, verify-persisted, continue."},
-    "REC-001": {"kind":"recovery","requirement":"A recoverable failure transitions to RECOVERING, never directly to BLOCKED."},
-    "REC-002": {"kind":"recovery","requirement":"A single failed tool, provider path, deployment path, write attempt, or intermediate stage is insufficient for BLOCKED."},
-    "REC-003": {"kind":"recovery","requirement":"Before BLOCKED, applicable canonical retry, investigation/bounded repair, authorized fallback, persistence retry/reconciliation, and persisted-state resume paths must be attempted or proven unavailable."},
-    "REC-004": {"kind":"recovery","requirement":"Missing or invalid rebuildable artifacts must be regenerated from authoritative input, verified, persisted, reread, and execution resumed."},
-    "RESUME-001": {"kind":"resume","requirement":"Resume from the earliest unverified persisted fixture/stage; do not require renewed authorization."},
-    "TERM-001": {"kind":"termination","requirement":"BLOCKED requires a named policy hard-stop plus evidence and exhausted applicable recovery paths."},
-    "TERM-002": {"kind":"termination","requirement":"COMPLETE requires all eligible fixtures terminal, aggregate reconciliation, canonical artifacts verified, required commit verified, and intended production deployment verified."},
-    "TERM-003": {"kind":"termination","requirement":"WAITING requires a genuinely active external process and no useful authorized work remaining until it finishes."},
-    "AUTO-001": {"kind":"automation","requirement":"A run failure must not disable recurring FIH automation unless the user explicitly requests disabling it or continued execution is itself unsafe/destructive."},
-    "EVID-001": {"kind":"evidence","requirement":"Every PASS/RECOVERING/WAITING/BLOCKED/COMPLETE assertion must name applicable rule IDs and persisted or externally verifiable evidence."}
+    "PRE-001": {
+      "kind": "preflight",
+      "requirement": "Current contract and policy must be read before execution or resumption."
+    },
+    "LIFE-001": {
+      "kind": "lifecycle",
+      "requirement": "Every stage follows invoke, verify, persist, verify-persisted, continue."
+    },
+    "REC-001": {
+      "kind": "recovery",
+      "requirement": "A recoverable failure transitions to RECOVERING, never directly to BLOCKED."
+    },
+    "REC-002": {
+      "kind": "recovery",
+      "requirement": "A single failed tool, provider path, deployment path, write attempt, or intermediate stage is insufficient for BLOCKED."
+    },
+    "REC-003": {
+      "kind": "recovery",
+      "requirement": "Before BLOCKED, applicable canonical retry, investigation/bounded repair, authorized fallback, persistence retry/reconciliation, and persisted-state resume paths must be attempted or proven unavailable."
+    },
+    "REC-004": {
+      "kind": "recovery",
+      "requirement": "Missing or invalid rebuildable artifacts must be regenerated from authoritative input, verified, persisted, reread, and execution resumed."
+    },
+    "RESUME-001": {
+      "kind": "resume",
+      "requirement": "Resume from the earliest unverified persisted fixture/stage; do not require renewed authorization."
+    },
+    "TERM-001": {
+      "kind": "termination",
+      "requirement": "BLOCKED requires a named policy hard-stop plus evidence and exhausted applicable recovery paths."
+    },
+    "TERM-002": {
+      "kind": "termination",
+      "requirement": "DAILY_CYCLE_COMPLETE requires all eligible fixtures terminal, aggregate reconciliation, canonical research/model/decision artifacts verified, and required repository commit verified. Production deployment is a separate publication-health concern and does not block prediction-cycle completion."
+    },
+    "TERM-003": {
+      "kind": "termination",
+      "requirement": "WAITING requires a genuinely active external process and no useful authorized work remaining until it finishes."
+    },
+    "AUTO-001": {
+      "kind": "automation",
+      "requirement": "A run failure must not disable recurring FIH automation unless the user explicitly requests disabling it or continued execution is itself unsafe/destructive."
+    },
+    "EVID-001": {
+      "kind": "evidence",
+      "requirement": "Every PASS/RECOVERING/WAITING/BLOCKED/COMPLETE assertion must name applicable rule IDs and persisted or externally verifiable evidence."
+    }
   },
   "hardStops": [
     "NEW_SECRET_OR_EXTERNAL_AUTHORIZATION_REQUIRED",
