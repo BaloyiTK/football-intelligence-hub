@@ -14,7 +14,6 @@ function gate(verdict:string,rules:string,evidence:string,extra:string[]=[]){con
 let noProgress=0,pass=0;
 for(;;){
  pass++;const before=ledger(),beforeSig=signature(before);
- if(before?.runStatus==="COMPLETE"){console.log("LEDGER_COMPLETE_REQUIRES_FINALIZER "+DATE);process.exit(0)}
  console.log(`CONTINUATION_PASS ${pass} date=${DATE} noProgress=${noProgress}`);
  const run=tsx("scripts/daily-cycle.ts","--date",DATE),after=ledger(),afterSig=signature(after);
  if(run.status===0&&after?.runStatus==="COMPLETE"){console.log("CONTINUATION_WORK_COMPLETE "+DATE);process.exit(0)}
