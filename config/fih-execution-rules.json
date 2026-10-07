@@ -73,6 +73,10 @@
     "BACKTEST-001": {
       "kind": "backtest-integrity",
       "requirement": "Historical backtests reconstruct the pre-match information cutoff, freeze the model prediction before attaching actual results, grade predictions against verified results, and use aggregate failure trends for controlled model evaluation without look-ahead leakage."
+    },
+    "REC-005": {
+      "kind": "recovery",
+      "requirement": "Any failed stage MUST immediately enter investigate -> fix or authorized fallback -> verify recovery -> resume from the earliest unfinished stage -> continue. A failed stage, failed workflow run, or failed provider call is never a normal stopping point and never requires renewed user authorization."
     }
   },
   "hardStops": [
