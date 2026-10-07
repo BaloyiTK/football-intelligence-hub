@@ -1,0 +1,24 @@
+{
+  "schema": "fih-daily-predictions-v1",
+  "date": "2026-10-07",
+  "generatedAt": "2026-10-07T12:21:00.000Z",
+  "status": "COMPLETE",
+  "sourceBoard": {
+    "schema": "fih-today-fixture-v1",
+    "fetchedAt": "2026-10-07T12:19:20.011Z",
+    "fixtureCount": 70,
+    "stageCount": 44
+  },
+  "eligibleFixtureCount": 33,
+  "canonicalArtifactCounts": {
+    "research": 37,
+    "model": 37,
+    "decisions": 37
+  },
+  "publishableSelectionCount": 0,
+  "predictions": [],
+  "notes": [
+    "All eligible fixtures reached canonical research/model/decision coverage.",
+    "No decision satisfied the current publishable qualification rules; NO_MODEL and NO_BET are excluded from public predictions."
+  ]
+}
