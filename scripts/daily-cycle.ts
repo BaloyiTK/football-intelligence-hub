@@ -107,5 +107,24 @@ const unfinished=ledger.fixtures.filter((x:any)=>x.eligible&&x.state!=="COMPLETE
 if(unfinished.length){
  console.log("DAILY_CYCLE_INCOMPLETE");
  for(const f of unfinished) console.log(`${f.id} ${f.state} ${f.home} vs ${f.away}`);
- process.exitCode=2;
-} else console.log("DAILY_FIXTURE_CHAIN_COMPLETE");
+ process.exit(2);
+}
+
+console.log("DAILY_FIXTURE_CHAIN_COMPLETE");
+const eligible=ledger.fixtures.filter((x:any)=>x.eligible);
+const publishable:any[]=[];
+for(const f of eligible){
+ const rp=`data/research/${DATE}/${f.id}.json`, mp=`data/model/${DATE}/${f.id}.json`, dp=`data/decisions/${DATE}/${f.id}.json`;
+ for(const p of [rp,mp,dp]) if(!exists(p)||read(p)===null) throw new Error(`CANONICAL_ARTIFACT_INVALID ${p}`);
+ const d=readRequired(dp);
+ if(d.publishable===true) publishable.push({fixtureId:String(f.id),home:f.home,away:f.away,competition:f.competition,kickoff:f.kickoff,decision:d.decision,market:d.market??null,modelVersion:d.modelVersion??null,reason:d.reason??null});
+}
+const predictionPath=`data/predictions/${DATE}.json`;
+fs.mkdirSync(path.dirname(path.join(root,predictionPath)),{recursive:true});
+const prediction={schema:"fih-daily-predictions-v1",date:DATE,status:"COMPLETE",generatedAt:new Date().toISOString(),eligibleFixtures:eligible.length,publishableCount:publishable.length,predictions:publishable};
+fs.writeFileSync(path.join(root,predictionPath),JSON.stringify(prediction,null,2)+"\n");
+const predictionVerify=readRequired(predictionPath);
+if(predictionVerify.schema!=="fih-daily-predictions-v1"||predictionVerify.date!==DATE||!Array.isArray(predictionVerify.predictions)||predictionVerify.publishableCount!==predictionVerify.predictions.length) throw new Error("PREDICTION_ARTIFACT_VERIFY_FAILED");
+if(ledger.counts?.eligible!==eligible.length||ledger.counts?.COMPLETE!==eligible.length||ledger.next!==null) throw new Error("AGGREGATE_RECONCILIATION_FAILED");
+console.log(`DAILY_AGGREGATE_VERIFIED eligible=${eligible.length} publishable=${publishable.length}`);
+console.log("DAILY_FINALIZATION_READY");
