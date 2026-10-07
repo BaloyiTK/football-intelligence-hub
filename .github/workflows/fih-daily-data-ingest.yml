@@ -7,7 +7,7 @@ on:
     - cron: "50 3 * * *"
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   verify:
@@ -30,3 +30,17 @@ jobs:
             if(!n||n!==x.fixtureCount) throw new Error("invalid fixture count");
             console.log(JSON.stringify({gate:"PASS",date:x.date,stageCount:x.stageCount,fixtureCount:x.fixtureCount,fetchedAt:x.fetchedAt}));
           ' "$DATE"
+      - name: Reconcile durable daily run ledger
+        run: |
+          npm ci
+          npm run run:ledger:init -- --date "$(TZ=Africa/Johannesburg date +%F)"
+          npm run run:ledger:verify -- --date "$(TZ=Africa/Johannesburg date +%F)"
+      - name: Persist reconciled run ledger
+        run: |
+          DATE="$(TZ=Africa/Johannesburg date +%F)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "data/run-state/$DATE.json"
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "ops: reconcile daily run ledger $DATE"
+          git push
