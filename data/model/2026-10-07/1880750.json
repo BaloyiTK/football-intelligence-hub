@@ -1,0 +1,9 @@
+{
+  "schema": "fih-model-v1",
+  "date": "2026-10-07",
+  "fixtureId": "1880750",
+  "modelVersion": "FIH-V2-RESEARCH",
+  "status": "INSUFFICIENT_DATA",
+  "reason": "Need at least 3 verified match-level overall matches for each team; complete locked-model input was unavailable in this research pass.",
+  "calculatedAt": "2026-10-07T05:12:25.212Z"
+}
