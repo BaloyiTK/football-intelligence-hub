@@ -1,0 +1,26 @@
+{
+  "schema": "fih-historical-market-sources-v1",
+  "policy": {
+    "requirePreKickoffProvenance": true,
+    "requirePublicSourceUrl": true,
+    "automatedAccessRequiresPermission": true,
+    "visibilityDoesNotImplyScrapingPermission": true
+  },
+  "sources": [
+    {
+      "id": "football-data-uk",
+      "url": "https://www.football-data.co.uk/",
+      "mode": "manual_or_authorized_import",
+      "automated": false,
+      "coverage": "historical results and betting odds CSV/Excel",
+      "notes": "Source publishes opening/pre-closing and closing odds depending on season, but site usage notice restricts automated/commercial/data-training use."
+    },
+    {
+      "id": "oddsportal",
+      "url": "https://www.oddsportal.com/results/football/",
+      "mode": "reference_only_until_automation_permission_verified",
+      "automated": false,
+      "coverage": "archived football results and historical odds"
+    }
+  ]
+}
