@@ -44,7 +44,7 @@ jobs:
         env:
           FIH_INGEST_URL: ${{ vars.FIH_INGEST_URL }}
         run: |
-          BASE="${FIH_INGEST_URL:-https://football-intelligence-hub.vercel.app/api/backtest-ingest}"
+          BASE="${FIH_INGEST_URL:-https://football-intelligence-hub-654j.vercel.app/api/backtest-ingest}"
           IFS=',' read -ra DS <<< "$BACKTEST_DATES"
           for D in "${DS[@]}"; do
             DAILY="data/backtest/daily/$D.json"
