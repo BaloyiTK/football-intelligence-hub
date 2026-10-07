@@ -58,6 +58,28 @@ if(researchQueue.length){
 
 tsx("scripts/daily-run-ledger.ts","reconcile",DATE);
 ledger=show();
+
+console.log("DAILY_MODEL_START");
+try{tsx("scripts/daily-model-runner.ts");}catch(e){console.error("DAILY_MODEL_DEGRADED: invalid research/model artifact encountered; continuing reconciliation.");}
+
+for(const f of ledger.fixtures.filter((x:any)=>x.eligible)){
+ const model=`data/model/${DATE}/${f.id}.json`;
+ const decision=`data/decisions/${DATE}/${f.id}.json`;
+ if(!exists(model)) continue;
+ if(!exists(decision)){
+  const m=read(model);
+  if(m.status==="INSUFFICIENT_DATA"){
+   fs.mkdirSync(path.dirname(path.join(root,decision)),{recursive:true});
+   fs.writeFileSync(path.join(root,decision),JSON.stringify({schema:"fih-decision-v1",date:DATE,fixtureId:String(f.id),decision:"NO_MODEL",publishable:false,reason:"INSUFFICIENT_VERIFIED_MODEL_INPUT",decidedAt:new Date().toISOString()},null,2)+"\\n");
+   const verify=read(decision);
+   if(verify.fixtureId!==String(f.id)||verify.decision!=="NO_MODEL") throw new Error(`DECISION_PERSIST_VERIFY_FAILED ${f.id}`);
+   console.log(`DECISION_WRITTEN ${f.id} NO_MODEL`);
+  } else console.log(`DECISION_REQUIRED ${f.id} market/value verification needed`);
+ }
+}
+
+tsx("scripts/daily-run-ledger.ts","reconcile",DATE);
+ledger=show();
 const unfinished=ledger.fixtures.filter((x:any)=>x.eligible&&x.state!=="COMPLETE");
 if(unfinished.length){
  console.log("DAILY_CYCLE_INCOMPLETE");
