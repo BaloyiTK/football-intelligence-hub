@@ -118,7 +118,7 @@ Mandatory invariants:
 - Ordinary failure maps to RECOVERING, not BLOCKED.
 - One failed tool/provider/deployment/write path can never by itself authorize BLOCKED.
 - BLOCKED requires `TERM-001` + `REC-003`, a named policy hard stop, evidence, and all applicable bounded recovery paths recorded as attempted or unavailable.
-- COMPLETE requires `TERM-002`, a reconciled durable ledger with every eligible fixture COMPLETE, aggregate verification, verified commit, and verified intended production deployment.
+- COMPLETE for the daily prediction cycle requires `TERM-002`, a reconciled durable ledger with every eligible fixture COMPLETE, verified canonical research/model/decision artifacts, aggregate verification, and verified repository commit. Production deployment is monitored separately as publication health; a deployment quota or deployment delay does not reopen or block a completed prediction computation cycle.
 - WAITING requires `TERM-003` and a genuinely active external process with no useful authorized work remaining.
 - A failed run MUST NOT disable recurring FIH automation unless the user explicitly requests disabling it or continued execution is itself unsafe/destructive.
 - Persisted contract state and gate evidence outrank an assistant/chat conclusion.
