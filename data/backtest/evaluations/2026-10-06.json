@@ -1,0 +1,43 @@
+{
+  "schema": "fih-backtest-evaluation-v1",
+  "date": "2026-10-06",
+  "sourcePredictionArtifact": "data/predictions/2026-10-06.json",
+  "integrity": {
+    "predictionFrozenBeforeResults": true,
+    "actualResultsAttachedAfterFreeze": true,
+    "lookahead": "FORBIDDEN"
+  },
+  "settledSelections": 2,
+  "wins": 2,
+  "losses": 0,
+  "pushes": 0,
+  "hitRate": 1,
+  "fixtures": [
+    {
+      "fixtureId": "1856609",
+      "home": "Saint Martin",
+      "away": "Bahamas",
+      "market": "HOME",
+      "actual": {
+        "homeGoals": 6,
+        "awayGoals": 0
+      },
+      "outcome": "WIN"
+    },
+    {
+      "fixtureId": "1856603",
+      "home": "Saint Vincent and The Grenadines",
+      "away": "Sint Maarten",
+      "market": "HOME",
+      "actual": {
+        "homeGoals": 4,
+        "awayGoals": 0
+      },
+      "outcome": "WIN"
+    }
+  ],
+  "actualResultSources": [
+    "LiveScore public historical results 2026-10-06",
+    "Goal results 2026-10-06"
+  ]
+}
