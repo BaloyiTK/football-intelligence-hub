@@ -77,6 +77,36 @@ Do not treat a cached/reused artifact as proof that the producer can still acqui
 ### Hard-stop threshold for rebuildable state
 BLOCKED is permitted only when regeneration cannot proceed because the authoritative source/required authorization is genuinely unavailable after reasonable retries, all authorized persistence paths fail after investigation and bounded repair, continuing would require fabricated/known-invalid data, or recovery would require a destructive/material architecture change outside existing authorization.
 
+## Durable checkpoint and resume protocol
+
+Long workload is recoverable execution state, never a reason to terminate an authorized run.
+
+### Persistent run ledger
+For each daily run or backtest day, maintain a durable run ledger/checkpoint in repository state. It must record the run date, authoritative fixture-board identity, current stage, eligible fixture IDs, per-fixture status, retry counts, last verified artifact, and aggregate completion counts. The ledger itself is rebuildable from canonical artifacts when absent.
+
+Per-fixture status progresses monotonically through applicable states such as PENDING -> RESEARCH_VERIFIED -> MODEL_VERIFIED -> DECISION_VERIFIED -> COMPLETE. A fixture may also reach a valid terminal classification defined by current model rules. Never mark a fixture complete merely because an attempt ran.
+
+### Atomic work units
+Process long stages as small durable work units. After each fixture or bounded batch: persist the artifact, verify the persisted artifact, then advance the ledger. Do not hold the only copy of progress in chat context, process memory, temporary logs, or an uncommitted workspace.
+
+### Resume invariant
+At every invocation and after every recoverable interruption, derive the next action from persisted state: verify the fixture board, reconstruct/validate the ledger if necessary, skip only work whose canonical artifact is independently verified, and resume the earliest unfinished fixture/stage. Never restart verified work unnecessarily and never skip unfinished work.
+
+### Response/time-boundary behavior
+Execution duration, tool-call limits, context limits, response boundaries, workload size, and fixture count are not Hard Stops. Before an unavoidable execution boundary, persist and verify the current work unit and checkpoint so the next authorized invocation can resume deterministically. Never describe an unfinished run as COMPLETE or BLOCKED merely because a boundary was reached.
+
+### Retry and escalation
+For transient network, provider, GitHub, deployment, parsing, or rate-limit failures: retry with bounded attempts; inspect returned status/logs; use safe backoff where appropriate; refresh stale repository SHAs before write retries; and fall back to another already-authorized path to the same authoritative source when available. Reset the retry counter after verified progress. A single failed tool/path is not proof that the stage is blocked.
+
+### Stale execution recovery
+If a prior run appears RUNNING but has no active external job and its checkpoint has not advanced, treat it as interrupted/stale. Re-read canonical artifacts, reclaim the run from the last verified checkpoint, and continue. Never wait indefinitely on a stale logical lock.
+
+### Completion invariants
+A daily run may be COMPLETE only when: the authoritative current-date fixture board is verified; every eligible fixture has a verified terminal per-fixture state; all required aggregate/model/decision artifacts reconcile with the eligible fixture count; the public artifact contains only publishable qualifying selections; required commits are verified; and the required production deployment points to the intended committed state. Count mismatches or orphaned PENDING fixtures trigger self-healing/resume.
+
+### Recovery audit trail
+Persist concise machine-readable recovery metadata for meaningful recovery events: detected condition, affected artifact/stage, attempted recovery path, outcome, and resumed checkpoint. Do not persist credentials or sensitive provider responses.
+
 ## Default recovery loop
 1. Detect the failure.
 2. Inspect the relevant logs, response, repository state, or deployment state.
