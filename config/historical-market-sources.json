@@ -4,7 +4,9 @@
     "requirePreKickoffProvenance": true,
     "requirePublicSourceUrl": true,
     "automatedAccessRequiresPermission": true,
-    "visibilityDoesNotImplyScrapingPermission": true
+    "visibilityDoesNotImplyScrapingPermission": true,
+    "currentEraAutonomousKeylessSourceFound": false,
+    "betCalibrationMustRemainLocked": true
   },
   "sources": [
     {
@@ -21,6 +23,22 @@
       "mode": "reference_only_until_automation_permission_verified",
       "automated": false,
       "coverage": "archived football results and historical odds"
+    },
+    {
+      "id": "beat-the-bookie",
+      "url": "https://github.com/Lisandro79/BeatTheBookie",
+      "mode": "methodology_dataset",
+      "automated": true,
+      "coverage": "worldwide closing odds; 479k+ matches / 818 leagues; historical era ending 2015",
+      "use": "methodology and calibration-pipeline validation only; not representative enough to unlock 2026 BET publication"
+    },
+    {
+      "id": "parlay-api",
+      "url": "https://parlay-api.com/historical-odds-api",
+      "mode": "free_key_required",
+      "automated": true,
+      "coverage": "historical closing lines back to 2005; deepest in NFL and soccer",
+      "use": "preferred current-era automated backfill candidate when API key is configured"
     }
   ]
 }
