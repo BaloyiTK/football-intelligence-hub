@@ -1,0 +1,20 @@
+{
+  "schema": "fih-research-v1",
+  "date": "2026-10-07",
+  "fixtureId": "1857747",
+  "fixture": {
+    "home": "Grays Athletic",
+    "away": "Hashtag United",
+    "competition": "Isthmian League Northern Division",
+    "kickoff": "20261007204500"
+  },
+  "researchedAt": "2026-10-07T09:32:00.000Z",
+  "searchQuery": "Grays Athletic Hashtag United 7 October 2026 form odds",
+  "sourceUrls": [
+    "https://www.skysports.com/football/grays-athletic-vs-hashtag-united/569700",
+    "https://www.graysathletic.co.uk/news/next-up-grays-athletic-v-hashtag-united-3001242.html"
+  ],
+  "evidenceStatus": "VERIFIED_MINIMUM_MODEL_INPUT",
+  "requiredModelMatchSeries": "VERIFIED_SEPARATELY_IN_SOURCE",
+  "integrity": "Fixture-specific public-web research executed; missing evidence not fabricated."
+}
