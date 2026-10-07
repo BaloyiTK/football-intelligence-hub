@@ -4,15 +4,15 @@
   "timezone": "Africa/Johannesburg",
   "runId": "daily:2026-10-07",
   "runStatus": "RECOVERING",
-  "heartbeatAt": "2026-10-07T04:50:57.546Z",
-  "recoveryCount": 1,
+  "heartbeatAt": "2026-10-07T05:32:44.010Z",
+  "recoveryCount": 2,
   "board": {
     "fetchedAt": "2026-10-07T04:41:51.382Z",
     "fixtureCount": 68,
     "stageCount": 42
   },
   "createdAt": "2026-10-07T04:50:57.546Z",
-  "updatedAt": "2026-10-07T04:50:57.546Z",
+  "updatedAt": "2026-10-07T05:32:44.010Z",
   "fixtures": [
     {
       "id": "1856602",
@@ -99,8 +99,8 @@
       "kickoff": "20261007110000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
-      "updatedAt": null
+      "state": "COMPLETE",
+      "updatedAt": "2026-10-07T05:32:44.005Z"
     },
     {
       "id": "1880746",
@@ -110,8 +110,8 @@
       "kickoff": "20261007113000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
-      "updatedAt": null
+      "state": "COMPLETE",
+      "updatedAt": "2026-10-07T05:32:44.009Z"
     },
     {
       "id": "1880750",
@@ -121,8 +121,8 @@
       "kickoff": "20261007113000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
-      "updatedAt": null
+      "state": "COMPLETE",
+      "updatedAt": "2026-10-07T05:32:44.009Z"
     },
     {
       "id": "1880756",
@@ -132,8 +132,8 @@
       "kickoff": "20261007113000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
-      "updatedAt": null
+      "state": "COMPLETE",
+      "updatedAt": "2026-10-07T05:32:44.009Z"
     },
     {
       "id": "1880751",
@@ -143,8 +143,8 @@
       "kickoff": "20261007120000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
-      "updatedAt": null
+      "state": "COMPLETE",
+      "updatedAt": "2026-10-07T05:32:44.009Z"
     },
     {
       "id": "1880749",
@@ -154,8 +154,8 @@
       "kickoff": "20261007120000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
-      "updatedAt": null
+      "state": "COMPLETE",
+      "updatedAt": "2026-10-07T05:32:44.009Z"
     },
     {
       "id": "1880747",
@@ -165,8 +165,8 @@
       "kickoff": "20261007120000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
-      "updatedAt": null
+      "state": "COMPLETE",
+      "updatedAt": "2026-10-07T05:32:44.009Z"
     },
     {
       "id": "1880757",
@@ -176,8 +176,8 @@
       "kickoff": "20261007120000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
-      "updatedAt": null
+      "state": "MODEL_VERIFIED",
+      "updatedAt": "2026-10-07T05:32:44.009Z"
     },
     {
       "id": "1880754",
@@ -187,8 +187,8 @@
       "kickoff": "20261007120000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
-      "updatedAt": null
+      "state": "RESEARCH_VERIFIED",
+      "updatedAt": "2026-10-07T05:32:44.009Z"
     },
     {
       "id": "1880753",
@@ -209,8 +209,8 @@
       "kickoff": "20261007180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
-      "updatedAt": null
+      "state": "RESEARCH_VERIFIED",
+      "updatedAt": "2026-10-07T05:32:44.009Z"
     },
     {
       "id": "1898014",
@@ -231,8 +231,8 @@
       "kickoff": "20261007190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
-      "updatedAt": null
+      "state": "COMPLETE",
+      "updatedAt": "2026-10-07T05:32:44.009Z"
     },
     {
       "id": "1854229",
@@ -767,15 +767,15 @@
     "boardTotal": 68,
     "eligible": 35,
     "excluded": 33,
-    "PENDING": 35,
-    "RESEARCH_VERIFIED": 0,
-    "MODEL_VERIFIED": 0,
+    "PENDING": 24,
+    "RESEARCH_VERIFIED": 2,
+    "MODEL_VERIFIED": 1,
     "DECISION_VERIFIED": 0,
-    "COMPLETE": 0,
+    "COMPLETE": 8,
     "EXCLUDED": 33
   },
   "next": {
-    "fixtureId": "1880752",
-    "state": "PENDING"
+    "fixtureId": "1880757",
+    "state": "MODEL_VERIFIED"
   }
 }
