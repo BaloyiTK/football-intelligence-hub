@@ -1,0 +1,19 @@
+{
+  "schema": "fih-research-v1",
+  "date": "2026-10-07",
+  "fixtureId": "1867271",
+  "fixture": {
+    "home": "El Zamalek",
+    "away": "ZED FC",
+    "competition": "League Cup: Group A",
+    "kickoff": "20261007190000"
+  },
+  "researchedAt": "2026-10-07T08:33:01.000Z",
+  "searchQuery": "El Zamalek ZED FC 7 October 2026 form odds",
+  "sourceUrls": [
+    "https://betmaster.ee/en/sportsbook/sports/soccer/match/4464830"
+  ],
+  "evidenceStatus": "PARTIAL",
+  "requiredModelMatchSeries": "UNAVAILABLE",
+  "integrity": "Fixture-specific public-web research executed; missing evidence not fabricated."
+}
