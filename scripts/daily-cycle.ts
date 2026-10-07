@@ -2,7 +2,10 @@ import fs from "node:fs";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
 
-const DATE=process.env.FIH_DATE||new Intl.DateTimeFormat("en-CA",{timeZone:"Africa/Johannesburg",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
+const TODAY=new Intl.DateTimeFormat("en-CA",{timeZone:"Africa/Johannesburg",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
+const DATE=process.env.FIH_DATE||TODAY;
+const MODE=DATE<TODAY?"BACKTEST":"PREDICTION";
+if(MODE==="BACKTEST") throw new Error(`DATE_MODE_MISMATCH ${DATE} is historical; use the backtest pipeline`);
 const root=process.cwd();
 const quarantineDir=path.join(root,"data","quarantine",DATE);
 function read(p:string){
@@ -26,10 +29,11 @@ const queuePath=`data/research-queue/${DATE}.json`;
 
 function show(){const l=readRequired(ledgerPath);console.log(JSON.stringify({date:DATE,status:l.runStatus,counts:l.counts,next:l.next},null,2));return l;}
 
-console.log(`FIH daily controller: ${DATE}`);
-const board=readRequired("data/today_fixture.json");
-if(board.date!==DATE) throw new Error(`Fresh-board gate failed: expected ${DATE}, got ${board.date}`);
-if(!board.fixtureCount) throw new Error("Fresh-board gate failed: empty board");
+console.log(`FIH prediction controller: ${DATE} mode=${MODE}`);
+const boardPath=`data/prediction-fixtures/${DATE}.json`;
+const board=readRequired(boardPath);
+if(board.date!==DATE||board.mode!=="PREDICTION") throw new Error(`Prediction-board gate failed: expected PREDICTION ${DATE}, got ${board.mode} ${board.date}`);
+if(!board.fixtureCount) throw new Error("Prediction-board gate failed: empty board");
 
 tsx("scripts/daily-run-ledger.ts","reconcile",DATE);
 let ledger=show();
