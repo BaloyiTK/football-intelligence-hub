@@ -18,6 +18,7 @@ jobs:
       - name: Execute repository-owned daily cycle
         run: npm run run:daily -- --date 2026-10-07
       - name: Persist generated artifacts
+        if: always()
         run: |
           git config user.name "fih-runner"
           git config user.email "actions@users.noreply.github.com"
