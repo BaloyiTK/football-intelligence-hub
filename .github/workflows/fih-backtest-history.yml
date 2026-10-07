@@ -65,14 +65,8 @@ jobs:
               exit 4
             fi
             npx tsx scripts/validate-backtest-research.ts --date="$D"
-            echo "STEP2_VERIFIED $D; no synthetic Step 3/4/5 path is permitted"
+            echo "STEP2_VERIFIED $D; compliant Step 3/4/5 executor not yet wired, refusing false DAY_COMPLETE"
             exit 5
-            git config user.name "fih-bot"
-            git config user.email "actions@users.noreply.github.com"
-            git add data/backtest
-            git diff --cached --quiet || git commit -m "backtest: complete $D"
-            git pull --rebase origin main
-            git push origin HEAD:main
           done
       - name: Persist fixtures and backtest results
         run: |
