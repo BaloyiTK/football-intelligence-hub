@@ -21,6 +21,15 @@ A successful intermediate stage is not completion. A recoverable failure is not 
 
 The authorized run remains the active task until one of the termination conditions below is satisfied.
 
+## Self-healing guarantee
+
+Any generated or derived artifact that can be reconstructed from an accessible authoritative source is disposable/rebuildable state. Missing, deleted, stale, empty, malformed, partial, schema-invalid, or internally inconsistent generated artifacts MUST be rebuilt automatically and MUST NOT terminate an authorized run.
+
+Recovery of rebuildable state is part of the already-authorized run and requires no additional user command or approval. The executor must reacquire authoritative input, regenerate, validate, persist, independently re-read/verify, and continue from the interrupted stage.
+
+A user or external process deleting a generated artifact is treated identically to accidental loss. The run must self-heal when the authoritative source and authorized persistence path remain available.
+
+
 ## Permitted termination conditions
 Execution may terminate only when:
 
