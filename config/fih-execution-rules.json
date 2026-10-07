@@ -85,6 +85,10 @@
     "BACKTEST-002": {
       "kind": "backtest-storage",
       "requirement": "Canonical backtest artifacts MUST be persisted per date. A multi-day range is execution scope only: process each date independently through DAY_COMPLETE, store dated fixture/research/model/decision/evaluation/daily-summary artifacts, resume from the earliest non-DAY_COMPLETE date, then derive range aggregates from those verified daily artifacts."
+    },
+    "RESP-001": {
+      "kind": "response-gate",
+      "requirement": "An authorized FIH run with a persisted RUNNING or RECOVERING ledger and unfinished eligible fixtures may not be treated as a terminal response state. The executor must continue/resume until COMPLETE, a contract-valid BLOCKED hard stop, or a genuine WAITING state."
     }
   },
   "hardStops": [
