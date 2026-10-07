@@ -107,6 +107,24 @@ For `backtest N days` / `backrest N days`:
 
 The active backtest model is FIH V2 unless the user explicitly requests a model comparison or another model. V1 is retained only as an archived/reference baseline and is not run during ordinary V2 backtests.
 
+
+## Executable contract gate — LOCKED
+
+The machine-readable rules in `config/fih-execution-rules.json` and validator `scripts/contract-gate.ts` are mandatory enforcement for execution status decisions.
+
+Before asserting any stage PASS, RECOVERING, WAITING, BLOCKED, or COMPLETE, the executor MUST evaluate the applicable rule IDs and evidence through the contract gate. A human-language conclusion cannot override a refused gate result.
+
+Mandatory invariants:
+- Ordinary failure maps to RECOVERING, not BLOCKED.
+- One failed tool/provider/deployment/write path can never by itself authorize BLOCKED.
+- BLOCKED requires `TERM-001` + `REC-003`, a named policy hard stop, evidence, and all applicable bounded recovery paths recorded as attempted or unavailable.
+- COMPLETE requires `TERM-002`, a reconciled durable ledger with every eligible fixture COMPLETE, aggregate verification, verified commit, and verified intended production deployment.
+- WAITING requires `TERM-003` and a genuinely active external process with no useful authorized work remaining.
+- A failed run MUST NOT disable recurring FIH automation unless the user explicitly requests disabling it or continued execution is itself unsafe/destructive.
+- Persisted contract state and gate evidence outrank an assistant/chat conclusion.
+
+If the gate refuses a proposed terminal verdict, execution MUST return to RECOVERING and resume at the earliest unverified stage.
+
 ## Authority
 This contract and `FIH_EXECUTION_POLICY.md` jointly govern FIH execution. Where wording differs, use the interpretation that preserves data integrity while requiring continuation of an already-authorized full-cycle run.
 
