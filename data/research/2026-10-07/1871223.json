@@ -1,0 +1,20 @@
+{
+  "schema": "fih-research-v1",
+  "date": "2026-10-07",
+  "fixtureId": "1871223",
+  "fixture": {
+    "home": "Al-Mosul",
+    "away": "Al Quwa Al Jawiya",
+    "competition": "Iraqi League",
+    "kickoff": "20261007170000"
+  },
+  "researchedAt": "2026-10-07T12:16:42.000Z",
+  "searchQuery": "Al-Mosul Al Quwa Al Jawiya 7 October 2026 form odds",
+  "sourceUrls": [
+    "https://gioscore.com/football/match/al-mosul-al-quwa-al-jawiya/19874392",
+    "https://www.sofascore.com/football/match/al-mosul-sc-al-quwa-al-jawiya/CCKbsIQyh"
+  ],
+  "evidenceStatus": "PARTIAL",
+  "requiredModelMatchSeries": "UNAVAILABLE",
+  "integrity": "Fixture-specific public-web research executed; missing evidence not fabricated."
+}
