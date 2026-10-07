@@ -15,9 +15,8 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "22"
+      - name: Verify runner Node
+        run: node --version && npm --version
       - run: npm install --no-audit --no-fund
       - name: Inspect durable daily heartbeat
         id: watchdog
@@ -36,9 +35,20 @@ jobs:
           DATE="$(TZ=Africa/Johannesburg date +%F)"
           npm run run:ledger:init -- --date "$DATE"
           npm run run:ledger:verify -- --date "$DATE"
+          mkdir -p data/recovery-requests
+          node - "$DATE" <<'NODE'
+          const fs=require("fs");
+          const date=process.argv[2];
+          const ledger=JSON.parse(fs.readFileSync(`data/run-state/${date}.json`,"utf8"));
+          fs.writeFileSync(`data/recovery-requests/${date}.json`,JSON.stringify({
+            schema:"fih-recovery-request-v1",date,runId:ledger.runId,
+            requestedAt:new Date().toISOString(),reason:"WATCHDOG_RECOVERY",
+            next:ledger.next,status:"PENDING_EXECUTOR"
+          },null,2)+"\n");
+          NODE
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "data/run-state/$DATE.json"
+          git add "data/run-state/$DATE.json" "data/recovery-requests/$DATE.json"
           if git diff --cached --quiet; then exit 0; fi
           git commit -m "reliability: reclaim daily run $DATE"
           for attempt in 1 2 3; do
@@ -52,8 +62,10 @@ jobs:
         if: steps.watchdog.outputs.code == '10'
         run: |
           git fetch origin main
-          git show "origin/main:data/run-state/$(TZ=Africa/Johannesburg date +%F).json" >/tmp/persisted-ledger.json
-          node -e 'const x=require("/tmp/persisted-ledger.json"); if(!x.runId||!x.heartbeatAt||!["RUNNING","RECOVERING","COMPLETE"].includes(x.runStatus)) process.exit(1); console.log(JSON.stringify({verified:true,runId:x.runId,status:x.runStatus,heartbeatAt:x.heartbeatAt,next:x.next}))'
+          DATE="$(TZ=Africa/Johannesburg date +%F)"
+          git show "origin/main:data/run-state/$DATE.json" >/tmp/persisted-ledger.json
+          git show "origin/main:data/recovery-requests/$DATE.json" >/tmp/recovery-request.json
+          node -e 'const l=require("/tmp/persisted-ledger.json"),r=require("/tmp/recovery-request.json"); if(!l.runId||!l.heartbeatAt||!["RUNNING","RECOVERING","COMPLETE"].includes(l.runStatus)||r.runId!==l.runId||r.status!=="PENDING_EXECUTOR") process.exit(1); console.log(JSON.stringify({verified:true,runId:l.runId,status:l.runStatus,heartbeatAt:l.heartbeatAt,next:l.next,recoveryRequest:r.status}))'
       - name: Recovery handoff
         if: steps.watchdog.outputs.code == '10'
         run: |
