@@ -46,6 +46,37 @@ For an authorized daily run or backtest, the run is one continuous task. Each su
 
 Do not pause between these stages merely to provide a status update. Status updates describe progress; they do not terminate the authorized run.
 
+## Rebuildable-artifact self-healing
+
+Generated and derived artifacts are **rebuildable state**, not hard dependencies. Their absence or corruption MUST trigger recovery, not termination.
+
+This includes daily fixture snapshots, normalized fixture boards, research/evidence artifacts, model outputs, decision files, publication artifacts, generated indexes/manifests, and other outputs whose authoritative inputs can still be reacquired.
+
+For every required artifact:
+1. Detect MISSING, STALE, EMPTY, MALFORMED, SCHEMA_INVALID, PARTIAL, or INCONSISTENT state.
+2. Identify the authoritative upstream source and last verified stage.
+3. Reacquire/recompute from that source. Never reconstruct from guesses and never substitute an older dated artifact for current data.
+4. Validate the regenerated output against date, schema, completeness, integrity, and stage-specific invariants.
+5. Persist it to the canonical path.
+6. Re-read the canonical persisted artifact and verify it independently.
+7. Resume from the interrupted stage automatically.
+8. If persistence races with another writer, refresh repository state, reconcile non-conflicting changes, and retry rather than abandoning the run.
+
+A deleted generated file is therefore a **recovery signal**. Deletion alone is never a Hard Stop when its authoritative source remains accessible.
+
+### Recovery escalation ladder
+Before declaring a recoverable stage blocked, attempt the applicable paths in order:
+- retry the canonical producer;
+- inspect producer/runtime/workflow logs and correct bounded configuration or code defects;
+- rebuild the artifact directly from the same authoritative source through an already-authorized protected execution path;
+- restore/recompute downstream derived artifacts from newly verified upstream data;
+- verify persistence and continue.
+
+Do not treat a cached/reused artifact as proof that the producer can still acquire fresh source data. Fresh-data health tests must exercise and verify a genuine fresh acquisition path.
+
+### Hard-stop threshold for rebuildable state
+BLOCKED is permitted only when regeneration cannot proceed because the authoritative source/required authorization is genuinely unavailable after reasonable retries, all authorized persistence paths fail after investigation and bounded repair, continuing would require fabricated/known-invalid data, or recovery would require a destructive/material architecture change outside existing authorization.
+
 ## Default recovery loop
 1. Detect the failure.
 2. Inspect the relevant logs, response, repository state, or deployment state.
