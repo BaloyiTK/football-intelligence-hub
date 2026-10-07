@@ -1,0 +1,50 @@
+name: FIH Reliability CI
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/daily-run-ledger.ts"
+      - "scripts/daily-reliability-watchdog.ts"
+      - ".github/workflows/fih-daily-reliability-watchdog.yml"
+      - ".github/workflows/fih-daily-data-ingest.yml"
+      - "config/fih-execution-rules.json"
+      - "scripts/contract-gate.ts"
+permissions:
+  contents: read
+jobs:
+  failure-injection:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: "22", cache: npm}
+      - run: npm ci
+      - name: Build isolated fixture board
+        run: |
+          ROOT="$(mktemp -d)"; echo "FIH_ROOT=$ROOT" >> "$GITHUB_ENV"; mkdir -p "$ROOT/data/run-state"
+          node - "$ROOT" <<'NODE'
+          const fs=require("fs"),p=require("path"),root=process.argv[2],date="2099-01-01";
+          const x={schema:"fih-today-fixture-v1",date,timezone:"Africa/Johannesburg",fetchedAt:new Date().toISOString(),stageCount:1,fixtureCount:1,payload:{Stages:[{CompId:"1",CompN:"Liga 2",Snm:"Liga 2",Cnm:"Test",Events:[{Eid:"fx1",Eps:"NS",Esd:20990101120000,T1:[{Nm:"Alpha"}],T2:[{Nm:"Beta"}]}]}]}};
+          fs.writeFileSync(p.join(root,"data","today_fixture.json"),JSON.stringify(x));
+          NODE
+      - name: Init and verify reliability metadata
+        run: |
+          npm run run:ledger:init -- --date 2099-01-01
+          npm run run:ledger:verify -- --date 2099-01-01
+          node -e 'const x=require(process.env.FIH_ROOT+"/data/run-state/2099-01-01.json");if(!x.fixtures[0].eligible||x.runId!=="daily:2099-01-01"||!x.heartbeatAt||x.runStatus!=="RUNNING")process.exit(1)'
+      - name: Fresh heartbeat must be active
+        run: npm run reliability:watchdog -- --date 2099-01-01
+      - name: Stale heartbeat must request recovery
+        run: |
+          node -e 'const fs=require("fs"),p=process.env.FIH_ROOT+"/data/run-state/2099-01-01.json",x=require(p);x.heartbeatAt="2000-01-01T00:00:00.000Z";x.runStatus="RECOVERING";fs.writeFileSync(p,JSON.stringify(x))'
+          set +e; npm run reliability:watchdog -- --date 2099-01-01; code=$?; set -e; test "$code" -eq 10
+      - name: Missing research artifact must block advancement
+        run: |
+          if npm run run:ledger -- advance --date 2099-01-01 --fixture fx1 --to RESEARCH_VERIFIED; then echo "guard failed"; exit 1; fi
+      - name: Valid artifact permits one stage only
+        run: |
+          mkdir -p "$FIH_ROOT/data/research/2099-01-01"
+          echo '{"fixtureId":"fx1","verified":true}' > "$FIH_ROOT/data/research/2099-01-01/fx1.json"
+          npm run run:ledger -- advance --date 2099-01-01 --fixture fx1 --to RESEARCH_VERIFIED
+          if npm run run:ledger -- advance --date 2099-01-01 --fixture fx1 --to DECISION_VERIFIED; then echo "skip guard failed"; exit 1; fi
