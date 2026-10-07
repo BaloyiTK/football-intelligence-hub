@@ -78,6 +78,9 @@ for(const f of ledger.fixtures.filter((x:any)=>x.eligible)){
  }
 }
 
+console.log("DAILY_MARKET_START");
+try{tsx("scripts/daily-market-runner.ts");}catch(e){console.error("DAILY_MARKET_DEGRADED: verified current market evidence unavailable; continuing to NO_BET decisions.");}
+
 console.log("DAILY_DECISION_START");
 try{tsx("scripts/daily-decision-runner.ts");}catch(e){console.error("DAILY_DECISION_DEGRADED: invalid model/decision artifact encountered; continuing reconciliation.");}
 
