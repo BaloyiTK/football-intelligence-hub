@@ -13,7 +13,8 @@ on:
         default: false
         type: boolean
   schedule:
-    - cron: "50 4 * * *"
+    # 05:30 SAST (UTC+02:00): complete fresh-data gate before the 06:00 SAST daily prediction run.
+    - cron: "30 3 * * *"
 
 permissions:
   contents: write
