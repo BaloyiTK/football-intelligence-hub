@@ -25,3 +25,9 @@ jobs:
           git add data
           git diff --cached --quiet || git commit -m "daily: complete 2026-10-07 cycle"
           git push
+      - name: Enforce DAILY_CYCLE_COMPLETE contract
+        run: |
+          git fetch origin main
+          test "$(git rev-parse HEAD)" = "$(git rev-parse origin/main)"
+          npm run run:ledger:verify -- --date 2026-10-07
+          npm run contract:gate -- --verdict COMPLETE --date 2026-10-07 --rules TERM-002,DAILY-001,DAILY-002,PROG-001,EVID-001 --evidence aggregate-verified,canonical-artifacts-verified,commit-verified
