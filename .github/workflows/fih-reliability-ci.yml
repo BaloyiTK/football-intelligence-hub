@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Verify runner Node
         run: node --version && npm --version
-      - run: npm ci
+      - run: npm install --no-audit --no-fund
       - name: Build isolated fixture board
         run: |
           ROOT="$(mktemp -d)"; echo "FIH_ROOT=$ROOT" >> "$GITHUB_ENV"; mkdir -p "$ROOT/data/run-state"
