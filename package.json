@@ -9,7 +9,8 @@
     "run:ledger": "tsx scripts/daily-run-ledger.ts",
     "run:ledger:init": "tsx scripts/daily-run-ledger.ts init",
     "run:ledger:verify": "tsx scripts/daily-run-ledger.ts verify",
-    "contract:gate": "tsx scripts/contract-gate.ts"
+    "contract:gate": "tsx scripts/contract-gate.ts",
+    "reliability:watchdog": "tsx scripts/daily-reliability-watchdog.ts"
   },
   "dependencies": {},
   "devDependencies": {
