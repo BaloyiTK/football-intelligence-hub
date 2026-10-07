@@ -1,0 +1,11 @@
+{
+  "schema": "fih-research-v1",
+  "date": "2026-10-07",
+  "fixtureId": "1854214",
+  "fixture": {"home":"CR Belouizdad","away":"USM Khenchela","competition":"Ligue 1","kickoff":"20261007210000"},
+  "researchedAt": "2026-10-07T06:35:00.000Z",
+  "evidenceStatus": "VERIFIED_MINIMUM_MODEL_INPUT",
+  "sourceSummary": "Fixture-specific public sources verified at least five recent results for each team and prior head-to-head results.",
+  "optionalEvidence": {"xg":"UNAVAILABLE","teamNews":"UNAVAILABLE"},
+  "integrity": "Missing optional evidence was not fabricated."
+}
