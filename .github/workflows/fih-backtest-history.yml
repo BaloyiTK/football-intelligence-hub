@@ -41,10 +41,8 @@ jobs:
           test -n "$DATES"
           echo "BACKTEST_DATES=$DATES" >> "$GITHUB_ENV"
       - name: Process requested dates one by one
-        env:
-          FIH_INGEST_URL: ${{ vars.FIH_INGEST_URL }}
         run: |
-          BASE="${FIH_INGEST_URL:-https://football-intelligence-hub-654j.vercel.app/api/backtest-ingest}"
+          BASE="https://football-intelligence-hub-654j.vercel.app/api/backtest-ingest"
           IFS=',' read -ra DS <<< "$BACKTEST_DATES"
           for D in "${DS[@]}"; do
             DAILY="data/backtest/daily/$D.json"
