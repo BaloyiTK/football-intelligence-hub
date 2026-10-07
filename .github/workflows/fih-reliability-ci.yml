@@ -10,6 +10,7 @@ name: FIH Reliability CI
       - ".github/workflows/fih-daily-data-ingest.yml"
       - "config/fih-execution-rules.json"
       - "scripts/contract-gate.ts"
+      - ".github/workflows/fih-reliability-ci.yml"
 permissions:
   contents: read
 jobs:
