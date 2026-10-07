@@ -47,11 +47,14 @@ ChatGPT owns the fixture-by-fixture data-collection stage.
 
 - Read the verified eligible fixtures produced by Step 1.
 - Loop through the fixtures one at a time.
-- For each fixture: search the web -> collect the required evidence -> validate the evidence -> persist the fixture research -> verify the persisted research -> continue to the next fixture.
+- Create one working research dataset for the requested date.
+- For each fixture: search the web -> collect the required evidence -> validate the fixture research -> add the completed record to the working daily research dataset -> continue to the next fixture.
 - Step 2 collects evidence only. It does not make the final prediction or product decision.
-- Research data is stored per date so each daily run or historical day remains independently auditable and resumable.
-- Persist progress fixture-by-fixture rather than waiting for every fixture on the date to finish.
-- If execution is interrupted, resume from the earliest fixture whose research has not been persisted and verified.
+- Do not commit individual fixture research records to GitHub.
+- Complete the data-collection loop for all eligible fixtures before making the canonical daily research commit.
+- Research data is stored per date so each daily run or historical day remains independently auditable.
+- The working dataset may be checkpointed for recovery without treating a checkpoint as the canonical completed research artifact.
+- If execution is interrupted, use available working/checkpoint state to resume from the earliest unfinished fixture rather than intentionally repeating completed research.
 
 For BOTH teams, collect:
 
@@ -145,12 +148,18 @@ Check where relevant:
 - Never fabricate form, xG, standings, injuries, motivation, H2H, or other evidence.
 - A fixture may proceed with explicitly unavailable evidence where the model rules permit it.
 
-### Persist and verify
-- Persist each fixture's collected research before moving to the next fixture.
-- Store research by date; a multi-day range remains separate per-date canonical data.
-- Re-read the persisted research and verify fixture identity, collected fields, unavailable fields, sources, and timestamps.
-- Only verified research may proceed to Step 3.
-- A recoverable research failure follows the FIH Execution Contract recovery loop and does not require renewed user authorization.
+### Complete, verify, commit, and verify
+- First complete data collection for all eligible fixtures for the date in the working daily research dataset.
+- Validate individual fixture records during collection, but do not make a GitHub commit for each fixture.
+- After all eligible fixtures have been processed, verify the complete working daily research dataset.
+- Verify fixture coverage, fixture identity, collected fields, unavailable fields, source references, timestamps, and research-integrity requirements.
+- Only after the complete daily dataset passes verification, commit it to GitHub as one canonical per-date research artifact.
+- Store canonical research by date; a multi-day range remains separate per-date canonical data and is processed one date at a time.
+- Re-read the committed daily research artifact from GitHub and verify it matches the completed, verified working dataset.
+- Step 2 is complete only after that persisted GitHub artifact passes verification.
+- Only then may the date proceed to Step 3.
+- A working/checkpoint artifact used during collection is recovery state only and must not be mistaken for the completed canonical research artifact.
+- A recoverable research, verification, commit, or persistence failure follows the FIH Execution Contract recovery loop and does not require renewed user authorization.
 
 ---
 
