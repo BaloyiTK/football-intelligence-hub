@@ -174,3 +174,9 @@ All operational FIH dates are runtime data, not code configuration.
 - Adding or processing another valid date MUST NOT require a source-code change.
 - Date values may appear in persisted artifacts, tests/fixtures, logs, or historical records as data; they MUST NOT be used as an allowlist controlling which valid operational dates FIH can process.
 - After validation, DATE-001 alone determines routing: past -> BACKTEST; today/future -> PREDICTION.
+
+## Per-date backtest storage — LOCKED
+
+Backtest ranges are execution scope, not canonical storage units. Every historical date MUST be processed and persisted independently.
+
+Canonical dated artifacts use the date as the file key under the applicable backtest stage, including fixtures, research, model output, decisions, evaluations, and the DAY_COMPLETE daily summary. A range runner MUST complete one date through the full lifecycle before advancing to the next date. On interruption or recovery, verified DAY_COMPLETE dates are skipped and execution resumes from the earliest unfinished date. Range-level reports are derived aggregates only and MUST be rebuilt from the verified per-date artifacts rather than replacing them as the source of truth.
