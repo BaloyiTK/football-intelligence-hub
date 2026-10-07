@@ -1,0 +1,36 @@
+name: FIH Daily Reliability Watchdog
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/15 4-9 * * *"
+permissions:
+  contents: read
+concurrency:
+  group: fih-daily-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  watchdog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: npm ci
+      - name: Inspect durable daily heartbeat
+        id: watchdog
+        shell: bash
+        run: |
+          set +e
+          npm run reliability:watchdog -- --date "$(TZ=Africa/Johannesburg date +%F)" | tee /tmp/watchdog.json
+          code=${PIPESTATUS[0]}
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          cat /tmp/watchdog.json
+          exit 0
+      - name: Recover missed or stale invocation
+        if: steps.watchdog.outputs.code == '10'
+        run: |
+          echo "::warning::FIH daily run requires START/RESUME recovery. Durable state identifies the earliest unfinished work unit."
+          echo "Recovery is intentionally idempotent: canonical persisted work is authoritative and verified work must be skipped."
+          exit 1
