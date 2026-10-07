@@ -7,11 +7,16 @@ const rules=JSON.parse(fs.readFileSync(CODE_ROOT+"/config/fih-execution-rules.js
 const ledgerPath=(d:string)=>DATA_ROOT+"/data/run-state/"+d+".json";
 function fail(m:string):never{throw new Error("CONTRACT_GATE_REFUSED: "+m)}
 function csv(v?:string){return (v||"").split(",").map(x=>x.trim()).filter(Boolean)}
-const verdict=(arg("--verdict")||"PASS") as Verdict,date=arg("--date"),ruleIds=csv(arg("--rules")),evidence=csv(arg("--evidence")),attempts=csv(arg("--attempts")),hardStop=arg("--hard-stop");
+const verdict=(arg("--verdict")||"PASS") as Verdict,date=arg("--date"),ruleIds=csv(arg("--rules")),evidence=csv(arg("--evidence")),attempts=csv(arg("--attempts")),hardStop=arg("--hard-stop"),terminal=process.argv.includes("--terminal");
 if(!["PASS","RECOVERING","WAITING","BLOCKED","COMPLETE"].includes(verdict))fail("invalid verdict");
 if(!ruleIds.length)fail("every verdict requires --rules");
 for(const id of ruleIds)if(!rules.rules[id])fail("unknown rule "+id);
 if(!evidence.length)fail("every verdict requires verifiable --evidence");
+if(terminal&&date&&fs.existsSync(ledgerPath(date))){
+ const l=JSON.parse(fs.readFileSync(ledgerPath(date),"utf8"));
+ const unfinished=(l.fixtures||[]).filter((x:any)=>x.eligible!==false&&x.state!=="COMPLETE");
+ if(unfinished.length&&verdict!=="BLOCKED"&&verdict!=="WAITING")fail("RESP-001 terminal response refused: authorized run remains "+l.runStatus+" with "+unfinished.length+" unfinished eligible fixtures");
+}
 if(verdict==="BLOCKED"){
  if(!hardStop||!rules.hardStops.includes(hardStop))fail("BLOCKED requires a defined --hard-stop");
  if(!ruleIds.includes("TERM-001")||!ruleIds.includes("REC-003"))fail("BLOCKED requires TERM-001 and REC-003");
