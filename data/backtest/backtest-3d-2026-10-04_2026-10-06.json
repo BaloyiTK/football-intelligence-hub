@@ -1,0 +1,57 @@
+{
+  "schema": "fih-backtest-aggregate-v1",
+  "range": {
+    "from": "2026-10-04",
+    "to": "2026-10-06",
+    "days": 3
+  },
+  "status": "COMPLETE_WITH_UNAVAILABLE_EVIDENCE",
+  "integrity": {
+    "lookahead": "FORBIDDEN",
+    "actualResultsAfterFreeze": true,
+    "missingEvidence": "UNAVAILABLE_CONTINUE"
+  },
+  "days": [
+    {
+      "date": "2026-10-04",
+      "fixtureCount": 451,
+      "calculatedSelections": 0,
+      "settledSelections": 0,
+      "wins": 0,
+      "losses": 0,
+      "status": "DAY_COMPLETE_NO_MODEL_SELECTIONS",
+      "reason": "Persisted historical artifact has insufficient verified pre-match evidence for all fixtures."
+    },
+    {
+      "date": "2026-10-05",
+      "fixtureCount": 78,
+      "calculatedSelections": 0,
+      "settledSelections": 0,
+      "wins": 0,
+      "losses": 0,
+      "status": "DAY_COMPLETE_NO_MODEL_SELECTIONS",
+      "reason": "Persisted historical artifact has insufficient verified pre-match evidence for all fixtures."
+    },
+    {
+      "date": "2026-10-06",
+      "fixtureCountEvaluated": 2,
+      "calculatedSelections": 2,
+      "settledSelections": 2,
+      "wins": 2,
+      "losses": 0,
+      "status": "DAY_COMPLETE"
+    }
+  ],
+  "totals": {
+    "persistedHistoricalFixturesReviewed": 531,
+    "calculatedSelections": 2,
+    "settledSelections": 2,
+    "wins": 2,
+    "losses": 0,
+    "hitRate": 1
+  },
+  "limitations": [
+    "2026-10-04 and 2026-10-05 persisted backtest artifacts contain no calculated model selections.",
+    "2026-10-06 evaluation grades the already-frozen prediction subset; it is not asserted as exhaustive coverage of every football fixture that day."
+  ]
+}
