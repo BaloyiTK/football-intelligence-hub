@@ -26,6 +26,13 @@ function read(p:string){
 }
 function readRequired(p:string){const v=read(p);if(v===null)throw new Error(`REQUIRED_JSON_INVALID ${p}`);return v;}
 const exists=(p:string)=>fs.existsSync(path.join(root,p));
+function researchUsable(p:string){
+ if(!exists(p)) return false;
+ const r=read(p);
+ if(!r||r.schema!=="fih-research-v1"||r.date!==DATE) return false;
+ const overall=r.verifiedInputs?.overallMatchSeries;
+ return Array.isArray(overall?.home)&&Array.isArray(overall?.away);
+}
 const tsx=(...args:string[])=>execFileSync(process.execPath,["node_modules/tsx/dist/cli.mjs",...args],{stdio:"inherit",env:process.env});
 const ledgerPath=`data/run-state/${DATE}.json`;
 const queuePath=`data/research-queue/${DATE}.json`;
@@ -46,7 +53,7 @@ for(const f of ledger.fixtures.filter((x:any)=>x.eligible)){
  const research=`data/research/${DATE}/${f.id}.json`;
  const model=`data/model/${DATE}/${f.id}.json`;
  const decision=`data/decisions/${DATE}/${f.id}.json`;
- if(!exists(research)){
+ if(!researchUsable(research)){
   researchQueue.push({fixtureId:String(f.id),home:f.home,away:f.away,competition:f.competition,kickoff:f.kickoff,query:`${f.home} ${f.away} ${DATE} recent form last 5 H2H standings injuries odds`});
   console.log(`RESEARCH_REQUIRED ${f.id} ${f.home} vs ${f.away}`);
   continue;
