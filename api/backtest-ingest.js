@@ -3,8 +3,9 @@ function sastDate(){return new Intl.DateTimeFormat("en-CA",{timeZone:"Africa/Joh
 async function github(path,init={}){return fetch("https://api.github.com/repos/"+OWNER+"/"+REPO+"/contents/"+path,{...init,headers:{"Authorization":"Bearer "+process.env.FIH_GITHUB_TOKEN,"Accept":"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28","Content-Type":"application/json",...(init.headers||{})}})}
 export default async function handler(req,res){
  if(!["GET","POST"].includes(req.method))return res.status(405).json({error:"GET or POST required"});
- const date=String(req.query.date||""),today=sastDate(),isDaily=date===today;
- if(!isDaily&&!HISTORICAL_DATES.has(date))return res.status(400).json({error:"date must be today's SAST date or a configured historical backtest date",today});
+ const requested=String(req.query.date||"").trim(),today=sastDate(),date=requested||today;
+ if(!/^\\d{4}-\\d{2}-\\d{2}$/.test(date)||Number.isNaN(Date.parse(date+"T00:00:00Z")))return res.status(400).json({error:"date must be a valid YYYY-MM-DD value",today});
+ const mode=date<today?"BACKTEST":"PREDICTION",isToday=date===today,isFuture=date>today;
  const key=process.env.ls_api_key,url=process.env.ls_api_url,token=process.env.FIH_GITHUB_TOKEN;
  if(!key||!url||!token)return res.status(500).json({error:"required production env vars missing"});
  const dp=date.replace(/-/g,""),base=/^https?:\/\//i.test(url)?url:"https://"+url,u=new URL(base);
@@ -15,12 +16,12 @@ export default async function handler(req,res){
  let payload;try{payload=await lr.json()}catch{return res.status(502).json({error:"LiveScore returned invalid JSON"})}
  const stages=Array.isArray(payload?.Stages)?payload.Stages:[],fixtureCount=stages.reduce((n,s)=>n+(Array.isArray(s?.Events)?s.Events.length:0),0);
  if(!stages.length||!fixtureCount)return res.status(502).json({error:"LiveScore returned no fixtures",stageCount:stages.length,fixtureCount});
- const snapshot={schema:isDaily?"fih-today-fixture-v1":"fih-backtest-fixture-v1",date,timezone:"Africa/Johannesburg",provider:"LiveScore via RapidAPI",fetchedAt:new Date().toISOString(),stageCount:stages.length,fixtureCount,payload};
- const path=isDaily?"data/today_fixture.json":"data/backtest/fixtures/"+date+".json";
+ const snapshot={schema:mode==="BACKTEST"?"fih-backtest-fixture-v1":"fih-prediction-fixture-v1",mode,date,asOfDate:today,isToday,isFuture,timezone:"Africa/Johannesburg",provider:"LiveScore via RapidAPI",fetchedAt:new Date().toISOString(),stageCount:stages.length,fixtureCount,payload};
+ const path=mode==="BACKTEST"?"data/backtest/fixtures/"+date+".json":"data/prediction-fixtures/"+date+".json";
  const existing=await github(path+"?ref="+BRANCH);let sha;if(existing.ok)sha=(await existing.json()).sha;
- const message=(isDaily?"data: refresh LiveScore fixtures ":"backtest: ingest LiveScore fixtures ")+date;
+ const message=(mode==="BACKTEST"?"backtest: ingest LiveScore fixtures ":"prediction: ingest LiveScore fixtures ")+date;
  const body={message,content:Buffer.from(JSON.stringify(snapshot,null,2)+"\n").toString("base64"),branch:BRANCH,...(sha?{sha}:{})};
  const wr=await github(path,{method:"PUT",body:JSON.stringify(body)});
  if(!wr.ok)return res.status(502).json({error:"GitHub write failed",status:wr.status,detail:await wr.text()});
- const saved=await wr.json();return res.status(200).json({ok:true,date,isDaily,fixtureCount,path,commit:saved.commit?.sha});
+ const saved=await wr.json();return res.status(200).json({ok:true,date,mode,isToday,isFuture,fixtureCount,path,commit:saved.commit?.sha});
 }
