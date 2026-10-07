@@ -2,8 +2,8 @@
   "schema": "fih-decision-v1",
   "date": "2026-10-07",
   "fixtureId": "1854229",
-  "decision": "NO_MODEL",
+  "decision": "NO_BET",
   "publishable": false,
-  "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
-  "decidedAt": "2026-10-07T05:15:51.547Z"
+  "reason": "NO_VERIFIED_MARKET_ODDS_FOR_VALUE_COMPARISON_AND_LOW_MODEL_RELIABILITY",
+  "decidedAt": "2026-10-07T07:34:00.000Z"
 }
