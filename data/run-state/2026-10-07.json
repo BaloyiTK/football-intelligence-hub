@@ -4,7 +4,7 @@
   "timezone": "Africa/Johannesburg",
   "runId": "daily:2026-10-07",
   "runStatus": "RECOVERING",
-  "heartbeatAt": "2026-10-07T06:32:00.000Z",
+  "heartbeatAt": "2026-10-07T09:35:28.754Z",
   "recoveryCount": 3,
   "board": {
     "fetchedAt": "2026-10-07T04:41:51.382Z",
@@ -12,7 +12,7 @@
     "stageCount": 42
   },
   "createdAt": "2026-10-07T04:50:57.546Z",
-  "updatedAt": "2026-10-07T06:32:00.000Z",
+  "updatedAt": "2026-10-07T09:35:28.754Z",
   "fixtures": [
     {
       "id": "1856602",
@@ -187,8 +187,8 @@
       "kickoff": "20261007120000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "RESEARCH_VERIFIED",
-      "updatedAt": "2026-10-07T05:32:44.009Z"
+      "state": "COMPLETE",
+      "updatedAt": "2026-10-07T09:35:28.754Z"
     },
     {
       "id": "1880753",
@@ -209,8 +209,8 @@
       "kickoff": "20261007180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "RESEARCH_VERIFIED",
-      "updatedAt": "2026-10-07T05:32:44.009Z"
+      "state": "COMPLETE",
+      "updatedAt": "2026-10-07T09:35:28.754Z"
     },
     {
       "id": "1898014",
@@ -768,14 +768,14 @@
     "eligible": 35,
     "excluded": 33,
     "PENDING": 24,
-    "RESEARCH_VERIFIED": 2,
+    "RESEARCH_VERIFIED": 0,
     "MODEL_VERIFIED": 0,
     "DECISION_VERIFIED": 0,
-    "COMPLETE": 9,
+    "COMPLETE": 11,
     "EXCLUDED": 33
   },
   "next": {
-    "fixtureId": "1880754",
-    "state": "RESEARCH_VERIFIED"
+    "fixtureId": "1854229",
+    "state": "PENDING"
   }
 }
