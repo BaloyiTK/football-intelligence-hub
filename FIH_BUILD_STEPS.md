@@ -165,84 +165,184 @@ Check where relevant:
 
 ## 3. Model Analysis
 
-The active development model is `FIH-V2-RESEARCH` in `scripts/fih-probability-v2.ts`.
+The active operational model is `FIH-V2-RESEARCH` in `scripts/fih-probability-v2.ts`. V1 remains archived/reference unless explicitly requested for comparison.
 
-- Step 3 consumes only the verified data collected in Step 2.
-- The model analyzes each fixture independently.
-- Keep the collected evidence separate from the model's derived assessment so the research can be audited or reused by later model versions.
-- Persist and verify model output before the fixture proceeds to the product/prediction decision.
+### 3.1 Input
+- Consume only the complete verified Step 2 research artifact.
+- Verify date, fixture coverage and integrity before model execution.
+- The model performs no new web research and may not silently replace Step 2 evidence.
+- Historical execution may not introduce information outside the applicable cutoff.
 
-### FIH V2 principles
-- Recent overall form remains the anchor, but it is no longer the only usable evidence.
-- Home venue form and away venue form refine expected-goal estimates when verified.
-- xG/xGA may refine expected goals when trustworthy data exists; unavailable xG is not treated as zero.
-- PPG and goal-difference-per-game provide a conservative longer-strength adjustment.
-- Individual recent matches may be opponent-strength weighted when a verified opponent-strength factor exists.
-- Squad/availability adjustments are small and only applied when evidence is structured and verified.
-- HOME/AWAY, OVER 2.5, and BTTS have separate reliability values. Model probability and evidence reliability are different concepts.
-- DRAW remains internal and only blocks HOME/AWAY; it does not block goals markets.
-- No new qualification/value threshold is locked from a tiny sample. Thresholds must be calibrated on a materially larger leak-free backtest.
-- V1 remains retained as an auditable baseline; V2 is the active development engine.
+### 3.2 Fixture model loop
+Process each fixture independently:
+
+`verified research record -> FIH V2 -> model output -> working daily model dataset`
+
+Retain, where calculated:
+- expected home goals;
+- expected away goals;
+- expected total goals;
+- HOME/DRAW/AWAY probabilities;
+- Over/Under 2.5 probabilities;
+- BTTS Yes/No probabilities;
+- fair odds;
+- market-specific reliability;
+- evidence coverage;
+- model/version identifier;
+- `CALCULATED` or `INSUFFICIENT_DATA` status and reason.
+
+### 3.3 V2 principles
+- Recent overall form remains the anchor.
+- Home/away venue form refines expected goals when verified.
+- Trustworthy xG/xGA may refine expected goals; unavailable xG is not zero.
+- PPG and goal-difference-per-game provide conservative longer-strength context.
+- Recent matches may be opponent-strength weighted when a verified factor exists.
+- Squad/availability adjustments remain evidence-based.
+- HOME/AWAY, OVER 2.5 and BTTS retain separate reliability values.
+- Probability and reliability are separate concepts.
+- DRAW remains an internal model result.
+- No unsupported numerical qualification/value threshold may be invented. Thresholds require materially larger leak-free calibration.
+
+### 3.4 Complete, verify and persist the date
+- Do not commit model output fixture-by-fixture.
+- Analyze all eligible fixtures into the working daily model dataset.
+- Verify fixture coverage, model version/status, output integrity and references.
+- Commit the complete verified model dataset once as the canonical per-date model artifact.
+- Re-read the committed artifact and verify it matches the verified working dataset.
+
+Step 3 completes only after the canonical persisted model artifact passes verification.
 
 ---
 
-## 4. Product / Prediction Decision
+## 4. Prediction File
 
-After Step 3 model analysis is persisted and verified, apply the FIH product and publication rules.
+Step 4 converts verified Step 3 analysis into the safer FIH publication product.
 
-Evaluate these four currently documented actionable markets:
-
+### 4.1 Actionable markets
+Exactly four actionable markets are locked:
 - HOME
 - AWAY
 - OVER 2.5
 - BTTS YES
 
-### HOME / AWAY
-Internally assess HOME, DRAW and AWAY.
+DRAW remains internal and is never published.
 
-- HOME strongest -> HOME can qualify.
-- AWAY strongest -> AWAY can qualify.
-- DRAW strongest -> no HOME/AWAY selection.
+### 4.2 Conservative-product rule
+FIH does not publish a market merely because that same market has the highest raw probability. The underlying evidence/model signal must be stronger than the product being offered.
 
-DRAW is never published as a prediction.
+#### HOME
+- Publish HOME only when the underlying HOME case is strongly supported.
+- DRAW or meaningful AWAY uncertainty must prevent a weak HOME signal becoming a HOME prediction.
 
-IMPORTANT:
-A DRAW signal affects only HOME/AWAY. It does NOT disqualify the fixture from OVER 2.5 or BTTS.
+#### AWAY
+- Publish AWAY only when the underlying AWAY case is strongly supported.
+- DRAW or meaningful HOME uncertainty must prevent a weak AWAY signal becoming an AWAY prediction.
 
-### OVER 2.5
-Evaluate independently from the 1X2 result using the fixture's goal evidence and verified model output.
+#### OVER 2.5
+- The underlying analysis must support approximately 4.5+ total-goal territory before FIH publishes the safer OVER 2.5 product.
+- A model merely leaning above 2.5 is insufficient.
 
-### BTTS YES
-Evaluate independently from the 1X2 result using both teams' scoring/conceding evidence and verified model output.
+#### BTTS YES
+- The underlying analysis must support approximately 2+ goals from the HOME team and 2+ goals from the AWAY team before FIH publishes BTTS YES.
+- Merely expecting each side to score once is insufficient.
 
-### Strongest-market rule
-Compare the supported actionable markets and identify the strongest qualifying market for the fixture.
+Examples:
+- An underlying 3-2 expectation may support OVER 2.5 and BTTS YES.
+- An underlying 3-0 expectation may support OVER 2.5 but does not support BTTS YES.
 
-- Do not force a prediction.
-- If no market is sufficiently supported, mark the fixture NO BET.
-- If more than one market looks viable, publish only the strongest market unless this rule is explicitly changed later.
-- Numerical thresholds and weights are not yet locked; they must be established through testing rather than guessed.
+### 4.3 Strongest-market rule
+- Evaluate all four actionable products independently.
+- If multiple products satisfy their conservative qualification rules, publish only the strongest supported market unless explicitly changed later.
+- Never force a prediction.
+- If no market qualifies, record `NO BET`.
+- If the active model legitimately cannot calculate because evidence requirements fail, record `NO MODEL`.
+- Step 4 may not modify Step 2 evidence or Step 3 model output to make a market qualify.
+- HOME/AWAY strong-signal qualification remains mandatory but is not assigned invented numeric thresholds while calibration is `NOT_CALIBRATED`.
 
-### Prediction file
-Write qualifying selections to:
+### 4.4 Market odds / value
+- Where legitimate verified pre-match odds are available, retain them and perform the configured market/value assessment.
+- Missing prices remain unavailable and must never be inferred or reconstructed from post-match information.
+- Historical odds must satisfy historical cutoff/pre-match integrity rules.
+- Until calibration establishes valid betting thresholds, FIH must not invent minimum-edge or minimum-reliability thresholds.
+
+### 4.5 Daily prediction artifact
+Canonical published prediction path:
 
 `data/predictions/YYYY-MM-DD.json`
 
-Each published selection should retain enough information to audit:
-- fixture identity
-- country/region
-- competition
-- kickoff
-- home team
-- away team
-- selected market
-- evidence summary
-- research/source references
-- model output/reference
-- analysis timestamp
+The daily decision data must retain enough information to audit each eligible fixture, including fixture identity, date/kickoff, country/region, competition, teams, model version/output reference, selected market or `NO BET`/`NO MODEL`, model support/reliability, qualification/rejection reason, research/evidence/source references and analysis timestamp.
 
-Persist and verify the product/prediction decision before the fixture is considered complete.
+All eligible fixtures must receive a terminal decision even when they are not published as bets.
 
-Daily flow:
+### 4.6 Complete, verify and persist the date
+- Build decisions for the complete date before canonical persistence.
+- Do not commit decisions fixture-by-fixture.
+- Verify the complete daily decision/prediction dataset.
+- Commit it once per date.
+- Re-read the committed artifact from GitHub and verify it matches the verified working dataset.
 
-`LiveScore fixtures -> Verified fixture data -> ChatGPT data collection -> Verified research -> FIH V2 model analysis -> Verified model output -> Product/market decision -> Prediction or NO BET`
+Step 4 completes only after the canonical persisted decision/prediction artifact passes verification.
+
+---
+
+## 5. Reconciliation / Completion
+
+Step 5 proves that no eligible fixture silently disappeared.
+
+### 5.1 Fixture reconciliation
+Reconcile:
+
+`eligible fixtures = published predictions + NO BET + NO MODEL + legitimate terminal exclusions`
+
+- Every eligible fixture must be accounted for exactly once.
+- Verify the canonical chain: `fixture -> research -> model -> decision/prediction`.
+- Verify artifact dates, fixture identities, counts, references and required GitHub persistence.
+
+### 5.2 Completion rule
+- A heartbeat, checkpoint, research completion, model completion, prediction write or intermediate commit is not daily-cycle completion.
+- Only after reconciliation and persisted-artifact verification may the run become `DAILY_CYCLE_COMPLETE`.
+- Production deployment/publication health is separate and does not block an otherwise completed prediction computation cycle.
+
+---
+
+## Historical Backtest Extension
+
+For a historical date, Steps 1-4 reconstruct the legitimate pre-match state before results are attached.
+
+Required order:
+
+`fixture verification -> eligibility/cutoff -> research -> research persistence/verification -> FIH V2 -> model persistence/verification -> historical odds/value where legitimately available -> prediction/NO BET/NO MODEL -> freeze -> verified actual result -> evaluation -> daily summary`
+
+- Historical snapshot is 06:00 SAST; kickoff must be strictly after 06:00.
+- Actual results and later information cannot influence research, model analysis or the frozen prediction.
+- Freeze the prediction before attaching actual results.
+- Grade against verified results only after freeze.
+- Persist and verify evaluation and daily-summary artifacts per date.
+- Ordinary backtests use V2 only unless an explicit comparison requests another model.
+
+For a multi-day backtest:
+- Process one date completely through `DAY_COMPLETE` before advancing.
+- Store separate canonical artifacts per date.
+- Resume from the earliest date not at `DAY_COMPLETE`.
+- Only after every requested date completes derive the range aggregate.
+- Combined percentages use combined underlying numerators/denominators, never an average of daily percentages.
+
+---
+
+## Recovery and Continuation — Applies to Every Step
+
+Every stage follows the locked lifecycle:
+
+`Invoke -> Verify output -> Persist -> Verify persisted data -> Continue`
+
+A recoverable failure immediately follows:
+
+`Investigate -> Fix or authorized fallback -> Verify recovery -> Resume earliest unfinished stage -> Continue`
+
+- A failed search, provider call, workflow, write attempt or intermediate stage is not a normal stopping point.
+- Missing/invalid rebuildable artifacts must be regenerated from authoritative input, verified, persisted, re-read and execution resumed.
+- A single failed path is insufficient for `BLOCKED`.
+- The user does not need to issue `continue`, request status or repeat the original command after a recoverable failure.
+- `BLOCKED` requires a named policy hard-stop plus evidence and exhausted applicable recovery paths.
+- `WAITING` requires a genuinely active external process and no useful authorized work remaining until it finishes.
+- Scheduled recurring FIH automation must not be disabled because of a run failure unless explicitly requested or continued execution is unsafe/destructive.
