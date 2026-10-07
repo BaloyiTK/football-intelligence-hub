@@ -7,11 +7,11 @@
   "isFuture": true,
   "timezone": "Africa/Johannesburg",
   "provider": "LiveScore via RapidAPI",
-  "fetchedAt": "2026-10-07T20:55:42.648Z",
+  "fetchedAt": "2026-10-07T21:07:29.836Z",
   "stageCount": 32,
   "fixtureCount": 70,
   "payload": {
-    "Ts": 1791406542,
+    "Ts": 1791407249,
     "Stages": [
       {
         "Sid": "24199",
@@ -1129,8 +1129,8 @@
             "ErnInf": "Quarter Finals",
             "Et": 1,
             "Esd": 20261008000000,
-            "EO": 2417229831,
-            "EOX": 2417229831,
+            "EO": 2417229927,
+            "EOX": 2417229927,
             "Spid": 1,
             "Pid": 8
           },
