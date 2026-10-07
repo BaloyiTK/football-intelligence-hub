@@ -30,6 +30,10 @@ jobs:
           fi
           test -n "$DATES"
           echo "BACKTEST_DATES=$DATES" >> "$GITHUB_ENV"
+      - name: Build pre-window historical corpus
+        env:
+          RAPIDAPI_KEY: ${{ secrets.LS_API_KEY }}
+        run: npx tsx scripts/collect-backtest-history.ts --months=2026-03,2026-04,2026-05,2026-06,2026-07,2026-08,2026-09
       - name: Ingest requested historical fixtures
         env:
           RAPIDAPI_KEY: ${{ secrets.LS_API_KEY }}
