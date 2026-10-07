@@ -45,11 +45,6 @@ jobs:
           BASE="https://football-intelligence-hub-654j.vercel.app/api/backtest-ingest"
           IFS=',' read -ra DS <<< "$BACKTEST_DATES"
           for D in "${DS[@]}"; do
-            DAILY="data/backtest/daily/$D.json"
-            if [ -s "$DAILY" ] && node -e 'const fs=require("fs");const j=JSON.parse(fs.readFileSync(process.argv[1]));process.exit(j.status==="DAY_COMPLETE"?0:1)' "$DAILY"; then
-              echo "$D already DAY_COMPLETE; skipping"
-              continue
-            fi
             echo "=== Processing $D ==="
             FIX="data/backtest/fixtures/$D.json"
             if [ ! -s "$FIX" ]; then
