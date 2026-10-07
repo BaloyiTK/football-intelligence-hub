@@ -28,7 +28,7 @@ if(verdict==="COMPLETE"){
  const unfinished=eligible.filter((x:any)=>x.state!=="COMPLETE");
  if(unfinished.length)fail("eligible fixtures unfinished: "+unfinished.length);
  if(l.counts?.eligible!==eligible.length||l.counts?.COMPLETE!==eligible.length)fail("ledger completion counts do not reconcile");
- const required=["aggregate-verified","commit-verified","production-deployment-verified"];
+ const required=["aggregate-verified","canonical-artifacts-verified","commit-verified"];
  for(const x of required)if(!evidence.includes(x))fail("COMPLETE missing evidence "+x);
 }
 console.log(JSON.stringify({ok:true,contractGate:"PASS",verdict,date:date||null,rules:ruleIds,evidence,hardStop:hardStop||null},null,2));
