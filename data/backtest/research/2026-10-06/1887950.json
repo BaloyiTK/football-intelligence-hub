@@ -1,0 +1,29 @@
+{
+  "schema": "fih-backtest-research-v2",
+  "date": "2026-10-06",
+  "fixtureId": "1887950",
+  "cutoff": "2026-10-06T06:00:00+02:00",
+  "cutoffVerified": true,
+  "categoriesAttempted": [
+    "overallForm",
+    "venueForm",
+    "xgXga",
+    "leaguePosition",
+    "teamQuality",
+    "motivationContext",
+    "h2h",
+    "goalsProfile",
+    "squadAvailability",
+    "opponentStrength",
+    "restSchedule"
+  ],
+  "sourceMetadata": [],
+  "verifiedInputs": {
+    "overallMatchSeries": {
+      "home": [],
+      "away": []
+    }
+  },
+  "evidenceStatus": "UNAVAILABLE",
+  "integrity": "Only evidence verifiably available by 06:00 SAST may enter this artifact."
+}
