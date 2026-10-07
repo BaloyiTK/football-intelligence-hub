@@ -1,64 +1,32 @@
-name: FIH LiveScore Daily Ingest
+name: FIH Fresh Data Gate Audit
 
 on:
-  push:
-    paths:
-      - ".github/workflows/fih-daily-data-ingest.yml"
-      - "api/daily-ingest.js"
   workflow_dispatch:
   schedule:
-    # 05:30 SAST (UTC+02:00): complete fresh-data gate before the 06:00 SAST daily prediction run.
-    - cron: "30 3 * * *"
+    # 05:50 SAST: audit the Vercel-owned 05:30 ingest before the 06:00 prediction run.
+    - cron: "50 3 * * *"
 
 permissions:
-  contents: write
-
-concurrency:
-  group: fih-livescore-daily-ingest
-  cancel-in-progress: false
+  contents: read
 
 jobs:
-  ingest:
+  verify:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: Resolve SAST date
-        id: date
-        run: echo "date=$(TZ=Africa/Johannesburg date +%F)" >> "$GITHUB_OUTPUT"
-      - name: Fetch validated LiveScore snapshot from Vercel
-        env:
-          FIH_INGEST_URL: https://football-intelligence-hub-654j-kaziarasolutions-8477.vercel.app/api/daily-ingest
+      - name: Verify today's persisted LiveScore snapshot
         run: |
           set -euo pipefail
-          DATE="${{ steps.date.outputs.date }}"
-          curl --fail --silent --show-error --retry 3 --retry-all-errors             "$FIH_INGEST_URL?date=$DATE" -o data/today_fixture.json
+          DATE="$(TZ=Africa/Johannesburg date +%F)"
           node -e '
             const fs=require("fs");
             const x=JSON.parse(fs.readFileSync("data/today_fixture.json","utf8"));
             const expected=process.argv[1];
             if(x.schema!=="fih-today-fixture-v1") throw new Error("invalid schema");
-            if(x.date!==expected) throw new Error("stale/wrong date: "+x.date);
+            if(x.date!==expected) throw new Error("fresh-data gate failed: expected "+expected+", got "+x.date);
             if(x.timezone!=="Africa/Johannesburg") throw new Error("invalid timezone");
             if(!Array.isArray(x.payload?.Stages)||!x.payload.Stages.length) throw new Error("missing Stages");
             const n=x.payload.Stages.reduce((a,s)=>a+(Array.isArray(s.Events)?s.Events.length:0),0);
             if(!n||n!==x.fixtureCount) throw new Error("invalid fixture count");
-            console.log(JSON.stringify({date:x.date,stageCount:x.stageCount,fixtureCount:x.fixtureCount,fetchedAt:x.fetchedAt}));
+            console.log(JSON.stringify({gate:"PASS",date:x.date,stageCount:x.stageCount,fixtureCount:x.fixtureCount,fetchedAt:x.fetchedAt}));
           ' "$DATE"
-      - name: Commit LiveScore snapshot
-        shell: bash
-        run: |
-          set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/today_fixture.json
-          git diff --cached --quiet && exit 0
-          git commit -m "data: refresh LiveScore fixtures ${{ steps.date.outputs.date }}"
-          for attempt in 1 2 3; do
-            git push origin HEAD:main && exit 0
-            git fetch origin main
-            git rebase origin/main
-            sleep $((attempt*15))
-          done
-          exit 1
