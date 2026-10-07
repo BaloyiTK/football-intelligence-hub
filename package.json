@@ -12,7 +12,8 @@
     "contract:gate": "tsx scripts/contract-gate.ts",
     "reliability:watchdog": "tsx scripts/daily-reliability-watchdog.ts",
     "run:daily": "tsx scripts/daily-cycle.ts",
-    "research:worker": "tsx scripts/research-worker.ts"
+    "research:worker": "tsx scripts/research-worker.ts",
+    "research:direct": "tsx scripts/direct-public-research.ts"
   },
   "dependencies": {},
   "devDependencies": {
