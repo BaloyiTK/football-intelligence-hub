@@ -30,6 +30,16 @@ If a stage fails, use:
 
 This lifecycle applies throughout the FIH pipeline, including fixture ingestion, research/evidence, model probabilities, market data, market comparison, decisions, predictions, and verified results.
 
+## Primary daily executor rule
+
+The scheduled Daily FIH Run is the normal execution engine, not merely a trigger. Once today's fixture/data acquisition is verified, it MUST own and continue the remaining pipeline to a terminal result. It must not intentionally hand ordinary unfinished work to a watchdog or wait for an hourly recovery cycle.
+
+The normal sequence is:
+
+**Acquire/verify today's data -> research every eligible fixture -> persist/verify research -> run locked model or valid INSUFFICIENT_DATA -> persist/verify model -> collect legitimate market data where available -> compare model/market -> BET/NO_BET/NO_MODEL -> persist/verify decisions and public predictions -> reconcile aggregates -> verify required commit -> DAILY_CYCLE_COMPLETE.**
+
+When eligible work remains, refreshing only `heartbeatAt`, `updatedAt`, a recovery counter, or a ledger checkpoint without advancing or verifying canonical fixture artifacts is not meaningful execution progress and cannot satisfy the daily run.
+
 ## Pipeline continuation rule
 For an authorized daily run or backtest, the run is one continuous task. Each successfully verified stage triggers the next defined stage automatically:
 1. Fixture acquisition
