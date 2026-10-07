@@ -49,3 +49,15 @@ jobs:
           echo '{"fixtureId":"fx1","verified":true}' > "$FIH_ROOT/data/research/2099-01-01/fx1.json"
           npm run run:ledger -- advance --date 2099-01-01 --fixture fx1 --to RESEARCH_VERIFIED
           if npm run run:ledger -- advance --date 2099-01-01 --fixture fx1 --to DECISION_VERIFIED; then echo "skip guard failed"; exit 1; fi
+      - name: Complete full synthetic daily prediction lifecycle
+        run: |
+          mkdir -p "$FIH_ROOT/data/model/2099-01-01" "$FIH_ROOT/data/decisions/2099-01-01"
+          echo '{"fixtureId":"fx1","verified":true,"probabilities":{"home":0.5,"draw":0.3,"away":0.2}}' > "$FIH_ROOT/data/model/2099-01-01/fx1.json"
+          npm run run:ledger -- advance --date 2099-01-01 --fixture fx1 --to MODEL_VERIFIED
+          echo '{"fixtureId":"fx1","verified":true,"decision":"NO_BET"}' > "$FIH_ROOT/data/decisions/2099-01-01/fx1.json"
+          npm run run:ledger -- advance --date 2099-01-01 --fixture fx1 --to DECISION_VERIFIED
+          npm run run:ledger -- advance --date 2099-01-01 --fixture fx1 --to COMPLETE
+          node -e 'const x=require(process.env.FIH_ROOT+"/data/run-state/2099-01-01.json");if(x.runStatus!=="COMPLETE"||x.counts.COMPLETE!==1||x.next!==null)process.exit(1)'
+      - name: Contract gate must accept reconciled synthetic cycle
+        run: |
+          FIH_ROOT="$FIH_ROOT" npm run contract:gate -- --verdict COMPLETE --date 2099-01-01 --rules TERM-002,EVID-001 --evidence aggregate-verified,canonical-artifacts-verified,commit-verified
