@@ -8,18 +8,79 @@
     "competition": "Emperor's Cup",
     "kickoff": "20261007110000"
   },
-  "researchedAt": "2026-10-07T05:12:25.212Z",
-  "searchQuery": "Urawa Red Diamonds Omiya Ardija 7 October 2026 form odds",
-  "sourceDomains": [
-    "world-football-elo-ranking.com"
+  "researchedAt": "2026-10-07T05:15:51.653Z",
+  "sources": [
+    "https://www.wincomparator.com/es-es/pronosticos/urawa-red-diamonds-omiya-ardija-8798629/",
+    "https://www.forebet.com/en/football/matches/urawa-red-diamonds-omiya-ardija-2554091"
   ],
-  "verifiedInputs": {
-    "overallMatchSeries": "UNAVAILABLE",
-    "venueMatchSeries": "UNAVAILABLE",
-    "h2h": "UNAVAILABLE_OR_PARTIAL",
-    "xg": "UNAVAILABLE",
-    "teamNews": "UNAVAILABLE",
-    "marketOdds": "UNAVAILABLE"
-  },
-  "integrity": "Fixture-specific web research executed; missing evidence was not fabricated."
+  "homeOverall": [
+    [
+      "Kataller Toyama",
+      "Urawa Red Diamonds",
+      2,
+      3
+    ],
+    [
+      "Urawa Red Diamonds",
+      "Tokyo Verdy",
+      3,
+      1
+    ],
+    [
+      "Urawa Red Diamonds",
+      "Fagiano Okayama",
+      1,
+      2
+    ],
+    [
+      "Kashima Antlers",
+      "Urawa Red Diamonds",
+      0,
+      1
+    ],
+    [
+      "Avispa Fukuoka",
+      "Urawa Red Diamonds",
+      2,
+      3
+    ]
+  ],
+  "awayOverall": [
+    [
+      "Tegevajaro Miyazaki",
+      "Omiya Ardija",
+      1,
+      1
+    ],
+    [
+      "Omiya Ardija",
+      "Ventforet Kofu",
+      5,
+      1
+    ],
+    [
+      "Fujieda MYFC",
+      "Omiya Ardija",
+      1,
+      1
+    ],
+    [
+      "Omiya Ardija",
+      "Oita Trinita",
+      0,
+      0
+    ],
+    [
+      "Blaublitz Akita",
+      "Omiya Ardija",
+      0,
+      0
+    ]
+  ],
+  "h2hStatus": "VERIFIED_PARTIAL",
+  "unavailable": [
+    "xG",
+    "confirmed team news"
+  ],
+  "integrity": "Verified pre-match evidence persisted; unavailable fields not fabricated."
 }
