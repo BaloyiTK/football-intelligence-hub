@@ -77,6 +77,190 @@
       "notes": "Pre-cutoff sources located; fixture research still requires all FIH_BUILD_STEPS categories/UNAVAILABLE validation."
     }
   ],
-  "nextAction": "Continue fixture-specific Step 2 from Albania vs San Marino. Croatia-Spain, England-Czechia, Scotland-Slovenia, Switzerland-North Macedonia pre-cutoff source verification was refreshed; detailed working evidence remains non-canonical until full-date coverage.",
-  "lastVerifiedAt": "2026-10-07T22:18:42.000Z"
+  "nextAction": "Continue fixture-specific Step 2 from Belarus vs Finland (fixture 1738312); Albania vs San Marino now has a persisted cutoff-safe detailed research record but remains non-canonical until full-date coverage.",
+  "lastVerifiedAt": "2026-10-07T23:17:00.573Z",
+  "researchRecords": {
+    "1738311": {
+      "fixtureId": "1738311",
+      "fixture": {
+        "home": "Albania",
+        "away": "San Marino",
+        "competition": "UEFA Nations League",
+        "kickoff": "2026-10-06T20:45:00+02:00"
+      },
+      "cutoff": "2026-10-06T06:00:00+02:00",
+      "researchedAt": "2026-10-08T00:00:00.000Z",
+      "sourceMetadata": [
+        {
+          "url": "https://www.uefa.com/uefanationsleague/news/02a2-1fea7079900a-801b2c5f6c9e-1000%E2%80%932026-uefa-nations-league-league-phase-fixtures-by-team/",
+          "availableAt": "2026-10-05T00:00:00Z",
+          "retrievedAt": "2026-10-08T00:00:00Z",
+          "supports": [
+            "overallForm",
+            "restSchedule",
+            "competitionContext"
+          ]
+        },
+        {
+          "url": "https://www.chopsoc.com/news/50076897",
+          "availableAt": "2026-10-05T00:00:00Z",
+          "retrievedAt": "2026-10-08T00:00:00Z",
+          "supports": [
+            "leaguePosition",
+            "motivationContext",
+            "overallForm",
+            "h2h",
+            "squadAvailability",
+            "goalsProfile"
+          ]
+        },
+        {
+          "url": "https://kickpredictions.co.ke/game/albania-vs-san-marino/",
+          "availableAt": "2026-10-05T00:00:00Z",
+          "retrievedAt": "2026-10-08T00:00:00Z",
+          "supports": [
+            "overallForm",
+            "goalsProfile",
+            "venueForm"
+          ]
+        },
+        {
+          "url": "https://thefootballfaithful.com/albania-vs-san-marino-prediction-betting-tips-06-10-2026/",
+          "availableAt": "2026-10-05T04:38:00Z",
+          "retrievedAt": "2026-10-08T00:00:00Z",
+          "supports": [
+            "h2h",
+            "motivationContext",
+            "squadAvailability",
+            "marketOdds"
+          ]
+        }
+      ],
+      "evidence": {
+        "overallForm": {
+          "status": "PARTIAL",
+          "notes": "Pre-cutoff sources verify Albania's Nations League sequence: 2-0 Belarus, 3-0 at San Marino, 1-2 at Finland; San Marino opened with three losses including 0-7 Finland, 0-3 Albania and 0-4 Belarus. Full last-five match-level series for both sides not yet independently reconstructed.",
+          "attempts": [
+            {
+              "query": "Albania San Marino October 6 2026 overall form preview before cutoff",
+              "attemptedAt": "2026-10-08T00:00:00Z",
+              "outcome": "PRE_CUTOFF_EVIDENCE_FOUND"
+            }
+          ]
+        },
+        "venueForm": {
+          "status": "PARTIAL",
+          "notes": "Pre-cutoff preview reports Albania had lost 3 of previous 4 home matches; San Marino had no win in previous 7 away matches. Exact last-five home/away score series remains incomplete.",
+          "attempts": [
+            {
+              "query": "Albania home form San Marino away form Oct 6 2026 preview",
+              "attemptedAt": "2026-10-08T00:00:00Z",
+              "outcome": "PARTIAL_PRE_CUTOFF_EVIDENCE_FOUND"
+            }
+          ]
+        },
+        "xgXga": {
+          "status": "PARTIAL",
+          "notes": "Pre-cutoff sources cite Albania allowing 0.61 xG vs Belarus and San Marino allowing 3.84 xG vs Finland, but no reliable full venue+overall xG/xGA split was located in this pass.",
+          "attempts": [
+            {
+              "query": "Albania San Marino xG xGA before Oct 6 2026",
+              "attemptedAt": "2026-10-08T00:00:00Z",
+              "outcome": "PARTIAL_PRE_CUTOFF_EVIDENCE_FOUND"
+            }
+          ]
+        },
+        "leaguePosition": {
+          "status": "VERIFIED",
+          "notes": "Pre-cutoff Oct 5 preview: Albania second in Group C1 on 6 points, one behind Finland; San Marino bottom after three defeats with -14 goal difference.",
+          "attempts": [
+            {
+              "query": "Albania San Marino Group C1 standings Oct 5 2026",
+              "attemptedAt": "2026-10-08T00:00:00Z",
+              "outcome": "PRE_CUTOFF_EVIDENCE_FOUND"
+            }
+          ]
+        },
+        "teamQuality": {
+          "status": "PARTIAL",
+          "notes": "Evidence supports a large quality gap: Albania had won all prior meetings and entered as overwhelming favourite; no independent Elo/long-run quality metric captured yet.",
+          "attempts": [
+            {
+              "query": "Albania San Marino team quality ranking preview Oct 5 2026",
+              "attemptedAt": "2026-10-08T00:00:00Z",
+              "outcome": "PARTIAL_PRE_CUTOFF_EVIDENCE_FOUND"
+            }
+          ]
+        },
+        "motivationContext": {
+          "status": "VERIFIED",
+          "notes": "Albania needed points to regain/contest Group C1 top spot and promotion; San Marino were bottom and seeking first points/goal.",
+          "attempts": [
+            {
+              "query": "Albania San Marino motivation promotion Group C1 Oct 5 2026",
+              "attemptedAt": "2026-10-08T00:00:00Z",
+              "outcome": "PRE_CUTOFF_EVIDENCE_FOUND"
+            }
+          ]
+        },
+        "h2h": {
+          "status": "VERIFIED",
+          "notes": "Pre-cutoff sources report Albania had won all five previous meetings without conceding; reverse fixture on Sep 29 was San Marino 0-3 Albania.",
+          "attempts": [
+            {
+              "query": "Albania San Marino H2H before Oct 6 2026",
+              "attemptedAt": "2026-10-08T00:00:00Z",
+              "outcome": "PRE_CUTOFF_EVIDENCE_FOUND"
+            }
+          ]
+        },
+        "goalsProfile": {
+          "status": "PARTIAL",
+          "notes": "Pre-cutoff sources: Albania scored 1.2/conceded 1.1 per match over last 10; San Marino 0.4/3.2. Nations League opening three: Albania 6 GF/2 GA, San Marino 0 GF/14 GA. Full BTTS/blank/clean-sheet venue split not reconstructed.",
+          "attempts": [
+            {
+              "query": "Albania San Marino goals profile BTTS scoring Oct 5 2026",
+              "attemptedAt": "2026-10-08T00:00:00Z",
+              "outcome": "PARTIAL_PRE_CUTOFF_EVIDENCE_FOUND"
+            }
+          ]
+        },
+        "squadAvailability": {
+          "status": "VERIFIED",
+          "notes": "Pre-cutoff preview: Albania goalkeeper Etrit Berisha suspended; other reported absences included Laçi, Ajeti, Strakosha, Balliu, Pajaziti, with Broja/Bajrami/Asani not in squad. San Marino reported Berardi, Riccardi and G. Capicchioni injured and Zavoli out of squad.",
+          "attempts": [
+            {
+              "query": "Albania San Marino injuries suspensions Oct 5 2026",
+              "attemptedAt": "2026-10-08T00:00:00Z",
+              "outcome": "PRE_CUTOFF_EVIDENCE_FOUND"
+            }
+          ]
+        },
+        "opponentStrength": {
+          "status": "PARTIAL",
+          "notes": "Recent competitive opponents and scorelines identified, but no independently verified opponent-strength weighting metric captured yet.",
+          "attempts": [
+            {
+              "query": "Albania San Marino opponent strength recent opponents Oct 5 2026",
+              "attemptedAt": "2026-10-08T00:00:00Z",
+              "outcome": "PARTIAL_PRE_CUTOFF_EVIDENCE_FOUND"
+            }
+          ]
+        },
+        "restSchedule": {
+          "status": "VERIFIED",
+          "notes": "UEFA fixture list verifies Albania and San Marino both played Oct 3 and again Oct 6, giving the same three-day turnaround; Albania travelled back from Finland while San Marino travelled after playing Belarus.",
+          "attempts": [
+            {
+              "query": "UEFA Nations League Albania San Marino fixtures Oct 3 Oct 6 2026",
+              "attemptedAt": "2026-10-08T00:00:00Z",
+              "outcome": "PRE_CUTOFF_EVIDENCE_FOUND"
+            }
+          ]
+        }
+      },
+      "status": "PARTIAL_VALIDATED",
+      "canonical": false
+    }
+  }
 }
