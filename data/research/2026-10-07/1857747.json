@@ -14,7 +14,7 @@
     "https://www.skysports.com/football/grays-athletic-vs-hashtag-united/569700",
     "https://www.graysathletic.co.uk/news/next-up-grays-athletic-v-hashtag-united-3001242.html"
   ],
-  "evidenceStatus": "VERIFIED_MINIMUM_MODEL_INPUT",
-  "requiredModelMatchSeries": "VERIFIED_SEPARATELY_IN_SOURCE",
+  "evidenceStatus": "PARTIAL",
+  "requiredModelMatchSeries": "UNAVAILABLE",
   "integrity": "Fixture-specific public-web research executed; missing evidence not fabricated."
 }
