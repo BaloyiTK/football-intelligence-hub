@@ -5,7 +5,10 @@
   "scripts": {
     "fixtures:ingest": "tsx scripts/ingest-daily-fixtures.ts",
     "fixtures:backtest-ingest": "tsx scripts/ingest-backtest-fixtures.ts",
-    "model:v2": "tsx scripts/fih-probability-v2.ts"
+    "model:v2": "tsx scripts/fih-probability-v2.ts",
+    "run:ledger": "tsx scripts/daily-run-ledger.ts",
+    "run:ledger:init": "tsx scripts/daily-run-ledger.ts init",
+    "run:ledger:verify": "tsx scripts/daily-run-ledger.ts verify"
   },
   "dependencies": {},
   "devDependencies": {
