@@ -1,0 +1,26 @@
+{
+  "schema": "fih-research-v1",
+  "date": "2026-10-07",
+  "fixtureId": "1880756",
+  "fixture": {
+    "home": "Sanfrecce Hiroshima",
+    "away": "Iwaki FC",
+    "competition": "Emperor's Cup",
+    "kickoff": "20261007113000"
+  },
+  "researchedAt": "2026-10-07T05:12:25.212Z",
+  "searchQuery": "Sanfrecce Hiroshima Iwaki FC 7 October 2026 form odds",
+  "sourceDomains": [
+    "oddslot.com",
+    "wincomparator.com"
+  ],
+  "verifiedInputs": {
+    "overallMatchSeries": "UNAVAILABLE",
+    "venueMatchSeries": "UNAVAILABLE",
+    "h2h": "UNAVAILABLE_OR_PARTIAL",
+    "xg": "UNAVAILABLE",
+    "teamNews": "UNAVAILABLE",
+    "marketOdds": "PARTIAL_OR_AVAILABLE"
+  },
+  "integrity": "Fixture-specific web research executed; missing evidence was not fabricated."
+}
