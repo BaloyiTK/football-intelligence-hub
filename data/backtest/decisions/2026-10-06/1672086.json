@@ -1,0 +1,8 @@
+{
+  "schema": "fih-backtest-decision-v2",
+  "date": "2026-10-06",
+  "fixtureId": "1672086",
+  "decision": "NO_MODEL",
+  "publishable": false,
+  "reason": "INSUFFICIENT_CUTOFF_VERIFIED_MODEL_INPUT"
+}

@@ -1,0 +1,11 @@
+{
+  "schema": "fih-backtest-evaluation-v2",
+  "date": "2026-10-06",
+  "fixtureId": "1738403",
+  "actualResult": {
+    "homeGoals": 0,
+    "awayGoals": 2
+  },
+  "decision": "NO_MODEL",
+  "graded": "NOT_APPLICABLE"
+}
