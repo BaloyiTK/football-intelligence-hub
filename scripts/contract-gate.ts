@@ -1,4 +1,7 @@
 import fs from "node:fs";
+import path from "node:path";
+import {execFileSync} from "node:child_process";
+import {validateDailyResearch} from "./research-canonical";
 type Verdict="PASS"|"RECOVERING"|"WAITING"|"BLOCKED"|"COMPLETE";
 const CODE_ROOT=process.cwd();
 const DATA_ROOT=process.env.FIH_ROOT||CODE_ROOT;
