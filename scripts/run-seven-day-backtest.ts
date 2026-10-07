@@ -1,5 +1,6 @@
 import fs from "node:fs";import path from "node:path";
-const dates=["2026-09-29","2026-09-30","2026-10-01","2026-10-02","2026-10-03","2026-10-04","2026-10-05"];
+const arg=process.argv.find(x=>x.startsWith("--dates="));
+const dates=(arg?arg.slice("--dates=".length).split(","):["2026-09-29","2026-09-30","2026-10-01","2026-10-02","2026-10-03","2026-10-04","2026-10-05"]).filter(Boolean);
 type M={date:string;fixtureId:string;competition:string;country:string;homeId:string;home:string;awayId:string;away:string;homeGoals:number;awayGoals:number};
 const prior:M[]=[];
 function result(m:M,id:string){const gf=m.homeId===id?m.homeGoals:m.awayGoals,ga=m.homeId===id?m.awayGoals:m.homeGoals;return gf>ga?"W":gf<ga?"L":"D"}
