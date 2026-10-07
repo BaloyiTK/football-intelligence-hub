@@ -1,0 +1,26 @@
+name: FIH Run Now
+on:
+  push:
+    branches: [main]
+    paths: ["automation/run-now.flag"]
+permissions:
+  contents: write
+jobs:
+  daily:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm install --no-audit --no-fund
+      - name: Execute repository-owned daily cycle
+        run: npm run run:daily -- --date 2026-10-07
+      - name: Persist generated artifacts
+        run: |
+          git config user.name "fih-runner"
+          git config user.email "actions@users.noreply.github.com"
+          git add data
+          git diff --cached --quiet || git commit -m "daily: complete 2026-10-07 cycle"
+          git push
