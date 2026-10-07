@@ -24,7 +24,21 @@ for(const f of queue.fixtures){
  }
  const home=teamSeries(f.home,rows,5),away=teamSeries(f.away,rows,5);
  const enough=home.length>=3&&away.length>=3;
- results.push({fixtureId:String(f.fixtureId),researchedAt:new Date().toISOString(),searchQuery:f.query,sourceUrls:[...new Set(sourceUrls)],evidenceStatus:enough?"VERIFIED_MINIMUM_MODEL_INPUT":"PARTIAL",requiredModelMatchSeries:enough?"VERIFIED":"UNAVAILABLE",verifiedInputs:{overallMatchSeries:{home,away}},integrity:enough?"Direct public-page score evidence extracted from same-site discovered pages; source URLs retained.":"Direct public source discovery attempted; minimum reproducible score series unavailable.",failures});
+ const unavailable=(reason:string)=>({status:"UNAVAILABLE",reason});
+ const categories={
+  overallForm:{status:enough?"VERIFIED":"PARTIAL",homeMatches:home,awayMatches:away},
+  venueForm:unavailable("No independently verified venue split from current public-page extraction."),
+  xgXga:unavailable("No trustworthy xG/xGA source verified by current public-page extraction."),
+  leaguePosition:unavailable("No independently verified standings/PPG dataset extracted."),
+  teamQuality:unavailable("No independently verified long-run team-quality metric extracted."),
+  motivationContext:unavailable("No independently verified competition-context evidence extracted."),
+  h2h:unavailable("No independently verified H2H series extracted."),
+  goalsProfile:unavailable("No independently verified aggregate goals-profile dataset extracted."),
+  squadAvailability:unavailable("No independently verified squad-availability report extracted."),
+  opponentStrength:unavailable("No independently verified opponent-strength factor extracted."),
+  restSchedule:unavailable("No independently verified rest/schedule evidence extracted.")
+ };
+ results.push({fixtureId:String(f.fixtureId),researchedAt:new Date().toISOString(),searchQuery:f.query,sourceUrls:[...new Set(sourceUrls)],sourceMetadata:[...new Set(sourceUrls)].map(url=>({url,retrievedAt:new Date().toISOString(),supports:["overallForm"]})),evidenceStatus:enough?"VERIFIED_MINIMUM_MODEL_INPUT":"PARTIAL",requiredModelMatchSeries:enough?"VERIFIED":"UNAVAILABLE",categoriesAttempted:Object.keys(categories),evidence:categories,verifiedInputs:{overallMatchSeries:{home,away}},integrity:enough?"Build Step 2 categories attempted; verified overall score evidence retained and unavailable categories explicitly recorded.":"Build Step 2 categories attempted; unavailable evidence explicitly recorded and minimum reproducible score series was not reached.",failures});
 }
 fs.mkdirSync(path.dirname(outPath),{recursive:true});
 fs.writeFileSync(outPath,JSON.stringify({schema:"fih-research-inbox-v1",date:DATE,generatedAt:new Date().toISOString(),results},null,2)+"\n");
