@@ -4,15 +4,15 @@
   "timezone": "Africa/Johannesburg",
   "runId": "daily:2026-10-07",
   "runStatus": "COMPLETE",
-  "heartbeatAt": "2026-10-07T12:26:43.311Z",
+  "heartbeatAt": "2026-10-07T21:05:58.900Z",
   "recoveryCount": 11,
   "board": {
-    "fetchedAt": "2026-10-07T12:19:20.011Z",
+    "fetchedAt": "2026-10-07T21:05:54.420Z",
     "fixtureCount": 70,
     "stageCount": 44
   },
   "createdAt": "2026-10-07T04:50:57.546Z",
-  "updatedAt": "2026-10-07T12:26:43.311Z",
+  "updatedAt": "2026-10-07T21:05:58.900Z",
   "fixtures": [
     {
       "id": "1856602",
@@ -207,9 +207,9 @@
       "away": "FC Inter Turku",
       "competition": "Veikkausliiga",
       "kickoff": "20261007180000",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
+      "eligible": false,
+      "exclusionReason": "NOT_PREMATCH",
+      "state": "EXCLUDED",
       "updatedAt": "2026-10-07T09:35:28.754Z"
     },
     {
@@ -219,7 +219,7 @@
       "competition": "Women's Friendlies",
       "kickoff": "20261007170000",
       "eligible": false,
-      "exclusionReason": "WOMEN",
+      "exclusionReason": "NOT_PREMATCH",
       "state": "EXCLUDED",
       "updatedAt": null
     },
@@ -229,9 +229,9 @@
       "away": "Js El Biar",
       "competition": "Ligue 1",
       "kickoff": "20261007190000",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
+      "eligible": false,
+      "exclusionReason": "NOT_PREMATCH",
+      "state": "EXCLUDED",
       "updatedAt": "2026-10-07T05:32:44.009Z"
     },
     {
@@ -240,9 +240,9 @@
       "away": "US Biskra",
       "competition": "Ligue 1",
       "kickoff": "20261007190000",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
+      "eligible": false,
+      "exclusionReason": "NOT_PREMATCH",
+      "state": "EXCLUDED",
       "updatedAt": null
     },
     {
@@ -251,9 +251,9 @@
       "away": "USM Khenchela",
       "competition": "Ligue 1",
       "kickoff": "20261007210000",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
+      "eligible": false,
+      "exclusionReason": "NOT_PREMATCH",
+      "state": "EXCLUDED",
       "updatedAt": null
     },
     {
@@ -263,7 +263,7 @@
       "competition": "National Division 1 ACFF",
       "kickoff": "20261007200000",
       "eligible": false,
-      "exclusionReason": "YOUTH",
+      "exclusionReason": "NOT_PREMATCH",
       "state": "EXCLUDED",
       "updatedAt": null
     },
@@ -306,9 +306,9 @@
       "away": "Supra du Quebec",
       "competition": "Premier League",
       "kickoff": "20261007170000",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
+      "eligible": false,
+      "exclusionReason": "NOT_PREMATCH",
+      "state": "EXCLUDED",
       "updatedAt": null
     },
     {
@@ -361,9 +361,9 @@
       "away": "Barranquilla FC",
       "competition": "Primera B: Clausura",
       "kickoff": "20261007230000",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
+      "eligible": false,
+      "exclusionReason": "NOT_PREMATCH",
+      "state": "EXCLUDED",
       "updatedAt": null
     },
     {
@@ -394,9 +394,9 @@
       "away": "ZED FC",
       "competition": "League Cup: Group A",
       "kickoff": "20261007190000",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
+      "eligible": false,
+      "exclusionReason": "NOT_PREMATCH",
+      "state": "EXCLUDED",
       "updatedAt": null
     },
     {
@@ -405,9 +405,9 @@
       "away": "Olympic El Qanah FC",
       "competition": "League Cup: Group B",
       "kickoff": "20261007160000",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
+      "eligible": false,
+      "exclusionReason": "NOT_PREMATCH",
+      "state": "EXCLUDED",
       "updatedAt": null
     },
     {
@@ -416,9 +416,9 @@
       "away": "Al Ahly",
       "competition": "League Cup: Group C",
       "kickoff": "20261007160000",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
+      "eligible": false,
+      "exclusionReason": "NOT_PREMATCH",
+      "state": "EXCLUDED",
       "updatedAt": null
     },
     {
@@ -427,9 +427,9 @@
       "away": "Al Masry",
       "competition": "League Cup: Group D",
       "kickoff": "20261007190000",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
+      "eligible": false,
+      "exclusionReason": "NOT_PREMATCH",
+      "state": "EXCLUDED",
       "updatedAt": null
     },
     {
@@ -438,9 +438,9 @@
       "away": "Lancaster City",
       "competition": "Northern Premier League",
       "kickoff": "20261007204500",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
+      "eligible": false,
+      "exclusionReason": "NOT_PREMATCH",
+      "state": "EXCLUDED",
       "updatedAt": null
     },
     {
@@ -449,9 +449,9 @@
       "away": "Poole Town",
       "competition": "Southern League Premier: South",
       "kickoff": "20261007204500",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
+      "eligible": false,
+      "exclusionReason": "NOT_PREMATCH",
+      "state": "EXCLUDED",
       "updatedAt": null
     },
     {
@@ -483,7 +483,7 @@
       "competition": "Qualification Round 1: Group A1",
       "kickoff": "20261007150000",
       "eligible": false,
-      "exclusionReason": "WOMEN",
+      "exclusionReason": "NOT_PREMATCH",
       "state": "EXCLUDED",
       "updatedAt": null
     },
@@ -494,7 +494,7 @@
       "competition": "Qualification Round 1: Group A1",
       "kickoff": "20261007193000",
       "eligible": false,
-      "exclusionReason": "WOMEN",
+      "exclusionReason": "NOT_PREMATCH",
       "state": "EXCLUDED",
       "updatedAt": null
     },
@@ -516,7 +516,7 @@
       "competition": "Qualification Round 1: Group A6",
       "kickoff": "20261007163000",
       "eligible": false,
-      "exclusionReason": "WOMEN",
+      "exclusionReason": "NOT_PREMATCH",
       "state": "EXCLUDED",
       "updatedAt": null
     },
@@ -527,7 +527,7 @@
       "competition": "Qualification Round 1: Group B3",
       "kickoff": "20261007130000",
       "eligible": false,
-      "exclusionReason": "WOMEN",
+      "exclusionReason": "NOT_PREMATCH",
       "state": "EXCLUDED",
       "updatedAt": null
     },
@@ -538,7 +538,7 @@
       "competition": "Qualification Round 1: Group B3",
       "kickoff": "20261007130000",
       "eligible": false,
-      "exclusionReason": "WOMEN",
+      "exclusionReason": "NOT_PREMATCH",
       "state": "EXCLUDED",
       "updatedAt": null
     },
@@ -549,7 +549,7 @@
       "competition": "Ykkonen",
       "kickoff": "20261007180000",
       "eligible": false,
-      "exclusionReason": "RESERVE_OR_DEVELOPMENT",
+      "exclusionReason": "NOT_PREMATCH",
       "state": "EXCLUDED",
       "updatedAt": null
     },
@@ -559,9 +559,9 @@
       "away": "Young Boys Reutlingen",
       "competition": "Oberliga: Baden-Wurttemberg",
       "kickoff": "20261007190000",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
+      "eligible": false,
+      "exclusionReason": "NOT_PREMATCH",
+      "state": "EXCLUDED",
       "updatedAt": null
     },
     {
@@ -570,9 +570,9 @@
       "away": "Al Quwa Al Jawiya",
       "competition": "Iraq Stars League",
       "kickoff": "20261007170000",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
+      "eligible": false,
+      "exclusionReason": "NOT_PREMATCH",
+      "state": "EXCLUDED",
       "updatedAt": null
     },
     {
@@ -581,9 +581,9 @@
       "away": "Celle Varazze",
       "competition": "Serie D: Group A",
       "kickoff": "20261007150000",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
+      "eligible": false,
+      "exclusionReason": "NOT_PREMATCH",
+      "state": "EXCLUDED",
       "updatedAt": null
     },
     {
@@ -592,9 +592,9 @@
       "away": "Kano Pillars",
       "competition": "NPFL",
       "kickoff": "20261007170000",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
+      "eligible": false,
+      "exclusionReason": "NOT_PREMATCH",
+      "state": "EXCLUDED",
       "updatedAt": null
     },
     {
@@ -615,7 +615,7 @@
       "competition": "Women's Cup",
       "kickoff": "20261007183000",
       "eligible": false,
-      "exclusionReason": "WOMEN",
+      "exclusionReason": "NOT_PREMATCH",
       "state": "EXCLUDED",
       "updatedAt": null
     },
@@ -691,9 +691,9 @@
       "away": "Real Murcia",
       "competition": "Primera Division RFEF: Group 2",
       "kickoff": "20261007203000",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
+      "eligible": false,
+      "exclusionReason": "NOT_PREMATCH",
+      "state": "EXCLUDED",
       "updatedAt": null
     },
     {
@@ -713,9 +713,9 @@
       "away": "Montevideo Wanderers",
       "competition": "Copa Uruguay",
       "kickoff": "20261007203000",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
+      "eligible": false,
+      "exclusionReason": "NOT_PREMATCH",
+      "state": "EXCLUDED",
       "updatedAt": null
     },
     {
@@ -724,9 +724,9 @@
       "away": "Xorazm",
       "competition": "Super League",
       "kickoff": "20261007160000",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
+      "eligible": false,
+      "exclusionReason": "NOT_PREMATCH",
+      "state": "EXCLUDED",
       "updatedAt": null
     },
     {
@@ -736,7 +736,7 @@
       "competition": "Qualification Round 1 League A",
       "kickoff": "20261007130000",
       "eligible": false,
-      "exclusionReason": "WOMEN",
+      "exclusionReason": "NOT_PREMATCH",
       "state": "EXCLUDED",
       "updatedAt": null
     },
@@ -747,7 +747,7 @@
       "competition": "Qualification Round 1 League A",
       "kickoff": "20261007130000",
       "eligible": false,
-      "exclusionReason": "WOMEN",
+      "exclusionReason": "NOT_PREMATCH",
       "state": "EXCLUDED",
       "updatedAt": null
     },
@@ -769,7 +769,7 @@
       "competition": "Qualification Round 1 League B",
       "kickoff": "20261007150000",
       "eligible": false,
-      "exclusionReason": "WOMEN",
+      "exclusionReason": "NOT_PREMATCH",
       "state": "EXCLUDED",
       "updatedAt": null
     },
@@ -778,7 +778,7 @@
       "home": "Coventry United",
       "away": "Shepshed Dynamo",
       "competition": "Northern Premier League: Midlands Division",
-      "kickoff": "20261007160000",
+      "kickoff": "20261007204500",
       "eligible": true,
       "exclusionReason": null,
       "state": "COMPLETE",
@@ -787,14 +787,14 @@
   ],
   "counts": {
     "boardTotal": 70,
-    "eligible": 25,
-    "excluded": 45,
+    "eligible": 6,
+    "excluded": 64,
     "PENDING": 0,
     "RESEARCH_VERIFIED": 0,
     "MODEL_VERIFIED": 0,
     "DECISION_VERIFIED": 0,
-    "COMPLETE": 25,
-    "EXCLUDED": 45
+    "COMPLETE": 6,
+    "EXCLUDED": 64
   },
   "next": null
 }
