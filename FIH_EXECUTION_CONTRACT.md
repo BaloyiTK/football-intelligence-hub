@@ -12,6 +12,16 @@ When the user issues `run today`, `backtest <scope>`, or `backrest <scope>`, tha
 
 The user is NOT required to issue `continue`, repeat the command, request status, or otherwise manage progression between stages.
 
+## Scheduled daily-run ownership — LOCKED
+
+The scheduled `Daily FIH Run` is the primary owner of the complete daily prediction cycle. The normal daily cycle MUST NOT depend on a watchdog, recovery timer, repeated user command, status request, or later invocation to make ordinary forward progress.
+
+After the current-date fixture/data board is acquired and verified, the same authorized daily run must continue through every required downstream stage: fixture-specific research/evidence, canonical research persistence and verification, locked active model execution (or a valid `INSUFFICIENT_DATA` outcome), model persistence and verification, legitimate market-odds/value processing where available, BET/NO_BET/NO_MODEL decision, decision/prediction persistence and verification, aggregate reconciliation, and required repository commit verification.
+
+A heartbeat, checkpoint refresh, ledger reconciliation, fixture ingestion, research batch, model batch, decision batch, commit, or progress/status report is NEVER a successful end state while eligible work remains. Checkpoints exist only to preserve durability across an unavoidable execution interruption; they are not normal pacing.
+
+The watchdog is not part of normal daily execution and is not required for DAILY_CYCLE_COMPLETE. If the watchdog is disabled, the Daily FIH Run remains fully responsible for start-to-finish execution.
+
 ## Continuous-execution obligation
 After authorization, execution must follow:
 
