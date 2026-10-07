@@ -77,5 +77,6 @@
       "notes": "Pre-cutoff sources located; fixture research still requires all FIH_BUILD_STEPS categories/UNAVAILABLE validation."
     }
   ],
-  "nextAction": "Continue fixture-by-fixture Step 2 evidence collection and category validation. Do not enter Step 3 until every eligible fixture is complete and one canonical daily research artifact is committed, reread and verified."
+  "nextAction": "Continue fixture-specific Step 2 from Albania vs San Marino. Croatia-Spain, England-Czechia, Scotland-Slovenia, Switzerland-North Macedonia pre-cutoff source verification was refreshed; detailed working evidence remains non-canonical until full-date coverage.",
+  "lastVerifiedAt": "2026-10-07T22:18:42.000Z"
 }
