@@ -18,7 +18,8 @@
     "decision:daily": "tsx scripts/daily-decision-runner.ts",
     "market:daily": "tsx scripts/daily-market-runner.ts",
     "backtest:market:queue": "tsx scripts/build-historical-market-queue.ts",
-    "backtest:market:worker": "tsx scripts/historical-market-worker.ts"
+    "backtest:market:worker": "tsx scripts/historical-market-worker.ts",
+    "market:capture:parlay": "tsx scripts/parlay-forward-capture.ts"
   },
   "dependencies": {},
   "devDependencies": {
