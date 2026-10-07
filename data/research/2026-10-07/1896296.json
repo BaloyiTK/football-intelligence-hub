@@ -1,0 +1,20 @@
+{
+  "schema": "fih-research-v1",
+  "date": "2026-10-07",
+  "fixtureId": "1896296",
+  "fixture": {
+    "home": "Deportivo Llacuabamba",
+    "away": "Comerciantes FC",
+    "competition": "Liga 2 Promotion Group B",
+    "kickoff": "20261007200000"
+  },
+  "researchedAt": "2026-10-07T09:32:00.000Z",
+  "searchQuery": "Deportivo Llacuabamba Comerciantes FC 7 October 2026 form odds",
+  "sourceUrls": [
+    "https://oddslot.com/es/futbol/partido/segunda-divisi%C3%B3n/deportivo-llacuabamba/comerciantes/7-oct-2026/",
+    "https://comerciantesfc.com/"
+  ],
+  "evidenceStatus": "PARTIAL",
+  "requiredModelMatchSeries": "UNAVAILABLE",
+  "integrity": "Fixture-specific public-web research executed; missing evidence not fabricated."
+}
