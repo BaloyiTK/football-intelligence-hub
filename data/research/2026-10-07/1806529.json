@@ -1,0 +1,12 @@
+{
+  "schema": "fih-research-v1",
+  "date": "2026-10-07",
+  "fixtureId": "1806529",
+  "fixture": {"home":"Leones","away":"Barranquilla FC","competition":"Primera B: Clausura","kickoff":"20261007230000"},
+  "researchedAt": "2026-10-07T08:33:01.000Z",
+  "searchQuery": "Leones Barranquilla FC 7 October 2026 form odds",
+  "sourceUrls": ["https://www.sportytrader.com/en/results-live/leones-barranquilla-fc-8846200/","https://www.fotmob.com/ar/matches/barranquilla-fc-vs-leones/y8g7ec7"],
+  "evidenceStatus": "VERIFIED",
+  "requiredModelMatchSeries": "VERIFIED",
+  "integrity": "Fixture-specific public-web research executed; missing evidence not fabricated."
+}
