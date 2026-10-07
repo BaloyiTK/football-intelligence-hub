@@ -112,9 +112,10 @@ tsx("scripts/daily-run-ledger.ts","reconcile",DATE);
 ledger=show();
 const unfinished=ledger.fixtures.filter((x:any)=>x.eligible&&x.state!=="COMPLETE");
 if(unfinished.length){
- console.log("DAILY_CYCLE_INCOMPLETE");
+ console.log("DAILY_CYCLE_RECOVERING");
  for(const f of unfinished) console.log(`${f.id} ${f.state} ${f.home} vs ${f.away}`);
- process.exit(2);
+ tsx("scripts/contract-gate.ts","--verdict","RECOVERING","--date",DATE,"--rules","REC-001,REC-005,RESUME-001,RESP-001","--evidence",`ledger:${ledgerPath},unfinished:${unfinished.length}`);
+ throw new Error(`FIH_RUN_UNFINISHED_RESUME_REQUIRED ${unfinished.length} eligible fixtures remain; this is RECOVERING, not a terminal state`);
 }
 
 console.log("DAILY_FIXTURE_CHAIN_COMPLETE");
