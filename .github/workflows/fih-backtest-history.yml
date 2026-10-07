@@ -30,16 +30,28 @@ jobs:
           fi
           test -n "$DATES"
           echo "BACKTEST_DATES=$DATES" >> "$GITHUB_ENV"
-      - name: Build pre-window historical corpus
+      - name: Request dated fixture boards from Vercel
         env:
-          RAPIDAPI_KEY: ${{ secrets.LS_API_KEY }}
-        run: npx tsx scripts/collect-backtest-history.ts --months=2026-03,2026-04,2026-05,2026-06,2026-07,2026-08,2026-09
-      - name: Ingest requested historical fixtures
-        env:
-          RAPIDAPI_KEY: ${{ secrets.LS_API_KEY }}
+          FIH_INGEST_URL: ${{ vars.FIH_INGEST_URL }}
+        run: |
+          BASE="${FIH_INGEST_URL:-https://football-intelligence-hub.vercel.app/api/backtest-ingest}"
+          IFS=',' read -ra DS <<< "$BACKTEST_DATES"
+          for D in "${DS[@]}"; do
+            echo "Requesting Vercel ingestion for $D"
+            curl --fail --show-error --silent --retry 3 "$BASE?date=$D"
+          done
+      - name: Refresh repository after Vercel commits
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+      - name: Verify committed dated fixture boards
         run: |
           IFS=',' read -ra DS <<< "$BACKTEST_DATES"
-          for D in "${DS[@]}"; do npm run fixtures:backtest-ingest -- "$D"; done
+          for D in "${DS[@]}"; do
+            FILE="data/backtest/fixtures/$D.json"
+            test -s "$FILE"
+            node -e 'const fs=require("fs");const p=process.argv[1],d=process.argv[2],j=JSON.parse(fs.readFileSync(p));if(j.date!==d||j.mode!=="BACKTEST"||!j.fixtureCount)process.exit(2);console.log(d,j.fixtureCount)' "$FILE" "$D"
+          done
       - name: Run leak-free requested-date backtest
         run: npx tsx scripts/run-seven-day-backtest.ts --dates="$BACKTEST_DATES"
       - name: Persist fixtures and backtest results
