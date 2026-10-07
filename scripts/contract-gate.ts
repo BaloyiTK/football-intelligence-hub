@@ -39,7 +39,10 @@ if(verdict==="COMPLETE"){
  const unfinished=eligible.filter((x:any)=>x.state!=="COMPLETE");
  if(unfinished.length)fail("eligible fixtures unfinished: "+unfinished.length);
  if(l.counts?.eligible!==eligible.length||l.counts?.COMPLETE!==eligible.length)fail("ledger completion counts do not reconcile");
- const required=["aggregate-verified","canonical-artifacts-verified","commit-verified"];
- for(const x of required)if(!evidence.includes(x))fail("COMPLETE missing evidence "+x);
+ const canonical=[["research","fih-daily-research-v2"],["model","fih-daily-model-v2"],["decisions","fih-daily-decisions-v2"]] as const;
+ const ids=eligible.map((x:any)=>String(x.id)).sort();
+ for(const [kind,schema] of canonical){const p=DATA_ROOT+"/data/"+kind+"/"+date+".json";if(!fs.existsSync(p))fail("canonical daily artifact missing "+p);const x=JSON.parse(fs.readFileSync(p,"utf8"));if(x.schema!==schema||x.date!==date||!Array.isArray(x.fixtures))fail("canonical daily artifact invalid "+kind);const got=x.fixtures.map((r:any)=>String(r.fixtureId)).sort();if(JSON.stringify(got)!==JSON.stringify(ids))fail("canonical artifact coverage mismatch "+kind);}
+ if(pred.eligibleFixtures!==eligible.length)fail("prediction eligible count mismatch");
+ const commit=process.env.FIH_VERIFIED_COMMIT_SHA;if(!commit||!/^[0-9a-f]{40}$/i.test(commit))fail("COMPLETE requires verified repository commit SHA via FIH_VERIFIED_COMMIT_SHA");
 }
 console.log(JSON.stringify({ok:true,contractGate:"PASS",verdict,date:date||null,rules:ruleIds,evidence,hardStop:hardStop||null},null,2));
