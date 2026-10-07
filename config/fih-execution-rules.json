@@ -89,6 +89,10 @@
     "RESP-001": {
       "kind": "response-gate",
       "requirement": "An authorized FIH run with a persisted RUNNING or RECOVERING ledger and unfinished eligible fixtures may not be treated as a terminal response state. The executor must continue/resume until COMPLETE, a contract-valid BLOCKED hard stop, or a genuine WAITING state."
+    },
+    "INFRA-001": {
+      "kind": "infrastructure",
+      "requirement": "FIH fixture acquisition MUST use the locked Vercel project identity in infrastructure.vercel. Workflows and run paths must not silently substitute another Vercel project or production domain."
     }
   },
   "hardStops": [
@@ -97,5 +101,21 @@
     "AMBIGUOUS_TARGET",
     "SAME_FAILURE_AFTER_REASONABLE_BOUNDED_RECOVERY",
     "PRODUCTION_OR_MODEL_INTEGRITY_RISK"
-  ]
+  ],
+  "infrastructure": {
+    "locked": true,
+    "vercel": {
+      "teamId": "team_PqqLMe7lJ3UauT95Ln9gMlJT",
+      "projectId": "prj_Lp5vEpKKq6IwVwGblRA8tfpECUn6",
+      "projectName": "football-intelligence-hub-654j",
+      "productionDomain": "football-intelligence-hub-654j.vercel.app",
+      "fixtureProducer": {
+        "endpoint": "https://football-intelligence-hub-654j.vercel.app/api/backtest-ingest",
+        "ownsModes": [
+          "BACKTEST",
+          "PREDICTION"
+        ]
+      }
+    }
+  }
 }
