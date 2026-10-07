@@ -15,7 +15,8 @@
     "research:worker": "tsx scripts/research-worker.ts",
     "research:direct": "tsx scripts/direct-public-research.ts",
     "model:daily": "tsx scripts/daily-model-runner.ts",
-    "decision:daily": "tsx scripts/daily-decision-runner.ts"
+    "decision:daily": "tsx scripts/daily-decision-runner.ts",
+    "market:daily": "tsx scripts/daily-market-runner.ts"
   },
   "dependencies": {},
   "devDependencies": {
