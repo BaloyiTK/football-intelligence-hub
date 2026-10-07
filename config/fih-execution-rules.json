@@ -81,6 +81,10 @@
     "DATE-003": {
       "kind": "date-input-integrity",
       "requirement": "Operational run dates MUST be supplied as runtime inputs or derived dynamically from an explicitly requested date range/current Africa/Johannesburg date. Hard-coded operational dates, fixed historical-date allowlists, and code changes required merely to process another valid date are forbidden."
+    },
+    "BACKTEST-002": {
+      "kind": "backtest-storage",
+      "requirement": "Canonical backtest artifacts MUST be persisted per date. A multi-day range is execution scope only: process each date independently through DAY_COMPLETE, store dated fixture/research/model/decision/evaluation/daily-summary artifacts, resume from the earliest non-DAY_COMPLETE date, then derive range aggregates from those verified daily artifacts."
     }
   },
   "hardStops": [
