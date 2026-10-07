@@ -1,0 +1,19 @@
+{
+  "schema": "fih-research-v1",
+  "date": "2026-10-07",
+  "fixtureId": "1829269",
+  "fixture": {
+    "home": "1. CfR Pforzheim",
+    "away": "Young Boys Reutlingen",
+    "competition": "Oberliga: Baden-Wurttemberg",
+    "kickoff": "20261007190000"
+  },
+  "researchedAt": "2026-10-07T09:32:00.000Z",
+  "searchQuery": "1. CfR Pforzheim Young Boys Reutlingen 7 October 2026 form odds",
+  "sourceUrls": [
+    "https://www.infobetting.com/calcio/statistiche/germania/1-cfr-pforzheim/stat-t-254-1-s-3-12675.htm"
+  ],
+  "evidenceStatus": "PARTIAL",
+  "requiredModelMatchSeries": "UNAVAILABLE",
+  "integrity": "Fixture-specific public-web research executed; missing evidence not fabricated."
+}
