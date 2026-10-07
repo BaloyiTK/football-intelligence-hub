@@ -1,0 +1,21 @@
+{
+  "schema": "fih-research-v1",
+  "date": "2026-10-07",
+  "fixtureId": "1857932",
+  "fixture": {
+    "home": "Gorleston",
+    "away": "Felixstowe & Walton United",
+    "competition": "Isthmian League Northern Division",
+    "kickoff": "20261007204500"
+  },
+  "researchedAt": "2026-10-07T09:32:00.000Z",
+  "searchQuery": "Gorleston Felixstowe & Walton United 7 October 2026 form odds",
+  "sourceUrls": [
+    "https://www.skysports.com/football/gorleston-vs-felixstowe-and-walton-united/569699",
+    "https://www.gorlestonfc.com/",
+    "https://felixstowefootball.co.uk/fixtures/first-team/"
+  ],
+  "evidenceStatus": "VERIFIED_MINIMUM_MODEL_INPUT",
+  "requiredModelMatchSeries": "VERIFIED_SEPARATELY_IN_SOURCE",
+  "integrity": "Fixture-specific public-web research executed; missing evidence not fabricated."
+}
