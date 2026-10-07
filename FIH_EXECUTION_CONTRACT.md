@@ -30,6 +30,14 @@ Recovery of rebuildable state is part of the already-authorized run and requires
 A user or external process deleting a generated artifact is treated identically to accidental loss. The run must self-heal when the authoritative source and authorized persistence path remain available.
 
 
+## Durable continuation guarantee
+
+Every authorized run must be resumable from durable verified state. Long-running research and processing MUST be decomposed into persist-and-verify work units with a run ledger/checkpoint that identifies the earliest unfinished fixture and stage.
+
+A process interruption, execution-duration boundary, response boundary, stale logical RUNNING state, transient provider failure, repository write conflict, or partial batch is a recovery event, not completion and not by itself a Hard Stop. On the next execution opportunity, the executor must reconstruct state from canonical persisted artifacts and resume automatically from the earliest unverified unit.
+
+Completion requires reconciliation: every eligible fixture must have a verified terminal state and aggregate counts/artifacts must match the authoritative eligible fixture universe. Any mismatch automatically reopens the run at the earliest inconsistent stage.
+
 ## Permitted termination conditions
 Execution may terminate only when:
 
