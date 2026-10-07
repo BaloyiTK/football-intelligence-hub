@@ -1,0 +1,9 @@
+{
+  "schema": "fih-model-v1",
+  "date": "2026-10-07",
+  "fixtureId": "1735797",
+  "modelVersion": "FIH-V2-RESEARCH",
+  "status": "INSUFFICIENT_DATA",
+  "reason": "Verified recent overall match series for both teams unavailable; no fabrication.",
+  "calculatedAt": "2026-10-07T07:33:00.000Z"
+}
