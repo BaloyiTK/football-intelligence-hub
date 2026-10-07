@@ -1,5 +1,5 @@
 name: FIH Reliability CI
-on:
+"on":
   workflow_dispatch:
   push:
     branches: [main]
