@@ -158,6 +158,19 @@ Mandatory invariants:
 
 If the gate refuses a proposed terminal verdict, execution MUST return to RECOVERING and resume at the earliest unverified stage.
 
+## Executor-error recovery — LOCKED
+
+An executor error, assistant/tool orchestration mistake, premature chat-response boundary, accidental interruption, or incorrect intermediate termination during an authorized unfinished FIH run is a recoverable execution event, not a new authorization boundary.
+
+On detection, the executor MUST:
+1. classify the run as RECOVERING under `EXEC-001` and the existing recovery rules;
+2. re-read the authoritative contract, policy, machine rules, ledger, and canonical artifacts;
+3. identify the earliest unverified durable stage;
+4. resume that stage without requiring the user to repeat `run today`, `run tomorrow`, `backtest`, `continue`, or a status request;
+5. continue until COMPLETE, a contract-valid BLOCKED hard stop, or a genuine external WAITING state.
+
+An executor/chat-boundary error MUST NOT itself justify WAITING, BLOCKED, or COMPLETE. If a user message reveals that execution stopped prematurely, that message is sufficient detection of the recovery event and execution must resume immediately under the original authorization.
+
 ## Authority
 This contract and `FIH_EXECUTION_POLICY.md` jointly govern FIH execution. Where wording differs, use the interpretation that preserves data integrity while requiring continuation of an already-authorized full-cycle run.
 
