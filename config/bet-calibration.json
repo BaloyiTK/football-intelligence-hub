@@ -1,0 +1,19 @@
+{
+  "schema": "fih-bet-calibration-v1",
+  "status": "NOT_CALIBRATED",
+  "betPublicationEnabled": false,
+  "activeModel": "FIH-V2-RESEARCH",
+  "requirements": {
+    "leakFreeHistoricalSampleRequired": true,
+    "verifiedPreMatchMarketOddsRequired": true,
+    "bookmakerMarginRemovalRequired": true,
+    "actualResultsRequired": true,
+    "minimumSampleSize": null
+  },
+  "qualification": {
+    "minimumEdge": null,
+    "minimumReliability": null,
+    "markets": ["HOME", "AWAY", "OVER_2_5", "BTTS_YES"]
+  },
+  "reason": "Historical repository data does not yet contain a materially large verified pre-match market-odds sample. Do not infer or invent a BET threshold."
+}
