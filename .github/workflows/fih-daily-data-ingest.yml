@@ -4,14 +4,8 @@ on:
   push:
     paths:
       - ".github/workflows/fih-daily-data-ingest.yml"
-      - "scripts/ingest-daily-fixtures.ts"
+      - "api/daily-ingest.js"
   workflow_dispatch:
-    inputs:
-      refresh:
-        description: Force refresh even if today's rolling fixture file already exists
-        required: false
-        default: false
-        type: boolean
   schedule:
     # 05:30 SAST (UTC+02:00): complete fresh-data gate before the 06:00 SAST daily prediction run.
     - cron: "30 3 * * *"
@@ -30,21 +24,28 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - name: Install dependencies
-        run: npm install --no-audit --no-fund
       - name: Resolve SAST date
         id: date
         run: echo "date=$(TZ=Africa/Johannesburg date +%F)" >> "$GITHUB_OUTPUT"
-      - name: Fetch LiveScore fixtures
+      - name: Fetch validated LiveScore snapshot from Vercel
         env:
-          RAPIDAPI_KEY: ${{ secrets.LS_API_KEY }}
+          FIH_INGEST_URL: https://football-intelligence-hub-654j-kaziarasolutions-8477.vercel.app/api/daily-ingest
         run: |
-          EXTRA=""
-          if [ "${{ inputs.refresh }}" = "true" ]; then EXTRA="--refresh"; fi
-          npm run fixtures:ingest -- "${{ steps.date.outputs.date }}" $EXTRA
+          set -euo pipefail
+          DATE="${{ steps.date.outputs.date }}"
+          curl --fail --silent --show-error --retry 3 --retry-all-errors             "$FIH_INGEST_URL?date=$DATE" -o data/today_fixture.json
+          node -e '
+            const fs=require("fs");
+            const x=JSON.parse(fs.readFileSync("data/today_fixture.json","utf8"));
+            const expected=process.argv[1];
+            if(x.schema!=="fih-today-fixture-v1") throw new Error("invalid schema");
+            if(x.date!==expected) throw new Error("stale/wrong date: "+x.date);
+            if(x.timezone!=="Africa/Johannesburg") throw new Error("invalid timezone");
+            if(!Array.isArray(x.payload?.Stages)||!x.payload.Stages.length) throw new Error("missing Stages");
+            const n=x.payload.Stages.reduce((a,s)=>a+(Array.isArray(s.Events)?s.Events.length:0),0);
+            if(!n||n!==x.fixtureCount) throw new Error("invalid fixture count");
+            console.log(JSON.stringify({date:x.date,stageCount:x.stageCount,fixtureCount:x.fixtureCount,fetchedAt:x.fetchedAt}));
+          ' "$DATE"
       - name: Commit LiveScore snapshot
         shell: bash
         run: |
