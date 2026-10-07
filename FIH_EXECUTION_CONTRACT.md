@@ -189,3 +189,14 @@ Once an FIH run is authorized, a user-facing final response is not a valid termi
 Before ending an execution response, the executor MUST evaluate the terminal response through the contract gate with the current date/run evidence. If unfinished eligible work remains, the gate must refuse a normal terminal response under `RESP-001`, and execution must resume from the earliest unfinished persisted stage.
 
 Only `COMPLETE`, contract-valid `BLOCKED`, or genuine `WAITING` may end the authorized run. Intermediate PASS, fixture acquisition, research completion, model completion, decision completion, progress reporting, tool boundaries, workload size, and chat-response boundaries are non-terminal.
+
+## Authoritative Vercel infrastructure — LOCKED
+
+FIH fixture acquisition is pinned to the following verified Vercel project identity:
+- Team ID: `team_PqqLMe7lJ3UauT95Ln9gMlJT`
+- Project ID: `prj_Lp5vEpKKq6IwVwGblRA8tfpECUn6`
+- Project name: `football-intelligence-hub-654j`
+- Production domain: `football-intelligence-hub-654j.vercel.app`
+- Fixture producer: `/api/backtest-ingest`
+
+The machine-readable source of truth is `config/fih-execution-rules.json -> infrastructure.vercel`. Fixture workflows MUST use this project/domain and MUST NOT silently fall back to another Vercel project. A deliberate infrastructure migration requires an explicit rules/config change and verification of the replacement project before use.
