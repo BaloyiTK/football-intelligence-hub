@@ -1,0 +1,81 @@
+{
+  "schema": "fih-backtest-step2-working-v1",
+  "date": "2026-10-06",
+  "mode": "BACKTEST",
+  "model": "FIH-V2-RESEARCH",
+  "cutoff": "2026-10-06T06:00:00+02:00",
+  "status": "IN_PROGRESS",
+  "canonical": false,
+  "integrity": "Working Step 2 checkpoint only. Must not be consumed by model. Sources admitted only when publication/update is verifiably before 06:00 SAST cutoff; post-cutoff/post-match material rejected.",
+  "completedCanonicalResearch": false,
+  "batches": [
+    {
+      "fixtures": [
+        "1738299",
+        "1738300",
+        "1738257",
+        "1738258"
+      ],
+      "matches": [
+        "Croatia vs Spain",
+        "England vs Czechia",
+        "Scotland vs Slovenia",
+        "Switzerland vs North Macedonia"
+      ],
+      "admittedSources": [
+        "Sports Mole previews published/updated Oct 4-5 2026"
+      ],
+      "notes": "Pre-cutoff previews located; category extraction/validation still in progress."
+    },
+    {
+      "fixtures": [
+        "1738311",
+        "1738312",
+        "1738392",
+        "1738393",
+        "1738402",
+        "1738403"
+      ],
+      "matches": [
+        "Albania vs San Marino",
+        "Belarus vs Finland",
+        "Kazakhstan vs Faroe Islands",
+        "Moldova vs Slovakia",
+        "Estonia vs Iceland",
+        "Luxembourg vs Bulgaria"
+      ],
+      "admittedSources": [
+        "Sports Mole previews published/updated Oct 4-5 2026",
+        "BetMines Oct 4 where applicable",
+        "Goal Oct 5 where applicable"
+      ],
+      "notes": "Pre-cutoff sources located; post-match pages not admitted to evidence."
+    },
+    {
+      "fixtures": [
+        "1872921",
+        "1903706",
+        "1901956",
+        "1902097",
+        "1902102",
+        "1888515"
+      ],
+      "matches": [
+        "Angola vs Malawi",
+        "Russia vs Nigeria",
+        "Algeria vs Niger",
+        "South Korea vs Uzbekistan",
+        "China vs Tajikistan",
+        "India vs Uruguay"
+      ],
+      "admittedSources": [
+        "Sports Mole Oct 4-5 previews",
+        "The Stats Zone Oct 4 previews",
+        "Khel Now Oct 5 preview",
+        "Outlook Oct 5 preview"
+      ],
+      "notes": "Pre-cutoff sources located; fixture research still requires all FIH_BUILD_STEPS categories/UNAVAILABLE validation."
+    }
+  ],
+  "nextAction": "Continue fixture-by-fixture Step 2 evidence collection and category validation. Do not enter Step 3 until every eligible fixture is complete and one canonical daily research artifact is committed, reread and verified."
+}
