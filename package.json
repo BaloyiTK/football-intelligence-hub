@@ -8,7 +8,8 @@
     "model:v2": "tsx scripts/fih-probability-v2.ts",
     "run:ledger": "tsx scripts/daily-run-ledger.ts",
     "run:ledger:init": "tsx scripts/daily-run-ledger.ts init",
-    "run:ledger:verify": "tsx scripts/daily-run-ledger.ts verify"
+    "run:ledger:verify": "tsx scripts/daily-run-ledger.ts verify",
+    "contract:gate": "tsx scripts/contract-gate.ts"
   },
   "dependencies": {},
   "devDependencies": {
