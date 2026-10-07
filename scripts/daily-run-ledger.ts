@@ -18,7 +18,16 @@ function kickoff(e:any){const raw=e?.Esd??e?.Epsd??e?.startTime??null;return raw
 function exclusion(e:any,s:any){const status=String(e?.Eps??"").toUpperCase();if(status!=="NS")return "NOT_PREMATCH";const text=[s?.CompN,s?.Snm,s?.Cnm,e?.T1?.[0]?.Nm,e?.T2?.[0]?.Nm].filter(Boolean).join(" ").toLowerCase();if(/women|\bw\b/.test(text))return "WOMEN";if(/\bu[- ]?\d{2}\b|under[- ]?\d{2}|youth/.test(text))return "YOUTH";const teams=[e?.T1?.[0]?.Nm,e?.T2?.[0]?.Nm].filter(Boolean).join(" ").toLowerCase();if(/reserve|reserves|\bu23\b|\bu21\b|\bu20\b|\bu19\b|\bu18\b|\bu17\b|\bii\b|(?:^|\s)2$/.test(teams))return "RESERVE_OR_DEVELOPMENT";if(/university|academia|academy|akatemia|juniors?/.test(text))return "NON_SENIOR";return null}
 function counts(items:Item[]){const out:any={boardTotal:items.length,eligible:0,excluded:0,PENDING:0,RESEARCH_VERIFIED:0,MODEL_VERIFIED:0,DECISION_VERIFIED:0,COMPLETE:0,EXCLUDED:0};for(const x of items){if(x.eligible)out.eligible++;else out.excluded++;out[x.state]=(out[x.state]||0)+1}return out}
 function next(items:Item[]){const x=items.find(f=>f.eligible&&f.state!=="COMPLETE");return x?{fixtureId:x.id,state:x.state}:null}
-function board(d:string){const p=path.join(ROOT,"data","today_fixture.json");if(!fs.existsSync(p))throw new Error("MISSING data/today_fixture.json");const x=readJson(p);if(x.schema!=="fih-today-fixture-v1"||x.date!==d||x.timezone!==TZ)throw new Error("fixture board date/schema/timezone invalid");const stages=Array.isArray(x.payload?.Stages)?x.payload.Stages:[];const events=stages.flatMap((s:any)=>(Array.isArray(s.Events)?s.Events:[]).map((e:any)=>({e,s})));if(!events.length||events.length!==x.fixtureCount)throw new Error("fixture board count mismatch");return {x,events}}
+function board(d:string){
+ const todayDate=today();
+ const candidates=d===todayDate
+  ? [path.join(ROOT,"data","today_fixture.json"),path.join(ROOT,"data","prediction-fixtures",d+".json")]
+  : [path.join(ROOT,"data","prediction-fixtures",d+".json")];
+ const p=candidates.find(x=>fs.existsSync(x));
+ if(!p)throw new Error("MISSING prediction fixture board for "+d);
+ const x=readJson(p);
+ const validSchema=x.schema==="fih-today-fixture-v1"||x.schema==="fih-prediction-fixture-v1";
+ if(!validSchema||x.date!==d||x.timezone!==TZ)throw new Error("fixture board date/schema/timezone invalid");const stages=Array.isArray(x.payload?.Stages)?x.payload.Stages:[];const events=stages.flatMap((s:any)=>(Array.isArray(s.Events)?s.Events:[]).map((e:any)=>({e,s})));if(!events.length||events.length!==x.fixtureCount)throw new Error("fixture board count mismatch");return {x,events}}
 function inferredState(d:string,id:string):State{
  const has=(s:State)=>artifactCandidates(d,id,s).some(p=>validArtifact(path.join(ROOT,p)));
  const research=has("RESEARCH_VERIFIED"),model=has("MODEL_VERIFIED"),decision=has("DECISION_VERIFIED");
