@@ -1,0 +1,40 @@
+{
+  "schema": "fih-recovery-checkpoint-v1",
+  "date": "2026-10-07",
+  "timezone": "Africa/Johannesburg",
+  "status": "RECOVERING",
+  "checkpointAt": "2026-10-07T08:41:00.000Z",
+  "canonicalComplete": 23,
+  "eligible": 35,
+  "remainingCanonicalGaps": 12,
+  "next": {
+    "fixtureId": "1867251",
+    "stage": "DECISION"
+  },
+  "progressThisInvocation": {
+    "researchPersisted": [
+      "1806529",
+      "1867271",
+      "1867261",
+      "1867251",
+      "1837436",
+      "1839069"
+    ],
+    "modelPersisted": [
+      "1806529",
+      "1867271",
+      "1867261",
+      "1867251",
+      "1837436",
+      "1839069"
+    ],
+    "decisionPersisted": [
+      "1806529",
+      "1867271",
+      "1867261",
+      "1837436",
+      "1839069"
+    ]
+  },
+  "note": "Canonical artifacts are source of truth. Decision persistence for 1867251 hit repeated write refusal; resume there first, then next fixture batch."
+}
