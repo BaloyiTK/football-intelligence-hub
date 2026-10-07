@@ -1,0 +1,9 @@
+{
+  "schema": "fih-decision-v1",
+  "date": "2026-10-07",
+  "fixtureId": "1857932",
+  "decision": "NO_BET",
+  "publishable": false,
+  "reason": "NO_VERIFIED_MARKET_VALUE_EVIDENCE",
+  "decidedAt": "2026-10-07T09:36:00.000Z"
+}
