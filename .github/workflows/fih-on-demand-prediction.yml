@@ -61,7 +61,7 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "data/run-state/$FIH_DATE.json" "data/research/$FIH_DATE" "data/model/$FIH_DATE" "data/decisions/$FIH_DATE" "data/predictions/$FIH_DATE.json" || true
+          git add "data/run-state/$FIH_DATE.json" "data/research/$FIH_DATE.json" "data/model/$FIH_DATE.json" "data/decisions/$FIH_DATE.json" "data/predictions/$FIH_DATE.json" || true
           if ! git diff --cached --quiet; then
             git commit -m "ops: complete FIH prediction $FIH_DATE"
             for attempt in 1 2 3; do
@@ -82,6 +82,7 @@ jobs:
         env:
           FIH_DATE: ${{ inputs.date || github.event.client_payload.date }}
         run: |
+          export FIH_VERIFIED_COMMIT_SHA="$FIH_COMMIT_SHA"
           npm run contract:gate -- --verdict COMPLETE --terminal --date "$FIH_DATE" --rules TERM-002,EVID-001,RESP-001 --evidence aggregate-verified,canonical-artifacts-verified,commit-verified,"commit:$FIH_COMMIT_SHA"
 
       - name: Report completion
