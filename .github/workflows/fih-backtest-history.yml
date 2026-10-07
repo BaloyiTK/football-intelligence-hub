@@ -1,31 +1,48 @@
 name: FIH Backtest History
 on:
   workflow_dispatch:
+    inputs:
+      dates:
+        description: "Comma-separated historical dates (YYYY-MM-DD)"
+        required: false
+        default: "2026-10-04,2026-10-05,2026-10-06"
   push:
     paths:
-      - 'scripts/collect-backtest-history.ts'
-      - '.github/workflows/fih-backtest-history.yml'
+      - 'automation/backtest-run.flag'
 permissions:
   contents: write
 jobs:
-  history:
+  backtest:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
       - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - run: npm install
-      - name: Collect pre-match history
-        run: npx tsx scripts/collect-backtest-history.ts
+        with: { node-version: 22 }
+      - run: npm install --no-audit --no-fund
+      - name: Resolve requested dates
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            DATES="${{ inputs.dates }}"
+          else
+            DATES="$(tr -d '[:space:]' < automation/backtest-run.flag)"
+          fi
+          test -n "$DATES"
+          echo "BACKTEST_DATES=$DATES" >> "$GITHUB_ENV"
+      - name: Ingest requested historical fixtures
         env:
           RAPIDAPI_KEY: ${{ secrets.LS_API_KEY }}
-      - name: Persist history
+        run: |
+          IFS=',' read -ra DS <<< "$BACKTEST_DATES"
+          for D in "${DS[@]}"; do npm run fixtures:backtest-ingest -- "$D"; done
+      - name: Run leak-free requested-date backtest
+        run: npx tsx scripts/run-seven-day-backtest.ts --dates="$BACKTEST_DATES"
+      - name: Persist fixtures and backtest results
         run: |
           git config user.name "fih-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/backtest/history
-          git diff --cached --quiet && exit 0
-          git commit -m "backtest: persist pre-match history"
+          git add data/backtest
+          git diff --cached --quiet || git commit -m "backtest: run $BACKTEST_DATES"
           git pull --rebase origin main
           git push origin HEAD:main
