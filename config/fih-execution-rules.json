@@ -77,6 +77,10 @@
     "REC-005": {
       "kind": "recovery",
       "requirement": "Any failed stage MUST immediately enter investigate -> fix or authorized fallback -> verify recovery -> resume from the earliest unfinished stage -> continue. A failed stage, failed workflow run, or failed provider call is never a normal stopping point and never requires renewed user authorization."
+    },
+    "DATE-003": {
+      "kind": "date-input-integrity",
+      "requirement": "Operational run dates MUST be supplied as runtime inputs or derived dynamically from an explicitly requested date range/current Africa/Johannesburg date. Hard-coded operational dates, fixed historical-date allowlists, and code changes required merely to process another valid date are forbidden."
     }
   },
   "hardStops": [
