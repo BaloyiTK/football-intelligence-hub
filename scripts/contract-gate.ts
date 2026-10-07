@@ -42,6 +42,7 @@ if(verdict==="COMPLETE"){
  const unfinished=eligible.filter((x:any)=>x.state!=="COMPLETE");
  if(unfinished.length)fail("eligible fixtures unfinished: "+unfinished.length);
  if(l.counts?.eligible!==eligible.length||l.counts?.COMPLETE!==eligible.length)fail("ledger completion counts do not reconcile");
+ validateDailyResearch(DATA_ROOT,date,eligible.map((x:any)=>String(x.id)),"PREDICTION");
  const canonical=[["research","fih-daily-research-v2"],["model","fih-daily-model-v2"],["decisions","fih-daily-decisions-v2"]] as const;
  const ids=eligible.map((x:any)=>String(x.id)).sort();
  for(const [kind,schema] of canonical){const p=DATA_ROOT+"/data/"+kind+"/"+date+".json";if(!fs.existsSync(p))fail("canonical daily artifact missing "+p);const x=JSON.parse(fs.readFileSync(p,"utf8"));if(x.schema!==schema||x.date!==date||!Array.isArray(x.fixtures))fail("canonical daily artifact invalid "+kind);const got=x.fixtures.map((r:any)=>String(r.fixtureId)).sort();if(JSON.stringify(got)!==JSON.stringify(ids))fail("canonical artifact coverage mismatch "+kind);}
