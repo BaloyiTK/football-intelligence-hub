@@ -6,7 +6,8 @@
     "automatedAccessRequiresPermission": true,
     "visibilityDoesNotImplyScrapingPermission": true,
     "currentEraAutonomousKeylessSourceFound": false,
-    "betCalibrationMustRemainLocked": true
+    "betCalibrationMustRemainLocked": true,
+    "freeProviderSolves180DayBackfill": false
   },
   "sources": [
     {
@@ -35,10 +36,15 @@
     {
       "id": "parlay-api",
       "url": "https://parlay-api.com/historical-odds-api",
-      "mode": "free_key_required",
+      "mode": "free_key_required_forward_capture",
       "automated": true,
       "coverage": "historical closing lines back to 2005; deepest in NFL and soccer",
-      "use": "preferred current-era automated backfill candidate when API key is configured"
+      "use": "capture verified closing/pre-match odds continuously for new fixtures and recent recovery; deeper historical backfill requires a wider-window plan or another authorized source",
+      "freeTier": {
+        "creditsPerMonth": 1000,
+        "historicalWindowHours": 48
+      },
+      "limitation": "Free tier can only read the previous 48 hours; it cannot backfill the 180-day calibration window."
     }
   ]
 }
