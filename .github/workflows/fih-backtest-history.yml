@@ -59,9 +59,14 @@ jobs:
             fi
             test -s "$FIX"
             node -e 'const fs=require("fs");const p=process.argv[1],d=process.argv[2],j=JSON.parse(fs.readFileSync(p));if(j.date!==d||j.mode!=="BACKTEST"||!j.fixtureCount)process.exit(2);console.log(d,j.fixtureCount)' "$FIX" "$D"
-            npx tsx scripts/run-v2-backtest-day.ts --date="$D"
-            test -s "$DAILY"
-            node -e 'const fs=require("fs");const j=JSON.parse(fs.readFileSync(process.argv[1]));if(j.status!=="DAY_COMPLETE")process.exit(3)' "$DAILY"
+            RESEARCH="data/backtest/research/$D.json"
+            if [ ! -s "$RESEARCH" ]; then
+              echo "RESEARCH_REQUIRED $D: canonical Step 2 artifact absent; refusing synthetic completion"
+              exit 4
+            fi
+            npx tsx scripts/validate-backtest-research.ts --date="$D"
+            echo "STEP2_VERIFIED $D; no synthetic Step 3/4/5 path is permitted"
+            exit 5
             git config user.name "fih-bot"
             git config user.email "actions@users.noreply.github.com"
             git add data/backtest
