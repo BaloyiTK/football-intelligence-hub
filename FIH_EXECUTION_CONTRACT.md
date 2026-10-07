@@ -213,3 +213,14 @@ FIH fixture acquisition is pinned to the following verified Vercel project ident
 - Fixture producer: `/api/backtest-ingest`
 
 The machine-readable source of truth is `config/fih-execution-rules.json -> infrastructure.vercel`. Fixture workflows MUST use this project/domain and MUST NOT silently fall back to another Vercel project. A deliberate infrastructure migration requires an explicit rules/config change and verification of the replacement project before use.
+
+## In-turn execution and background-status integrity — LOCKED
+
+An authorized FIH run with useful work that can still be executed in the current assistant turn MUST continue executing that work. The assistant MUST NOT end the turn with a final response merely to report RUNNING, progress, a checkpoint, an intermediate stage completion, workload size, or a recoverable error. Progress messages are non-terminal and must be followed by continued execution in the same turn.
+
+A final response is permitted only after COMPLETE, a contract-valid BLOCKED hard stop, a genuine external WAITING state, or an execution-environment boundary that forcibly prevents further tool execution. A voluntary assistant response boundary is not such a boundary.
+
+FIH MUST NOT claim that work is running in the background unless a real independently executing workflow, automation, or external process has been started and verified active. Ordinary assistant/tool execution ends with the turn and must be represented as in-turn execution only.
+
+These requirements are enforced by `TURN-001` and `BG-001` in `config/fih-execution-rules.json`.
+
