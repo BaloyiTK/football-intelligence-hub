@@ -78,6 +78,9 @@ for(const f of ledger.fixtures.filter((x:any)=>x.eligible)){
  }
 }
 
+console.log("DAILY_DECISION_START");
+try{tsx("scripts/daily-decision-runner.ts");}catch(e){console.error("DAILY_DECISION_DEGRADED: invalid model/decision artifact encountered; continuing reconciliation.");}
+
 tsx("scripts/daily-run-ledger.ts","reconcile",DATE);
 ledger=show();
 const unfinished=ledger.fixtures.filter((x:any)=>x.eligible&&x.state!=="COMPLETE");
