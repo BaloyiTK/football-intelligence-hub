@@ -1,0 +1,20 @@
+{
+  "schema": "fih-research-v1",
+  "date": "2026-10-07",
+  "fixtureId": "1881184",
+  "fixture": {
+    "home": "Shooting Stars",
+    "away": "Kano Pillars",
+    "competition": "NPFL",
+    "kickoff": "20261007170000"
+  },
+  "researchedAt": "2026-10-07T09:32:00.000Z",
+  "searchQuery": "Shooting Stars Kano Pillars 7 October 2026 form odds",
+  "sourceUrls": [
+    "https://african-football.com/matchs/football/shooting-stars-kano-pillars-44263/",
+    "https://globalsportsarchive.com/en/soccer/match/2026-10-07/shooting-stars-sc-vs-kano-pillars-fc/4489222"
+  ],
+  "evidenceStatus": "PARTIAL",
+  "requiredModelMatchSeries": "UNAVAILABLE",
+  "integrity": "Fixture-specific public-web research executed; missing evidence not fabricated."
+}
