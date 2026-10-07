@@ -1,0 +1,11 @@
+{
+  "schema": "fih-research-v1",
+  "date": "2026-10-07",
+  "fixtureId": "1735797",
+  "fixture": {"home":"Inter Toronto","away":"Supra du Quebec","competition":"Premier League","kickoff":"20261007170000"},
+  "researchedAt": "2026-10-07T06:34:00.000Z",
+  "evidenceStatus": "PARTIAL",
+  "requiredModelMatchSeries": "UNAVAILABLE",
+  "verifiedInputs": {"h2h":["2026-08-23 Inter Toronto 1-1 Supra du Quebec","2026-05-30 Supra du Quebec 3-1 Inter Toronto"],"homeOverallMatchSeries":"UNAVAILABLE","awayOverallMatchSeries":"UNAVAILABLE"},
+  "integrity": "Fixture-specific public-web research executed; minimum current overall series unavailable in this pass."
+}
