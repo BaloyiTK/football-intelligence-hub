@@ -7,11 +7,11 @@
   "isFuture": false,
   "timezone": "Africa/Johannesburg",
   "provider": "LiveScore via RapidAPI",
-  "fetchedAt": "2026-10-07T21:04:25.512Z",
+  "fetchedAt": "2026-10-07T21:05:54.420Z",
   "stageCount": 44,
   "fixtureCount": 70,
   "payload": {
-    "Ts": 1791407065,
+    "Ts": 1791407154,
     "Stages": [
       {
         "Sid": "26032",
@@ -1920,11 +1920,11 @@
                 "Abr": "BAR"
               }
             ],
-            "Eps": "4'",
+            "Eps": "5'",
             "Esid": 2,
             "Etm": {
-              "ATm": 1791407037339,
-              "RTm": 180000
+              "ATm": 1791407097320,
+              "RTm": 240000
             },
             "Epr": 1,
             "Ecov": 0,
