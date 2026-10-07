@@ -1,0 +1,27 @@
+{
+  "schema": "fih-recovery-checkpoint-v1",
+  "date": "2026-10-07",
+  "status": "RECOVERING",
+  "checkpointAt": "2026-10-07T07:36:30.000Z",
+  "canonicalCounts": {
+    "eligible": 35,
+    "complete": 18,
+    "pending": 17
+  },
+  "next": {
+    "fixtureId": "1806529",
+    "state": "PENDING"
+  },
+  "progress": {
+    "newlyCompleted": [
+      "1880754",
+      "1886720"
+    ]
+  },
+  "rules": [
+    "RESUME-001",
+    "REC-001",
+    "REC-004",
+    "EVID-001"
+  ]
+}
