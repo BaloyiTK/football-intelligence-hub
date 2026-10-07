@@ -1,0 +1,9 @@
+{
+  "schema": "fih-decision-v1",
+  "date": "2026-10-07",
+  "fixtureId": "1881184",
+  "decision": "NO_MODEL",
+  "publishable": false,
+  "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+  "decidedAt": "2026-10-07T11:53:10.276Z"
+}
