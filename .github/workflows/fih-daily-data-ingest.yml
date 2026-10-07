@@ -1,6 +1,6 @@
 name: FIH Fresh Data Gate Audit
 
-on:
+"on":
   workflow_dispatch:
   schedule:
     # 05:50 SAST: audit the Vercel-owned 05:30 ingest before the 06:00 prediction run.
