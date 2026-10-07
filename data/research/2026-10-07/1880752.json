@@ -1,0 +1,25 @@
+{
+  "schema": "fih-research-v1",
+  "date": "2026-10-07",
+  "fixtureId": "1880752",
+  "fixture": {
+    "home": "Urawa Red Diamonds",
+    "away": "Omiya Ardija",
+    "competition": "Emperor's Cup",
+    "kickoff": "20261007110000"
+  },
+  "researchedAt": "2026-10-07T05:12:25.212Z",
+  "searchQuery": "Urawa Red Diamonds Omiya Ardija 7 October 2026 form odds",
+  "sourceDomains": [
+    "world-football-elo-ranking.com"
+  ],
+  "verifiedInputs": {
+    "overallMatchSeries": "UNAVAILABLE",
+    "venueMatchSeries": "UNAVAILABLE",
+    "h2h": "UNAVAILABLE_OR_PARTIAL",
+    "xg": "UNAVAILABLE",
+    "teamNews": "UNAVAILABLE",
+    "marketOdds": "UNAVAILABLE"
+  },
+  "integrity": "Fixture-specific web research executed; missing evidence was not fabricated."
+}
