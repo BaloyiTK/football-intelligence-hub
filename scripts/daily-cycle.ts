@@ -4,16 +4,30 @@ import { execFileSync } from "node:child_process";
 
 const DATE=process.env.FIH_DATE||new Intl.DateTimeFormat("en-CA",{timeZone:"Africa/Johannesburg",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
 const root=process.cwd();
-const read=(p:string)=>JSON.parse(fs.readFileSync(path.join(root,p),"utf8"));
+const quarantineDir=path.join(root,"data","quarantine",DATE);
+function read(p:string){
+ const full=path.join(root,p);
+ const raw=fs.readFileSync(full,"utf8");
+ try{return JSON.parse(raw);}
+ catch(error){
+  fs.mkdirSync(quarantineDir,{recursive:true});
+  const safe=p.replace(/[\\/]/g,"__");
+  const q=path.join(quarantineDir,`${Date.now()}__${safe}`);
+  fs.writeFileSync(q,raw);
+  console.error(`ARTIFACT_QUARANTINED ${p} -> ${path.relative(root,q)} ${String(error)}`);
+  return null;
+ }
+}
+function readRequired(p:string){const v=read(p);if(v===null)throw new Error(`REQUIRED_JSON_INVALID ${p}`);return v;}
 const exists=(p:string)=>fs.existsSync(path.join(root,p));
 const tsx=(...args:string[])=>execFileSync(process.execPath,["node_modules/tsx/dist/cli.mjs",...args],{stdio:"inherit",env:process.env});
 const ledgerPath=`data/run-state/${DATE}.json`;
 const queuePath=`data/research-queue/${DATE}.json`;
 
-function show(){const l=read(ledgerPath);console.log(JSON.stringify({date:DATE,status:l.runStatus,counts:l.counts,next:l.next},null,2));return l;}
+function show(){const l=readRequired(ledgerPath);console.log(JSON.stringify({date:DATE,status:l.runStatus,counts:l.counts,next:l.next},null,2));return l;}
 
 console.log(`FIH daily controller: ${DATE}`);
-const board=read("data/today_fixture.json");
+const board=readRequired("data/today_fixture.json");
 if(board.date!==DATE) throw new Error(`Fresh-board gate failed: expected ${DATE}, got ${board.date}`);
 if(!board.fixtureCount) throw new Error("Fresh-board gate failed: empty board");
 
@@ -33,6 +47,7 @@ for(const f of ledger.fixtures.filter((x:any)=>x.eligible)){
  if(!exists(model)){console.log(`MODEL_REQUIRED ${f.id}`);continue;}
  if(!exists(decision)){
   const m=read(model);
+  if(!m){ console.error(`MODEL_INVALID ${f.id}; quarantined, continuing`); continue; }
   if(m.status==="INSUFFICIENT_DATA"){
    fs.mkdirSync(path.dirname(path.join(root,decision)),{recursive:true});
    fs.writeFileSync(path.join(root,decision),JSON.stringify({schema:"fih-decision-v1",date:DATE,fixtureId:String(f.id),decision:"NO_MODEL",publishable:false,reason:"INSUFFICIENT_VERIFIED_MODEL_INPUT",decidedAt:new Date().toISOString()},null,2)+"\n");
@@ -68,10 +83,12 @@ for(const f of ledger.fixtures.filter((x:any)=>x.eligible)){
  if(!exists(model)) continue;
  if(!exists(decision)){
   const m=read(model);
+  if(!m){ console.error(`MODEL_INVALID ${f.id}; quarantined, continuing`); continue; }
   if(m.status==="INSUFFICIENT_DATA"){
    fs.mkdirSync(path.dirname(path.join(root,decision)),{recursive:true});
    fs.writeFileSync(path.join(root,decision),JSON.stringify({schema:"fih-decision-v1",date:DATE,fixtureId:String(f.id),decision:"NO_MODEL",publishable:false,reason:"INSUFFICIENT_VERIFIED_MODEL_INPUT",decidedAt:new Date().toISOString()},null,2)+"\\n");
    const verify=read(decision);
+   if(!verify){ console.error(`DECISION_INVALID ${f.id}; quarantined, continuing`); continue; }
    if(verify.fixtureId!==String(f.id)||verify.decision!=="NO_MODEL") throw new Error(`DECISION_PERSIST_VERIFY_FAILED ${f.id}`);
    console.log(`DECISION_WRITTEN ${f.id} NO_MODEL`);
   } else console.log(`DECISION_REQUIRED ${f.id} market/value verification needed`);
