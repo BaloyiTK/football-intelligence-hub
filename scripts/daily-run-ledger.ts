@@ -6,7 +6,7 @@ type Item={id:string;home:string;away:string;competition:string;kickoff:string|n
 type RunStatus="RUNNING"|"RECOVERING"|"WAITING"|"COMPLETE";
 type Ledger={schema:string;date:string;timezone:string;runId:string;runStatus:RunStatus;heartbeatAt:string;recoveryCount:number;board:{fetchedAt:string;fixtureCount:number;stageCount:number};createdAt:string;updatedAt:string;fixtures:Item[];counts:Record<string,number>;next:{fixtureId:string;state:State}|null};
 
-const ROOT=process.cwd(), TZ="Africa/Johannesburg";
+const ROOT=process.env.FIH_ROOT||process.cwd(), TZ="Africa/Johannesburg";
 const arg=(name:string)=>{const i=process.argv.indexOf(name);return i>=0?process.argv[i+1]:undefined};
 const today=()=>new Intl.DateTimeFormat("en-CA",{timeZone:TZ,year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
 const now=()=>new Date().toISOString();
@@ -28,5 +28,3 @@ function validArtifact(p:string){if(!fs.existsSync(p))return false;try{const x=r
 function requireArtifact(d:string,id:string,to:State){if(to==="PENDING"||to==="COMPLETE")return;const c=artifactCandidates(d,id,to);if(!c.some(p=>validArtifact(path.join(ROOT,p))))throw new Error("canonical artifact missing/invalid for "+to+" fixture "+id)}
 function advance(d:string){const id=arg("--fixture"),to=arg("--to") as State;if(!id||!to)throw new Error("advance requires --fixture ID --to STATE");const order:State[]=["PENDING","RESEARCH_VERIFIED","MODEL_VERIFIED","DECISION_VERIFIED","COMPLETE"];if(!order.includes(to))throw new Error("invalid state");const l=verify(d),f=l.fixtures.find(x=>x.id===id);if(!f)throw new Error("fixture not in authoritative board");if(!f.eligible||f.state==="EXCLUDED")throw new Error("excluded fixture cannot advance");const fromIndex=order.indexOf(f.state),toIndex=order.indexOf(to);if(toIndex<fromIndex)throw new Error("state regression refused");if(toIndex>fromIndex+1)throw new Error("state skipping refused: "+f.state+" -> "+to);requireArtifact(d,id,to);if(to==="COMPLETE"&&f.state!=="DECISION_VERIFIED")throw new Error("COMPLETE requires DECISION_VERIFIED");f.state=to;f.updatedAt=now();l.updatedAt=now();l.heartbeatAt=l.updatedAt;l.counts=counts(l.fixtures);l.next=next(l.fixtures);l.runStatus=l.next?"RUNNING":"COMPLETE";fs.writeFileSync(ledgerPath(d),JSON.stringify(l,null,2)+"\n");return l}
 const cmd=process.argv[2]||"verify",d=arg("--date")||today();let result:any;
-if(cmd==="init"||cmd==="reconcile")result=init(d);else if(cmd==="verify")result=verify(d);else if(cmd==="advance")result=advance(d);else throw new Error("usage: daily-run-ledger.ts init|reconcile|verify|advance [--date YYYY-MM-DD] [--fixture ID --to STATE]");
-console.log(JSON.stringify({ok:true,date:d,counts:result.counts,next:result.next,path:"data/run-state/"+d+".json"},null,2));
