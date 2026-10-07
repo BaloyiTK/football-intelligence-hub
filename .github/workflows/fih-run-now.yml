@@ -15,19 +15,24 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
       - run: npm install --no-audit --no-fund
-      - name: Execute repository-owned daily cycle
-        run: npm run run:daily -- --date 2026-10-07
+      - name: Resolve requested prediction date
+        run: |
+          DATE="$(cat automation/run-now.flag | tr -d '[:space:]')"
+          test -n "$DATE"
+          echo "FIH_DATE=$DATE" >> "$GITHUB_ENV"
+      - name: Execute repository-owned prediction cycle
+        run: npm run run:daily -- --date "$FIH_DATE"
       - name: Persist generated artifacts
         if: always()
         run: |
           git config user.name "fih-runner"
           git config user.email "actions@users.noreply.github.com"
           git add data
-          git diff --cached --quiet || git commit -m "daily: complete 2026-10-07 cycle"
+          git diff --cached --quiet || git commit -m "prediction: complete $FIH_DATE cycle"
           git push
       - name: Enforce DAILY_CYCLE_COMPLETE contract
         run: |
           git fetch origin main
           test "$(git rev-parse HEAD)" = "$(git rev-parse origin/main)"
-          npm run run:ledger:verify -- --date 2026-10-07
-          npm run contract:gate -- --verdict COMPLETE --date 2026-10-07 --rules TERM-002,DAILY-001,DAILY-002,PROG-001,EVID-001 --evidence aggregate-verified,canonical-artifacts-verified,commit-verified
+          npm run run:ledger:verify -- --date "$FIH_DATE"
+          npm run contract:gate -- --verdict COMPLETE --date "$FIH_DATE" --rules TERM-002,DAILY-001,DAILY-002,PROG-001,EVID-001 --evidence aggregate-verified,canonical-artifacts-verified,commit-verified
