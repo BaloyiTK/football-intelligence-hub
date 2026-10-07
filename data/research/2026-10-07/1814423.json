@@ -1,0 +1,19 @@
+{
+  "schema": "fih-research-v1",
+  "date": "2026-10-07",
+  "fixtureId": "1814423",
+  "fixture": {
+    "home": "Cartagena",
+    "away": "Real Murcia",
+    "competition": "Primera Federación",
+    "kickoff": "20261007203000"
+  },
+  "researchedAt": "2026-10-07T12:16:42.000Z",
+  "searchQuery": "Cartagena Real Murcia 7 October 2026",
+  "sourceUrls": [
+    "https://www.realmurcia.es/event/f-c-cartagena-vs-real-murcia/"
+  ],
+  "evidenceStatus": "PARTIAL",
+  "requiredModelMatchSeries": "UNAVAILABLE",
+  "integrity": "Fixture-specific public-web research executed; missing evidence not fabricated."
+}
