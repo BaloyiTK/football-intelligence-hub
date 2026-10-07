@@ -1,0 +1,16 @@
+{
+  "schema": "fih-research-v1",
+  "date": "2026-10-07",
+  "fixtureId": "1880754",
+  "fixture": {
+    "home": "Shimizu S-Pulse",
+    "away": "V-Varen Nagasaki",
+    "competition": "Emperor's Cup",
+    "kickoff": "20261007120000"
+  },
+  "researchedAt": "2026-10-07T05:15:51.547Z",
+  "searchQuery": "Shimizu S-Pulse V-Varen Nagasaki 7 October 2026 form odds",
+  "evidenceStatus": "PARTIAL",
+  "requiredModelMatchSeries": "UNAVAILABLE",
+  "integrity": "Fixture-specific web research executed; missing evidence not fabricated."
+}
