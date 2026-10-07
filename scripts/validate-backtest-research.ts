@@ -1,5 +1,6 @@
 import {validateDailyResearch} from "./research-canonical";import fs from "node:fs";import path from "node:path";
 const root=process.cwd(),DATE=(process.argv.find(x=>x.startsWith("--date="))?.slice(7)||"").trim();if(!/^\d{4}-\d{2}-\d{2}$/.test(DATE))throw new Error("BACKTEST_DATE_REQUIRED");
 const b=JSON.parse(fs.readFileSync(path.join(root,"data/backtest/fixtures",DATE+".json"),"utf8")),cutoff=DATE+"T060000";
-const ids:string[]=[];for(const s of b.payload?.Stages||[])for(const e of s.Events||[]){const k=String(e.Esd||"");if(/^\d{14}$/.test(k)&&k>cutoff&&e.T1?.[0]?.Nm&&e.T2?.[0]?.Nm)ids.push(String(e.Eid));}
+function senior(e:any,s:any){const text=[s?.CompN,s?.Snm,s?.Cnm,e?.T1?.[0]?.Nm,e?.T2?.[0]?.Nm].filter(Boolean).join(" ").toLowerCase(),teams=[e?.T1?.[0]?.Nm,e?.T2?.[0]?.Nm].filter(Boolean).join(" ").toLowerCase();if(/women|\bw\b|\bu[- ]?\d{2}\b|under[- ]?\d{2}|youth/.test(text))return false;if(/reserve|reserves|\bu23\b|\bu21\b|\bu20\b|\bu19\b|\bu18\b|\bu17\b|\bii\b|(?:^|\s)2$/.test(teams))return false;if(/university|academia|academy|akatemia|juniors?/.test(text))return false;return true}
+const ids:string[]=[];for(const s of b.payload?.Stages||[])for(const e of s.Events||[]){const k=String(e.Esd||"");if(/^\d{14}$/.test(k)&&k>cutoff&&e.T1?.[0]?.Nm&&e.T2?.[0]?.Nm&&senior(e,s))ids.push(String(e.Eid));}
 const v=validateDailyResearch(root,DATE,ids,"BACKTEST");console.log(JSON.stringify({ok:true,date:DATE,eligible:ids.length,canonical:v.path},null,2));
