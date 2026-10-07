@@ -49,6 +49,18 @@
     "EVID-001": {
       "kind": "evidence",
       "requirement": "Every PASS/RECOVERING/WAITING/BLOCKED/COMPLETE assertion must name applicable rule IDs and persisted or externally verifiable evidence."
+    },
+    "DAILY-001": {
+      "kind": "daily-execution",
+      "requirement": "The scheduled Daily FIH Run is the primary owner of the full current-date pipeline from verified fixture/data acquisition through research, model, market/value processing where available, decision/prediction persistence, aggregate reconciliation, and required commit verification."
+    },
+    "DAILY-002": {
+      "kind": "daily-execution",
+      "requirement": "The normal daily cycle must not depend on a watchdog, hourly recovery invocation, repeated user command, or status request for ordinary forward progress."
+    },
+    "PROG-001": {
+      "kind": "progress",
+      "requirement": "Heartbeat/checkpoint/ledger-only changes without canonical fixture artifact advancement or verification are durability maintenance, not meaningful daily-cycle progress, and never satisfy completion."
     }
   },
   "hardStops": [
