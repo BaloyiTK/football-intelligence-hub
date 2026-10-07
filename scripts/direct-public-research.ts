@@ -24,19 +24,21 @@ for(const f of queue.fixtures){
  }
  const home=teamSeries(f.home,rows,5),away=teamSeries(f.away,rows,5);
  const enough=home.length>=3&&away.length>=3;
- const unavailable=(reason:string)=>({status:"UNAVAILABLE",reason});
+ const attemptedAt=new Date().toISOString();
+ const attempt=(category:string,outcome:string)=>[{query:`${f.home} ${f.away} ${DATE} ${category}`,attemptedAt,outcome}];
+ const unavailable=(category:string,reason:string)=>({status:"UNAVAILABLE",reason,attempts:attempt(category,"NOT_SEARCHED_BY_DIRECT_EXTRACTOR")});
  const categories={
-  overallForm:{status:enough?"VERIFIED":"PARTIAL",homeMatches:home,awayMatches:away},
-  venueForm:unavailable("No independently verified venue split from current public-page extraction."),
-  xgXga:unavailable("No trustworthy xG/xGA source verified by current public-page extraction."),
-  leaguePosition:unavailable("No independently verified standings/PPG dataset extracted."),
-  teamQuality:unavailable("No independently verified long-run team-quality metric extracted."),
-  motivationContext:unavailable("No independently verified competition-context evidence extracted."),
-  h2h:unavailable("No independently verified H2H series extracted."),
-  goalsProfile:unavailable("No independently verified aggregate goals-profile dataset extracted."),
-  squadAvailability:unavailable("No independently verified squad-availability report extracted."),
-  opponentStrength:unavailable("No independently verified opponent-strength factor extracted."),
-  restSchedule:unavailable("No independently verified rest/schedule evidence extracted.")
+  overallForm:{status:enough?"VERIFIED":"PARTIAL",homeMatches:home,awayMatches:away,attempts:attempt("overall form",enough?"SOURCE_EVIDENCE_FOUND":"INSUFFICIENT_SOURCE_EVIDENCE")},
+  venueForm:unavailable("venue form","Direct extractor did not execute a category-specific search."),
+  xgXga:unavailable("xG xGA","Direct extractor did not execute a category-specific search."),
+  leaguePosition:unavailable("standings PPG goal difference","Direct extractor did not execute a category-specific search."),
+  teamQuality:unavailable("team quality","Direct extractor did not execute a category-specific search."),
+  motivationContext:unavailable("motivation context","Direct extractor did not execute a category-specific search."),
+  h2h:unavailable("H2H","Direct extractor did not execute a category-specific search."),
+  goalsProfile:unavailable("goals profile BTTS over 2.5","Direct extractor did not execute a category-specific search."),
+  squadAvailability:unavailable("squad availability injuries suspensions","Direct extractor did not execute a category-specific search."),
+  opponentStrength:unavailable("opponent strength","Direct extractor did not execute a category-specific search."),
+  restSchedule:unavailable("rest schedule","Direct extractor did not execute a category-specific search.")
  };
  results.push({fixtureId:String(f.fixtureId),researchedAt:new Date().toISOString(),searchQuery:f.query,sourceUrls:[...new Set(sourceUrls)],sourceMetadata:[...new Set(sourceUrls)].map(url=>({url,retrievedAt:new Date().toISOString(),supports:["overallForm"]})),evidenceStatus:enough?"VERIFIED_MINIMUM_MODEL_INPUT":"PARTIAL",requiredModelMatchSeries:enough?"VERIFIED":"UNAVAILABLE",categoriesAttempted:Object.keys(categories),evidence:categories,verifiedInputs:{overallMatchSeries:{home,away}},integrity:enough?"Build Step 2 categories attempted; verified overall score evidence retained and unavailable categories explicitly recorded.":"Build Step 2 categories attempted; unavailable evidence explicitly recorded and minimum reproducible score series was not reached.",failures});
 }
