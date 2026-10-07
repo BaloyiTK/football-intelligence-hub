@@ -45,6 +45,17 @@ fs.mkdirSync(path.dirname(path.join(root,queuePath)),{recursive:true});
 fs.writeFileSync(path.join(root,queuePath),JSON.stringify({schema:"fih-research-queue-v1",date:DATE,generatedAt:new Date().toISOString(),count:researchQueue.length,fixtures:researchQueue},null,2)+"\n");
 console.log(`RESEARCH_QUEUE_WRITTEN ${researchQueue.length}`);
 
+if(researchQueue.length){
+ console.log(`DIRECT_RESEARCH_START ${researchQueue.length}`);
+ try{
+  tsx("scripts/direct-public-research.ts");
+  tsx("scripts/research-worker.ts");
+  console.log("DIRECT_RESEARCH_PERSISTED");
+ }catch(e){
+  console.error("DIRECT_RESEARCH_DEGRADED: public evidence unavailable or incomplete; continuing reconciliation.");
+ }
+}
+
 tsx("scripts/daily-run-ledger.ts","reconcile",DATE);
 ledger=show();
 const unfinished=ledger.fixtures.filter((x:any)=>x.eligible&&x.state!=="COMPLETE");
