@@ -34,7 +34,7 @@ jobs:
           ' "$DATE"
       - name: Reconcile durable daily run ledger
         run: |
-          npm ci
+          npm install --no-audit --no-fund
           npm run run:ledger:init -- --date "$(TZ=Africa/Johannesburg date +%F)"
           npm run run:ledger:verify -- --date "$(TZ=Africa/Johannesburg date +%F)"
       - name: Persist reconciled run ledger
