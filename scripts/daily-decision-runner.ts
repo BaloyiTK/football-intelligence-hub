@@ -1,33 +1,6 @@
-import fs from "node:fs";
-import path from "node:path";
-
-const DATE=process.env.FIH_DATE||new Intl.DateTimeFormat("en-CA",{timeZone:"Africa/Johannesburg",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
-const root=process.cwd();
-const calibration=JSON.parse(fs.readFileSync(path.join(root,"config/bet-calibration.json"),"utf8"));
-const betEnabled=calibration.status==="CALIBRATED"&&calibration.betPublicationEnabled===true&&Number.isFinite(calibration.qualification?.minimumEdge);
-const modelDir=path.join(root,`data/model/${DATE}`),researchDir=path.join(root,`data/research/${DATE}`),marketDir=path.join(root,`data/market/${DATE}`),outDir=path.join(root,`data/decisions/${DATE}`);
-fs.mkdirSync(outDir,{recursive:true});
-if(!fs.existsSync(modelDir)){console.log("DECISION_RUNNER_NO_MODELS");process.exit(0);}
-let written=0,noModel=0,noBet=0,rejected=0;
-for(const file of fs.readdirSync(modelDir).filter(x=>x.endsWith(".json"))){
- const m=JSON.parse(fs.readFileSync(path.join(modelDir,file),"utf8"));
- if(m.schema!=="fih-model-v1"||m.date!==DATE||!m.fixtureId){rejected++;continue;}
- const id=String(m.fixtureId),target=path.join(outDir,`${id}.json`);
- let decision:any;
- if(m.status==="INSUFFICIENT_DATA"){
-  decision={schema:"fih-decision-v1",date:DATE,fixtureId:id,decision:"NO_MODEL",publishable:false,reason:"INSUFFICIENT_VERIFIED_MODEL_INPUT",modelVersion:m.modelVersion||m.version,decidedAt:new Date().toISOString()}; noModel++;
- }else if(m.status==="CALCULATED"){
-  const marketPath=path.join(marketDir,`${id}.json`);
-  const hasMarket=fs.existsSync(marketPath);
-  let market:any=null;
-  if(hasMarket){try{market=JSON.parse(fs.readFileSync(marketPath,"utf8"));}catch{}}
-  const verified=market?.schema==="fih-market-v1"&&market?.date===DATE&&String(market?.fixtureId)===id&&market?.verified===true;
-  decision={schema:"fih-decision-v1",date:DATE,fixtureId:id,decision:"NO_BET",publishable:false,reason:verified?(betEnabled?"NO_QUALIFYING_VALUE_EDGE":"BET_CALIBRATION_NOT_READY"):"NO_VERIFIED_CURRENT_MARKET_ODDS",modelVersion:m.modelVersion||m.version,marketEvidence:verified?(betEnabled?"VERIFIED":"VERIFIED_BUT_CALIBRATION_LOCKED"):"UNAVAILABLE",decidedAt:new Date().toISOString()}; noBet++;
- }else{rejected++;continue;}
- fs.writeFileSync(target,JSON.stringify(decision,null,2)+"\n");
- const verify=JSON.parse(fs.readFileSync(target,"utf8"));
- if(verify.fixtureId!==id||verify.date!==DATE||!["NO_MODEL","NO_BET","BET"].includes(verify.decision))throw new Error(`DECISION_PERSIST_VERIFY_FAILED ${id}`);
- written++;
-}
-console.log(JSON.stringify({date:DATE,written,noModel,noBet,rejected},null,2));
-if(rejected)process.exitCode=2;
+import fs from "node:fs";import path from "node:path";
+const DATE=process.env.FIH_DATE||new Intl.DateTimeFormat("en-CA",{timeZone:"Africa/Johannesburg",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date()),root=process.cwd(),mp=path.join(root,"data/model",DATE+".json"),out=path.join(root,"data/decisions",DATE+".json");
+if(!fs.existsSync(mp))throw new Error("CANONICAL_DAILY_MODEL_MISSING");const m=JSON.parse(fs.readFileSync(mp,"utf8"));if(m.schema!=="fih-daily-model-v2"||m.date!==DATE||!Array.isArray(m.fixtures))throw new Error("CANONICAL_DAILY_MODEL_INVALID");
+const fixtures=m.fixtures.map((x:any)=>{if(x.status==="INSUFFICIENT_DATA")return {fixtureId:String(x.fixtureId),decision:"NO_MODEL",publishable:false,reason:"INSUFFICIENT_VERIFIED_MODEL_INPUT",modelVersion:x.modelVersion||x.version};
+return {fixtureId:String(x.fixtureId),decision:"NO_BET",publishable:false,reason:"NO_STRONG_QUALIFYING_LOCKED_MARKET",modelVersion:x.modelVersion||x.version};});
+const a={schema:"fih-daily-decisions-v2",date:DATE,generatedAt:new Date().toISOString(),fixtureCount:fixtures.length,fixtures};fs.mkdirSync(path.dirname(out),{recursive:true});fs.writeFileSync(out,JSON.stringify(a,null,2)+"\n");const v=JSON.parse(fs.readFileSync(out,"utf8"));if(v.date!==DATE||v.fixtureCount!==m.fixtureCount||v.fixtures.length!==m.fixtures.length)throw new Error("DAILY_DECISION_PERSIST_VERIFY_FAILED");console.log(JSON.stringify({ok:true,date:DATE,fixtures:fixtures.length,canonical:out},null,2));
