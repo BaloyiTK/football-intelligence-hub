@@ -25,6 +25,11 @@ if(verdict==="COMPLETE"){
  if(!fs.existsSync(ledgerPath(date)))fail("COMPLETE requires persisted run ledger");
  const l=JSON.parse(fs.readFileSync(ledgerPath(date),"utf8"));
  if(l.date!==date)fail("ledger date mismatch");
+ if(l.runStatus!=="COMPLETE")fail("ledger runStatus is not COMPLETE");
+ const pp=DATA_ROOT+"/data/predictions/"+date+".json";
+ if(!fs.existsSync(pp))fail("dated prediction artifact missing");
+ const pred=JSON.parse(fs.readFileSync(pp,"utf8"));
+ if(pred.schema!=="fih-daily-predictions-v1"||pred.date!==date||!Array.isArray(pred.predictions)||pred.publishableCount!==pred.predictions.length)fail("dated prediction artifact invalid");
  const eligible=l.fixtures.filter((x:any)=>x.eligible!==false);
  const unfinished=eligible.filter((x:any)=>x.state!=="COMPLETE");
  if(unfinished.length)fail("eligible fixtures unfinished: "+unfinished.length);
