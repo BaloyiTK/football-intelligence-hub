@@ -97,6 +97,14 @@
     "EXEC-001": {
       "kind": "executor-recovery",
       "requirement": "An executor error, assistant/tool orchestration error, premature chat-response boundary, or accidental interruption during an authorized unfinished FIH run is a recoverable execution event. It MUST transition/resume as RECOVERING from the earliest unverified durable stage without renewed user authorization; it may not be used as WAITING, BLOCKED, COMPLETE, or a reason to require the user to repeat the run command."
+    },
+    "TURN-001": {
+      "kind": "turn-execution",
+      "requirement": "While an authorized FIH run has useful executable work remaining in the current turn, the executor MUST continue tool execution and MUST NOT emit a final response merely to report RUNNING, progress, checkpoint persistence, stage completion, workload size, or a recoverable error. A final response is permitted only for COMPLETE, contract-valid BLOCKED, genuine external WAITING, or when the execution environment itself forcibly ends the turn."
+    },
+    "BG-001": {
+      "kind": "status-integrity",
+      "requirement": "FIH MUST NOT describe work as running in the background unless a real external workflow, automation, or other independently executing process has been started and verified active. Chat/tool execution that stops when the assistant turn ends must be described as in-turn execution only."
     }
   },
   "hardStops": [
