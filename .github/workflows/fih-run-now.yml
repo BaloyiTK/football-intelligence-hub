@@ -41,4 +41,5 @@ jobs:
           git fetch origin main
           test "$(git rev-parse HEAD)" = "$(git rev-parse origin/main)"
           npm run run:ledger:verify -- --date "$FIH_DATE"
+          export FIH_VERIFIED_COMMIT_SHA="$(git rev-parse origin/main)"
           npm run contract:gate -- --verdict COMPLETE --date "$FIH_DATE" --rules TERM-002,DAILY-001,DAILY-002,PROG-001,EVID-001 --evidence aggregate-verified,canonical-artifacts-verified,commit-verified
