@@ -1,0 +1,18 @@
+{
+  "schema": "fih-research-v1",
+  "date": "2026-10-07",
+  "fixtureId": "1743553",
+  "fixture": {
+    "home": "Neftchi Fargona",
+    "away": "Xorazm",
+    "competition": "Super League",
+    "kickoff": "20261007160000"
+  },
+  "researchedAt": "2026-10-07T12:16:42.000Z",
+  "sourceUrls": [
+    "https://www.elbotola.com/en/analytics/match/6ypq3nhv382pmd7"
+  ],
+  "evidenceStatus": "PARTIAL",
+  "requiredModelMatchSeries": "UNAVAILABLE",
+  "integrity": "Fixture-specific public-web research executed; missing evidence not fabricated."
+}
