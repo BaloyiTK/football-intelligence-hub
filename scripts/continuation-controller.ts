@@ -14,10 +14,10 @@ function gate(verdict:string,rules:string,evidence:string,extra:string[]=[]){con
 let noProgress=0,pass=0;
 for(;;){
  pass++;const before=ledger(),beforeSig=signature(before);
- if(before?.runStatus==="COMPLETE"){gate("COMPLETE","TERM-002,EVID-001","aggregate-verified,canonical-artifacts-verified,commit-verified");console.log("CONTINUATION_COMPLETE "+DATE);process.exit(0)}
+ if(before?.runStatus==="COMPLETE"){console.log("LEDGER_COMPLETE_REQUIRES_FINALIZER "+DATE);process.exit(0)}
  console.log(`CONTINUATION_PASS ${pass} date=${DATE} noProgress=${noProgress}`);
  const run=tsx("scripts/daily-cycle.ts","--date",DATE),after=ledger(),afterSig=signature(after);
- if(run.status===0&&after?.runStatus==="COMPLETE"){gate("COMPLETE","TERM-002,EVID-001","aggregate-verified,canonical-artifacts-verified,commit-verified");console.log("CONTINUATION_COMPLETE "+DATE);process.exit(0)}
+ if(run.status===0&&after?.runStatus==="COMPLETE"){console.log("CONTINUATION_WORK_COMPLETE "+DATE);process.exit(0)}
  if(afterSig!==beforeSig){noProgress=0;gate("RECOVERING","REC-001,REC-005,RESUME-001,EXEC-001","ledger:"+path.relative(ROOT,ledgerPath)+",progress-pass:"+pass);continue}
  noProgress++;gate("RECOVERING","REC-001,REC-002,REC-005,RESUME-001,EXEC-001","ledger:"+path.relative(ROOT,ledgerPath)+",no-progress-pass:"+noProgress);
  if(noProgress<maxNoProgress)continue;
