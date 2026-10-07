@@ -7,11 +7,11 @@
   "isFuture": false,
   "timezone": "Africa/Johannesburg",
   "provider": "LiveScore via RapidAPI",
-  "fetchedAt": "2026-10-07T20:59:56.419Z",
+  "fetchedAt": "2026-10-07T21:00:02.908Z",
   "stageCount": 74,
   "fixtureCount": 160,
   "payload": {
-    "Ts": 1791406796,
+    "Ts": 1791406802,
     "Stages": [
       {
         "Sid": "24563",
