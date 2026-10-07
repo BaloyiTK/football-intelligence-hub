@@ -1,0 +1,37 @@
+{
+  "schema": "fih-public-research-sources-v1",
+  "policy": {
+    "mode": "direct-public-pages",
+    "fabrication": "forbidden",
+    "missingValue": "UNAVAILABLE",
+    "fallbackOnFailure": true,
+    "respectRobotsAndTerms": true,
+    "maxRequestsPerSourcePerMinute": 10
+  },
+  "sources": [
+    {
+      "id": "worldfootball",
+      "baseUrl": "https://www.worldfootball.net/",
+      "capabilities": ["results","fixtures","standings","team-statistics"],
+      "priority": 1
+    },
+    {
+      "id": "soccerway",
+      "baseUrl": "https://www.soccerway.com/",
+      "capabilities": ["results","fixtures","standings","h2h","match-stats"],
+      "priority": 2
+    },
+    {
+      "id": "global-sports-archive",
+      "baseUrl": "https://globalsportsarchive.com/",
+      "capabilities": ["results","fixtures","team-last-matches","standings"],
+      "priority": 3
+    },
+    {
+      "id": "football-web-pages",
+      "baseUrl": "https://www.footballwebpages.co.uk/",
+      "capabilities": ["results","fixtures"],
+      "priority": 4
+    }
+  ]
+}
