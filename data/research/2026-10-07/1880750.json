@@ -1,0 +1,25 @@
+{
+  "schema": "fih-research-v1",
+  "date": "2026-10-07",
+  "fixtureId": "1880750",
+  "fixture": {
+    "home": "Cerezo Osaka",
+    "away": "Kagoshima United",
+    "competition": "Emperor's Cup",
+    "kickoff": "20261007113000"
+  },
+  "researchedAt": "2026-10-07T05:12:25.212Z",
+  "searchQuery": "Cerezo Osaka Kagoshima United 7 October 2026 form odds",
+  "sourceDomains": [
+    "oddslot.com"
+  ],
+  "verifiedInputs": {
+    "overallMatchSeries": "UNAVAILABLE",
+    "venueMatchSeries": "UNAVAILABLE",
+    "h2h": "UNAVAILABLE_OR_PARTIAL",
+    "xg": "UNAVAILABLE",
+    "teamNews": "UNAVAILABLE",
+    "marketOdds": "PARTIAL_OR_AVAILABLE"
+  },
+  "integrity": "Fixture-specific web research executed; missing evidence was not fabricated."
+}
