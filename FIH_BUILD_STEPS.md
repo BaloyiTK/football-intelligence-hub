@@ -2,19 +2,41 @@
 
 ## 1. Get Daily Fixtures
 
-Use the preserved LiveScore ingestion pipeline to fetch the complete daily fixture board.
+### 1.1 Trigger Vercel to fetch fixtures from LiveScore
 
-Source:
-- LiveScore via RapidAPI
+- Resolve the requested date or date range dynamically using `Africa/Johannesburg` (SAST).
+- Trigger the FIH Vercel fixture-fetch process.
+- Vercel fetches the fixture data from LiveScore via RapidAPI.
+- The LiveScore/RapidAPI credentials are stored in the Vercel environment and must be used there.
+- Credentials must never be copied into GitHub, committed to fixture files, or exposed in logs/artifacts.
+- Fetch the complete LiveScore fixture board for each requested date.
+- Do not invent or manually add fixtures that are not returned by the LiveScore ingestion process.
 
-Primary input:
-- `data/today_fixture.json`
+### 1.2 Vercel commits fixture data to GitHub
 
-Rules:
-- Use the current day's LiveScore board as the fixture universe.
-- Preserve the raw LiveScore data.
-- Do not invent or manually add fixtures that are not on the daily board.
-- Only eligible pre-match fixtures proceed to analysis.
+- Vercel must commit the fetched fixture data to the FIH GitHub repository.
+- Canonical fixture storage is per date under the daily fixtures data location.
+- Every date must have its own fixture file.
+- For a normal daily run, fetch and commit that day's fixture file.
+- If a request covers a range of days, break the range down into separate days and process each date independently.
+- Never use one combined canonical fixture file for a multi-day range.
+- A date range is execution scope only; canonical fixture persistence remains per date.
+- Preserve the raw LiveScore fixture data for each date.
+- Vercel must verify that the GitHub commit succeeds before fixture acquisition can proceed to final verification.
+
+### 1.3 Verify fixture data
+
+- Re-read the committed fixture data from GitHub. Do not treat only the Vercel fetch response or commit response as proof of successful persistence.
+- Verify that the expected fixture file exists for the requested date.
+- Verify that the persisted date matches the requested date.
+- Verify that the fixture data is valid and has the expected structure.
+- Verify the fixture count.
+- Verify required fixture details are present where supplied by LiveScore, including fixture identity, competition, home team, away team, kickoff, and status.
+- Detect empty, malformed, partial, or wrong-date fixture data instead of silently accepting it as valid.
+- Only after the persisted GitHub fixture file passes verification is Step 1 complete.
+- Only eligible pre-match fixtures proceed to analysis. Preserve excluded fixtures in the raw daily fixture data rather than deleting them.
+- If fetching, committing, or verification fails, follow the FIH Execution Contract recovery loop automatically: investigate -> fix or authorized fallback -> verify recovery -> resume from the earliest unfinished stage -> continue.
+- A recoverable fixture acquisition failure must not require the user to issue another continue/status command.
 
 ---
 
