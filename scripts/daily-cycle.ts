@@ -3,7 +3,10 @@ import path from "node:path";
 import { execFileSync } from "node:child_process";
 
 const TODAY=new Intl.DateTimeFormat("en-CA",{timeZone:"Africa/Johannesburg",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
-const DATE=process.env.FIH_DATE||TODAY;
+const dateArgIndex=process.argv.indexOf("--date");
+const CLI_DATE=dateArgIndex>=0?process.argv[dateArgIndex+1]:"";
+const DATE=CLI_DATE||process.env.FIH_DATE||TODAY;
+if(!/^\\d{4}-\\d{2}-\\d{2}$/.test(DATE)||Number.isNaN(Date.parse(DATE+"T00:00:00Z"))) throw new Error(`INVALID_FIH_DATE ${DATE}`);
 const MODE=DATE<TODAY?"BACKTEST":"PREDICTION";
 if(MODE==="BACKTEST") throw new Error(`DATE_MODE_MISMATCH ${DATE} is historical; use the backtest pipeline`);
 const root=process.cwd();
