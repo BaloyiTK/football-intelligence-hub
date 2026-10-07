@@ -16,7 +16,9 @@
     "research:direct": "tsx scripts/direct-public-research.ts",
     "model:daily": "tsx scripts/daily-model-runner.ts",
     "decision:daily": "tsx scripts/daily-decision-runner.ts",
-    "market:daily": "tsx scripts/daily-market-runner.ts"
+    "market:daily": "tsx scripts/daily-market-runner.ts",
+    "backtest:market:queue": "tsx scripts/build-historical-market-queue.ts",
+    "backtest:market:worker": "tsx scripts/historical-market-worker.ts"
   },
   "dependencies": {},
   "devDependencies": {
