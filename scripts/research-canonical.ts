@@ -1,7 +1,7 @@
 import fs from "node:fs";import path from "node:path";
 export const REQUIRED=["overallForm","venueForm","xgXga","leaguePosition","teamQuality","motivationContext","h2h","goalsProfile","squadAvailability","opponentStrength","restSchedule"];
 const read=(p:string)=>JSON.parse(fs.readFileSync(p,"utf8"));
-function categoryOk(v:any){return v&&typeof v==="object"&&["VERIFIED","PARTIAL","UNAVAILABLE"].includes(String(v.status));}
+function categoryOk(v:any){return v&&typeof v==="object"&&["VERIFIED","PARTIAL","UNAVAILABLE"].includes(String(v.status))&&Array.isArray(v.attempts)&&v.attempts.length>0&&v.attempts.every((a:any)=>a&&typeof a.query==="string"&&a.query.trim()&&a.attemptedAt&&typeof a.outcome==="string");}
 export function validateDailyResearch(root:string,date:string,eligibleIds:string[],mode:"PREDICTION"|"BACKTEST"){
  const p=path.join(root,mode==="BACKTEST"?"data/backtest/research":"data/research",date+".json");
  if(!fs.existsSync(p))throw new Error("CANONICAL_DAILY_RESEARCH_MISSING "+p);
