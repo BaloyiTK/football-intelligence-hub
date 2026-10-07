@@ -53,6 +53,16 @@ Recovery of rebuildable state is part of the already-authorized run and requires
 A user or external process deleting a generated artifact is treated identically to accidental loss. The run must self-heal when the authoritative source and authorized persistence path remain available.
 
 
+## Mandatory failure recovery loop — LOCKED
+
+Every failed stage MUST execute this loop without renewed user authorization:
+
+**Investigate -> Fix or authorized fallback -> Verify the recovery -> Resume earliest unfinished stage -> Continue**
+
+A failed command, workflow, provider request, deployment, artifact write, validation, or intermediate pipeline stage is never a normal stopping point. After a failure, the executor must identify the concrete cause, apply a bounded repair or authorized fallback, verify that the failed condition is resolved, and immediately continue the original authorized task.
+
+If the first repair fails, repeat the recovery loop using the next applicable recovery path. Only the existing HARD STOP rules may terminate this loop. Status/progress reporting must not replace continuation.
+
 ## Durable continuation guarantee
 
 Every authorized run must be resumable from durable verified state. Long-running research and processing MUST be decomposed into persist-and-verify work units with a run ledger/checkpoint that identifies the earliest unfinished fixture and stage.
