@@ -1,6 +1,6 @@
 import fs from "node:fs";
 type Verdict="PASS"|"RECOVERING"|"WAITING"|"BLOCKED"|"COMPLETE";
-const ROOT=process.cwd();
+const ROOT=process.env.FIH_ROOT||process.cwd();
 const arg=(n:string)=>{const i=process.argv.indexOf(n);return i>=0?process.argv[i+1]:undefined};
 const rules=JSON.parse(fs.readFileSync(ROOT+"/config/fih-execution-rules.json","utf8"));
 const ledgerPath=(d:string)=>ROOT+"/data/run-state/"+d+".json";
