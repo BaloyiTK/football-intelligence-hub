@@ -1,0 +1,16 @@
+{
+  "schema": "fih-research-v1",
+  "date": "2026-10-07",
+  "fixtureId": "1880749",
+  "fixture": {
+    "home": "Fagiano Okayama FC",
+    "away": "JEF United Chiba",
+    "competition": "Emperor's Cup",
+    "kickoff": "20261007120000"
+  },
+  "researchedAt": "2026-10-07T05:13:28.970Z",
+  "searchQuery": "Fagiano Okayama FC JEF United Chiba 7 October 2026 form odds",
+  "evidenceStatus": "PARTIAL",
+  "requiredModelMatchSeries": "UNAVAILABLE",
+  "integrity": "Fixture-specific web research executed; missing evidence not fabricated."
+}
