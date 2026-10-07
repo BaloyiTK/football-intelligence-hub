@@ -7,7 +7,7 @@ const root=process.cwd();
 const read=(p:string)=>JSON.parse(fs.readFileSync(path.join(root,p),"utf8"));
 const exists=(p:string)=>fs.existsSync(path.join(root,p));
 const tsx=(...args:string[])=>execFileSync(process.execPath,["node_modules/tsx/dist/cli.mjs",...args],{stdio:"inherit",env:process.env});
-const ledgerPath=`data/run-state/${DATE}.json`;
+const ledgerPath=`data/run-state/${DATE}.json`;\nconst queuePath=`data/research-queue/${DATE}.json`;
 
 function show(){const l=read(ledgerPath);console.log(JSON.stringify({date:DATE,status:l.runStatus,counts:l.counts,next:l.next},null,2));return l;}
 
@@ -17,13 +17,13 @@ if(board.date!==DATE) throw new Error(`Fresh-board gate failed: expected ${DATE}
 if(!board.fixtureCount) throw new Error("Fresh-board gate failed: empty board");
 
 tsx("scripts/daily-run-ledger.ts","reconcile",DATE);
-let ledger=show();
+let ledger=show();\nconst researchQueue:any[]=[];
 
 for(const f of ledger.fixtures.filter((x:any)=>x.eligible)){
  const research=`data/research/${DATE}/${f.id}.json`;
  const model=`data/model/${DATE}/${f.id}.json`;
  const decision=`data/decisions/${DATE}/${f.id}.json`;
- if(!exists(research)){console.log(`RESEARCH_REQUIRED ${f.id} ${f.home} vs ${f.away}`);continue;}
+ if(!exists(research)){researchQueue.push({fixtureId:String(f.id),home:f.home,away:f.away,competition:f.competition,kickoff:f.kickoff,query:`${f.home} ${f.away} ${DATE} recent form last 5 H2H standings injuries odds`});console.log(`RESEARCH_REQUIRED ${f.id} ${f.home} vs ${f.away}`);continue;}
  if(!exists(model)){console.log(`MODEL_REQUIRED ${f.id}`);continue;}
  if(!exists(decision)){
   const m=read(model);
