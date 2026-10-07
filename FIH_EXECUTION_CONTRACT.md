@@ -164,3 +164,13 @@ This contract and `FIH_EXECUTION_POLICY.md` jointly govern FIH execution. Where 
 ---
 Repository signature: FIH Execution Contract v1.0
 User authorization basis: explicit project instruction to bind full-cycle execution semantics.
+## Dynamic date-input rule — LOCKED
+
+All operational FIH dates are runtime data, not code configuration.
+
+- A requested run date MUST be accepted as a runtime input after normal YYYY-MM-DD validation.
+- A multi-day scope MUST derive its dates dynamically from the requested range and Africa/Johannesburg calendar date.
+- Hard-coded operational dates and fixed historical-date allowlists are forbidden.
+- Adding or processing another valid date MUST NOT require a source-code change.
+- Date values may appear in persisted artifacts, tests/fixtures, logs, or historical records as data; they MUST NOT be used as an allowlist controlling which valid operational dates FIH can process.
+- After validation, DATE-001 alone determines routing: past -> BACKTEST; today/future -> PREDICTION.
