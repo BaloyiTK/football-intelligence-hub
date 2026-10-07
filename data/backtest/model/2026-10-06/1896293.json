@@ -1,9 +1,0 @@
-{
-  "schema": "fih-backtest-model-v2",
-  "date": "2026-10-06",
-  "fixtureId": "1896293",
-  "cutoff": "2026-10-06T06:00:00+02:00",
-  "version": "FIH-V2-RESEARCH",
-  "status": "INSUFFICIENT_DATA",
-  "reason": "Need at least 3 verified overall matches for each team."
-}
