@@ -40,30 +40,37 @@ jobs:
           fi
           test -n "$DATES"
           echo "BACKTEST_DATES=$DATES" >> "$GITHUB_ENV"
-      - name: Request dated fixture boards from Vercel
+      - name: Process requested dates one by one
         env:
           FIH_INGEST_URL: ${{ vars.FIH_INGEST_URL }}
         run: |
           BASE="${FIH_INGEST_URL:-https://football-intelligence-hub.vercel.app/api/backtest-ingest}"
           IFS=',' read -ra DS <<< "$BACKTEST_DATES"
           for D in "${DS[@]}"; do
-            echo "Requesting Vercel ingestion for $D"
-            curl --fail --show-error --silent --retry 3 "$BASE?date=$D"
+            DAILY="data/backtest/daily/$D.json"
+            if [ -s "$DAILY" ] && node -e 'const fs=require("fs");const j=JSON.parse(fs.readFileSync(process.argv[1]));process.exit(j.status==="DAY_COMPLETE"?0:1)' "$DAILY"; then
+              echo "$D already DAY_COMPLETE; skipping"
+              continue
+            fi
+            echo "=== Processing $D ==="
+            FIX="data/backtest/fixtures/$D.json"
+            if [ ! -s "$FIX" ]; then
+              curl --fail --show-error --silent --retry 3 "$BASE?date=$D"
+              git fetch origin main
+              git reset --hard origin/main
+            fi
+            test -s "$FIX"
+            node -e 'const fs=require("fs");const p=process.argv[1],d=process.argv[2],j=JSON.parse(fs.readFileSync(p));if(j.date!==d||j.mode!=="BACKTEST"||!j.fixtureCount)process.exit(2);console.log(d,j.fixtureCount)' "$FIX" "$D"
+            npx tsx scripts/run-seven-day-backtest.ts --dates="$D"
+            test -s "$DAILY"
+            node -e 'const fs=require("fs");const j=JSON.parse(fs.readFileSync(process.argv[1]));if(j.status!=="DAY_COMPLETE")process.exit(3)' "$DAILY"
+            git config user.name "fih-bot"
+            git config user.email "actions@users.noreply.github.com"
+            git add data/backtest
+            git diff --cached --quiet || git commit -m "backtest: complete $D"
+            git pull --rebase origin main
+            git push origin HEAD:main
           done
-      - name: Refresh repository after Vercel commits
-        run: |
-          git fetch origin main
-          git reset --hard origin/main
-      - name: Verify committed dated fixture boards
-        run: |
-          IFS=',' read -ra DS <<< "$BACKTEST_DATES"
-          for D in "${DS[@]}"; do
-            FILE="data/backtest/fixtures/$D.json"
-            test -s "$FILE"
-            node -e 'const fs=require("fs");const p=process.argv[1],d=process.argv[2],j=JSON.parse(fs.readFileSync(p));if(j.date!==d||j.mode!=="BACKTEST"||!j.fixtureCount)process.exit(2);console.log(d,j.fixtureCount)' "$FILE" "$D"
-          done
-      - name: Run leak-free requested-date backtest
-        run: npx tsx scripts/run-seven-day-backtest.ts --dates="$BACKTEST_DATES"
       - name: Persist fixtures and backtest results
         run: |
           git config user.name "fih-bot"
