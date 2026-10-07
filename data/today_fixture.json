@@ -3,11 +3,11 @@
   "date": "2026-10-07",
   "timezone": "Africa/Johannesburg",
   "provider": "LiveScore via RapidAPI",
-  "fetchedAt": "2026-10-07T04:05:43.181Z",
+  "fetchedAt": "2026-10-07T04:41:44.537Z",
   "stageCount": 42,
   "fixtureCount": 68,
   "payload": {
-    "Ts": 1791345943,
+    "Ts": 1791348104,
     "Stages": [
       {
         "Sid": "26032",
@@ -485,12 +485,11 @@
               ]
             },
             "Tr1": "0",
-            "Shck": true,
-            "Tr2": "1",
+            "Tr2": "2",
             "Trh1": "0",
             "Trh2": "0",
             "Tr1OR": "0",
-            "Tr2OR": "1",
+            "Tr2OR": "2",
             "T1": [
               {
                 "ID": "9025",
@@ -512,19 +511,16 @@
                 "Sc": "0032A0"
               }
             ],
-            "Eps": "65'",
-            "Esid": 3,
-            "Etm": {
-              "ATm": 1791345922620,
-              "RTm": 3840000
-            },
-            "Epr": 1,
+            "Eps": "FT",
+            "Esid": 6,
+            "Epr": 2,
             "Ecov": 0,
-            "ErnInf": "1",
+            "ErnInf": "Friendlies 1",
+            "Ewt": 2,
             "Et": 1,
             "Esd": 20261007043000,
-            "EO": 873775487,
-            "EOX": 873775487,
+            "EO": 873775485,
+            "EOX": 873775485,
             "Spid": 1,
             "Pid": 8
           }
