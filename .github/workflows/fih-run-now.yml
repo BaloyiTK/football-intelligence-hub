@@ -20,6 +20,15 @@ jobs:
           DATE="$(cat automation/run-now.flag | tr -d '[:space:]')"
           test -n "$DATE"
           echo "FIH_DATE=$DATE" >> "$GITHUB_ENV"
+      - name: Acquire fresh fixture board
+        env:
+          FIH_INGEST_URL: ${{ secrets.FIH_INGEST_URL }}
+        run: |
+          test -n "$FIH_INGEST_URL"
+          curl --fail --show-error --silent --retry 3 "$FIH_INGEST_URL?date=$FIH_DATE"
+          git fetch origin main
+          git reset --hard origin/main
+          node -e 'const fs=require("fs");const d=process.env.FIH_DATE,p="data/prediction-fixtures/"+d+".json";if(!fs.existsSync(p))throw new Error("FRESH_FIXTURE_BOARD_NOT_PERSISTED "+p);const b=JSON.parse(fs.readFileSync(p,"utf8"));if(b.date!==d||b.mode!=="PREDICTION"||!b.fixtureCount)throw new Error("FRESH_FIXTURE_BOARD_INVALID "+p);console.log("FIXTURE_BOARD_VERIFIED",d,b.fixtureCount)'
       - name: Execute repository-owned prediction cycle
         run: npm run run:daily -- --date "$FIH_DATE"
       - name: Persist generated artifacts
