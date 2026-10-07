@@ -270,3 +270,8 @@ An intermediate success continues. An ordinary failure enters RECOVERING and con
 If the validator refuses BLOCKED or COMPLETE, resume from the earliest unfinished stage. A prose conclusion may not override persisted gate state.
 
 Do not disable recurring FIH automation because an individual run fails. Disable it only on explicit user instruction or when continued execution is independently shown to be unsafe or destructive.
+
+
+## Terminal-response enforcement
+
+For an authorized FIH run, do not end with an ordinary final response while the durable ledger reports `RUNNING` or `RECOVERING` with unfinished eligible fixtures. Invoke the contract gate as a terminal guard. A `RESP-001` refusal means resume immediately from the earliest unfinished persisted stage. Only full `COMPLETE`, a contract-valid hard-stop `BLOCKED`, or genuine external `WAITING` is terminal.
