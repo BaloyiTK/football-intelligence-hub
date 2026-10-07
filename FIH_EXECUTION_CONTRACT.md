@@ -180,3 +180,12 @@ All operational FIH dates are runtime data, not code configuration.
 Backtest ranges are execution scope, not canonical storage units. Every historical date MUST be processed and persisted independently.
 
 Canonical dated artifacts use the date as the file key under the applicable backtest stage, including fixtures, research, model output, decisions, evaluations, and the DAY_COMPLETE daily summary. A range runner MUST complete one date through the full lifecycle before advancing to the next date. On interruption or recovery, verified DAY_COMPLETE dates are skipped and execution resumes from the earliest unfinished date. Range-level reports are derived aggregates only and MUST be rebuilt from the verified per-date artifacts rather than replacing them as the source of truth.
+
+
+## Terminal response gate — LOCKED
+
+Once an FIH run is authorized, a user-facing final response is not a valid termination mechanism while the persisted run ledger is `RUNNING` or `RECOVERING` and eligible fixtures remain unfinished.
+
+Before ending an execution response, the executor MUST evaluate the terminal response through the contract gate with the current date/run evidence. If unfinished eligible work remains, the gate must refuse a normal terminal response under `RESP-001`, and execution must resume from the earliest unfinished persisted stage.
+
+Only `COMPLETE`, contract-valid `BLOCKED`, or genuine `WAITING` may end the authorized run. Intermediate PASS, fixture acquisition, research completion, model completion, decision completion, progress reporting, tool boundaries, workload size, and chat-response boundaries are non-terminal.
