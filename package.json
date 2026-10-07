@@ -13,7 +13,8 @@
     "reliability:watchdog": "tsx scripts/daily-reliability-watchdog.ts",
     "run:daily": "tsx scripts/daily-cycle.ts",
     "research:worker": "tsx scripts/research-worker.ts",
-    "research:direct": "tsx scripts/direct-public-research.ts"
+    "research:direct": "tsx scripts/direct-public-research.ts",
+    "model:daily": "tsx scripts/daily-model-runner.ts"
   },
   "dependencies": {},
   "devDependencies": {
