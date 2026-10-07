@@ -2,8 +2,9 @@
   "schema": "fih-decision-v1",
   "date": "2026-10-07",
   "fixtureId": "1806529",
-  "decision": "NO_BET",
+  "decision": "NO_MODEL",
   "publishable": false,
-  "reason": "NO_VERIFIED_QUALIFYING_MARKET_EDGE",
-  "decidedAt": "2026-10-07T08:37:00.000Z"
+  "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+  "modelVersion": "FIH-V2-RESEARCH",
+  "decidedAt": "2026-10-07T12:22:34.644Z"
 }

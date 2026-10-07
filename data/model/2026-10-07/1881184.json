@@ -2,8 +2,21 @@
   "schema": "fih-model-v1",
   "date": "2026-10-07",
   "fixtureId": "1881184",
+  "fixture": {
+    "home": "Shooting Stars",
+    "away": "Kano Pillars",
+    "competition": "NPFL",
+    "kickoff": "20261007170000"
+  },
   "modelVersion": "FIH-V2-RESEARCH",
   "status": "INSUFFICIENT_DATA",
-  "reason": "Need at least 3 verified overall match records for each team; required match-level series was unavailable without fabrication.",
-  "calculatedAt": "2026-10-07T09:37:00.000Z"
+  "generatedAt": "2026-10-07T12:22:34.008Z",
+  "researchEvidenceStatus": "PARTIAL",
+  "researchRequiredModelMatchSeries": "UNAVAILABLE",
+  "inputCounts": {
+    "homeOverall": 0,
+    "awayOverall": 0
+  },
+  "version": "FIH-V2-RESEARCH",
+  "reason": "Need at least 3 verified overall matches for each team."
 }

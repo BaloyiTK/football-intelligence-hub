@@ -2,8 +2,19 @@
   "schema": "fih-model-v1",
   "date": "2026-10-07",
   "fixtureId": "1880750",
+  "fixture": {
+    "home": "Cerezo Osaka",
+    "away": "Kagoshima United",
+    "competition": "Emperor's Cup",
+    "kickoff": "20261007113000"
+  },
   "modelVersion": "FIH-V2-RESEARCH",
   "status": "INSUFFICIENT_DATA",
-  "reason": "Need at least 3 verified match-level overall matches for each team; complete locked-model input was unavailable in this research pass.",
-  "calculatedAt": "2026-10-07T05:12:25.212Z"
+  "generatedAt": "2026-10-07T12:22:34.007Z",
+  "inputCounts": {
+    "homeOverall": 0,
+    "awayOverall": 0
+  },
+  "version": "FIH-V2-RESEARCH",
+  "reason": "Need at least 3 verified overall matches for each team."
 }

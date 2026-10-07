@@ -2,8 +2,21 @@
   "schema": "fih-model-v1",
   "date": "2026-10-07",
   "fixtureId": "1854206",
+  "fixture": {
+    "home": "Ben Aknoun",
+    "away": "Js El Biar",
+    "competition": "Ligue 1",
+    "kickoff": "20261007190000"
+  },
   "modelVersion": "FIH-V2-RESEARCH",
   "status": "INSUFFICIENT_DATA",
-  "reason": "Locked model requires >=3 verified overall match records per team; unavailable without fabrication.",
-  "calculatedAt": "2026-10-07T05:15:51.547Z"
+  "generatedAt": "2026-10-07T12:22:34.004Z",
+  "researchEvidenceStatus": "PARTIAL",
+  "researchRequiredModelMatchSeries": "UNAVAILABLE",
+  "inputCounts": {
+    "homeOverall": 0,
+    "awayOverall": 0
+  },
+  "version": "FIH-V2-RESEARCH",
+  "reason": "Need at least 3 verified overall matches for each team."
 }

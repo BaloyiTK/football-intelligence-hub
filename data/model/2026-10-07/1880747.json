@@ -2,8 +2,19 @@
   "schema": "fih-model-v1",
   "date": "2026-10-07",
   "fixtureId": "1880747",
+  "fixture": {
+    "home": "Gainare Tottori",
+    "away": "Tokyo Verdy",
+    "competition": "Emperor's Cup",
+    "kickoff": "20261007120000"
+  },
   "modelVersion": "FIH-V2-RESEARCH",
   "status": "INSUFFICIENT_DATA",
-  "reason": "Locked model requires >=3 verified overall match records per team; unavailable without fabrication.",
-  "calculatedAt": "2026-10-07T05:16:30.250Z"
+  "generatedAt": "2026-10-07T12:22:34.007Z",
+  "inputCounts": {
+    "homeOverall": 0,
+    "awayOverall": 0
+  },
+  "version": "FIH-V2-RESEARCH",
+  "reason": "Need at least 3 verified overall matches for each team."
 }

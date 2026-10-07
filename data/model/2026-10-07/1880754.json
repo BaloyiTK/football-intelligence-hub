@@ -2,8 +2,21 @@
   "schema": "fih-model-v1",
   "date": "2026-10-07",
   "fixtureId": "1880754",
+  "fixture": {
+    "home": "Shimizu S-Pulse",
+    "away": "V-Varen Nagasaki",
+    "competition": "Emperor's Cup",
+    "kickoff": "20261007120000"
+  },
   "modelVersion": "FIH-V2-RESEARCH",
   "status": "INSUFFICIENT_DATA",
-  "reason": "Canonical research did not persist the minimum verified recent overall match series required by the locked model; no fabrication.",
-  "calculatedAt": "2026-10-07T07:36:00.000Z"
+  "generatedAt": "2026-10-07T12:22:34.008Z",
+  "researchEvidenceStatus": "PARTIAL",
+  "researchRequiredModelMatchSeries": "UNAVAILABLE",
+  "inputCounts": {
+    "homeOverall": 0,
+    "awayOverall": 0
+  },
+  "version": "FIH-V2-RESEARCH",
+  "reason": "Need at least 3 verified overall matches for each team."
 }

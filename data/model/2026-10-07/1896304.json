@@ -2,8 +2,21 @@
   "schema": "fih-model-v1",
   "date": "2026-10-07",
   "fixtureId": "1896304",
+  "fixture": {
+    "home": "Colegio Nacional de Iquitos",
+    "away": "Universidad Cesar Vallejo",
+    "competition": "Liga 2 Relegation Group A",
+    "kickoff": "20261007221500"
+  },
   "modelVersion": "FIH-V2-RESEARCH",
   "status": "INSUFFICIENT_DATA",
-  "reason": "Need at least 3 verified overall match records for each team; required match-level series unavailable without fabrication.",
-  "calculatedAt": "2026-10-07T12:18:00.000Z"
+  "generatedAt": "2026-10-07T12:22:34.009Z",
+  "researchEvidenceStatus": "PARTIAL",
+  "researchRequiredModelMatchSeries": "UNAVAILABLE",
+  "inputCounts": {
+    "homeOverall": 0,
+    "awayOverall": 0
+  },
+  "version": "FIH-V2-RESEARCH",
+  "reason": "Need at least 3 verified overall matches for each team."
 }

@@ -5,5 +5,6 @@
   "decision": "NO_MODEL",
   "publishable": false,
   "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
-  "decidedAt": "2026-10-07T09:36:00.000Z"
+  "modelVersion": "FIH-V2-RESEARCH",
+  "decidedAt": "2026-10-07T12:22:34.645Z"
 }

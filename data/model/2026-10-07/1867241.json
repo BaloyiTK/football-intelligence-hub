@@ -2,8 +2,20 @@
   "schema": "fih-model-v1",
   "date": "2026-10-07",
   "fixtureId": "1867241",
+  "fixture": {
+    "home": "Pyramids FC",
+    "away": "Olympic El Qanah FC",
+    "competition": "League Cup: Group B",
+    "kickoff": "20261007160000"
+  },
   "modelVersion": "FIH-V2-RESEARCH",
   "status": "INSUFFICIENT_DATA",
-  "reason": "Research artifact does not persist the match-level score series required to reproduce the locked model; integrity requires UNAVAILABLE.",
-  "calculatedAt": "2026-10-07T07:34:00.000Z"
+  "generatedAt": "2026-10-07T12:22:34.005Z",
+  "researchEvidenceStatus": "VERIFIED_MINIMUM_MODEL_INPUT",
+  "inputCounts": {
+    "homeOverall": 0,
+    "awayOverall": 0
+  },
+  "version": "FIH-V2-RESEARCH",
+  "reason": "Need at least 3 verified overall matches for each team."
 }

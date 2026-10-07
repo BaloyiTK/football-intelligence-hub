@@ -4,6 +4,8 @@
   "fixtureId": "1857932",
   "decision": "NO_BET",
   "publishable": false,
-  "reason": "NO_VERIFIED_MARKET_VALUE_EVIDENCE",
-  "decidedAt": "2026-10-07T09:36:00.000Z"
+  "reason": "NO_VERIFIED_CURRENT_MARKET_ODDS",
+  "modelVersion": "FIH-V2-RESEARCH",
+  "marketEvidence": "UNAVAILABLE",
+  "decidedAt": "2026-10-07T12:22:34.645Z"
 }
