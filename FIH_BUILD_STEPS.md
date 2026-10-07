@@ -38,13 +38,22 @@
 - If fetching, committing, or verification fails, follow the FIH Execution Contract recovery loop automatically: investigate -> fix or authorized fallback -> verify recovery -> resume from the earliest unfinished stage -> continue.
 - A recoverable fixture acquisition failure must not require the user to issue another continue/status command.
 
+
 ---
 
-## 2. Research Every Fixture
+## 2. Data Collection
 
-ChatGPT researches each eligible fixture on the web before making a prediction.
+ChatGPT owns the fixture-by-fixture data-collection stage.
 
-For BOTH teams, check:
+- Read the verified eligible fixtures produced by Step 1.
+- Loop through the fixtures one at a time.
+- For each fixture: search the web -> collect the required evidence -> validate the evidence -> persist the fixture research -> verify the persisted research -> continue to the next fixture.
+- Step 2 collects evidence only. It does not make the final prediction or product decision.
+- Research data is stored per date so each daily run or historical day remains independently auditable and resumable.
+- Persist progress fixture-by-fixture rather than waiting for every fixture on the date to finish.
+- If execution is interrupted, resume from the earliest fixture whose research has not been persisted and verified.
+
+For BOTH teams, collect:
 
 ### Venue form
 - Home team: last 5 HOME matches.
@@ -53,6 +62,7 @@ For BOTH teams, check:
 ### Overall form
 - Home team: last 5 overall matches.
 - Away team: last 5 overall matches.
+- Where available, retain match date, opponent, venue, score, result, and opponent-strength context for each recent match.
 
 ### xG / xGA
 - Expected goals created.
@@ -127,16 +137,51 @@ Check where relevant:
 ### Research integrity
 - Use current, credible web sources.
 - Keep source URLs/references and retrieval timestamps with the evidence.
+- Record which evidence each source supports.
 - Research must reflect information available before kickoff.
+- Historical backtests must obey the applicable historical information cutoff from the FIH Execution Contract.
 - Missing information stays unknown/unavailable.
 - Never convert missing information to zero.
 - Never fabricate form, xG, standings, injuries, motivation, H2H, or other evidence.
+- A fixture may proceed with explicitly unavailable evidence where the model rules permit it.
+
+### Persist and verify
+- Persist each fixture's collected research before moving to the next fixture.
+- Store research by date; a multi-day range remains separate per-date canonical data.
+- Re-read the persisted research and verify fixture identity, collected fields, unavailable fields, sources, and timestamps.
+- Only verified research may proceed to Step 3.
+- A recoverable research failure follows the FIH Execution Contract recovery loop and does not require renewed user authorization.
 
 ---
 
-## 3. Identify the Strongest Market and List Today's Predictions
+## 3. Model Analysis
 
-After the fixture research is complete, evaluate these four actionable markets:
+The active development model is `FIH-V2-RESEARCH` in `scripts/fih-probability-v2.ts`.
+
+- Step 3 consumes only the verified data collected in Step 2.
+- The model analyzes each fixture independently.
+- Keep the collected evidence separate from the model's derived assessment so the research can be audited or reused by later model versions.
+- Persist and verify model output before the fixture proceeds to the product/prediction decision.
+
+### FIH V2 principles
+- Recent overall form remains the anchor, but it is no longer the only usable evidence.
+- Home venue form and away venue form refine expected-goal estimates when verified.
+- xG/xGA may refine expected goals when trustworthy data exists; unavailable xG is not treated as zero.
+- PPG and goal-difference-per-game provide a conservative longer-strength adjustment.
+- Individual recent matches may be opponent-strength weighted when a verified opponent-strength factor exists.
+- Squad/availability adjustments are small and only applied when evidence is structured and verified.
+- HOME/AWAY, OVER 2.5, and BTTS have separate reliability values. Model probability and evidence reliability are different concepts.
+- DRAW remains internal and only blocks HOME/AWAY; it does not block goals markets.
+- No new qualification/value threshold is locked from a tiny sample. Thresholds must be calibrated on a materially larger leak-free backtest.
+- V1 remains retained as an auditable baseline; V2 is the active development engine.
+
+---
+
+## 4. Product / Prediction Decision
+
+After Step 3 model analysis is persisted and verified, apply the FIH product and publication rules.
+
+Evaluate these four currently documented actionable markets:
 
 - HOME
 - AWAY
@@ -156,10 +201,10 @@ IMPORTANT:
 A DRAW signal affects only HOME/AWAY. It does NOT disqualify the fixture from OVER 2.5 or BTTS.
 
 ### OVER 2.5
-Evaluate independently from the 1X2 result using the fixture's goal evidence.
+Evaluate independently from the 1X2 result using the fixture's goal evidence and verified model output.
 
 ### BTTS YES
-Evaluate independently from the 1X2 result using both teams' scoring/conceding evidence.
+Evaluate independently from the 1X2 result using both teams' scoring/conceding evidence and verified model output.
 
 ### Strongest-market rule
 Compare the supported actionable markets and identify the strongest qualifying market for the fixture.
@@ -169,7 +214,7 @@ Compare the supported actionable markets and identify the strongest qualifying m
 - If more than one market looks viable, publish only the strongest market unless this rule is explicitly changed later.
 - Numerical thresholds and weights are not yet locked; they must be established through testing rather than guessed.
 
-### Today's prediction file
+### Prediction file
 Write qualifying selections to:
 
 `data/predictions/YYYY-MM-DD.json`
@@ -184,25 +229,11 @@ Each published selection should retain enough information to audit:
 - selected market
 - evidence summary
 - research/source references
+- model output/reference
 - analysis timestamp
+
+Persist and verify the product/prediction decision before the fixture is considered complete.
 
 Daily flow:
 
-`LiveScore fixtures -> Web research for every eligible fixture -> Compare HOME / AWAY / OVER 2.5 / BTTS -> Strongest qualifying market -> Today's prediction file`
-
-
-## FIH V2 research-to-model layer
-
-The active development model is `FIH-V2-RESEARCH` in `scripts/fih-probability-v2.ts`.
-
-V2 principles:
-- Recent overall form remains the anchor, but it is no longer the only usable evidence.
-- Home venue form and away venue form refine expected-goal estimates when verified.
-- xG/xGA may refine expected goals when trustworthy data exists; unavailable xG is not treated as zero.
-- PPG and goal-difference-per-game provide a conservative longer-strength adjustment.
-- Individual recent matches may be opponent-strength weighted when a verified opponent-strength factor exists.
-- Squad/availability adjustments are small and only applied when evidence is structured and verified.
-- HOME/AWAY, OVER 2.5, and BTTS have separate reliability values. Model probability and evidence reliability are different concepts.
-- DRAW remains internal and only blocks HOME/AWAY; it does not block goals markets.
-- No new qualification/value threshold is locked from a tiny sample. Thresholds must be calibrated on a materially larger leak-free backtest.
-- V1 remains retained as an auditable baseline; V2 is the active development engine.
+`LiveScore fixtures -> Verified fixture data -> ChatGPT data collection -> Verified research -> FIH V2 model analysis -> Verified model output -> Product/market decision -> Prediction or NO BET`
