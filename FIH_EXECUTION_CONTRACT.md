@@ -7,6 +7,19 @@ Project: Football Intelligence Hub (FIH)
 ## Purpose
 This contract defines the execution behavior for authorized FIH daily runs and backtests. It exists to prevent an authorized full-cycle run from being incorrectly terminated at an intermediate stage.
 
+## Date routing contract — LOCKED
+
+Every explicit FIH run date is classified against the current Africa/Johannesburg calendar date before execution:
+- requested date before today -> BACKTEST;
+- requested date equal to today -> PREDICTION;
+- requested date after today -> PREDICTION.
+
+BACKTEST reconstructs only evidence verifiably available before the applicable historical cutoff/kickoff, freezes the prediction before actual results are attached, then grades against verified actual results. Historical outcomes may be used only after prediction freeze for evaluation, failure-pattern analysis, and controlled model-improvement testing. Look-ahead leakage is forbidden.
+
+PREDICTION for today or a future date uses only evidence available at execution time. Future results, later team news, later odds, or any information not yet available must never influence the prediction. Future-date predictions may be refreshed as newer legitimate pre-match evidence becomes available.
+
+Prediction fixture snapshots are dated and isolated from backtest snapshots. Running a future prediction must never overwrite today's authoritative prediction board.
+
 ## Binding command semantics
 When the user issues `run today`, `backtest <scope>`, or `backrest <scope>`, that command authorizes the complete applicable FIH pipeline from the current verified stage through final persisted and verified output.
 
