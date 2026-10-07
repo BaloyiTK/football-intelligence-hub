@@ -1,7 +1,8 @@
 import fs from "node:fs/promises";import path from "node:path";
 const key=process.env.RAPIDAPI_KEY;if(!key)throw new Error("RAPIDAPI_KEY missing");
 const host="livescore6.p.rapidapi.com",endpoint="https://"+host+"/matches/v2/list-by-date";
-const months=["2026-03","2026-04","2026-05","2026-06","2026-07","2026-08","2026-09"];
+const arg=process.argv.find(x=>x.startsWith("--months="));
+const months=(arg?arg.slice("--months=".length).split(","):["2026-03","2026-04","2026-05","2026-06","2026-07","2026-08","2026-09"]).filter(Boolean);
 for(const month of months){const [Y,M]=month.split("-").map(Number),last=new Date(Date.UTC(Y,M,0)).getUTCDate(),matches=[];
  for(let d=1;d<=last;d++){const date=month+"-"+String(d).padStart(2,"0"),u=new URL(endpoint);u.searchParams.set("Category","soccer");u.searchParams.set("Date",date.replace(/-/g,""));u.searchParams.set("Timezone","2");
   const r=await fetch(u,{headers:{"X-RapidAPI-Key":key,"X-RapidAPI-Host":host}});if(!r.ok)throw new Error(date+" LiveScore HTTP "+r.status);const p=await r.json();
