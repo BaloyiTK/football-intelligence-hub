@@ -250,3 +250,13 @@ For `backtest N days` / `backrest N days`:
 10. The multi-day backtest is `COMPLETE` only after the combined aggregate is persisted and verified.
 
 The active backtest model is FIH V2 unless the user explicitly requests a model comparison or another model. V1 is retained only as an archived/reference baseline and is not run during ordinary V2 backtests.
+
+## Executable status enforcement
+
+For every stage outcome, apply the locked machine-readable rules in `config/fih-execution-rules.json` and the validator in `scripts/contract-gate.ts`.
+
+An intermediate success continues. An ordinary failure enters RECOVERING and continues through the recovery ladder. WAITING requires the external-wait rule. BLOCKED requires the terminal-block rule, recovery-exhaustion rule, a defined hard-stop code, and evidence of the required recovery attempts. COMPLETE requires the terminal-completion rule plus reconciled ledger, aggregate, commit, and production-deployment evidence.
+
+If the validator refuses BLOCKED or COMPLETE, resume from the earliest unfinished stage. A prose conclusion may not override persisted gate state.
+
+Do not disable recurring FIH automation because an individual run fails. Disable it only on explicit user instruction or when continued execution is independently shown to be unsafe or destructive.
