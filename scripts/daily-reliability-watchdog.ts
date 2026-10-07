@@ -3,6 +3,7 @@ const TZ="Africa/Johannesburg",ROOT=process.env.FIH_ROOT||process.cwd();
 const date=process.argv.includes("--date")?process.argv[process.argv.indexOf("--date")+1]:new Intl.DateTimeFormat("en-CA",{timeZone:TZ,year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
 const p=ROOT+"/data/run-state/"+date+".json";
 const maxStale=Number(process.env.FIH_STALE_MINUTES||"20");
+if(!Number.isFinite(maxStale)||maxStale<=0)throw new Error("FIH_STALE_MINUTES must be a positive number");
 const now=Date.now();
 let action="START_OR_RESUME",reason="NO_LEDGER",ledger:any=null;
 if(fs.existsSync(p)){try{ledger=JSON.parse(fs.readFileSync(p,"utf8"));}catch{reason="MALFORMED_LEDGER"}}
