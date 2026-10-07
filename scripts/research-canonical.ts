@@ -11,8 +11,8 @@ export function validateDailyResearch(root:string,date:string,eligibleIds:string
  const cutoff=mode==="BACKTEST"?new Date(date+"T04:00:00.000Z").getTime():null;
  for(const r of x.fixtures){
   if(!r.fixture||!r.researchedAt||!Array.isArray(r.sourceMetadata)||!r.evidence)throw new Error("RESEARCH_RECORD_INCOMPLETE "+r.fixtureId);
-  for(const k of REQUIRED)if(!categoryOk(r.evidence[k]))throw new Error("RESEARCH_CATEGORY_INVALID "+r.fixtureId+" "+k);
-  for(const s of r.sourceMetadata){if(!s||typeof s.url!=="string"||!/^https?:\/\//.test(s.url)||!s.retrievedAt||!Array.isArray(s.supports))throw new Error("RESEARCH_SOURCE_INVALID "+r.fixtureId);if(mode==="BACKTEST"){if(!s.availableAt)throw new Error("BACKTEST_SOURCE_AVAILABILITY_UNVERIFIED "+r.fixtureId);const a=new Date(s.availableAt).getTime();if(!Number.isFinite(a)||a>cutoff!)throw new Error("BACKTEST_SOURCE_AFTER_CUTOFF "+r.fixtureId);}}
+  for(const k of REQUIRED){const c=r.evidence[k];if(!categoryOk(c))throw new Error("RESEARCH_CATEGORY_INVALID "+r.fixtureId+" "+k);if(!Array.isArray(c.attempts)||c.attempts.length<1)throw new Error("RESEARCH_CATEGORY_ATTEMPTS_MISSING "+r.fixtureId+" "+k);if(c.status==="UNAVAILABLE"&&c.attempts.length<1)throw new Error("RESEARCH_UNAVAILABLE_UNJUSTIFIED "+r.fixtureId+" "+k);if(c.status!=="UNAVAILABLE"&&!Array.isArray(c.sourceRefs))throw new Error("RESEARCH_CATEGORY_SOURCE_REFS_MISSING "+r.fixtureId+" "+k);}
+  const refs=new Set(r.sourceMetadata.map((s:any)=>String(s.ref||s.url)));for(const k of REQUIRED){const c=r.evidence[k];for(const ref of c.sourceRefs||[])if(!refs.has(String(ref)))throw new Error("RESEARCH_CATEGORY_SOURCE_REF_UNKNOWN "+r.fixtureId+" "+k);} for(const s of r.sourceMetadata){if(!s||typeof s.url!=="string"||!/^https?:\/\//.test(s.url)||!s.retrievedAt||!Array.isArray(s.supports))throw new Error("RESEARCH_SOURCE_INVALID "+r.fixtureId);if(mode==="BACKTEST"){if(!s.availableAt)throw new Error("BACKTEST_SOURCE_AVAILABILITY_UNVERIFIED "+r.fixtureId);const a=new Date(s.availableAt).getTime();if(!Number.isFinite(a)||a>cutoff!)throw new Error("BACKTEST_SOURCE_AFTER_CUTOFF "+r.fixtureId);}}
  }
  return {path:p,artifact:x,count:ids.length};
 }
