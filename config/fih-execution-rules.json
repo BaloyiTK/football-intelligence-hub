@@ -93,6 +93,10 @@
     "INFRA-001": {
       "kind": "infrastructure",
       "requirement": "FIH fixture acquisition MUST use the locked Vercel project identity in infrastructure.vercel. Workflows and run paths must not silently substitute another Vercel project or production domain."
+    },
+    "EXEC-001": {
+      "kind": "executor-recovery",
+      "requirement": "An executor error, assistant/tool orchestration error, premature chat-response boundary, or accidental interruption during an authorized unfinished FIH run is a recoverable execution event. It MUST transition/resume as RECOVERING from the earliest unverified durable stage without renewed user authorization; it may not be used as WAITING, BLOCKED, COMPLETE, or a reason to require the user to repeat the run command."
     }
   },
   "hardStops": [
