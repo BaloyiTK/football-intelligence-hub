@@ -4,7 +4,7 @@ async function github(path,init={}){return fetch("https://api.github.com/repos/"
 export default async function handler(req,res){
  if(!["GET","POST"].includes(req.method))return res.status(405).json({error:"GET or POST required"});
  const requested=String(req.query.date||"").trim(),today=sastDate(),date=requested||today;
- if(!/^\\d{4}-\\d{2}-\\d{2}$/.test(date)||Number.isNaN(Date.parse(date+"T00:00:00Z")))return res.status(400).json({error:"date must be a valid YYYY-MM-DD value",today});
+ if(!/^\d{4}-\d{2}-\d{2}$/.test(date)||Number.isNaN(Date.parse(date+"T00:00:00Z")))return res.status(400).json({error:"date must be a valid YYYY-MM-DD value",today});
  const mode=date<today?"BACKTEST":"PREDICTION",isToday=date===today,isFuture=date>today;
  const key=process.env.ls_api_key,url=process.env.ls_api_url,token=process.env.FIH_GITHUB_TOKEN;
  if(!key||!url||!token)return res.status(500).json({error:"required production env vars missing"});
