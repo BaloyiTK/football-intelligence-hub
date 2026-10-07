@@ -7,12 +7,14 @@ name: FIH On-Demand Prediction
         description: "Prediction date (YYYY-MM-DD, today or future in Africa/Johannesburg)"
         required: true
         type: string
+  repository_dispatch:
+    types: [fih_prediction]
 
 permissions:
   contents: write
 
 concurrency:
-  group: fih-prediction-${{ inputs.date }}
+  group: fih-prediction-${{ inputs.date || github.event.client_payload.date }}
   cancel-in-progress: false
 
 jobs:
@@ -26,7 +28,7 @@ jobs:
 
       - name: Validate prediction date and fixture board
         env:
-          FIH_DATE: ${{ inputs.date }}
+          FIH_DATE: ${{ inputs.date || github.event.client_payload.date }}
         run: |
           set -euo pipefail
           TODAY="$(TZ=Africa/Johannesburg date +%F)"
@@ -49,12 +51,12 @@ jobs:
 
       - name: Execute full dated prediction cycle
         env:
-          FIH_DATE: ${{ inputs.date }}
+          FIH_DATE: ${{ inputs.date || github.event.client_payload.date }}
         run: npm run run:daily -- --date "$FIH_DATE"
 
       - name: Persist canonical prediction artifacts
         env:
-          FIH_DATE: ${{ inputs.date }}
+          FIH_DATE: ${{ inputs.date || github.event.client_payload.date }}
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
@@ -78,11 +80,11 @@ jobs:
 
       - name: Verify terminal contract
         env:
-          FIH_DATE: ${{ inputs.date }}
+          FIH_DATE: ${{ inputs.date || github.event.client_payload.date }}
         run: |
           npm run contract:gate -- --verdict COMPLETE --terminal --date "$FIH_DATE" --rules TERM-002,EVID-001,RESP-001 --evidence aggregate-verified,canonical-artifacts-verified,commit-verified,"commit:$FIH_COMMIT_SHA"
 
       - name: Report completion
         env:
-          FIH_DATE: ${{ inputs.date }}
+          FIH_DATE: ${{ inputs.date || github.event.client_payload.date }}
         run: echo "DAILY_CYCLE_COMPLETE $FIH_DATE $FIH_COMMIT_SHA"
