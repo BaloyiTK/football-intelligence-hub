@@ -1,9 +1,10 @@
 import fs from "node:fs";
 type Verdict="PASS"|"RECOVERING"|"WAITING"|"BLOCKED"|"COMPLETE";
-const ROOT=process.env.FIH_ROOT||process.cwd();
+const CODE_ROOT=process.cwd();
+const DATA_ROOT=process.env.FIH_ROOT||CODE_ROOT;
 const arg=(n:string)=>{const i=process.argv.indexOf(n);return i>=0?process.argv[i+1]:undefined};
-const rules=JSON.parse(fs.readFileSync(ROOT+"/config/fih-execution-rules.json","utf8"));
-const ledgerPath=(d:string)=>ROOT+"/data/run-state/"+d+".json";
+const rules=JSON.parse(fs.readFileSync(CODE_ROOT+"/config/fih-execution-rules.json","utf8"));
+const ledgerPath=(d:string)=>DATA_ROOT+"/data/run-state/"+d+".json";
 function fail(m:string):never{throw new Error("CONTRACT_GATE_REFUSED: "+m)}
 function csv(v?:string){return (v||"").split(",").map(x=>x.trim()).filter(Boolean)}
 const verdict=(arg("--verdict")||"PASS") as Verdict,date=arg("--date"),ruleIds=csv(arg("--rules")),evidence=csv(arg("--evidence")),attempts=csv(arg("--attempts")),hardStop=arg("--hard-stop");
