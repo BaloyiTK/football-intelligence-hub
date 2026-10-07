@@ -2,7 +2,10 @@ import fs from "node:fs";
 import path from "node:path";
 
 const DATE=process.env.FIH_DATE||new Intl.DateTimeFormat("en-CA",{timeZone:"Africa/Johannesburg",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
-const root=process.cwd(),modelDir=path.join(root,`data/model/${DATE}`),researchDir=path.join(root,`data/research/${DATE}`),marketDir=path.join(root,`data/market/${DATE}`),outDir=path.join(root,`data/decisions/${DATE}`);
+const root=process.cwd();
+const calibration=JSON.parse(fs.readFileSync(path.join(root,"config/bet-calibration.json"),"utf8"));
+const betEnabled=calibration.status==="CALIBRATED"&&calibration.betPublicationEnabled===true&&Number.isFinite(calibration.qualification?.minimumEdge);
+const modelDir=path.join(root,`data/model/${DATE}`),researchDir=path.join(root,`data/research/${DATE}`),marketDir=path.join(root,`data/market/${DATE}`),outDir=path.join(root,`data/decisions/${DATE}`);
 fs.mkdirSync(outDir,{recursive:true});
 if(!fs.existsSync(modelDir)){console.log("DECISION_RUNNER_NO_MODELS");process.exit(0);}
 let written=0,noModel=0,noBet=0,rejected=0;
@@ -19,7 +22,7 @@ for(const file of fs.readdirSync(modelDir).filter(x=>x.endsWith(".json"))){
   let market:any=null;
   if(hasMarket){try{market=JSON.parse(fs.readFileSync(marketPath,"utf8"));}catch{}}
   const verified=market?.schema==="fih-market-v1"&&market?.date===DATE&&String(market?.fixtureId)===id&&market?.verified===true;
-  decision={schema:"fih-decision-v1",date:DATE,fixtureId:id,decision:"NO_BET",publishable:false,reason:verified?"NO_LOCKED_QUALIFYING_EDGE_RULE":"NO_VERIFIED_CURRENT_MARKET_ODDS",modelVersion:m.modelVersion||m.version,marketEvidence:verified?"VERIFIED_BUT_NO_LOCKED_EDGE_RULE":"UNAVAILABLE",decidedAt:new Date().toISOString()}; noBet++;
+  decision={schema:"fih-decision-v1",date:DATE,fixtureId:id,decision:"NO_BET",publishable:false,reason:verified?(betEnabled?"NO_QUALIFYING_VALUE_EDGE":"BET_CALIBRATION_NOT_READY"):"NO_VERIFIED_CURRENT_MARKET_ODDS",modelVersion:m.modelVersion||m.version,marketEvidence:verified?(betEnabled?"VERIFIED":"VERIFIED_BUT_CALIBRATION_LOCKED"):"UNAVAILABLE",decidedAt:new Date().toISOString()}; noBet++;
  }else{rejected++;continue;}
  fs.writeFileSync(target,JSON.stringify(decision,null,2)+"\n");
  const verify=JSON.parse(fs.readFileSync(target,"utf8"));
