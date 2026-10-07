@@ -1,0 +1,17 @@
+{
+  "schema": "fih-research-v1",
+  "date": "2026-10-07",
+  "fixtureId": "1867261",
+  "fixture": {
+    "home": "Asyut Petroleum",
+    "away": "Al Ahly",
+    "competition": "League Cup: Group C",
+    "kickoff": "20261007160000"
+  },
+  "researchedAt": "2026-10-07T08:33:01.000Z",
+  "searchQuery": "Asyut Petroleum Al Ahly 7 October 2026 form odds",
+  "sourceUrls": [],
+  "evidenceStatus": "PARTIAL",
+  "requiredModelMatchSeries": "UNAVAILABLE",
+  "integrity": "Fixture-specific public-web research executed; missing evidence not fabricated."
+}
