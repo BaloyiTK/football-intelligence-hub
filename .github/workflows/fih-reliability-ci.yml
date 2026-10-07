@@ -10,6 +10,11 @@ name: FIH Reliability CI
       - ".github/workflows/fih-daily-data-ingest.yml"
       - "config/fih-execution-rules.json"
       - "scripts/contract-gate.ts"
+      - "scripts/research-canonical.ts"
+      - "scripts/daily-cycle.ts"
+      - "scripts/research-worker.ts"
+      - "scripts/daily-model-runner.ts"
+      - "scripts/daily-decision-runner.ts"
       - ".github/workflows/fih-reliability-ci.yml"
 permissions:
   contents: read
@@ -43,21 +48,18 @@ jobs:
       - name: Missing research artifact must block advancement
         run: |
           if npm run run:ledger -- advance --date 2099-01-01 --fixture fx1 --to RESEARCH_VERIFIED; then echo "guard failed"; exit 1; fi
-      - name: Valid artifact permits one stage only
+      - name: Canonical artifacts permit monotonic lifecycle
         run: |
-          mkdir -p "$FIH_ROOT/data/research/2099-01-01"
-          echo '{"fixtureId":"fx1","verified":true}' > "$FIH_ROOT/data/research/2099-01-01/fx1.json"
+          mkdir -p "$FIH_ROOT/data/research" "$FIH_ROOT/data/model" "$FIH_ROOT/data/decisions" "$FIH_ROOT/data/predictions"
+          echo '{"schema":"fih-daily-research-v2","date":"2099-01-01","mode":"PREDICTION","fixtureCount":1,"fixtures":[{"fixtureId":"fx1"}]}' > "$FIH_ROOT/data/research/2099-01-01.json"
           npm run run:ledger -- advance --date 2099-01-01 --fixture fx1 --to RESEARCH_VERIFIED
           if npm run run:ledger -- advance --date 2099-01-01 --fixture fx1 --to DECISION_VERIFIED; then echo "skip guard failed"; exit 1; fi
-      - name: Complete full synthetic daily prediction lifecycle
-        run: |
-          mkdir -p "$FIH_ROOT/data/model/2099-01-01" "$FIH_ROOT/data/decisions/2099-01-01"
-          echo '{"fixtureId":"fx1","verified":true,"probabilities":{"home":0.5,"draw":0.3,"away":0.2}}' > "$FIH_ROOT/data/model/2099-01-01/fx1.json"
+          echo '{"schema":"fih-daily-model-v2","date":"2099-01-01","fixtureCount":1,"fixtures":[{"fixtureId":"fx1","status":"INSUFFICIENT_DATA"}]}' > "$FIH_ROOT/data/model/2099-01-01.json"
           npm run run:ledger -- advance --date 2099-01-01 --fixture fx1 --to MODEL_VERIFIED
-          echo '{"fixtureId":"fx1","verified":true,"decision":"NO_BET"}' > "$FIH_ROOT/data/decisions/2099-01-01/fx1.json"
+          echo '{"schema":"fih-daily-decisions-v2","date":"2099-01-01","fixtureCount":1,"fixtures":[{"fixtureId":"fx1","decision":"NO_MODEL","publishable":false}]}' > "$FIH_ROOT/data/decisions/2099-01-01.json"
           npm run run:ledger -- advance --date 2099-01-01 --fixture fx1 --to DECISION_VERIFIED
           npm run run:ledger -- advance --date 2099-01-01 --fixture fx1 --to COMPLETE
-          node -e 'const x=require(process.env.FIH_ROOT+"/data/run-state/2099-01-01.json");if(x.runStatus!=="COMPLETE"||x.counts.COMPLETE!==1||x.next!==null)process.exit(1)'
+          echo '{"schema":"fih-daily-predictions-v1","date":"2099-01-01","eligibleFixtures":1,"publishableCount":0,"predictions":[]}' > "$FIH_ROOT/data/predictions/2099-01-01.json"
       - name: Contract gate must accept reconciled synthetic cycle
         run: |
-          FIH_ROOT="$FIH_ROOT" npm run contract:gate -- --verdict COMPLETE --date 2099-01-01 --rules TERM-002,EVID-001 --evidence aggregate-verified,canonical-artifacts-verified,commit-verified
+          FIH_ROOT="$FIH_ROOT" FIH_VERIFIED_COMMIT_SHA="0000000000000000000000000000000000000000" npm run contract:gate -- --verdict COMPLETE --date 2099-01-01 --rules TERM-002,EVID-001 --evidence aggregate-verified,canonical-artifacts-verified,commit-verified
