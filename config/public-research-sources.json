@@ -6,32 +6,68 @@
     "missingValue": "UNAVAILABLE",
     "fallbackOnFailure": true,
     "respectRobotsAndTerms": true,
-    "maxRequestsPerSourcePerMinute": 10
+    "maxRequestsPerSourcePerMinute": 10,
+    "discovery": "Do not guess site search URLs. Use known public page URLs supplied by discovery/cache; otherwise mark discovery UNAVAILABLE."
   },
   "sources": [
     {
       "id": "worldfootball",
       "baseUrl": "https://www.worldfootball.net/",
-      "capabilities": ["results","fixtures","standings","team-statistics"],
-      "priority": 1
+      "capabilities": [
+        "results",
+        "fixtures",
+        "standings",
+        "team-statistics"
+      ],
+      "priority": 1,
+      "discovery": {
+        "mode": "known-page-or-external-discovery",
+        "searchTemplate": null
+      }
     },
     {
       "id": "soccerway",
       "baseUrl": "https://www.soccerway.com/",
-      "capabilities": ["results","fixtures","standings","h2h","match-stats"],
-      "priority": 2
+      "capabilities": [
+        "results",
+        "fixtures",
+        "standings",
+        "h2h",
+        "match-stats"
+      ],
+      "priority": 2,
+      "discovery": {
+        "mode": "known-page-or-external-discovery",
+        "searchTemplate": null
+      }
     },
     {
       "id": "global-sports-archive",
       "baseUrl": "https://globalsportsarchive.com/",
-      "capabilities": ["results","fixtures","team-last-matches","standings"],
-      "priority": 3
+      "capabilities": [
+        "results",
+        "fixtures",
+        "team-last-matches",
+        "standings"
+      ],
+      "priority": 3,
+      "discovery": {
+        "mode": "known-page-or-external-discovery",
+        "searchTemplate": null
+      }
     },
     {
       "id": "football-web-pages",
       "baseUrl": "https://www.footballwebpages.co.uk/",
-      "capabilities": ["results","fixtures"],
-      "priority": 4
+      "capabilities": [
+        "results",
+        "fixtures"
+      ],
+      "priority": 4,
+      "discovery": {
+        "mode": "known-page-or-external-discovery",
+        "searchTemplate": null
+      }
     }
   ]
 }
