@@ -61,6 +61,18 @@
     "PROG-001": {
       "kind": "progress",
       "requirement": "Heartbeat/checkpoint/ledger-only changes without canonical fixture artifact advancement or verification are durability maintenance, not meaningful daily-cycle progress, and never satisfy completion."
+    },
+    "DATE-001": {
+      "kind": "date-routing",
+      "requirement": "Resolve requested date against current Africa/Johannesburg date: past dates route exclusively to BACKTEST; today and future dates route exclusively to PREDICTION."
+    },
+    "DATE-002": {
+      "kind": "prediction-integrity",
+      "requirement": "Future prediction runs may use only evidence available at execution time and must never use future results or later information; future predictions are refreshable as newer pre-match evidence becomes available."
+    },
+    "BACKTEST-001": {
+      "kind": "backtest-integrity",
+      "requirement": "Historical backtests reconstruct the pre-match information cutoff, freeze the model prediction before attaching actual results, grade predictions against verified results, and use aggregate failure trends for controlled model evaluation without look-ahead leakage."
     }
   },
   "hardStops": [
