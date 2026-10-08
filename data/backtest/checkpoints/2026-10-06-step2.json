@@ -77,7 +77,7 @@
       "notes": "Pre-cutoff sources located; fixture research still requires all FIH_BUILD_STEPS categories/UNAVAILABLE validation."
     }
   ],
-  "nextAction": "Continue fixture-specific Step 2 from Kazakhstan vs Faroe Islands (fixture 1738392); Belarus vs Finland now has a persisted cutoff-safe detailed research record but remains non-canonical until full-date coverage.",
+  "nextAction": "Continue fixture-specific Step 2 from Moldova vs Slovakia (fixture 1738393); Kazakhstan vs Faroe Islands now has persisted cutoff-safe research and remains non-canonical until full-date coverage.",
   "lastVerifiedAt": "2026-10-08T02:23:49.000Z",
   "researchRecords": {
     "1738311": {
@@ -470,6 +470,215 @@
           "sourceRefs": [
             "https://statz.ai/h2h/belarus-vs-finland/19676763",
             "https://www.thestatszone.com/belarus-vs-finland-preview-prediction-2026-27-uefa-nations-league-league-c-228242"
+          ]
+        }
+      },
+      "status": "PARTIAL_VALIDATED",
+      "canonical": false
+    },
+    "1738392": {
+      "fixtureId": "1738392",
+      "fixture": {
+        "home": "Kazakhstan",
+        "away": "Faroe Islands",
+        "competition": "UEFA Nations League",
+        "kickoff": "2026-10-06T16:00:00+02:00"
+      },
+      "cutoff": "2026-10-06T06:00:00+02:00",
+      "researchedAt": "2026-10-08T02:23:49.000Z",
+      "sourceMetadata": [
+        {
+          "url": "https://tactix.football/uefa-nations-league/kazakhstan-vs-faroe-islands-2026-10-06",
+          "availableAt": "2026-09-07T23:59:59Z",
+          "retrievedAt": "2026-10-08T02:23:49.000Z",
+          "supports": [
+            "overallForm",
+            "venueForm",
+            "teamQuality",
+            "h2h",
+            "goalsProfile",
+            "opponentStrength"
+          ]
+        },
+        {
+          "url": "https://www.thestatszone.com/kazakhstan-vs-faroe-islands-preview-prediction-2026-27-uefa-nations-league-league-c-228226",
+          "availableAt": "2026-10-04T10:45:00Z",
+          "retrievedAt": "2026-10-08T02:23:49.000Z",
+          "supports": [
+            "overallForm",
+            "leaguePosition",
+            "teamQuality",
+            "motivationContext",
+            "h2h"
+          ]
+        },
+        {
+          "url": "https://thedatabetics.com/football-predictions/uefa-nations-league/kazakhstan-vs-faroe-islands-6-october-2026/",
+          "availableAt": "2026-10-01T23:59:59Z",
+          "retrievedAt": "2026-10-08T02:23:49.000Z",
+          "supports": [
+            "overallForm",
+            "goalsProfile",
+            "teamQuality",
+            "opponentStrength"
+          ]
+        }
+      ],
+      "evidence": {
+        "overallForm": {
+          "status": "VERIFIED",
+          "notes": "Pre-cutoff sources: Kazakhstan were winless in five and came off consecutive 2-1 losses to Slovakia and Moldova; Faroe Islands had substantially stronger recent form and opened the Nations League with three draws.",
+          "attempts": [
+            {
+              "query": "Kazakhstan Faroe Islands Oct 6 2026 overall form preview",
+              "attemptedAt": "2026-10-08T02:23:49.000Z",
+              "outcome": "PRE_CUTOFF_EVIDENCE_FOUND"
+            }
+          ],
+          "sourceRefs": [
+            "https://tactix.football/uefa-nations-league/kazakhstan-vs-faroe-islands-2026-10-06",
+            "https://www.thestatszone.com/kazakhstan-vs-faroe-islands-preview-prediction-2026-27-uefa-nations-league-league-c-228226",
+            "https://thedatabetics.com/football-predictions/uefa-nations-league/kazakhstan-vs-faroe-islands-6-october-2026/"
+          ]
+        },
+        "venueForm": {
+          "status": "VERIFIED",
+          "notes": "TACTIX pre-cutoff data: Kazakhstan last six home matches 2W-1D-3L, 1.17 GF and 0.83 GA per game; Faroe Islands last eight away 3W-0D-5L, 0.75 GF and 1.13 GA.",
+          "attempts": [
+            {
+              "query": "Kazakhstan home Faroe Islands away form Oct 6 2026",
+              "attemptedAt": "2026-10-08T02:23:49.000Z",
+              "outcome": "PRE_CUTOFF_EVIDENCE_FOUND"
+            }
+          ],
+          "sourceRefs": [
+            "https://tactix.football/uefa-nations-league/kazakhstan-vs-faroe-islands-2026-10-06"
+          ]
+        },
+        "xgXga": {
+          "status": "UNAVAILABLE",
+          "notes": "No trustworthy pre-cutoff xG/xGA split located.",
+          "attempts": [
+            {
+              "query": "Kazakhstan Faroe Islands xG xGA before Oct 6 2026",
+              "attemptedAt": "2026-10-08T02:23:49.000Z",
+              "outcome": "WEB_SEARCH_EXECUTED_NO_SAFE_XG_SOURCE"
+            }
+          ],
+          "sourceRefs": []
+        },
+        "leaguePosition": {
+          "status": "VERIFIED",
+          "notes": "Pre-cutoff preview placed Kazakhstan fourth on one point after three group matches and Faroe Islands third on three points.",
+          "attempts": [
+            {
+              "query": "Kazakhstan Faroe Islands Group C standings Oct 4 2026",
+              "attemptedAt": "2026-10-08T02:23:49.000Z",
+              "outcome": "PRE_CUTOFF_EVIDENCE_FOUND"
+            }
+          ],
+          "sourceRefs": [
+            "https://www.thestatszone.com/kazakhstan-vs-faroe-islands-preview-prediction-2026-27-uefa-nations-league-league-c-228226"
+          ]
+        },
+        "teamQuality": {
+          "status": "VERIFIED",
+          "notes": "TACTIX pre-cutoff ratings listed Kazakhstan 1223 and Faroe Islands 1387 over at least 24 rated matches; Stats Zone also noted Kazakhstan FIFA rank 111 and improving Faroese results.",
+          "attempts": [
+            {
+              "query": "Kazakhstan Faroe Islands team quality ratings before Oct 6 2026",
+              "attemptedAt": "2026-10-08T02:23:49.000Z",
+              "outcome": "PRE_CUTOFF_EVIDENCE_FOUND"
+            }
+          ],
+          "sourceRefs": [
+            "https://tactix.football/uefa-nations-league/kazakhstan-vs-faroe-islands-2026-10-06",
+            "https://www.thestatszone.com/kazakhstan-vs-faroe-islands-preview-prediction-2026-27-uefa-nations-league-league-c-228226"
+          ]
+        },
+        "motivationContext": {
+          "status": "VERIFIED",
+          "notes": "Both were in the lower half of the League C group and needed points; Kazakhstan were winless and bottom while Faroe Islands were seeking to consolidate above them.",
+          "attempts": [
+            {
+              "query": "Kazakhstan Faroe Islands Nations League group motivation Oct 4 2026",
+              "attemptedAt": "2026-10-08T02:23:49.000Z",
+              "outcome": "PRE_CUTOFF_EVIDENCE_FOUND"
+            }
+          ],
+          "sourceRefs": [
+            "https://www.thestatszone.com/kazakhstan-vs-faroe-islands-preview-prediction-2026-27-uefa-nations-league-league-c-228226"
+          ]
+        },
+        "h2h": {
+          "status": "VERIFIED",
+          "notes": "Pre-cutoff sources recorded the Sep 26 reverse fixture as 1-1; TACTIX also retained the Nov 2025 Faroe Islands 1-0 Kazakhstan meeting.",
+          "attempts": [
+            {
+              "query": "Kazakhstan Faroe Islands H2H before Oct 6 2026",
+              "attemptedAt": "2026-10-08T02:23:49.000Z",
+              "outcome": "PRE_CUTOFF_EVIDENCE_FOUND"
+            }
+          ],
+          "sourceRefs": [
+            "https://tactix.football/uefa-nations-league/kazakhstan-vs-faroe-islands-2026-10-06",
+            "https://www.thestatszone.com/kazakhstan-vs-faroe-islands-preview-prediction-2026-27-uefa-nations-league-league-c-228226"
+          ]
+        },
+        "goalsProfile": {
+          "status": "VERIFIED",
+          "notes": "TACTIX: Kazakhstan last 15 had 40% Over 2.5 and 40% BTTS; Faroe Islands 47% Over 2.5 and 47% BTTS. Databetics reported recent scoring/conceding averages around 1.0/1.8 Kazakhstan and 0.8/0.8 Faroes.",
+          "attempts": [
+            {
+              "query": "Kazakhstan Faroe Islands goals profile BTTS before Oct 6 2026",
+              "attemptedAt": "2026-10-08T02:23:49.000Z",
+              "outcome": "PRE_CUTOFF_EVIDENCE_FOUND"
+            }
+          ],
+          "sourceRefs": [
+            "https://tactix.football/uefa-nations-league/kazakhstan-vs-faroe-islands-2026-10-06",
+            "https://thedatabetics.com/football-predictions/uefa-nations-league/kazakhstan-vs-faroe-islands-6-october-2026/"
+          ]
+        },
+        "squadAvailability": {
+          "status": "UNAVAILABLE",
+          "notes": "No safely pre-cutoff, sufficiently reliable squad-availability source was located in this pass.",
+          "attempts": [
+            {
+              "query": "Kazakhstan Faroe Islands injuries suspensions Oct 5 2026",
+              "attemptedAt": "2026-10-08T02:23:49.000Z",
+              "outcome": "WEB_SEARCH_EXECUTED_NO_SAFE_SQUAD_SOURCE"
+            }
+          ],
+          "sourceRefs": []
+        },
+        "opponentStrength": {
+          "status": "PARTIAL",
+          "notes": "Recent Nations League opponents and results were identified, including Slovakia and Moldova for Kazakhstan and the reverse Kazakhstan fixture for Faroes; no calibrated opponent-strength weighting was available.",
+          "attempts": [
+            {
+              "query": "Kazakhstan Faroe Islands opponent strength recent opponents Oct 5 2026",
+              "attemptedAt": "2026-10-08T02:23:49.000Z",
+              "outcome": "PRE_CUTOFF_EVIDENCE_FOUND"
+            }
+          ],
+          "sourceRefs": [
+            "https://www.thestatszone.com/kazakhstan-vs-faroe-islands-preview-prediction-2026-27-uefa-nations-league-league-c-228226",
+            "https://thedatabetics.com/football-predictions/uefa-nations-league/kazakhstan-vs-faroe-islands-6-october-2026/"
+          ]
+        },
+        "restSchedule": {
+          "status": "PARTIAL",
+          "notes": "Both were in the same international window with recent Nations League matches before Oct 6; no independently verified travel/fatigue metric was retained.",
+          "attempts": [
+            {
+              "query": "Kazakhstan Faroe Islands rest schedule travel Oct 5 2026",
+              "attemptedAt": "2026-10-08T02:23:49.000Z",
+              "outcome": "PARTIAL_PRE_CUTOFF_EVIDENCE_FOUND"
+            }
+          ],
+          "sourceRefs": [
+            "https://www.thestatszone.com/kazakhstan-vs-faroe-islands-preview-prediction-2026-27-uefa-nations-league-league-c-228226"
           ]
         }
       },
