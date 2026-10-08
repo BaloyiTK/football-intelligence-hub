@@ -253,6 +253,14 @@
     "RESEARCH-021": {
       "kind": "step2-unavailable-exhaustion-lock",
       "requirement": "For every required Step-2 category, PARTIAL or UNAVAILABLE requires searchExhausted=true plus at least one category-specific attempt whose outcome explicitly records SEARCH_EXHAUSTED. Generic outcomes such as CHATGPT_WEB_SEARCH_REFRESH_COMPLETED, CHATGPT_H2H_SEARCH_REFRESH_COMPLETED, CHATGPT_VENUE_FORM_SEARCH_REFRESH_COMPLETED, SEARCH_COMPLETE, or equivalent completion-only markers MUST NOT satisfy research validation or promotion."
+    },
+    "RESEARCH-022": {
+      "kind": "step2-queue-validator-parity",
+      "requirement": "NON-NEGOTIABLE QUEUE PARITY LOCK: The Step-2 research queue MUST explicitly instruct ChatGPT to research every canonical required category validated by fih-daily-research-v5: form (overall plus exact HOME/AWAY venue series), standings, headToHead, squadAvailability, schedule, and competitionContext. A category required by the canonical validator may not be implicit or omitted from the queue."
+    },
+    "RESEARCH-023": {
+      "kind": "step2-standings-raw-facts-lock",
+      "requirement": "VERIFIED Step-2 standings MUST retain source-backed raw standings facts for both teams sufficient for Step 3 league-strength derivation: current table position, matches played, and points, plus goals-for/goals-against or goal difference when available. VERIFIED standings with only a prose note, source URL, or completion marker are invalid. PARTIAL standings require genuine search exhaustion and retain whatever structured source-backed fields were found."
     }
   },
   "hardStops": [
