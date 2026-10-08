@@ -2,7 +2,7 @@
   "schema": "fih-chatgpt-research-queue-v3",
   "date": "2026-10-09",
   "researchRunId": "research:2026-10-09:1791472170322",
-  "generatedAt": "2026-10-08T15:09:32.141Z",
+  "generatedAt": "2026-10-08T15:39:47.420Z",
   "count": 224,
   "executor": "CHATGPT_WEB_SEARCH",
   "workingCheckpoint": "data/research-work/2026-10-09.json",
@@ -85,6 +85,7 @@
     },
     "competitionContext": {
       "factsOnly": true,
+      "storage": "facts.competitionContext.data.{homeTeam,awayTeam}.{facts,tags}",
       "perTeamTags": [
         "MUST_WIN",
         "KNOCKOUT_ELIMINATION",
@@ -102,8 +103,7 @@
       ],
       "numericScore": "DERIVE_IN_STEP3_ONLY",
       "continueUntil": "SOURCE_BACKED_OR_SEARCH_EXHAUSTED",
-      "partialRequiresSearchExhausted": true,
-      "storage": "facts.competitionContext.data.{homeTeam,awayTeam}.{facts,tags}"
+      "partialRequiresSearchExhausted": true
     },
     "factsOnly": true
   },
