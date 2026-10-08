@@ -25,6 +25,8 @@ for(const token of [
   "CONTEXT_ONLY",
   "facts.xg",
   "OBSERVED_COMPLETED_MATCH_STATISTICS",
+  "facts.teamQuality?.status",
+  "facts.opponentStrength?.status",
   "usage:{"
 ]) if(!normalize.includes(token)) fail("normalizer missing "+token);
 
