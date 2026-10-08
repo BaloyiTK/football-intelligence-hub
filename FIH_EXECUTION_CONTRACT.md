@@ -90,6 +90,11 @@ Workload size, number of fixtures, number of web searches, unavailable individua
 
 For Step 2, ChatGPT is the authoritative research executor. Each eligible fixture MUST receive an actual ChatGPT web-search job. Repository-local homepage scanners, scrapers, cached-link discovery, or direct-public-source discovery may assist, but MUST NOT be accepted as a substitute for the ChatGPT web-search requirement.
 
+**Actual research capture is mandatory.** A web-search invocation, attempt log, or completion marker is not evidence. Before a fixture can count toward Step-2 N/N coverage, ChatGPT MUST write the actual source-backed structured facts it found into the fixture record, with source metadata/references. Reusing a prior canonical/baseline record and merely appending new search/completion markers is forbidden.
+
+For every required category, `PARTIAL` or `UNAVAILABLE` is permitted only after genuine category-specific exhaustion is explicitly recorded as `searchExhausted: true` and at least one attempt outcome contains `SEARCH_EXHAUSTED`. Generic completion-only markers such as `CHATGPT_WEB_SEARCH_REFRESH_COMPLETED`, `CHATGPT_H2H_SEARCH_REFRESH_COMPLETED`, `CHATGPT_VENUE_FORM_SEARCH_REFRESH_COMPLETED`, `CHATGPT_SEARCH_COMPLETE`, or `SEARCH_COMPLETE` are invalid and MUST cause validation/promotion failure.
+
+
 Research is accumulated across the complete eligible fixture universe for the date in working/checkpoint state. Individual fixture completion MUST NOT create a canonical GitHub research commit. Only after every eligible fixture has a validated research record, complete coverage has been reconciled, and the facts-only research schema passes validation may the complete per-date canonical research artifact be committed. The canonical research stage uses one batch commit for the completed daily research dataset.
 
 Research stores source-backed facts only. Derived statistics, strength assessments, rates, rest-day calculations, expected-goal calculations, probabilities, and betting conclusions belong to downstream FIH calculation/model stages.
