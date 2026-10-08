@@ -3,16 +3,16 @@
   "date": "2026-10-08",
   "timezone": "Africa/Johannesburg",
   "runId": "daily:2026-10-08",
-  "runStatus": "RUNNING",
-  "heartbeatAt": "2026-10-08T07:22:58.964Z",
-  "recoveryCount": 13,
+  "runStatus": "RECOVERING",
+  "heartbeatAt": "2026-10-08T07:23:17.010Z",
+  "recoveryCount": 14,
   "board": {
     "fetchedAt": "2026-10-08T07:06:45.428Z",
     "fixtureCount": 73,
     "stageCount": 33
   },
   "createdAt": "2026-10-08T06:22:47.891Z",
-  "updatedAt": "2026-10-08T07:22:58.964Z",
+  "updatedAt": "2026-10-08T07:23:17.010Z",
   "fixtures": [
     {
       "id": "1708692",
@@ -833,5 +833,13 @@
     "fixtureId": "1886716",
     "state": "PENDING"
   },
-  "researchRunId": "chatgpt-web:2026-10-08:run-001"
+  "researchRunId": "chatgpt-web:2026-10-08:run-001",
+  "lastRecovery": {
+    "stage": "STEP2_CHATGPT_WEB_RESEARCH",
+    "researchRunId": "chatgpt-web:2026-10-08:run-001",
+    "reason": "EXECUTION_ENVIRONMENT_WEB_SEARCH_CALL_LIMIT",
+    "evidence": "50/50 eligible fixtures received initial ChatGPT web-search pass; targeted factual follow-up performed until current-turn web-search call allowance was exhausted",
+    "resume": "Continue same researchRunId from unresolved evidence extraction; do not restart completed search attempts; canonical research remains uncommitted until full validation",
+    "updatedAt": "2026-10-08T07:23:17.010Z"
+  }
 }
