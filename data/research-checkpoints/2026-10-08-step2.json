@@ -5,8 +5,8 @@
   "canonical": false,
   "status": "IN_PROGRESS",
   "eligibleCount": 51,
-  "fixtureRecordsValidated": 18,
-  "lastValidatedFixtureId": "1867272",
+  "fixtureRecordsValidated": 19,
+  "lastValidatedFixtureId": "1867242",
   "workingRecords": {
     "1718971": {
       "fixtureId": "1718971",
@@ -3086,6 +3086,174 @@
         }
       }
     },
+    "1867242": {
+      "fixtureId": "1867242",
+      "fixture": {
+        "competition": "League Cup: Group B",
+        "country": "Egypt",
+        "home": "Modern Sport FC",
+        "away": "National Bank",
+        "kickoff": "20261008190000",
+        "timezone": "Africa/Johannesburg"
+      },
+      "researchedAt": "2026-10-08T21:50:00+02:00",
+      "sourceMetadata": [
+        {
+          "ref": "s1",
+          "url": "https://www.soccerpunter.com/h2h/Modern-Sport-FC-vs-National-Bank-of-Egypt/250630/250628/",
+          "retrievedAt": "2026-10-08T21:50:00+02:00",
+          "supports": [
+            "h2h",
+            "goalsProfile",
+            "motivationContext"
+          ]
+        },
+        {
+          "ref": "s2",
+          "url": "https://www.flashscore.co.za/match/soccer/modern-sport-KCzFp0OB/national-bank-egypt-Gx9ImdAm/",
+          "retrievedAt": "2026-10-08T21:50:00+02:00",
+          "supports": [
+            "xgXga",
+            "h2h",
+            "teamQuality"
+          ]
+        },
+        {
+          "ref": "s3",
+          "url": "https://www.supersportbet.com/en-za/newsfeed/football/match-detail/national-bank-vs-modern-sport-fc/335890/h2h",
+          "retrievedAt": "2026-10-08T21:50:00+02:00",
+          "supports": [
+            "h2h",
+            "teamQuality"
+          ]
+        }
+      ],
+      "evidence": {
+        "overallForm": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Modern Sport National Bank recent form October 2026",
+              "attemptedAt": "2026-10-08T21:50:00+02:00",
+              "outcome": "No sufficiently complete current form sequence retained from non-predictive sources."
+            }
+          ]
+        },
+        "venueForm": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Modern Sport home National Bank away form 2026",
+              "attemptedAt": "2026-10-08T21:50:00+02:00",
+              "outcome": "Comparable current venue splits unavailable in retained sources."
+            }
+          ]
+        },
+        "xgXga": {
+          "status": "PARTIAL",
+          "sourceRefs": [
+            "s2"
+          ],
+          "data": {
+            "lastDirectMeeting": {
+              "date": "2026-05-03",
+              "home": "National Bank",
+              "away": "Modern Sport",
+              "homeXG": 2.13,
+              "awayXG": 0.36
+            },
+            "provenance": "Observed match xG from completed direct meeting; not current-season team aggregate."
+          }
+        },
+        "leaguePosition": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "League Cup Group B standings Modern Sport National Bank October 8 2026",
+              "attemptedAt": "2026-10-08T21:50:00+02:00",
+              "outcome": "Opening group-stage table not reliably retained."
+            }
+          ]
+        },
+        "teamQuality": {
+          "status": "PARTIAL",
+          "sourceRefs": [
+            "s2",
+            "s3"
+          ],
+          "data": "National Bank won the most recent league meeting 2-1; broader retained H2H is competitive."
+        },
+        "motivationContext": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": "League Cup group-stage fixture at Cairo International Stadium."
+        },
+        "h2h": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1",
+            "s3"
+          ],
+          "data": {
+            "overall12": {
+              "homeWins": 4,
+              "draws": 3,
+              "awayWins": 5,
+              "homeGoals": 14,
+              "awayGoals": 11
+            },
+            "recent": [
+              "2026-05-03 National Bank 2-1 Modern Sport",
+              "2025-12-18 National Bank 1-1 Modern Sport",
+              "2025-11-22 Modern Sport 0-0 National Bank",
+              "2025-05-20 National Bank 1-0 Modern Sport"
+            ]
+          }
+        },
+        "goalsProfile": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": {
+            "h2h12": {
+              "modernGoalsPerGame": 1.17,
+              "nationalBankGoalsPerGame": 0.92
+            }
+          }
+        },
+        "squadAvailability": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Modern Sport National Bank injuries suspensions October 8 2026",
+              "attemptedAt": "2026-10-08T21:50:00+02:00",
+              "outcome": "No trustworthy complete pre-match absence list retained."
+            }
+          ]
+        },
+        "opponentStrength": {
+          "status": "PARTIAL",
+          "sourceRefs": [
+            "s2",
+            "s3"
+          ],
+          "data": "Direct-match performance evidence retained; no normalized current opponent-strength metric."
+        },
+        "restSchedule": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Modern Sport National Bank last match dates October 2026",
+              "attemptedAt": "2026-10-08T21:50:00+02:00",
+              "outcome": "Reliable last-match dates not retained."
+            }
+          ]
+        }
+      }
+    },
     "1867272": {
       "fixtureId": "1867272",
       "fixture": {
@@ -4623,7 +4791,7 @@
       }
     }
   },
-  "nextFixtureId": "1867242",
+  "nextFixtureId": "1867262",
   "nextAction": "Continue fixture-specific Step 2 web research from nextFixtureId.",
   "integrityRepair": {
     "at": "2026-10-08T05:45:00Z",
@@ -4657,5 +4825,5 @@
       ]
     }
   },
-  "updatedAt": "2026-10-08T21:45:00+02:00"
+  "updatedAt": "2026-10-08T21:50:00+02:00"
 }
