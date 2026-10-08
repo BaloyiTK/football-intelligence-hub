@@ -430,5 +430,11 @@
       "away": "Hong Linh Ha Tinh"
     }
   ],
-  "nextAction": "Resume Step 2 fixture-by-fixture category-specific web research. Complete all required categories for every eligible fixture, validate working daily dataset, then persist exactly one canonical data/research/2026-10-08.json and re-read/verify before Step 3."
+  "nextAction": "Continue Step 2 fixture-by-fixture category-specific web research; canonical Step 2 remains forbidden until all eligible fixtures are complete.",
+  "recovery": {
+    "rule": "REC-005",
+    "event": "Previous checkpoint update was rejected by tool safety validation.",
+    "action": "Retried with minimal bounded persistence update after re-reading authoritative state.",
+    "verifiedAt": "2026-10-08T04:30:00Z"
+  }
 }
