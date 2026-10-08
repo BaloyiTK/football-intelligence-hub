@@ -1,0 +1,2160 @@
+{
+  "schema": "fih-daily-decisions-v2",
+  "date": "2026-10-09",
+  "generatedAt": "2026-10-08T09:11:36.713Z",
+  "fixtureCount": 216,
+  "calibrationStatus": "NOT_CALIBRATED",
+  "betPublicationEnabled": false,
+  "fixtures": [
+    {
+      "fixtureId": "1810712",
+      "decision": "NO_BET",
+      "publishable": false,
+      "reason": "BET_PUBLICATION_NOT_CALIBRATED",
+      "candidateMarkets": [
+        {
+          "market": "AWAY",
+          "probability": 0.48735663413156316,
+          "reliability": 0.4
+        },
+        {
+          "market": "BTTS YES",
+          "probability": 0.4776086998200801,
+          "reliability": 0.4
+        },
+        {
+          "market": "OVER 2.5",
+          "probability": 0.4400571950639948,
+          "reliability": 0.4
+        },
+        {
+          "market": "HOME",
+          "probability": 0.24906168320011324,
+          "reliability": 0.4
+        }
+      ],
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1812724",
+      "decision": "NO_BET",
+      "publishable": false,
+      "reason": "BET_PUBLICATION_NOT_CALIBRATED",
+      "candidateMarkets": [
+        {
+          "market": "OVER 2.5",
+          "probability": 0.7229228802730214,
+          "reliability": 0.4
+        },
+        {
+          "market": "BTTS YES",
+          "probability": 0.6869811036176358,
+          "reliability": 0.4
+        },
+        {
+          "market": "HOME",
+          "probability": 0.571286869804317,
+          "reliability": 0.4
+        },
+        {
+          "market": "AWAY",
+          "probability": 0.23232921512010482,
+          "reliability": 0.4
+        }
+      ],
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1794700",
+      "decision": "NO_BET",
+      "publishable": false,
+      "reason": "BET_PUBLICATION_NOT_CALIBRATED",
+      "candidateMarkets": [
+        {
+          "market": "AWAY",
+          "probability": 0.5757472045176647,
+          "reliability": 0.3
+        },
+        {
+          "market": "BTTS YES",
+          "probability": 0.4051838795605873,
+          "reliability": 0.3
+        },
+        {
+          "market": "OVER 2.5",
+          "probability": 0.39898249657244333,
+          "reliability": 0.3
+        },
+        {
+          "market": "HOME",
+          "probability": 0.1708443395775382,
+          "reliability": 0.3
+        }
+      ],
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1790213",
+      "decision": "NO_BET",
+      "publishable": false,
+      "reason": "BET_PUBLICATION_NOT_CALIBRATED",
+      "candidateMarkets": [
+        {
+          "market": "OVER 2.5",
+          "probability": 0.7280575167207965,
+          "reliability": 0.3
+        },
+        {
+          "market": "BTTS YES",
+          "probability": 0.7145870585251338,
+          "reliability": 0.3
+        },
+        {
+          "market": "HOME",
+          "probability": 0.4752093000173232,
+          "reliability": 0.3
+        },
+        {
+          "market": "AWAY",
+          "probability": 0.3152612551489289,
+          "reliability": 0.3
+        }
+      ],
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1802452",
+      "decision": "NO_BET",
+      "publishable": false,
+      "reason": "BET_PUBLICATION_NOT_CALIBRATED",
+      "candidateMarkets": [
+        {
+          "market": "HOME",
+          "probability": 0.6178003527832102,
+          "reliability": 0.4
+        },
+        {
+          "market": "OVER 2.5",
+          "probability": 0.6042193338724602,
+          "reliability": 0.4
+        },
+        {
+          "market": "BTTS YES",
+          "probability": 0.5641507691998525,
+          "reliability": 0.4
+        },
+        {
+          "market": "AWAY",
+          "probability": 0.17808766943757084,
+          "reliability": 0.4
+        }
+      ],
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1823553",
+      "decision": "NO_BET",
+      "publishable": false,
+      "reason": "BET_PUBLICATION_NOT_CALIBRATED",
+      "candidateMarkets": [
+        {
+          "market": "OVER 2.5",
+          "probability": 0.6848854189113915,
+          "reliability": 0.3
+        },
+        {
+          "market": "BTTS YES",
+          "probability": 0.6406050577140502,
+          "reliability": 0.3
+        },
+        {
+          "market": "AWAY",
+          "probability": 0.605578028921657,
+          "reliability": 0.3
+        },
+        {
+          "market": "HOME",
+          "probability": 0.19956317321543407,
+          "reliability": 0.3
+        }
+      ],
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1821033",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1816437",
+      "decision": "NO_BET",
+      "publishable": false,
+      "reason": "BET_PUBLICATION_NOT_CALIBRATED",
+      "candidateMarkets": [
+        {
+          "market": "BTTS YES",
+          "probability": 0.5214605259526401,
+          "reliability": 0.3
+        },
+        {
+          "market": "OVER 2.5",
+          "probability": 0.47211592896594345,
+          "reliability": 0.3
+        },
+        {
+          "market": "AWAY",
+          "probability": 0.3817291619069604,
+          "reliability": 0.3
+        },
+        {
+          "market": "HOME",
+          "probability": 0.35226260625987804,
+          "reliability": 0.3
+        }
+      ],
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1816436",
+      "decision": "NO_BET",
+      "publishable": false,
+      "reason": "BET_PUBLICATION_NOT_CALIBRATED",
+      "candidateMarkets": [
+        {
+          "market": "AWAY",
+          "probability": 0.5018012453314362,
+          "reliability": 0.3
+        },
+        {
+          "market": "BTTS YES",
+          "probability": 0.43024400284367187,
+          "reliability": 0.3
+        },
+        {
+          "market": "OVER 2.5",
+          "probability": 0.3906605519299981,
+          "reliability": 0.3
+        },
+        {
+          "market": "HOME",
+          "probability": 0.22537345287643085,
+          "reliability": 0.3
+        }
+      ],
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1845647",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1845632",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1845614",
+      "decision": "NO_BET",
+      "publishable": false,
+      "reason": "BET_PUBLICATION_NOT_CALIBRATED",
+      "candidateMarkets": [
+        {
+          "market": "BTTS YES",
+          "probability": 0.5299303483539427,
+          "reliability": 0.3
+        },
+        {
+          "market": "OVER 2.5",
+          "probability": 0.5033080100493015,
+          "reliability": 0.3
+        },
+        {
+          "market": "AWAY",
+          "probability": 0.4894814957497373,
+          "reliability": 0.3
+        },
+        {
+          "market": "HOME",
+          "probability": 0.2609651033388348,
+          "reliability": 0.3
+        }
+      ],
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1798143",
+      "decision": "NO_BET",
+      "publishable": false,
+      "reason": "BET_PUBLICATION_NOT_CALIBRATED",
+      "candidateMarkets": [
+        {
+          "market": "HOME",
+          "probability": 0.5272931646602874,
+          "reliability": 0.3
+        },
+        {
+          "market": "BTTS YES",
+          "probability": 0.49827023097783696,
+          "reliability": 0.3
+        },
+        {
+          "market": "OVER 2.5",
+          "probability": 0.4799996440076844,
+          "reliability": 0.3
+        },
+        {
+          "market": "AWAY",
+          "probability": 0.22505884504892135,
+          "reliability": 0.3
+        }
+      ],
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1845103",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1813349",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1813352",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1795026",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1795034",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1795028",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1795027",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1795030",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1799839",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1799840",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1799841",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1799842",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1799851",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1799845",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1799864",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1799846",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1799847",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1799849",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1708681",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1708694",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1708679",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1708684",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1710447",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1784490",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1709270",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1800454",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1739851",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1739845",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1739847",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1795787",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1795783",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1787189",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1795345",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1795349",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1886701",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1807295",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1807288",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1718969",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1723722",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1723723",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1723724",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1854219",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1854210",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1812284",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1812293",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1812288",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1852897",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1852899",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1900592",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1900594",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1748988",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1878509",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1878502",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1741366",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1741375",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1811873",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1811868",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1903957",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1903953",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1806347",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1806371",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1806474",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1801268",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1848388",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1799594",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1836453",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1799596",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1799595",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1786758",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1786763",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1810002",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1894578",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1894549",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1843721",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1843722",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1843716",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1843724",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1843714",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1844461",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1743752",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1732687",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1732685",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1732684",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1732686",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1822602",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1826162",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1826463",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1826461",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1826466",
+      "decision": "NO_BET",
+      "publishable": false,
+      "reason": "BET_PUBLICATION_NOT_CALIBRATED",
+      "candidateMarkets": [
+        {
+          "market": "BTTS YES",
+          "probability": 0.6228959795867134,
+          "reliability": 0
+        },
+        {
+          "market": "OVER 2.5",
+          "probability": 0.6064540416067068,
+          "reliability": 0
+        },
+        {
+          "market": "AWAY",
+          "probability": 0.4385557236776852,
+          "reliability": 0
+        },
+        {
+          "market": "HOME",
+          "probability": 0.3265546462309878,
+          "reliability": 0
+        }
+      ],
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1830198",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1829321",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1828221",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1828223",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1827915",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1827921",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1827919",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1847449",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1847435",
+      "decision": "NO_BET",
+      "publishable": false,
+      "reason": "BET_PUBLICATION_NOT_CALIBRATED",
+      "candidateMarkets": [
+        {
+          "market": "OVER 2.5",
+          "probability": 0.7664352113671906,
+          "reliability": 0.15
+        },
+        {
+          "market": "BTTS YES",
+          "probability": 0.7493614825011168,
+          "reliability": 0.15
+        },
+        {
+          "market": "AWAY",
+          "probability": 0.44352397054357146,
+          "reliability": 0.15
+        },
+        {
+          "market": "HOME",
+          "probability": 0.3516130683838493,
+          "reliability": 0.15
+        }
+      ],
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1847429",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1827589",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1827585",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1827651",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1842861",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1829912",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1829909",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1841663",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1808927",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1887370",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1865801",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1866465",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1866466",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1893568",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1893569",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1871227",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1871226",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1871230",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1888965",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1719635",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1719640",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1719638",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1719641",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1719639",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1799354",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1799349",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1799353",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1799351",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1799352",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1855349",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1853312",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1853326",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1902098",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1902109",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1872608",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1899304",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1899302",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1866864",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1885712",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1885710",
+      "decision": "NO_BET",
+      "publishable": false,
+      "reason": "BET_PUBLICATION_NOT_CALIBRATED",
+      "candidateMarkets": [
+        {
+          "market": "BTTS YES",
+          "probability": 0.5491123066445833,
+          "reliability": 0.25
+        },
+        {
+          "market": "OVER 2.5",
+          "probability": 0.5071405098114996,
+          "reliability": 0.25
+        },
+        {
+          "market": "AWAY",
+          "probability": 0.3842517068951816,
+          "reliability": 0.25
+        },
+        {
+          "market": "HOME",
+          "probability": 0.35786427629226464,
+          "reliability": 0.25
+        }
+      ],
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1866866",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1866865",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1866863",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1817825",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1819338",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1903901",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1881210",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1806042",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1807057",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1807060",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1807054",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1726456",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1725722",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1899306",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1899309",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1903651",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1808295",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1808610",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1808611",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1816738",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1838570",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1838563",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1729381",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1729385",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1729384",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1743974",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1894769",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1894776",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1894770",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1801057",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1814471",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1719440",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1728222",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1730784",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1796126",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1796127",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1796129",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1796125",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1796128",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1861012",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1861013",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1861021",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1861027",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1847048",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1825318",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1825320",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1825313",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1825321",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1825661",
+      "decision": "NO_MODEL",
+      "publishable": false,
+      "reason": "INSUFFICIENT_VERIFIED_MODEL_INPUT",
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1901301",
+      "decision": "NO_BET",
+      "publishable": false,
+      "reason": "BET_PUBLICATION_NOT_CALIBRATED",
+      "candidateMarkets": [
+        {
+          "market": "HOME",
+          "probability": 0.6147915519505388,
+          "reliability": 0.4
+        },
+        {
+          "market": "OVER 2.5",
+          "probability": 0.4986876714828417,
+          "reliability": 0.4
+        },
+        {
+          "market": "BTTS YES",
+          "probability": 0.47288052808853565,
+          "reliability": 0.4
+        },
+        {
+          "market": "AWAY",
+          "probability": 0.16282609031593176,
+          "reliability": 0.4
+        }
+      ],
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1743554",
+      "decision": "NO_BET",
+      "publishable": false,
+      "reason": "BET_PUBLICATION_NOT_CALIBRATED",
+      "candidateMarkets": [
+        {
+          "market": "HOME",
+          "probability": 0.6056998712596813,
+          "reliability": 0.3
+        },
+        {
+          "market": "OVER 2.5",
+          "probability": 0.5768063986336499,
+          "reliability": 0.3
+        },
+        {
+          "market": "BTTS YES",
+          "probability": 0.5465716300040266,
+          "reliability": 0.3
+        },
+        {
+          "market": "AWAY",
+          "probability": 0.18258628368508004,
+          "reliability": 0.3
+        }
+      ],
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1743551",
+      "decision": "NO_BET",
+      "publishable": false,
+      "reason": "BET_PUBLICATION_NOT_CALIBRATED",
+      "candidateMarkets": [
+        {
+          "market": "OVER 2.5",
+          "probability": 0.7502144306139464,
+          "reliability": 0.15
+        },
+        {
+          "market": "BTTS YES",
+          "probability": 0.7138741369348103,
+          "reliability": 0.15
+        },
+        {
+          "market": "HOME",
+          "probability": 0.5606669125395066,
+          "reliability": 0.15
+        },
+        {
+          "market": "AWAY",
+          "probability": 0.245379044055886,
+          "reliability": 0.15
+        }
+      ],
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1743552",
+      "decision": "NO_BET",
+      "publishable": false,
+      "reason": "BET_PUBLICATION_NOT_CALIBRATED",
+      "candidateMarkets": [
+        {
+          "market": "HOME",
+          "probability": 0.790561238975986,
+          "reliability": 0.3
+        },
+        {
+          "market": "OVER 2.5",
+          "probability": 0.562643246494097,
+          "reliability": 0.3
+        },
+        {
+          "market": "BTTS YES",
+          "probability": 0.37497401479326836,
+          "reliability": 0.3
+        },
+        {
+          "market": "AWAY",
+          "probability": 0.06370078260301643,
+          "reliability": 0.3
+        }
+      ],
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1743572",
+      "decision": "NO_BET",
+      "publishable": false,
+      "reason": "BET_PUBLICATION_NOT_CALIBRATED",
+      "candidateMarkets": [
+        {
+          "market": "OVER 2.5",
+          "probability": 0.6492765056857411,
+          "reliability": 0.4
+        },
+        {
+          "market": "HOME",
+          "probability": 0.6212279002573488,
+          "reliability": 0.4
+        },
+        {
+          "market": "BTTS YES",
+          "probability": 0.6019053172307559,
+          "reliability": 0.4
+        },
+        {
+          "market": "AWAY",
+          "probability": 0.18246440666302513,
+          "reliability": 0.4
+        }
+      ],
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1813151",
+      "decision": "NO_BET",
+      "publishable": false,
+      "reason": "BET_PUBLICATION_NOT_CALIBRATED",
+      "candidateMarkets": [
+        {
+          "market": "AWAY",
+          "probability": 0.5273767202999139,
+          "reliability": 0.3
+        },
+        {
+          "market": "BTTS YES",
+          "probability": 0.5244145623820666,
+          "reliability": 0.3
+        },
+        {
+          "market": "OVER 2.5",
+          "probability": 0.5109565283168889,
+          "reliability": 0.3
+        },
+        {
+          "market": "HOME",
+          "probability": 0.23116576492813143,
+          "reliability": 0.3
+        }
+      ],
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1813144",
+      "decision": "NO_BET",
+      "publishable": false,
+      "reason": "BET_PUBLICATION_NOT_CALIBRATED",
+      "candidateMarkets": [
+        {
+          "market": "OVER 2.5",
+          "probability": 0.8168184775103972,
+          "reliability": 0.15
+        },
+        {
+          "market": "BTTS YES",
+          "probability": 0.785398779202698,
+          "reliability": 0.15
+        },
+        {
+          "market": "HOME",
+          "probability": 0.4957172233081926,
+          "reliability": 0.15
+        },
+        {
+          "market": "AWAY",
+          "probability": 0.3129328827372008,
+          "reliability": 0.15
+        }
+      ],
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1813155",
+      "decision": "NO_BET",
+      "publishable": false,
+      "reason": "BET_PUBLICATION_NOT_CALIBRATED",
+      "candidateMarkets": [
+        {
+          "market": "OVER 2.5",
+          "probability": 0.6174771411646286,
+          "reliability": 0.5
+        },
+        {
+          "market": "AWAY",
+          "probability": 0.5895551581097433,
+          "reliability": 0.5
+        },
+        {
+          "market": "BTTS YES",
+          "probability": 0.5894857740160409,
+          "reliability": 0.5
+        },
+        {
+          "market": "HOME",
+          "probability": 0.20123683538709364,
+          "reliability": 0.5
+        }
+      ],
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1813145",
+      "decision": "NO_BET",
+      "publishable": false,
+      "reason": "BET_PUBLICATION_NOT_CALIBRATED",
+      "candidateMarkets": [
+        {
+          "market": "AWAY",
+          "probability": 0.8207663202777878,
+          "reliability": 0.25
+        },
+        {
+          "market": "OVER 2.5",
+          "probability": 0.654550044230486,
+          "reliability": 0.25
+        },
+        {
+          "market": "BTTS YES",
+          "probability": 0.4279668754944947,
+          "reliability": 0.25
+        },
+        {
+          "market": "HOME",
+          "probability": 0.05748564302486285,
+          "reliability": 0.25
+        }
+      ],
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1813150",
+      "decision": "NO_BET",
+      "publishable": false,
+      "reason": "BET_PUBLICATION_NOT_CALIBRATED",
+      "candidateMarkets": [
+        {
+          "market": "OVER 2.5",
+          "probability": 0.6554108626705437,
+          "reliability": 0.4
+        },
+        {
+          "market": "BTTS YES",
+          "probability": 0.6553676176046634,
+          "reliability": 0.4
+        },
+        {
+          "market": "AWAY",
+          "probability": 0.4795850711228045,
+          "reliability": 0.4
+        },
+        {
+          "market": "HOME",
+          "probability": 0.29837929189497836,
+          "reliability": 0.4
+        }
+      ],
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1813156",
+      "decision": "NO_BET",
+      "publishable": false,
+      "reason": "BET_PUBLICATION_NOT_CALIBRATED",
+      "candidateMarkets": [
+        {
+          "market": "BTTS YES",
+          "probability": 0.6449366774377102,
+          "reliability": 0.5
+        },
+        {
+          "market": "OVER 2.5",
+          "probability": 0.63994400304243,
+          "reliability": 0.5
+        },
+        {
+          "market": "HOME",
+          "probability": 0.4688786948097095,
+          "reliability": 0.5
+        },
+        {
+          "market": "AWAY",
+          "probability": 0.30514277957394453,
+          "reliability": 0.5
+        }
+      ],
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1715145",
+      "decision": "NO_BET",
+      "publishable": false,
+      "reason": "BET_PUBLICATION_NOT_CALIBRATED",
+      "candidateMarkets": [
+        {
+          "market": "BTTS YES",
+          "probability": 0.6043957375652758,
+          "reliability": 0.4
+        },
+        {
+          "market": "OVER 2.5",
+          "probability": 0.5974810798910644,
+          "reliability": 0.4
+        },
+        {
+          "market": "HOME",
+          "probability": 0.49898854297274925,
+          "reliability": 0.4
+        },
+        {
+          "market": "AWAY",
+          "probability": 0.2710034441236838,
+          "reliability": 0.4
+        }
+      ],
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1715150",
+      "decision": "NO_BET",
+      "publishable": false,
+      "reason": "BET_PUBLICATION_NOT_CALIBRATED",
+      "candidateMarkets": [
+        {
+          "market": "BTTS YES",
+          "probability": 0.4818571993742021,
+          "reliability": 0.5
+        },
+        {
+          "market": "OVER 2.5",
+          "probability": 0.42374609973856653,
+          "reliability": 0.5
+        },
+        {
+          "market": "HOME",
+          "probability": 0.39160685435858433,
+          "reliability": 0.5
+        },
+        {
+          "market": "AWAY",
+          "probability": 0.33073844396336805,
+          "reliability": 0.5
+        }
+      ],
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1862067",
+      "decision": "NO_BET",
+      "publishable": false,
+      "reason": "BET_PUBLICATION_NOT_CALIBRATED",
+      "candidateMarkets": [
+        {
+          "market": "HOME",
+          "probability": 0.7072671965439773,
+          "reliability": 0.3
+        },
+        {
+          "market": "OVER 2.5",
+          "probability": 0.6733139755080905,
+          "reliability": 0.3
+        },
+        {
+          "market": "BTTS YES",
+          "probability": 0.569510623129457,
+          "reliability": 0.3
+        },
+        {
+          "market": "AWAY",
+          "probability": 0.1260766700584779,
+          "reliability": 0.3
+        }
+      ],
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1810441",
+      "decision": "NO_BET",
+      "publishable": false,
+      "reason": "BET_PUBLICATION_NOT_CALIBRATED",
+      "candidateMarkets": [
+        {
+          "market": "OVER 2.5",
+          "probability": 0.6239935992639503,
+          "reliability": 0.4
+        },
+        {
+          "market": "BTTS YES",
+          "probability": 0.6222213402324461,
+          "reliability": 0.4
+        },
+        {
+          "market": "HOME",
+          "probability": 0.5132965578068254,
+          "reliability": 0.4
+        },
+        {
+          "market": "AWAY",
+          "probability": 0.2635830730051811,
+          "reliability": 0.4
+        }
+      ],
+      "modelVersion": "FIH-V2-RESEARCH"
+    },
+    {
+      "fixtureId": "1810436",
+      "decision": "NO_BET",
+      "publishable": false,
+      "reason": "BET_PUBLICATION_NOT_CALIBRATED",
+      "candidateMarkets": [
+        {
+          "market": "AWAY",
+          "probability": 0.6557866335357752,
+          "reliability": 0.5
+        },
+        {
+          "market": "OVER 2.5",
+          "probability": 0.6304243760933022,
+          "reliability": 0.5
+        },
+        {
+          "market": "BTTS YES",
+          "probability": 0.565493924972852,
+          "reliability": 0.5
+        },
+        {
+          "market": "HOME",
+          "probability": 0.15495991439041637,
+          "reliability": 0.5
+        }
+      ],
+      "modelVersion": "FIH-V2-RESEARCH"
+    }
+  ]
+}
