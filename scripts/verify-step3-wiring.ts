@@ -4,7 +4,7 @@ const read=(p:string)=>fs.readFileSync(p,"utf8");
 const fail=(m:string):never=>{throw new Error("STEP3_WIRING_LOCK_FAILED: "+m)};
 
 const rules=JSON.parse(read("config/fih-execution-rules.json"));
-for(const id of ["MODEL-001","MODEL-002","MODEL-003","MODEL-004","MODEL-005","MODEL-006","MODEL-007","MODEL-008","MODEL-009","MODEL-010","MODEL-011","RESEARCH-016"]){
+for(const id of ["MODEL-001","MODEL-002","MODEL-003","MODEL-004","MODEL-005","MODEL-006","MODEL-007","MODEL-008","MODEL-009","MODEL-010","MODEL-011","MODEL-012","RESEARCH-016","RESEARCH-017"]){
   if(!rules.rules?.[id]?.requirement)fail("missing rule "+id);
 }
 
@@ -25,6 +25,9 @@ for(const token of [
   "CONTEXT_ONLY",
   "facts.teamQuality?.status",
   "facts.opponentStrength?.status",
+  "homeVenueRaw.length===5",
+  "awayVenueRaw.length===5",
+  "partial venue form not used",
   "usage:{"
 ]) if(!normalize.includes(token)) fail("normalizer missing "+token);
 for(const forbidden of ["facts.xg","xgFor","xgAgainst","OBSERVED_COMPLETED_MATCH_STATISTICS"])
@@ -33,7 +36,10 @@ for(const forbidden of ["facts.xg","xgFor","xgAgainst","OBSERVED_COMPLETED_MATCH
 const validator=read("scripts/research-canonical.ts");
 for(const token of [
   "RESEARCH_CATEGORY_SOURCE_REF_UNKNOWN",
-  "RESEARCH_EXTERNAL_XG_FORBIDDEN"
+  "RESEARCH_EXTERNAL_XG_FORBIDDEN",
+  'v.status==="VERIFIED"',
+  "homeLast5.length!==5",
+  "awayLast5.length!==5"
 ]) if(!validator.includes(token)) fail("research validator missing "+token);
 
 const probability=read("scripts/fih-probability-v2.ts");
@@ -77,5 +83,5 @@ if(workflow.includes("- name: Acquire fresh fixture board"))fail("unsafe uncondi
 console.log(JSON.stringify({
   ok:true,
   lock:"STEP2_TO_STEP3_VERIFIED_LINEAGE",
-  rules:["MODEL-001","MODEL-002","MODEL-003","MODEL-004","MODEL-005","MODEL-006","MODEL-007","MODEL-008","MODEL-009","MODEL-010","MODEL-011","RESEARCH-016"]
+  rules:["MODEL-001","MODEL-002","MODEL-003","MODEL-004","MODEL-005","MODEL-006","MODEL-007","MODEL-008","MODEL-009","MODEL-010","MODEL-011","MODEL-012","RESEARCH-016","RESEARCH-017"]
 },null,2));
