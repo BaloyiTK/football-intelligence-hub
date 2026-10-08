@@ -21,7 +21,9 @@
     "backtest:market:worker": "tsx scripts/historical-market-worker.ts",
     "market:capture:parlay": "tsx scripts/parlay-forward-capture.ts",
     "run:daily:once": "tsx scripts/daily-cycle.ts",
-    "research:checkpoint": "tsx scripts/research-checkpoint.ts"
+    "research:checkpoint": "tsx scripts/research-checkpoint.ts",
+    "step3:gate": "tsx scripts/step3-input-gate.ts",
+    "research:storage-lock": "tsx scripts/verify-research-storage-lock.ts"
   },
   "dependencies": {},
   "devDependencies": {
