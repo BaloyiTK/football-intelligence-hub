@@ -11,6 +11,7 @@ const outPath=path.join(root,`data/research-inbox/${DATE}.json`);
 if(!fs.existsSync(queuePath)) throw new Error("RESEARCH_QUEUE_MISSING");
 const queue=JSON.parse(fs.readFileSync(queuePath,"utf8"));
 const results:any[]=[];
+async function main(){
 for(const f of queue.fixtures){
  const sourceUrls:string[]=[]; const rows:any[]=[]; const failures:any[]=[];
  const discovered=await discoverFixturePages(f.home,f.away);
@@ -45,3 +46,5 @@ for(const f of queue.fixtures){
 fs.mkdirSync(path.dirname(outPath),{recursive:true});
 fs.writeFileSync(outPath,JSON.stringify({schema:"fih-research-inbox-v1",date:DATE,generatedAt:new Date().toISOString(),results},null,2)+"\n");
 console.log(JSON.stringify({date:DATE,fixtures:results.length,verified:results.filter(r=>r.requiredModelMatchSeries==="VERIFIED").length,partial:results.filter(r=>r.requiredModelMatchSeries!=="VERIFIED").length,outPath},null,2));
+}
+main().catch((e)=>{console.error(e);process.exit(1)});
