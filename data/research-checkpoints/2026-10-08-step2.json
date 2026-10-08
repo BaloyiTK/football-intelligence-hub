@@ -5,8 +5,8 @@
   "canonical": false,
   "status": "IN_PROGRESS",
   "eligibleCount": 51,
-  "fixtureRecordsValidated": 5,
-  "lastValidatedFixtureId": "1904014",
+  "fixtureRecordsValidated": 6,
+  "lastValidatedFixtureId": "1854213",
   "workingRecords": {
     "1718971": {
       "fixtureId": "1718971",
@@ -660,6 +660,306 @@
               "query": "CFR Cluj Universitatea Cluj rest schedule October 8 2026",
               "attemptedAt": "2026-10-08T05:08:00Z",
               "outcome": "No reliable unusual rest/congestion detail found in retained sources"
+            }
+          ]
+        }
+      }
+    },
+    "1854213": {
+      "fixtureId": "1854213",
+      "fixture": {
+        "competition": "Ligue 1",
+        "country": "Algeria",
+        "home": "JS Saoura",
+        "away": "Olympique Akbou",
+        "kickoff": "20261008190000",
+        "timezone": "Africa/Johannesburg"
+      },
+      "researchedAt": "2026-10-08T05:26:00Z",
+      "sourceMetadata": [
+        {
+          "ref": "s1",
+          "url": "https://footystats.org/algeria/js-saoura-vs-oued-akbou-h2h-stats",
+          "retrievedAt": "2026-10-08T05:26:00Z",
+          "supports": [
+            "xgXga",
+            "leaguePosition",
+            "teamQuality",
+            "h2h",
+            "goalsProfile",
+            "venueForm"
+          ]
+        },
+        {
+          "ref": "s2",
+          "url": "https://www.mackolik.com/mac/js-saoura-vs-olympique-akbou/karsilastirma/9hhftf35l470kx2cbruj3fkt0",
+          "retrievedAt": "2026-10-08T05:26:00Z",
+          "supports": [
+            "overallForm",
+            "h2h",
+            "opponentStrength"
+          ]
+        },
+        {
+          "ref": "s3",
+          "url": "https://tipsterarea.com/teams/algeria/olympique-akbou/last-away",
+          "retrievedAt": "2026-10-08T05:26:00Z",
+          "supports": [
+            "venueForm",
+            "opponentStrength"
+          ]
+        },
+        {
+          "ref": "s4",
+          "url": "https://tipsterarea.com/teams/algeria/js-saoura/last-50",
+          "retrievedAt": "2026-10-08T05:26:00Z",
+          "supports": [
+            "overallForm",
+            "opponentStrength"
+          ]
+        }
+      ],
+      "evidence": {
+        "overallForm": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "JS Saoura Olympique Akbou last five 2026",
+              "attemptedAt": "2026-10-08T05:26:00Z",
+              "outcome": "Recent results found"
+            }
+          ],
+          "sourceRefs": [
+            "s2",
+            "s4"
+          ],
+          "data": {
+            "home": [
+              "US Biskra 0-0 Saoura",
+              "JS El Biar 4-0 Saoura",
+              "Horoya 3-1 Saoura",
+              "Saoura 1-0 Horoya",
+              "Saoura 3-1 CS Constantine"
+            ],
+            "away": [
+              "Akbou 2-3 USM Alger",
+              "Rouissat 2-0 Akbou",
+              "JS El Biar 0-2 Akbou",
+              "Akbou 1-1 Ben Aknoun",
+              "USM Alger 1-0 Akbou"
+            ]
+          }
+        },
+        "venueForm": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "JS Saoura home Olympique Akbou away form 2026",
+              "attemptedAt": "2026-10-08T05:26:00Z",
+              "outcome": "Detailed home/away rates and away results found"
+            }
+          ],
+          "sourceRefs": [
+            "s1",
+            "s3"
+          ],
+          "data": {
+            "home": {
+              "ppg": 2.5,
+              "scored": 1.75,
+              "conceded": 0.25
+            },
+            "away": {
+              "ppg": 0.6,
+              "scored": 0.6,
+              "conceded": 1.2
+            },
+            "awayLast5": [
+              "Rouissat 2-0 Akbou",
+              "JS El Biar 0-2 Akbou",
+              "USM Alger 1-0 Akbou",
+              "MC Alger 2-1 Akbou",
+              "ASO Chlef 1-0 Akbou"
+            ]
+          }
+        },
+        "xgXga": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "JS Saoura Olympique Akbou xG xGA 2026",
+              "attemptedAt": "2026-10-08T05:26:00Z",
+              "outcome": "Overall and venue xG/xGA found"
+            }
+          ],
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": {
+            "home": {
+              "xgFor": 1.42,
+              "xgAgainst": 0.98,
+              "venueXgFor": 1.48,
+              "venueXgAgainst": 0.64
+            },
+            "away": {
+              "xgFor": 1.18,
+              "xgAgainst": 1.4,
+              "venueXgFor": 1.22,
+              "venueXgAgainst": 1.58
+            }
+          }
+        },
+        "leaguePosition": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "JS Saoura Olympique Akbou standings 2026",
+              "attemptedAt": "2026-10-08T05:26:00Z",
+              "outcome": "Current FootyStats positions and PPG found"
+            }
+          ],
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": {
+            "home": {
+              "position": 15,
+              "ppg": 1.6
+            },
+            "away": {
+              "position": 12,
+              "ppg": 0.8
+            },
+            "positionGap": 3
+          }
+        },
+        "teamQuality": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "JS Saoura Olympique Akbou team strength 2026",
+              "attemptedAt": "2026-10-08T05:26:00Z",
+              "outcome": "PPG, xG and defensive splits found"
+            }
+          ],
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": {
+            "home": "Strong home split: 2.5 PPG, 0.25 conceded, 1.48 home xG",
+            "away": "Weak away split: 0.6 PPG, 1.58 away xGA"
+          }
+        },
+        "motivationContext": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "JS Saoura Olympique Akbou October 8 2026 motivation context",
+              "attemptedAt": "2026-10-08T05:26:00Z",
+              "outcome": "No trustworthy specific competition-context report found"
+            }
+          ]
+        },
+        "h2h": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "JS Saoura Olympique Akbou H2H",
+              "attemptedAt": "2026-10-08T05:26:00Z",
+              "outcome": "Four recent meetings found"
+            }
+          ],
+          "sourceRefs": [
+            "s1",
+            "s2"
+          ],
+          "data": [
+            "2026-03-08 Akbou 1-0 Saoura",
+            "2025-10-04 Saoura 3-2 Akbou",
+            "2025-02-27 Saoura 2-1 Akbou",
+            "2024-10-04 Akbou 2-1 Saoura"
+          ]
+        },
+        "goalsProfile": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "JS Saoura Olympique Akbou goals BTTS over 2.5",
+              "attemptedAt": "2026-10-08T05:26:00Z",
+              "outcome": "Detailed team profiles found"
+            }
+          ],
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": {
+            "home": {
+              "scored": 1.3,
+              "conceded": 0.9,
+              "bttsPct": 30,
+              "cleanSheetPct": 60,
+              "failedScorePct": 40,
+              "over25Pct": 50
+            },
+            "away": {
+              "scored": 0.8,
+              "conceded": 1.2,
+              "bttsPct": 40,
+              "cleanSheetPct": 20,
+              "failedScorePct": 40,
+              "over25Pct": 20
+            }
+          }
+        },
+        "squadAvailability": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "JS Saoura Olympique Akbou injuries suspensions October 8 2026",
+              "attemptedAt": "2026-10-08T05:26:00Z",
+              "outcome": "No trustworthy current named absence information found"
+            }
+          ]
+        },
+        "opponentStrength": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "JS Saoura Olympique Akbou recent opponents 2026",
+              "attemptedAt": "2026-10-08T05:26:00Z",
+              "outcome": "Recent opponent identities retained"
+            }
+          ],
+          "sourceRefs": [
+            "s2",
+            "s3",
+            "s4"
+          ],
+          "data": {
+            "home": [
+              "US Biskra",
+              "JS El Biar",
+              "Horoya",
+              "Horoya",
+              "CS Constantine"
+            ],
+            "away": [
+              "USM Alger",
+              "MB Rouissat",
+              "JS El Biar",
+              "Ben Aknoun",
+              "USM Alger"
+            ]
+          }
+        },
+        "restSchedule": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "JS Saoura Olympique Akbou rest schedule October 8 2026",
+              "attemptedAt": "2026-10-08T05:26:00Z",
+              "outcome": "No reliable unusual rest/congestion information found"
             }
           ]
         }
@@ -1552,6 +1852,6 @@
       }
     }
   },
-  "nextFixtureId": "1854213",
-  "nextAction": "Submit fixture 1854213 JS Saoura vs Olympique Akbou as next structured ChatGPT Step 2 research job."
+  "nextFixtureId": "1854217",
+  "nextAction": "Submit fixture 1854217 MB Rouissat vs USM Alger as next structured ChatGPT Step 2 research job."
 }
