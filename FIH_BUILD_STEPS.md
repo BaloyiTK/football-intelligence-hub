@@ -250,10 +250,10 @@ Step 3 receives the canonical Step-2 facts and normalizes them into model-ready 
 | Step-2 evidence | Step-3 treatment |
 |---|---|
 | overall form | used directly as the primary recent-form input |
-| home/away venue form | used as a venue refinement only with exactly 5 validated HOME matches for the home side and exactly 5 validated AWAY matches for the away side; partial samples are not numerical inputs |
+| home/away venue form | used as a venue refinement only with exactly 5 validated HOME matches for the home side and exactly 5 validated AWAY matches for the away side; when usable, Step 3 also derives venue W/D/L, points, PPG and win/draw/loss rates; partial samples are not numerical inputs |
 | standings: points + matches | derive PPG in Step 3; never store calculated PPG in Step 2 |
 | standings: goal difference, or goals for/against + matches | derive goal-difference-per-game in Step 3 |
-| recent scorelines | derive scoring, conceding, BTTS and Over-2.5 rates in Step 3 |
+| recent scorelines | derive scoring, conceding, BTTS and Over-2.5 rates plus W/D/L, points, recent PPG and win/draw/loss rates in Step 3 |
 | latest verified match date + kickoff | derive rest days in Step 3 |
 | H2H | context-only unless a later calibrated mapping is explicitly approved |
 | squad availability | context-only unless a later calibrated injury-impact mapping is explicitly approved |
@@ -273,6 +273,8 @@ Process each fixture independently:
 `verified research record -> FIH V2 -> model output -> working daily model dataset`
 
 Retain, where calculated:
+- derived overall and venue result profiles: wins, draws, losses, points, PPG, win rate, draw rate and loss rate;
+- result-profile matchup edges for recent form, venue form and season standings where available;
 - expected home goals;
 - expected away goals;
 - expected total goals;
