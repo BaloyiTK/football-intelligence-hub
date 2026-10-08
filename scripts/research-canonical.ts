@@ -69,5 +69,5 @@ export function validateResearchArtifact(x:any,date:string,eligibleIds:string[],
 }
 export function validateDailyResearch(root:string,date:string,eligibleIds:string[],mode:"PREDICTION"|"BACKTEST",expectedResearchRunId?:string){
  const p=path.join(root,mode==="BACKTEST"?"data/backtest/research":"data/research",date+".json");if(!fs.existsSync(p))throw new Error("CANONICAL_DAILY_RESEARCH_MISSING "+p);
- const x=read(p);const v=validateResearchArtifact(x,date,eligibleIds,mode);if(expectedResearchRunId&&v.researchRunId!==expectedResearchRunId)throw new Error("CANONICAL_DAILY_RESEARCH_STALE_GENERATION");return {path,...v};
+ const x=read(p);if(x.schema!=="fih-daily-research-v5")throw new Error("CANONICAL_DAILY_RESEARCH_SCHEMA_UPGRADE_REQUIRED");const v=validateResearchArtifact(x,date,eligibleIds,mode);if(expectedResearchRunId&&v.researchRunId!==expectedResearchRunId)throw new Error("CANONICAL_DAILY_RESEARCH_STALE_GENERATION");return {path,...v};
 }
