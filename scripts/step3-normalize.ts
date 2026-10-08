@@ -124,7 +124,8 @@ export function normalizeResearchRecord(r:any):Step3Normalized{
         headToHead:usage(facts.headToHead?.status&&facts.headToHead.status!=="UNAVAILABLE"?"CONTEXT_ONLY":"UNAVAILABLE","facts.headToHead","supporting context; not numerically scored by FIH V2"),
         squadAvailability:usage(facts.squadAvailability?.status&&facts.squadAvailability.status!=="UNAVAILABLE"?"CONTEXT_ONLY":"UNAVAILABLE","facts.squadAvailability","retained for audit; no uncalibrated injury-severity score is invented"),
         competitionContext:usage(facts.competitionContext?.status&&facts.competitionContext.status!=="UNAVAILABLE"?"CONTEXT_ONLY":"UNAVAILABLE","facts.competitionContext","retained for audit; no uncalibrated motivation score is invented"),
-        opponentStrength:usage("CONTEXT_ONLY","recent opponents","no numeric opponent-strength score without a verified/calibrated mapping")
+        teamQuality:usage(facts.teamQuality?.status&&facts.teamQuality.status!=="UNAVAILABLE"?"CONTEXT_ONLY":"UNAVAILABLE","facts.teamQuality","retained for audit; no uncalibrated team-quality score is invented"),
+        opponentStrength:usage(facts.opponentStrength?.status&&facts.opponentStrength.status!=="UNAVAILABLE"?"CONTEXT_ONLY":"UNAVAILABLE","facts.opponentStrength","retained for audit; no numeric opponent-strength score without a verified/calibrated mapping")
       }
     }
   };
