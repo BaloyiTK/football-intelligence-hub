@@ -115,5 +115,6 @@ if(workflow.includes("- name: Acquire fresh fixture board"))fail("unsafe uncondi
 console.log(JSON.stringify({
   ok:true,
   lock:"STEP2_TO_STEP3_VERIFIED_LINEAGE",
+  actualCaptureLock:true,
   rules:["MODEL-001","MODEL-002","MODEL-003","MODEL-004","MODEL-005","MODEL-006","MODEL-007","MODEL-008","MODEL-009","MODEL-010","MODEL-011","MODEL-012","MODEL-013","MODEL-014","MODEL-015","RESEARCH-016","RESEARCH-017","RESEARCH-018","RESEARCH-019","RESEARCH-020","RESEARCH-021"]
 },null,2));
