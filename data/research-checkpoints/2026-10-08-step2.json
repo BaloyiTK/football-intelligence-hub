@@ -5,8 +5,8 @@
   "canonical": false,
   "status": "IN_PROGRESS",
   "eligibleCount": 51,
-  "fixtureRecordsValidated": 21,
-  "lastValidatedFixtureId": "1867252",
+  "fixtureRecordsValidated": 22,
+  "lastValidatedFixtureId": "1893562",
   "workingRecords": {
     "1718971": {
       "fixtureId": "1718971",
@@ -4888,6 +4888,215 @@
         }
       }
     },
+    "1893562": {
+      "fixtureId": "1893562",
+      "fixture": {
+        "competition": "Persian Gulf Pro League",
+        "country": "Iran",
+        "home": "Aluminium Arak",
+        "away": "Malavan",
+        "kickoff": "20261008143000",
+        "timezone": "Africa/Johannesburg"
+      },
+      "researchedAt": "2026-10-08T22:05:00+02:00",
+      "sourceMetadata": [
+        {
+          "ref": "s1",
+          "url": "https://www.betstudy.com/soccer-stats/h2h/aluminium-arak-malavan-17367-17371/",
+          "retrievedAt": "2026-10-08T22:05:00+02:00",
+          "supports": [
+            "overallForm",
+            "venueForm",
+            "h2h",
+            "goalsProfile",
+            "restSchedule"
+          ]
+        },
+        {
+          "ref": "s2",
+          "url": "https://tribuna.com/en/match/aluminium-arak-vs-malavan/",
+          "retrievedAt": "2026-10-08T22:05:00+02:00",
+          "supports": [
+            "leaguePosition",
+            "teamQuality",
+            "h2h"
+          ]
+        },
+        {
+          "ref": "s3",
+          "url": "https://last5games.com/head-to-head/aluminium-arak-vs-malavan/17367-17371/",
+          "retrievedAt": "2026-10-08T22:05:00+02:00",
+          "supports": [
+            "overallForm",
+            "h2h",
+            "goalsProfile"
+          ]
+        }
+      ],
+      "evidence": {
+        "overallForm": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1",
+            "s3"
+          ],
+          "data": {
+            "home": {
+              "last5": "2W-3D-0L",
+              "gfPerGame": 1.2,
+              "gaPerGame": 0.6
+            },
+            "away": {
+              "last5": "2W-0D-3L",
+              "gfPerGame": 0.8,
+              "gaPerGame": 1.4
+            }
+          }
+        },
+        "venueForm": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": {
+            "homeRecent": [
+              "0-0 Esteghlal",
+              "2-2 Kheybar",
+              "0-0 Chadormalu"
+            ],
+            "awayRecent": [
+              "2-1 at Mes Shahr-e Babak",
+              "0-3 at Persepolis",
+              "1-1 at Sanat Naft"
+            ]
+          }
+        },
+        "xgXga": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Aluminium Arak Malavan observed xG xGA 2026",
+              "attemptedAt": "2026-10-08T22:05:00+02:00",
+              "outcome": "Search surfaced xG aggregators but explicit observed provenance was not clear enough to retain under OBSERVED_XG_ONLY."
+            }
+          ]
+        },
+        "leaguePosition": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s2"
+          ],
+          "data": {
+            "home": {
+              "position": 4,
+              "points": 12,
+              "played": 6,
+              "gf": 8,
+              "ga": 3
+            },
+            "away": {
+              "position": 12,
+              "points": 7,
+              "played": 6,
+              "gf": 5,
+              "ga": 8
+            }
+          }
+        },
+        "teamQuality": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s2",
+            "s3"
+          ],
+          "data": {
+            "home": {
+              "unbeatenLast5": true,
+              "gfPerGame": 1.2,
+              "gaPerGame": 0.6
+            },
+            "away": {
+              "gfPerGame": 0.8,
+              "gaPerGame": 1.4
+            }
+          }
+        },
+        "motivationContext": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s2"
+          ],
+          "data": "Aluminium entered fourth and unbeaten after six; Malavan entered 12th."
+        },
+        "h2h": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1",
+            "s2",
+            "s3"
+          ],
+          "data": {
+            "overall16": {
+              "homeWins": 3,
+              "draws": 7,
+              "awayWins": 6
+            },
+            "recent": [
+              "2025-12-26 Aluminium 0-1 Malavan",
+              "2025-05-08 Aluminium 1-1 Malavan",
+              "2024-12-27 Malavan 1-1 Aluminium",
+              "2024-06-01 Malavan 1-1 Aluminium",
+              "2023-12-31 Aluminium 1-1 Malavan"
+            ]
+          }
+        },
+        "goalsProfile": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": {
+            "h2h16": {
+              "avgGoals": 1.94,
+              "over25Pct": 19,
+              "under25Pct": 81,
+              "bttsPct": 56
+            },
+            "homeGroundH2H": {
+              "under25Pct": 78
+            }
+          }
+        },
+        "squadAvailability": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Aluminium Arak Malavan injuries suspensions October 8 2026",
+              "attemptedAt": "2026-10-08T22:05:00+02:00",
+              "outcome": "No trustworthy complete absence list retained."
+            }
+          ]
+        },
+        "opponentStrength": {
+          "status": "PARTIAL",
+          "sourceRefs": [
+            "s1",
+            "s2"
+          ],
+          "data": "Recent opponents and league positions retained; no normalized opponent-strength metric."
+        },
+        "restSchedule": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": {
+            "homeLastMatch": "2026-09-06",
+            "awayLastMatch": "2026-09-07"
+          }
+        }
+      }
+    },
     "1904014": {
       "fixtureId": "1904014",
       "fixture": {
@@ -5160,7 +5369,7 @@
       }
     }
   },
-  "nextFixtureId": "1893562",
+  "nextFixtureId": "1893563",
   "nextAction": "Continue fixture-specific Step 2 web research from nextFixtureId.",
   "integrityRepair": {
     "at": "2026-10-08T05:45:00Z",
@@ -5194,5 +5403,5 @@
       ]
     }
   },
-  "updatedAt": "2026-10-08T22:00:00+02:00"
+  "updatedAt": "2026-10-08T22:05:00+02:00"
 }
