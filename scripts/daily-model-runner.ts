@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import {execFileSync} from "node:child_process";
 import { fihV2, Match, TeamEvidence } from "./fih-probability-v2";
 import { validateDailyResearch } from "./research-canonical";
 
@@ -39,7 +40,13 @@ if(process.env.FIH_MODEL_TEST_CHECKPOINT){
  if(!r)throw new Error("MODEL_TEST_FIXTURE_NOT_FOUND "+id);
  console.log(JSON.stringify({testOnly:true,canonical:false,...modelFixture(r)},null,2));
 }else{
- const ledger=JSON.parse(fs.readFileSync(path.join(root,"data/run-state",DATE+".json"),"utf8")),ids=ledger.fixtures.filter((f:any)=>f.eligible).map((f:any)=>String(f.id)),v=validateDailyResearch(root,DATE,ids,"PREDICTION");
- const fixtures=v.artifact.fixtures.map(modelFixture),out=path.join(root,"data/model",DATE+".json"),artifact={schema:"fih-daily-model-v2",date:DATE,model:"FIH-V2-RESEARCH",generatedAt:new Date().toISOString(),fixtureCount:fixtures.length,fixtures};
- fs.mkdirSync(path.dirname(out),{recursive:true});fs.writeFileSync(out,JSON.stringify(artifact,null,2)+"\n");const check=JSON.parse(fs.readFileSync(out,"utf8"));if(check.date!==DATE||check.fixtureCount!==ids.length||check.fixtures.length!==ids.length)throw new Error("DAILY_MODEL_PERSIST_VERIFY_FAILED");console.log(JSON.stringify({ok:true,date:DATE,fixtures:fixtures.length,canonical:out},null,2));
+ const gate=JSON.parse(execFileSync(process.execPath,["node_modules/tsx/dist/cli.mjs","scripts/step3-input-gate.ts","--date",DATE],{cwd:root,encoding:"utf8",env:{...process.env,FIH_DATE:DATE}}));
+ if(gate.gate!=="STEP3_INPUT_VERIFIED")throw new Error("STEP3_INPUT_GATE_NOT_VERIFIED");
+ const ledger=JSON.parse(fs.readFileSync(path.join(root,"data/run-state",DATE+".json"),"utf8")),ids=ledger.fixtures.filter((f:any)=>f.eligible).map((f:any)=>String(f.id)),v=validateDailyResearch(root,DATE,ids,"PREDICTION",ledger.researchRunId);
+ if(v.researchRunId!==ledger.researchRunId||gate.researchRunId!==ledger.researchRunId)throw new Error("STEP3_RESEARCH_GENERATION_MISMATCH");
+ const fixtures=v.artifact.fixtures.map(modelFixture),out=path.join(root,"data/model",DATE+".json"),artifact={schema:"fih-daily-model-v2",date:DATE,model:"FIH-V2-RESEARCH",generatedAt:new Date().toISOString(),researchRunId:v.researchRunId,inputResearchHash:gate.inputResearchHash,inputResearchCommit:gate.researchCommit,fixtureCount:fixtures.length,fixtures};
+ fs.mkdirSync(path.dirname(out),{recursive:true});fs.writeFileSync(out,JSON.stringify(artifact,null,2)+"\n");
+ const check=JSON.parse(fs.readFileSync(out,"utf8")),raw=check.fixtures.map((x:any)=>String(x.fixtureId)),want=[...ids].sort(),got=[...raw].sort();
+ if(check.date!==DATE||check.model!=="FIH-V2-RESEARCH"||check.researchRunId!==ledger.researchRunId||check.inputResearchHash!==gate.inputResearchHash||check.inputResearchCommit!==gate.researchCommit||check.fixtureCount!==ids.length||check.fixtures.length!==ids.length||raw.length!==new Set(raw).size||JSON.stringify(want)!==JSON.stringify(got))throw new Error("DAILY_MODEL_PERSIST_VERIFY_FAILED");
+ console.log(JSON.stringify({ok:true,date:DATE,fixtures:fixtures.length,researchRunId:v.researchRunId,inputResearchHash:gate.inputResearchHash,inputResearchCommit:gate.researchCommit,canonical:out},null,2));
 }
