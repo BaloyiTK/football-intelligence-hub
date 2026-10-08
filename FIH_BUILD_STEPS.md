@@ -47,6 +47,17 @@ ChatGPT owns the fixture-by-fixture data-collection stage.
 
 ### ChatGPT web-search ownership and batch persistence — LOCKED
 
+#### Single temporary accumulator + single canonical commit — NON-NEGOTIABLE LOCK
+
+- Step 2 MUST use exactly one temporary accumulator file for the active date and `researchRunId`: `data/research-work/YYYY-MM-DD.json`.
+- Every validated fixture research record is written into that same file; do not create a persistent per-fixture research file tree.
+- After every fixture write, atomically replace the accumulator, reread it, verify date/`researchRunId`/fixture universe/count, and revalidate the just-written fixture record.
+- `data/research-work/` is temporary working state and MUST remain outside Git history.
+- There are **zero Git research commits during accumulation**, including fixture-by-fixture and partial-batch commits.
+- Only after exact N/N validation and aggregate reconciliation may the accumulator be promoted to `data/research/YYYY-MM-DD.json`.
+- The promoted canonical research artifact is committed **exactly once per `researchRunId`**. A second canonical research commit for the same `researchRunId` is a contract violation and must return Step 2 to RECOVERING.
+- Step 3 is forbidden until that single canonical commit is verified and the committed research artifact is reread and revalidated.
+
 - ChatGPT MUST perform the actual web search for every eligible fixture, fixture by fixture.
 - Repository-local homepage scanning, scraping, cached link discovery, or direct-public-source discovery is not equivalent to the required ChatGPT web-search job and MUST NOT satisfy Step 2 by itself.
 - Research each eligible fixture using web search, retain only source-backed factual evidence, and add the validated fixture record to the working daily dataset.
