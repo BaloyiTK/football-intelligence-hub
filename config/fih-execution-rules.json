@@ -261,6 +261,10 @@
     "RESEARCH-023": {
       "kind": "step2-standings-raw-facts-lock",
       "requirement": "VERIFIED Step-2 standings MUST retain source-backed raw standings facts for both teams sufficient for Step 3 league-strength derivation: current table position, matches played, and points, plus goals-for/goals-against or goal difference when available. VERIFIED standings with only a prose note, source URL, or completion marker are invalid. PARTIAL standings require genuine search exhaustion and retain whatever structured source-backed fields were found."
+    },
+    "RESEARCH-024": {
+      "kind": "step2-competition-context-shape",
+      "requirement": "Step-2 competitionContext MUST retain per-team source-backed facts and motivation tags in facts.competitionContext.data.homeTeam.{facts,tags} and awayTeam.{facts,tags}. Tags are limited to the locked motivation vocabulary. The canonical validator and Step-3 motivation normalizer MUST consume the same shape; schema/normalizer drift is forbidden."
     }
   },
   "hardStops": [
