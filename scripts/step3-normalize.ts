@@ -64,14 +64,6 @@ const restDays=(rows:any[],kickoff:any)=>{
   return Math.max(0,(ko-last)/86400000);
 };
 
-const xgMetrics=(facts:any,side:"homeTeam"|"awayTeam")=>{
-  const x=facts?.xg;
-  if(!x||x.status==="UNAVAILABLE"||x.evidenceType!=="OBSERVED_COMPLETED_MATCH_STATISTICS")return {};
-  const node=x.data?.[side];
-  if(!node||typeof node!=="object")return {};
-  const base=node.overall&&typeof node.overall==="object"?node.overall:node;
-  return {xgFor:finite(base.xgFor),xgAgainst:finite(base.xgAgainst)};
-};
 
 const usage=(status:UsageStatus,source:string,detail:string,value?:number):Usage=>
   value===undefined?{status,source,detail}:{status,source,detail,value};
@@ -86,13 +78,12 @@ export function normalizeResearchRecord(r:any):Step3Normalized{
 
   const hs=standingMetrics(facts.standings?.data?.homeTeam);
   const as=standingMetrics(facts.standings?.data?.awayTeam);
-  const hx=xgMetrics(facts,"homeTeam"),ax=xgMetrics(facts,"awayTeam");
   const hp=profile(homeTeam,homeOverall),ap=profile(awayTeam,awayOverall);
   const hr=restDays(form.homeTeam?.overallLast5||[],r.fixture.kickoff);
   const ar=restDays(form.awayTeam?.overallLast5||[],r.fixture.kickoff);
 
-  const home:TeamEvidence={team:homeTeam,overall:homeOverall,venue:homeVenue,...hs,...hx,...hp,...(hr!==undefined?{restDays:hr}:{})};
-  const away:TeamEvidence={team:awayTeam,overall:awayOverall,venue:awayVenue,...as,...ax,...ap,...(ar!==undefined?{restDays:ar}:{})};
+  const home:TeamEvidence={team:homeTeam,overall:homeOverall,venue:homeVenue,...hs,...hp,...(hr!==undefined?{restDays:hr}:{})};
+  const away:TeamEvidence={team:awayTeam,overall:awayOverall,venue:awayVenue,...as,...ap,...(ar!==undefined?{restDays:ar}:{})};
 
   const metric=(v:number|undefined,source:string,detail:string,derived=true)=>
     v===undefined?usage("UNAVAILABLE",source,detail):usage(derived?"DERIVED":"USED",source,detail,v);
@@ -105,8 +96,6 @@ export function normalizeResearchRecord(r:any):Step3Normalized{
         venueForm:usage(homeVenue.length?"USED":"UNAVAILABLE","facts.form.homeTeam.homeLast5",homeVenue.length+" verified home matches"),
         ppg:metric(hs.ppg,"facts.standings.homeTeam.points/matches","points per game is derived in Step 3"),
         goalDifferencePerGame:metric(hs.goalDifferencePerGame,"facts.standings.homeTeam","goal difference per game is derived in Step 3"),
-        xgFor:metric(hx.xgFor,"facts.xg.homeTeam","observed xG only",false),
-        xgAgainst:metric(hx.xgAgainst,"facts.xg.homeTeam","observed xGA only",false),
         goalsProfile:usage(homeOverall.length?"DERIVED":"UNAVAILABLE","facts.form.homeTeam.overallLast5","scoring/conceding/BTTS/Over2.5 rates derived in Step 3"),
         restDays:metric(hr,"facts.form.homeTeam.overallLast5 + fixture.kickoff","days since latest verified match")
       },
@@ -115,8 +104,6 @@ export function normalizeResearchRecord(r:any):Step3Normalized{
         venueForm:usage(awayVenue.length?"USED":"UNAVAILABLE","facts.form.awayTeam.awayLast5",awayVenue.length+" verified away matches"),
         ppg:metric(as.ppg,"facts.standings.awayTeam.points/matches","points per game is derived in Step 3"),
         goalDifferencePerGame:metric(as.goalDifferencePerGame,"facts.standings.awayTeam","goal difference per game is derived in Step 3"),
-        xgFor:metric(ax.xgFor,"facts.xg.awayTeam","observed xG only",false),
-        xgAgainst:metric(ax.xgAgainst,"facts.xg.awayTeam","observed xGA only",false),
         goalsProfile:usage(awayOverall.length?"DERIVED":"UNAVAILABLE","facts.form.awayTeam.overallLast5","scoring/conceding/BTTS/Over2.5 rates derived in Step 3"),
         restDays:metric(ar,"facts.form.awayTeam.overallLast5 + fixture.kickoff","days since latest verified match")
       },
