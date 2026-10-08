@@ -5,8 +5,8 @@
   "canonical": false,
   "status": "IN_PROGRESS",
   "eligibleCount": 51,
-  "fixtureRecordsValidated": 22,
-  "lastValidatedFixtureId": "1893562",
+  "fixtureRecordsValidated": 23,
+  "lastValidatedFixtureId": "1893563",
   "workingRecords": {
     "1718971": {
       "fixtureId": "1718971",
@@ -5097,6 +5097,217 @@
         }
       }
     },
+    "1893563": {
+      "fixtureId": "1893563",
+      "fixture": {
+        "competition": "Persian Gulf Pro League",
+        "country": "Iran",
+        "home": "Nassaji Mazandaran FC",
+        "away": "Zob Ahan",
+        "kickoff": "20261008143000",
+        "timezone": "Africa/Johannesburg"
+      },
+      "researchedAt": "2026-10-08T22:10:00+02:00",
+      "sourceMetadata": [
+        {
+          "ref": "s1",
+          "url": "https://www.betstudy.com/soccer-stats/h2h/nassaji-mazandaran-zob-ahan-17356-3333/",
+          "retrievedAt": "2026-10-08T22:10:00+02:00",
+          "supports": [
+            "overallForm",
+            "venueForm",
+            "h2h",
+            "goalsProfile"
+          ]
+        },
+        {
+          "ref": "s2",
+          "url": "https://www.footlive.com/h2h/nassaji-mazandaran-vs-zob-ahan/",
+          "retrievedAt": "2026-10-08T22:10:00+02:00",
+          "supports": [
+            "overallForm",
+            "h2h",
+            "restSchedule"
+          ]
+        },
+        {
+          "ref": "s3",
+          "url": "https://www.soccerpunter.com/h2h/Nassaji-Mazandaran-vs-Zob-Ahan/17356/3333/",
+          "retrievedAt": "2026-10-08T22:10:00+02:00",
+          "supports": [
+            "venueForm",
+            "teamQuality",
+            "h2h"
+          ]
+        },
+        {
+          "ref": "s4",
+          "url": "https://fbref.com/en/stathead/matchup/teams/f8106fc0/2c45d10e/Zob-Ahan-vs-Nassaji-Mazandaran-History",
+          "retrievedAt": "2026-10-08T22:10:00+02:00",
+          "supports": [
+            "h2h"
+          ]
+        }
+      ],
+      "evidence": {
+        "overallForm": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1",
+            "s2"
+          ],
+          "data": {
+            "home": [
+              "1-1 Mes Shahr-e Babak",
+              "1-0 Kheybar",
+              "1-0 at Malavan",
+              "0-2 Shams Azar",
+              "1-1 at Esteghlal Khuzestan"
+            ],
+            "away": [
+              "0-2 at Persepolis",
+              "1-0 Paykan",
+              "0-0 at Fajr Sepasi",
+              "1-1 Mes Shahr-e Babak",
+              "1-2 at Malavan"
+            ]
+          }
+        },
+        "venueForm": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1",
+            "s3"
+          ],
+          "data": {
+            "home": {
+              "played": 3,
+              "wins": 1,
+              "draws": 0,
+              "losses": 2
+            },
+            "away": {
+              "played": 3,
+              "wins": 0,
+              "draws": 1,
+              "losses": 2
+            }
+          }
+        },
+        "xgXga": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Nassaji Mazandaran Zob Ahan observed xG xGA 2026",
+              "attemptedAt": "2026-10-08T22:10:00+02:00",
+              "outcome": "No explicit observed xG/xGA provenance retained."
+            }
+          ]
+        },
+        "leaguePosition": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Nassaji Mazandaran Zob Ahan standings October 8 2026",
+              "attemptedAt": "2026-10-08T22:10:00+02:00",
+              "outcome": "Search did not return a sufficiently trustworthy current numeric table for retention."
+            }
+          ]
+        },
+        "teamQuality": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s3"
+          ],
+          "data": {
+            "home": {
+              "overall": "2W-2D-3L"
+            },
+            "away": {
+              "overall": "1W-3D-2L"
+            },
+            "h2h": {
+              "homeWins": 3,
+              "draws": 5,
+              "awayWins": 6
+            }
+          }
+        },
+        "motivationContext": {
+          "status": "PARTIAL",
+          "sourceRefs": [
+            "s3"
+          ],
+          "data": "Persian Gulf Pro League fixture at Vatani Stadium; both sides described as mixed form."
+        },
+        "h2h": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1",
+            "s2",
+            "s3",
+            "s4"
+          ],
+          "data": {
+            "overall14": {
+              "homeWins": 3,
+              "draws": 5,
+              "awayWins": 6,
+              "homeGoals": 8,
+              "awayGoals": 13
+            },
+            "recent": [
+              "2025-05-15 Nassaji 0-3 Zob Ahan",
+              "2025-01-02 Zob Ahan 0-0 Nassaji",
+              "2024-05-01 Zob Ahan 0-2 Nassaji",
+              "2023-11-12 Nassaji 1-2 Zob Ahan"
+            ]
+          }
+        },
+        "goalsProfile": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": {
+            "h2h14": {
+              "avgGoals": 1.5,
+              "over25Pct": 29,
+              "under25Pct": 71,
+              "bttsPct": 21
+            }
+          }
+        },
+        "squadAvailability": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Nassaji Zob Ahan injuries suspensions October 8 2026",
+              "attemptedAt": "2026-10-08T22:10:00+02:00",
+              "outcome": "No trustworthy complete absence list retained."
+            }
+          ]
+        },
+        "opponentStrength": {
+          "status": "PARTIAL",
+          "sourceRefs": [
+            "s2",
+            "s3"
+          ],
+          "data": "Recent opponents/results retained; no normalized opponent-strength index."
+        },
+        "restSchedule": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s2"
+          ],
+          "data": {
+            "homeLastMatch": "2026-09-13",
+            "awayLastMatch": "2026-09-07"
+          }
+        }
+      }
+    },
     "1904014": {
       "fixtureId": "1904014",
       "fixture": {
@@ -5369,7 +5580,7 @@
       }
     }
   },
-  "nextFixtureId": "1893563",
+  "nextFixtureId": "1893567",
   "nextAction": "Continue fixture-specific Step 2 web research from nextFixtureId.",
   "integrityRepair": {
     "at": "2026-10-08T05:45:00Z",
@@ -5403,5 +5614,5 @@
       ]
     }
   },
-  "updatedAt": "2026-10-08T22:05:00+02:00"
+  "updatedAt": "2026-10-08T22:10:00+02:00"
 }
