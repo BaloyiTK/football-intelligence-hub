@@ -19,6 +19,7 @@ name: FIH Reliability CI
       - "scripts/step3-normalize.ts"
       - "scripts/verify-step3-wiring.ts"
       - "scripts/verify-research-storage-lock.ts"
+      - "scripts/verify-research-actual-capture.ts"
       - ".github/workflows/fih-run-now.yml"
       - "package.json"
       - "scripts/daily-decision-runner.ts"
@@ -35,6 +36,8 @@ jobs:
       - run: npm install --no-audit --no-fund
       - name: Verify Step 2 storage lock
         run: npm run research:storage-lock
+      - name: Verify Step 2 actual-capture lock
+        run: npm run research:actual-capture-lock
       - name: Verify Step 3 wiring lock
         run: npm run step3:wiring-lock
       - name: Build isolated fixture board
