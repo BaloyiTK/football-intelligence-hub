@@ -19,6 +19,21 @@ const genericFactCategoryOk=(v:any)=>{
  if(v.sourceRefs.length===0)return false;
  return v.status==="VERIFIED"||(v.status==="PARTIAL"&&exhausted(v));
 };
+const standingSideOk=(v:any,strict:boolean)=>{
+ if(!v||typeof v!=="object")return false;
+ const position=Number(v.position),matches=Number(v.matches??v.matchesPlayed),points=Number(v.points);
+ if(strict&&(!Number.isFinite(position)||position<1||!Number.isFinite(matches)||matches<1||!Number.isFinite(points)))return false;
+ if(!strict&&![position,matches,points,Number(v.goalsFor),Number(v.goalsAgainst),Number(v.goalDifference)].some(Number.isFinite))return false;
+ return true;
+};
+function standingsOk(v:any){
+ if(!genericFactCategoryOk(v))return false;
+ if(v.status==="UNAVAILABLE")return true;
+ const d=v.data;
+ if(!d?.homeTeam||!d?.awayTeam)return false;
+ const strict=v.status==="VERIFIED";
+ return standingSideOk(d.homeTeam,strict)&&standingSideOk(d.awayTeam,strict);
+}
 const h2hMatchOk=(m:any)=>m&&typeof m==="object"&&m.date&&typeof m.homeTeam==="string"&&m.homeTeam.trim()&&typeof m.awayTeam==="string"&&m.awayTeam.trim()&&Number.isFinite(Number(m.homeGoals))&&Number.isFinite(Number(m.awayGoals))&&typeof m.sourceRef==="string"&&m.sourceRef.trim();
 function headToHeadOk(v:any,strict=false){
  if(!genericFactCategoryOk(v))return false;
@@ -73,7 +88,7 @@ export function validateResearchArtifact(x:any,date:string,eligibleIds:string[],
    const cat=r?.facts?.[k];
    if(cat&&Array.isArray(cat.attempts)&&cat.attempts.some((a:any)=>syntheticCompletionOutcome(a?.outcome)))throw new Error("RESEARCH_SYNTHETIC_COMPLETION_MARKER_FORBIDDEN "+r.fixtureId+" "+k);
   }
-  if(!r.fixture||!r.researchedAt||typeof r.researchRunId!=="string"||!r.researchRunId.trim()||!Array.isArray(r.sourceMetadata)||!r.facts||!(strictVenue?formOkStrict(r.facts.form,5):formOkLegacy(r.facts.form))||!genericFactCategoryOk(r.facts.standings)||!headToHeadOk(r.facts.headToHead,strictH2h)||!factualCategoryOk(r.facts.squadAvailability)||!genericFactCategoryOk(r.facts.schedule)||!factualCategoryOk(r.facts.competitionContext)||!optionalGenericFactCategoryOk(r.facts.opponentStrength)||!optionalGenericFactCategoryOk(r.facts.teamQuality))throw new Error("RESEARCH_RECORD_INCOMPLETE "+r.fixtureId);
+  if(!r.fixture||!r.researchedAt||typeof r.researchRunId!=="string"||!r.researchRunId.trim()||!Array.isArray(r.sourceMetadata)||!r.facts||!(strictVenue?formOkStrict(r.facts.form,5):formOkLegacy(r.facts.form))||!standingsOk(r.facts.standings)||!headToHeadOk(r.facts.headToHead,strictH2h)||!factualCategoryOk(r.facts.squadAvailability)||!genericFactCategoryOk(r.facts.schedule)||!factualCategoryOk(r.facts.competitionContext)||!optionalGenericFactCategoryOk(r.facts.opponentStrength)||!optionalGenericFactCategoryOk(r.facts.teamQuality))throw new Error("RESEARCH_RECORD_INCOMPLETE "+r.fixtureId);
   if(r.facts.xg!==undefined)throw new Error("RESEARCH_EXTERNAL_XG_FORBIDDEN "+r.fixtureId);
   const refs=new Set(r.sourceMetadata.map((sm:any)=>String(sm.ref||sm.url)));
   for(const ref of r.facts.form.sourceRefs||[])if(!refs.has(String(ref)))throw new Error("RESEARCH_SOURCE_REF_UNKNOWN "+r.fixtureId);
