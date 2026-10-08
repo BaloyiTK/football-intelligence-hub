@@ -116,7 +116,7 @@
     },
     "RESEARCH-003": {
       "kind": "research-integrity",
-      "requirement": "Step 2 stores source-backed facts only. Calculated or estimated form strength, PPG, rates, clean-sheet rate, BTTS rate, Over 2.5 rate, rest days, squad quality scores, motivation scores, xG/predictions, probabilities, and betting conclusions are downstream FIH calculations and MUST NOT be stored as researched facts."
+      "requirement": "Step 2 stores source-backed facts only. Calculated or estimated form strength, PPG, rates, clean-sheet rate, BTTS rate, Over 2.5 rate, rest days, squad quality scores, motivation scores, FIH expected-goal values, probabilities, and betting conclusions are downstream FIH calculations and MUST NOT be stored as researched facts."
     },
     "RESEARCH-004": {
       "kind": "research-stage-gate",
@@ -188,7 +188,7 @@
     },
     "MODEL-005": {
       "kind": "step3-normalization-contract",
-      "requirement": "Step 3 MUST normalize the canonical Step-2 facts into explicit model inputs. Overall/venue form are consumed directly; PPG and goal-difference-per-game are derived from source-backed standings facts; goals-profile rates and rest days are derived downstream from verified match facts; observed xG/xGA may be consumed only when explicitly present as source-backed observed data. Missing evidence remains undefined, never zero."
+      "requirement": "Step 3 MUST normalize the canonical Step-2 facts into explicit model inputs. Overall/venue form are consumed directly; PPG and goal-difference-per-game are derived from source-backed standings facts; goals-profile rates and rest days are derived downstream from verified match facts. FIH expected goals (lambdaHome/lambdaAway) are calculated only in Step 3 from those factual inputs. Missing evidence remains undefined, never zero."
     },
     "MODEL-006": {
       "kind": "step3-evidence-accounting",
@@ -204,11 +204,19 @@
     },
     "MODEL-009": {
       "kind": "step3-source-traceability",
-      "requirement": "Every Step-2 evidence field that can influence Step 3 numerically MUST be validated as source-backed before use. Standings/H2H/schedule sourceRefs must resolve to retained source metadata; optional xG/xGA is consumable only when explicitly marked OBSERVED_COMPLETED_MATCH_STATISTICS and its sourceRefs validate."
+      "requirement": "Every Step-2 evidence field that can influence Step 3 numerically MUST be validated as source-backed before use. Standings/H2H/schedule and other retained sourceRefs must resolve to retained source metadata. External xG/xGA values are not Step-3 model inputs."
     },
     "MODEL-010": {
       "kind": "step3-no-imputation",
       "requirement": "Missing optional Step-3 evidence MUST remain undefined and MUST NOT be replaced by neutral numeric defaults. Pairwise PPG or goal-difference adjustments may execute only when both teams have verified finite inputs. Squad availability, motivation and H2H remain non-numeric until calibrated."
+    },
+    "RESEARCH-016": {
+      "kind": "facts-only-no-external-xg",
+      "requirement": "Canonical Step-2 research MUST NOT contain an xG/xGA model-input field. Step 2 retains factual scorelines, standings, schedule, availability and contextual evidence only; FIH expected-goal values are downstream Step-3 calculations."
+    },
+    "MODEL-011": {
+      "kind": "fih-expected-goals-ownership",
+      "requirement": "FIH expected goals are owned exclusively by Step 3. lambdaHome and lambdaAway MUST be calculated from validated Step-2 factual evidence by the active FIH model and MUST NOT consume copied, forecast, predicted, projected, or externally supplied xG/xGA values."
     }
   },
   "hardStops": [
