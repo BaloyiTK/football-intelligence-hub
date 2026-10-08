@@ -5,8 +5,6 @@ export type TeamEvidence={
  venue?:Match[];
  ppg?:number;
  goalDifferencePerGame?:number;
- xgFor?:number;
- xgAgainst?:number;
  scoringRate?:number;
  concedingRate?:number;
  bttsRate?:number;
@@ -29,13 +27,15 @@ const rates=(team:string,ms:Match[])=>{
 };
 const blend=(parts:{v:number;w:number}[])=>{const ok=parts.filter(x=>Number.isFinite(x.v)&&x.w>0),w=ok.reduce((s,x)=>s+x.w,0);return w?ok.reduce((s,x)=>s+x.v*x.w,0)/w:NaN};
 const matrix=(lh:number,la:number)=>{let H=0,D=0,A=0,O=0,B=0,t=0;for(let i=0;i<=10;i++)for(let j=0;j<=10;j++){const p=pois(i,lh)*pois(j,la);t+=p;if(i>j)H+=p;else if(i===j)D+=p;else A+=p;if(i+j>=3)O+=p;if(i>0&&j>0)B+=p}return{home:H/t,draw:D/t,away:A/t,over25:O/t,bttsYes:B/t}};
-const reliability=(e:TeamEvidence)=>{let s=0,w=0;const add=(ok:boolean,x:number)=>{w+=x;if(ok)s+=x};add(e.overall.length>=5,30);add((e.venue?.length??0)>=3,20);add(Number.isFinite(e.ppg),10);add(Number.isFinite(e.goalDifferencePerGame),10);add(Number.isFinite(e.xgFor)&&Number.isFinite(e.xgAgainst),15);add(Number.isFinite(e.scoringRate)&&Number.isFinite(e.concedingRate),10);add(Number.isFinite(e.restDays),5);return s/w};
+const reliability=(e:TeamEvidence)=>{let s=0,w=0;const add=(ok:boolean,x:number)=>{w+=x;if(ok)s+=x};add(e.overall.length>=5,30);add((e.venue?.length??0)>=3,20);add(Number.isFinite(e.ppg),10);add(Number.isFinite(e.goalDifferencePerGame),10);add(Number.isFinite(e.scoringRate)&&Number.isFinite(e.concedingRate),10);add(Number.isFinite(e.restDays),5);return s/w};
 export function fihV2(i:FihV2Input){
  const ho=rates(i.home.team,i.home.overall),ao=rates(i.away.team,i.away.overall),hv=rates(i.home.team,i.home.venue??[]),av=rates(i.away.team,i.away.venue??[]);
  if(!ho||!ao||ho.n<3||ao.n<3)return{version:"FIH-V2-RESEARCH",status:"INSUFFICIENT_DATA",reason:"Need at least 3 verified overall matches for each team."};
- // Expected-goal base: overall form is the anchor; venue, xG and scoring profiles refine it when independently verified.
- let lh=blend([{v:(ho.gf+ao.ga)/2,w:.50},{v:hv?hv.gf:NaN,w:.15},{v:av?av.ga:NaN,w:.15},{v:Number.isFinite(i.home.xgFor)?i.home.xgFor!:NaN,w:.10},{v:Number.isFinite(i.away.xgAgainst)?i.away.xgAgainst!:NaN,w:.10}]);
- let la=blend([{v:(ao.gf+ho.ga)/2,w:.50},{v:av?av.gf:NaN,w:.15},{v:hv?hv.ga:NaN,w:.15},{v:Number.isFinite(i.away.xgFor)?i.away.xgFor!:NaN,w:.10},{v:Number.isFinite(i.home.xgAgainst)?i.home.xgAgainst!:NaN,w:.10}]);
+ // FIH expected goals (lambdaHome/lambdaAway) are created here from verified factual evidence only.
+ // Overall scoring/conceding form is the anchor; home/away venue form refines the base when available.
+ // blend() renormalizes over only the factual components that actually exist.
+ let lh=blend([{v:(ho.gf+ao.ga)/2,w:.50},{v:hv?hv.gf:NaN,w:.15},{v:av?av.ga:NaN,w:.15}]);
+ let la=blend([{v:(ao.gf+ho.ga)/2,w:.50},{v:av?av.gf:NaN,w:.15},{v:hv?hv.ga:NaN,w:.15}]);
  // Conservative contextual adjustments; deliberately small until a larger backtest can calibrate them.
  const strength=Number.isFinite(i.home.ppg)&&Number.isFinite(i.away.ppg)?clamp((i.home.ppg!-i.away.ppg!)/3,-.20,.20):0;
  const gd=Number.isFinite(i.home.goalDifferencePerGame)&&Number.isFinite(i.away.goalDifferencePerGame)?clamp((i.home.goalDifferencePerGame!-i.away.goalDifferencePerGame!)/6,-.12,.12):0;
@@ -48,5 +48,5 @@ export function fihV2(i:FihV2Input){
  const resultReliability=clamp(baseR+(Number.isFinite(i.home.ppg)&&Number.isFinite(i.away.ppg)?.08:0),0,1);
  const goalsReliability=clamp(baseR+(Number.isFinite(i.home.over25Rate)&&Number.isFinite(i.away.over25Rate)?.06:0),0,1);
  const bttsReliability=clamp(baseR+(Number.isFinite(i.home.bttsRate)&&Number.isFinite(i.away.bttsRate)?.06:0),0,1);
- return{version:"FIH-V2-RESEARCH",status:"CALCULATED",expectedGoals:{home:lh,away:la,total:lh+la},probabilities:{oneXTwo:{home:p.home,draw:p.draw,away:p.away},overUnder25:{over:p.over25,under:1-p.over25},btts:{yes:p.bttsYes,no:1-p.bttsYes}},fairOdds:{home:1/p.home,draw:1/p.draw,away:1/p.away,over25:1/p.over25,bttsYes:1/p.bttsYes},reliability:{homeAway:resultReliability,over25:goalsReliability,btts:bttsReliability,overall:baseR},evidenceCoverage:{home:rHome,away:rAway},notes:["Separate market reliability from probability.","Venue/xG/standings refine rather than replace recent form.","Missing optional evidence is not imputed; paired strength adjustments apply only when both teams have verified inputs.","Squad/motivation/H2H context is not numerically scored until calibrated.","No qualification threshold is hard-coded; calibrate from larger backtests."]};
+ return{version:"FIH-V2-RESEARCH",status:"CALCULATED",expectedGoals:{home:lh,away:la,total:lh+la},probabilities:{oneXTwo:{home:p.home,draw:p.draw,away:p.away},overUnder25:{over:p.over25,under:1-p.over25},btts:{yes:p.bttsYes,no:1-p.bttsYes}},fairOdds:{home:1/p.home,draw:1/p.draw,away:1/p.away,over25:1/p.over25,bttsYes:1/p.bttsYes},reliability:{homeAway:resultReliability,over25:goalsReliability,btts:bttsReliability,overall:baseR},evidenceCoverage:{home:rHome,away:rAway},notes:["Separate market reliability from probability.","FIH expected goals are calculated internally from verified factual form/venue/standings evidence; no external xG/xGA is consumed.","Missing optional evidence is not imputed; paired strength adjustments apply only when both teams have verified inputs.","Squad/motivation/H2H context is not numerically scored until calibrated.","No qualification threshold is hard-coded; calibrate from larger backtests."]};
 }
