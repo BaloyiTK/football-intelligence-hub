@@ -5,8 +5,8 @@
   "canonical": false,
   "status": "IN_PROGRESS",
   "eligibleCount": 51,
-  "fixtureRecordsValidated": 6,
-  "lastValidatedFixtureId": "1854213",
+  "fixtureRecordsValidated": 7,
+  "lastValidatedFixtureId": "1854217",
   "workingRecords": {
     "1718971": {
       "fixtureId": "1718971",
@@ -965,6 +965,317 @@
         }
       }
     },
+    "1854217": {
+      "fixtureId": "1854217",
+      "fixture": {
+        "competition": "Ligue 1",
+        "country": "Algeria",
+        "home": "MB Rouissat",
+        "away": "USM Alger",
+        "kickoff": "20261008190000",
+        "timezone": "Africa/Johannesburg"
+      },
+      "researchedAt": "2026-10-08T05:32:00Z",
+      "sourceMetadata": [
+        {
+          "ref": "s1",
+          "url": "https://footystats.org/clubs/usm-alger-1296",
+          "retrievedAt": "2026-10-08T05:32:00Z",
+          "supports": [
+            "leaguePosition",
+            "teamQuality",
+            "goalsProfile"
+          ]
+        },
+        {
+          "ref": "s2",
+          "url": "https://www.eurosport.fr/football/d1-nedjma/2026-2027/mb-rouissat-usm-alger_mtc21931735/live-stats.shtml",
+          "retrievedAt": "2026-10-08T05:32:00Z",
+          "supports": [
+            "overallForm",
+            "h2h",
+            "opponentStrength"
+          ]
+        },
+        {
+          "ref": "s3",
+          "url": "https://tipsterarea.com/teams/algeria/usm-alger/last-away",
+          "retrievedAt": "2026-10-08T05:32:00Z",
+          "supports": [
+            "venueForm"
+          ]
+        },
+        {
+          "ref": "s4",
+          "url": "https://eaglepredict.com/predictions/match/mb-rouisset-vs-usm-alger-prediction-ligue-1-08-10-2026/",
+          "retrievedAt": "2026-10-08T05:32:00Z",
+          "supports": [
+            "xgXga",
+            "goalsProfile",
+            "venueForm"
+          ]
+        },
+        {
+          "ref": "s5",
+          "url": "https://www.probettinghub.com/en-US/matches/1h5kh/mb-rouisset-vs-usm-alger",
+          "retrievedAt": "2026-10-08T05:32:00Z",
+          "supports": [
+            "leaguePosition",
+            "teamQuality",
+            "xgXga"
+          ]
+        }
+      ],
+      "evidence": {
+        "overallForm": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "MB Rouissat USM Alger recent form 2026",
+              "attemptedAt": "2026-10-08T05:32:00Z",
+              "outcome": "Last five found"
+            }
+          ],
+          "sourceRefs": [
+            "s2"
+          ],
+          "data": {
+            "home": [
+              "MC Alger 2-0 Rouissat",
+              "Rouissat 2-0 Akbou",
+              "JS Kabylie 1-0 Rouissat",
+              "Khenchela 1-0 Rouissat",
+              "Rouissat 1-0 USM Alger"
+            ],
+            "away": [
+              "Akbou 2-3 USM Alger",
+              "USM Alger 2-0 JS El Biar",
+              "Khenchela 0-0 USM Alger",
+              "MC Oran 2-2 USM Alger",
+              "Ben Aknoun 2-2 USM Alger"
+            ]
+          }
+        },
+        "venueForm": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "MB Rouissat last home USM Alger last away 2026",
+              "attemptedAt": "2026-10-08T05:32:00Z",
+              "outcome": "USM away five verified; MB home sample sparse"
+            }
+          ],
+          "sourceRefs": [
+            "s3",
+            "s4"
+          ],
+          "data": {
+            "home": {
+              "ppg": 3,
+              "scored": 2,
+              "conceded": 0
+            },
+            "away": {
+              "ppg": 2,
+              "scored": 1.5,
+              "conceded": 1
+            },
+            "awayLast5": [
+              "Akbou 2-3 USM",
+              "Khenchela 0-0 USM",
+              "MC Oran 2-2 USM",
+              "Ben Aknoun 2-2 USM",
+              "Rouissat 1-0 USM"
+            ]
+          }
+        },
+        "xgXga": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "MB Rouissat USM Alger xG xGA 2026",
+              "attemptedAt": "2026-10-08T05:32:00Z",
+              "outcome": "Overall and venue xG/xGA found"
+            }
+          ],
+          "sourceRefs": [
+            "s4",
+            "s5"
+          ],
+          "data": {
+            "home": {
+              "xgFor": 1.05,
+              "xgAgainst": 1.18,
+              "venueXgFor": 1.44,
+              "venueXgAgainst": 0.49
+            },
+            "away": {
+              "xgFor": 1.01,
+              "xgAgainst": 0.79,
+              "venueXgFor": 0.98,
+              "venueXgAgainst": 0.93
+            }
+          }
+        },
+        "leaguePosition": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "MB Rouissat USM Alger standings 2026",
+              "attemptedAt": "2026-10-08T05:32:00Z",
+              "outcome": "Current table found"
+            }
+          ],
+          "sourceRefs": [
+            "s1",
+            "s5"
+          ],
+          "data": {
+            "home": {
+              "position": 12,
+              "points": 3,
+              "matches": 3,
+              "ppg": 1
+            },
+            "away": {
+              "position": 1,
+              "points": 7,
+              "matches": 3,
+              "ppg": 2.33
+            },
+            "pointsGap": 4,
+            "positionGap": 11
+          }
+        },
+        "teamQuality": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "MB Rouissat USM Alger team quality 2026",
+              "attemptedAt": "2026-10-08T05:32:00Z",
+              "outcome": "Current standings and form show stronger USM start"
+            }
+          ],
+          "sourceRefs": [
+            "s1",
+            "s5"
+          ],
+          "data": {
+            "home": "1.0 PPG after three league games",
+            "away": "League leader, unbeaten, 2.33 PPG"
+          }
+        },
+        "motivationContext": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "MB Rouissat USM Alger match context October 8 2026",
+              "attemptedAt": "2026-10-08T05:32:00Z",
+              "outcome": "No trustworthy specific motivation/team-news context found"
+            }
+          ]
+        },
+        "h2h": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "MB Rouissat USM Alger H2H",
+              "attemptedAt": "2026-10-08T05:32:00Z",
+              "outcome": "Three recent meetings found"
+            }
+          ],
+          "sourceRefs": [
+            "s2"
+          ],
+          "data": [
+            "2026-05-30 Rouissat 1-0 USM",
+            "2025-12-22 USM 2-0 Rouissat",
+            "2024-03-08 USM 8-0 Rouissat"
+          ]
+        },
+        "goalsProfile": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "MB Rouissat USM Alger goals BTTS over 2.5",
+              "attemptedAt": "2026-10-08T05:32:00Z",
+              "outcome": "Current team profile found"
+            }
+          ],
+          "sourceRefs": [
+            "s1",
+            "s4"
+          ],
+          "data": {
+            "home": {
+              "scored": 0.67,
+              "conceded": 1,
+              "bttsPct": 0,
+              "failedScorePct": 67
+            },
+            "away": {
+              "scored": 1.67,
+              "conceded": 0.67,
+              "bttsPct": 33,
+              "cleanSheetPct": 67
+            },
+            "match": {
+              "over25Pct": 25,
+              "bttsPct": 25
+            }
+          }
+        },
+        "squadAvailability": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "MB Rouissat USM Alger injuries suspensions October 8 2026",
+              "attemptedAt": "2026-10-08T05:32:00Z",
+              "outcome": "No trustworthy current named absence list found"
+            }
+          ]
+        },
+        "opponentStrength": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "MB Rouissat USM Alger recent opponents",
+              "attemptedAt": "2026-10-08T05:32:00Z",
+              "outcome": "Recent opponent identities found"
+            }
+          ],
+          "sourceRefs": [
+            "s2"
+          ],
+          "data": {
+            "home": [
+              "MC Alger",
+              "Olympique Akbou",
+              "JS Kabylie",
+              "USM Khenchela",
+              "USM Alger"
+            ],
+            "away": [
+              "Olympique Akbou",
+              "JS El Biar",
+              "USM Khenchela",
+              "MC Oran",
+              "ES Ben Aknoun"
+            ]
+          }
+        },
+        "restSchedule": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "MB Rouissat USM Alger rest schedule October 8 2026",
+              "attemptedAt": "2026-10-08T05:32:00Z",
+              "outcome": "No reliable unusual rest/congestion evidence found"
+            }
+          ]
+        }
+      }
+    },
     "1886716": {
       "fixtureId": "1886716",
       "fixture": {
@@ -1852,6 +2163,6 @@
       }
     }
   },
-  "nextFixtureId": "1854217",
-  "nextAction": "Submit fixture 1854217 MB Rouissat vs USM Alger as next structured ChatGPT Step 2 research job."
+  "nextFixtureId": "1854209",
+  "nextAction": "Submit fixture 1854209 MC Oran vs ES Setif as next structured ChatGPT Step 2 research job."
 }
