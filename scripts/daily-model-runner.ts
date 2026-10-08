@@ -16,7 +16,7 @@ const parseMatch=(s:any):Match|null=>{
 const matches=(v:any):Match[]=>Array.isArray(v)?v.map(x=>typeof x==="string"?parseMatch(x):x).filter((m:any)=>m&&typeof m.home==="string"&&typeof m.away==="string"&&Number.isFinite(Number(m.homeGoals))&&Number.isFinite(Number(m.awayGoals))).map((m:any)=>({home:m.home,away:m.away,homeGoals:Number(m.homeGoals),awayGoals:Number(m.awayGoals),...(Number.isFinite(Number(m.opponentStrength))?{opponentStrength:Number(m.opponentStrength)}:{})})):[];
 
 export function researchRecordToV2(r:any){
- const form=r.evidence?.form?.data||{},homeTeam=r.fixture.home,awayTeam=r.fixture.away;
+ const form=r.facts?.form?.data||{},homeTeam=r.fixture.home,awayTeam=r.fixture.away;
  const factual=(rows:any[])=>matches((rows||[]).map((m:any)=>({
   home:m.venue==="HOME"?(m.team||""):m.opponent,
   away:m.venue==="HOME"?m.opponent:(m.team||""),
