@@ -125,6 +125,22 @@
     "RESEARCH-005": {
       "kind": "research-generation",
       "requirement": "A new authorized ChatGPT research run MUST have an explicit researchRunId. Canonical research records and the daily artifact MUST share that exact ID, and ledger completion MUST be bound to it. Stale or mixed-generation research/ledger completion is invalid."
+    },
+    "STEP1-001": {
+      "kind": "fixture-universe-freeze",
+      "requirement": "After Step 1 eligibility is verified, Step 2 MUST freeze the exact eligible fixture IDs/count and researchRunId in a durable research-work manifest. Any universe drift invalidates the Step 2 working set and requires reconciliation before research continues."
+    },
+    "RESEARCH-006": {
+      "kind": "durable-fixture-checkpoint",
+      "requirement": "For every eligible fixture: ChatGPT web search -> build facts-only record -> validate record and source references -> persist to non-canonical data/research-work/<date>/fixtures/<fixtureId>.json -> reread and revalidate -> mark fixture checkpoint validated -> immediately continue to the next unvalidated fixture. Search completion without a validated durable checkpoint is not fixture completion."
+    },
+    "RESEARCH-007": {
+      "kind": "resume-exactly",
+      "requirement": "On interruption, Step 2 MUST load the active research-work manifest and resume at the first fixture without a validated durable checkpoint. Already validated checkpoints MUST NOT be discarded or needlessly researched again."
+    },
+    "RESEARCH-008": {
+      "kind": "atomic-promotion",
+      "requirement": "Step 2 is incomplete until validated checkpoints equal the frozen eligible universe N/N, aggregate reconciliation passes with no missing/extra/duplicate fixtures, the full canonical artifact validates under the active researchRunId, canonical data/research/<date>.json is promoted, the ONE canonical research commit succeeds, repository HEAD/commit is verified, and the committed canonical file is reread and revalidated. N/N without canonical commit verification is failure/RECOVERING, not completion."
     }
   },
   "hardStops": [
