@@ -45,7 +45,7 @@ if(verdict==="COMPLETE"){
  const researchValidation=validateDailyResearch(DATA_ROOT,date,eligible.map((x:any)=>String(x.id)),"PREDICTION");
  if(!researchValidation.researchRunId)fail("canonical research generation identity missing");
  if(!l.researchRunId||l.researchRunId!==researchValidation.researchRunId)fail("ledger completion is not bound to current canonical research generation");
- const canonical=[["research","fih-daily-research-v3"],["model","fih-daily-model-v2"],["decisions","fih-daily-decisions-v2"]] as const;
+ const canonical=[["research","fih-daily-research-v5"],["model","fih-daily-model-v2"],["decisions","fih-daily-decisions-v2"]] as const;
  const ids=eligible.map((x:any)=>String(x.id)).sort();
  for(const [kind,schema] of canonical){const p=DATA_ROOT+"/data/"+kind+"/"+date+".json";if(!fs.existsSync(p))fail("canonical daily artifact missing "+p);const x=JSON.parse(fs.readFileSync(p,"utf8"));if(x.schema!==schema||x.date!==date||!Array.isArray(x.fixtures))fail("canonical daily artifact invalid "+kind);const raw=x.fixtures.map((r:any)=>String(r.fixtureId));if(raw.length!==new Set(raw).size)fail("canonical artifact duplicate fixture "+kind);const got=raw.sort();if(JSON.stringify(got)!==JSON.stringify(ids))fail("canonical artifact coverage mismatch "+kind);}
  if(pred.eligibleFixtures!==eligible.length)fail("prediction eligible count mismatch");
