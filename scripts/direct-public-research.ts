@@ -29,7 +29,7 @@ for(const f of queue.fixtures){
  const attempt=(category:string,outcome:string)=>[{query:`${f.home} ${f.away} ${DATE} ${category}`,attemptedAt,outcome}];
  const unavailable=(category:string,reason:string)=>({status:"UNAVAILABLE",reason,attempts:attempt(category,"NOT_SEARCHED_BY_DIRECT_EXTRACTOR")});
  const categories={
-  overallForm:{status:enough?"VERIFIED":"PARTIAL",homeMatches:home,awayMatches:away,attempts:attempt("overall form",enough?"SOURCE_EVIDENCE_FOUND":"INSUFFICIENT_SOURCE_EVIDENCE")},
+  overallForm:{status:enough?"VERIFIED":(sourceUrls.length?"PARTIAL":"UNAVAILABLE"),homeMatches:home,awayMatches:away,sourceRefs:sourceUrls.map((_,idx)=>idx),attempts:attempt("overall form",enough?"SOURCE_EVIDENCE_FOUND":(sourceUrls.length?"INSUFFICIENT_SOURCE_EVIDENCE":"NO_SOURCE_EVIDENCE"))},
   venueForm:unavailable("venue form","Direct extractor did not execute a category-specific search."),
   xgXga:unavailable("xG xGA","Direct extractor did not execute a category-specific search."),
   leaguePosition:unavailable("standings PPG goal difference","Direct extractor did not execute a category-specific search."),
