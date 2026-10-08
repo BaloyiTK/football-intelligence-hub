@@ -23,6 +23,19 @@ const teamMatches=(team:string,rows:any[]):Match[]=>{
     }));
 };
 
+const h2hMatches=(homeTeam:string,awayTeam:string,node:any):Match[]=>{
+  const rows=node?.data?.matches??node?.data?.last5??node?.data?.meetings??[];
+  if(!Array.isArray(rows))return [];
+  return rows.map((m:any)=>{
+    const home=String(m?.homeTeam??m?.home??"");
+    const away=String(m?.awayTeam??m?.away??"");
+    const homeGoals=finite(m?.homeGoals),awayGoals=finite(m?.awayGoals);
+    if(!home||!away||homeGoals===undefined||awayGoals===undefined)return null;
+    if(!([home,away].includes(homeTeam)&&[home,away].includes(awayTeam)))return null;
+    return {home,away,homeGoals,awayGoals} as Match;
+  }).filter(Boolean).slice(0,5) as Match[];
+};
+
 const profile=(team:string,ms:Match[])=>{
   if(!ms.length)return {};
   const gf=(m:Match)=>m.home===team?m.homeGoals:m.awayGoals;
@@ -64,34 +77,51 @@ const restDays=(rows:any[],kickoff:any)=>{
   return Math.max(0,(ko-last)/86400000);
 };
 
+const tagList=(node:any,side:"homeTeam"|"awayTeam")=>{
+  const raw=node?.data?.[side]?.tags??node?.data?.[side]?.contextTags??[];
+  return Array.isArray(raw)?raw.map((x:any)=>String(x).trim().toUpperCase()).filter(Boolean):[];
+};
+const motivationIndex=(competition:string,tags:string[])=>{
+  const t=new Set(tags);
+  if(t.has("DEAD_RUBBER"))return .25;
+  if(/friendly/i.test(competition)||t.has("FRIENDLY"))return .5;
+  if(["MUST_WIN","KNOCKOUT_ELIMINATION","TITLE_DECIDER","RELEGATION_DECIDER","PROMOTION_DECIDER"].some(x=>t.has(x)))return 3;
+  if(["TITLE_RACE","RELEGATION_BATTLE","PROMOTION_RACE","QUALIFICATION_RACE","PLAYOFF_RACE"].some(x=>t.has(x)))return 2;
+  if(t.has("ROTATION_EXPECTED"))return .75;
+  return 1;
+};
 
 const usage=(status:UsageStatus,source:string,detail:string,value?:number):Usage=>
   value===undefined?{status,source,detail}:{status,source,detail,value};
 
 export function normalizeResearchRecord(r:any):Step3Normalized{
   if(!r?.fixture?.home||!r?.fixture?.away)throw new Error("STEP3_NORMALIZE_FIXTURE_IDENTITY_MISSING "+String(r?.fixtureId||""));
-  const facts=r.facts||{},form=facts.form?.data||{},homeTeam=String(r.fixture.home),awayTeam=String(r.fixture.away);
+  const facts=r.facts||{},form=facts.form?.data||{},homeTeam=String(r.fixture.home),awayTeam=String(r.fixture.away),competition=String(r.fixture.competition||"");
   const homeOverall=teamMatches(homeTeam,form.homeTeam?.overallLast5||[]);
   const homeVenueRaw=teamMatches(homeTeam,form.homeTeam?.homeLast5||[]);
   const homeVenue=homeVenueRaw.length===5?homeVenueRaw:[];
   const awayOverall=teamMatches(awayTeam,form.awayTeam?.overallLast5||[]);
   const awayVenueRaw=teamMatches(awayTeam,form.awayTeam?.awayLast5||[]);
   const awayVenue=awayVenueRaw.length===5?awayVenueRaw:[];
+  const h2hRaw=h2hMatches(homeTeam,awayTeam,facts.headToHead);
+  const h2h=h2hRaw.length===5?h2hRaw:[];
 
   const hs=standingMetrics(facts.standings?.data?.homeTeam);
   const as=standingMetrics(facts.standings?.data?.awayTeam);
   const hp=profile(homeTeam,homeOverall),ap=profile(awayTeam,awayOverall);
   const hr=restDays(form.homeTeam?.overallLast5||[],r.fixture.kickoff);
   const ar=restDays(form.awayTeam?.overallLast5||[],r.fixture.kickoff);
+  const homeTags=tagList(facts.competitionContext,"homeTeam"),awayTags=tagList(facts.competitionContext,"awayTeam");
+  const hm=motivationIndex(competition,homeTags),am=motivationIndex(competition,awayTags);
 
-  const home:TeamEvidence={team:homeTeam,overall:homeOverall,venue:homeVenue,...hs,...hp,...(hr!==undefined?{restDays:hr}:{})};
-  const away:TeamEvidence={team:awayTeam,overall:awayOverall,venue:awayVenue,...as,...ap,...(ar!==undefined?{restDays:ar}:{})};
+  const home:TeamEvidence={team:homeTeam,overall:homeOverall,venue:homeVenue,...hs,...hp,motivation:hm,...(hr!==undefined?{restDays:hr}:{})};
+  const away:TeamEvidence={team:awayTeam,overall:awayOverall,venue:awayVenue,...as,...ap,motivation:am,...(ar!==undefined?{restDays:ar}:{})};
 
   const metric=(v:number|undefined,source:string,detail:string,derived=true)=>
     v===undefined?usage("UNAVAILABLE",source,detail):usage(derived?"DERIVED":"USED",source,detail,v);
 
   return {
-    input:{home,away},
+    input:{home,away,h2h},
     usage:{
       home:{
         overallForm:usage(homeOverall.length?"USED":"UNAVAILABLE","facts.form.homeTeam.overallLast5",homeOverall.length+" verified matches"),
@@ -101,6 +131,7 @@ export function normalizeResearchRecord(r:any):Step3Normalized{
         goalsProfile:usage(homeOverall.length?"DERIVED":"UNAVAILABLE","facts.form.homeTeam.overallLast5","scoring/conceding/BTTS/Over2.5 rates derived in Step 3"),
         resultProfileOverall:usage(homeOverall.length?"DERIVED":"UNAVAILABLE","facts.form.homeTeam.overallLast5","W/D/L, points, PPG and result rates derived in Step 3 from scorelines"),
         resultProfileVenue:usage(homeVenue.length===5?"DERIVED":"UNAVAILABLE","facts.form.homeTeam.homeLast5",homeVenue.length===5?"venue W/D/L, points, PPG and result rates derived from 5 HOME matches":"venue result profile requires exactly 5 HOME matches"),
+        motivation:usage("DERIVED","fixture.competition + facts.competitionContext",homeTags.length?"locked motivation index from source-backed tags: "+homeTags.join(","):"locked competitive-fixture baseline",hm),
         restDays:metric(hr,"facts.form.homeTeam.overallLast5 + fixture.kickoff","days since latest verified match")
       },
       away:{
@@ -111,14 +142,15 @@ export function normalizeResearchRecord(r:any):Step3Normalized{
         goalsProfile:usage(awayOverall.length?"DERIVED":"UNAVAILABLE","facts.form.awayTeam.overallLast5","scoring/conceding/BTTS/Over2.5 rates derived in Step 3"),
         resultProfileOverall:usage(awayOverall.length?"DERIVED":"UNAVAILABLE","facts.form.awayTeam.overallLast5","W/D/L, points, PPG and result rates derived in Step 3 from scorelines"),
         resultProfileVenue:usage(awayVenue.length===5?"DERIVED":"UNAVAILABLE","facts.form.awayTeam.awayLast5",awayVenue.length===5?"venue W/D/L, points, PPG and result rates derived from 5 AWAY matches":"venue result profile requires exactly 5 AWAY matches"),
+        motivation:usage("DERIVED","fixture.competition + facts.competitionContext",awayTags.length?"locked motivation index from source-backed tags: "+awayTags.join(","):"locked competitive-fixture baseline",am),
         restDays:metric(ar,"facts.form.awayTeam.overallLast5 + fixture.kickoff","days since latest verified match")
       },
       shared:{
-        headToHead:usage(facts.headToHead?.status&&facts.headToHead.status!=="UNAVAILABLE"?"CONTEXT_ONLY":"UNAVAILABLE","facts.headToHead","supporting context; not numerically scored by FIH V2"),
-        squadAvailability:usage(facts.squadAvailability?.status&&facts.squadAvailability.status!=="UNAVAILABLE"?"CONTEXT_ONLY":"UNAVAILABLE","facts.squadAvailability","retained for audit; no uncalibrated injury-severity score is invented"),
-        competitionContext:usage(facts.competitionContext?.status&&facts.competitionContext.status!=="UNAVAILABLE"?"CONTEXT_ONLY":"UNAVAILABLE","facts.competitionContext","retained for audit; no uncalibrated motivation score is invented"),
+        headToHead:usage(h2h.length===5?"USED":(h2hRaw.length?"CONTEXT_ONLY":"UNAVAILABLE"),"facts.headToHead",h2h.length===5?"5 verified H2H meetings used by FIH-5F-V1":h2hRaw.length+" of 5 structured H2H meetings; partial H2H not used numerically"),
+        squadAvailability:usage(facts.squadAvailability?.status&&facts.squadAvailability.status!=="UNAVAILABLE"?"CONTEXT_ONLY":"UNAVAILABLE","facts.squadAvailability","retained for audit; no injury-severity score is invented"),
+        competitionContext:usage("DERIVED","fixture.competition + facts.competitionContext","FIH-5F-V1 motivation index is derived in Step 3; Step 2 retains source-backed context facts/tags only"),
         teamQuality:usage(facts.teamQuality?.status&&facts.teamQuality.status!=="UNAVAILABLE"?"CONTEXT_ONLY":"UNAVAILABLE","facts.teamQuality","retained for audit; no uncalibrated team-quality score is invented"),
-        opponentStrength:usage(facts.opponentStrength?.status&&facts.opponentStrength.status!=="UNAVAILABLE"?"CONTEXT_ONLY":"UNAVAILABLE","facts.opponentStrength","retained for audit; no numeric opponent-strength score without a verified/calibrated mapping")
+        opponentStrength:usage(facts.opponentStrength?.status&&facts.opponentStrength.status!=="UNAVAILABLE"?"CONTEXT_ONLY":"UNAVAILABLE","facts.opponentStrength","retained for audit; no numeric opponent-strength score without a verified mapping")
       }
     }
   };
