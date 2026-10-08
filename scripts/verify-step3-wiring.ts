@@ -4,7 +4,7 @@ const read=(p:string)=>fs.readFileSync(p,"utf8");
 const fail=(m:string):never=>{throw new Error("STEP3_WIRING_LOCK_FAILED: "+m)};
 
 const rules=JSON.parse(read("config/fih-execution-rules.json"));
-for(const id of ["MODEL-001","MODEL-002","MODEL-003","MODEL-004","MODEL-005","MODEL-006","MODEL-007","MODEL-008","MODEL-009","MODEL-010","MODEL-011","MODEL-012","MODEL-013","MODEL-014","MODEL-015","RESEARCH-016","RESEARCH-017","RESEARCH-018","RESEARCH-019","RESEARCH-020","RESEARCH-021","RESEARCH-022","RESEARCH-023"]){
+for(const id of ["MODEL-001","MODEL-002","MODEL-003","MODEL-004","MODEL-005","MODEL-006","MODEL-007","MODEL-008","MODEL-009","MODEL-010","MODEL-011","MODEL-012","MODEL-013","MODEL-014","MODEL-015","RESEARCH-016","RESEARCH-017","RESEARCH-018","RESEARCH-019","RESEARCH-020","RESEARCH-021","RESEARCH-022","RESEARCH-023","RESEARCH-024"]){
   if(!rules.rules?.[id]?.requirement)fail("missing rule "+id);
 }
 
@@ -57,7 +57,9 @@ for(const token of [
   "syntheticCompletionOutcome",
   "exhausted(v)",
   "standingsOk",
-  "standingSideOk"
+  "standingSideOk",
+  "competitionContextOk",
+  "MOTIVATION_TAGS"
 ]) if(!validator.includes(token)) fail("research validator missing "+token);
 
 for(const forbiddenPath of ["scripts/chatgpt-research-refresh.ts",".github/workflows/fih-research-refresh.yml","automation/research-refresh.flag"]){
@@ -69,7 +71,7 @@ if(!checkpoint.includes('schema:"fih-daily-research-v5"'))fail("new Step 2 check
 if(!checkpoint.includes('schema:"fih-research-temp-accumulator-v2"'))fail("Step 2 temp accumulator is not H2H-lock v2");
 
 const daily=read("scripts/daily-cycle.ts");
-for(const token of ['overallForm:{count:5','venueForm:{count:5','homeTeam:"LAST_COMPLETED_HOME"','awayTeam:"LAST_COMPLETED_AWAY"','standings:{homeTeam:"CURRENT_COMPETITION_TABLE"','squadAvailability:{factsOnly:true','schedule:{factsOnly:true','competitionContext:{factsOnly:true','headToHead:{count:5','storage:"facts.headToHead.data.matches"','verifiedRequiresExactCount:true','partialRequiresSearchExhausted:true','canonicalResearchSchema:"fih-daily-research-v5"'])
+for(const token of ['overallForm:{count:5','venueForm:{count:5','homeTeam:"LAST_COMPLETED_HOME"','awayTeam:"LAST_COMPLETED_AWAY"','standings:{homeTeam:"CURRENT_COMPETITION_TABLE"','squadAvailability:{factsOnly:true','schedule:{factsOnly:true','competitionContext:{factsOnly:true','storage:"facts.competitionContext.data.{homeTeam,awayTeam}.{facts,tags}"','headToHead:{count:5','storage:"facts.headToHead.data.matches"','verifiedRequiresExactCount:true','partialRequiresSearchExhausted:true','canonicalResearchSchema:"fih-daily-research-v5"'])
   if(!daily.includes(token))fail("Step 2 queue missing requested venue count "+token);
 
 const probability=read("scripts/fih-probability-v2.ts");
@@ -118,5 +120,5 @@ console.log(JSON.stringify({
   ok:true,
   lock:"STEP2_TO_STEP3_VERIFIED_LINEAGE",
   actualCaptureLock:true,
-  rules:["MODEL-001","MODEL-002","MODEL-003","MODEL-004","MODEL-005","MODEL-006","MODEL-007","MODEL-008","MODEL-009","MODEL-010","MODEL-011","MODEL-012","MODEL-013","MODEL-014","MODEL-015","RESEARCH-016","RESEARCH-017","RESEARCH-018","RESEARCH-019","RESEARCH-020","RESEARCH-021","RESEARCH-022","RESEARCH-023"]
+  rules:["MODEL-001","MODEL-002","MODEL-003","MODEL-004","MODEL-005","MODEL-006","MODEL-007","MODEL-008","MODEL-009","MODEL-010","MODEL-011","MODEL-012","MODEL-013","MODEL-014","MODEL-015","RESEARCH-016","RESEARCH-017","RESEARCH-018","RESEARCH-019","RESEARCH-020","RESEARCH-021","RESEARCH-022","RESEARCH-023","RESEARCH-024"]
 },null,2));
