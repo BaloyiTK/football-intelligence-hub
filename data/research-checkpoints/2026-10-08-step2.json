@@ -5,9 +5,329 @@
   "canonical": false,
   "status": "IN_PROGRESS",
   "eligibleCount": 51,
-  "fixtureRecordsValidated": 2,
-  "lastValidatedFixtureId": "1886717",
+  "fixtureRecordsValidated": 3,
+  "lastValidatedFixtureId": "1807243",
   "workingRecords": {
+    "1807243": {
+      "fixtureId": "1807243",
+      "fixture": {
+        "competition": "Liga 1",
+        "country": "Romania",
+        "home": "CFR Cluj",
+        "away": "Universitatea Cluj",
+        "kickoff": "20261008193000",
+        "timezone": "Africa/Johannesburg"
+      },
+      "researchedAt": "2026-10-08T05:08:00Z",
+      "sourceMetadata": [
+        {
+          "ref": "s1",
+          "url": "https://www.fotmob.com/matches/cfr-cluj-vs-universitatea-cluj/28n4j38",
+          "retrievedAt": "2026-10-08T05:08:00Z",
+          "supports": [
+            "squadAvailability",
+            "h2h"
+          ]
+        },
+        {
+          "ref": "s2",
+          "url": "https://tipsterarea.com/teams/romania/cfr-cluj/last-home",
+          "retrievedAt": "2026-10-08T05:08:00Z",
+          "supports": [
+            "venueForm"
+          ]
+        },
+        {
+          "ref": "s3",
+          "url": "https://tipsterarea.com/teams/romania/universitatea-cluj/last-away",
+          "retrievedAt": "2026-10-08T05:08:00Z",
+          "supports": [
+            "venueForm"
+          ]
+        },
+        {
+          "ref": "s4",
+          "url": "https://www.prosoccer-tips.com/head2head.aspx?gamenumber=739358899",
+          "retrievedAt": "2026-10-08T05:08:00Z",
+          "supports": [
+            "overallForm",
+            "h2h",
+            "goalsProfile"
+          ]
+        },
+        {
+          "ref": "s5",
+          "url": "https://compactstats.com/team/rou-cfr-1907-cluj/",
+          "retrievedAt": "2026-10-08T05:08:00Z",
+          "supports": [
+            "overallForm",
+            "goalsProfile",
+            "teamQuality"
+          ]
+        },
+        {
+          "ref": "s6",
+          "url": "https://compactstats.com/team/rou-universitatea-cluj/",
+          "retrievedAt": "2026-10-08T05:08:00Z",
+          "supports": [
+            "overallForm",
+            "goalsProfile",
+            "opponentStrength"
+          ]
+        },
+        {
+          "ref": "s7",
+          "url": "https://www.advancescores.com/match-schedule/cfr-1907-cluj-vs-universitatea-cluj-1565207",
+          "retrievedAt": "2026-10-08T05:08:00Z",
+          "supports": [
+            "leaguePosition",
+            "teamQuality",
+            "goalsProfile"
+          ]
+        }
+      ],
+      "evidence": {
+        "overallForm": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "CFR Cluj Universitatea Cluj last five 2026",
+              "attemptedAt": "2026-10-08T05:08:00Z",
+              "outcome": "Both teams last five found"
+            }
+          ],
+          "sourceRefs": [
+            "s4",
+            "s5",
+            "s6"
+          ],
+          "data": {
+            "home": [
+              "CFR 3-1 Botosani",
+              "Sepsi 3-1 CFR",
+              "CFR 0-0 Farul",
+              "Csikszereda 2-3 CFR",
+              "CFR 1-0 FCSB"
+            ],
+            "away": [
+              "Voluntari 0-2 U Cluj",
+              "U Cluj 3-0 Otelul",
+              "Craiova 4-0 U Cluj",
+              "U Cluj 2-3 Petrolul",
+              "Dinamo 2-1 U Cluj"
+            ]
+          }
+        },
+        "venueForm": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "CFR Cluj last home Universitatea Cluj last away 2026",
+              "attemptedAt": "2026-10-08T05:08:00Z",
+              "outcome": "Venue-specific sequences located"
+            }
+          ],
+          "sourceRefs": [
+            "s2",
+            "s3"
+          ],
+          "data": {
+            "homeLast5": [
+              "CFR 3-1 Botosani",
+              "CFR 0-0 Farul",
+              "CFR 1-0 FCSB",
+              "CFR 0-5 Tromso",
+              "CFR 3-0 Alashkert"
+            ],
+            "awayLast5": [
+              "Voluntari 0-2 U Cluj",
+              "Craiova 4-0 U Cluj",
+              "Dinamo 2-1 U Cluj",
+              "Brann 3-1 U Cluj",
+              "Sepsi 1-0 U Cluj"
+            ]
+          }
+        },
+        "xgXga": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "CFR Cluj Universitatea Cluj xG xGA 2026",
+              "attemptedAt": "2026-10-08T05:08:00Z",
+              "outcome": "FotMob notes xG availability for match coverage but no trustworthy pre-match team xG/xGA values exposed in retained results"
+            }
+          ]
+        },
+        "leaguePosition": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "CFR Cluj Universitatea Cluj standings 2026",
+              "attemptedAt": "2026-10-08T05:08:00Z",
+              "outcome": "Table snapshot located but source timestamp is older than current fixture"
+            }
+          ],
+          "sourceRefs": [
+            "s7"
+          ],
+          "data": {
+            "snapshot": {
+              "home": {
+                "position": 12,
+                "points": 3,
+                "matches": 3,
+                "gd": 2
+              },
+              "away": {
+                "position": 6,
+                "points": 6,
+                "matches": 3,
+                "gd": 1
+              }
+            },
+            "note": "Older season snapshot; retained PARTIAL only."
+          }
+        },
+        "teamQuality": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "CFR Cluj Universitatea Cluj season quality 2026",
+              "attemptedAt": "2026-10-08T05:08:00Z",
+              "outcome": "Season goal/form records found"
+            }
+          ],
+          "sourceRefs": [
+            "s5",
+            "s7"
+          ],
+          "data": {
+            "home": {
+              "gf": 11,
+              "ga": 10,
+              "seasonMatches": 7
+            },
+            "away": "Recent results include 2-0 Voluntari and 3-0 Otelul; mixed away form"
+          }
+        },
+        "motivationContext": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "CFR Cluj Universitatea Cluj October 8 2026 match context motivation",
+              "attemptedAt": "2026-10-08T05:08:00Z",
+              "outcome": "No trustworthy specific title/relegation/cup motivation context found in retained sources"
+            }
+          ]
+        },
+        "h2h": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "CFR Cluj Universitatea Cluj H2H",
+              "attemptedAt": "2026-10-08T05:08:00Z",
+              "outcome": "Recent H2H located"
+            }
+          ],
+          "sourceRefs": [
+            "s1",
+            "s4"
+          ],
+          "data": [
+            "2026-04-25 CFR 1-0 U Cluj",
+            "2026-03-16 U Cluj 2-1 CFR",
+            "2026-02-07 CFR 3-2 U Cluj",
+            "2025-09-29 U Cluj 2-2 CFR"
+          ]
+        },
+        "goalsProfile": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "CFR Cluj Universitatea Cluj over 2.5 BTTS goals 2026",
+              "attemptedAt": "2026-10-08T05:08:00Z",
+              "outcome": "Season and H2H goal profiles found"
+            }
+          ],
+          "sourceRefs": [
+            "s4",
+            "s5",
+            "s6",
+            "s7"
+          ],
+          "data": {
+            "home": {
+              "over25Pct": 71,
+              "bttsPct": 43,
+              "gf": 11,
+              "ga": 10
+            },
+            "h2h": {
+              "over25Pct": 60,
+              "bttsPct": 60
+            }
+          }
+        },
+        "squadAvailability": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "CFR Cluj Universitatea Cluj injuries suspensions October 8 2026",
+              "attemptedAt": "2026-10-08T05:08:00Z",
+              "outcome": "Named injury information found but complete lists unavailable"
+            }
+          ],
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": [
+            "Ervin Omić - muscle injury",
+            "Yuval Sade - knock"
+          ]
+        },
+        "opponentStrength": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "CFR Cluj Universitatea Cluj recent opponents 2026",
+              "attemptedAt": "2026-10-08T05:08:00Z",
+              "outcome": "Recent opponent identities verified"
+            }
+          ],
+          "sourceRefs": [
+            "s4",
+            "s5",
+            "s6"
+          ],
+          "data": {
+            "home": [
+              "Botosani",
+              "Sepsi",
+              "Farul",
+              "Csikszereda",
+              "FCSB"
+            ],
+            "away": [
+              "Voluntari",
+              "Otelul",
+              "Universitatea Craiova",
+              "Petrolul",
+              "Dinamo"
+            ]
+          }
+        },
+        "restSchedule": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "CFR Cluj Universitatea Cluj rest schedule October 8 2026",
+              "attemptedAt": "2026-10-08T05:08:00Z",
+              "outcome": "No reliable unusual rest/congestion detail found in retained sources"
+            }
+          ]
+        }
+      }
+    },
     "1886716": {
       "fixtureId": "1886716",
       "fixture": {
@@ -624,6 +944,6 @@
       }
     }
   },
-  "nextFixtureId": "1807243",
-  "nextAction": "Submit fixture 1807243 CFR Cluj vs Universitatea Cluj as next structured ChatGPT Step 2 research job."
+  "nextFixtureId": "1718971",
+  "nextAction": "Submit fixture 1718971 Shamrock Rovers vs Drogheda United as next structured ChatGPT Step 2 research job."
 }
