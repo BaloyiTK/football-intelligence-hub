@@ -197,7 +197,7 @@ For every eligible fixture in a daily run or backtest:
 1. Start from that fixture on the verified LiveScore board.
 2. Perform fixture-specific external web research using credible sources.
 3. For a backtest, restrict evidence to information that existed before that fixture's kickoff; never use the target match result or later information as research input.
-4. Attempt all evidence categories defined in `FIH_BUILD_STEPS.md`, including last-five overall, venue form, H2H, standings, goals profile, xG/xGA where reliable, squad availability, motivation/context, opponent strength, and rest/schedule.
+4. Attempt all evidence categories defined in `FIH_BUILD_STEPS.md`, including last-five overall, venue form, H2H, standings, goals profile, squad availability, motivation/context, opponent strength, and rest/schedule.
 5. Persist source references/URLs and retrieval/reconstruction metadata with the fixture evidence.
 6. Missing categories must be explicitly `UNAVAILABLE`; they may not be silently skipped or replaced with same-window target results.
 7. The FIH probability stage may begin for a fixture only after its research record has been persisted and verified.
