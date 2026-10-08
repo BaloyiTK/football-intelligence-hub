@@ -1,39 +1,53 @@
 import fs from "node:fs";
 import path from "node:path";
 import {execFileSync} from "node:child_process";
-import { fihV2, Match, TeamEvidence } from "./fih-probability-v2";
+import { fihV2 } from "./fih-probability-v2";
+import { normalizeResearchRecord } from "./step3-normalize";
 import { validateDailyResearch } from "./research-canonical";
 
 const DATE=process.env.FIH_DATE||new Intl.DateTimeFormat("en-CA",{timeZone:"Africa/Johannesburg",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date()),root=process.cwd();
 
-const finite=(v:any)=>{const n=Number(v);return Number.isFinite(n)?n:undefined};
-const rate=(v:any)=>{const n=finite(v);return n===undefined?undefined:(n>1?n/100:n)};
-const parseMatch=(s:any):Match|null=>{
- if(typeof s!=="string")return null;
- const m=s.trim().match(/^(.+?)\s+(\d+)\s*[-–]\s*(\d+)\s+(.+)$/);
- if(!m)return null;
- return {home:m[1].trim(),homeGoals:Number(m[2]),awayGoals:Number(m[3]),away:m[4].trim()};
-};
-const matches=(v:any):Match[]=>Array.isArray(v)?v.map(x=>typeof x==="string"?parseMatch(x):x).filter((m:any)=>m&&typeof m.home==="string"&&typeof m.away==="string"&&Number.isFinite(Number(m.homeGoals))&&Number.isFinite(Number(m.awayGoals))).map((m:any)=>({home:m.home,away:m.away,homeGoals:Number(m.homeGoals),awayGoals:Number(m.awayGoals),...(Number.isFinite(Number(m.opponentStrength))?{opponentStrength:Number(m.opponentStrength)}:{})})):[];
-
 export function researchRecordToV2(r:any){
- const form=r.facts?.form?.data||{},homeTeam=r.fixture.home,awayTeam=r.fixture.away;
- const factual=(rows:any[])=>matches((rows||[]).map((m:any)=>({
-  home:m.venue==="HOME"?(m.team||""):m.opponent,
-  away:m.venue==="HOME"?m.opponent:(m.team||""),
-  homeGoals:m.venue==="HOME"?Number(m.goalsFor):Number(m.goalsAgainst),
-  awayGoals:m.venue==="HOME"?Number(m.goalsAgainst):Number(m.goalsFor)
- })));
- const homeOverall=(form.homeTeam?.overallLast5||[]).map((m:any)=>({...m,team:homeTeam}));
- const homeVenue=(form.homeTeam?.homeLast5||[]).map((m:any)=>({...m,team:homeTeam}));
- const awayOverall=(form.awayTeam?.overallLast5||[]).map((m:any)=>({...m,team:awayTeam}));
- const awayVenue=(form.awayTeam?.awayLast5||[]).map((m:any)=>({...m,team:awayTeam}));
- const home:TeamEvidence={team:homeTeam,overall:factual(homeOverall),venue:factual(homeVenue)};
- const away:TeamEvidence={team:awayTeam,overall:factual(awayOverall),venue:factual(awayVenue)};
- return {home,away};
+ const normalized=normalizeResearchRecord(r);
+ return normalized.input;
 }
 
-export function modelFixture(r:any){const input=researchRecordToV2(r),result:any=fihV2(input);return {fixtureId:String(r.fixtureId),fixture:r.fixture,modelVersion:result.version,status:result.status,generatedAt:new Date().toISOString(),inputCounts:{homeOverall:input.home.overall.length,awayOverall:input.away.overall.length,homeVenue:input.home.venue?.length||0,awayVenue:input.away.venue?.length||0},inputCoverage:{home:{ppg:Number.isFinite(input.home.ppg),gd:Number.isFinite(input.home.goalDifferencePerGame),xgFor:Number.isFinite(input.home.xgFor),xgAgainst:Number.isFinite(input.home.xgAgainst),goalsProfile:Number.isFinite(input.home.over25Rate)||Number.isFinite(input.home.bttsRate),rest:Number.isFinite(input.home.restDays)},away:{ppg:Number.isFinite(input.away.ppg),gd:Number.isFinite(input.away.goalDifferencePerGame),xgFor:Number.isFinite(input.away.xgFor),xgAgainst:Number.isFinite(input.away.xgAgainst),goalsProfile:Number.isFinite(input.away.over25Rate)||Number.isFinite(input.away.bttsRate),rest:Number.isFinite(input.away.restDays)}},...result}};
+export function modelFixture(r:any){
+ const normalized=normalizeResearchRecord(r),input=normalized.input,result:any=fihV2(input);
+ return {
+  fixtureId:String(r.fixtureId),
+  fixture:r.fixture,
+  modelVersion:result.version,
+  status:result.status,
+  generatedAt:new Date().toISOString(),
+  inputCounts:{
+   homeOverall:input.home.overall.length,
+   awayOverall:input.away.overall.length,
+   homeVenue:input.home.venue?.length||0,
+   awayVenue:input.away.venue?.length||0
+  },
+  inputCoverage:{
+   home:{
+    ppg:Number.isFinite(input.home.ppg),
+    gd:Number.isFinite(input.home.goalDifferencePerGame),
+    xgFor:Number.isFinite(input.home.xgFor),
+    xgAgainst:Number.isFinite(input.home.xgAgainst),
+    goalsProfile:Number.isFinite(input.home.over25Rate)||Number.isFinite(input.home.bttsRate),
+    rest:Number.isFinite(input.home.restDays)
+   },
+   away:{
+    ppg:Number.isFinite(input.away.ppg),
+    gd:Number.isFinite(input.away.goalDifferencePerGame),
+    xgFor:Number.isFinite(input.away.xgFor),
+    xgAgainst:Number.isFinite(input.away.xgAgainst),
+    goalsProfile:Number.isFinite(input.away.over25Rate)||Number.isFinite(input.away.bttsRate),
+    rest:Number.isFinite(input.away.restDays)
+   }
+  },
+  evidenceUsage:normalized.usage,
+  ...result
+ };
+}
 
 if(process.env.FIH_MODEL_TEST_CHECKPOINT){
  const cp=JSON.parse(fs.readFileSync(path.join(root,process.env.FIH_MODEL_TEST_CHECKPOINT),"utf8")),id=String(process.env.FIH_FIXTURE_ID||""),r=cp.workingRecords?.[id];
