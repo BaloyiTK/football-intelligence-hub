@@ -5,8 +5,8 @@
   "canonical": false,
   "status": "IN_PROGRESS",
   "eligibleCount": 51,
-  "fixtureRecordsValidated": 7,
-  "lastValidatedFixtureId": "1854217",
+  "fixtureRecordsValidated": 8,
+  "lastValidatedFixtureId": "1854209",
   "workingRecords": {
     "1718971": {
       "fixtureId": "1718971",
@@ -660,6 +660,287 @@
               "query": "CFR Cluj Universitatea Cluj rest schedule October 8 2026",
               "attemptedAt": "2026-10-08T05:08:00Z",
               "outcome": "No reliable unusual rest/congestion detail found in retained sources"
+            }
+          ]
+        }
+      }
+    },
+    "1854209": {
+      "fixtureId": "1854209",
+      "fixture": {
+        "competition": "Ligue 1",
+        "country": "Algeria",
+        "home": "MC Oran",
+        "away": "ES Setif",
+        "kickoff": "20261008210000",
+        "timezone": "Africa/Johannesburg"
+      },
+      "researchedAt": "2026-10-08T05:38:00Z",
+      "sourceMetadata": [
+        {
+          "ref": "s1",
+          "url": "https://www.gsp.ro/rezultate-live/meci/11307363",
+          "retrievedAt": "2026-10-08T05:38:00Z",
+          "supports": [
+            "leaguePosition",
+            "h2h",
+            "teamQuality"
+          ]
+        },
+        {
+          "ref": "s2",
+          "url": "https://www.mackolik.com/mac/mc-oran-vs-es-setif/karsilastirma/9ipq958e86c47emszae7oglqs",
+          "retrievedAt": "2026-10-08T05:38:00Z",
+          "supports": [
+            "overallForm",
+            "opponentStrength"
+          ]
+        },
+        {
+          "ref": "s3",
+          "url": "https://tipsterarea.com/teams/algeria/mc-oran/last-home",
+          "retrievedAt": "2026-10-08T05:38:00Z",
+          "supports": [
+            "venueForm"
+          ]
+        },
+        {
+          "ref": "s4",
+          "url": "https://tipsterarea.com/teams/algeria/es-setif/last-50",
+          "retrievedAt": "2026-10-08T05:38:00Z",
+          "supports": [
+            "overallForm",
+            "opponentStrength"
+          ]
+        },
+        {
+          "ref": "s5",
+          "url": "https://footystats.org/clubs/es-setif-1291",
+          "retrievedAt": "2026-10-08T05:38:00Z",
+          "supports": [
+            "leaguePosition",
+            "goalsProfile",
+            "teamQuality"
+          ]
+        }
+      ],
+      "evidence": {
+        "overallForm": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "MC Oran ES Setif last five 2026",
+              "attemptedAt": "2026-10-08T05:38:00Z",
+              "outcome": "Recent results found"
+            }
+          ],
+          "sourceRefs": [
+            "s2",
+            "s4"
+          ],
+          "data": {
+            "home": [
+              "Chlef 0-1 Oran",
+              "Oran 2-0 Temouchent",
+              "Oran 2-2 USM Alger",
+              "Belouizdad 3-1 Oran",
+              "Oran 1-0 Chlef"
+            ],
+            "away": [
+              "Setif 5-1 Constantine",
+              "Belouizdad 1-0 Setif",
+              "Setif 0-1 Ben Aknoun",
+              "Setif 2-1 NC Magra",
+              "Paradou 0-2 Setif"
+            ]
+          }
+        },
+        "venueForm": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "MC Oran last home ES Setif last away 2026",
+              "attemptedAt": "2026-10-08T05:38:00Z",
+              "outcome": "MC Oran home five found; ES Setif current away sample sparse"
+            }
+          ],
+          "sourceRefs": [
+            "s3",
+            "s5"
+          ],
+          "data": {
+            "homeLast5": [
+              "Oran 2-0 Temouchent",
+              "Oran 2-2 USM Alger",
+              "Oran 1-0 Chlef",
+              "Oran 2-1 Rouissat",
+              "Oran 2-0 El Bayadh"
+            ],
+            "away": {
+              "matches": 1,
+              "ppg": 0,
+              "scored": 0,
+              "conceded": 1
+            }
+          }
+        },
+        "xgXga": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "MC Oran ES Setif xG xGA 2026",
+              "attemptedAt": "2026-10-08T05:38:00Z",
+              "outcome": "No trustworthy current xG/xGA values found in retained sources"
+            }
+          ]
+        },
+        "leaguePosition": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "MC Oran ES Setif standings October 2026",
+              "attemptedAt": "2026-10-08T05:38:00Z",
+              "outcome": "Current table found"
+            }
+          ],
+          "sourceRefs": [
+            "s1",
+            "s5"
+          ],
+          "data": {
+            "home": {
+              "position": 3,
+              "points": 6,
+              "matches": 2,
+              "gd": 3,
+              "ppg": 3
+            },
+            "away": {
+              "position": 8,
+              "points": 3,
+              "matches": 3,
+              "gd": 2,
+              "ppg": 1
+            },
+            "pointsGap": 3,
+            "positionGap": 5
+          }
+        },
+        "teamQuality": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "MC Oran ES Setif team quality 2026",
+              "attemptedAt": "2026-10-08T05:38:00Z",
+              "outcome": "Current standings and records found"
+            }
+          ],
+          "sourceRefs": [
+            "s1",
+            "s5"
+          ],
+          "data": {
+            "home": "Perfect two-game league start, 3-0 aggregate",
+            "away": "1-0-2 start; 5 scored, 3 conceded"
+          }
+        },
+        "motivationContext": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "MC Oran ES Setif October 8 2026 match context",
+              "attemptedAt": "2026-10-08T05:38:00Z",
+              "outcome": "No trustworthy specific motivation report found"
+            }
+          ]
+        },
+        "h2h": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "MC Oran ES Setif H2H",
+              "attemptedAt": "2026-10-08T05:38:00Z",
+              "outcome": "Five recent H2H found"
+            }
+          ],
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": [
+            "2026-04-17 Setif 3-0 Oran",
+            "2025-11-20 Oran 0-0 Setif",
+            "2025-04-18 Setif 1-0 Oran",
+            "2024-11-07 Oran 1-0 Setif",
+            "2024-05-17 Oran 4-1 Setif"
+          ]
+        },
+        "goalsProfile": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "MC Oran ES Setif goals BTTS over 2.5 2026",
+              "attemptedAt": "2026-10-08T05:38:00Z",
+              "outcome": "ES Setif current scoring profile found; full MC Oran rate profile unavailable"
+            }
+          ],
+          "sourceRefs": [
+            "s5"
+          ],
+          "data": {
+            "away": {
+              "gfPerGame": 1.67,
+              "gaPerGame": 1,
+              "record": "1W 0D 2L"
+            }
+          }
+        },
+        "squadAvailability": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "MC Oran ES Setif injuries suspensions October 8 2026",
+              "attemptedAt": "2026-10-08T05:38:00Z",
+              "outcome": "No trustworthy current named absence list found"
+            }
+          ]
+        },
+        "opponentStrength": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "MC Oran ES Setif recent opponents 2026",
+              "attemptedAt": "2026-10-08T05:38:00Z",
+              "outcome": "Recent opponent identities found"
+            }
+          ],
+          "sourceRefs": [
+            "s2",
+            "s4"
+          ],
+          "data": {
+            "home": [
+              "ASO Chlef",
+              "Temouchent",
+              "USM Alger",
+              "CR Belouizdad",
+              "ASO Chlef"
+            ],
+            "away": [
+              "CS Constantine",
+              "CR Belouizdad",
+              "Ben Aknoun",
+              "NC Magra",
+              "Paradou"
+            ]
+          }
+        },
+        "restSchedule": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "MC Oran ES Setif rest schedule October 8 2026",
+              "attemptedAt": "2026-10-08T05:38:00Z",
+              "outcome": "No reliable unusual rest/congestion evidence found"
             }
           ]
         }
@@ -2163,6 +2444,6 @@
       }
     }
   },
-  "nextFixtureId": "1854209",
-  "nextAction": "Submit fixture 1854209 MC Oran vs ES Setif as next structured ChatGPT Step 2 research job."
+  "nextFixtureId": "1806471",
+  "nextAction": "Submit fixture 1806471 Atletico FC vs Real Cartagena as next structured ChatGPT Step 2 research job."
 }
