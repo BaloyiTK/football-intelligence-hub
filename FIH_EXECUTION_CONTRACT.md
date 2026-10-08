@@ -294,6 +294,10 @@ Step 2 venue form is an exact five-match evidence target: the home team must be 
 
 Step 3 MUST NOT numerically use partial venue form. Venue refinement is permitted only with exactly five validated HOME matches for the home side and exactly five validated AWAY matches for the away side. Partial series remain auditable evidence only.
 
+### Step-3 result-profile derivation — LOCKED
+
+W/D/L is downstream model evidence, not a Step-2 researched statistic. Step 3 derives wins, draws, losses, points, PPG, win rate, draw rate and loss rate directly from verified match scorelines. It derives both recent-overall and venue-specific result profiles; the venue profile exists only when the exact-five HOME/AWAY venue gate passes. The model output must expose these derived profiles and their matchup edges for audit. No manual W/D/L input may override the underlying verified scorelines.
+
 ### Step-3 evidence normalization — LOCKED
 
 Passing lineage verification is necessary but not sufficient for Step 3. The model stage MUST normalize the canonical facts into an explicit typed model input before probability calculation. Direct factual inputs, deterministic downstream derivations, context-only evidence, and unavailable evidence must be distinguished and auditable per fixture.
