@@ -1,0 +1,1909 @@
+{
+  "schema": "fih-daily-model-v2",
+  "date": "2026-10-08",
+  "model": "FIH-V2-RESEARCH",
+  "generatedAt": "2026-10-08T06:30:41.372Z",
+  "fixtureCount": 50,
+  "fixtures": [
+    {
+      "fixtureId": "1886716",
+      "fixture": {
+        "home": "HJK Helsinki",
+        "away": "VPS",
+        "competition": "Veikkausliiga",
+        "kickoff": "20261008170000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1886717",
+      "fixture": {
+        "home": "KuPS",
+        "away": "AC Oulu",
+        "competition": "Veikkausliiga",
+        "kickoff": "20261008180000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1807243",
+      "fixture": {
+        "home": "CFR Cluj",
+        "away": "Universitatea Cluj",
+        "competition": "Liga 1",
+        "kickoff": "20261008193000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1718971",
+      "fixture": {
+        "home": "Shamrock Rovers",
+        "away": "Drogheda United",
+        "competition": "League of Ireland Premier Division",
+        "kickoff": "20261008210000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1854213",
+      "fixture": {
+        "home": "JS Saoura",
+        "away": "Olympique Akbou",
+        "competition": "Ligue 1",
+        "kickoff": "20261008190000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1854217",
+      "fixture": {
+        "home": "MB Rouissat",
+        "away": "USM Alger",
+        "competition": "Ligue 1",
+        "kickoff": "20261008190000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1854209",
+      "fixture": {
+        "home": "MC Oran",
+        "away": "ES Setif",
+        "competition": "Ligue 1",
+        "kickoff": "20261008210000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1806471",
+      "fixture": {
+        "home": "Atletico FC",
+        "away": "Real Cartagena",
+        "competition": "Primera B: Clausura",
+        "kickoff": "20261008223000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1806477",
+      "fixture": {
+        "home": "Atletico Huila",
+        "away": "Tigres FC",
+        "competition": "Primera B: Clausura",
+        "kickoff": "20261008223000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1883878",
+      "fixture": {
+        "home": "Vargas Torres",
+        "away": "LDU Portoviejo",
+        "competition": "Serie B Relegation Group",
+        "kickoff": "20261008223000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1876517",
+      "fixture": {
+        "home": "Atletico FC",
+        "away": "San Antonio",
+        "competition": "Serie B. Promotion Round",
+        "kickoff": "20261008211500"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1843698",
+      "fixture": {
+        "home": "Al Nasr",
+        "away": "Proxy",
+        "competition": "2. Division A",
+        "kickoff": "20261008143000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1843708",
+      "fixture": {
+        "home": "Al Tersana",
+        "away": "Kahrbaa Alasmalia",
+        "competition": "2. Division A",
+        "kickoff": "20261008143000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1843719",
+      "fixture": {
+        "home": "FC Masar",
+        "away": "El Dakhleya",
+        "competition": "2. Division A",
+        "kickoff": "20261008143000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1843709",
+      "fixture": {
+        "home": "Haras El Hodood",
+        "away": "El Sekka El Hadid",
+        "competition": "2. Division A",
+        "kickoff": "20261008143000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1843711",
+      "fixture": {
+        "home": "Mega Sport",
+        "away": "Dayrot",
+        "competition": "2. Division A",
+        "kickoff": "20261008143000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1867272",
+      "fixture": {
+        "home": "Al-Ittihad Alexandria",
+        "away": "Wadi Degla FC",
+        "competition": "League Cup: Group A",
+        "kickoff": "20261008160000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1867242",
+      "fixture": {
+        "home": "Modern Sport FC",
+        "away": "National Bank",
+        "competition": "League Cup: Group B",
+        "kickoff": "20261008190000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1867262",
+      "fixture": {
+        "home": "Al Mokawloon Al Arab",
+        "away": "El Gounah",
+        "competition": "League Cup: Group C",
+        "kickoff": "20261008160000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1867252",
+      "fixture": {
+        "home": "Ghazl Al Mehalla",
+        "away": "Abo Qir Semad",
+        "competition": "League Cup: Group D",
+        "kickoff": "20261008190000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1893562",
+      "fixture": {
+        "home": "Aluminium Arak",
+        "away": "Malavan",
+        "competition": "Persian Gulf Pro League",
+        "kickoff": "20261008143000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1893563",
+      "fixture": {
+        "home": "Nassaji Mazandaran FC",
+        "away": "Zob Ahan",
+        "competition": "Persian Gulf Pro League",
+        "kickoff": "20261008143000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1893567",
+      "fixture": {
+        "home": "Gol Gohar",
+        "away": "Esteghlal Khuzestan",
+        "competition": "Persian Gulf Pro League",
+        "kickoff": "20261008151500"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1893564",
+      "fixture": {
+        "home": "Tractor FC",
+        "away": "Esteghlal",
+        "competition": "Persian Gulf Pro League",
+        "kickoff": "20261008153000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1893565",
+      "fixture": {
+        "home": "Sepahan",
+        "away": "Fajr Sepasi",
+        "competition": "Persian Gulf Pro League",
+        "kickoff": "20261008171500"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1893566",
+      "fixture": {
+        "home": "Foolad Khuzestan",
+        "away": "Mes Shahr Babak",
+        "competition": "Persian Gulf Pro League",
+        "kickoff": "20261008173000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1871229",
+      "fixture": {
+        "home": "Duhok",
+        "away": "Al Zawraa",
+        "competition": "Iraq Stars League",
+        "kickoff": "20261008170000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1871221",
+      "fixture": {
+        "home": "Naft Maysan",
+        "away": "Erbil",
+        "competition": "Iraq Stars League",
+        "kickoff": "20261008174500"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1871222",
+      "fixture": {
+        "home": "Al Talaba",
+        "away": "Al Shorta",
+        "competition": "Iraq Stars League",
+        "kickoff": "20261008193000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1893088",
+      "fixture": {
+        "home": "Portmore United",
+        "away": "Waterhouse FC",
+        "competition": "Premier League",
+        "kickoff": "20261008223000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1902095",
+      "fixture": {
+        "home": "Shabab Al-Ordon",
+        "away": "Al-Baqaa",
+        "competition": "Pro League",
+        "kickoff": "20261008170000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1793976",
+      "fixture": {
+        "home": "FK Arsenal Tivat",
+        "away": "Decic Tuzi",
+        "competition": "1. CFL",
+        "kickoff": "20261008140000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1793978",
+      "fixture": {
+        "home": "Otrant",
+        "away": "OFK Mladost Donja Gorica",
+        "competition": "1. CFL",
+        "kickoff": "20261008140000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1793975",
+      "fixture": {
+        "home": "FK Bokelj",
+        "away": "Petrovac",
+        "competition": "1. CFL",
+        "kickoff": "20261008180000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1793977",
+      "fixture": {
+        "home": "Mornar",
+        "away": "Jezero",
+        "competition": "1. CFL",
+        "kickoff": "20261008180000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1903896",
+      "fixture": {
+        "home": "Union Touarga Sport",
+        "away": "RS Berkane",
+        "competition": "Botola Pro",
+        "kickoff": "20261008180000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1903897",
+      "fixture": {
+        "home": "FAR Rabat",
+        "away": "Widad Temara",
+        "competition": "Botola Pro",
+        "kickoff": "20261008200000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1903898",
+      "fixture": {
+        "home": "Renaissance Club Zemamra",
+        "away": "Hassania Agadir",
+        "competition": "Botola Pro",
+        "kickoff": "20261008200000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1903903",
+      "fixture": {
+        "home": "MAS Fes",
+        "away": "Raja Casablanca",
+        "competition": "Botola Pro",
+        "kickoff": "20261008220000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1806652",
+      "fixture": {
+        "home": "Club Deportivo Moquegua",
+        "away": "Cienciano",
+        "competition": "Liga 1",
+        "kickoff": "20261008200000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1806650",
+      "fixture": {
+        "home": "Atletico Grau",
+        "away": "Los Chankas CYC",
+        "competition": "Liga 1",
+        "kickoff": "20261008223000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1896300",
+      "fixture": {
+        "home": "EGB Tacna Heroica",
+        "away": "Carlos A. Mannucci",
+        "competition": "Liga 2 Promotion Group C",
+        "kickoff": "20261008220000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1838565",
+      "fixture": {
+        "home": "Al-Shamal",
+        "away": "Al-Duhail SC",
+        "competition": "Qatar Stars League",
+        "kickoff": "20261008164500"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1838571",
+      "fixture": {
+        "home": "Al-Wakra",
+        "away": "Al-Gharafa",
+        "competition": "Qatar Stars League",
+        "kickoff": "20261008190000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1849079",
+      "fixture": {
+        "home": "ASU Politehnica Timisoara",
+        "away": "Steaua Bucuresti",
+        "competition": "Liga II",
+        "kickoff": "20261008170000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1728217",
+      "fixture": {
+        "home": "Vaenersborgs FK",
+        "away": "IFK Kumla",
+        "competition": "Division 2: Norra Goetaland",
+        "kickoff": "20261008193000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1861023",
+      "fixture": {
+        "home": "Mashujaa",
+        "away": "Polisi Tanzania FC",
+        "competition": "Premier League",
+        "kickoff": "20261008130000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1861007",
+      "fixture": {
+        "home": "Pamba SC",
+        "away": "Geita Gold FC",
+        "competition": "Premier League",
+        "kickoff": "20261008151500"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1861005",
+      "fixture": {
+        "home": "Namungo FC",
+        "away": "TRA United",
+        "competition": "Premier League",
+        "kickoff": "20261008173000"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    },
+    {
+      "fixtureId": "1880351",
+      "fixture": {
+        "home": "Viettel",
+        "away": "Hong Linh Ha Tinh",
+        "competition": "V-League",
+        "kickoff": "20261008141500"
+      },
+      "modelVersion": "FIH-V2-RESEARCH",
+      "status": "INSUFFICIENT_DATA",
+      "generatedAt": "2026-10-08T06:30:41.372Z",
+      "inputCounts": {
+        "homeOverall": 0,
+        "awayOverall": 0,
+        "homeVenue": 0,
+        "awayVenue": 0
+      },
+      "inputCoverage": {
+        "home": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        },
+        "away": {
+          "ppg": false,
+          "gd": false,
+          "xgFor": false,
+          "xgAgainst": false,
+          "goalsProfile": false,
+          "rest": false
+        }
+      },
+      "version": "FIH-V2-RESEARCH",
+      "reason": "Need at least 3 verified overall matches for each team."
+    }
+  ]
+}
