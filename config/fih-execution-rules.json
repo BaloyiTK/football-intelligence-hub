@@ -76,7 +76,7 @@
     },
     "REC-005": {
       "kind": "recovery",
-      "requirement": "Any failed stage MUST immediately enter investigate -> fix or authorized fallback -> verify recovery -> resume from the earliest unfinished stage -> continue. A failed stage, failed workflow run, or failed provider call is never a normal stopping point and never requires renewed user authorization."
+      "requirement": "Any failed stage MUST immediately enter investigate -> fix or authorized fallback -> verify recovery -> resume from the earliest unfinished stage -> continue. A failed stage, failed workflow run, failed provider call, or recoverable research interruption is never a normal stopping point and never requires renewed user authorization. While executable recovery or research work remains available, the run MUST continue in the same authorized execution."
     },
     "DATE-003": {
       "kind": "date-input-integrity",
@@ -156,7 +156,7 @@
     },
     "RESEARCH-012": {
       "kind": "bounded-search-continuation",
-      "requirement": "Known ChatGPT/web-search per-turn or per-execution call ceilings are execution boundaries, not research failures. Before reaching a known ceiling, the executor MUST atomically flush and verify the active temp accumulator, record validatedCount/expectedCount and the exact next fixture for the same researchRunId, and resume from that fixture at the next available execution opportunity without reacquiring Step 1 or creating a partial Git research commit."
+      "requirement": "Known ChatGPT/web-search per-turn, provider, or execution call ceilings are continuation boundaries, not research failures or terminal states. The executor MUST keep searching through all still-available search capacity and authorized search paths. Before an unavoidable hard execution ceiling is reached, it MUST atomically flush and verify the active temp accumulator, record validatedCount/expectedCount and the exact next fixture for the same researchRunId, and resume from that fixture at the next available execution opportunity without reacquiring Step 1, requiring a new user command, or creating a partial Git research commit."
     },
     "RESEARCH-013": {
       "kind": "chunk-integrity",
@@ -164,7 +164,7 @@
     },
     "RESEARCH-014": {
       "kind": "limit-aware-execution",
-      "requirement": "The executor MUST plan Step 2 below the known search-call ceiling with safety headroom rather than deliberately exhausting the tool. When remaining search capacity is insufficient for another complete fixture research unit, checkpoint the temp accumulator and continuation cursor before the limit is hit."
+      "requirement": "The executor MUST plan Step 2 with safety headroom and continue research in bounded batches until N/N. Reaching a provider/query ceiling MUST trigger continuation using remaining available search capacity or another authorized search path, not a final response. Only an unavoidable execution-environment ceiling may interrupt the turn; before that boundary the temp accumulator and continuation cursor MUST be verified and preserved."
     },
     "RESEARCH-015": {
       "kind": "single-temp-single-commit-lock",
@@ -241,6 +241,10 @@
     "RESEARCH-018": {
       "kind": "h2h-last-five-completeness",
       "requirement": "NON-NEGOTIABLE STEP-2 LOCK: For every eligible fixture, Step 2 MUST research the last 5 completed head-to-head meetings between the two clubs and retain for each meeting the date, home team, away team, home goals, away goals, and sourceRef. VERIFIED requires exactly 5 source-backed H2H matches. A 1-4 match sample may be PARTIAL only after genuine search exhaustion is explicitly recorded; zero found after genuine search exhaustion must be UNAVAILABLE. A note, summary, aggregate H2H claim, or undated record does not satisfy the last-five H2H requirement."
+    },
+    "RESEARCH-019": {
+      "kind": "research-no-premature-stop",
+      "requirement": "NON-NEGOTIABLE CONTINUATION LOCK: During an authorized Step-2 run, research continues fixture-by-fixture until exact N/N validated coverage. Recoverable errors are fixed, verified, and execution resumes automatically. Search/provider ceilings do not authorize BLOCKED, COMPLETE, or a progress-only final response while another authorized search path or current-turn capacity remains. If the execution environment itself forcibly ends available tool execution, preserve the verified accumulator/cursor and resume from the next unfinished fixture without renewed authorization."
     }
   },
   "hardStops": [
