@@ -4,7 +4,7 @@ const read=(p:string)=>fs.readFileSync(p,"utf8");
 const fail=(m:string):never=>{throw new Error("STEP3_WIRING_LOCK_FAILED: "+m)};
 
 const rules=JSON.parse(read("config/fih-execution-rules.json"));
-for(const id of ["MODEL-001","MODEL-002","MODEL-003","MODEL-004","MODEL-005","MODEL-006","MODEL-007","MODEL-008","MODEL-009","MODEL-010","MODEL-011","MODEL-012","MODEL-013","MODEL-014","MODEL-015","RESEARCH-016","RESEARCH-017"]){
+for(const id of ["MODEL-001","MODEL-002","MODEL-003","MODEL-004","MODEL-005","MODEL-006","MODEL-007","MODEL-008","MODEL-009","MODEL-010","MODEL-011","MODEL-012","MODEL-013","MODEL-014","MODEL-015","RESEARCH-016","RESEARCH-017","RESEARCH-018"]){
   if(!rules.rules?.[id]?.requirement)fail("missing rule "+id);
 }
 
@@ -46,14 +46,20 @@ for(const token of [
   "requiredCount=5",
   "homeLast5.length===requiredCount",
   "awayLast5.length===requiredCount",
-  '"fih-daily-research-v4"'
+  "headToHeadOk",
+  "h2hMatchOk",
+  "searchExhausted",
+  "RESEARCH_H2H_MATCH_SOURCE_REF_UNKNOWN",
+  "CANONICAL_DAILY_RESEARCH_SCHEMA_UPGRADE_REQUIRED",
+  '"fih-daily-research-v5"'
 ]) if(!validator.includes(token)) fail("research validator missing "+token);
 
 const checkpoint=read("scripts/research-checkpoint.ts");
-if(!checkpoint.includes('schema:"fih-daily-research-v4"'))fail("new Step 2 checkpoints are not strict v4");
+if(!checkpoint.includes('schema:"fih-daily-research-v5"'))fail("new Step 2 checkpoints are not strict v5");
+if(!checkpoint.includes('schema:"fih-research-temp-accumulator-v2"'))fail("Step 2 temp accumulator is not H2H-lock v2");
 
 const daily=read("scripts/daily-cycle.ts");
-for(const token of ['venueForm:{count:5','homeTeam:"LAST_COMPLETED_HOME"','awayTeam:"LAST_COMPLETED_AWAY"','headToHead:{count:5','motivationContext:{factsOnly:true'])
+for(const token of ['venueForm:{count:5','homeTeam:"LAST_COMPLETED_HOME"','awayTeam:"LAST_COMPLETED_AWAY"','headToHead:{count:5','storage:"facts.headToHead.data.matches"','verifiedRequiresExactCount:true','partialRequiresSearchExhausted:true','canonicalResearchSchema:"fih-daily-research-v5"','motivationContext:{factsOnly:true'])
   if(!daily.includes(token))fail("Step 2 queue missing requested venue count "+token);
 
 const probability=read("scripts/fih-probability-v2.ts");
@@ -98,5 +104,5 @@ if(workflow.includes("- name: Acquire fresh fixture board"))fail("unsafe uncondi
 console.log(JSON.stringify({
   ok:true,
   lock:"STEP2_TO_STEP3_VERIFIED_LINEAGE",
-  rules:["MODEL-001","MODEL-002","MODEL-003","MODEL-004","MODEL-005","MODEL-006","MODEL-007","MODEL-008","MODEL-009","MODEL-010","MODEL-011","MODEL-012","MODEL-013","MODEL-014","MODEL-015","RESEARCH-016","RESEARCH-017"]
+  rules:["MODEL-001","MODEL-002","MODEL-003","MODEL-004","MODEL-005","MODEL-006","MODEL-007","MODEL-008","MODEL-009","MODEL-010","MODEL-011","MODEL-012","MODEL-013","MODEL-014","MODEL-015","RESEARCH-016","RESEARCH-017","RESEARCH-018"]
 },null,2));
