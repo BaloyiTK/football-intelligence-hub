@@ -16,20 +16,20 @@ const parseMatch=(s:any):Match|null=>{
 const matches=(v:any):Match[]=>Array.isArray(v)?v.map(x=>typeof x==="string"?parseMatch(x):x).filter((m:any)=>m&&typeof m.home==="string"&&typeof m.away==="string"&&Number.isFinite(Number(m.homeGoals))&&Number.isFinite(Number(m.awayGoals))).map((m:any)=>({home:m.home,away:m.away,homeGoals:Number(m.homeGoals),awayGoals:Number(m.awayGoals),...(Number.isFinite(Number(m.opponentStrength))?{opponentStrength:Number(m.opponentStrength)}:{})})):[];
 
 export function researchRecordToV2(r:any){
- const e=r.evidence||{}, overallData=e.overallForm?.data||{}, verifiedOverall=r.verifiedInputs?.overallMatchSeries||{}, overall={home:overallData.home??e.overallForm?.homeMatches??verifiedOverall.home??[],away:overallData.away??e.overallForm?.awayMatches??verifiedOverall.away??[]}, venue=e.venueForm?.data||{}, table=e.leaguePosition?.data||{}, xg=e.xgXga?.data||{}, goals=e.goalsProfile?.data||{}, rest=e.restSchedule?.data||{};
- const homeTeam=r.fixture.home,awayTeam=r.fixture.away;
- const home:TeamEvidence={team:homeTeam,overall:matches(overall.home),venue:matches(venue.homeLast5)};
- const away:TeamEvidence={team:awayTeam,overall:matches(overall.away),venue:matches(venue.awayLast5)};
- const h=table.HJK||table.home||table[homeTeam],a=table.VPS||table.away||table[awayTeam];
- if(h){home.ppg=finite(h.ppg);if(finite(h.gd)!==undefined&&finite(h.matches))home.goalDifferencePerGame=finite(h.gd)!/finite(h.matches)!}
- if(a){away.ppg=finite(a.ppg);if(finite(a.gd)!==undefined&&finite(a.matches))away.goalDifferencePerGame=finite(a.gd)!/finite(a.matches)!}
- home.xgFor=finite(xg.home?.xgFor??xg[homeTeam]?.xgFor??xg.HJK_xGF_perGame);home.xgAgainst=finite(xg.home?.xgAgainst??xg[homeTeam]?.xgAgainst??xg.HJK_xGA_perGame);
- away.xgFor=finite(xg.away?.xgFor??xg[awayTeam]?.xgFor??xg.VPS_xGF_perGame);away.xgAgainst=finite(xg.away?.xgAgainst??xg[awayTeam]?.xgAgainst??xg.VPS_xGA_perGame);
- const hg=goals.home||goals[homeTeam]||goals.HJK,ag=goals.away||goals[awayTeam]||goals.VPS;
- if(hg){home.scoringRate=rate(hg.scoringRate??hg.scoringPct);home.concedingRate=rate(hg.concedingRate??hg.concedingPct);home.bttsRate=rate(hg.bttsRate??hg.bttsPct);home.over25Rate=rate(hg.over25Rate??hg.over25Pct)}
- if(ag){away.scoringRate=rate(ag.scoringRate??ag.scoringPct);away.concedingRate=rate(ag.concedingRate??ag.concedingPct);away.bttsRate=rate(ag.bttsRate??ag.bttsPct);away.over25Rate=rate(ag.over25Rate??ag.over25Pct)}
- home.restDays=finite(rest.home?.days??rest[homeTeam]?.days);away.restDays=finite(rest.away?.days??rest[awayTeam]?.days);
- return {home,away,h2h:matches(e.h2h?.data)};
+ const form=r.evidence?.form?.data||{},homeTeam=r.fixture.home,awayTeam=r.fixture.away;
+ const factual=(rows:any[])=>matches((rows||[]).map((m:any)=>({
+  home:m.venue==="HOME"?(m.team||""):m.opponent,
+  away:m.venue==="HOME"?m.opponent:(m.team||""),
+  homeGoals:m.venue==="HOME"?Number(m.goalsFor):Number(m.goalsAgainst),
+  awayGoals:m.venue==="HOME"?Number(m.goalsAgainst):Number(m.goalsFor)
+ })));
+ const homeOverall=(form.homeTeam?.overallLast5||[]).map((m:any)=>({...m,team:homeTeam}));
+ const homeVenue=(form.homeTeam?.homeLast5||[]).map((m:any)=>({...m,team:homeTeam}));
+ const awayOverall=(form.awayTeam?.overallLast5||[]).map((m:any)=>({...m,team:awayTeam}));
+ const awayVenue=(form.awayTeam?.awayLast5||[]).map((m:any)=>({...m,team:awayTeam}));
+ const home:TeamEvidence={team:homeTeam,overall:factual(homeOverall),venue:factual(homeVenue)};
+ const away:TeamEvidence={team:awayTeam,overall:factual(awayOverall),venue:factual(awayVenue)};
+ return {home,away};
 }
 
 export function modelFixture(r:any){const input=researchRecordToV2(r),result:any=fihV2(input);return {fixtureId:String(r.fixtureId),fixture:r.fixture,modelVersion:result.version,status:result.status,generatedAt:new Date().toISOString(),inputCounts:{homeOverall:input.home.overall.length,awayOverall:input.away.overall.length,homeVenue:input.home.venue?.length||0,awayVenue:input.away.venue?.length||0},inputCoverage:{home:{ppg:Number.isFinite(input.home.ppg),gd:Number.isFinite(input.home.goalDifferencePerGame),xgFor:Number.isFinite(input.home.xgFor),xgAgainst:Number.isFinite(input.home.xgAgainst),goalsProfile:Number.isFinite(input.home.over25Rate)||Number.isFinite(input.home.bttsRate),rest:Number.isFinite(input.home.restDays)},away:{ppg:Number.isFinite(input.away.ppg),gd:Number.isFinite(input.away.goalDifferencePerGame),xgFor:Number.isFinite(input.away.xgFor),xgAgainst:Number.isFinite(input.away.xgAgainst),goalsProfile:Number.isFinite(input.away.over25Rate)||Number.isFinite(input.away.bttsRate),rest:Number.isFinite(input.away.restDays)}},...result}};
