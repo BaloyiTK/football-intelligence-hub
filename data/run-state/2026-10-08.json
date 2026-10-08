@@ -4,15 +4,15 @@
   "timezone": "Africa/Johannesburg",
   "runId": "daily:2026-10-08",
   "runStatus": "COMPLETE",
-  "heartbeatAt": "2026-10-08T07:04:38.653Z",
+  "heartbeatAt": "2026-10-08T07:06:49.161Z",
   "recoveryCount": 13,
   "board": {
-    "fetchedAt": "2026-10-08T07:03:55.002Z",
+    "fetchedAt": "2026-10-08T07:06:45.428Z",
     "fixtureCount": 73,
     "stageCount": 33
   },
   "createdAt": "2026-10-08T06:22:47.891Z",
-  "updatedAt": "2026-10-08T07:04:38.653Z",
+  "updatedAt": "2026-10-08T07:06:49.161Z",
   "fixtures": [
     {
       "id": "1708692",
