@@ -72,9 +72,11 @@ export function normalizeResearchRecord(r:any):Step3Normalized{
   if(!r?.fixture?.home||!r?.fixture?.away)throw new Error("STEP3_NORMALIZE_FIXTURE_IDENTITY_MISSING "+String(r?.fixtureId||""));
   const facts=r.facts||{},form=facts.form?.data||{},homeTeam=String(r.fixture.home),awayTeam=String(r.fixture.away);
   const homeOverall=teamMatches(homeTeam,form.homeTeam?.overallLast5||[]);
-  const homeVenue=teamMatches(homeTeam,form.homeTeam?.homeLast5||[]);
+  const homeVenueRaw=teamMatches(homeTeam,form.homeTeam?.homeLast5||[]);
+  const homeVenue=homeVenueRaw.length===5?homeVenueRaw:[];
   const awayOverall=teamMatches(awayTeam,form.awayTeam?.overallLast5||[]);
-  const awayVenue=teamMatches(awayTeam,form.awayTeam?.awayLast5||[]);
+  const awayVenueRaw=teamMatches(awayTeam,form.awayTeam?.awayLast5||[]);
+  const awayVenue=awayVenueRaw.length===5?awayVenueRaw:[];
 
   const hs=standingMetrics(facts.standings?.data?.homeTeam);
   const as=standingMetrics(facts.standings?.data?.awayTeam);
@@ -93,7 +95,7 @@ export function normalizeResearchRecord(r:any):Step3Normalized{
     usage:{
       home:{
         overallForm:usage(homeOverall.length?"USED":"UNAVAILABLE","facts.form.homeTeam.overallLast5",homeOverall.length+" verified matches"),
-        venueForm:usage(homeVenue.length?"USED":"UNAVAILABLE","facts.form.homeTeam.homeLast5",homeVenue.length+" verified home matches"),
+        venueForm:usage(homeVenue.length===5?"USED":"UNAVAILABLE","facts.form.homeTeam.homeLast5",homeVenue.length===5?"5 verified home matches":homeVenueRaw.length+" of 5 home matches; partial venue form not used"),
         ppg:metric(hs.ppg,"facts.standings.homeTeam.points/matches","points per game is derived in Step 3"),
         goalDifferencePerGame:metric(hs.goalDifferencePerGame,"facts.standings.homeTeam","goal difference per game is derived in Step 3"),
         goalsProfile:usage(homeOverall.length?"DERIVED":"UNAVAILABLE","facts.form.homeTeam.overallLast5","scoring/conceding/BTTS/Over2.5 rates derived in Step 3"),
@@ -101,7 +103,7 @@ export function normalizeResearchRecord(r:any):Step3Normalized{
       },
       away:{
         overallForm:usage(awayOverall.length?"USED":"UNAVAILABLE","facts.form.awayTeam.overallLast5",awayOverall.length+" verified matches"),
-        venueForm:usage(awayVenue.length?"USED":"UNAVAILABLE","facts.form.awayTeam.awayLast5",awayVenue.length+" verified away matches"),
+        venueForm:usage(awayVenue.length===5?"USED":"UNAVAILABLE","facts.form.awayTeam.awayLast5",awayVenue.length===5?"5 verified away matches":awayVenueRaw.length+" of 5 away matches; partial venue form not used"),
         ppg:metric(as.ppg,"facts.standings.awayTeam.points/matches","points per game is derived in Step 3"),
         goalDifferencePerGame:metric(as.goalDifferencePerGame,"facts.standings.awayTeam","goal difference per game is derived in Step 3"),
         goalsProfile:usage(awayOverall.length?"DERIVED":"UNAVAILABLE","facts.form.awayTeam.overallLast5","scoring/conceding/BTTS/Over2.5 rates derived in Step 3"),
