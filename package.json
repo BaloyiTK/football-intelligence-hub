@@ -20,7 +20,8 @@
     "backtest:market:queue": "tsx scripts/build-historical-market-queue.ts",
     "backtest:market:worker": "tsx scripts/historical-market-worker.ts",
     "market:capture:parlay": "tsx scripts/parlay-forward-capture.ts",
-    "run:daily:once": "tsx scripts/daily-cycle.ts"
+    "run:daily:once": "tsx scripts/daily-cycle.ts",
+    "research:checkpoint": "tsx scripts/research-checkpoint.ts"
   },
   "dependencies": {},
   "devDependencies": {
