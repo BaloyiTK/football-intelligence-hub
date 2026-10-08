@@ -7,14 +7,20 @@ const factItemOk=(v:any)=>v&&typeof v==="object"&&typeof v.fact==="string"&&v.fa
 function factualCategoryOk(v:any){return v&&typeof v==="object"&&["VERIFIED","PARTIAL","UNAVAILABLE"].includes(String(v.status))&&Array.isArray(v.attempts)&&v.attempts.length>0&&v.attempts.every(attemptOk)&&(v.status==="UNAVAILABLE"||(v.data?.homeTeam&&v.data?.awayTeam&&Array.isArray(v.data.homeTeam)&&Array.isArray(v.data.awayTeam)&&v.data.homeTeam.every(factItemOk)&&v.data.awayTeam.every(factItemOk)&&Array.isArray(v.sourceRefs)));}
 const genericFactCategoryOk=(v:any)=>v&&typeof v==="object"&&["VERIFIED","PARTIAL","UNAVAILABLE"].includes(String(v.status))&&Array.isArray(v.attempts)&&v.attempts.length>0&&v.attempts.every(attemptOk)&&Array.isArray(v.sourceRefs);
 const optionalGenericFactCategoryOk=(v:any)=>v===undefined||genericFactCategoryOk(v);
+const seriesOk=(rows:any[],venue?:string)=>{
+ if(!Array.isArray(rows)||rows.length>5||!rows.every(matchOk))return false;
+ if(venue&&rows.some((m:any)=>m.venue!==venue))return false;
+ const keys=rows.map((m:any)=>[String(m.date),String(m.opponent),String(m.venue)].join("|"));
+ if(keys.length!==new Set(keys).size)return false;
+ for(let i=1;i<rows.length;i++)if(String(rows[i-1].date)<String(rows[i].date))return false;
+ return true;
+};
 function formOk(v:any){
  if(!v||typeof v!=="object"||!["VERIFIED","PARTIAL","UNAVAILABLE"].includes(String(v.status))||!Array.isArray(v.attempts)||!v.attempts.length||!v.attempts.every(attemptOk))return false;
  if(v.status==="UNAVAILABLE")return true;
  const d=v.data;if(!d?.homeTeam||!d?.awayTeam)return false;
- for(const key of ["overallLast5","homeLast5"])if(!Array.isArray(d.homeTeam[key])||d.homeTeam[key].length>5||!d.homeTeam[key].every(matchOk))return false;
- for(const key of ["overallLast5","awayLast5"])if(!Array.isArray(d.awayTeam[key])||d.awayTeam[key].length>5||!d.awayTeam[key].every(matchOk))return false;
- if(d.homeTeam.homeLast5.some((m:any)=>m.venue!=="HOME"))return false;
- if(d.awayTeam.awayLast5.some((m:any)=>m.venue!=="AWAY"))return false;
+ if(!seriesOk(d.homeTeam.overallLast5)||!seriesOk(d.homeTeam.homeLast5,"HOME"))return false;
+ if(!seriesOk(d.awayTeam.overallLast5)||!seriesOk(d.awayTeam.awayLast5,"AWAY"))return false;
  if(v.status==="VERIFIED"){
   if(d.homeTeam.overallLast5.length!==5||d.homeTeam.homeLast5.length!==5||d.awayTeam.overallLast5.length!==5||d.awayTeam.awayLast5.length!==5)return false;
  }
