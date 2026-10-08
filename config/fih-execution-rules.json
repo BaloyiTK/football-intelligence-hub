@@ -201,6 +201,14 @@
     "MODEL-008": {
       "kind": "step3-minimum-model-input",
       "requirement": "FIH V2 may calculate only when each team has at least three verified overall-form matches. Otherwise the fixture MUST return INSUFFICIENT_DATA/NO_MODEL. Optional missing evidence may reduce reliability but must not be imputed."
+    },
+    "MODEL-009": {
+      "kind": "step3-source-traceability",
+      "requirement": "Every Step-2 evidence field that can influence Step 3 numerically MUST be validated as source-backed before use. Standings/H2H/schedule sourceRefs must resolve to retained source metadata; optional xG/xGA is consumable only when explicitly marked OBSERVED_COMPLETED_MATCH_STATISTICS and its sourceRefs validate."
+    },
+    "MODEL-010": {
+      "kind": "step3-no-imputation",
+      "requirement": "Missing optional Step-3 evidence MUST remain undefined and MUST NOT be replaced by neutral numeric defaults. Pairwise PPG or goal-difference adjustments may execute only when both teams have verified finite inputs. Squad availability, motivation and H2H remain non-numeric until calibrated."
     }
   },
   "hardStops": [
