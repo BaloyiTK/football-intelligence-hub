@@ -12,7 +12,6 @@ const seriesOk=(rows:any[],venue?:string)=>{
  if(venue&&rows.some((m:any)=>m.venue!==venue))return false;
  const keys=rows.map((m:any)=>[String(m.date),String(m.opponent),String(m.venue)].join("|"));
  if(keys.length!==new Set(keys).size)return false;
- for(let i=1;i<rows.length;i++)if(String(rows[i-1].date)<String(rows[i].date))return false;
  return true;
 };
 function formOk(v:any){
