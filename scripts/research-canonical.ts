@@ -6,6 +6,19 @@ const matchOk=(m:any)=>m&&typeof m==="object"&&m.date&&m.opponent&&["HOME","AWAY
 const factItemOk=(v:any)=>v&&typeof v==="object"&&typeof v.fact==="string"&&v.fact.trim()&&typeof v.sourceRef==="string"&&v.sourceRef.trim();
 function factualCategoryOk(v:any){return v&&typeof v==="object"&&["VERIFIED","PARTIAL","UNAVAILABLE"].includes(String(v.status))&&Array.isArray(v.attempts)&&v.attempts.length>0&&v.attempts.every(attemptOk)&&(v.status==="UNAVAILABLE"||(v.data?.homeTeam&&v.data?.awayTeam&&Array.isArray(v.data.homeTeam)&&Array.isArray(v.data.awayTeam)&&v.data.homeTeam.every(factItemOk)&&v.data.awayTeam.every(factItemOk)&&Array.isArray(v.sourceRefs)));}
 const genericFactCategoryOk=(v:any)=>v&&typeof v==="object"&&["VERIFIED","PARTIAL","UNAVAILABLE"].includes(String(v.status))&&Array.isArray(v.attempts)&&v.attempts.length>0&&v.attempts.every(attemptOk)&&Array.isArray(v.sourceRefs);
+const h2hMatchOk=(m:any)=>m&&typeof m==="object"&&m.date&&typeof m.homeTeam==="string"&&m.homeTeam.trim()&&typeof m.awayTeam==="string"&&m.awayTeam.trim()&&Number.isFinite(Number(m.homeGoals))&&Number.isFinite(Number(m.awayGoals))&&typeof m.sourceRef==="string"&&m.sourceRef.trim();
+function headToHeadOk(v:any,strict=false){
+ if(!genericFactCategoryOk(v))return false;
+ if(!strict)return true;
+ const rows=v?.data?.matches;
+ if(v.status==="UNAVAILABLE")return v.searchExhausted===true&&(!Array.isArray(rows)||rows.length===0);
+ if(!Array.isArray(rows)||rows.length>5||!rows.every(h2hMatchOk))return false;
+ const keys=rows.map((m:any)=>[String(m.date),String(m.homeTeam),String(m.awayTeam),String(m.homeGoals),String(m.awayGoals)].join("|"));
+ if(keys.length!==new Set(keys).size)return false;
+ if(v.status==="VERIFIED")return rows.length===5;
+ if(v.status==="PARTIAL")return rows.length>=1&&rows.length<=4&&v.searchExhausted===true;
+ return false;
+}
 const optionalGenericFactCategoryOk=(v:any)=>v===undefined||genericFactCategoryOk(v);
 const seriesOk=(rows:any[],venue?:string)=>{
  if(!Array.isArray(rows)||rows.length>5||!rows.every(matchOk))return false;
@@ -33,17 +46,19 @@ function formOkStrict(v:any,requiredCount=5){
 }
 
 export function validateResearchArtifact(x:any,date:string,eligibleIds:string[],mode:"PREDICTION"|"BACKTEST"){
- if(!["fih-daily-research-v3","fih-daily-research-v4"].includes(String(x.schema))||x.date!==date||x.mode!==mode||!Array.isArray(x.fixtures))throw new Error("CANONICAL_DAILY_RESEARCH_IDENTITY_INVALID");
- const strictVenue=x.schema==="fih-daily-research-v4";
+ if(!["fih-daily-research-v3","fih-daily-research-v4","fih-daily-research-v5"].includes(String(x.schema))||x.date!==date||x.mode!==mode||!Array.isArray(x.fixtures))throw new Error("CANONICAL_DAILY_RESEARCH_IDENTITY_INVALID");
+ const strictVenue=["fih-daily-research-v4","fih-daily-research-v5"].includes(String(x.schema));
+ const strictH2h=x.schema==="fih-daily-research-v5";
  const ids=x.fixtures.map((r:any)=>String(r.fixtureId));if(ids.length!==new Set(ids).size)throw new Error("CANONICAL_DAILY_RESEARCH_DUPLICATE_FIXTURE");
  const want=[...eligibleIds].sort(),got=[...ids].sort();if(JSON.stringify(want)!==JSON.stringify(got))throw new Error("CANONICAL_DAILY_RESEARCH_COVERAGE_MISMATCH");
  const cutoff=mode==="BACKTEST"?new Date(date+"T04:00:00.000Z").getTime():null;
  for(const r of x.fixtures){
-  if(!r.fixture||!r.researchedAt||typeof r.researchRunId!=="string"||!r.researchRunId.trim()||!Array.isArray(r.sourceMetadata)||!r.facts||!(strictVenue?formOkStrict(r.facts.form,5):formOkLegacy(r.facts.form))||!genericFactCategoryOk(r.facts.standings)||!genericFactCategoryOk(r.facts.headToHead)||!factualCategoryOk(r.facts.squadAvailability)||!genericFactCategoryOk(r.facts.schedule)||!factualCategoryOk(r.facts.competitionContext)||!optionalGenericFactCategoryOk(r.facts.opponentStrength)||!optionalGenericFactCategoryOk(r.facts.teamQuality))throw new Error("RESEARCH_RECORD_INCOMPLETE "+r.fixtureId);
+  if(!r.fixture||!r.researchedAt||typeof r.researchRunId!=="string"||!r.researchRunId.trim()||!Array.isArray(r.sourceMetadata)||!r.facts||!(strictVenue?formOkStrict(r.facts.form,5):formOkLegacy(r.facts.form))||!genericFactCategoryOk(r.facts.standings)||!headToHeadOk(r.facts.headToHead,strictH2h)||!factualCategoryOk(r.facts.squadAvailability)||!genericFactCategoryOk(r.facts.schedule)||!factualCategoryOk(r.facts.competitionContext)||!optionalGenericFactCategoryOk(r.facts.opponentStrength)||!optionalGenericFactCategoryOk(r.facts.teamQuality))throw new Error("RESEARCH_RECORD_INCOMPLETE "+r.fixtureId);
   if(r.facts.xg!==undefined)throw new Error("RESEARCH_EXTERNAL_XG_FORBIDDEN "+r.fixtureId);
   const refs=new Set(r.sourceMetadata.map((sm:any)=>String(sm.ref||sm.url)));
   for(const ref of r.facts.form.sourceRefs||[])if(!refs.has(String(ref)))throw new Error("RESEARCH_SOURCE_REF_UNKNOWN "+r.fixtureId);
   for(const k of ["standings","headToHead","schedule"])for(const ref of r.facts[k].sourceRefs||[])if(!refs.has(String(ref)))throw new Error("RESEARCH_CATEGORY_SOURCE_REF_UNKNOWN "+r.fixtureId+" "+k);
+  if(strictH2h)for(const m of r.facts.headToHead?.data?.matches||[])if(!refs.has(String(m.sourceRef)))throw new Error("RESEARCH_H2H_MATCH_SOURCE_REF_UNKNOWN "+r.fixtureId);
   for(const k of ["opponentStrength","teamQuality"])if(r.facts[k])for(const ref of r.facts[k].sourceRefs||[])if(!refs.has(String(ref)))throw new Error("RESEARCH_OPTIONAL_CONTEXT_SOURCE_REF_UNKNOWN "+r.fixtureId+" "+k);
   for(const side of ["homeTeam","awayTeam"])for(const key of side==="homeTeam"?["overallLast5","homeLast5"]:["overallLast5","awayLast5"])for(const m of r.facts.form.data?.[side]?.[key]||[])if(!refs.has(String(m.sourceRef)))throw new Error("RESEARCH_MATCH_SOURCE_REF_UNKNOWN "+r.fixtureId);
   for(const k of ["squadAvailability","competitionContext"])for(const item of [...(r.facts[k].data?.homeTeam||[]),...(r.facts[k].data?.awayTeam||[])])if(!refs.has(String(item.sourceRef)))throw new Error("RESEARCH_FACT_SOURCE_REF_UNKNOWN "+r.fixtureId+" "+k);
