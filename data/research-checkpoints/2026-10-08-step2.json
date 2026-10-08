@@ -560,6 +560,296 @@
         }
       }
     },
+    "1806477": {
+      "fixtureId": "1806477",
+      "fixture": {
+        "competition": "Primera B: Clausura",
+        "country": "Colombia",
+        "home": "Atletico Huila",
+        "away": "Tigres FC",
+        "kickoff": "20261008223000",
+        "timezone": "Africa/Johannesburg"
+      },
+      "researchedAt": "2026-10-08T05:15:00Z",
+      "sourceMetadata": [
+        {
+          "ref": "s1",
+          "url": "https://dailysports.net/es/stat/football/atletico-huila-vs-tigres-fc/",
+          "retrievedAt": "2026-10-08T05:15:00Z",
+          "supports": [
+            "fixture",
+            "overallForm",
+            "goalsProfile",
+            "h2h"
+          ]
+        },
+        {
+          "ref": "s2",
+          "url": "https://www.fctables.com/h2h/atletico-huila/tigres-fc/",
+          "retrievedAt": "2026-10-08T05:15:00Z",
+          "supports": [
+            "overallForm",
+            "venueForm",
+            "goalsProfile",
+            "h2h"
+          ]
+        },
+        {
+          "ref": "s3",
+          "url": "https://www.sofascore.com/football/match/tigres-fc-atletico-huila/excseMK",
+          "retrievedAt": "2026-10-08T05:15:00Z",
+          "supports": [
+            "leaguePosition"
+          ]
+        },
+        {
+          "ref": "s4",
+          "url": "https://footballfirst.com/football-live-centre/match-detail/atletico-huila-vs-tigres-fc/366038/h2h",
+          "retrievedAt": "2026-10-08T05:15:00Z",
+          "supports": [
+            "h2h"
+          ]
+        },
+        {
+          "ref": "s5",
+          "url": "https://old.statarea.com/results.php?team_guest=Tigres+FC+%28Colombia%29&team_host=Huila+%28Colombia%29",
+          "retrievedAt": "2026-10-08T05:15:00Z",
+          "supports": [
+            "overallForm",
+            "opponentStrength"
+          ]
+        }
+      ],
+      "evidence": {
+        "overallForm": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "Atletico Huila Tigres FC recent form October 8 2026",
+              "attemptedAt": "2026-10-08T05:15:00Z",
+              "outcome": "Current last-five sequences and summary verified."
+            }
+          ],
+          "sourceRefs": [
+            "s1",
+            "s5"
+          ],
+          "data": {
+            "home": [
+              "Patriotas 0-1 Atletico Huila",
+              "Atletico Huila 4-3 Orsomarso",
+              "Atletico Huila 0-1 Cortulua",
+              "Barranquilla FC 0-2 Atletico Huila",
+              "Atletico Huila 0-0 Deportes Quindio"
+            ],
+            "away": [
+              "Tigres FC 1-0 Cortulua",
+              "Tigres FC 1-1 Real Santander",
+              "Atletico FC 0-3 Tigres FC",
+              "Tigres FC 0-0 Bogota FC",
+              "Orsomarso 0-2 Tigres FC"
+            ]
+          }
+        },
+        "venueForm": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Atletico Huila home Tigres FC away 2026",
+              "attemptedAt": "2026-10-08T05:15:00Z",
+              "outcome": "Season venue goal thresholds located; exact last-five split not fully retained."
+            }
+          ],
+          "sourceRefs": [
+            "s2"
+          ],
+          "data": {
+            "homeOver15Pct": 57.14,
+            "homeOver25Pct": 19.05,
+            "awayOver15Pct": 57.14,
+            "awayOver25Pct": 28.57
+          }
+        },
+        "xgXga": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Atletico Huila Tigres FC observed xG xGA 2026",
+              "attemptedAt": "2026-10-08T05:15:00Z",
+              "outcome": "No trustworthy explicit OBSERVED pre-match xG/xGA source located; estimates excluded."
+            }
+          ]
+        },
+        "leaguePosition": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "Atletico Huila Tigres FC standings 2026",
+              "attemptedAt": "2026-10-08T05:15:00Z",
+              "outcome": "Current table positions located."
+            }
+          ],
+          "sourceRefs": [
+            "s3"
+          ],
+          "data": {
+            "homePosition": 7,
+            "awayPosition": 14
+          }
+        },
+        "teamQuality": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "Atletico Huila Tigres FC team strength 2026",
+              "attemptedAt": "2026-10-08T05:15:00Z",
+              "outcome": "Current form, season scoring and standings support comparison."
+            }
+          ],
+          "sourceRefs": [
+            "s1",
+            "s2",
+            "s3"
+          ],
+          "data": {
+            "homeGoalsPerMatch": 1.16,
+            "awayGoalsPerMatch": 1
+          }
+        },
+        "motivationContext": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Atletico Huila Tigres FC October 8 2026 context",
+              "attemptedAt": "2026-10-08T05:15:00Z",
+              "outcome": "Clausura round fixture and standings verified; no stronger trustworthy stakes narrative retained."
+            }
+          ],
+          "sourceRefs": [
+            "s1",
+            "s3"
+          ]
+        },
+        "h2h": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "Atletico Huila Tigres FC H2H",
+              "attemptedAt": "2026-10-08T05:15:00Z",
+              "outcome": "Multiple sources show strong recent Huila dominance."
+            }
+          ],
+          "sourceRefs": [
+            "s1",
+            "s2",
+            "s4"
+          ],
+          "data": {
+            "summary": "Atletico Huila 11 wins, Tigres 3, draws 4 across 18 listed meetings; another recent subset shows Huila 6 wins and 1 draw in seven.",
+            "recent": [
+              "2025-07-25 Atletico Huila 1-0 Tigres FC",
+              "2025-02-15 Tigres FC 1-1 Atletico Huila",
+              "2024-09-08 Atletico Huila 4-0 Tigres FC",
+              "2024-06-11 Atletico Huila 4-0 Tigres FC",
+              "2024-05-21 Tigres FC 0-1 Atletico Huila"
+            ]
+          }
+        },
+        "goalsProfile": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "Atletico Huila Tigres FC goals BTTS over 2.5 2026",
+              "attemptedAt": "2026-10-08T05:15:00Z",
+              "outcome": "Current last-five and season goal profiles located."
+            }
+          ],
+          "sourceRefs": [
+            "s1",
+            "s2"
+          ],
+          "data": {
+            "homeLast5": {
+              "gfPerGame": 1.6,
+              "over25Pct": 20,
+              "bttsPct": 20
+            },
+            "awayLast5": {
+              "gfPerGame": 1.2,
+              "over25Pct": 20,
+              "bttsPct": 20
+            },
+            "homeSeason": {
+              "over15Pct": 62.8,
+              "over25Pct": 32.6,
+              "bttsPct": 41.86
+            },
+            "awaySeason": {
+              "over15Pct": 56.3,
+              "over25Pct": 31.3,
+              "bttsPct": 43.75
+            }
+          }
+        },
+        "squadAvailability": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Atletico Huila Tigres FC injuries suspensions October 2026",
+              "attemptedAt": "2026-10-08T05:15:00Z",
+              "outcome": "No trustworthy named current absence list located."
+            }
+          ]
+        },
+        "opponentStrength": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "Atletico Huila Tigres FC recent opponents 2026",
+              "attemptedAt": "2026-10-08T05:15:00Z",
+              "outcome": "Recent opponent identities verified from current results."
+            }
+          ],
+          "sourceRefs": [
+            "s1",
+            "s5"
+          ],
+          "data": {
+            "home": [
+              "Patriotas",
+              "Orsomarso",
+              "Cortulua",
+              "Barranquilla FC",
+              "Deportes Quindio"
+            ],
+            "away": [
+              "Cortulua",
+              "Real Santander",
+              "Atletico FC",
+              "Bogota FC",
+              "Orsomarso"
+            ]
+          }
+        },
+        "restSchedule": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "Atletico Huila Tigres FC October 2026 schedule",
+              "attemptedAt": "2026-10-08T05:15:00Z",
+              "outcome": "Latest verified matches indicate Huila played Oct 4 and Tigres Oct 4 before Oct 8 fixture."
+            }
+          ],
+          "sourceRefs": [
+            "s5"
+          ],
+          "data": {
+            "homeLastMatch": "2026-10-04",
+            "awayLastMatch": "2026-10-04"
+          }
+        }
+      }
+    },
     "1807243": {
       "fixtureId": "1807243",
       "fixture": {
@@ -2630,8 +2920,8 @@
       }
     }
   },
-  "nextFixtureId": "1806477",
-  "nextAction": "Submit fixture 1806477 as next structured ChatGPT Step 2 research job.",
+  "nextFixtureId": "1883878",
+  "nextAction": "Submit fixture 1883878 as next structured ChatGPT Step 2 research job.",
   "integrityRepair": {
     "at": "2026-10-08T05:45:00Z",
     "rule": "OBSERVED_XG_ONLY",
@@ -2664,5 +2954,5 @@
       ]
     }
   },
-  "updatedAt": "2026-10-08T05:08:00Z"
+  "updatedAt": "2026-10-08T05:15:00Z"
 }
