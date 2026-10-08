@@ -237,6 +237,10 @@
     "MODEL-015": {
       "kind": "five-factor-interpretation-lock",
       "requirement": "FIH-5F-V1 output is a result-strength score, not a win probability. It MUST be emitted separately from Poisson HOME/DRAW/AWAY probabilities and fair odds. The strength score may inform HOME/AWAY evidence support and reliability, but it MUST NOT be relabeled as probability or independently enable bet publication without calibrated qualification rules."
+    },
+    "RESEARCH-018": {
+      "kind": "h2h-last-five-completeness",
+      "requirement": "NON-NEGOTIABLE STEP-2 LOCK: For every eligible fixture, Step 2 MUST research the last 5 completed head-to-head meetings between the two clubs and retain for each meeting the date, home team, away team, home goals, away goals, and sourceRef. VERIFIED requires exactly 5 source-backed H2H matches. A 1-4 match sample may be PARTIAL only after genuine search exhaustion is explicitly recorded; zero found after genuine search exhaustion must be UNAVAILABLE. A note, summary, aggregate H2H claim, or undated record does not satisfy the last-five H2H requirement."
     }
   },
   "hardStops": [
