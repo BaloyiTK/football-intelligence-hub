@@ -4,7 +4,7 @@ const read=(p:string)=>fs.readFileSync(p,"utf8");
 const fail=(m:string):never=>{throw new Error("STEP3_WIRING_LOCK_FAILED: "+m)};
 
 const rules=JSON.parse(read("config/fih-execution-rules.json"));
-for(const id of ["MODEL-001","MODEL-002","MODEL-003","MODEL-004","MODEL-005","MODEL-006","MODEL-007","MODEL-008","MODEL-009","MODEL-010","MODEL-011","MODEL-012","MODEL-013","MODEL-014","MODEL-015","RESEARCH-016","RESEARCH-017","RESEARCH-018"]){
+for(const id of ["MODEL-001","MODEL-002","MODEL-003","MODEL-004","MODEL-005","MODEL-006","MODEL-007","MODEL-008","MODEL-009","MODEL-010","MODEL-011","MODEL-012","MODEL-013","MODEL-014","MODEL-015","RESEARCH-016","RESEARCH-017","RESEARCH-018","RESEARCH-019"]){
   if(!rules.rules?.[id]?.requirement)fail("missing rule "+id);
 }
 
@@ -93,6 +93,9 @@ const cycle=read("scripts/daily-cycle.ts");
 if(!cycle.includes('tsx("scripts/step3-input-gate.ts","--date",DATE)'))fail("daily cycle does not gate Step 3");
 for(const id of ["MODEL-001","MODEL-002","MODEL-003","MODEL-004","MODEL-014","MODEL-015"])if(!cycle.includes(id))fail("daily cycle gate missing "+id);
 
+const continuation=read("scripts/continuation-controller.ts");
+for(const token of ["STEP2_CHATGPT_HANDOFF_REQUIRED","RESEARCH-019",'process.exit(2)']) if(!continuation.includes(token)) fail("continuation controller missing recoverable Step 2 handoff "+token);
+
 const workflow=read(".github/workflows/fih-run-now.yml");
 for(const token of [
   "Acquire or reuse frozen fixture board",
@@ -104,5 +107,5 @@ if(workflow.includes("- name: Acquire fresh fixture board"))fail("unsafe uncondi
 console.log(JSON.stringify({
   ok:true,
   lock:"STEP2_TO_STEP3_VERIFIED_LINEAGE",
-  rules:["MODEL-001","MODEL-002","MODEL-003","MODEL-004","MODEL-005","MODEL-006","MODEL-007","MODEL-008","MODEL-009","MODEL-010","MODEL-011","MODEL-012","MODEL-013","MODEL-014","MODEL-015","RESEARCH-016","RESEARCH-017","RESEARCH-018"]
+  rules:["MODEL-001","MODEL-002","MODEL-003","MODEL-004","MODEL-005","MODEL-006","MODEL-007","MODEL-008","MODEL-009","MODEL-010","MODEL-011","MODEL-012","MODEL-013","MODEL-014","MODEL-015","RESEARCH-016","RESEARCH-017","RESEARCH-018","RESEARCH-019"]
 },null,2));
