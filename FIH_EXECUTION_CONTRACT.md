@@ -63,6 +63,12 @@ A failed command, workflow, provider request, deployment, artifact write, valida
 
 If the first repair fails, repeat the recovery loop using the next applicable recovery path. Only the existing HARD STOP rules may terminate this loop. Status/progress reporting must not replace continuation.
 
+## Research-ceiling continuation — LOCKED
+
+A search/provider/query ceiling is not a Step-2 completion condition and is not a hard stop. During an authorized research run, the executor MUST continue through all available search capacity and authorized search paths. Recoverable errors follow investigate -> fix or authorized fallback -> verify -> resume -> continue.
+
+Only an unavoidable execution-environment boundary that actually prevents further tool execution may interrupt the current turn. Before that boundary, the single temporary accumulator and exact continuation cursor MUST be atomically verified. The same researchRunId resumes from the next unfinished fixture without a new user command, without rerunning Step 1, and without any partial canonical research commit.
+
 ## Durable continuation guarantee
 
 Every authorized run must be resumable from durable verified state. Long-running research and processing MUST be decomposed into persist-and-verify work units with a run ledger/checkpoint that identifies the earliest unfinished fixture and stage.
