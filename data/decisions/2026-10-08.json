@@ -1,7 +1,7 @@
 {
   "schema": "fih-daily-decisions-v2",
   "date": "2026-10-08",
-  "generatedAt": "2026-10-08T06:30:41.653Z",
+  "generatedAt": "2026-10-08T06:36:38.661Z",
   "fixtureCount": 50,
   "calibrationStatus": "NOT_CALIBRATED",
   "betPublicationEnabled": false,
