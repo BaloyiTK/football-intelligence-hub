@@ -235,7 +235,7 @@ For every eligible fixture, the mandatory research loop is:
 **Search -> enforce cutoff -> persist verified evidence -> mark each unverifiable field `UNAVAILABLE` -> verify persisted research record -> continue to the next fixture.**
 
 Rules:
-- A missing last-five record, venue split, H2H, xG/xGA value, standing, injury, motivation item, opponent-strength measure, rest datum, or historical market price does not require user approval and does not terminate the run.
+- A missing last-five record, venue split, H2H, standing, injury, motivation item, opponent-strength measure, rest datum, or historical market price does not require user approval and does not terminate the run.
 - Sparse evidence may cause a market or entire fixture to become `INSUFFICIENT_DATA` or `NO_BET`; that is a valid model/decision outcome, not an execution failure.
 - Historical research being slow, difficult, incomplete, or spread across many fixtures is not a material architecture change and is not a reason to pause.
 - Do not fabricate or use post-cutoff evidence to fill a gap. Record the gap as `UNAVAILABLE` and continue.
