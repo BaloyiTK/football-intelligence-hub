@@ -10,7 +10,8 @@ function xgOk(v:any){
  if(v===undefined)return true;
  if(!v||typeof v!=="object"||!["VERIFIED","PARTIAL","UNAVAILABLE"].includes(String(v.status))||!Array.isArray(v.attempts)||!v.attempts.length||!v.attempts.every(attemptOk))return false;
  if(v.status==="UNAVAILABLE")return true;
- const d=v.data;if(!d?.homeTeam||!d?.awayTeam||!Array.isArray(v.sourceRefs))return false;
+ if(v.evidenceType!=="OBSERVED_COMPLETED_MATCH_STATISTICS")return false;
+ const d=v.data;if(!d?.homeTeam||!d?.awayTeam||!Array.isArray(v.sourceRefs)||!v.sourceRefs.length)return false;
  const sideOk=(s:any)=>{const n=s?.overall&&typeof s.overall==="object"?s.overall:s;return n&&Number.isFinite(Number(n.xgFor))&&Number.isFinite(Number(n.xgAgainst));};
  return sideOk(d.homeTeam)&&sideOk(d.awayTeam);
 }
@@ -31,6 +32,7 @@ export function validateResearchArtifact(x:any,date:string,eligibleIds:string[],
   if(!r.fixture||!r.researchedAt||typeof r.researchRunId!=="string"||!r.researchRunId.trim()||!Array.isArray(r.sourceMetadata)||!r.facts||!formOk(r.facts.form)||!genericFactCategoryOk(r.facts.standings)||!genericFactCategoryOk(r.facts.headToHead)||!factualCategoryOk(r.facts.squadAvailability)||!genericFactCategoryOk(r.facts.schedule)||!factualCategoryOk(r.facts.competitionContext)||!xgOk(r.facts.xg))throw new Error("RESEARCH_RECORD_INCOMPLETE "+r.fixtureId);
   const refs=new Set(r.sourceMetadata.map((sm:any)=>String(sm.ref||sm.url)));
   for(const ref of r.facts.form.sourceRefs||[])if(!refs.has(String(ref)))throw new Error("RESEARCH_SOURCE_REF_UNKNOWN "+r.fixtureId);
+  for(const k of ["standings","headToHead","schedule"])for(const ref of r.facts[k].sourceRefs||[])if(!refs.has(String(ref)))throw new Error("RESEARCH_CATEGORY_SOURCE_REF_UNKNOWN "+r.fixtureId+" "+k);
   for(const side of ["homeTeam","awayTeam"])for(const key of side==="homeTeam"?["overallLast5","homeLast5"]:["overallLast5","awayLast5"])for(const m of r.facts.form.data?.[side]?.[key]||[])if(!refs.has(String(m.sourceRef)))throw new Error("RESEARCH_MATCH_SOURCE_REF_UNKNOWN "+r.fixtureId);
   for(const k of ["squadAvailability","competitionContext"])for(const item of [...(r.facts[k].data?.homeTeam||[]),...(r.facts[k].data?.awayTeam||[])])if(!refs.has(String(item.sourceRef)))throw new Error("RESEARCH_FACT_SOURCE_REF_UNKNOWN "+r.fixtureId+" "+k);
   if(r.facts.xg&&r.facts.xg.status!=="UNAVAILABLE")for(const ref of r.facts.xg.sourceRefs||[])if(!refs.has(String(ref)))throw new Error("RESEARCH_XG_SOURCE_REF_UNKNOWN "+r.fixtureId);
