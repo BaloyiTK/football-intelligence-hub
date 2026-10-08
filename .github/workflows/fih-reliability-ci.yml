@@ -14,6 +14,7 @@ name: FIH Reliability CI
       - "scripts/daily-cycle.ts"
       - "scripts/research-worker.ts"
       - "scripts/daily-model-runner.ts"
+      - "scripts/fih-probability-v2.ts"
       - "scripts/step3-input-gate.ts"
       - "scripts/step3-normalize.ts"
       - "scripts/verify-step3-wiring.ts"
