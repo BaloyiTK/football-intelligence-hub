@@ -24,7 +24,7 @@ for(const token of [
   "restDays",
   "CONTEXT_ONLY",
   "facts.xg",
-  "evidenceUsage"
+  "usage:{"
 ]) if(!normalize.includes(token)) fail("normalizer missing "+token);
 
 const model=read("scripts/daily-model-runner.ts");
