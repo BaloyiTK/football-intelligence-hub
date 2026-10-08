@@ -64,7 +64,7 @@ if(process.env.FIH_MODEL_TEST_CHECKPOINT){
   insufficientData:fixtures.filter((f:any)=>f.status==="INSUFFICIENT_DATA").length,
   home:{ppg:0,gd:0,xg:0,goalsProfile:0,rest:0},
   away:{ppg:0,gd:0,xg:0,goalsProfile:0,rest:0},
-  contextOnly:{headToHead:0,squadAvailability:0,competitionContext:0,opponentStrength:0}
+  contextOnly:{headToHead:0,squadAvailability:0,competitionContext:0,teamQuality:0,opponentStrength:0}
  };
  for(const f of fixtures){
   for(const side of ["home","away"]){
