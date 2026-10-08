@@ -6,6 +6,16 @@ const attemptOk=(a:any)=>a&&typeof a.query==="string"&&a.query.trim()&&a.attempt
 const exhausted=(v:any)=>v?.searchExhausted===true&&Array.isArray(v.attempts)&&v.attempts.some((a:any)=>/SEARCH_EXHAUSTED/i.test(String(a?.outcome||"")));
 const matchOk=(m:any)=>m&&typeof m==="object"&&m.date&&m.opponent&&["HOME","AWAY"].includes(String(m.venue))&&Number.isFinite(Number(m.goalsFor))&&Number.isFinite(Number(m.goalsAgainst))&&typeof m.sourceRef==="string"&&m.sourceRef.trim();
 const factItemOk=(v:any)=>v&&typeof v==="object"&&typeof v.fact==="string"&&v.fact.trim()&&typeof v.sourceRef==="string"&&v.sourceRef.trim();
+const MOTIVATION_TAGS=new Set(["MUST_WIN","KNOCKOUT_ELIMINATION","TITLE_DECIDER","RELEGATION_DECIDER","PROMOTION_DECIDER","TITLE_RACE","RELEGATION_BATTLE","PROMOTION_RACE","QUALIFICATION_RACE","PLAYOFF_RACE","DEAD_RUBBER","ROTATION_EXPECTED","FRIENDLY"]);
+const competitionSideOk=(v:any)=>v&&typeof v==="object"&&Array.isArray(v.facts)&&v.facts.every(factItemOk)&&Array.isArray(v.tags)&&v.tags.every((x:any)=>MOTIVATION_TAGS.has(String(x)));
+function competitionContextOk(v:any){
+ if(!v||typeof v!=="object"||!["VERIFIED","PARTIAL","UNAVAILABLE"].includes(String(v.status))||!Array.isArray(v.attempts)||!v.attempts.length||!v.attempts.every(attemptOk)||!Array.isArray(v.sourceRefs))return false;
+ if(v.status==="UNAVAILABLE")return exhausted(v);
+ if(v.sourceRefs.length===0||!competitionSideOk(v.data?.homeTeam)||!competitionSideOk(v.data?.awayTeam))return false;
+ const retained=(v.data.homeTeam.facts.length+v.data.awayTeam.facts.length+v.data.homeTeam.tags.length+v.data.awayTeam.tags.length);
+ if(retained===0)return false;
+ return v.status==="VERIFIED"||(v.status==="PARTIAL"&&exhausted(v));
+}
 function factualCategoryOk(v:any){
  if(!v||typeof v!=="object"||!["VERIFIED","PARTIAL","UNAVAILABLE"].includes(String(v.status))||!Array.isArray(v.attempts)||!v.attempts.length||!v.attempts.every(attemptOk)||!Array.isArray(v.sourceRefs))return false;
  if(v.status==="UNAVAILABLE")return exhausted(v);
@@ -88,7 +98,7 @@ export function validateResearchArtifact(x:any,date:string,eligibleIds:string[],
    const cat=r?.facts?.[k];
    if(cat&&Array.isArray(cat.attempts)&&cat.attempts.some((a:any)=>syntheticCompletionOutcome(a?.outcome)))throw new Error("RESEARCH_SYNTHETIC_COMPLETION_MARKER_FORBIDDEN "+r.fixtureId+" "+k);
   }
-  if(!r.fixture||!r.researchedAt||typeof r.researchRunId!=="string"||!r.researchRunId.trim()||!Array.isArray(r.sourceMetadata)||!r.facts||!(strictVenue?formOkStrict(r.facts.form,5):formOkLegacy(r.facts.form))||!standingsOk(r.facts.standings)||!headToHeadOk(r.facts.headToHead,strictH2h)||!factualCategoryOk(r.facts.squadAvailability)||!genericFactCategoryOk(r.facts.schedule)||!factualCategoryOk(r.facts.competitionContext)||!optionalGenericFactCategoryOk(r.facts.opponentStrength)||!optionalGenericFactCategoryOk(r.facts.teamQuality))throw new Error("RESEARCH_RECORD_INCOMPLETE "+r.fixtureId);
+  if(!r.fixture||!r.researchedAt||typeof r.researchRunId!=="string"||!r.researchRunId.trim()||!Array.isArray(r.sourceMetadata)||!r.facts||!(strictVenue?formOkStrict(r.facts.form,5):formOkLegacy(r.facts.form))||!standingsOk(r.facts.standings)||!headToHeadOk(r.facts.headToHead,strictH2h)||!factualCategoryOk(r.facts.squadAvailability)||!genericFactCategoryOk(r.facts.schedule)||!competitionContextOk(r.facts.competitionContext)||!optionalGenericFactCategoryOk(r.facts.opponentStrength)||!optionalGenericFactCategoryOk(r.facts.teamQuality))throw new Error("RESEARCH_RECORD_INCOMPLETE "+r.fixtureId);
   if(r.facts.xg!==undefined)throw new Error("RESEARCH_EXTERNAL_XG_FORBIDDEN "+r.fixtureId);
   const refs=new Set(r.sourceMetadata.map((sm:any)=>String(sm.ref||sm.url)));
   for(const ref of r.facts.form.sourceRefs||[])if(!refs.has(String(ref)))throw new Error("RESEARCH_SOURCE_REF_UNKNOWN "+r.fixtureId);
@@ -96,7 +106,8 @@ export function validateResearchArtifact(x:any,date:string,eligibleIds:string[],
   if(strictH2h)for(const m of r.facts.headToHead?.data?.matches||[])if(!refs.has(String(m.sourceRef)))throw new Error("RESEARCH_H2H_MATCH_SOURCE_REF_UNKNOWN "+r.fixtureId);
   for(const k of ["opponentStrength","teamQuality"])if(r.facts[k])for(const ref of r.facts[k].sourceRefs||[])if(!refs.has(String(ref)))throw new Error("RESEARCH_OPTIONAL_CONTEXT_SOURCE_REF_UNKNOWN "+r.fixtureId+" "+k);
   for(const side of ["homeTeam","awayTeam"])for(const key of side==="homeTeam"?["overallLast5","homeLast5"]:["overallLast5","awayLast5"])for(const m of r.facts.form.data?.[side]?.[key]||[])if(!refs.has(String(m.sourceRef)))throw new Error("RESEARCH_MATCH_SOURCE_REF_UNKNOWN "+r.fixtureId);
-  for(const k of ["squadAvailability","competitionContext"])for(const item of [...(r.facts[k].data?.homeTeam||[]),...(r.facts[k].data?.awayTeam||[])])if(!refs.has(String(item.sourceRef)))throw new Error("RESEARCH_FACT_SOURCE_REF_UNKNOWN "+r.fixtureId+" "+k);
+  for(const item of [...(r.facts.squadAvailability.data?.homeTeam||[]),...(r.facts.squadAvailability.data?.awayTeam||[])])if(!refs.has(String(item.sourceRef)))throw new Error("RESEARCH_FACT_SOURCE_REF_UNKNOWN "+r.fixtureId+" squadAvailability");
+  for(const item of [...(r.facts.competitionContext.data?.homeTeam?.facts||[]),...(r.facts.competitionContext.data?.awayTeam?.facts||[])])if(!refs.has(String(item.sourceRef)))throw new Error("RESEARCH_FACT_SOURCE_REF_UNKNOWN "+r.fixtureId+" competitionContext");
   for(const sm of r.sourceMetadata){if(!sm||typeof sm.url!=="string"||!/^https?:\/\//.test(sm.url)||!sm.retrievedAt||!Array.isArray(sm.supports))throw new Error("RESEARCH_SOURCE_INVALID "+r.fixtureId);if(mode==="BACKTEST"){if(!sm.availableAt)throw new Error("BACKTEST_SOURCE_AVAILABILITY_UNVERIFIED "+r.fixtureId);const a=new Date(sm.availableAt).getTime();if(!Number.isFinite(a)||a>cutoff!)throw new Error("BACKTEST_SOURCE_AFTER_CUTOFF "+r.fixtureId);}}
  }
  const runIds=new Set(x.fixtures.map((r:any)=>String(r.researchRunId)));if(runIds.size!==1)throw new Error("CANONICAL_DAILY_RESEARCH_MIXED_RUNS");if(typeof x.researchRunId!=="string"||!x.researchRunId.trim()||!runIds.has(String(x.researchRunId)))throw new Error("CANONICAL_DAILY_RESEARCH_RUN_ID_INVALID");
