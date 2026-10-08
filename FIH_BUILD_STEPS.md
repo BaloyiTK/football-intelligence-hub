@@ -56,7 +56,7 @@ ChatGPT owns the fixture-by-fixture data-collection stage.
 - There are **zero Git research commits during accumulation**, including fixture-by-fixture and partial-batch commits.
 - Only after exact N/N validation and aggregate reconciliation may the accumulator be promoted to `data/research/YYYY-MM-DD.json`.
 - The promoted canonical research artifact is committed **exactly once per `researchRunId`**. A second canonical research commit for the same `researchRunId` is a contract violation and must return Step 2 to RECOVERING.
-- Step 3 is forbidden until that single canonical commit is verified and the committed research artifact is reread and revalidated.
+- Step 3 is forbidden until that single canonical commit is verified and the committed research artifact is reread and revalidated.\n- New canonical Step-2 research must use `fih-daily-research-v5`; legacy schemas cannot cross the Step-3 input gate after the H2H last-five lock.
 
 - ChatGPT MUST perform the actual web search for every eligible fixture, fixture by fixture.
 - Repository-local homepage scanning, scraping, cached link discovery, or direct-public-source discovery is not equivalent to the required ChatGPT web-search job and MUST NOT satisfy Step 2 by itself.
@@ -162,9 +162,14 @@ Research relevant match circumstances:
 Motivation must be supported by evidence, not guessed. Step 2 stores facts/context tags only, never a numeric motivation score. Where supported, use per-team tags from the locked vocabulary: `MUST_WIN`, `KNOCKOUT_ELIMINATION`, `TITLE_DECIDER`, `RELEGATION_DECIDER`, `PROMOTION_DECIDER`, `TITLE_RACE`, `RELEGATION_BATTLE`, `PROMOTION_RACE`, `QUALIFICATION_RACE`, `PLAYOFF_RACE`, `DEAD_RUBBER`, `ROTATION_EXPECTED`, `FRIENDLY`. Step 3 converts these through the locked FIH-5F-V1 motivation mapping.
 
 ### H2H
-Research the last 5 relevant completed head-to-head meetings and retain date, home team, away team, home goals, away goals and source reference for each meeting.
+Research the **last 5 completed head-to-head meetings** between the two clubs. Store them as structured rows under `facts.headToHead.data.matches`, retaining for every meeting: date, home team, away team, home goals, away goals, and `sourceRef`.
 
-H2H is a locked 15% FIH-5F-V1 factor only when all 5 meetings are source-backed. A partial 1-4 meeting sample remains context-only and is not scored numerically.
+- `VERIFIED` requires **exactly 5** source-backed H2H rows.
+- A 1-4 match sample may be `PARTIAL` only after genuine search exhaustion, recorded with `searchExhausted: true`.
+- If no trustworthy prior meeting can be found after genuine search exhaustion, use `UNAVAILABLE` with `searchExhausted: true`.
+- A prose note, aggregate H2H record, undated result, or “team unbeaten in N meetings” statement does **not** satisfy the last-five H2H requirement.
+
+H2H is a locked 15% FIH-5F-V1 factor only when all 5 meetings are source-backed. A partial 1-4 meeting sample remains auditable context only and is not scored numerically.
 
 ### Goals profile
 Check:
