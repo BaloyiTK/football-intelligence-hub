@@ -293,6 +293,14 @@ Research chunks have no canonical meaning. Only exact N/N aggregate validation m
 Step 2 venue form is an exact five-match evidence target: the home team must be researched for its last 5 completed HOME matches and the away team for its last 5 completed AWAY matches. Research must continue until all five are source-backed or the series is explicitly retained as PARTIAL/UNAVAILABLE after genuine search exhaustion. A 1-4 match venue sample is not complete venue evidence.
 
 Step 3 MUST NOT numerically use partial venue form. Venue refinement is permitted only with exactly five validated HOME matches for the home side and exactly five validated AWAY matches for the away side. Partial series remain auditable evidence only.
+\n### H2H last-five completeness — LOCKED
+
+Step 2 H2H is an exact five-match evidence target for every eligible fixture. It MUST research the last 5 completed meetings between the two clubs and retain structured rows containing date, home team, away team, home goals, away goals, and sourceRef.
+
+`VERIFIED` requires exactly five source-backed H2H rows. A 1-4 row sample may be `PARTIAL` only after genuine search exhaustion is explicitly recorded; zero rows after genuine search exhaustion is `UNAVAILABLE`. Notes, aggregate H2H claims, undated summaries, or narrative streak statements do not satisfy this requirement.
+
+Only canonical Step-2 schema `fih-daily-research-v5` may cross the operational Step-3 input gate after this lock. H2H numeric use in FIH-5F-V1 still requires the exact five-match set.
+
 
 ### Step-3 result-profile derivation — LOCKED
 
@@ -304,4 +312,4 @@ Passing lineage verification is necessary but not sufficient for Step 3. The mod
 
 PPG, goal-difference-per-game, recent scoring/conceding/BTTS/Over-2.5 rates, rest days, and FIH expected-goal parameters are downstream calculations and must be derived in Step 3 from source-backed Step-2 facts. Missing values remain undefined. Step 2 must not supply xG/xGA as a model input; Step 3 exclusively owns `lambdaHome` and `lambdaAway`. FIH-5F-V1 is the explicit locked result-strength mapping for H2H and motivation: overall last-5 form 30%, exact HOME/AWAY last-5 venue form 30%, league-position strength 15% using derived season PPG, exact last-5 H2H 15%, and motivation 10%. Overall/venue/H2H use W=3/D=1/L=0. Motivation is derived only in Step 3 from the locked competitive-fixture baseline plus source-backed context tags. Squad availability, team quality and opponent-strength context remain context-only unless a separately approved calibrated mapping is locked.
 
-Every Step-3 fixture output MUST carry evidence-use accounting sufficient to show what was USED, DERIVED, CONTEXT_ONLY, or UNAVAILABLE. Any evidence used numerically must trace to validated Step-2 source references; external xG/xGA is forbidden as a model input; and missing optional inputs may not be replaced by neutral numeric defaults. Pairwise PPG/GD adjustments apply only when both teams have verified finite values. FIH expected goals (`lambdaHome`, `lambdaAway`) are calculated only by Step 3. These invariants are machine-locked by `MODEL-005` through `MODEL-015` and `RESEARCH-016`/`RESEARCH-017`.
+Every Step-3 fixture output MUST carry evidence-use accounting sufficient to show what was USED, DERIVED, CONTEXT_ONLY, or UNAVAILABLE. Any evidence used numerically must trace to validated Step-2 source references; external xG/xGA is forbidden as a model input; and missing optional inputs may not be replaced by neutral numeric defaults. Pairwise PPG/GD adjustments apply only when both teams have verified finite values. FIH expected goals (`lambdaHome`, `lambdaAway`) are calculated only by Step 3. These invariants are machine-locked by `MODEL-005` through `MODEL-015` and `RESEARCH-016`/`RESEARCH-017`/`RESEARCH-018`.
