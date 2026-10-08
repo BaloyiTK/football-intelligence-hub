@@ -253,6 +253,8 @@ Step 2 reaches its promotion boundary only at exact **N/N validated checkpoints*
 
 ### Step-2 checkpoint Git boundary — LOCKED
 
+**NON-NEGOTIABLE STORAGE/COMMIT INVARIANT:** Step 2 has exactly **one temporary accumulator file** for the active date/`researchRunId` and exactly **one canonical research Git commit** for that `researchRunId`. All validated fixture research is appended/updated in that same temp file. No per-fixture temp-file persistence, no partial research Git commits, and no second canonical research commit for the same `researchRunId` are permitted.
+
 The active ChatGPT temporary Step-2 accumulation file is execution working state, not canonical repository research history. Fixture-by-fixture and partial-batch Git commits from this path are forbidden. A validated checkpoint means durable working-state persistence and reread validation; it does **not** mean a Git commit.
 
 Research has one canonical Git boundary for each `researchRunId`: only after exact N/N working checkpoints reconcile and aggregate validation passes may the completed dataset be promoted to `data/research/<date>.json` and committed once. The canonical research commit MUST exclude `data/research-work`. After that commit, repository state must be reread and the canonical artifact revalidated before model execution.
@@ -262,7 +264,7 @@ If checkpoint persistence is unavailable in the active execution environment, th
 
 ### ChatGPT temporary Step-2 accumulator — LOCKED
 
-During ChatGPT-owned Step 2, the complete in-progress research batch MUST be accumulated in a temporary local execution file keyed by date and `researchRunId`. After each fixture is researched and validated, ChatGPT atomically updates that file, rereads it, verifies fixture identity/count and the just-written record, then continues immediately to the next fixture. This temporary file is not Git history and MUST NOT be committed.
+During ChatGPT-owned Step 2, the complete in-progress research batch MUST be accumulated in exactly one temporary local execution file for the date, keyed internally to the active `researchRunId`. Every validated fixture record for that batch lives in this same accumulator file; a per-fixture file tree is forbidden. After each fixture is researched and validated, ChatGPT atomically updates that file, rereads it, verifies fixture identity/count and the just-written record, then continues immediately to the next fixture. This temporary file is not Git history and MUST NOT be committed.
 
 At exact N/N, ChatGPT validates the complete temporary dataset against the frozen Step-1 universe, promotes the validated content to the canonical `data/research/<date>.json`, and performs the single canonical research commit and post-commit reread verification. If the temporary execution workspace itself is destroyed before promotion, only the unpromoted temporary research is considered lost; Step 1 remains authoritative and Step 2 restarts from that frozen universe rather than fabricating completion.
 
