@@ -128,14 +128,11 @@ For BOTH teams, collect:
 - Away team: last 5 overall matches.
 - Where available, retain match date, opponent, venue, score, result, and opponent-strength context for each recent match.
 
-### xG / xGA
-- Expected goals created.
-- Expected goals conceded.
-- Prefer venue + overall splits when reliable data is available.
-- xG/xGA evidence MUST be observed/statistical team or match data from completed play, not another site's prediction, forecast, projected score, betting model, simulation, or pre-match expected-goals estimate.
-- A pre-match source value labelled or functioning as predicted/projected/forecast xG MUST NOT be stored as verified or partial xG/xGA evidence and MUST NOT enter FIH V2 as xG/xGA.
-- If a source mixes observed xG/xGA with predictive values, retain only the clearly attributable observed values; otherwise treat the xG/xGA category as unavailable after the required search attempt.
-- If trustworthy observed xG is unavailable, record it as unavailable. Never invent xG.
+### FIH expected goals ownership
+- Step 2 does **not** research or store xG/xGA as a model input.
+- Step 2 stores factual completed-match scorelines, venue form, standings, schedule and other source-backed context only.
+- Step 3 calculates FIH's own expected-goal parameters, `lambdaHome` and `lambdaAway`, from those verified facts.
+- External, predicted, projected, forecast, or copied xG/xGA values must not enter the FIH probability model.
 
 ### League position
 - Position.
@@ -254,7 +251,6 @@ Step 3 receives the canonical Step-2 facts and normalizes them into model-ready 
 | home/away venue form | used directly as venue refinements |
 | standings: points + matches | derive PPG in Step 3; never store calculated PPG in Step 2 |
 | standings: goal difference, or goals for/against + matches | derive goal-difference-per-game in Step 3 |
-| observed xG/xGA | consume only when explicitly source-backed and marked observed; predictive/projected xG is forbidden |
 | recent scorelines | derive scoring, conceding, BTTS and Over-2.5 rates in Step 3 |
 | latest verified match date + kickoff | derive rest days in Step 3 |
 | H2H | context-only unless a later calibrated mapping is explicitly approved |
@@ -266,7 +262,7 @@ Step 3 receives the canonical Step-2 facts and normalizes them into model-ready 
 Every fixture model record MUST expose `evidenceUsage` and `inputCoverage`. Each researched evidence family is classified as `USED`, `DERIVED`, `CONTEXT_ONLY`, or `UNAVAILABLE`; silent dropping is forbidden.
 
 Missing evidence remains undefined. Step 3 MUST NOT convert missing information to zero and MUST NOT invent numeric injury, motivation, H2H, or opponent-strength adjustments.
-Every evidence field used numerically in Step 3 MUST have validated Step-2 source references. Standings/H2H/schedule references must resolve to retained source metadata, and xG/xGA is usable only when explicitly marked `OBSERVED_COMPLETED_MATCH_STATISTICS`.
+Every evidence field used numerically in Step 3 MUST have validated Step-2 source references. Standings/H2H/schedule and other retained references must resolve to retained source metadata. External xG/xGA is not a Step-3 input.
 Pairwise PPG and goal-difference adjustments run only when both teams have verified finite values. A missing side is not replaced by a neutral league-average/default value.
 
 ### 3.3 Fixture model loop
@@ -288,9 +284,9 @@ Retain, where calculated:
 - `CALCULATED` or `INSUFFICIENT_DATA` status and reason.
 
 ### 3.4 V2 principles
-- Recent overall form remains the anchor.
+- Recent overall form remains the anchor for FIH-owned expected-goal calculation.
 - Home/away venue form refines expected goals when verified.
-- Trustworthy xG/xGA may refine expected goals; unavailable xG is not zero.
+- FIH calculates `lambdaHome` and `lambdaAway` internally from verified factual evidence; external xG/xGA is not consumed.
 - PPG and goal-difference-per-game provide conservative longer-strength context.
 - Recent matches may be opponent-strength weighted when a verified factor exists.
 - Squad/availability adjustments remain evidence-based.
