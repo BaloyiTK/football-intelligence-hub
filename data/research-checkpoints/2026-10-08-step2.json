@@ -5,8 +5,8 @@
   "canonical": false,
   "status": "IN_PROGRESS",
   "eligibleCount": 51,
-  "fixtureRecordsValidated": 8,
-  "lastValidatedFixtureId": "1854209",
+  "fixtureRecordsValidated": 12,
+  "lastValidatedFixtureId": "1876517",
   "workingRecords": {
     "1718971": {
       "fixtureId": "1718971",
@@ -2037,6 +2037,188 @@
         }
       }
     },
+    "1876517": {
+      "fixtureId": "1876517",
+      "fixture": {
+        "competition": "Serie B. Promotion Round",
+        "country": "Ecuador",
+        "home": "Atletico FC",
+        "away": "San Antonio",
+        "kickoff": "20261008211500",
+        "timezone": "Africa/Johannesburg"
+      },
+      "researchedAt": "2026-10-08T21:15:00+02:00",
+      "sourceMetadata": [
+        {
+          "ref": "s1",
+          "url": "https://globalsportsarchive.com/en/soccer/match/2026-10-08/atletico-fc-vs-san-antonio-fc/4485480",
+          "retrievedAt": "2026-10-08T21:15:00+02:00",
+          "supports": [
+            "motivationContext"
+          ]
+        },
+        {
+          "ref": "s2",
+          "url": "https://www.endirect24.com/comparer-les-equipes/Ecuador/Atletico-FC-ECU/vs/Ecuador/San-Antonio-FC-ECU/",
+          "retrievedAt": "2026-10-08T21:15:00+02:00",
+          "supports": [
+            "venueForm",
+            "h2h",
+            "teamQuality",
+            "goalsProfile"
+          ]
+        },
+        {
+          "ref": "s3",
+          "url": "https://www.footlive.com/h2h/atletico-fc-vs-san-antonio-fc-0/",
+          "retrievedAt": "2026-10-08T21:15:00+02:00",
+          "supports": [
+            "overallForm",
+            "h2h",
+            "restSchedule"
+          ]
+        },
+        {
+          "ref": "s4",
+          "url": "https://www.theyscored.com/head-to-head/atletico-fc-vs-san-antonio-ecuador",
+          "retrievedAt": "2026-10-08T21:15:00+02:00",
+          "supports": [
+            "overallForm",
+            "h2h",
+            "teamQuality",
+            "opponentStrength"
+          ]
+        }
+      ],
+      "evidence": {
+        "overallForm": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s3",
+            "s4"
+          ],
+          "data": {
+            "home": [
+              "Nueve de Octubre 0-1 Atletico FC",
+              "Atletico FC 2-0 Cuenca Juniors",
+              "Independiente Juniors 1-1 Atletico FC",
+              "San Antonio 0-3 Atletico FC",
+              "Atletico FC 2-2 Nueve de Octubre"
+            ],
+            "away": [
+              "San Antonio 0-0 Vinotinto",
+              "Nueve de Octubre 3-0 San Antonio",
+              "Cuenca Juniors 1-0 San Antonio",
+              "San Antonio 0-3 Atletico FC",
+              "Vinotinto 4-2 San Antonio"
+            ]
+          }
+        },
+        "venueForm": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s2"
+          ],
+          "data": {
+            "homeLast6": "4W-1D-1L, 13 GF, 4 GA",
+            "awayLast6": "2W-0D-4L, 5 GF, 10 GA"
+          }
+        },
+        "xgXga": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Atletico FC San Antonio observed xG xGA Ecuador 2026",
+              "attemptedAt": "2026-10-08T21:15:00+02:00",
+              "outcome": "No trustworthy source with explicit observed xG/xGA provenance found; predictive estimates excluded."
+            }
+          ]
+        },
+        "leaguePosition": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Atletico FC San Antonio promotion round standings October 8 2026",
+              "attemptedAt": "2026-10-08T21:15:00+02:00",
+              "outcome": "No sufficiently trustworthy current numeric table retained in the non-betting source set."
+            }
+          ]
+        },
+        "teamQuality": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s2",
+            "s4"
+          ],
+          "data": {
+            "homeRecent12": "5W-5D-2L",
+            "homeForm6": "2W-3D-1L, 9 GF, 4 GA",
+            "awayForm6": "1W-2D-3L, 3 GF, 8 GA"
+          }
+        },
+        "motivationContext": {
+          "status": "PARTIAL",
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": "Confirmed promotion-round fixture in Guayaquil."
+        },
+        "h2h": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s2",
+            "s3",
+            "s4"
+          ],
+          "data": [
+            "2026-09-10 San Antonio 0-3 Atletico FC",
+            "2026-07-16 Atletico FC 4-1 San Antonio",
+            "2026-04-29 San Antonio 1-1 Atletico FC"
+          ],
+          "summary": "Atletico FC 2 wins, 1 draw, 0 losses in retained three-match H2H."
+        },
+        "goalsProfile": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s2"
+          ],
+          "data": {
+            "h2hAvgGoals": 3.3,
+            "homeVenueLast6GF": 13,
+            "homeVenueLast6GA": 4,
+            "awayVenueLast6GF": 5,
+            "awayVenueLast6GA": 10
+          }
+        },
+        "squadAvailability": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Atletico FC San Antonio injuries suspensions October 8 2026",
+              "attemptedAt": "2026-10-08T21:15:00+02:00",
+              "outcome": "No trustworthy complete pre-match absence list located."
+            }
+          ]
+        },
+        "opponentStrength": {
+          "status": "PARTIAL",
+          "sourceRefs": [
+            "s4"
+          ],
+          "data": "Recent opponent sequences verified; no uniform opponent-strength metric retained."
+        },
+        "restSchedule": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s3"
+          ],
+          "data": {
+            "homeLastMatch": "2026-10-03",
+            "awayLastMatch": "2026-10-02"
+          }
+        }
+      }
+    },
     "1883878": {
       "fixtureId": "1883878",
       "fixture": {
@@ -3212,8 +3394,8 @@
       }
     }
   },
-  "nextFixtureId": "1876517",
-  "nextAction": "Submit fixture 1876517 as next structured ChatGPT Step 2 research job.",
+  "nextFixtureId": "1843698",
+  "nextAction": "Continue fixture-specific Step 2 web research from nextFixtureId.",
   "integrityRepair": {
     "at": "2026-10-08T05:45:00Z",
     "rule": "OBSERVED_XG_ONLY",
@@ -3246,5 +3428,5 @@
       ]
     }
   },
-  "updatedAt": "2026-10-08T05:23:00Z"
+  "updatedAt": "2026-10-08T21:15:00+02:00"
 }
