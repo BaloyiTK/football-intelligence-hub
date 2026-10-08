@@ -6,6 +6,7 @@ const matchOk=(m:any)=>m&&typeof m==="object"&&m.date&&m.opponent&&["HOME","AWAY
 const factItemOk=(v:any)=>v&&typeof v==="object"&&typeof v.fact==="string"&&v.fact.trim()&&typeof v.sourceRef==="string"&&v.sourceRef.trim();
 function factualCategoryOk(v:any){return v&&typeof v==="object"&&["VERIFIED","PARTIAL","UNAVAILABLE"].includes(String(v.status))&&Array.isArray(v.attempts)&&v.attempts.length>0&&v.attempts.every(attemptOk)&&(v.status==="UNAVAILABLE"||(v.data?.homeTeam&&v.data?.awayTeam&&Array.isArray(v.data.homeTeam)&&Array.isArray(v.data.awayTeam)&&v.data.homeTeam.every(factItemOk)&&v.data.awayTeam.every(factItemOk)&&Array.isArray(v.sourceRefs)));}
 const genericFactCategoryOk=(v:any)=>v&&typeof v==="object"&&["VERIFIED","PARTIAL","UNAVAILABLE"].includes(String(v.status))&&Array.isArray(v.attempts)&&v.attempts.length>0&&v.attempts.every(attemptOk)&&Array.isArray(v.sourceRefs);
+const optionalGenericFactCategoryOk=(v:any)=>v===undefined||genericFactCategoryOk(v);
 function xgOk(v:any){
  if(v===undefined)return true;
  if(!v||typeof v!=="object"||!["VERIFIED","PARTIAL","UNAVAILABLE"].includes(String(v.status))||!Array.isArray(v.attempts)||!v.attempts.length||!v.attempts.every(attemptOk))return false;
@@ -29,10 +30,11 @@ export function validateResearchArtifact(x:any,date:string,eligibleIds:string[],
  const want=[...eligibleIds].sort(),got=[...ids].sort();if(JSON.stringify(want)!==JSON.stringify(got))throw new Error("CANONICAL_DAILY_RESEARCH_COVERAGE_MISMATCH");
  const cutoff=mode==="BACKTEST"?new Date(date+"T04:00:00.000Z").getTime():null;
  for(const r of x.fixtures){
-  if(!r.fixture||!r.researchedAt||typeof r.researchRunId!=="string"||!r.researchRunId.trim()||!Array.isArray(r.sourceMetadata)||!r.facts||!formOk(r.facts.form)||!genericFactCategoryOk(r.facts.standings)||!genericFactCategoryOk(r.facts.headToHead)||!factualCategoryOk(r.facts.squadAvailability)||!genericFactCategoryOk(r.facts.schedule)||!factualCategoryOk(r.facts.competitionContext)||!xgOk(r.facts.xg))throw new Error("RESEARCH_RECORD_INCOMPLETE "+r.fixtureId);
+  if(!r.fixture||!r.researchedAt||typeof r.researchRunId!=="string"||!r.researchRunId.trim()||!Array.isArray(r.sourceMetadata)||!r.facts||!formOk(r.facts.form)||!genericFactCategoryOk(r.facts.standings)||!genericFactCategoryOk(r.facts.headToHead)||!factualCategoryOk(r.facts.squadAvailability)||!genericFactCategoryOk(r.facts.schedule)||!factualCategoryOk(r.facts.competitionContext)||!xgOk(r.facts.xg)||!optionalGenericFactCategoryOk(r.facts.opponentStrength)||!optionalGenericFactCategoryOk(r.facts.teamQuality))throw new Error("RESEARCH_RECORD_INCOMPLETE "+r.fixtureId);
   const refs=new Set(r.sourceMetadata.map((sm:any)=>String(sm.ref||sm.url)));
   for(const ref of r.facts.form.sourceRefs||[])if(!refs.has(String(ref)))throw new Error("RESEARCH_SOURCE_REF_UNKNOWN "+r.fixtureId);
   for(const k of ["standings","headToHead","schedule"])for(const ref of r.facts[k].sourceRefs||[])if(!refs.has(String(ref)))throw new Error("RESEARCH_CATEGORY_SOURCE_REF_UNKNOWN "+r.fixtureId+" "+k);
+  for(const k of ["opponentStrength","teamQuality"])if(r.facts[k])for(const ref of r.facts[k].sourceRefs||[])if(!refs.has(String(ref)))throw new Error("RESEARCH_OPTIONAL_CONTEXT_SOURCE_REF_UNKNOWN "+r.fixtureId+" "+k);
   for(const side of ["homeTeam","awayTeam"])for(const key of side==="homeTeam"?["overallLast5","homeLast5"]:["overallLast5","awayLast5"])for(const m of r.facts.form.data?.[side]?.[key]||[])if(!refs.has(String(m.sourceRef)))throw new Error("RESEARCH_MATCH_SOURCE_REF_UNKNOWN "+r.fixtureId);
   for(const k of ["squadAvailability","competitionContext"])for(const item of [...(r.facts[k].data?.homeTeam||[]),...(r.facts[k].data?.awayTeam||[])])if(!refs.has(String(item.sourceRef)))throw new Error("RESEARCH_FACT_SOURCE_REF_UNKNOWN "+r.fixtureId+" "+k);
   if(r.facts.xg&&r.facts.xg.status!=="UNAVAILABLE")for(const ref of r.facts.xg.sourceRefs||[])if(!refs.has(String(ref)))throw new Error("RESEARCH_XG_SOURCE_REF_UNKNOWN "+r.fixtureId);
