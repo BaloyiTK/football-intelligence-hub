@@ -105,6 +105,18 @@
     "BG-001": {
       "kind": "status-integrity",
       "requirement": "FIH MUST NOT describe work as running in the background unless a real external workflow, automation, or other independently executing process has been started and verified active. Chat/tool execution that stops when the assistant turn ends must be described as in-turn execution only."
+    },
+    "RESEARCH-001": {
+      "kind": "research-ownership",
+      "requirement": "ChatGPT owns Step 2 fixture-by-fixture web research. For every eligible fixture, ChatGPT MUST use web search to obtain source-backed factual evidence. A repository-local homepage scanner, scraper, source-discovery cache, or provider fallback MUST NOT be treated as a substitute for the required ChatGPT web-search job."
+    },
+    "RESEARCH-002": {
+      "kind": "research-batching",
+      "requirement": "Research MUST accumulate all eligible fixtures for one date in working/checkpoint state, validate complete fixture coverage and the canonical facts-only schema, then persist the canonical per-date research artifact in one batch commit. Per-fixture canonical research commits are forbidden."
+    },
+    "RESEARCH-003": {
+      "kind": "research-integrity",
+      "requirement": "Step 2 stores source-backed facts only. Calculated or estimated form strength, PPG, rates, clean-sheet rate, BTTS rate, Over 2.5 rate, rest days, squad quality scores, motivation scores, xG/predictions, probabilities, and betting conclusions are downstream FIH calculations and MUST NOT be stored as researched facts."
     }
   },
   "hardStops": [
