@@ -66,7 +66,7 @@ const restDays=(rows:any[],kickoff:any)=>{
 
 const xgMetrics=(facts:any,side:"homeTeam"|"awayTeam")=>{
   const x=facts?.xg;
-  if(!x||x.status==="UNAVAILABLE")return {};
+  if(!x||x.status==="UNAVAILABLE"||x.evidenceType!=="OBSERVED_COMPLETED_MATCH_STATISTICS")return {};
   const node=x.data?.[side];
   if(!node||typeof node!=="object")return {};
   const base=node.overall&&typeof node.overall==="object"?node.overall:node;
