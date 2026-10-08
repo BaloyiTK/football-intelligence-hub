@@ -120,8 +120,10 @@ Do not ask ChatGPT to make Step 3 model probabilities or Step 4 decisions during
 For BOTH teams, collect:
 
 ### Venue form
-- Home team: last 5 HOME matches.
-- Away team: last 5 AWAY matches.
+- Home team: exactly the last 5 completed HOME matches.
+- Away team: exactly the last 5 completed AWAY matches.
+- Step 2 must continue venue-form research until all 5 source-backed matches are found, or explicitly record the series as `PARTIAL`/`UNAVAILABLE` after genuine search exhaustion.
+- A 1-4 match venue sample is incomplete and MUST NOT be treated as verified venue form or used numerically by Step 3.
 
 ### Overall form
 - Home team: last 5 overall matches.
@@ -248,7 +250,7 @@ Step 3 receives the canonical Step-2 facts and normalizes them into model-ready 
 | Step-2 evidence | Step-3 treatment |
 |---|---|
 | overall form | used directly as the primary recent-form input |
-| home/away venue form | used directly as venue refinements |
+| home/away venue form | used as a venue refinement only with exactly 5 validated HOME matches for the home side and exactly 5 validated AWAY matches for the away side; partial samples are not numerical inputs |
 | standings: points + matches | derive PPG in Step 3; never store calculated PPG in Step 2 |
 | standings: goal difference, or goals for/against + matches | derive goal-difference-per-game in Step 3 |
 | recent scorelines | derive scoring, conceding, BTTS and Over-2.5 rates in Step 3 |
