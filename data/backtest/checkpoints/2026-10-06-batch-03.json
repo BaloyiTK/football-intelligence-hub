@@ -1,0 +1,46 @@
+{
+  "schema": "fih-backtest-research-checkpoint-v1",
+  "date": "2026-10-06",
+  "mode": "BACKTEST",
+  "cutoff": "2026-10-06T04:00:00.000Z",
+  "batch": 3,
+  "processedFixtureCount": 10,
+  "nextFixtureId": "1866748",
+  "generatedAt": "2026-10-08T00:14:04.485Z",
+  "integrity": "Recovery checkpoint only; NOT canonical Step 2. Fixture-specific web searches executed; post-cutoff/post-match and publication-time-ambiguous material excluded.",
+  "attemptedFixtures": [
+    "1903106",
+    "1873814",
+    "1854204",
+    "1854200",
+    "1747223",
+    "1747222",
+    "1747221",
+    "1747220",
+    "1747219",
+    "1866774"
+  ],
+  "safePreCutoffSources": [
+    {
+      "fixtureId": "1873814",
+      "url": "https://www.reuters.com/sports/soccer/uae-fans-snap-up-jeddah-flights-within-minutes-ahead-gulf-cup-final-2026-10-04/",
+      "availableAt": "2026-10-04T16:51:53Z",
+      "supports": [
+        "motivationContext",
+        "teamQuality",
+        "restSchedule"
+      ]
+    },
+    {
+      "fixtureId": "1866774",
+      "url": "https://accringtonstnews.co.uk/news/accrington-stanley-salford-city-efl-trophy-preview-2",
+      "availableAt": "2026-10-05T23:59:59Z",
+      "supports": [
+        "overallForm",
+        "leaguePosition",
+        "goalsProfile",
+        "motivationContext"
+      ]
+    }
+  ]
+}
