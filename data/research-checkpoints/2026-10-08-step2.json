@@ -5,8 +5,8 @@
   "canonical": false,
   "status": "IN_PROGRESS",
   "eligibleCount": 51,
-  "fixtureRecordsValidated": 26,
-  "lastValidatedFixtureId": "1893565",
+  "fixtureRecordsValidated": 27,
+  "lastValidatedFixtureId": "1893566",
   "workingRecords": {
     "1718971": {
       "fixtureId": "1718971",
@@ -5724,6 +5724,213 @@
         }
       }
     },
+    "1893566": {
+      "fixtureId": "1893566",
+      "fixture": {
+        "competition": "Persian Gulf Pro League",
+        "country": "Iran",
+        "home": "Foolad Khuzestan",
+        "away": "Mes Shahr Babak",
+        "kickoff": "20261008173000",
+        "timezone": "Africa/Johannesburg"
+      },
+      "researchedAt": "2026-10-08T22:30:00+02:00",
+      "sourceMetadata": [
+        {
+          "ref": "s1",
+          "url": "https://www.soccerpunter.com/h2h/Foolad-vs-Mes-Shahr-e-Babak/6323/229280/",
+          "retrievedAt": "2026-10-08T22:30:00+02:00",
+          "supports": [
+            "overallForm",
+            "venueForm",
+            "h2h",
+            "teamQuality",
+            "goalsProfile"
+          ]
+        },
+        {
+          "ref": "s2",
+          "url": "https://www.betstudy.com/soccer-stats/h2h/foolad-mes-shahr-e-babak-6323-229280/",
+          "retrievedAt": "2026-10-08T22:30:00+02:00",
+          "supports": [
+            "overallForm",
+            "h2h",
+            "restSchedule"
+          ]
+        },
+        {
+          "ref": "s3",
+          "url": "https://www.sofascore.com/football/match/mes-shahr-babak-foolad-khuzestan/dzwswVuc",
+          "retrievedAt": "2026-10-08T22:30:00+02:00",
+          "supports": [
+            "leaguePosition",
+            "motivationContext"
+          ]
+        }
+      ],
+      "evidence": {
+        "overallForm": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1",
+            "s2"
+          ],
+          "data": {
+            "home": {
+              "played": 6,
+              "wins": 2,
+              "draws": 3,
+              "losses": 1,
+              "recentHome": [
+                "1-0 Fajr Sepasi",
+                "0-0 Esteghlal",
+                "1-1 Caspian Qazvin"
+              ]
+            },
+            "away": {
+              "played": 7,
+              "wins": 0,
+              "draws": 5,
+              "losses": 2,
+              "recent": [
+                "1-1 Nassaji",
+                "1-2 Malavan",
+                "0-0 Sanat Naft",
+                "1-1 Kheybar"
+              ]
+            }
+          }
+        },
+        "venueForm": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": {
+            "home": {
+              "played": 3,
+              "wins": 1,
+              "draws": 2,
+              "losses": 0
+            },
+            "away": {
+              "played": 3,
+              "wins": 0,
+              "draws": 2,
+              "losses": 1
+            }
+          }
+        },
+        "xgXga": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Foolad Mes Shahr Babak observed xG xGA 2026",
+              "attemptedAt": "2026-10-08T22:30:00+02:00",
+              "outcome": "No explicit observed xG/xGA provenance retained."
+            }
+          ]
+        },
+        "leaguePosition": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s3"
+          ],
+          "data": {
+            "home": {
+              "position": 7,
+              "points": 9
+            },
+            "away": {
+              "position": 17,
+              "points": 5
+            }
+          }
+        },
+        "teamQuality": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": {
+            "home": {
+              "avgGoalsScored": 0.83,
+              "avgGoalsAllowed": 0.5,
+              "cleanSheets": 4
+            },
+            "away": {
+              "avgGoalsScored": 0.71,
+              "avgGoalsAllowed": 1.43,
+              "cleanSheets": 1
+            }
+          }
+        },
+        "motivationContext": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s3"
+          ],
+          "data": "Round 8 fixture with Foolad 7th on 9 points and Mes Shahr Babak 17th on 5."
+        },
+        "h2h": {
+          "status": "PARTIAL",
+          "sourceRefs": [
+            "s1",
+            "s2"
+          ],
+          "data": [
+            "2018-09-15 Foolad 7-0 Mes Shahr Babak"
+          ],
+          "summary": "Only one prior meeting retained; old cup match has limited current predictive value."
+        },
+        "goalsProfile": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": {
+            "home": {
+              "under225Matches": 5,
+              "avgGF": 0.83,
+              "avgGA": 0.5
+            },
+            "away": {
+              "under225Matches": 5,
+              "avgGF": 0.71,
+              "avgGA": 1.43
+            }
+          }
+        },
+        "squadAvailability": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Foolad Mes Shahr Babak injuries suspensions October 8 2026",
+              "attemptedAt": "2026-10-08T22:30:00+02:00",
+              "outcome": "No trustworthy complete absence list retained."
+            }
+          ]
+        },
+        "opponentStrength": {
+          "status": "PARTIAL",
+          "sourceRefs": [
+            "s1",
+            "s2"
+          ],
+          "data": "Recent league records and opponents retained; no normalized opponent-strength index."
+        },
+        "restSchedule": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s2"
+          ],
+          "data": {
+            "homeLastMatch": "2026-09-07",
+            "awayLastMatch": "2026-09-13"
+          }
+        }
+      }
+    },
     "1893567": {
       "fixtureId": "1893567",
       "fixture": {
@@ -6196,7 +6403,7 @@
       }
     }
   },
-  "nextFixtureId": "1893566",
+  "nextFixtureId": "1871229",
   "nextAction": "Continue fixture-specific Step 2 web research from nextFixtureId.",
   "integrityRepair": {
     "at": "2026-10-08T05:45:00Z",
@@ -6230,5 +6437,5 @@
       ]
     }
   },
-  "updatedAt": "2026-10-08T22:25:00+02:00"
+  "updatedAt": "2026-10-08T22:30:00+02:00"
 }
