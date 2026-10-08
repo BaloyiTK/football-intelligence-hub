@@ -141,6 +141,14 @@
     "RESEARCH-008": {
       "kind": "atomic-promotion",
       "requirement": "Step 2 is incomplete until validated checkpoints equal the frozen eligible universe N/N, aggregate reconciliation passes with no missing/extra/duplicate fixtures, the full canonical artifact validates under the active researchRunId, canonical data/research/<date>.json is promoted, the ONE canonical research commit succeeds, repository HEAD/commit is verified, and the committed canonical file is reread and revalidated. N/N without canonical commit verification is failure/RECOVERING, not completion."
+    },
+    "RESEARCH-009": {
+      "kind": "checkpoint-git-boundary",
+      "requirement": "Non-canonical Step-2 research-work checkpoints MUST NOT be committed to Git individually or in partial batches. Git persistence for research is permitted only after exact N/N validated working coverage is promoted to the single canonical data/research/<date>.json artifact. Any attempted data/research-work commit is an execution defect and MUST be rejected."
+    },
+    "RESEARCH-010": {
+      "kind": "canonical-single-commit",
+      "requirement": "The research stage has exactly one canonical Git commit boundary per researchRunId: after N/N checkpoint validation, aggregate reconciliation, canonical promotion and validation. The commit must include the canonical daily research artifact, must exclude data/research-work, and must be verified by rereading repository state before model execution."
     }
   },
   "hardStops": [
