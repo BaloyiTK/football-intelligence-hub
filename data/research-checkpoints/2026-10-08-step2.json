@@ -332,6 +332,234 @@
         }
       }
     },
+    "1806471": {
+      "fixtureId": "1806471",
+      "fixture": {
+        "competition": "Primera B: Clausura",
+        "country": "Colombia",
+        "home": "Atletico FC",
+        "away": "Real Cartagena",
+        "kickoff": "20261008223000",
+        "timezone": "Africa/Johannesburg"
+      },
+      "researchedAt": "2026-10-08T05:08:00Z",
+      "sourceMetadata": [
+        {
+          "ref": "s1",
+          "url": "https://www.fotmob.com/es-419/matches/real-cartagena-vs-atletico-fc/99agesi",
+          "retrievedAt": "2026-10-08T05:08:00Z",
+          "supports": [
+            "fixture",
+            "h2h"
+          ]
+        },
+        {
+          "ref": "s2",
+          "url": "https://www.sportytrader.com/en/results-live/atletico-fc-real-cartagena-8811273/",
+          "retrievedAt": "2026-10-08T05:08:00Z",
+          "supports": [
+            "h2h",
+            "goalsProfile"
+          ]
+        },
+        {
+          "ref": "s3",
+          "url": "https://www.fctables.com/h2h/atletico-fc/real-cartagena/",
+          "retrievedAt": "2026-10-08T05:08:00Z",
+          "supports": [
+            "venueForm",
+            "goalsProfile",
+            "h2h"
+          ]
+        },
+        {
+          "ref": "s4",
+          "url": "https://tribuna.com/en/match/102832236/",
+          "retrievedAt": "2026-10-08T05:08:00Z",
+          "supports": [
+            "overallForm",
+            "h2h",
+            "venue"
+          ]
+        },
+        {
+          "ref": "s5",
+          "url": "https://www.sportytrader.com/es/apuestas/atletico-fc-real-cartagena-8811273/",
+          "retrievedAt": "2026-10-08T05:08:00Z",
+          "supports": [
+            "marketContext"
+          ]
+        }
+      ],
+      "evidence": {
+        "overallForm": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Atletico FC Real Cartagena October 8 2026 recent form",
+              "attemptedAt": "2026-10-08T05:08:00Z",
+              "outcome": "Current preview confirms Atletico entered on a three-match losing run; complete current five-match sequences were not trustworthy enough to retain."
+            }
+          ],
+          "sourceRefs": [
+            "s4"
+          ],
+          "data": {
+            "home": "Lost last 3 matches"
+          }
+        },
+        "venueForm": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Atletico FC home Real Cartagena away 2026",
+              "attemptedAt": "2026-10-08T05:08:00Z",
+              "outcome": "Season venue aggregates located; current exact last-five venue sequence not fully verified."
+            }
+          ],
+          "sourceRefs": [
+            "s3"
+          ],
+          "data": {
+            "homeOver15Pct": 81.82,
+            "homeOver25Pct": 27.27,
+            "awayOver15Pct": 58.33,
+            "awayOver25Pct": 25
+          }
+        },
+        "xgXga": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Atletico FC Real Cartagena observed xG xGA 2026",
+              "attemptedAt": "2026-10-08T05:08:00Z",
+              "outcome": "No trustworthy source with explicit OBSERVED pre-match xG/xGA provenance located; predictive estimates excluded."
+            }
+          ]
+        },
+        "leaguePosition": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Atletico FC Real Cartagena standings October 8 2026 Primera B",
+              "attemptedAt": "2026-10-08T05:08:00Z",
+              "outcome": "No sufficiently trustworthy current numeric table retained in this research pass."
+            }
+          ]
+        },
+        "teamQuality": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Atletico FC Real Cartagena 2026 team strength",
+              "attemptedAt": "2026-10-08T05:08:00Z",
+              "outcome": "Season scoring and long-run H2H evidence supports a material Real Cartagena quality edge, but no independent rating retained."
+            }
+          ],
+          "sourceRefs": [
+            "s2",
+            "s3"
+          ],
+          "data": {
+            "homeGoalsPerMatch": 0.7,
+            "awayGoalsPerMatch": 1.58
+          }
+        },
+        "motivationContext": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Atletico FC Real Cartagena October 8 2026 Primera B context",
+              "attemptedAt": "2026-10-08T05:08:00Z",
+              "outcome": "Confirmed Primera B fixture; no stronger trustworthy stakes narrative retained."
+            }
+          ],
+          "sourceRefs": [
+            "s1"
+          ]
+        },
+        "h2h": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "Atletico FC Real Cartagena H2H 2026",
+              "attemptedAt": "2026-10-08T05:08:00Z",
+              "outcome": "Multiple sources agree Real Cartagena dominate the recent series."
+            }
+          ],
+          "sourceRefs": [
+            "s1",
+            "s2",
+            "s3",
+            "s4"
+          ],
+          "data": {
+            "recent": [
+              "2026-02-13 Real Cartagena 4-1 Atletico FC",
+              "2025-10-05 Real Cartagena 4-0 Atletico FC",
+              "2025-04-25 Atletico FC 1-2 Real Cartagena",
+              "2024-09-12 Real Cartagena 3-0 Atletico FC",
+              "2024-04-04 Atletico FC 0-2 Real Cartagena"
+            ],
+            "summary": "Real Cartagena won the last seven H2H per current preview."
+          }
+        },
+        "goalsProfile": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "Atletico FC Real Cartagena goals profile 2026",
+              "attemptedAt": "2026-10-08T05:08:00Z",
+              "outcome": "Season and H2H goal-rate aggregates located."
+            }
+          ],
+          "sourceRefs": [
+            "s2",
+            "s3"
+          ],
+          "data": {
+            "homeGoalsPerMatch": 0.7,
+            "awayGoalsPerMatch": 1.58,
+            "h2hAvgGoals": 2.78,
+            "h2hOver15Pct": 88.89,
+            "h2hOver25Pct": 55.56
+          }
+        },
+        "squadAvailability": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Atletico FC Real Cartagena injuries suspensions October 8 2026",
+              "attemptedAt": "2026-10-08T05:08:00Z",
+              "outcome": "No trustworthy named current absence list located."
+            }
+          ]
+        },
+        "opponentStrength": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Atletico FC Real Cartagena recent opponents 2026",
+              "attemptedAt": "2026-10-08T05:08:00Z",
+              "outcome": "Recent-opponent context located in previews, but full current five-match sequences were not sufficiently verified to retain."
+            }
+          ],
+          "sourceRefs": [
+            "s4"
+          ]
+        },
+        "restSchedule": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Atletico FC Real Cartagena schedule October 2026 rest days",
+              "attemptedAt": "2026-10-08T05:08:00Z",
+              "outcome": "No trustworthy exact prior-match dates for both teams retained in this pass."
+            }
+          ]
+        }
+      }
+    },
     "1807243": {
       "fixtureId": "1807243",
       "fixture": {
@@ -2402,8 +2630,8 @@
       }
     }
   },
-  "nextFixtureId": "1806471",
-  "nextAction": "Submit fixture 1806471 Atletico FC vs Real Cartagena as next structured ChatGPT Step 2 research job.",
+  "nextFixtureId": "1806477",
+  "nextAction": "Submit fixture 1806477 as next structured ChatGPT Step 2 research job.",
   "integrityRepair": {
     "at": "2026-10-08T05:45:00Z",
     "rule": "OBSERVED_XG_ONLY",
@@ -2415,5 +2643,26 @@
       "1886717"
     ],
     "action": "Fail-closed: prior non-UNAVAILABLE xG categories without explicit observed provenance downgraded to UNAVAILABLE; predictive estimates removed."
-  }
+  },
+  "fixtureIntegrityResolutions": {
+    "1861027": {
+      "status": "CONFIRMED_2026-10-08",
+      "checkedAt": "2026-10-08T05:08:00Z",
+      "note": "Fresh cross-source verification supports Coastal Union vs Azam on 8 Oct 2026; prior 9 Oct conflict rejected.",
+      "sources": [
+        "https://www.fotmob.com/matches/azam-fc-vs-coastal-union/1b33nwv5",
+        "https://www.footballfixtures.org/ligi-kuu-bara/fixtures?view=upcoming"
+      ]
+    },
+    "1893567": {
+      "status": "CONFIRMED_2026-10-08",
+      "checkedAt": "2026-10-08T05:08:00Z",
+      "note": "Fresh cross-source verification supports Gol Gohar vs Esteghlal Khuzestan on 8 Oct 2026.",
+      "sources": [
+        "https://fbref.com/en/squads/2f5578dd/2026-2027/matchlogs/all_comps/schedule/Gol-Gohar-FC-Scores-and-Fixtures-All-Competitions",
+        "https://fbref.com/en/squads/dbad5f2c/2026-2027/matchlogs/c64/schedule/Esteghlal-Khuzestan-Scores-and-Fixtures-Persian-Gulf-Pro-League"
+      ]
+    }
+  },
+  "updatedAt": "2026-10-08T05:08:00Z"
 }
