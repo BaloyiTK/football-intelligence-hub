@@ -128,15 +128,15 @@
     },
     "STEP1-001": {
       "kind": "fixture-universe-freeze",
-      "requirement": "After Step 1 eligibility is verified, Step 2 MUST freeze the exact eligible fixture IDs/count and researchRunId in a durable research-work manifest. Any universe drift invalidates the Step 2 working set and requires reconciliation before research continues."
+      "requirement": "After Step 1 eligibility is verified, Step 2 MUST freeze the exact eligible fixture IDs/count and researchRunId in the active ChatGPT temporary working artifact before research begins. Any universe drift invalidates the Step 2 working set and requires reconciliation."
     },
     "RESEARCH-006": {
       "kind": "durable-fixture-checkpoint",
-      "requirement": "For every eligible fixture: ChatGPT web search -> build facts-only record -> validate record and source references -> persist to non-canonical data/research-work/<date>/fixtures/<fixtureId>.json -> reread and revalidate -> mark fixture checkpoint validated -> immediately continue to the next unvalidated fixture. Search completion without a validated durable checkpoint is not fixture completion."
+      "requirement": "For every eligible fixture: ChatGPT web search -> build facts-only record -> validate record and source references -> write/update the active ChatGPT temporary accumulation file -> reread and verify the accumulated record -> immediately continue to the next unvalidated fixture. Search completion without successful temporary-file accumulation is not fixture completion."
     },
     "RESEARCH-007": {
       "kind": "resume-exactly",
-      "requirement": "On interruption, Step 2 MUST load the active research-work manifest and resume at the first fixture without a validated durable checkpoint. Already validated checkpoints MUST NOT be discarded or needlessly researched again."
+      "requirement": "Within an active ChatGPT execution, Step 2 MUST resume from the first fixture not validated in the temporary accumulation file and preserve all already validated records. If the execution environment is destroyed and the temp file no longer exists, restart only the lost unpromoted Step-2 working batch from the frozen canonical Step-1 fixture universe; never treat lost temp state as completed research."
     },
     "RESEARCH-008": {
       "kind": "atomic-promotion",
@@ -144,11 +144,15 @@
     },
     "RESEARCH-009": {
       "kind": "checkpoint-git-boundary",
-      "requirement": "Non-canonical Step-2 research-work checkpoints MUST NOT be committed to Git individually or in partial batches. Git persistence for research is permitted only after exact N/N validated working coverage is promoted to the single canonical data/research/<date>.json artifact. Any attempted data/research-work commit is an execution defect and MUST be rejected."
+      "requirement": "ChatGPT Step-2 accumulation MUST use a temporary local execution file outside Git history. Non-canonical fixture checkpoints MUST NOT be committed to Git individually or in partial batches. Git persistence for research is permitted only after exact N/N validated temporary-file coverage is promoted to the single canonical data/research/<date>.json artifact."
     },
     "RESEARCH-010": {
       "kind": "canonical-single-commit",
       "requirement": "The research stage has exactly one canonical Git commit boundary per researchRunId: after N/N checkpoint validation, aggregate reconciliation, canonical promotion and validation. The commit must include the canonical daily research artifact, must exclude data/research-work, and must be verified by rereading repository state before model execution."
+    },
+    "RESEARCH-011": {
+      "kind": "chatgpt-temp-accumulator",
+      "requirement": "The authoritative Step-2 working accumulator for a ChatGPT-run research batch is a temporary local file in ChatGPT's execution workspace, keyed by date and researchRunId. After every fixture the file MUST be atomically updated, reread, fixture count/identity checked, and the just-written record revalidated before continuing. The temp file is disposable working state and MUST NOT be committed to Git."
     }
   },
   "hardStops": [
