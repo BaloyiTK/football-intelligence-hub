@@ -5,9 +5,346 @@
   "canonical": false,
   "status": "IN_PROGRESS",
   "eligibleCount": 51,
-  "fixtureRecordsValidated": 3,
-  "lastValidatedFixtureId": "1807243",
+  "fixtureRecordsValidated": 4,
+  "lastValidatedFixtureId": "1718971",
   "workingRecords": {
+    "1718971": {
+      "fixtureId": "1718971",
+      "fixture": {
+        "competition": "League of Ireland Premier Division",
+        "country": "Ireland",
+        "home": "Shamrock Rovers",
+        "away": "Drogheda United",
+        "kickoff": "20261008210000",
+        "timezone": "Africa/Johannesburg"
+      },
+      "researchedAt": "2026-10-08T05:14:00Z",
+      "sourceMetadata": [
+        {
+          "ref": "s1",
+          "url": "https://www.shamrockrovers.ie/news/team-news-home-vs-drogheda-united-08-10-26/",
+          "retrievedAt": "2026-10-08T05:14:00Z",
+          "supports": [
+            "motivationContext",
+            "squadAvailability",
+            "restSchedule",
+            "overallForm"
+          ]
+        },
+        {
+          "ref": "s2",
+          "url": "https://footystats.org/republic-of-ireland/drogheda-united-fc-vs-shamrock-rovers-fc-h2h-stats",
+          "retrievedAt": "2026-10-08T05:14:00Z",
+          "supports": [
+            "xgXga",
+            "leaguePosition",
+            "teamQuality",
+            "h2h",
+            "goalsProfile",
+            "venueForm"
+          ]
+        },
+        {
+          "ref": "s3",
+          "url": "https://www.fotmob.com/matches/shamrock-rovers-vs-drogheda-united/1aarvk",
+          "retrievedAt": "2026-10-08T05:14:00Z",
+          "supports": [
+            "overallForm",
+            "squadAvailability",
+            "h2h"
+          ]
+        },
+        {
+          "ref": "s4",
+          "url": "https://fbref.com/en/squads/f082c4f3/2026/matchlogs/c80/misc/Shamrock-Rovers-Match-Logs-League-of-Ireland-Premier-Division",
+          "retrievedAt": "2026-10-08T05:14:00Z",
+          "supports": [
+            "overallForm",
+            "opponentStrength"
+          ]
+        },
+        {
+          "ref": "s5",
+          "url": "https://nofluffpicks.com/match/drogheda-united-vs-shamrock-rovers-2026-07-31",
+          "retrievedAt": "2026-10-08T05:14:00Z",
+          "supports": [
+            "xgXga",
+            "goalsProfile",
+            "teamQuality"
+          ]
+        }
+      ],
+      "evidence": {
+        "overallForm": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "Shamrock Rovers Drogheda United recent form October 2026",
+              "attemptedAt": "2026-10-08T05:14:00Z",
+              "outcome": "Recent form located"
+            }
+          ],
+          "sourceRefs": [
+            "s1",
+            "s3",
+            "s4"
+          ],
+          "data": {
+            "home": [
+              "Shamrock 3-2 Waterford",
+              "St Patricks 2-0 Shamrock",
+              "Shamrock 0-0 Shelbourne",
+              "Derry 3-3 Shamrock",
+              "KuPS 1-0 Shamrock"
+            ],
+            "away": [
+              "Bohemians 2-1 Drogheda",
+              "Shelbourne 1-2 Drogheda",
+              "Drogheda 2-0 Sligo",
+              "Drogheda 1-2 Galway",
+              "Drogheda 2-3 Dundalk"
+            ]
+          }
+        },
+        "venueForm": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "Shamrock Rovers home Drogheda away form 2026",
+              "attemptedAt": "2026-10-08T05:14:00Z",
+              "outcome": "Venue PPG and scoring/conceding splits located"
+            }
+          ],
+          "sourceRefs": [
+            "s2"
+          ],
+          "data": {
+            "home": {
+              "ppg": 2.4,
+              "scored": 1.87,
+              "conceded": 0.87
+            },
+            "away": {
+              "ppg": 1,
+              "scored": 1.25,
+              "conceded": 1.88
+            }
+          }
+        },
+        "xgXga": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "Shamrock Rovers Drogheda xG xGA 2026",
+              "attemptedAt": "2026-10-08T05:14:00Z",
+              "outcome": "Overall and venue xG/xGA found"
+            }
+          ],
+          "sourceRefs": [
+            "s2",
+            "s5"
+          ],
+          "data": {
+            "home": {
+              "xgFor": 1.59,
+              "xgAgainst": 1.21,
+              "venueXgFor": 1.65,
+              "venueXgAgainst": 1.19
+            },
+            "away": {
+              "xgFor": 1.2,
+              "xgAgainst": 1.69,
+              "venueXgFor": 1.08,
+              "venueXgAgainst": 1.8
+            }
+          }
+        },
+        "leaguePosition": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "Shamrock Rovers Drogheda standings October 2026",
+              "attemptedAt": "2026-10-08T05:14:00Z",
+              "outcome": "Current positions/PPG found"
+            }
+          ],
+          "sourceRefs": [
+            "s2"
+          ],
+          "data": {
+            "home": {
+              "position": 3,
+              "ppg": 1.9
+            },
+            "away": {
+              "position": 9,
+              "ppg": 1.06
+            },
+            "positionGap": 6
+          }
+        },
+        "teamQuality": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "Shamrock Rovers Drogheda team quality 2026",
+              "attemptedAt": "2026-10-08T05:14:00Z",
+              "outcome": "Season PPG, scoring and xG strength found"
+            }
+          ],
+          "sourceRefs": [
+            "s2",
+            "s5"
+          ],
+          "data": {
+            "home": "Higher PPG, xG and defensive record",
+            "away": "Lower PPG and higher xGA"
+          }
+        },
+        "motivationContext": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "Shamrock Rovers Drogheda title relegation October 8 2026",
+              "attemptedAt": "2026-10-08T05:14:00Z",
+              "outcome": "Official team news confirms title run-in and both teams playing for something"
+            }
+          ],
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": "Shamrock in title run-in; official manager says everyone is playing for something at this stage."
+        },
+        "h2h": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "Shamrock Rovers Drogheda H2H",
+              "attemptedAt": "2026-10-08T05:14:00Z",
+              "outcome": "Current and long-run H2H found"
+            }
+          ],
+          "sourceRefs": [
+            "s2",
+            "s3"
+          ],
+          "data": [
+            "2026-07-31 Drogheda 0-0 Shamrock",
+            "2026-05-04 Shamrock 4-1 Drogheda",
+            "2026-03-16 Drogheda 0-0 Shamrock",
+            "2025-08-31 Shamrock 2-1 Drogheda"
+          ]
+        },
+        "goalsProfile": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "Shamrock Rovers Drogheda goals BTTS over 2.5 2026",
+              "attemptedAt": "2026-10-08T05:14:00Z",
+              "outcome": "Detailed overall/venue profiles found"
+            }
+          ],
+          "sourceRefs": [
+            "s2",
+            "s5"
+          ],
+          "data": {
+            "home": {
+              "scored": 1.58,
+              "conceded": 1,
+              "bttsPct": 55,
+              "cleanSheetPct": 35,
+              "failedScorePct": 19
+            },
+            "away": {
+              "scored": 1.19,
+              "conceded": 1.59,
+              "bttsPct": 59,
+              "cleanSheetPct": 28,
+              "failedScorePct": 25
+            },
+            "matchVenue": {
+              "over25Pct": 58,
+              "bttsPct": 68
+            }
+          }
+        },
+        "squadAvailability": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "Shamrock Rovers Drogheda injuries October 8 2026",
+              "attemptedAt": "2026-10-08T05:14:00Z",
+              "outcome": "Official and current injury lists found"
+            }
+          ],
+          "sourceRefs": [
+            "s1",
+            "s3"
+          ],
+          "data": {
+            "home": [
+              "Danny Mandroiu out for season",
+              "Danny Grant specialist review",
+              "Victor Ozhianvuna awaiting scan",
+              "Enda Stevens injury"
+            ],
+            "away": [
+              "Keegan Ancelin injury",
+              "James Bolger knock/back training",
+              "Owen Lambe leg injury"
+            ]
+          }
+        },
+        "opponentStrength": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "Shamrock Rovers Drogheda recent opponents 2026",
+              "attemptedAt": "2026-10-08T05:14:00Z",
+              "outcome": "Recent opponent identities retained"
+            }
+          ],
+          "sourceRefs": [
+            "s3",
+            "s4"
+          ],
+          "data": {
+            "home": [
+              "Waterford",
+              "St Patricks",
+              "Shelbourne",
+              "Derry City",
+              "KuPS"
+            ],
+            "away": [
+              "Bohemians",
+              "Shelbourne",
+              "Sligo Rovers",
+              "Galway",
+              "Dundalk"
+            ]
+          }
+        },
+        "restSchedule": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "Shamrock Rovers rest international break October 8 2026",
+              "attemptedAt": "2026-10-08T05:14:00Z",
+              "outcome": "Official team news documents almost three-week league gap and international-duty returns"
+            }
+          ],
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": {
+            "home": "Almost three weeks since last league game; several players on international duty returned late",
+            "away": "No comparable unusual detail verified"
+          }
+        }
+      }
+    },
     "1807243": {
       "fixtureId": "1807243",
       "fixture": {
@@ -944,6 +1281,6 @@
       }
     }
   },
-  "nextFixtureId": "1718971",
-  "nextAction": "Submit fixture 1718971 Shamrock Rovers vs Drogheda United as next structured ChatGPT Step 2 research job."
+  "nextFixtureId": "1904014",
+  "nextAction": "Submit fixture 1904014 India W vs Russia W as next structured ChatGPT Step 2 research job."
 }
