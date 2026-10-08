@@ -249,3 +249,12 @@ Interruption recovery MUST load `data/research-work/<date>/manifest.json`, prese
 Step 2 reaches its promotion boundary only at exact **N/N validated checkpoints**, where N is the frozen eligible fixture count. It must then reconcile IDs/counts, construct the full facts-only daily artifact, validate the aggregate against the active `researchRunId`, promote it to `data/research/<date>.json`, create exactly one canonical research commit, verify the repository commit/HEAD, reread the committed canonical file, and revalidate it.
 
 **N/N without successful canonical commit verification is RECOVERING, not Step-2 completion.** Likewise, a canonical file or commit with fewer than N/N validated fixture checkpoints is invalid. Model execution is forbidden until this entire promotion-and-verification sequence passes.
+
+
+### Step-2 checkpoint Git boundary — LOCKED
+
+`data/research-work/<date>/...` is execution working state, not canonical repository research history. Fixture-by-fixture and partial-batch Git commits from this path are forbidden. A validated checkpoint means durable working-state persistence and reread validation; it does **not** mean a Git commit.
+
+Research has one canonical Git boundary for each `researchRunId`: only after exact N/N working checkpoints reconcile and aggregate validation passes may the completed dataset be promoted to `data/research/<date>.json` and committed once. The canonical research commit MUST exclude `data/research-work`. After that commit, repository state must be reread and the canonical artifact revalidated before model execution.
+
+If checkpoint persistence is unavailable in the active execution environment, the executor must repair or use an authorized non-canonical working-state persistence path; it MUST NOT substitute per-fixture Git commits.
