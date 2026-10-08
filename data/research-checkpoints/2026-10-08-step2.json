@@ -5,8 +5,8 @@
   "canonical": false,
   "status": "IN_PROGRESS",
   "eligibleCount": 51,
-  "fixtureRecordsValidated": 19,
-  "lastValidatedFixtureId": "1867242",
+  "fixtureRecordsValidated": 20,
+  "lastValidatedFixtureId": "1867262",
   "workingRecords": {
     "1718971": {
       "fixtureId": "1718971",
@@ -3254,6 +3254,194 @@
         }
       }
     },
+    "1867262": {
+      "fixtureId": "1867262",
+      "fixture": {
+        "competition": "League Cup: Group C",
+        "country": "Egypt",
+        "home": "Al Mokawloon Al Arab",
+        "away": "El Gounah",
+        "kickoff": "20261008160000",
+        "timezone": "Africa/Johannesburg"
+      },
+      "researchedAt": "2026-10-08T21:55:00+02:00",
+      "sourceMetadata": [
+        {
+          "ref": "s1",
+          "url": "https://footystats.org/egypt/al-mokawloon-al-arab-vs-el-gounah-h2h-stats",
+          "retrievedAt": "2026-10-08T21:55:00+02:00",
+          "supports": [
+            "overallForm",
+            "venueForm",
+            "h2h",
+            "goalsProfile",
+            "teamQuality"
+          ]
+        },
+        {
+          "ref": "s2",
+          "url": "https://www.betstudy.com/soccer-stats/h2h/al-mokawloon-el-gounah-623-16473/",
+          "retrievedAt": "2026-10-08T21:55:00+02:00",
+          "supports": [
+            "overallForm",
+            "venueForm",
+            "h2h",
+            "goalsProfile",
+            "restSchedule"
+          ]
+        },
+        {
+          "ref": "s3",
+          "url": "https://www.aiscore.com/en/head-to-head/soccer-el-gounah-vs-el-mokawloon-el-arab",
+          "retrievedAt": "2026-10-08T21:55:00+02:00",
+          "supports": [
+            "overallForm",
+            "h2h",
+            "teamQuality"
+          ]
+        }
+      ],
+      "evidence": {
+        "overallForm": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1",
+            "s2",
+            "s3"
+          ],
+          "data": {
+            "home": "W-L-L-W-D-W recent sequence shown",
+            "away": "W-D-D-L-L-L recent sequence shown"
+          }
+        },
+        "venueForm": {
+          "status": "PARTIAL",
+          "sourceRefs": [
+            "s1",
+            "s2"
+          ],
+          "data": {
+            "homeCupPPG": 1.6,
+            "awayCupPPG": 1,
+            "h2hAtHome": {
+              "homeWins": 8,
+              "draws": 5,
+              "awayWins": 1
+            }
+          }
+        },
+        "xgXga": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Al Mokawloon El Gounah observed xG xGA 2026",
+              "attemptedAt": "2026-10-08T21:55:00+02:00",
+              "outcome": "Search result labels xG but did not expose explicit observed team xG/xGA values; no predictive estimates retained."
+            }
+          ]
+        },
+        "leaguePosition": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "League Cup Group C standings Al Mokawloon El Gounah October 8 2026",
+              "attemptedAt": "2026-10-08T21:55:00+02:00",
+              "outcome": "Reliable current group table not retained."
+            }
+          ]
+        },
+        "teamQuality": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1",
+            "s3"
+          ],
+          "data": {
+            "h2h18": {
+              "homeWins": 10,
+              "draws": 4,
+              "awayWins": 4
+            },
+            "recent5HomeTeam": "2W-2D-1L",
+            "recent5AwayTeam": "2W-2D-1L"
+          }
+        },
+        "motivationContext": {
+          "status": "PARTIAL",
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": "League Cup group fixture at Arab Contractors Stadium."
+        },
+        "h2h": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1",
+            "s2",
+            "s3"
+          ],
+          "data": [
+            "2026-09-02 El Gounah 0-1 Al Mokawloon",
+            "2026-05-08 Al Mokawloon 1-0 El Gounah",
+            "2026-02-23 El Gounah 1-1 Al Mokawloon"
+          ],
+          "summary": "Al Mokawloon unbeaten in the three 2026 meetings retained."
+        },
+        "goalsProfile": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1",
+            "s2"
+          ],
+          "data": {
+            "h2h18": {
+              "over15Pct": 67,
+              "over25Pct": 39,
+              "bttsPct": 50,
+              "avgGoals": 2.33
+            },
+            "homeGroundH2H": {
+              "under25Pct": 72,
+              "avgGoals": 2.14
+            }
+          }
+        },
+        "squadAvailability": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Al Mokawloon El Gounah injuries suspensions October 8 2026",
+              "attemptedAt": "2026-10-08T21:55:00+02:00",
+              "outcome": "No trustworthy complete pre-match absence list retained."
+            }
+          ]
+        },
+        "opponentStrength": {
+          "status": "PARTIAL",
+          "sourceRefs": [
+            "s2",
+            "s3"
+          ],
+          "data": "Recent results and long H2H retained; no normalized opponent-strength index."
+        },
+        "restSchedule": {
+          "status": "PARTIAL",
+          "sourceRefs": [
+            "s2"
+          ],
+          "data": {
+            "homeRecentDates": [
+              "2026-09-15",
+              "2026-09-09"
+            ],
+            "awayRecentDates": [
+              "2026-09-16",
+              "2026-09-09"
+            ]
+          }
+        }
+      }
+    },
     "1867272": {
       "fixtureId": "1867272",
       "fixture": {
@@ -4791,7 +4979,7 @@
       }
     }
   },
-  "nextFixtureId": "1867262",
+  "nextFixtureId": "1867252",
   "nextAction": "Continue fixture-specific Step 2 web research from nextFixtureId.",
   "integrityRepair": {
     "at": "2026-10-08T05:45:00Z",
@@ -4825,5 +5013,5 @@
       ]
     }
   },
-  "updatedAt": "2026-10-08T21:50:00+02:00"
+  "updatedAt": "2026-10-08T21:55:00+02:00"
 }
