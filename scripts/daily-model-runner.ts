@@ -16,7 +16,7 @@ const parseMatch=(s:any):Match|null=>{
 const matches=(v:any):Match[]=>Array.isArray(v)?v.map(x=>typeof x==="string"?parseMatch(x):x).filter((m:any)=>m&&typeof m.home==="string"&&typeof m.away==="string"&&Number.isFinite(Number(m.homeGoals))&&Number.isFinite(Number(m.awayGoals))).map((m:any)=>({home:m.home,away:m.away,homeGoals:Number(m.homeGoals),awayGoals:Number(m.awayGoals),...(Number.isFinite(Number(m.opponentStrength))?{opponentStrength:Number(m.opponentStrength)}:{})})):[];
 
 export function researchRecordToV2(r:any){
- const e=r.evidence||{}, overall=e.overallForm?.data||{}, venue=e.venueForm?.data||{}, table=e.leaguePosition?.data||{}, xg=e.xgXga?.data||{}, goals=e.goalsProfile?.data||{}, rest=e.restSchedule?.data||{};
+ const e=r.evidence||{}, overallData=e.overallForm?.data||{}, verifiedOverall=r.verifiedInputs?.overallMatchSeries||{}, overall={home:overallData.home??e.overallForm?.homeMatches??verifiedOverall.home??[],away:overallData.away??e.overallForm?.awayMatches??verifiedOverall.away??[]}, venue=e.venueForm?.data||{}, table=e.leaguePosition?.data||{}, xg=e.xgXga?.data||{}, goals=e.goalsProfile?.data||{}, rest=e.restSchedule?.data||{};
  const homeTeam=r.fixture.home,awayTeam=r.fixture.away;
  const home:TeamEvidence={team:homeTeam,overall:matches(overall.home),venue:matches(venue.homeLast5)};
  const away:TeamEvidence={team:awayTeam,overall:matches(overall.away),venue:matches(venue.awayLast5)};
