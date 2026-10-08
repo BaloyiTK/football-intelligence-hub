@@ -17,6 +17,12 @@ for(;;){
  console.log(`CONTINUATION_PASS ${pass} date=${DATE} noProgress=${noProgress}`);
  const run=tsx("scripts/daily-cycle.ts","--date",DATE),after=ledger(),afterSig=signature(after);
  if(run.status===0&&after?.runStatus==="COMPLETE"){console.log("CONTINUATION_READY_FOR_COMMIT "+DATE);process.exit(0)}
+ const researchQueue=path.join(ROOT,"data","research-queue",DATE+".json"),canonicalResearch=path.join(ROOT,"data","research",DATE+".json");
+ if(after?.runStatus==="RECOVERING"&&after?.researchRunId&&fs.existsSync(researchQueue)&&!fs.existsSync(canonicalResearch)){
+  gate("RECOVERING","REC-001,REC-005,RESUME-001,EXEC-001,RESEARCH-001,RESEARCH-012,RESEARCH-014,RESEARCH-019","ledger:"+path.relative(ROOT,ledgerPath)+",chatgpt-step2-handoff");
+  console.error("STEP2_CHATGPT_HANDOFF_REQUIRED "+DATE+" "+after.researchRunId);
+  process.exit(2);
+ }
  if(afterSig!==beforeSig){noProgress=0;gate("RECOVERING","REC-001,REC-005,RESUME-001,EXEC-001","ledger:"+path.relative(ROOT,ledgerPath)+",progress-pass:"+pass);continue}
  noProgress++;gate("RECOVERING","REC-001,REC-002,REC-005,RESUME-001,EXEC-001","ledger:"+path.relative(ROOT,ledgerPath)+",no-progress-pass:"+noProgress);
  if(noProgress<maxNoProgress)continue;
