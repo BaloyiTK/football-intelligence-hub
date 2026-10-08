@@ -144,15 +144,15 @@
     },
     "RESEARCH-009": {
       "kind": "checkpoint-git-boundary",
-      "requirement": "ChatGPT Step-2 accumulation MUST use a temporary local execution file outside Git history. Non-canonical fixture checkpoints MUST NOT be committed to Git individually or in partial batches. Git persistence for research is permitted only after exact N/N validated temporary-file coverage is promoted to the single canonical data/research/<date>.json artifact."
+      "requirement": "Step 2 MUST store all in-progress research for a date/researchRunId in exactly one temporary accumulator file outside Git history. Per-fixture temp files, per-fixture Git commits, and partial-batch research commits are forbidden. Git persistence for research is permitted only after exact N/N validated accumulator coverage is promoted to the single canonical data/research/<date>.json artifact."
     },
     "RESEARCH-010": {
       "kind": "canonical-single-commit",
-      "requirement": "The research stage has exactly one canonical Git commit boundary per researchRunId: after N/N checkpoint validation, aggregate reconciliation, canonical promotion and validation. The commit must include the canonical daily research artifact, must exclude data/research-work, and must be verified by rereading repository state before model execution."
+      "requirement": "The research stage has exactly one canonical Git commit boundary per researchRunId. Only after the single temporary accumulator reaches exact N/N, aggregate reconciliation passes, and canonical promotion/validation succeeds may data/research/<date>.json be committed. That one commit MUST exclude data/research-work and MUST be verified by rereading repository HEAD and the committed canonical artifact before model execution."
     },
     "RESEARCH-011": {
       "kind": "chatgpt-temp-accumulator",
-      "requirement": "The authoritative Step-2 working accumulator for a ChatGPT-run research batch is a temporary local file in ChatGPT's execution workspace, keyed by date and researchRunId. After every fixture the file MUST be atomically updated, reread, fixture count/identity checked, and the just-written record revalidated before continuing. The temp file is disposable working state and MUST NOT be committed to Git."
+      "requirement": "The authoritative Step-2 working state is exactly one temporary local accumulator file per date, containing the active researchRunId, frozen fixture universe, validated fixture IDs, and all validated fixture research records. After every fixture this same file MUST be atomically updated, reread, count/identity checked, and the just-written record revalidated. The temp accumulator MUST NOT be committed to Git."
     },
     "RESEARCH-012": {
       "kind": "bounded-search-continuation",
@@ -165,6 +165,10 @@
     "RESEARCH-014": {
       "kind": "limit-aware-execution",
       "requirement": "The executor MUST plan Step 2 below the known search-call ceiling with safety headroom rather than deliberately exhausting the tool. When remaining search capacity is insufficient for another complete fixture research unit, checkpoint the temp accumulator and continuation cursor before the limit is hit."
+    },
+    "RESEARCH-015": {
+      "kind": "single-temp-single-commit-lock",
+      "requirement": "NON-NEGOTIABLE LOCK: Step 2 uses one and only one temporary accumulator file for all fixture research in the active date/researchRunId, and one and only one canonical research Git commit after N/N validation. Creating fixture-by-fixture research files for persistence, committing partial research, or making more than one canonical research commit for the same researchRunId is a contract violation and MUST enter RECOVERING before Step 3."
     }
   },
   "hardStops": [
