@@ -99,6 +99,8 @@ export function normalizeResearchRecord(r:any):Step3Normalized{
         ppg:metric(hs.ppg,"facts.standings.homeTeam.points/matches","points per game is derived in Step 3"),
         goalDifferencePerGame:metric(hs.goalDifferencePerGame,"facts.standings.homeTeam","goal difference per game is derived in Step 3"),
         goalsProfile:usage(homeOverall.length?"DERIVED":"UNAVAILABLE","facts.form.homeTeam.overallLast5","scoring/conceding/BTTS/Over2.5 rates derived in Step 3"),
+        resultProfileOverall:usage(homeOverall.length?"DERIVED":"UNAVAILABLE","facts.form.homeTeam.overallLast5","W/D/L, points, PPG and result rates derived in Step 3 from scorelines"),
+        resultProfileVenue:usage(homeVenue.length===5?"DERIVED":"UNAVAILABLE","facts.form.homeTeam.homeLast5",homeVenue.length===5?"venue W/D/L, points, PPG and result rates derived from 5 HOME matches":"venue result profile requires exactly 5 HOME matches"),
         restDays:metric(hr,"facts.form.homeTeam.overallLast5 + fixture.kickoff","days since latest verified match")
       },
       away:{
@@ -107,6 +109,8 @@ export function normalizeResearchRecord(r:any):Step3Normalized{
         ppg:metric(as.ppg,"facts.standings.awayTeam.points/matches","points per game is derived in Step 3"),
         goalDifferencePerGame:metric(as.goalDifferencePerGame,"facts.standings.awayTeam","goal difference per game is derived in Step 3"),
         goalsProfile:usage(awayOverall.length?"DERIVED":"UNAVAILABLE","facts.form.awayTeam.overallLast5","scoring/conceding/BTTS/Over2.5 rates derived in Step 3"),
+        resultProfileOverall:usage(awayOverall.length?"DERIVED":"UNAVAILABLE","facts.form.awayTeam.overallLast5","W/D/L, points, PPG and result rates derived in Step 3 from scorelines"),
+        resultProfileVenue:usage(awayVenue.length===5?"DERIVED":"UNAVAILABLE","facts.form.awayTeam.awayLast5",awayVenue.length===5?"venue W/D/L, points, PPG and result rates derived from 5 AWAY matches":"venue result profile requires exactly 5 AWAY matches"),
         restDays:metric(ar,"facts.form.awayTeam.overallLast5 + fixture.kickoff","days since latest verified match")
       },
       shared:{
