@@ -24,7 +24,7 @@ jobs:
       - name: Resolve requested prediction date
         run: |
           DATE="${{ github.event.inputs.date || '' }}"
-          if [ -z "$DATE" ]; then DATE="$(cat automation/run-now.flag | tr -d '[:space:]')"; fi
+          if [ -z "$DATE" ]; then DATE="$(head -n 1 automation/run-now.flag | tr -d '[:space:]')"; fi
           echo "$DATE" | grep -Eq '^[0-9]{4}-[0-9]{2}-[0-9]{2}
           test -n "$DATE"
           echo "FIH_DATE=$DATE" >> "$GITHUB_ENV"
