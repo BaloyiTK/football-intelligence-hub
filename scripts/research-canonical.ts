@@ -30,7 +30,7 @@ export function validateResearchArtifact(x:any,date:string,eligibleIds:string[],
  const runIds=new Set(x.fixtures.map((r:any)=>String(r.researchRunId)));if(runIds.size!==1)throw new Error("CANONICAL_DAILY_RESEARCH_MIXED_RUNS");if(typeof x.researchRunId!=="string"||!x.researchRunId.trim()||!runIds.has(String(x.researchRunId)))throw new Error("CANONICAL_DAILY_RESEARCH_RUN_ID_INVALID");
  return {artifact:x,count:ids.length,researchRunId:x.researchRunId};
 }
-export function validateDailyResearch(root:string,date:string,eligibleIds:string[],mode:"PREDICTION"|"BACKTEST"){
+export function validateDailyResearch(root:string,date:string,eligibleIds:string[],mode:"PREDICTION"|"BACKTEST",expectedResearchRunId?:string){
  const p=path.join(root,mode==="BACKTEST"?"data/backtest/research":"data/research",date+".json");if(!fs.existsSync(p))throw new Error("CANONICAL_DAILY_RESEARCH_MISSING "+p);
- const x=read(p);const v=validateResearchArtifact(x,date,eligibleIds,mode);return {path,...v};
+ const x=read(p);const v=validateResearchArtifact(x,date,eligibleIds,mode);if(expectedResearchRunId&&v.researchRunId!==expectedResearchRunId)throw new Error("CANONICAL_DAILY_RESEARCH_STALE_GENERATION");return {path,...v};
 }
