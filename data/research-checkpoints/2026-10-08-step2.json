@@ -5,8 +5,8 @@
   "canonical": false,
   "status": "IN_PROGRESS",
   "eligibleCount": 51,
-  "fixtureRecordsValidated": 23,
-  "lastValidatedFixtureId": "1893563",
+  "fixtureRecordsValidated": 24,
+  "lastValidatedFixtureId": "1893567",
   "workingRecords": {
     "1718971": {
       "fixtureId": "1718971",
@@ -5308,6 +5308,206 @@
         }
       }
     },
+    "1893567": {
+      "fixtureId": "1893567",
+      "fixture": {
+        "competition": "Persian Gulf Pro League",
+        "country": "Iran",
+        "home": "Gol Gohar",
+        "away": "Esteghlal Khuzestan",
+        "kickoff": "20261008151500",
+        "timezone": "Africa/Johannesburg"
+      },
+      "researchedAt": "2026-10-08T22:15:00+02:00",
+      "sourceMetadata": [
+        {
+          "ref": "s1",
+          "url": "https://fbref.com/en/stathead/matchup/teams/dbad5f2c/2f5578dd/Esteghlal-Khuzestan-vs-Gol-Gohar-FC-History",
+          "retrievedAt": "2026-10-08T22:15:00+02:00",
+          "supports": [
+            "h2h"
+          ]
+        },
+        {
+          "ref": "s2",
+          "url": "https://www.betstudy.com/soccer-stats/h2h/gol-gohar-esteghlal-khuzestan-17358-6756/",
+          "retrievedAt": "2026-10-08T22:15:00+02:00",
+          "supports": [
+            "h2h",
+            "goalsProfile"
+          ]
+        },
+        {
+          "ref": "s3",
+          "url": "https://www.footlive.com/h2h/gol-gohar-sirjan-vs-esteghlal-khuzestan/",
+          "retrievedAt": "2026-10-08T22:15:00+02:00",
+          "supports": [
+            "overallForm",
+            "h2h",
+            "restSchedule"
+          ]
+        },
+        {
+          "ref": "s4",
+          "url": "https://footballnation.eu/match/perzische-gulf-pro-league/2026/812180/",
+          "retrievedAt": "2026-10-08T22:15:00+02:00",
+          "supports": [
+            "leaguePosition",
+            "teamQuality"
+          ]
+        }
+      ],
+      "evidence": {
+        "overallForm": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s3"
+          ],
+          "data": {
+            "home": [
+              "3-2 at Shams Azar",
+              "0-1 at Tractor",
+              "0-2 Aluminium",
+              "0-2 at Sepahan",
+              "3-0 Chadormalou"
+            ],
+            "away": [
+              "1-0 Tractor",
+              "0-1 at Sepahan",
+              "1-1 Chadormalou",
+              "0-0 at Paykan",
+              "1-1 Nassaji"
+            ]
+          }
+        },
+        "venueForm": {
+          "status": "PARTIAL",
+          "sourceRefs": [
+            "s4"
+          ],
+          "data": {
+            "home": "2 wins from 3 home league matches",
+            "away": "Lost 67% of last 3 away fixtures per retained preview context"
+          }
+        },
+        "xgXga": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Gol Gohar Esteghlal Khuzestan observed xG xGA 2026",
+              "attemptedAt": "2026-10-08T22:15:00+02:00",
+              "outcome": "Search surfaced xG pages, but retained values included model/premium presentation or unclear aggregate provenance; excluded under observed-only rule."
+            }
+          ]
+        },
+        "leaguePosition": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s4"
+          ],
+          "data": {
+            "home": {
+              "points": 10,
+              "played": 7
+            },
+            "away": {
+              "points": 6,
+              "played": 7
+            }
+          }
+        },
+        "teamQuality": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s3",
+            "s4"
+          ],
+          "data": {
+            "home": {
+              "points": 10,
+              "goalsConceded": 7
+            },
+            "away": {
+              "points": 6,
+              "goalsConceded": 9
+            }
+          }
+        },
+        "motivationContext": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s4"
+          ],
+          "data": "Round 8 league fixture; Gol Gohar held a four-point advantage over Esteghlal Khuzestan."
+        },
+        "h2h": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1",
+            "s2",
+            "s3"
+          ],
+          "data": {
+            "recent5": {
+              "homeWins": 2,
+              "draws": 3,
+              "awayWins": 0,
+              "homeGoals": 7,
+              "awayGoals": 4
+            },
+            "matches": [
+              "2025-11-28 Esteghlal Khuzestan 0-1 Gol Gohar",
+              "2025-01-25 Esteghlal Khuzestan 1-1 Gol Gohar",
+              "2024-08-22 Gol Gohar 2-0 Esteghlal Khuzestan",
+              "2024-04-18 Gol Gohar 2-2 Esteghlal Khuzestan",
+              "2023-11-03 Esteghlal Khuzestan 1-1 Gol Gohar"
+            ]
+          }
+        },
+        "goalsProfile": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s2"
+          ],
+          "data": {
+            "h2h5": {
+              "avgGoals": 2.2,
+              "over25Pct": 20,
+              "under25Pct": 80,
+              "bttsPct": 60
+            }
+          }
+        },
+        "squadAvailability": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Gol Gohar Esteghlal Khuzestan injuries suspensions October 8 2026",
+              "attemptedAt": "2026-10-08T22:15:00+02:00",
+              "outcome": "No trustworthy complete pre-match absence list retained."
+            }
+          ]
+        },
+        "opponentStrength": {
+          "status": "PARTIAL",
+          "sourceRefs": [
+            "s3",
+            "s4"
+          ],
+          "data": "Recent opponent sequences and current points retained; no normalized opponent-strength index."
+        },
+        "restSchedule": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s3"
+          ],
+          "data": {
+            "homeLastMatch": "2026-09-10",
+            "awayLastMatch": "2026-09-10"
+          }
+        }
+      }
+    },
     "1904014": {
       "fixtureId": "1904014",
       "fixture": {
@@ -5580,7 +5780,7 @@
       }
     }
   },
-  "nextFixtureId": "1893567",
+  "nextFixtureId": "1893564",
   "nextAction": "Continue fixture-specific Step 2 web research from nextFixtureId.",
   "integrityRepair": {
     "at": "2026-10-08T05:45:00Z",
@@ -5614,5 +5814,5 @@
       ]
     }
   },
-  "updatedAt": "2026-10-08T22:10:00+02:00"
+  "updatedAt": "2026-10-08T22:15:00+02:00"
 }
