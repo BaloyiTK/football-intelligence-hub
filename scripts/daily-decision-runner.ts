@@ -11,8 +11,8 @@ const fixtures=m.fixtures.map((x:any)=>{
  if(x.status==="INSUFFICIENT_DATA")return {fixtureId:String(x.fixtureId),decision:"NO_MODEL",publishable:false,reason:"INSUFFICIENT_VERIFIED_MODEL_INPUT",modelVersion:x.modelVersion||x.version};
  if(x.status!=="CALCULATED")throw new Error("MODEL_STATUS_UNSUPPORTED "+x.fixtureId);
  const candidates=[
-  {market:"HOME",probability:Number(x.probabilities?.oneXTwo?.home),reliability:Number(x.reliability?.home)},
-  {market:"AWAY",probability:Number(x.probabilities?.oneXTwo?.away),reliability:Number(x.reliability?.away)},
+  {market:"HOME",probability:Number(x.probabilities?.oneXTwo?.home),reliability:Number(x.reliability?.homeAway)},
+  {market:"AWAY",probability:Number(x.probabilities?.oneXTwo?.away),reliability:Number(x.reliability?.homeAway)},
   {market:"OVER 2.5",probability:Number(x.probabilities?.overUnder25?.over),reliability:Number(x.reliability?.over25)},
   {market:"BTTS YES",probability:Number(x.probabilities?.btts?.yes),reliability:Number(x.reliability?.btts)}
  ].filter(c=>finite(c.probability)).sort((a,b)=>b.probability-a.probability);
