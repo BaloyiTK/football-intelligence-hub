@@ -169,6 +169,22 @@
     "RESEARCH-015": {
       "kind": "single-temp-single-commit-lock",
       "requirement": "NON-NEGOTIABLE LOCK: Step 2 uses one and only one temporary accumulator file for all fixture research in the active date/researchRunId, and one and only one canonical research Git commit after N/N validation. Creating fixture-by-fixture research files for persistence, committing partial research, or making more than one canonical research commit for the same researchRunId is a contract violation and MUST enter RECOVERING before Step 3."
+    },
+    "MODEL-001": {
+      "kind": "step3-input-gate",
+      "requirement": "Step 3 MUST NOT execute unless the complete canonical Step-2 artifact for the requested date validates against the current frozen eligible fixture universe AND its researchRunId exactly matches the active ledger researchRunId."
+    },
+    "MODEL-002": {
+      "kind": "step3-commit-boundary",
+      "requirement": "Before Step 3, data/research/<date>.json MUST be tracked, clean, committed, reread from repository state, and there MUST be exactly one canonical research commit in the current branch history carrying the active researchRunId for that dated research artifact."
+    },
+    "MODEL-003": {
+      "kind": "step3-lineage",
+      "requirement": "The canonical Step-3 model artifact MUST record the exact researchRunId and a deterministic hash of the canonical Step-2 input it consumed. A stale, mixed-generation, uncommitted, or coverage-mismatched research artifact MUST fail closed before model calculation."
+    },
+    "MODEL-004": {
+      "kind": "frozen-board-resume",
+      "requirement": "Once an active ledger has a researchRunId, prediction recovery/resume MUST reuse the frozen Step-1 fixture board. Automated run paths MUST NOT silently reacquire a fresh board before Step 3; any fixture-universe drift requires explicit reconciliation and cannot silently feed the model."
     }
   },
   "hardStops": [
