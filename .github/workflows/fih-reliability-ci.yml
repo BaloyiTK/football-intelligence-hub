@@ -14,6 +14,11 @@ name: FIH Reliability CI
       - "scripts/daily-cycle.ts"
       - "scripts/research-worker.ts"
       - "scripts/daily-model-runner.ts"
+      - "scripts/step3-input-gate.ts"
+      - "scripts/verify-step3-wiring.ts"
+      - "scripts/verify-research-storage-lock.ts"
+      - ".github/workflows/fih-run-now.yml"
+      - "package.json"
       - "scripts/daily-decision-runner.ts"
       - ".github/workflows/fih-reliability-ci.yml"
 permissions:
@@ -26,6 +31,10 @@ jobs:
       - name: Verify runner Node
         run: node --version && npm --version
       - run: npm install --no-audit --no-fund
+      - name: Verify Step 2 storage lock
+        run: npm run research:storage-lock
+      - name: Verify Step 3 wiring lock
+        run: npm run step3:wiring-lock
       - name: Build isolated fixture board
         run: |
           ROOT="$(mktemp -d)"; echo "FIH_ROOT=$ROOT" >> "$GITHUB_ENV"; mkdir -p "$ROOT/data/run-state" "$ROOT/data/prediction-fixtures"
