@@ -269,6 +269,16 @@ During ChatGPT-owned Step 2, the complete in-progress research batch MUST be acc
 At exact N/N, ChatGPT validates the complete temporary dataset against the frozen Step-1 universe, promotes the validated content to the canonical `data/research/<date>.json`, and performs the single canonical research commit and post-commit reread verification. If the temporary execution workspace itself is destroyed before promotion, only the unpromoted temporary research is considered lost; Step 1 remains authoritative and Step 2 restarts from that frozen universe rather than fabricating completion.
 
 
+## Step 2 -> Step 3 verified lineage — LOCKED
+
+Model execution is prohibited until a dedicated Step-3 input gate proves all of the following against repository state: the canonical Step-2 artifact is complete for the frozen eligible fixture universe; its `researchRunId` exactly matches the active ledger; the research artifact is tracked and has no uncommitted changes; the active `researchRunId` appears in exactly one canonical research commit for that dated artifact; and the current frozen Step-1 fixture board still matches the ledger universe.
+
+Once a `researchRunId` exists, recovery and manual run workflows MUST reuse the frozen Step-1 board. They MUST NOT silently perform a fresh fixture acquisition before Step 3. Fixture-universe drift is a reconciliation event and must fail closed before probability calculation.
+
+Every canonical Step-3 model artifact MUST record the exact Step-2 lineage it consumed: `researchRunId`, deterministic `inputResearchHash`, and `inputResearchCommit`. Direct invocation of the model runner MUST execute the same Step-3 input gate and therefore cannot bypass this boundary.
+
+These invariants are machine-locked by `MODEL-001` through `MODEL-004` in `config/fih-execution-rules.json`.
+
 ### Limit-aware Step-2 continuation — LOCKED
 
 A known ChatGPT/web-search call ceiling is an execution-capacity boundary, not a Step-2 failure and not permission to discard progress. Step 2 MUST operate in bounded research chunks with safety headroom below the known ceiling. Each chunk uses the same date, frozen eligible fixture universe and `researchRunId`.
