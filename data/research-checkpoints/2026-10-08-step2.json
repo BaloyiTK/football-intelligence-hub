@@ -5,8 +5,8 @@
   "canonical": false,
   "status": "IN_PROGRESS",
   "eligibleCount": 51,
-  "fixtureRecordsValidated": 25,
-  "lastValidatedFixtureId": "1893564",
+  "fixtureRecordsValidated": 26,
+  "lastValidatedFixtureId": "1893565",
   "workingRecords": {
     "1718971": {
       "fixtureId": "1718971",
@@ -5509,6 +5509,221 @@
         }
       }
     },
+    "1893565": {
+      "fixtureId": "1893565",
+      "fixture": {
+        "competition": "Persian Gulf Pro League",
+        "country": "Iran",
+        "home": "Sepahan",
+        "away": "Fajr Sepasi",
+        "kickoff": "20261008171500",
+        "timezone": "Africa/Johannesburg"
+      },
+      "researchedAt": "2026-10-08T22:25:00+02:00",
+      "sourceMetadata": [
+        {
+          "ref": "s1",
+          "url": "https://www.soccerpunter.com/h2h/Fajr-Sepasi-vs-Sepahan/17365/3996/",
+          "retrievedAt": "2026-10-08T22:25:00+02:00",
+          "supports": [
+            "overallForm",
+            "venueForm",
+            "h2h",
+            "teamQuality"
+          ]
+        },
+        {
+          "ref": "s2",
+          "url": "https://www.betstudy.com/pt/h2h/sepahan-fajr-sepasi-3996-17365/",
+          "retrievedAt": "2026-10-08T22:25:00+02:00",
+          "supports": [
+            "h2h",
+            "goalsProfile"
+          ]
+        },
+        {
+          "ref": "s3",
+          "url": "https://fbref.com/en/stathead/matchup/teams/e39cf61a/70fc9d60/Sepahan-vs-Fajr-Sepasi-History",
+          "retrievedAt": "2026-10-08T22:25:00+02:00",
+          "supports": [
+            "h2h"
+          ]
+        },
+        {
+          "ref": "s4",
+          "url": "https://www.persianleague.com/iranian-leagues/team/76-persian-gulf-pro-league-ipl-2026-2027/62-fajr-sepasi",
+          "retrievedAt": "2026-10-08T22:25:00+02:00",
+          "supports": [
+            "overallForm",
+            "restSchedule"
+          ]
+        }
+      ],
+      "evidence": {
+        "overallForm": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1",
+            "s4"
+          ],
+          "data": {
+            "home": {
+              "played": 6,
+              "wins": 3,
+              "draws": 1,
+              "losses": 2
+            },
+            "away": {
+              "played": 6,
+              "wins": 1,
+              "draws": 4,
+              "losses": 1,
+              "recent": [
+                "1-1 at Kheybar",
+                "0-0 Sanat Naft",
+                "1-1 at Malavan",
+                "0-0 Zob Ahan",
+                "1-1 Mes Shahr-e Babak",
+                "0-1 at Foolad"
+              ]
+            }
+          }
+        },
+        "venueForm": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": {
+            "home": {
+              "played": 3,
+              "wins": 2,
+              "draws": 0,
+              "losses": 1,
+              "ppg": 2
+            },
+            "away": {
+              "played": 3,
+              "wins": 1,
+              "draws": 1,
+              "losses": 1,
+              "ppg": 1.33
+            }
+          }
+        },
+        "xgXga": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Sepahan Fajr Sepasi observed xG xGA 2026",
+              "attemptedAt": "2026-10-08T22:25:00+02:00",
+              "outcome": "No explicit observed xG/xGA values with sufficiently clear provenance retained."
+            }
+          ]
+        },
+        "leaguePosition": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Sepahan Fajr Sepasi standings October 8 2026",
+              "attemptedAt": "2026-10-08T22:25:00+02:00",
+              "outcome": "Current numeric positions not retained from sufficiently trustworthy source."
+            }
+          ]
+        },
+        "teamQuality": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": {
+            "home": {
+              "record": "3W-1D-2L",
+              "homePPG": 2
+            },
+            "away": {
+              "record": "1W-4D-1L",
+              "awayPPG": 1.33
+            }
+          }
+        },
+        "motivationContext": {
+          "status": "PARTIAL",
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": "Round 8 league fixture at Naghsh-e-Jahan Stadium."
+        },
+        "h2h": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1",
+            "s2",
+            "s3"
+          ],
+          "data": {
+            "overall19": {
+              "sepahanWins": 9,
+              "draws": 4,
+              "fajrWins": 6,
+              "sepahanGoals": 27,
+              "fajrGoals": 14
+            },
+            "recent": [
+              "2025-12-05 Sepahan 2-0 Fajr Sepasi",
+              "2022-03-06 Sepahan 2-0 Fajr Sepasi",
+              "2021-11-24 Fajr Sepasi 0-2 Sepahan"
+            ]
+          }
+        },
+        "goalsProfile": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s2"
+          ],
+          "data": {
+            "h2h19": {
+              "avgGoals": 2.16,
+              "over25Pct": 37,
+              "under25Pct": 63,
+              "bttsPct": 32
+            },
+            "sepahanHomeH2H": {
+              "homeWinsPct": 70,
+              "bttsPct": 20
+            }
+          }
+        },
+        "squadAvailability": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Sepahan Fajr Sepasi injuries suspensions October 8 2026",
+              "attemptedAt": "2026-10-08T22:25:00+02:00",
+              "outcome": "No trustworthy complete absence list retained."
+            }
+          ]
+        },
+        "opponentStrength": {
+          "status": "PARTIAL",
+          "sourceRefs": [
+            "s1",
+            "s4"
+          ],
+          "data": "Current records and recent opponent sequence retained; no normalized strength index."
+        },
+        "restSchedule": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s4"
+          ],
+          "data": {
+            "awayLastMatch": "2026-09-07",
+            "homeLastKnownLeagueMatch": "2026-09-06"
+          }
+        }
+      }
+    },
     "1893567": {
       "fixtureId": "1893567",
       "fixture": {
@@ -5981,7 +6196,7 @@
       }
     }
   },
-  "nextFixtureId": "1893565",
+  "nextFixtureId": "1893566",
   "nextAction": "Continue fixture-specific Step 2 web research from nextFixtureId.",
   "integrityRepair": {
     "at": "2026-10-08T05:45:00Z",
@@ -6015,5 +6230,5 @@
       ]
     }
   },
-  "updatedAt": "2026-10-08T22:20:00+02:00"
+  "updatedAt": "2026-10-08T22:25:00+02:00"
 }
