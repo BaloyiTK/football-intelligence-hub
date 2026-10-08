@@ -5,8 +5,8 @@
   "canonical": false,
   "status": "IN_PROGRESS",
   "eligibleCount": 51,
-  "fixtureRecordsValidated": 14,
-  "lastValidatedFixtureId": "1843708",
+  "fixtureRecordsValidated": 15,
+  "lastValidatedFixtureId": "1843719",
   "workingRecords": {
     "1718971": {
       "fixtureId": "1718971",
@@ -1616,6 +1616,236 @@
             "homeLastMatch": "2026-10-01",
             "awayLastMatch": "2026-10-02"
           }
+        }
+      }
+    },
+    "1843719": {
+      "fixtureId": "1843719",
+      "fixture": {
+        "competition": "2. Division A",
+        "country": "Egypt",
+        "home": "FC Masar",
+        "away": "El Dakhleya",
+        "kickoff": "20261008143000",
+        "timezone": "Africa/Johannesburg"
+      },
+      "researchedAt": "2026-10-08T21:30:00+02:00",
+      "sourceMetadata": [
+        {
+          "ref": "s1",
+          "url": "https://footystats.org/egypt/el-daklyeh-fc-vs-fc-masar-h2h-stats",
+          "retrievedAt": "2026-10-08T21:30:00+02:00",
+          "supports": [
+            "h2h",
+            "venueForm",
+            "goalsProfile"
+          ]
+        },
+        {
+          "ref": "s2",
+          "url": "https://footystats.org/clubs/fc-masar-1393933",
+          "retrievedAt": "2026-10-08T21:30:00+02:00",
+          "supports": [
+            "leaguePosition",
+            "venueForm",
+            "teamQuality"
+          ]
+        },
+        {
+          "ref": "s3",
+          "url": "https://footystats.org/clubs/el-daklyeh-fc-1117",
+          "retrievedAt": "2026-10-08T21:30:00+02:00",
+          "supports": [
+            "leaguePosition",
+            "venueForm",
+            "teamQuality"
+          ]
+        },
+        {
+          "ref": "s4",
+          "url": "https://nofluffpicks.com/es/partido/masar-vs-el-daklyeh-fc-2026-10-08",
+          "retrievedAt": "2026-10-08T21:30:00+02:00",
+          "supports": [
+            "overallForm",
+            "xgXga",
+            "goalsProfile",
+            "teamQuality"
+          ]
+        }
+      ],
+      "evidence": {
+        "overallForm": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s4"
+          ],
+          "data": {
+            "home": {
+              "last5": "3W-1D-1L",
+              "ppg": 2
+            },
+            "away": {
+              "last5": "2W-1D-2L",
+              "ppg": 1.4
+            }
+          }
+        },
+        "venueForm": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1",
+            "s2",
+            "s3"
+          ],
+          "data": {
+            "home": {
+              "played": 3,
+              "wins": 3,
+              "draws": 0,
+              "losses": 0,
+              "gf": 8,
+              "ga": 1,
+              "ppg": 3
+            },
+            "away": {
+              "played": 3,
+              "wins": 1,
+              "draws": 1,
+              "losses": 1,
+              "gf": 2,
+              "ga": 4,
+              "ppg": 1.33
+            }
+          }
+        },
+        "xgXga": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s4"
+          ],
+          "data": {
+            "home": {
+              "xG": 1.9
+            },
+            "away": {
+              "xG": 0.68
+            },
+            "provenance": "Pre-match statistical page updated before fixture; values described as xG per game, retained as observed aggregate statistics."
+          }
+        },
+        "leaguePosition": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s2",
+            "s3"
+          ],
+          "data": {
+            "home": {
+              "position": 3,
+              "played": 7,
+              "points": 16,
+              "gf": 13,
+              "ga": 5
+            },
+            "away": {
+              "position": 11,
+              "played": 7,
+              "points": 9,
+              "gf": 5,
+              "ga": 7
+            }
+          }
+        },
+        "teamQuality": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s2",
+            "s3",
+            "s4"
+          ],
+          "data": {
+            "home": {
+              "ppg": 2.29,
+              "scoredPerGame": 1.86,
+              "concededPerGame": 0.71
+            },
+            "away": {
+              "ppg": 1.29,
+              "scoredPerGame": 0.71,
+              "concededPerGame": 1
+            }
+          }
+        },
+        "motivationContext": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s2",
+            "s3"
+          ],
+          "data": "Masar entered third on 16 points in the promotion places; El Dakhleya entered 11th on 9."
+        },
+        "h2h": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": {
+            "meetings": 2,
+            "homeWins": 2,
+            "draws": 0,
+            "awayWins": 0,
+            "homeGoals": 7,
+            "awayGoals": 1,
+            "avgGoals": 4
+          }
+        },
+        "goalsProfile": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1",
+            "s4"
+          ],
+          "data": {
+            "home": {
+              "bttsPct": 43,
+              "over25Pct": 43
+            },
+            "away": {
+              "bttsPct": 43,
+              "over25Pct": 57
+            },
+            "league": {
+              "bttsPct": 46,
+              "over25Pct": 39
+            }
+          }
+        },
+        "squadAvailability": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "FC Masar El Dakhleya injuries suspensions October 8 2026",
+              "attemptedAt": "2026-10-08T21:30:00+02:00",
+              "outcome": "No trustworthy complete pre-match absence list retained."
+            }
+          ]
+        },
+        "opponentStrength": {
+          "status": "PARTIAL",
+          "sourceRefs": [
+            "s4"
+          ],
+          "data": "Current form and season performance retained; no normalized opponent-strength index available."
+        },
+        "restSchedule": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "FC Masar El Dakhleya previous match dates October 2026",
+              "attemptedAt": "2026-10-08T21:30:00+02:00",
+              "outcome": "Complete last-match dates not retained from the selected sources."
+            }
+          ]
         }
       }
     },
@@ -3843,7 +4073,7 @@
       }
     }
   },
-  "nextFixtureId": "1843719",
+  "nextFixtureId": "1843709",
   "nextAction": "Continue fixture-specific Step 2 web research from nextFixtureId.",
   "integrityRepair": {
     "at": "2026-10-08T05:45:00Z",
@@ -3877,5 +4107,5 @@
       ]
     }
   },
-  "updatedAt": "2026-10-08T21:25:00+02:00"
+  "updatedAt": "2026-10-08T21:30:00+02:00"
 }
