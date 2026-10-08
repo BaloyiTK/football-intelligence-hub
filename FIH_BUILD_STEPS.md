@@ -45,6 +45,18 @@
 
 ChatGPT owns the fixture-by-fixture data-collection stage.
 
+### ChatGPT web-search ownership and batch persistence — LOCKED
+
+- ChatGPT MUST perform the actual web search for every eligible fixture, fixture by fixture.
+- Repository-local homepage scanning, scraping, cached link discovery, or direct-public-source discovery is not equivalent to the required ChatGPT web-search job and MUST NOT satisfy Step 2 by itself.
+- Research each eligible fixture using web search, retain only source-backed factual evidence, and add the validated fixture record to the working daily dataset.
+- Continue until every eligible fixture for the date has been researched or a field has been truthfully recorded as unavailable after a real ChatGPT web-search attempt.
+- Do NOT commit canonical research fixture by fixture.
+- After all eligible fixtures are present, validate complete coverage and the facts-only canonical schema, then commit the complete per-date research artifact once as the canonical research commit.
+- Checkpoints may preserve recovery state, but they are not canonical research commits and do not end the research loop.
+- The research artifact contains facts only. Derived statistics, ratings, expected goals, probabilities, model outputs, and betting decisions are calculated downstream by FIH.
+
+
 - Read the verified eligible fixtures produced by Step 1.
 - Loop through the fixtures one at a time.
 - Create one working research dataset for the requested date.
