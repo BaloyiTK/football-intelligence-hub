@@ -14,24 +14,32 @@ const seriesOk=(rows:any[],venue?:string)=>{
  if(keys.length!==new Set(keys).size)return false;
  return true;
 };
-function formOk(v:any){
+function formOkLegacy(v:any){
  if(!v||typeof v!=="object"||!["VERIFIED","PARTIAL","UNAVAILABLE"].includes(String(v.status))||!Array.isArray(v.attempts)||!v.attempts.length||!v.attempts.every(attemptOk))return false;
  if(v.status==="UNAVAILABLE")return true;
  const d=v.data;if(!d?.homeTeam||!d?.awayTeam)return false;
  if(!seriesOk(d.homeTeam.overallLast5)||!seriesOk(d.homeTeam.homeLast5,"HOME"))return false;
  if(!seriesOk(d.awayTeam.overallLast5)||!seriesOk(d.awayTeam.awayLast5,"AWAY"))return false;
- if(v.status==="VERIFIED"){
-  if(d.homeTeam.overallLast5.length!==5||d.homeTeam.homeLast5.length!==5||d.awayTeam.overallLast5.length!==5||d.awayTeam.awayLast5.length!==5)return false;
- }
  return Array.isArray(v.sourceRefs);
 }
+function formOkStrict(v:any,requiredCount=5){
+ if(!formOkLegacy(v))return false;
+ if(v.status!=="VERIFIED")return true;
+ const d=v.data;
+ return d.homeTeam.overallLast5.length===requiredCount&&
+   d.homeTeam.homeLast5.length===requiredCount&&
+   d.awayTeam.overallLast5.length===requiredCount&&
+   d.awayTeam.awayLast5.length===requiredCount;
+}
+
 export function validateResearchArtifact(x:any,date:string,eligibleIds:string[],mode:"PREDICTION"|"BACKTEST"){
- if(x.schema!=="fih-daily-research-v3"||x.date!==date||x.mode!==mode||!Array.isArray(x.fixtures))throw new Error("CANONICAL_DAILY_RESEARCH_IDENTITY_INVALID");
+ if(!["fih-daily-research-v3","fih-daily-research-v4"].includes(String(x.schema))||x.date!==date||x.mode!==mode||!Array.isArray(x.fixtures))throw new Error("CANONICAL_DAILY_RESEARCH_IDENTITY_INVALID");
+ const strictVenue=x.schema==="fih-daily-research-v4";
  const ids=x.fixtures.map((r:any)=>String(r.fixtureId));if(ids.length!==new Set(ids).size)throw new Error("CANONICAL_DAILY_RESEARCH_DUPLICATE_FIXTURE");
  const want=[...eligibleIds].sort(),got=[...ids].sort();if(JSON.stringify(want)!==JSON.stringify(got))throw new Error("CANONICAL_DAILY_RESEARCH_COVERAGE_MISMATCH");
  const cutoff=mode==="BACKTEST"?new Date(date+"T04:00:00.000Z").getTime():null;
  for(const r of x.fixtures){
-  if(!r.fixture||!r.researchedAt||typeof r.researchRunId!=="string"||!r.researchRunId.trim()||!Array.isArray(r.sourceMetadata)||!r.facts||!formOk(r.facts.form)||!genericFactCategoryOk(r.facts.standings)||!genericFactCategoryOk(r.facts.headToHead)||!factualCategoryOk(r.facts.squadAvailability)||!genericFactCategoryOk(r.facts.schedule)||!factualCategoryOk(r.facts.competitionContext)||!optionalGenericFactCategoryOk(r.facts.opponentStrength)||!optionalGenericFactCategoryOk(r.facts.teamQuality))throw new Error("RESEARCH_RECORD_INCOMPLETE "+r.fixtureId);
+  if(!r.fixture||!r.researchedAt||typeof r.researchRunId!=="string"||!r.researchRunId.trim()||!Array.isArray(r.sourceMetadata)||!r.facts||!(strictVenue?formOkStrict(r.facts.form,5):formOkLegacy(r.facts.form))||!genericFactCategoryOk(r.facts.standings)||!genericFactCategoryOk(r.facts.headToHead)||!factualCategoryOk(r.facts.squadAvailability)||!genericFactCategoryOk(r.facts.schedule)||!factualCategoryOk(r.facts.competitionContext)||!optionalGenericFactCategoryOk(r.facts.opponentStrength)||!optionalGenericFactCategoryOk(r.facts.teamQuality))throw new Error("RESEARCH_RECORD_INCOMPLETE "+r.fixtureId);
   if(r.facts.xg!==undefined)throw new Error("RESEARCH_EXTERNAL_XG_FORBIDDEN "+r.fixtureId);
   const refs=new Set(r.sourceMetadata.map((sm:any)=>String(sm.ref||sm.url)));
   for(const ref of r.facts.form.sourceRefs||[])if(!refs.has(String(ref)))throw new Error("RESEARCH_SOURCE_REF_UNKNOWN "+r.fixtureId);
