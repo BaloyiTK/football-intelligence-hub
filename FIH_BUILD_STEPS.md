@@ -56,6 +56,44 @@ ChatGPT owns the fixture-by-fixture data-collection stage.
 - The working dataset may be checkpointed for recovery without treating a checkpoint as the canonical completed research artifact.
 - If execution is interrupted, use available working/checkpoint state to resume from the earliest unfinished fixture rather than intentionally repeating completed research.
 
+### Fixture research-job interface — LOCKED
+
+Step 2 MUST execute each eligible fixture as a structured ChatGPT research job. The repository/controller owns job construction, validation, checkpointing and persistence; ChatGPT owns the web research.
+
+For each eligible fixture, the controller provides ChatGPT one research-job input containing at minimum:
+- requested date;
+- execution mode (PREDICTION or BACKTEST);
+- applicable information cutoff when BACKTEST;
+- fixture ID;
+- competition;
+- kickoff time and timezone;
+- home team;
+- away team;
+- the complete required evidence-category list defined below;
+- research-integrity requirements;
+- the required Step 2 output/schema contract.
+
+The research job instructs ChatGPT to:
+1. research BOTH teams on the web for every required Step 2 evidence category;
+2. use credible sources and retain source URL/reference plus retrieval timestamp;
+3. map each retained source to the evidence category/categories it supports;
+4. return evidence only and make no prediction;
+5. never fabricate missing evidence or convert missing values to zero;
+6. mark a category `UNAVAILABLE` only after a real search attempt fails to locate trustworthy evidence;
+7. for BACKTEST, enforce the applicable historical information cutoff before retaining evidence;
+8. return one complete fixture research record compatible with the canonical Step 2 validator.
+
+The controller MUST validate the returned fixture record before accepting it into the working daily dataset. A fixture is complete only when every required category has a recorded real research attempt and the returned evidence/source mapping passes the Step 2 validator. A source-discovery result, partial search batch, prompt completion, or checkpoint by itself is not fixture completion.
+
+After a fixture validates:
+`research fixture -> validate returned record -> persist/checkpoint working state -> re-read/verify checkpoint -> immediately submit the next unfinished fixture research job`
+
+Checkpointing a completed fixture is durability only. It MUST NOT end or pause the authorized run while another eligible fixture can be researched. On recoverable failure, apply the Execution Contract recovery loop to that fixture/job and continue automatically.
+
+The fixture is the atomic completion/recovery unit. Search execution inside one fixture may group related categories or use bounded parallel searches where supported, provided evidence remains attributable to the correct fixture and category.
+
+Do not ask ChatGPT to make Step 3 model probabilities or Step 4 decisions during a Step 2 research job.
+
 For BOTH teams, collect:
 
 ### Venue form
