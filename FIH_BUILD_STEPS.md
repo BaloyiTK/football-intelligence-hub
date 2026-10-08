@@ -56,8 +56,10 @@ ChatGPT owns the fixture-by-fixture data-collection stage.
 - There are **zero Git research commits during accumulation**, including fixture-by-fixture and partial-batch commits.
 - Only after exact N/N validation and aggregate reconciliation may the accumulator be promoted to `data/research/YYYY-MM-DD.json`.
 - The promoted canonical research artifact is committed **exactly once per `researchRunId`**. A second canonical research commit for the same `researchRunId` is a contract violation and must return Step 2 to RECOVERING.
-- Step 3 is forbidden until that single canonical commit is verified and the committed research artifact is reread and revalidated.\n- New canonical Step-2 research must use `fih-daily-research-v5`; legacy schemas cannot cross the Step-3 input gate after the H2H last-five lock.
+- Step 3 is forbidden until that single canonical commit is verified and the committed research artifact is reread and revalidated.
+- New canonical Step-2 research must use `fih-daily-research-v5`; legacy schemas cannot cross the Step-3 input gate after the H2H last-five lock.
 
+- Research/provider/query ceilings are continuation boundaries, never completion or a hard stop. Continue through available search capacity and authorized search paths. If the execution environment itself prevents further calls, first verify the single temp accumulator and exact continuation cursor; resume the same `researchRunId` from the next unfinished fixture without rerunning Step 1 or requiring a new user command.
 - ChatGPT MUST perform the actual web search for every eligible fixture, fixture by fixture.
 - Repository-local homepage scanning, scraping, cached link discovery, or direct-public-source discovery is not equivalent to the required ChatGPT web-search job and MUST NOT satisfy Step 2 by itself.
 - Research each eligible fixture using web search, retain only source-backed factual evidence, and add the validated fixture record to the working daily dataset.
