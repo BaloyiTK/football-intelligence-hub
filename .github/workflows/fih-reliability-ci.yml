@@ -28,11 +28,11 @@ jobs:
       - run: npm install --no-audit --no-fund
       - name: Build isolated fixture board
         run: |
-          ROOT="$(mktemp -d)"; echo "FIH_ROOT=$ROOT" >> "$GITHUB_ENV"; mkdir -p "$ROOT/data/run-state"
+          ROOT="$(mktemp -d)"; echo "FIH_ROOT=$ROOT" >> "$GITHUB_ENV"; mkdir -p "$ROOT/data/run-state" "$ROOT/data/prediction-fixtures"
           node - "$ROOT" <<'NODE'
           const fs=require("fs"),p=require("path"),root=process.argv[2],date="2099-01-01";
           const x={schema:"fih-today-fixture-v1",date,timezone:"Africa/Johannesburg",fetchedAt:new Date().toISOString(),stageCount:1,fixtureCount:1,payload:{Stages:[{CompId:"1",CompN:"Liga 2",Snm:"Liga 2",Cnm:"Test",Events:[{Eid:"fx1",Eps:"NS",Esd:"20990101120000",T1:[{Nm:"Alpha"}],T2:[{Nm:"Beta"}]}]}]}};
-          fs.writeFileSync(p.join(root,"data","today_fixture.json"),JSON.stringify(x));
+          fs.writeFileSync(p.join(root,"data","prediction-fixtures",date+".json"),JSON.stringify({...x,schema:"fih-prediction-fixture-v1"}));
           NODE
       - name: Init and verify reliability metadata
         run: |
