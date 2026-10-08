@@ -5,8 +5,8 @@
   "canonical": false,
   "status": "IN_PROGRESS",
   "eligibleCount": 51,
-  "fixtureRecordsValidated": 13,
-  "lastValidatedFixtureId": "1843698",
+  "fixtureRecordsValidated": 14,
+  "lastValidatedFixtureId": "1843708",
   "workingRecords": {
     "1718971": {
       "fixtureId": "1718971",
@@ -1366,6 +1366,251 @@
           "status": "VERIFIED",
           "sourceRefs": [
             "s1"
+          ],
+          "data": {
+            "homeLastMatch": "2026-10-01",
+            "awayLastMatch": "2026-10-02"
+          }
+        }
+      }
+    },
+    "1843708": {
+      "fixtureId": "1843708",
+      "fixture": {
+        "competition": "2. Division A",
+        "country": "Egypt",
+        "home": "Al Tersana",
+        "away": "Kahrbaa Alasmalia",
+        "kickoff": "20261008143000",
+        "timezone": "Africa/Johannesburg"
+      },
+      "researchedAt": "2026-10-08T21:25:00+02:00",
+      "sourceMetadata": [
+        {
+          "ref": "s1",
+          "url": "https://www.livescore.mobi/football/egypt/2-division-a/al-tersana-vs-kahrbaa-alasmalia/1843708/?tz=-7",
+          "retrievedAt": "2026-10-08T21:25:00+02:00",
+          "supports": [
+            "leaguePosition",
+            "teamQuality"
+          ]
+        },
+        {
+          "ref": "s2",
+          "url": "https://footballfixtures.org/match/tersana-vs-kahraba-ismailia-2026-10-08",
+          "retrievedAt": "2026-10-08T21:25:00+02:00",
+          "supports": [
+            "overallForm",
+            "h2h"
+          ]
+        },
+        {
+          "ref": "s3",
+          "url": "https://www.footballfixtures.org/team/tersana",
+          "retrievedAt": "2026-10-08T21:25:00+02:00",
+          "supports": [
+            "overallForm",
+            "venueForm",
+            "restSchedule"
+          ]
+        },
+        {
+          "ref": "s4",
+          "url": "https://www.footballfixtures.org/team/kahraba-ismailia",
+          "retrievedAt": "2026-10-08T21:25:00+02:00",
+          "supports": [
+            "overallForm",
+            "venueForm",
+            "restSchedule"
+          ]
+        },
+        {
+          "ref": "s5",
+          "url": "https://footystats.org/egypt/tersana-vs-kahraba-ismailia-h2h-stats",
+          "retrievedAt": "2026-10-08T21:25:00+02:00",
+          "supports": [
+            "xgXga",
+            "goalsProfile",
+            "teamQuality"
+          ]
+        },
+        {
+          "ref": "s6",
+          "url": "https://www.mackolik.com/index.php/mac/tersana-vs-kahraba-ismailia/4kfm65vuu454mzb8lud4yg6c4",
+          "retrievedAt": "2026-10-08T21:25:00+02:00",
+          "supports": [
+            "squadAvailability"
+          ]
+        }
+      ],
+      "evidence": {
+        "overallForm": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s2",
+            "s3",
+            "s4"
+          ],
+          "data": {
+            "home": [
+              "Pharco 0-1 Tersana",
+              "Tersana 1-1 Baladiyyat",
+              "El Dakhleya 1-2 Tersana",
+              "Tersana 1-1 El Mansura",
+              "Proxy 2-0 Tersana"
+            ],
+            "away": [
+              "Kahraba Ismailia 2-0 Mega Sport",
+              "Kahraba Ismailia 3-1 Pharco",
+              "Baladiyyat 0-1 Kahraba Ismailia",
+              "Kahraba Ismailia 3-0 El Dakhleya",
+              "El Mansoura 2-0 Kahraba Ismailia"
+            ]
+          }
+        },
+        "venueForm": {
+          "status": "PARTIAL",
+          "sourceRefs": [
+            "s3",
+            "s4"
+          ],
+          "data": {
+            "homeHistorical": {
+              "played": 13,
+              "wins": 3,
+              "draws": 8,
+              "losses": 2,
+              "gf": 17,
+              "ga": 14
+            },
+            "awayHistorical": {
+              "played": 10,
+              "wins": 7,
+              "draws": 2,
+              "losses": 1,
+              "gfPerGame": 1.4,
+              "gaPerGame": 0.8
+            }
+          }
+        },
+        "xgXga": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s5"
+          ],
+          "data": {
+            "home": {
+              "xG": 1.1,
+              "xGA": 0.92
+            },
+            "away": {
+              "xG": 1.59,
+              "xGA": 1.13
+            },
+            "provenance": "FootyStats current-season team statistics; treated as observed season aggregates, not prediction output."
+          }
+        },
+        "leaguePosition": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": {
+            "home": {
+              "position": 8,
+              "played": 7,
+              "points": 12,
+              "gf": 6,
+              "ga": 5
+            },
+            "away": {
+              "position": 2,
+              "played": 7,
+              "points": 16,
+              "gf": 13,
+              "ga": 4
+            }
+          }
+        },
+        "teamQuality": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1",
+            "s5"
+          ],
+          "data": {
+            "home": {
+              "ppg": 1.71,
+              "winPct": 43,
+              "scoredPerGame": 0.86,
+              "concededPerGame": 0.71
+            },
+            "away": {
+              "ppg": 2.29,
+              "winPct": 71,
+              "scoredPerGame": 1.86,
+              "concededPerGame": 0.57
+            }
+          }
+        },
+        "motivationContext": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": "Kahraba Ismailia entered second with 16 points, one behind first; Tersana eighth on 12 points."
+        },
+        "h2h": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s2"
+          ],
+          "data": [
+            "2025-04-15 Kahraba Ismailia 2-1 Tersana",
+            "2024-12-08 Tersana 2-1 Kahraba Ismailia",
+            "2023-03-17 Kahraba Ismailia 0-1 Tersana",
+            "2022-11-25 Tersana 1-0 Kahraba Ismailia"
+          ],
+          "summary": "Tersana won 3 of the retained 4 meetings."
+        },
+        "goalsProfile": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s5"
+          ],
+          "data": {
+            "home": {
+              "avgGoals": 1.57,
+              "bttsPct": 43,
+              "cleanSheetPct": 43
+            },
+            "away": {
+              "avgGoals": 2.43,
+              "bttsPct": 29,
+              "cleanSheetPct": 57
+            }
+          }
+        },
+        "squadAvailability": {
+          "status": "UNAVAILABLE",
+          "sourceRefs": [
+            "s6"
+          ],
+          "data": "Match source reports no injury/suspension information available; no complete trustworthy absence list retained."
+        },
+        "opponentStrength": {
+          "status": "PARTIAL",
+          "sourceRefs": [
+            "s3",
+            "s4"
+          ],
+          "data": "Recent league opponents and results verified; no normalized opponent-strength index retained."
+        },
+        "restSchedule": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s3",
+            "s4"
           ],
           "data": {
             "homeLastMatch": "2026-10-01",
@@ -3598,7 +3843,7 @@
       }
     }
   },
-  "nextFixtureId": "1843708",
+  "nextFixtureId": "1843719",
   "nextAction": "Continue fixture-specific Step 2 web research from nextFixtureId.",
   "integrityRepair": {
     "at": "2026-10-08T05:45:00Z",
@@ -3632,5 +3877,5 @@
       ]
     }
   },
-  "updatedAt": "2026-10-08T21:20:00+02:00"
+  "updatedAt": "2026-10-08T21:25:00+02:00"
 }
