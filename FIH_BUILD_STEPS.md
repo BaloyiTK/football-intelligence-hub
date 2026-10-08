@@ -237,6 +237,13 @@ The active operational model is `FIH-V2-RESEARCH` in `scripts/fih-probability-v2
 - The model performs no new web research and may not silently replace Step 2 evidence.
 - Historical execution may not introduce information outside the applicable cutoff.
 
+#### Step 2 -> Step 3 lineage gate — LOCKED
+- Step 3 MUST fail closed unless the canonical research artifact validates against the frozen eligible fixture universe and its `researchRunId` exactly matches the active ledger `researchRunId`.
+- Before any probability calculation, verify that `data/research/YYYY-MM-DD.json` is tracked, clean, committed, reread from repository state, and represented by exactly one canonical research commit for that active `researchRunId`.
+- Once Step 2 has started, automated resume paths MUST reuse the frozen Step-1 fixture board. They must not silently reacquire a fresh board before Step 3.
+- The canonical Step-3 model artifact MUST retain lineage to its exact Step-2 input using `researchRunId`, `inputResearchHash`, and `inputResearchCommit`.
+- A stale generation, fixture-universe drift, partial/uncommitted research file, or multiple canonical research commits for the same `researchRunId` returns the run to RECOVERING before model calculation.
+
 ### 3.2 Fixture model loop
 Process each fixture independently:
 
