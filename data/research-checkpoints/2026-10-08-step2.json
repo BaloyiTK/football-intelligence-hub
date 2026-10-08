@@ -5,8 +5,8 @@
   "canonical": false,
   "status": "IN_PROGRESS",
   "eligibleCount": 51,
-  "fixtureRecordsValidated": 1,
-  "lastValidatedFixtureId": "1886716",
+  "fixtureRecordsValidated": 2,
+  "lastValidatedFixtureId": "1886717",
   "workingRecords": {
     "1886716": {
       "fixtureId": "1886716",
@@ -328,8 +328,302 @@
           }
         }
       }
+    },
+    "1886717": {
+      "fixtureId": "1886717",
+      "fixture": {
+        "competition": "Veikkausliiga: Championship",
+        "country": "Finland",
+        "home": "KuPS",
+        "away": "AC Oulu",
+        "kickoff": "20261008180000",
+        "timezone": "Africa/Johannesburg"
+      },
+      "researchedAt": "2026-10-08T05:02:00Z",
+      "sourceMetadata": [
+        {
+          "ref": "s1",
+          "url": "https://www.veikkausliiga.com/uutiset/2026/10/07/ennakko-kups-ac-oulu",
+          "retrievedAt": "2026-10-08T05:02:00Z",
+          "supports": [
+            "overallForm",
+            "leaguePosition",
+            "teamQuality",
+            "motivationContext",
+            "restSchedule"
+          ]
+        },
+        {
+          "ref": "s2",
+          "url": "https://www.fulltimestats.com/team/kups",
+          "retrievedAt": "2026-10-08T05:02:00Z",
+          "supports": [
+            "overallForm",
+            "teamQuality",
+            "xgXga",
+            "goalsProfile",
+            "opponentStrength"
+          ]
+        },
+        {
+          "ref": "s3",
+          "url": "https://tipsterarea.com/teams/finland/ac-oulu/last-away",
+          "retrievedAt": "2026-10-08T05:02:00Z",
+          "supports": [
+            "venueForm",
+            "goalsProfile",
+            "opponentStrength"
+          ]
+        },
+        {
+          "ref": "s4",
+          "url": "https://acoulu.fi/ottelut/edustus/2026/",
+          "retrievedAt": "2026-10-08T05:02:00Z",
+          "supports": [
+            "overallForm",
+            "venueForm",
+            "opponentStrength"
+          ]
+        },
+        {
+          "ref": "s5",
+          "url": "https://sportalic.com/teams/finland/ac-oulu/last-away",
+          "retrievedAt": "2026-10-08T05:02:00Z",
+          "supports": [
+            "goalsProfile",
+            "venueForm"
+          ]
+        }
+      ],
+      "evidence": {
+        "overallForm": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "KuPS AC Oulu October 8 2026 recent form",
+              "attemptedAt": "2026-10-08T05:02:00Z",
+              "outcome": "Recent league sequences found"
+            }
+          ],
+          "sourceRefs": [
+            "s1",
+            "s2",
+            "s4"
+          ],
+          "data": {
+            "home": [
+              "VPS 0-2 KuPS",
+              "KuPS 0-0 HJK",
+              "Gnistan 1-1 KuPS",
+              "Inter 1-0 KuPS",
+              "KuPS 2-4 Mariehamn"
+            ],
+            "away": [
+              "AC Oulu 0-1 Inter",
+              "AC Oulu 1-2 Gnistan",
+              "VPS 1-0 AC Oulu",
+              "AC Oulu 0-0 SJK",
+              "Jaro 0-1 AC Oulu"
+            ]
+          }
+        },
+        "venueForm": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "KuPS last five home AC Oulu last five away 2026",
+              "attemptedAt": "2026-10-08T05:02:00Z",
+              "outcome": "AC Oulu away five verified; complete KuPS home five not retained"
+            }
+          ],
+          "sourceRefs": [
+            "s3",
+            "s4"
+          ],
+          "data": {
+            "awayLast5": [
+              "VPS 1-0 AC Oulu",
+              "Jaro 0-1 AC Oulu",
+              "Mariehamn 1-1 AC Oulu",
+              "TPS 3-0 AC Oulu",
+              "VPS 5-1 AC Oulu"
+            ]
+          }
+        },
+        "xgXga": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "KuPS AC Oulu xG xGA 2026",
+              "attemptedAt": "2026-10-08T05:02:00Z",
+              "outcome": "Match expected-goal projection located; season venue xG/xGA unavailable"
+            }
+          ],
+          "sourceRefs": [
+            "s2"
+          ],
+          "data": {
+            "homeMatchXgEstimate": 2.12,
+            "awayMatchXgEstimate": 0.83
+          }
+        },
+        "leaguePosition": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "KuPS AC Oulu standings October 8 2026",
+              "attemptedAt": "2026-10-08T05:02:00Z",
+              "outcome": "Official preview verifies AC Oulu sixth and championship context; full numeric table not retained"
+            }
+          ],
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": {
+            "away": {
+              "position": 6
+            },
+            "context": "Seven championship matches remain"
+          }
+        },
+        "teamQuality": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "KuPS AC Oulu team strength 2026",
+              "attemptedAt": "2026-10-08T05:02:00Z",
+              "outcome": "Official championship context and recent form found"
+            }
+          ],
+          "sourceRefs": [
+            "s1",
+            "s2"
+          ],
+          "data": {
+            "home": "KuPS in championship race",
+            "away": "AC Oulu sixth, zero points from first three championship-round matches"
+          }
+        },
+        "motivationContext": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "KuPS AC Oulu championship stakes",
+              "attemptedAt": "2026-10-08T05:02:00Z",
+              "outcome": "Official preview: seven games left and every point increasingly important"
+            }
+          ],
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": "Championship round with seven games remaining; KuPS stresses increasing importance of every point; AC Oulu seeking first championship-round points."
+        },
+        "h2h": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "KuPS AC Oulu head to head 2026",
+              "attemptedAt": "2026-10-08T05:02:00Z",
+              "outcome": "Current season meetings found in venue records but full recent five H2H not retained"
+            }
+          ],
+          "sourceRefs": [
+            "s3",
+            "s4"
+          ],
+          "data": [
+            "2026-05-02 AC Oulu 2-0 KuPS",
+            "2026-04-22 KuPS 3-2 AC Oulu"
+          ]
+        },
+        "goalsProfile": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "AC Oulu KuPS goals BTTS over 2.5 2026",
+              "attemptedAt": "2026-10-08T05:02:00Z",
+              "outcome": "AC Oulu season profile and match projection found"
+            }
+          ],
+          "sourceRefs": [
+            "s2",
+            "s5"
+          ],
+          "data": {
+            "away": {
+              "gfPerGame": 1.54,
+              "gaPerGame": 1.54,
+              "bttsPct": 58,
+              "over25Pct": 58,
+              "scoringPct": 77,
+              "concedingPct": 77
+            },
+            "matchEstimate": {
+              "over25Pct": 57,
+              "bttsPct": 50
+            }
+          }
+        },
+        "squadAvailability": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "KuPS AC Oulu injuries suspensions October 8 2026",
+              "attemptedAt": "2026-10-08T05:02:00Z",
+              "outcome": "No trustworthy named current absence list located in retained search results"
+            }
+          ]
+        },
+        "opponentStrength": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "KuPS AC Oulu recent opponents 2026",
+              "attemptedAt": "2026-10-08T05:02:00Z",
+              "outcome": "Recent opponent identities verified"
+            }
+          ],
+          "sourceRefs": [
+            "s2",
+            "s4"
+          ],
+          "data": {
+            "home": [
+              "VPS",
+              "HJK",
+              "Gnistan",
+              "Inter",
+              "Mariehamn"
+            ],
+            "away": [
+              "Inter",
+              "Gnistan",
+              "VPS",
+              "SJK",
+              "Jaro"
+            ]
+          }
+        },
+        "restSchedule": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "KuPS AC Oulu schedule October 8 2026",
+              "attemptedAt": "2026-10-08T05:02:00Z",
+              "outcome": "Official preview says KuPS plays Inter again Sunday after Thursday fixture"
+            }
+          ],
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": {
+            "home": "Thursday AC Oulu then Sunday away to Inter; upcoming congestion",
+            "away": "No unusual additional schedule detail verified"
+          }
+        }
+      }
     }
   },
-  "nextFixtureId": "1886717",
-  "nextAction": "Submit fixture 1886717 as next structured ChatGPT Step 2 research job."
+  "nextFixtureId": "1807243",
+  "nextAction": "Submit fixture 1807243 CFR Cluj vs Universitatea Cluj as next structured ChatGPT Step 2 research job."
 }
