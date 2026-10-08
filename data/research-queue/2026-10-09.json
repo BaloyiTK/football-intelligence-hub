@@ -1,0 +1,1524 @@
+{
+  "schema": "fih-chatgpt-research-queue-v2",
+  "date": "2026-10-09",
+  "researchRunId": null,
+  "generatedAt": "2026-10-08T07:31:25.377Z",
+  "count": 216,
+  "executor": "CHATGPT_WEB_SEARCH",
+  "workingCheckpoint": "data/research-work/2026-10-09",
+  "canonicalCommitPolicy": "ONE_BATCH_AFTER_FULL_VALIDATION_AND_PROMOTION",
+  "fixtures": [
+    {
+      "fixtureId": "1810712",
+      "home": "Malaga",
+      "away": "Espanyol",
+      "competition": "LaLiga",
+      "kickoff": "20261009210000"
+    },
+    {
+      "fixtureId": "1812724",
+      "home": "Borussia Dortmund",
+      "away": "Werder Bremen",
+      "competition": "Bundesliga",
+      "kickoff": "20261009203000"
+    },
+    {
+      "fixtureId": "1794700",
+      "home": "Lens",
+      "away": "Lyon",
+      "competition": "Ligue 1",
+      "kickoff": "20261009204500"
+    },
+    {
+      "fixtureId": "1790213",
+      "home": "PSV Eindhoven",
+      "away": "SC Heerenveen",
+      "competition": "Eredivisie",
+      "kickoff": "20261009200000"
+    },
+    {
+      "fixtureId": "1802452",
+      "home": "West Ham United",
+      "away": "QPR",
+      "competition": "Championship",
+      "kickoff": "20261009210000"
+    },
+    {
+      "fixtureId": "1823553",
+      "home": "Sutton United",
+      "away": "Boreham Wood",
+      "competition": "National League",
+      "kickoff": "20261009204500"
+    },
+    {
+      "fixtureId": "1821033",
+      "home": "Galatasaray",
+      "away": "Kasımpaşa",
+      "competition": "Süper Lig",
+      "kickoff": "20261009190000"
+    },
+    {
+      "fixtureId": "1816437",
+      "home": "Moreirense",
+      "away": "Gil Vicente",
+      "competition": "Primeira Liga",
+      "kickoff": "20261009194500"
+    },
+    {
+      "fixtureId": "1816436",
+      "home": "SC Braga",
+      "away": "Sporting CP",
+      "competition": "Primeira Liga",
+      "kickoff": "20261009211500"
+    },
+    {
+      "fixtureId": "1845647",
+      "home": "Al Kholood",
+      "away": "Al Qadsiah",
+      "competition": "Saudi Professional League",
+      "kickoff": "20261009155000"
+    },
+    {
+      "fixtureId": "1845632",
+      "home": "Al Fateh",
+      "away": "Al Ahli",
+      "competition": "Saudi Professional League",
+      "kickoff": "20261009165500"
+    },
+    {
+      "fixtureId": "1845614",
+      "home": "Al Nassr",
+      "away": "Al Diriyah",
+      "competition": "Saudi Professional League",
+      "kickoff": "20261009200000"
+    },
+    {
+      "fixtureId": "1798143",
+      "home": "SK Beveren",
+      "away": "Lommel",
+      "competition": "Belgian Pro League",
+      "kickoff": "20261009204500"
+    },
+    {
+      "fixtureId": "1845103",
+      "home": "Avellino",
+      "away": "Sampdoria",
+      "competition": "Serie B",
+      "kickoff": "20261009203000"
+    },
+    {
+      "fixtureId": "1813349",
+      "home": "Eintracht Braunschweig",
+      "away": "Holstein Kiel",
+      "competition": "2. Bundesliga",
+      "kickoff": "20261009183000"
+    },
+    {
+      "fixtureId": "1813352",
+      "home": "FC Heidenheim",
+      "away": "Kaiserslautern",
+      "competition": "2. Bundesliga",
+      "kickoff": "20261009183000"
+    },
+    {
+      "fixtureId": "1795026",
+      "home": "Dunkerque",
+      "away": "FC Annecy",
+      "competition": "Ligue 2",
+      "kickoff": "20261009200000"
+    },
+    {
+      "fixtureId": "1795034",
+      "home": "Montpellier",
+      "away": "Grenoble",
+      "competition": "Ligue 2",
+      "kickoff": "20261009200000"
+    },
+    {
+      "fixtureId": "1795028",
+      "home": "Nancy",
+      "away": "Guingamp",
+      "competition": "Ligue 2",
+      "kickoff": "20261009200000"
+    },
+    {
+      "fixtureId": "1795027",
+      "home": "Pau",
+      "away": "Laval",
+      "competition": "Ligue 2",
+      "kickoff": "20261009200000"
+    },
+    {
+      "fixtureId": "1795030",
+      "home": "Sochaux",
+      "away": "Boulogne",
+      "competition": "Ligue 2",
+      "kickoff": "20261009200000"
+    },
+    {
+      "fixtureId": "1799839",
+      "home": "Almere City FC",
+      "away": "FC Eindhoven",
+      "competition": "Eerste Divisie",
+      "kickoff": "20261009200000"
+    },
+    {
+      "fixtureId": "1799840",
+      "home": "De Graafschap",
+      "away": "Jong FC Utrecht",
+      "competition": "Eerste Divisie",
+      "kickoff": "20261009200000"
+    },
+    {
+      "fixtureId": "1799841",
+      "home": "FC Dordrecht",
+      "away": "FC Emmen",
+      "competition": "Eerste Divisie",
+      "kickoff": "20261009200000"
+    },
+    {
+      "fixtureId": "1799842",
+      "home": "FC Volendam",
+      "away": "Vitesse",
+      "competition": "Eerste Divisie",
+      "kickoff": "20261009200000"
+    },
+    {
+      "fixtureId": "1799851",
+      "home": "Heracles",
+      "away": "RKC Waalwijk",
+      "competition": "Eerste Divisie",
+      "kickoff": "20261009200000"
+    },
+    {
+      "fixtureId": "1799845",
+      "home": "Jong AZ Alkmaar",
+      "away": "FC Den Bosch",
+      "competition": "Eerste Divisie",
+      "kickoff": "20261009200000"
+    },
+    {
+      "fixtureId": "1799864",
+      "home": "Jong Ajax",
+      "away": "VVV-Venlo",
+      "competition": "Eerste Divisie",
+      "kickoff": "20261009200000"
+    },
+    {
+      "fixtureId": "1799846",
+      "home": "NAC Breda",
+      "away": "MVV Maastricht",
+      "competition": "Eerste Divisie",
+      "kickoff": "20261009200000"
+    },
+    {
+      "fixtureId": "1799847",
+      "home": "Roda JC Kerkrade",
+      "away": "Jong PSV",
+      "competition": "Eerste Divisie",
+      "kickoff": "20261009200000"
+    },
+    {
+      "fixtureId": "1799849",
+      "home": "TOP Oss",
+      "away": "Helmond Sport",
+      "competition": "Eerste Divisie",
+      "kickoff": "20261009200000"
+    },
+    {
+      "fixtureId": "1708681",
+      "home": "Santos FC",
+      "away": "Flamengo",
+      "competition": "Serie A",
+      "kickoff": "20261009003000"
+    },
+    {
+      "fixtureId": "1708694",
+      "home": "Athletico Paranaense",
+      "away": "Atletico MG",
+      "competition": "Serie A",
+      "kickoff": "20261009010000"
+    },
+    {
+      "fixtureId": "1708679",
+      "home": "Fluminense",
+      "away": "Coritiba",
+      "competition": "Serie A",
+      "kickoff": "20261009023000"
+    },
+    {
+      "fixtureId": "1708684",
+      "home": "Palmeiras",
+      "away": "Bahia",
+      "competition": "Serie A",
+      "kickoff": "20261009023000"
+    },
+    {
+      "fixtureId": "1710447",
+      "home": "IFK Gothenburg",
+      "away": "Vasteraas SK",
+      "competition": "Allsvenskan",
+      "kickoff": "20261009190000"
+    },
+    {
+      "fixtureId": "1784490",
+      "home": "FC Nordsjaelland",
+      "away": "OB",
+      "competition": "Superliga",
+      "kickoff": "20261009190000"
+    },
+    {
+      "fixtureId": "1709270",
+      "home": "Brann",
+      "away": "Viking",
+      "competition": "Eliteserien",
+      "kickoff": "20261009190000"
+    },
+    {
+      "fixtureId": "1800454",
+      "home": "FC Zlin",
+      "away": "Slavia Prague",
+      "competition": "1st League",
+      "kickoff": "20261009180000"
+    },
+    {
+      "fixtureId": "1739851",
+      "home": "Qingdao Hainiu",
+      "away": "Beijing Guoan",
+      "competition": "Super League",
+      "kickoff": "20261009133500"
+    },
+    {
+      "fixtureId": "1739845",
+      "home": "Shenzhen Peng City",
+      "away": "Henan Songshan Longmen",
+      "competition": "Super League",
+      "kickoff": "20261009133500"
+    },
+    {
+      "fixtureId": "1739847",
+      "home": "Zhejiang Professional",
+      "away": "Shanghai Port",
+      "competition": "Super League",
+      "kickoff": "20261009140000"
+    },
+    {
+      "fixtureId": "1795787",
+      "home": "Kashima Antlers",
+      "away": "Gamba Osaka",
+      "competition": "J1 League",
+      "kickoff": "20261009120000"
+    },
+    {
+      "fixtureId": "1795783",
+      "home": "Kashiwa Reysol",
+      "away": "Vissel Kobe",
+      "competition": "J1 League",
+      "kickoff": "20261009120000"
+    },
+    {
+      "fixtureId": "1787189",
+      "home": "HNK Gorica",
+      "away": "Rudes",
+      "competition": "HNL",
+      "kickoff": "20261009180000"
+    },
+    {
+      "fixtureId": "1795345",
+      "home": "Wieczysta Krakow",
+      "away": "Wisla Plock",
+      "competition": "Ekstraklasa",
+      "kickoff": "20261009180000"
+    },
+    {
+      "fixtureId": "1795349",
+      "home": "Rakow Czestochowa",
+      "away": "GKS Katowice",
+      "competition": "Ekstraklasa",
+      "kickoff": "20261009203000"
+    },
+    {
+      "fixtureId": "1886701",
+      "home": "SJK-J",
+      "away": "FC Lahti",
+      "competition": "Veikkausliiga",
+      "kickoff": "20261009170000"
+    },
+    {
+      "fixtureId": "1807295",
+      "home": "Corvinul Hunedoara",
+      "away": "FC Voluntari",
+      "competition": "Liga 1",
+      "kickoff": "20261009170000"
+    },
+    {
+      "fixtureId": "1807288",
+      "home": "Sepsi OSK",
+      "away": "Dinamo Bucuresti",
+      "competition": "Liga 1",
+      "kickoff": "20261009200000"
+    },
+    {
+      "fixtureId": "1718969",
+      "home": "Shelbourne",
+      "away": "Sligo Rovers",
+      "competition": "League of Ireland Premier Division",
+      "kickoff": "20261009204500"
+    },
+    {
+      "fixtureId": "1723722",
+      "home": "Daejeon Citizen",
+      "away": "Jeonbuk FC",
+      "competition": "K League 1",
+      "kickoff": "20261009070000"
+    },
+    {
+      "fixtureId": "1723723",
+      "home": "Gangwon FC",
+      "away": "Bucheon FC 1995",
+      "competition": "K League 1",
+      "kickoff": "20261009093000"
+    },
+    {
+      "fixtureId": "1723724",
+      "home": "Incheon United",
+      "away": "Pohang Steelers",
+      "competition": "K League 1",
+      "kickoff": "20261009093000"
+    },
+    {
+      "fixtureId": "1854219",
+      "home": "JS Kabylie",
+      "away": "ASO Chlef",
+      "competition": "Ligue 1",
+      "kickoff": "20261009190000"
+    },
+    {
+      "fixtureId": "1854210",
+      "home": "MC Alger",
+      "away": "CR Temouchent",
+      "competition": "Ligue 1",
+      "kickoff": "20261009210000"
+    },
+    {
+      "fixtureId": "1812284",
+      "home": "Amstetten",
+      "away": "BW Linz",
+      "competition": "2. Liga",
+      "kickoff": "20261009183000"
+    },
+    {
+      "fixtureId": "1812293",
+      "home": "Kapfenberger SV",
+      "away": "Young Violets",
+      "competition": "2. Liga",
+      "kickoff": "20261009183000"
+    },
+    {
+      "fixtureId": "1812288",
+      "home": "First Vienna FC",
+      "away": "SKN St. Poelten",
+      "competition": "2. Liga",
+      "kickoff": "20261009203000"
+    },
+    {
+      "fixtureId": "1852897",
+      "home": "Araz PFK",
+      "away": "FC Kapaz",
+      "competition": "Premier League",
+      "kickoff": "20261009140000"
+    },
+    {
+      "fixtureId": "1852899",
+      "home": "FK Neftchi",
+      "away": "Sabah FK",
+      "competition": "Premier League",
+      "kickoff": "20261009173000"
+    },
+    {
+      "fixtureId": "1900592",
+      "home": "AL Khalidiyah",
+      "away": "Muharraq",
+      "competition": "Premier League",
+      "kickoff": "20261009180000"
+    },
+    {
+      "fixtureId": "1900594",
+      "home": "Malkia",
+      "away": "Al-Riffa",
+      "competition": "Premier League",
+      "kickoff": "20261009180000"
+    },
+    {
+      "fixtureId": "1748988",
+      "home": "Arsenal Dzerzhinsk",
+      "away": "Dinamo Brest",
+      "competition": "Premier League",
+      "kickoff": "20261009180000"
+    },
+    {
+      "fixtureId": "1878509",
+      "home": "Gaborone United",
+      "away": "Morupule Wanderers",
+      "competition": "Premier League",
+      "kickoff": "20261009190000"
+    },
+    {
+      "fixtureId": "1878502",
+      "home": "Tonota",
+      "away": "Sua Flamingoes",
+      "competition": "Premier League",
+      "kickoff": "20261009190000"
+    },
+    {
+      "fixtureId": "1741366",
+      "home": "Ceara",
+      "away": "Criciuma",
+      "competition": "Serie B",
+      "kickoff": "20261009003000"
+    },
+    {
+      "fixtureId": "1741375",
+      "home": "Nautico",
+      "away": "Novorizontino",
+      "competition": "Serie B",
+      "kickoff": "20261009003000"
+    },
+    {
+      "fixtureId": "1811873",
+      "home": "Yantra",
+      "away": "Vihren Sandanski",
+      "competition": "Vtora Liga",
+      "kickoff": "20261009163000"
+    },
+    {
+      "fixtureId": "1811868",
+      "home": "Etar",
+      "away": "Fratria",
+      "competition": "Vtora Liga",
+      "kickoff": "20261009190000"
+    },
+    {
+      "fixtureId": "1903957",
+      "home": "ASF Bobo-Dioulasso",
+      "away": "Majestic FC",
+      "competition": "Ligue 1",
+      "kickoff": "20261009173000"
+    },
+    {
+      "fixtureId": "1903953",
+      "home": "CFFEB",
+      "away": "Salitas",
+      "competition": "Ligue 1",
+      "kickoff": "20261009173000"
+    },
+    {
+      "fixtureId": "1806347",
+      "home": "Atletico Nacional",
+      "away": "Tolima",
+      "competition": "Primera A: Clausura",
+      "kickoff": "20261009010500"
+    },
+    {
+      "fixtureId": "1806371",
+      "home": "Fortaleza FC",
+      "away": "Millonarios",
+      "competition": "Primera A: Clausura",
+      "kickoff": "20261009031000"
+    },
+    {
+      "fixtureId": "1806474",
+      "home": "Real Soacha Cundinamarca",
+      "away": "Real Santander",
+      "competition": "Primera B: Clausura",
+      "kickoff": "20261009220000"
+    },
+    {
+      "fixtureId": "1801268",
+      "home": "Inter San Carlos",
+      "away": "Municipal Perez Zeledon",
+      "competition": "Primera División: Apertura",
+      "kickoff": "20261009040000"
+    },
+    {
+      "fixtureId": "1848388",
+      "home": "Karmiotissa Pano Polemidion",
+      "away": "Omonia Nicosia",
+      "competition": "1st Division",
+      "kickoff": "20261009180000"
+    },
+    {
+      "fixtureId": "1799594",
+      "home": "Slavia Prague B",
+      "away": "FC Vlasim",
+      "competition": "2nd league",
+      "kickoff": "20261009170000"
+    },
+    {
+      "fixtureId": "1836453",
+      "home": "FK MAS Taborsko",
+      "away": "Karvina",
+      "competition": "2nd league",
+      "kickoff": "20261009180000"
+    },
+    {
+      "fixtureId": "1799596",
+      "home": "Usti nad Labem",
+      "away": "Opava",
+      "competition": "2nd league",
+      "kickoff": "20261009180000"
+    },
+    {
+      "fixtureId": "1799595",
+      "home": "Vysocina Jihlava",
+      "away": "SK Prostejov",
+      "competition": "2nd league",
+      "kickoff": "20261009180000"
+    },
+    {
+      "fixtureId": "1786758",
+      "home": "Vejle Boldklub",
+      "away": "Hvidovre",
+      "competition": "1st Division",
+      "kickoff": "20261009180000"
+    },
+    {
+      "fixtureId": "1786763",
+      "home": "AB",
+      "away": "Aarhus Fremad",
+      "competition": "1st Division",
+      "kickoff": "20261009190000"
+    },
+    {
+      "fixtureId": "1810002",
+      "home": "Sundby BK",
+      "away": "Ishoej IF",
+      "competition": "3rd Division",
+      "kickoff": "20261009190000"
+    },
+    {
+      "fixtureId": "1894578",
+      "home": "Libertad",
+      "away": "Club Leones Del Norte",
+      "competition": "Serie A: Placement Group",
+      "kickoff": "20261009200000"
+    },
+    {
+      "fixtureId": "1894549",
+      "home": "Delfin",
+      "away": "Mushuc Runa",
+      "competition": "Serie A: Relegation Group",
+      "kickoff": "20261009223000"
+    },
+    {
+      "fixtureId": "1843721",
+      "home": "El Entag El Harby",
+      "away": "La Viena FC",
+      "competition": "2. Division A",
+      "kickoff": "20261009143000"
+    },
+    {
+      "fixtureId": "1843722",
+      "home": "Ismaily SC",
+      "away": "Tanta",
+      "competition": "2. Division A",
+      "kickoff": "20261009143000"
+    },
+    {
+      "fixtureId": "1843716",
+      "home": "Itesalat",
+      "away": "El Mansura",
+      "competition": "2. Division A",
+      "kickoff": "20261009143000"
+    },
+    {
+      "fixtureId": "1843724",
+      "home": "Maleyeit Kafr El Zayiat",
+      "away": "Baladiyyat Al-Mehalla",
+      "competition": "2. Division A",
+      "kickoff": "20261009143000"
+    },
+    {
+      "fixtureId": "1843714",
+      "home": "Team FC",
+      "away": "Pharco FC",
+      "competition": "2. Division A",
+      "kickoff": "20261009143000"
+    },
+    {
+      "fixtureId": "1844461",
+      "home": "CD FAS",
+      "away": "Alianza FC",
+      "competition": "Primera Division: Apertura",
+      "kickoff": "20261009033000"
+    },
+    {
+      "fixtureId": "1743752",
+      "home": "Tartu JK Welco",
+      "away": "FC Elva",
+      "competition": "Esiliiga",
+      "kickoff": "20261009183000"
+    },
+    {
+      "fixtureId": "1732687",
+      "home": "FC Haka J",
+      "away": "PK-35 Helsinki",
+      "competition": "Ykkosliiga",
+      "kickoff": "20261009180000"
+    },
+    {
+      "fixtureId": "1732685",
+      "home": "JaePS",
+      "away": "JIPPO",
+      "competition": "Ykkosliiga",
+      "kickoff": "20261009180000"
+    },
+    {
+      "fixtureId": "1732684",
+      "home": "KaPa Kapylan Pallo",
+      "away": "Mikkelin Palloilijat",
+      "competition": "Ykkosliiga",
+      "kickoff": "20261009180000"
+    },
+    {
+      "fixtureId": "1732686",
+      "home": "Klubi 04",
+      "away": "EIF",
+      "competition": "Ykkosliiga",
+      "kickoff": "20261009180000"
+    },
+    {
+      "fixtureId": "1822602",
+      "home": "Preussen Muenster",
+      "away": "RW Essen",
+      "competition": "3. Liga",
+      "kickoff": "20261009190000"
+    },
+    {
+      "fixtureId": "1826162",
+      "home": "FC Schweinfurt",
+      "away": "SC Eltersdorf",
+      "competition": "Regionalliga Bayern",
+      "kickoff": "20261009190000"
+    },
+    {
+      "fixtureId": "1826463",
+      "home": "BSG Chemie Leipzig",
+      "away": "FSV Luckenwalde",
+      "competition": "Regionalliga Nordost",
+      "kickoff": "20261009190000"
+    },
+    {
+      "fixtureId": "1826461",
+      "home": "FSV Zwickau",
+      "away": "Tasmania Berlin",
+      "competition": "Regionalliga Nordost",
+      "kickoff": "20261009190000"
+    },
+    {
+      "fixtureId": "1826466",
+      "home": "VSG Altglienicke",
+      "away": "BFC Dynamo",
+      "competition": "Regionalliga Nordost",
+      "kickoff": "20261009190000"
+    },
+    {
+      "fixtureId": "1830198",
+      "home": "Kickers Offenbach",
+      "away": "Homburg",
+      "competition": "Regionalliga Südwest",
+      "kickoff": "20261009190000"
+    },
+    {
+      "fixtureId": "1829321",
+      "home": "TSG Balingen",
+      "away": "FC Holzhausen",
+      "competition": "Oberliga: Baden-Wurttemberg",
+      "kickoff": "20261009190000"
+    },
+    {
+      "fixtureId": "1828221",
+      "home": "ASV Cham",
+      "away": "DJK Don Bosco Bamberg",
+      "competition": "Oberliga: Bayern North",
+      "kickoff": "20261009190000"
+    },
+    {
+      "fixtureId": "1828223",
+      "home": "Neudrossenfeld",
+      "away": "ASV Neumarkt",
+      "competition": "Oberliga: Bayern North",
+      "kickoff": "20261009190000"
+    },
+    {
+      "fixtureId": "1827915",
+      "home": "1860 Rosenheim",
+      "away": "FC Pipinsried",
+      "competition": "Oberliga: Bayern South",
+      "kickoff": "20261009190000"
+    },
+    {
+      "fixtureId": "1827921",
+      "home": "SV Erlbach",
+      "away": "Geretsried",
+      "competition": "Oberliga: Bayern South",
+      "kickoff": "20261009190000"
+    },
+    {
+      "fixtureId": "1827919",
+      "home": "TSV 1880 Wasserburg",
+      "away": "Pfaffenhofen",
+      "competition": "Oberliga: Bayern South",
+      "kickoff": "20261009190000"
+    },
+    {
+      "fixtureId": "1847449",
+      "home": "Brinkumer SV",
+      "away": "Werder Bremen III",
+      "competition": "Oberliga: Bremen",
+      "kickoff": "20261009183000"
+    },
+    {
+      "fixtureId": "1847435",
+      "home": "Leher",
+      "away": "BTS Neustadt",
+      "competition": "Oberliga: Bremen",
+      "kickoff": "20261009193000"
+    },
+    {
+      "fixtureId": "1847429",
+      "home": "Oberneuland",
+      "away": "Geestemuende",
+      "competition": "Oberliga: Bremen",
+      "kickoff": "20261009193000"
+    },
+    {
+      "fixtureId": "1827589",
+      "home": "TSV Concordia",
+      "away": "HT 16",
+      "competition": "Oberliga: Hamburg",
+      "kickoff": "20261009190000"
+    },
+    {
+      "fixtureId": "1827585",
+      "home": "ETSV Hamburg",
+      "away": "Niendorfer TSV",
+      "competition": "Oberliga: Hamburg",
+      "kickoff": "20261009193000"
+    },
+    {
+      "fixtureId": "1827651",
+      "home": "Teutonia Ottensen",
+      "away": "Vorwarts-Wacker",
+      "competition": "Oberliga: Hamburg",
+      "kickoff": "20261009194500"
+    },
+    {
+      "fixtureId": "1842861",
+      "home": "KFC Uerdingen",
+      "away": "Solingen-Wald",
+      "competition": "Oberliga: Niederrhein",
+      "kickoff": "20261009193000"
+    },
+    {
+      "fixtureId": "1829912",
+      "home": "TuS Bersenbrueck",
+      "away": "Eintracht Nordhorn",
+      "competition": "Oberliga: Niedersachsen",
+      "kickoff": "20261009200000"
+    },
+    {
+      "fixtureId": "1829909",
+      "home": "Wilhelmshaven",
+      "away": "Blau-Weiss Lohne",
+      "competition": "Oberliga: Niedersachsen",
+      "kickoff": "20261009200000"
+    },
+    {
+      "fixtureId": "1841663",
+      "home": "TuS Mechtersheim",
+      "away": "Ahrweiler BC",
+      "competition": "Oberliga: Rheinland-Pfalz/Saar",
+      "kickoff": "20261009200000"
+    },
+    {
+      "fixtureId": "1808927",
+      "home": "Antigua Guatemala",
+      "away": "CSD Municipal",
+      "competition": "Liga Nacional: Apertura",
+      "kickoff": "20261009030000"
+    },
+    {
+      "fixtureId": "1887370",
+      "home": "Platense FC",
+      "away": "Juticalpa",
+      "competition": "Liga Nacional: Apertura",
+      "kickoff": "20261009230000"
+    },
+    {
+      "fixtureId": "1865801",
+      "home": "Eastern Sports Club",
+      "away": "North District",
+      "competition": "Hong Kong Premier League",
+      "kickoff": "20261009140000"
+    },
+    {
+      "fixtureId": "1866465",
+      "home": "Persik Kediri",
+      "away": "Madura United",
+      "competition": "Super League",
+      "kickoff": "20261009103000"
+    },
+    {
+      "fixtureId": "1866466",
+      "home": "Isenmulang Kalteng",
+      "away": "Persebaya Surabaya",
+      "competition": "Super League",
+      "kickoff": "20261009140000"
+    },
+    {
+      "fixtureId": "1893568",
+      "home": "Chadormalu Yazd",
+      "away": "Kheybar Khorramabad",
+      "competition": "Persian Gulf Pro League",
+      "kickoff": "20261009151500"
+    },
+    {
+      "fixtureId": "1893569",
+      "home": "Persepolis",
+      "away": "Sanat Naft Abadan",
+      "competition": "Persian Gulf Pro League",
+      "kickoff": "20261009153000"
+    },
+    {
+      "fixtureId": "1871227",
+      "home": "Zakho",
+      "away": "Newroz",
+      "competition": "Iraq Stars League",
+      "kickoff": "20261009170000"
+    },
+    {
+      "fixtureId": "1871226",
+      "home": "Al Naft",
+      "away": "Diyala",
+      "competition": "Iraq Stars League",
+      "kickoff": "20261009184500"
+    },
+    {
+      "fixtureId": "1871230",
+      "home": "Al-Gharraf",
+      "away": "Al-Jolan SC",
+      "competition": "Iraq Stars League",
+      "kickoff": "20261009193000"
+    },
+    {
+      "fixtureId": "1888965",
+      "home": "Bohemian FC",
+      "away": "Waterford FC",
+      "competition": "FAI Cup",
+      "kickoff": "20261009204500"
+    },
+    {
+      "fixtureId": "1719635",
+      "home": "Athlone Town",
+      "away": "Treaty United",
+      "competition": "1st Division",
+      "kickoff": "20261009204500"
+    },
+    {
+      "fixtureId": "1719640",
+      "home": "Bray Wanderers",
+      "away": "Wexford FC",
+      "competition": "1st Division",
+      "kickoff": "20261009204500"
+    },
+    {
+      "fixtureId": "1719638",
+      "home": "Cobh Ramblers",
+      "away": "Kerry",
+      "competition": "1st Division",
+      "kickoff": "20261009204500"
+    },
+    {
+      "fixtureId": "1719641",
+      "home": "Cork City",
+      "away": "Finn Harps",
+      "competition": "1st Division",
+      "kickoff": "20261009204500"
+    },
+    {
+      "fixtureId": "1719639",
+      "home": "UCD",
+      "away": "Longford Town",
+      "competition": "1st Division",
+      "kickoff": "20261009204500"
+    },
+    {
+      "fixtureId": "1799354",
+      "home": "Hapoel Ironi Akko",
+      "away": "Maccabi Bnei Reineh",
+      "competition": "Liga Leumit",
+      "kickoff": "20261009150000"
+    },
+    {
+      "fixtureId": "1799349",
+      "home": "Ironi Modiin",
+      "away": "Hapoel Afula",
+      "competition": "Liga Leumit",
+      "kickoff": "20261009150000"
+    },
+    {
+      "fixtureId": "1799353",
+      "home": "Maccabi Herzliya",
+      "away": "Maccabi Ahi Nazareth",
+      "competition": "Liga Leumit",
+      "kickoff": "20261009150000"
+    },
+    {
+      "fixtureId": "1799351",
+      "home": "Maccabi Kiryat Gat",
+      "away": "Kiryat Yam",
+      "competition": "Liga Leumit",
+      "kickoff": "20261009150000"
+    },
+    {
+      "fixtureId": "1799352",
+      "home": "SC Kfar Kasem",
+      "away": "Bnei Yehuda Tel Aviv",
+      "competition": "Liga Leumit",
+      "kickoff": "20261009150000"
+    },
+    {
+      "fixtureId": "1855349",
+      "home": "Union Brescia",
+      "away": "Pro Vercelli",
+      "competition": "Serie C",
+      "kickoff": "20261009203000"
+    },
+    {
+      "fixtureId": "1853312",
+      "home": "SC Sagamihara",
+      "away": "Kamatamare Sanuki",
+      "competition": "J3 League",
+      "kickoff": "20261009113000"
+    },
+    {
+      "fixtureId": "1853326",
+      "home": "FC Osaka",
+      "away": "Zweigen Kanazawa",
+      "competition": "J3 League",
+      "kickoff": "20261009120000"
+    },
+    {
+      "fixtureId": "1902098",
+      "home": "Al-Hussein SC",
+      "away": "Al-Arabi",
+      "competition": "Pro League",
+      "kickoff": "20261009160000"
+    },
+    {
+      "fixtureId": "1902109",
+      "home": "Al-Jazeera",
+      "away": "Al-Wehdat",
+      "competition": "Pro League",
+      "kickoff": "20261009183000"
+    },
+    {
+      "fixtureId": "1872608",
+      "home": "Nairobi United",
+      "away": "KCB",
+      "competition": "Premier League",
+      "kickoff": "20261009150000"
+    },
+    {
+      "fixtureId": "1899304",
+      "home": "Llapi",
+      "away": "Ballkani",
+      "competition": "Superleague",
+      "kickoff": "20261009140000"
+    },
+    {
+      "fixtureId": "1899302",
+      "home": "Drita",
+      "away": "Malisheva",
+      "competition": "Superleague",
+      "kickoff": "20261009180000"
+    },
+    {
+      "fixtureId": "1866864",
+      "home": "Al Nasr",
+      "away": "Kuwait SC",
+      "competition": "Premier League",
+      "kickoff": "20261009194500"
+    },
+    {
+      "fixtureId": "1885712",
+      "home": "Al Sahel SC",
+      "away": "Al Fahaheel",
+      "competition": "Premier League",
+      "kickoff": "20261009194500"
+    },
+    {
+      "fixtureId": "1885710",
+      "home": "Al-Salibikhaet",
+      "away": "Al-Jahra",
+      "competition": "Premier League",
+      "kickoff": "20261009194500"
+    },
+    {
+      "fixtureId": "1866866",
+      "home": "Al-Salmiyah",
+      "away": "Al-Shabab SC",
+      "competition": "Premier League",
+      "kickoff": "20261009194500"
+    },
+    {
+      "fixtureId": "1866865",
+      "home": "Al-Tadhamon",
+      "away": "Al-Qadsia",
+      "competition": "Premier League",
+      "kickoff": "20261009194500"
+    },
+    {
+      "fixtureId": "1866863",
+      "home": "Kazma",
+      "away": "Al-Arabi",
+      "competition": "Premier League",
+      "kickoff": "20261009194500"
+    },
+    {
+      "fixtureId": "1817825",
+      "home": "Mosta",
+      "away": "Birzebbuga St. Peters FC",
+      "competition": "Malta Premier",
+      "kickoff": "20261009200000"
+    },
+    {
+      "fixtureId": "1819338",
+      "home": "Alebrijes Oaxaca",
+      "away": "Correcaminos de la UAT",
+      "competition": "Liga de Expansion MX: Apertura",
+      "kickoff": "20261009030000"
+    },
+    {
+      "fixtureId": "1903901",
+      "home": "MAT Tetouan",
+      "away": "FUS Rabat",
+      "competition": "Botola Pro",
+      "kickoff": "20261009220000"
+    },
+    {
+      "fixtureId": "1881210",
+      "home": "Katsina United",
+      "away": "Enyimba",
+      "competition": "NPFL",
+      "kickoff": "20261009170000"
+    },
+    {
+      "fixtureId": "1806042",
+      "home": "Portadown",
+      "away": "Glentoran",
+      "competition": "Premiership",
+      "kickoff": "20261009204500"
+    },
+    {
+      "fixtureId": "1807057",
+      "home": "Newington FC",
+      "away": "Ards",
+      "competition": "Championship",
+      "kickoff": "20261009204500"
+    },
+    {
+      "fixtureId": "1807060",
+      "home": "Newry City AFC",
+      "away": "Dundela",
+      "competition": "Championship",
+      "kickoff": "20261009204500"
+    },
+    {
+      "fixtureId": "1807054",
+      "home": "Rathfriland Rangers",
+      "away": "Armagh",
+      "competition": "Championship",
+      "kickoff": "20261009204500"
+    },
+    {
+      "fixtureId": "1726456",
+      "home": "Herd",
+      "away": "Spjelkavik",
+      "competition": "3. Division: Group 2",
+      "kickoff": "20261009181500"
+    },
+    {
+      "fixtureId": "1725722",
+      "home": "Finnsnes",
+      "away": "Ulfstind",
+      "competition": "3. Divisjon",
+      "kickoff": "20261009191500"
+    },
+    {
+      "fixtureId": "1899306",
+      "home": "Fanja",
+      "away": "Ibri",
+      "competition": "Professional League",
+      "kickoff": "20261009150000"
+    },
+    {
+      "fixtureId": "1899309",
+      "home": "Al-Msnaa",
+      "away": "Sohar",
+      "competition": "Professional League",
+      "kickoff": "20261009173000"
+    },
+    {
+      "fixtureId": "1903651",
+      "home": "Tacuary",
+      "away": "Paraguari AC",
+      "competition": "Division Intermedia",
+      "kickoff": "20261009220000"
+    },
+    {
+      "fixtureId": "1808295",
+      "home": "Podbeskidzie Bielsko-Biala",
+      "away": "Pogon Siedlce",
+      "competition": "I Liga",
+      "kickoff": "20261009203000"
+    },
+    {
+      "fixtureId": "1808610",
+      "home": "Rekord Bielsko-Biala",
+      "away": "Sandecja Nowy Sacz",
+      "competition": "II Liga",
+      "kickoff": "20261009153000"
+    },
+    {
+      "fixtureId": "1808611",
+      "home": "Chojniczanka Chojnice",
+      "away": "Podhale Nowy Targ",
+      "competition": "II Liga",
+      "kickoff": "20261009180000"
+    },
+    {
+      "fixtureId": "1816738",
+      "home": "Penafiel",
+      "away": "AVS Futebol SAD",
+      "competition": "Liga Portugal 2",
+      "kickoff": "20261009190000"
+    },
+    {
+      "fixtureId": "1838570",
+      "home": "Qatar SC",
+      "away": "Al-Rayyan",
+      "competition": "Qatar Stars League",
+      "kickoff": "20261009164500"
+    },
+    {
+      "fixtureId": "1838563",
+      "home": "Al-Sadd",
+      "away": "Al-Arabi",
+      "competition": "Qatar Stars League",
+      "kickoff": "20261009190000"
+    },
+    {
+      "fixtureId": "1729381",
+      "home": "Suwon FC",
+      "away": "Hwaseong",
+      "competition": "K League 2",
+      "kickoff": "20261009070000"
+    },
+    {
+      "fixtureId": "1729385",
+      "home": "Cheongju FC",
+      "away": "Seongnam FC",
+      "competition": "K League 2",
+      "kickoff": "20261009093000"
+    },
+    {
+      "fixtureId": "1729384",
+      "home": "Gimpo FC",
+      "away": "Seoul E-Land FC",
+      "competition": "K League 2",
+      "kickoff": "20261009093000"
+    },
+    {
+      "fixtureId": "1743974",
+      "home": "Yangpyeong",
+      "away": "Ulsan Citizen FC",
+      "competition": "K3 League",
+      "kickoff": "20261009070000"
+    },
+    {
+      "fixtureId": "1894769",
+      "home": "Cailungo",
+      "away": "SP Libertas",
+      "competition": "Campionato Sammarinese",
+      "kickoff": "20261009211500"
+    },
+    {
+      "fixtureId": "1894776",
+      "home": "La Fiorita",
+      "away": "S.S. Murata",
+      "competition": "Campionato Sammarinese",
+      "kickoff": "20261009211500"
+    },
+    {
+      "fixtureId": "1894770",
+      "home": "SS Pennarossa",
+      "away": "Folgore",
+      "competition": "Campionato Sammarinese",
+      "kickoff": "20261009211500"
+    },
+    {
+      "fixtureId": "1801057",
+      "home": "Tabor",
+      "away": "Rudar Velenje",
+      "competition": "2. SNL",
+      "kickoff": "20261009173000"
+    },
+    {
+      "fixtureId": "1814471",
+      "home": "UD Ibiza",
+      "away": "Real Madrid Castilla",
+      "competition": "Primera Division RFEF: Group 2",
+      "kickoff": "20261009210000"
+    },
+    {
+      "fixtureId": "1719440",
+      "home": "Sollentuna FK",
+      "away": "IFK Stocksund",
+      "competition": "Division 1: North",
+      "kickoff": "20261009190000"
+    },
+    {
+      "fixtureId": "1728222",
+      "home": "IFK Skoevde FK",
+      "away": "Skara FC",
+      "competition": "Division 2: Norra Goetaland",
+      "kickoff": "20261009190000"
+    },
+    {
+      "fixtureId": "1730784",
+      "home": "Lindome GIF",
+      "away": "IF Bоеlan",
+      "competition": "Division 2: Vaestra Goetaland",
+      "kickoff": "20261009193000"
+    },
+    {
+      "fixtureId": "1796126",
+      "home": "FC Rapperswil-Jona",
+      "away": "FC Stade Lausanne-Ouchy",
+      "competition": "Challenge League",
+      "kickoff": "20261009193000"
+    },
+    {
+      "fixtureId": "1796127",
+      "home": "Kriens",
+      "away": "FC Wil 1900",
+      "competition": "Challenge League",
+      "kickoff": "20261009193000"
+    },
+    {
+      "fixtureId": "1796129",
+      "home": "Xamax",
+      "away": "Winterthur",
+      "competition": "Challenge League",
+      "kickoff": "20261009193000"
+    },
+    {
+      "fixtureId": "1796125",
+      "home": "Etoile Carouge",
+      "away": "Yverdon",
+      "competition": "Challenge League",
+      "kickoff": "20261009201500"
+    },
+    {
+      "fixtureId": "1796128",
+      "home": "Stade Nyonnais",
+      "away": "Aarau",
+      "competition": "Challenge League",
+      "kickoff": "20261009201500"
+    },
+    {
+      "fixtureId": "1861012",
+      "home": "Fountain Gate FC",
+      "away": "JKT Tanzania",
+      "competition": "Premier League",
+      "kickoff": "20261009130000"
+    },
+    {
+      "fixtureId": "1861013",
+      "home": "Mbeya City",
+      "away": "Kagera Sugar",
+      "competition": "Premier League",
+      "kickoff": "20261009151500"
+    },
+    {
+      "fixtureId": "1861021",
+      "home": "Dodoma Jiji FC",
+      "away": "Singida Black Stars",
+      "competition": "Premier League",
+      "kickoff": "20261009180000"
+    },
+    {
+      "fixtureId": "1861027",
+      "home": "Coastal Union",
+      "away": "Azam FC",
+      "competition": "Premier League",
+      "kickoff": "20261009200000"
+    },
+    {
+      "fixtureId": "1847048",
+      "home": "Ratchaburi FC",
+      "away": "Sukhothai FC",
+      "competition": "Thai League",
+      "kickoff": "20261009130000"
+    },
+    {
+      "fixtureId": "1825318",
+      "home": "Bodrum FK",
+      "away": "Keciorengucu",
+      "competition": "1st Lig",
+      "kickoff": "20261009160000"
+    },
+    {
+      "fixtureId": "1825320",
+      "home": "Sivasspor",
+      "away": "Pendikspor",
+      "competition": "1st Lig",
+      "kickoff": "20261009160000"
+    },
+    {
+      "fixtureId": "1825313",
+      "home": "Umraniyespor",
+      "away": "Sariyer",
+      "competition": "1st Lig",
+      "kickoff": "20261009190000"
+    },
+    {
+      "fixtureId": "1825321",
+      "home": "Van Spor Kulubu",
+      "away": "Bandirmaspor",
+      "competition": "1st Lig",
+      "kickoff": "20261009190000"
+    },
+    {
+      "fixtureId": "1825661",
+      "home": "Veres Rivne",
+      "away": "Shakhtar Donetsk",
+      "competition": "Premier League",
+      "kickoff": "20261009143000"
+    },
+    {
+      "fixtureId": "1901301",
+      "home": "Montevideo City Torque",
+      "away": "Danubio",
+      "competition": "Primera Division: Clausura",
+      "kickoff": "20261009220000"
+    },
+    {
+      "fixtureId": "1743554",
+      "home": "Kokand 1912",
+      "away": "Mashal Muborak",
+      "competition": "Super League",
+      "kickoff": "20261009153000"
+    },
+    {
+      "fixtureId": "1743551",
+      "home": "Buxoro",
+      "away": "Andijon",
+      "competition": "Super League",
+      "kickoff": "20261009160000"
+    },
+    {
+      "fixtureId": "1743552",
+      "home": "Pakhtakor Tashkent",
+      "away": "Bunyodkor Tashkent",
+      "competition": "Super League",
+      "kickoff": "20261009160000"
+    },
+    {
+      "fixtureId": "1743572",
+      "home": "Nasaf Qarshi",
+      "away": "Dinamo Samarkand",
+      "competition": "Super League",
+      "kickoff": "20261009163000"
+    },
+    {
+      "fixtureId": "1813151",
+      "home": "Briton Ferry",
+      "away": "Connah's Quay",
+      "competition": "Cymru Premier",
+      "kickoff": "20261009204500"
+    },
+    {
+      "fixtureId": "1813144",
+      "home": "Cambrian & Clydach",
+      "away": "Ammanford",
+      "competition": "Cymru Premier",
+      "kickoff": "20261009204500"
+    },
+    {
+      "fixtureId": "1813155",
+      "home": "Haverfordwest",
+      "away": "Caernarfon",
+      "competition": "Cymru Premier",
+      "kickoff": "20261009204500"
+    },
+    {
+      "fixtureId": "1813145",
+      "home": "Holywell Town",
+      "away": "TNS",
+      "competition": "Cymru Premier",
+      "kickoff": "20261009204500"
+    },
+    {
+      "fixtureId": "1813150",
+      "home": "Llandudno FC",
+      "away": "Airbus UK Broughton",
+      "competition": "Cymru Premier",
+      "kickoff": "20261009204500"
+    },
+    {
+      "fixtureId": "1813156",
+      "home": "Penybont",
+      "away": "Barry Town",
+      "competition": "Cymru Premier",
+      "kickoff": "20261009204500"
+    },
+    {
+      "fixtureId": "1715145",
+      "home": "Aldosivi",
+      "away": "Sarmiento",
+      "competition": "Liga Profesional: Clausura",
+      "kickoff": "20261009193000"
+    },
+    {
+      "fixtureId": "1715150",
+      "home": "Gimnasia LP",
+      "away": "Atletico Tucuman",
+      "competition": "Liga Profesional: Clausura",
+      "kickoff": "20261009230000"
+    },
+    {
+      "fixtureId": "1862067",
+      "home": "San Antonio Bulo Bulo",
+      "away": "Real Tomayapo",
+      "competition": "Primera Division",
+      "kickoff": "20261009210000"
+    },
+    {
+      "fixtureId": "1810441",
+      "home": "FCV Dender EH",
+      "away": "Club NXT",
+      "competition": "Challenger Pro League",
+      "kickoff": "20261009200000"
+    },
+    {
+      "fixtureId": "1810436",
+      "home": "RSCA Futures",
+      "away": "Eupen",
+      "competition": "Challenger Pro League",
+      "kickoff": "20261009200000"
+    }
+  ]
+}
