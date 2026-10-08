@@ -30,16 +30,12 @@ export function modelFixture(r:any){
    home:{
     ppg:Number.isFinite(input.home.ppg),
     gd:Number.isFinite(input.home.goalDifferencePerGame),
-    xgFor:Number.isFinite(input.home.xgFor),
-    xgAgainst:Number.isFinite(input.home.xgAgainst),
     goalsProfile:Number.isFinite(input.home.over25Rate)||Number.isFinite(input.home.bttsRate),
     rest:Number.isFinite(input.home.restDays)
    },
    away:{
     ppg:Number.isFinite(input.away.ppg),
     gd:Number.isFinite(input.away.goalDifferencePerGame),
-    xgFor:Number.isFinite(input.away.xgFor),
-    xgAgainst:Number.isFinite(input.away.xgAgainst),
     goalsProfile:Number.isFinite(input.away.over25Rate)||Number.isFinite(input.away.bttsRate),
     rest:Number.isFinite(input.away.restDays)
    }
@@ -62,8 +58,8 @@ if(process.env.FIH_MODEL_TEST_CHECKPOINT){
  const coverageSummary:any={
   calculated:fixtures.filter((f:any)=>f.status==="CALCULATED").length,
   insufficientData:fixtures.filter((f:any)=>f.status==="INSUFFICIENT_DATA").length,
-  home:{ppg:0,gd:0,xg:0,goalsProfile:0,rest:0},
-  away:{ppg:0,gd:0,xg:0,goalsProfile:0,rest:0},
+  home:{ppg:0,gd:0,goalsProfile:0,rest:0},
+  away:{ppg:0,gd:0,goalsProfile:0,rest:0},
   contextOnly:{headToHead:0,squadAvailability:0,competitionContext:0,teamQuality:0,opponentStrength:0}
  };
  for(const f of fixtures){
@@ -71,7 +67,6 @@ if(process.env.FIH_MODEL_TEST_CHECKPOINT){
    const q=f.inputCoverage?.[side]||{};
    if(q.ppg)coverageSummary[side].ppg++;
    if(q.gd)coverageSummary[side].gd++;
-   if(q.xgFor||q.xgAgainst)coverageSummary[side].xg++;
    if(q.goalsProfile)coverageSummary[side].goalsProfile++;
    if(q.rest)coverageSummary[side].rest++;
   }
