@@ -240,11 +240,11 @@ Step 1 is not merely fixture discovery. Before Step 2 begins, the exact eligible
 
 For every eligible fixture, Step 2 executes this indivisible work unit:
 
-**ChatGPT web search -> facts-only record -> validate evidence/source references -> persist non-canonical fixture checkpoint -> reread checkpoint -> revalidate -> mark checkpoint validated -> continue immediately to next unvalidated fixture.**
+**ChatGPT web search -> facts-only record -> validate evidence/source references -> atomically update the temporary accumulation file -> reread the file -> revalidate the written fixture record -> mark checkpoint validated -> continue immediately to next unvalidated fixture.**
 
 A web search, extracted evidence in chat/tool context, or an unvalidated write does not count as fixture completion. Evidence must become durable before advancing.
 
-Interruption recovery MUST load `data/research-work/<date>/manifest.json`, preserve all already validated fixture checkpoints, and resume from the first missing/unvalidated fixture. Workload size, a response boundary, or a search-call boundary must never cause validated checkpoint data to be discarded.
+Interruption recovery MUST load `the active ChatGPT temporary Step-2 accumulation file`, preserve all already validated fixture checkpoints, and resume from the first missing/unvalidated fixture. Workload size, a response boundary, or a search-call boundary must never cause validated checkpoint data to be discarded.
 
 Step 2 reaches its promotion boundary only at exact **N/N validated checkpoints**, where N is the frozen eligible fixture count. It must then reconcile IDs/counts, construct the full facts-only daily artifact, validate the aggregate against the active `researchRunId`, promote it to `data/research/<date>.json`, create exactly one canonical research commit, verify the repository commit/HEAD, reread the committed canonical file, and revalidate it.
 
@@ -253,8 +253,15 @@ Step 2 reaches its promotion boundary only at exact **N/N validated checkpoints*
 
 ### Step-2 checkpoint Git boundary — LOCKED
 
-`data/research-work/<date>/...` is execution working state, not canonical repository research history. Fixture-by-fixture and partial-batch Git commits from this path are forbidden. A validated checkpoint means durable working-state persistence and reread validation; it does **not** mean a Git commit.
+The active ChatGPT temporary Step-2 accumulation file is execution working state, not canonical repository research history. Fixture-by-fixture and partial-batch Git commits from this path are forbidden. A validated checkpoint means durable working-state persistence and reread validation; it does **not** mean a Git commit.
 
 Research has one canonical Git boundary for each `researchRunId`: only after exact N/N working checkpoints reconcile and aggregate validation passes may the completed dataset be promoted to `data/research/<date>.json` and committed once. The canonical research commit MUST exclude `data/research-work`. After that commit, repository state must be reread and the canonical artifact revalidated before model execution.
 
 If checkpoint persistence is unavailable in the active execution environment, the executor must repair or use an authorized non-canonical working-state persistence path; it MUST NOT substitute per-fixture Git commits.
+
+
+### ChatGPT temporary Step-2 accumulator — LOCKED
+
+During ChatGPT-owned Step 2, the complete in-progress research batch MUST be accumulated in a temporary local execution file keyed by date and `researchRunId`. After each fixture is researched and validated, ChatGPT atomically updates that file, rereads it, verifies fixture identity/count and the just-written record, then continues immediately to the next fixture. This temporary file is not Git history and MUST NOT be committed.
+
+At exact N/N, ChatGPT validates the complete temporary dataset against the frozen Step-1 universe, promotes the validated content to the canonical `data/research/<date>.json`, and performs the single canonical research commit and post-commit reread verification. If the temporary execution workspace itself is destroyed before promotion, only the unpromoted temporary research is considered lost; Step 1 remains authoritative and Step 2 restarts from that frozen universe rather than fabricating completion.
