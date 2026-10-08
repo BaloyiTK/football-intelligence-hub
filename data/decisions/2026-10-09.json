@@ -1,7 +1,7 @@
 {
   "schema": "fih-daily-decisions-v2",
   "date": "2026-10-09",
-  "generatedAt": "2026-10-08T10:48:01.302Z",
+  "generatedAt": "2026-10-08T11:12:28.647Z",
   "fixtureCount": 216,
   "calibrationStatus": "NOT_CALIBRATED",
   "betPublicationEnabled": false,
@@ -13,24 +13,24 @@
       "reason": "BET_PUBLICATION_NOT_CALIBRATED",
       "candidateMarkets": [
         {
-          "market": "AWAY",
-          "probability": 0.48735663413156316,
-          "reliability": 0.6470588235294117
+          "market": "BTTS YES",
+          "probability": 0.491075316610264,
+          "reliability": 0.5894117647058823
         },
         {
-          "market": "BTTS YES",
-          "probability": 0.4776086998200801,
-          "reliability": 0.7070588235294117
+          "market": "AWAY",
+          "probability": 0.4879454056911882,
+          "reliability": 0.5294117647058824
         },
         {
           "market": "OVER 2.5",
-          "probability": 0.4400571950639948,
-          "reliability": 0.7070588235294117
+          "probability": 0.4561865786017482,
+          "reliability": 0.5894117647058823
         },
         {
           "market": "HOME",
-          "probability": 0.24906168320011324,
-          "reliability": 0.6470588235294117
+          "probability": 0.25220707406846343,
+          "reliability": 0.5294117647058824
         }
       ],
       "modelVersion": "FIH-V2-RESEARCH"
@@ -43,23 +43,23 @@
       "candidateMarkets": [
         {
           "market": "OVER 2.5",
-          "probability": 0.750662158820626,
-          "reliability": 0.8247058823529412
+          "probability": 0.7559415144589245,
+          "reliability": 0.7070588235294117
         },
         {
           "market": "HOME",
-          "probability": 0.7131735197042259,
-          "reliability": 0.8447058823529411
+          "probability": 0.700653170426369,
+          "reliability": 0.7270588235294118
         },
         {
           "market": "BTTS YES",
-          "probability": 0.640749413548441,
-          "reliability": 0.8247058823529412
+          "probability": 0.6545707080955753,
+          "reliability": 0.7070588235294117
         },
         {
           "market": "AWAY",
-          "probability": 0.13192060748806209,
-          "reliability": 0.8447058823529411
+          "probability": 0.14104631014411398,
+          "reliability": 0.7270588235294118
         }
       ],
       "modelVersion": "FIH-V2-RESEARCH"
@@ -72,22 +72,22 @@
       "candidateMarkets": [
         {
           "market": "AWAY",
-          "probability": 0.5757472045176647,
+          "probability": 0.5840642263448661,
           "reliability": 0.5294117647058824
         },
         {
-          "market": "BTTS YES",
-          "probability": 0.4051838795605873,
+          "market": "OVER 2.5",
+          "probability": 0.554034490118345,
           "reliability": 0.5894117647058823
         },
         {
-          "market": "OVER 2.5",
-          "probability": 0.39898249657244333,
+          "market": "BTTS YES",
+          "probability": 0.5375746674617881,
           "reliability": 0.5894117647058823
         },
         {
           "market": "HOME",
-          "probability": 0.1708443395775382,
+          "probability": 0.1948806658340732,
           "reliability": 0.5294117647058824
         }
       ],
@@ -101,22 +101,22 @@
       "candidateMarkets": [
         {
           "market": "OVER 2.5",
-          "probability": 0.7280575167207965,
+          "probability": 0.7310952446562512,
           "reliability": 0.5894117647058823
         },
         {
           "market": "BTTS YES",
-          "probability": 0.7145870585251338,
+          "probability": 0.6989793604410248,
           "reliability": 0.5894117647058823
         },
         {
           "market": "HOME",
-          "probability": 0.4752093000173232,
+          "probability": 0.5556937302950925,
           "reliability": 0.5294117647058824
         },
         {
           "market": "AWAY",
-          "probability": 0.3152612551489289,
+          "probability": 0.24632633917402735,
           "reliability": 0.5294117647058824
         }
       ],
@@ -129,24 +129,24 @@
       "reason": "BET_PUBLICATION_NOT_CALIBRATED",
       "candidateMarkets": [
         {
-          "market": "HOME",
-          "probability": 0.6718031999621127,
-          "reliability": 0.8447058823529411
+          "market": "OVER 2.5",
+          "probability": 0.6554036309211119,
+          "reliability": 0.7070588235294117
         },
         {
-          "market": "OVER 2.5",
-          "probability": 0.6229054367144641,
-          "reliability": 0.8247058823529412
+          "market": "HOME",
+          "probability": 0.6377661891758886,
+          "reliability": 0.7270588235294118
         },
         {
           "market": "BTTS YES",
-          "probability": 0.5481588682882074,
-          "reliability": 0.8247058823529412
+          "probability": 0.5985482843180846,
+          "reliability": 0.7070588235294117
         },
         {
           "market": "AWAY",
-          "probability": 0.14290866224434293,
-          "reliability": 0.8447058823529411
+          "probability": 0.17133057966945775,
+          "reliability": 0.7270588235294118
         }
       ],
       "modelVersion": "FIH-V2-RESEARCH"
@@ -159,22 +159,22 @@
       "candidateMarkets": [
         {
           "market": "OVER 2.5",
-          "probability": 0.6848854189113915,
-          "reliability": 0.648235294117647
-        },
-        {
-          "market": "BTTS YES",
-          "probability": 0.6406050577140502,
+          "probability": 0.6602500846131238,
           "reliability": 0.648235294117647
         },
         {
           "market": "AWAY",
-          "probability": 0.605578028921657,
+          "probability": 0.642512250911637,
           "reliability": 0.5882352941176471
         },
         {
+          "market": "BTTS YES",
+          "probability": 0.6002413623691812,
+          "reliability": 0.648235294117647
+        },
+        {
           "market": "HOME",
-          "probability": 0.19956317321543407,
+          "probability": 0.16862522033116875,
           "reliability": 0.5882352941176471
         }
       ],
@@ -195,22 +195,22 @@
       "candidateMarkets": [
         {
           "market": "BTTS YES",
-          "probability": 0.5190097288232258,
-          "reliability": 0.7070588235294117
-        },
-        {
-          "market": "OVER 2.5",
-          "probability": 0.4731201054918759,
+          "probability": 0.4635754646693427,
           "reliability": 0.7070588235294117
         },
         {
           "market": "AWAY",
-          "probability": 0.42099413042180517,
+          "probability": 0.4202940934019579,
           "reliability": 0.7270588235294118
         },
         {
+          "market": "OVER 2.5",
+          "probability": 0.40564410882176416,
+          "reliability": 0.7070588235294117
+        },
+        {
           "market": "HOME",
-          "probability": 0.31510525954903085,
+          "probability": 0.299227459369967,
           "reliability": 0.7270588235294118
         }
       ],
@@ -224,22 +224,22 @@
       "candidateMarkets": [
         {
           "market": "AWAY",
-          "probability": 0.5628124172577036,
+          "probability": 0.5753874486743922,
           "reliability": 0.7270588235294118
         },
         {
           "market": "BTTS YES",
-          "probability": 0.41827847998201584,
+          "probability": 0.44800375671911724,
           "reliability": 0.7070588235294117
         },
         {
           "market": "OVER 2.5",
-          "probability": 0.4060905437979829,
+          "probability": 0.446377523002814,
           "reliability": 0.7070588235294117
         },
         {
           "market": "HOME",
-          "probability": 0.18190358160513803,
+          "probability": 0.18127715278759343,
           "reliability": 0.7270588235294118
         }
       ],
@@ -267,22 +267,22 @@
       "candidateMarkets": [
         {
           "market": "BTTS YES",
-          "probability": 0.5266304555369535,
+          "probability": 0.48832950326652946,
           "reliability": 0.7070588235294117
         },
         {
           "market": "OVER 2.5",
-          "probability": 0.4784277216662377,
+          "probability": 0.43029118242948755,
           "reliability": 0.7070588235294117
         },
         {
-          "market": "HOME",
-          "probability": 0.376502432448096,
+          "market": "AWAY",
+          "probability": 0.36168882125062596,
           "reliability": 0.7270588235294118
         },
         {
-          "market": "AWAY",
-          "probability": 0.3588952802971536,
+          "market": "HOME",
+          "probability": 0.3616888212506259,
           "reliability": 0.7270588235294118
         }
       ],
@@ -295,23 +295,23 @@
       "reason": "BET_PUBLICATION_NOT_CALIBRATED",
       "candidateMarkets": [
         {
-          "market": "HOME",
-          "probability": 0.5575636883008064,
-          "reliability": 0.7270588235294118
-        },
-        {
           "market": "BTTS YES",
-          "probability": 0.49271380562779515,
+          "probability": 0.5037851089335433,
           "reliability": 0.7070588235294117
         },
         {
           "market": "OVER 2.5",
-          "probability": 0.4878273315559452,
+          "probability": 0.45251705635101486,
           "reliability": 0.7070588235294117
         },
         {
           "market": "AWAY",
-          "probability": 0.20293022223619273,
+          "probability": 0.4083703672579933,
+          "reliability": 0.7270588235294118
+        },
+        {
+          "market": "HOME",
+          "probability": 0.32203217596533146,
           "reliability": 0.7270588235294118
         }
       ],
@@ -941,22 +941,22 @@
       "candidateMarkets": [
         {
           "market": "BTTS YES",
-          "probability": 0.6228959795867134,
+          "probability": 0.5787331411495504,
           "reliability": 0.2952941176470588
         },
         {
           "market": "OVER 2.5",
-          "probability": 0.6064540416067068,
+          "probability": 0.5578823046078013,
           "reliability": 0.2952941176470588
         },
         {
           "market": "AWAY",
-          "probability": 0.4385557236776852,
+          "probability": 0.47161039032666885,
           "reliability": 0.23529411764705882
         },
         {
           "market": "HOME",
-          "probability": 0.3265546462309878,
+          "probability": 0.2873031300837514,
           "reliability": 0.23529411764705882
         }
       ],
@@ -1026,22 +1026,22 @@
       "candidateMarkets": [
         {
           "market": "OVER 2.5",
-          "probability": 0.7721281258225106,
-          "reliability": 0.5305882352941176
-        },
-        {
-          "market": "BTTS YES",
-          "probability": 0.7282487862882503,
+          "probability": 0.7675058510781815,
           "reliability": 0.5305882352941176
         },
         {
           "market": "AWAY",
-          "probability": 0.5760963351872247,
+          "probability": 0.6850277315827884,
           "reliability": 0.5505882352941176
         },
         {
+          "market": "BTTS YES",
+          "probability": 0.6757330440414001,
+          "reliability": 0.5305882352941176
+        },
+        {
           "market": "HOME",
-          "probability": 0.23638893784024287,
+          "probability": 0.15338710831711302,
           "reliability": 0.5505882352941176
         }
       ],
@@ -1328,23 +1328,23 @@
       "candidateMarkets": [
         {
           "market": "BTTS YES",
-          "probability": 0.5491123066445833,
-          "reliability": 0.5894117647058823
+          "probability": 0.5842525862981427,
+          "reliability": 0.471764705882353
         },
         {
           "market": "OVER 2.5",
-          "probability": 0.5071405098114996,
-          "reliability": 0.5894117647058823
+          "probability": 0.5540363976726346,
+          "reliability": 0.471764705882353
         },
         {
           "market": "AWAY",
-          "probability": 0.3842517068951816,
-          "reliability": 0.5294117647058824
+          "probability": 0.4137671398671222,
+          "reliability": 0.411764705882353
         },
         {
           "market": "HOME",
-          "probability": 0.35786427629226464,
-          "reliability": 0.5294117647058824
+          "probability": 0.3394276363447282,
+          "reliability": 0.411764705882353
         }
       ],
       "modelVersion": "FIH-V2-RESEARCH"
@@ -1700,22 +1700,22 @@
       "candidateMarkets": [
         {
           "market": "HOME",
-          "probability": 0.787803977675369,
+          "probability": 0.7742953463264864,
           "reliability": 0.9623529411764705
         },
         {
           "market": "OVER 2.5",
-          "probability": 0.5756120114199785,
+          "probability": 0.6260734659458312,
           "reliability": 0.9423529411764706
         },
         {
           "market": "BTTS YES",
-          "probability": 0.39170185150017506,
+          "probability": 0.45926489628318085,
           "reliability": 0.9423529411764706
         },
         {
           "market": "AWAY",
-          "probability": 0.06662390865879816,
+          "probability": 0.07965454481269356,
           "reliability": 0.9623529411764705
         }
       ],
@@ -1729,22 +1729,22 @@
       "candidateMarkets": [
         {
           "market": "HOME",
-          "probability": 0.6056998712596813,
+          "probability": 0.5379471450448365,
           "reliability": 0.5294117647058824
         },
         {
-          "market": "OVER 2.5",
-          "probability": 0.5768063986336499,
+          "market": "BTTS YES",
+          "probability": 0.5166423338938761,
           "reliability": 0.5894117647058823
         },
         {
-          "market": "BTTS YES",
-          "probability": 0.5465716300040266,
+          "market": "OVER 2.5",
+          "probability": 0.5063746037294126,
           "reliability": 0.5894117647058823
         },
         {
           "market": "AWAY",
-          "probability": 0.18258628368508004,
+          "probability": 0.22182586367080598,
           "reliability": 0.5294117647058824
         }
       ],
@@ -1758,22 +1758,22 @@
       "candidateMarkets": [
         {
           "market": "OVER 2.5",
-          "probability": 0.7502144306139463,
+          "probability": 0.7429982558619714,
           "reliability": 0.41294117647058826
         },
         {
           "market": "BTTS YES",
-          "probability": 0.7138741369348104,
+          "probability": 0.7260952597567846,
           "reliability": 0.41294117647058826
         },
         {
           "market": "HOME",
-          "probability": 0.5606669125395067,
+          "probability": 0.4794651642922131,
           "reliability": 0.35294117647058826
         },
         {
           "market": "AWAY",
-          "probability": 0.2453790440558861,
+          "probability": 0.31408550799020385,
           "reliability": 0.35294117647058826
         }
       ],
@@ -1787,22 +1787,22 @@
       "candidateMarkets": [
         {
           "market": "HOME",
-          "probability": 0.790561238975986,
+          "probability": 0.6589761422429371,
           "reliability": 0.5294117647058824
         },
         {
           "market": "OVER 2.5",
-          "probability": 0.562643246494097,
+          "probability": 0.48156774223663984,
           "reliability": 0.5894117647058823
         },
         {
           "market": "BTTS YES",
-          "probability": 0.37497401479326836,
+          "probability": 0.4281192656097092,
           "reliability": 0.5894117647058823
         },
         {
           "market": "AWAY",
-          "probability": 0.06370078260301643,
+          "probability": 0.1298400836555619,
           "reliability": 0.5294117647058824
         }
       ],
@@ -1815,24 +1815,24 @@
       "reason": "BET_PUBLICATION_NOT_CALIBRATED",
       "candidateMarkets": [
         {
+          "market": "BTTS YES",
+          "probability": 0.5568528963661883,
+          "reliability": 0.5894117647058823
+        },
+        {
           "market": "OVER 2.5",
-          "probability": 0.6492765056857412,
-          "reliability": 0.7070588235294117
+          "probability": 0.5540353965930889,
+          "reliability": 0.5894117647058823
         },
         {
           "market": "HOME",
-          "probability": 0.621227900257349,
-          "reliability": 0.6470588235294117
-        },
-        {
-          "market": "BTTS YES",
-          "probability": 0.601905317230756,
-          "reliability": 0.7070588235294117
+          "probability": 0.5375975896179631,
+          "reliability": 0.5294117647058824
         },
         {
           "market": "AWAY",
-          "probability": 0.18246440666302516,
-          "reliability": 0.6470588235294117
+          "probability": 0.23104887098556998,
+          "reliability": 0.5294117647058824
         }
       ],
       "modelVersion": "FIH-V2-RESEARCH"
@@ -1845,22 +1845,22 @@
       "candidateMarkets": [
         {
           "market": "AWAY",
-          "probability": 0.7218936835954152,
+          "probability": 0.767473966864133,
           "reliability": 0.8447058823529411
         },
         {
           "market": "OVER 2.5",
-          "probability": 0.5606492382833965,
+          "probability": 0.5740992780362941,
           "reliability": 0.8247058823529412
         },
         {
           "market": "BTTS YES",
-          "probability": 0.44970007608960466,
+          "probability": 0.41519966291035154,
           "reliability": 0.8247058823529412
         },
         {
           "market": "HOME",
-          "probability": 0.10226515300893368,
+          "probability": 0.07750789955875803,
           "reliability": 0.8447058823529411
         }
       ],
@@ -1874,22 +1874,22 @@
       "candidateMarkets": [
         {
           "market": "OVER 2.5",
-          "probability": 0.8282441210205005,
+          "probability": 0.8707521834424063,
           "reliability": 0.5305882352941176
         },
         {
           "market": "BTTS YES",
-          "probability": 0.7498351589772703,
+          "probability": 0.8213872396543153,
           "reliability": 0.5305882352941176
         },
         {
           "market": "HOME",
-          "probability": 0.6583898024223633,
+          "probability": 0.5667288313650451,
           "reliability": 0.5505882352941176
         },
         {
           "market": "AWAY",
-          "probability": 0.1813704392167945,
+          "probability": 0.2615420124339092,
           "reliability": 0.5505882352941176
         }
       ],
@@ -1903,23 +1903,23 @@
       "candidateMarkets": [
         {
           "market": "AWAY",
-          "probability": 0.7182583104493322,
-          "reliability": 0.9623529411764705
+          "probability": 0.7650923336997157,
+          "reliability": 0.7270588235294118
         },
         {
           "market": "OVER 2.5",
-          "probability": 0.6553934074397967,
-          "reliability": 0.9423529411764706
+          "probability": 0.6283570764928764,
+          "reliability": 0.7070588235294117
         },
         {
           "market": "BTTS YES",
-          "probability": 0.5434826483839692,
-          "reliability": 0.9423529411764706
+          "probability": 0.4719493035212696,
+          "reliability": 0.7070588235294117
         },
         {
           "market": "HOME",
-          "probability": 0.1167413683048667,
-          "reliability": 0.9623529411764705
+          "probability": 0.08515135838635532,
+          "reliability": 0.7270588235294118
         }
       ],
       "modelVersion": "FIH-V2-RESEARCH"
@@ -1932,22 +1932,22 @@
       "candidateMarkets": [
         {
           "market": "AWAY",
-          "probability": 0.8962705698589597,
+          "probability": 0.8985991373895744,
           "reliability": 0.668235294117647
         },
         {
           "market": "OVER 2.5",
-          "probability": 0.731061051897998,
+          "probability": 0.745648216008918,
           "reliability": 0.648235294117647
         },
         {
           "market": "BTTS YES",
-          "probability": 0.3722695907293247,
+          "probability": 0.3852101274438919,
           "reliability": 0.648235294117647
         },
         {
           "market": "HOME",
-          "probability": 0.027636720366447567,
+          "probability": 0.02755424673679285,
           "reliability": 0.668235294117647
         }
       ],
@@ -1961,23 +1961,23 @@
       "candidateMarkets": [
         {
           "market": "OVER 2.5",
-          "probability": 0.6601230627708449,
-          "reliability": 0.8247058823529412
-        },
-        {
-          "market": "BTTS YES",
-          "probability": 0.6499094918775224,
-          "reliability": 0.8247058823529412
+          "probability": 0.7730297709955906,
+          "reliability": 0.7070588235294117
         },
         {
           "market": "AWAY",
-          "probability": 0.5202116990085326,
-          "reliability": 0.8447058823529411
+          "probability": 0.7090687137946357,
+          "reliability": 0.7270588235294118
+        },
+        {
+          "market": "BTTS YES",
+          "probability": 0.6661501176095687,
+          "reliability": 0.7070588235294117
         },
         {
           "market": "HOME",
-          "probability": 0.26401402624271836,
-          "reliability": 0.8447058823529411
+          "probability": 0.13753479592508155,
+          "reliability": 0.7270588235294118
         }
       ],
       "modelVersion": "FIH-V2-RESEARCH"
@@ -1990,23 +1990,23 @@
       "candidateMarkets": [
         {
           "market": "OVER 2.5",
-          "probability": 0.6496652295281033,
-          "reliability": 1
+          "probability": 0.6698006148080736,
+          "reliability": 0.8247058823529412
         },
         {
           "market": "BTTS YES",
-          "probability": 0.6291647272545635,
-          "reliability": 1
+          "probability": 0.6446485892850282,
+          "reliability": 0.8247058823529412
         },
         {
           "market": "HOME",
-          "probability": 0.5588440239805315,
-          "reliability": 1
+          "probability": 0.5629786622554889,
+          "reliability": 0.8447058823529411
         },
         {
           "market": "AWAY",
-          "probability": 0.230469577975873,
-          "reliability": 1
+          "probability": 0.23044603028113286,
+          "reliability": 0.8447058823529411
         }
       ],
       "modelVersion": "FIH-V2-RESEARCH"
@@ -2019,23 +2019,23 @@
       "candidateMarkets": [
         {
           "market": "BTTS YES",
-          "probability": 0.6043957375652758,
-          "reliability": 0.7070588235294117
+          "probability": 0.6200222652392315,
+          "reliability": 0.5894117647058823
         },
         {
           "market": "OVER 2.5",
-          "probability": 0.5974810798910644,
-          "reliability": 0.7070588235294117
+          "probability": 0.5988362201856144,
+          "reliability": 0.5894117647058823
         },
         {
           "market": "HOME",
-          "probability": 0.49898854297274925,
-          "reliability": 0.6470588235294117
+          "probability": 0.40256236714352395,
+          "reliability": 0.5294117647058824
         },
         {
           "market": "AWAY",
-          "probability": 0.2710034441236838,
-          "reliability": 0.6470588235294117
+          "probability": 0.35923883409904955,
+          "reliability": 0.5294117647058824
         }
       ],
       "modelVersion": "FIH-V2-RESEARCH"
@@ -2047,24 +2047,24 @@
       "reason": "BET_PUBLICATION_NOT_CALIBRATED",
       "candidateMarkets": [
         {
+          "market": "HOME",
+          "probability": 0.4291631996379666,
+          "reliability": 0.5294117647058824
+        },
+        {
           "market": "BTTS YES",
-          "probability": 0.4818571993742021,
-          "reliability": 0.8247058823529412
+          "probability": 0.41469254449496684,
+          "reliability": 0.5894117647058823
         },
         {
           "market": "OVER 2.5",
-          "probability": 0.42374609973856653,
-          "reliability": 0.8247058823529412
-        },
-        {
-          "market": "HOME",
-          "probability": 0.39160685435858433,
-          "reliability": 0.7647058823529411
+          "probability": 0.3503686054436895,
+          "reliability": 0.5894117647058823
         },
         {
           "market": "AWAY",
-          "probability": 0.33073844396336805,
-          "reliability": 0.7647058823529411
+          "probability": 0.2758320049145842,
+          "reliability": 0.5294117647058824
         }
       ],
       "modelVersion": "FIH-V2-RESEARCH"
@@ -2077,22 +2077,22 @@
       "candidateMarkets": [
         {
           "market": "HOME",
-          "probability": 0.73619155495505,
+          "probability": 0.6550479978819962,
           "reliability": 0.8447058823529411
         },
         {
           "market": "OVER 2.5",
-          "probability": 0.6866920631965165,
+          "probability": 0.6509197904524772,
           "reliability": 0.8247058823529412
         },
         {
           "market": "BTTS YES",
-          "probability": 0.5586739989767086,
+          "probability": 0.5844957969352104,
           "reliability": 0.8247058823529412
         },
         {
           "market": "AWAY",
-          "probability": 0.10924991396104751,
+          "probability": 0.1584011177067168,
           "reliability": 0.8447058823529411
         }
       ],
@@ -2105,24 +2105,24 @@
       "reason": "BET_PUBLICATION_NOT_CALIBRATED",
       "candidateMarkets": [
         {
-          "market": "OVER 2.5",
-          "probability": 0.6239935992639503,
-          "reliability": 0.8247058823529412
+          "market": "BTTS YES",
+          "probability": 0.5832935917316004,
+          "reliability": 0.7070588235294117
         },
         {
-          "market": "BTTS YES",
-          "probability": 0.6222213402324461,
-          "reliability": 0.8247058823529412
+          "market": "OVER 2.5",
+          "probability": 0.5768085705007447,
+          "reliability": 0.7070588235294117
         },
         {
           "market": "HOME",
-          "probability": 0.5132965578068254,
-          "reliability": 0.7647058823529411
+          "probability": 0.5144169902656307,
+          "reliability": 0.6470588235294117
         },
         {
           "market": "AWAY",
-          "probability": 0.2635830730051811,
-          "reliability": 0.7647058823529411
+          "probability": 0.2541920240033768,
+          "reliability": 0.6470588235294117
         }
       ],
       "modelVersion": "FIH-V2-RESEARCH"
@@ -2135,23 +2135,23 @@
       "candidateMarkets": [
         {
           "market": "AWAY",
-          "probability": 0.83173549227434,
-          "reliability": 1
+          "probability": 0.8407734309265519,
+          "reliability": 0.8447058823529411
         },
         {
           "market": "OVER 2.5",
-          "probability": 0.7059287783707285,
-          "reliability": 1
+          "probability": 0.7492134722787872,
+          "reliability": 0.8247058823529412
         },
         {
           "market": "BTTS YES",
-          "probability": 0.46806401853680435,
-          "reliability": 1
+          "probability": 0.5045105392088612,
+          "reliability": 0.8247058823529412
         },
         {
           "market": "HOME",
-          "probability": 0.056486418865213946,
-          "reliability": 1
+          "probability": 0.055524066129006296,
+          "reliability": 0.8447058823529411
         }
       ],
       "modelVersion": "FIH-V2-RESEARCH"
