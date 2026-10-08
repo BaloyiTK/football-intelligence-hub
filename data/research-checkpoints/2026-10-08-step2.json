@@ -5,8 +5,8 @@
   "canonical": false,
   "status": "IN_PROGRESS",
   "eligibleCount": 51,
-  "fixtureRecordsValidated": 15,
-  "lastValidatedFixtureId": "1843719",
+  "fixtureRecordsValidated": 16,
+  "lastValidatedFixtureId": "1843709",
   "workingRecords": {
     "1718971": {
       "fixtureId": "1718971",
@@ -1615,6 +1615,186 @@
           "data": {
             "homeLastMatch": "2026-10-01",
             "awayLastMatch": "2026-10-02"
+          }
+        }
+      }
+    },
+    "1843709": {
+      "fixtureId": "1843709",
+      "fixture": {
+        "competition": "2. Division A",
+        "country": "Egypt",
+        "home": "Haras El Hodood",
+        "away": "El Sekka El Hadid",
+        "kickoff": "20261008143000",
+        "timezone": "Africa/Johannesburg"
+      },
+      "researchedAt": "2026-10-08T21:35:00+02:00",
+      "sourceMetadata": [
+        {
+          "ref": "s1",
+          "url": "https://www.sportytrader.com/en/results-live/haras-el-hodood-el-sekka-el-hadid-8672278/",
+          "retrievedAt": "2026-10-08T21:35:00+02:00",
+          "supports": [
+            "overallForm",
+            "leaguePosition",
+            "teamQuality",
+            "goalsProfile"
+          ]
+        },
+        {
+          "ref": "s2",
+          "url": "https://www.aiscore.com/en/head-to-head/soccer-el-sekka-el-hadid-vs-haras-el-hedoud",
+          "retrievedAt": "2026-10-08T21:35:00+02:00",
+          "supports": [
+            "overallForm",
+            "h2h",
+            "restSchedule"
+          ]
+        },
+        {
+          "ref": "s3",
+          "url": "https://www.zerozero.pt/estatisticas/sekka-hadid-haras-el-hodood/t2418-t5808",
+          "retrievedAt": "2026-10-08T21:35:00+02:00",
+          "supports": [
+            "h2h"
+          ]
+        }
+      ],
+      "evidence": {
+        "overallForm": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1",
+            "s2"
+          ],
+          "data": {
+            "home": {
+              "last6": "4W-2D-0L",
+              "gfPerGame": 1.33,
+              "gaPerGame": 0.33
+            },
+            "away": {
+              "last5": "2W-1D-2L"
+            }
+          }
+        },
+        "venueForm": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Haras El Hodood home form El Sekka El Hadid away form 2026",
+              "attemptedAt": "2026-10-08T21:35:00+02:00",
+              "outcome": "No sufficiently complete comparable current home/away split retained."
+            }
+          ]
+        },
+        "xgXga": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Haras El Hodood El Sekka El Hadid observed xG xGA 2026",
+              "attemptedAt": "2026-10-08T21:35:00+02:00",
+              "outcome": "No explicit observed xG/xGA provenance retained; predictive estimates excluded."
+            }
+          ]
+        },
+        "leaguePosition": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": {
+            "home": {
+              "position": 2,
+              "points": 14,
+              "played": 6,
+              "gd": 6
+            },
+            "away": {
+              "position": 9,
+              "points": 10,
+              "played": 7,
+              "gd": -2
+            }
+          }
+        },
+        "teamQuality": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": {
+            "home": {
+              "winsLast6Pct": 67,
+              "scoredPerGame": 1.33,
+              "concededPerGame": 0.33
+            },
+            "away": {
+              "position": 9,
+              "points": 10
+            }
+          }
+        },
+        "motivationContext": {
+          "status": "PARTIAL",
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": "Haras entered second and unbeaten through six; El Sekka entered ninth."
+        },
+        "h2h": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s2",
+            "s3"
+          ],
+          "data": [
+            "2024-03-06 El Sekka El Hadid 0-0 Haras El Hodood",
+            "2023-12-20 Haras El Hodood 0-0 El Sekka El Hadid"
+          ],
+          "summary": "Both retained league H2Hs finished 0-0."
+        },
+        "goalsProfile": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": {
+            "homeLast6": {
+              "totalGoalsAvg": 1.67,
+              "bttsPct": 33,
+              "over25Pct": 33,
+              "under25Pct": 67
+            }
+          }
+        },
+        "squadAvailability": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Haras El Hodood El Sekka injuries suspensions October 8 2026",
+              "attemptedAt": "2026-10-08T21:35:00+02:00",
+              "outcome": "No trustworthy complete pre-match absence list found."
+            }
+          ]
+        },
+        "opponentStrength": {
+          "status": "PARTIAL",
+          "sourceRefs": [
+            "s1",
+            "s2"
+          ],
+          "data": "Recent opponents/results verified; no normalized opponent-strength index retained."
+        },
+        "restSchedule": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s2"
+          ],
+          "data": {
+            "homeLastMatch": "2026-10-02",
+            "awayLastMatch": "2026-10-01"
           }
         }
       }
@@ -4073,7 +4253,7 @@
       }
     }
   },
-  "nextFixtureId": "1843709",
+  "nextFixtureId": "1843711",
   "nextAction": "Continue fixture-specific Step 2 web research from nextFixtureId.",
   "integrityRepair": {
     "at": "2026-10-08T05:45:00Z",
@@ -4107,5 +4287,5 @@
       ]
     }
   },
-  "updatedAt": "2026-10-08T21:30:00+02:00"
+  "updatedAt": "2026-10-08T21:35:00+02:00"
 }
