@@ -4,7 +4,7 @@ const read=(p:string)=>fs.readFileSync(p,"utf8");
 const fail=(m:string):never=>{throw new Error("STEP3_WIRING_LOCK_FAILED: "+m)};
 
 const rules=JSON.parse(read("config/fih-execution-rules.json"));
-for(const id of ["MODEL-001","MODEL-002","MODEL-003","MODEL-004","MODEL-005","MODEL-006","MODEL-007","MODEL-008","MODEL-009","MODEL-010","MODEL-011","MODEL-012","MODEL-013","MODEL-014","MODEL-015","RESEARCH-016","RESEARCH-017","RESEARCH-018","RESEARCH-019"]){
+for(const id of ["MODEL-001","MODEL-002","MODEL-003","MODEL-004","MODEL-005","MODEL-006","MODEL-007","MODEL-008","MODEL-009","MODEL-010","MODEL-011","MODEL-012","MODEL-013","MODEL-014","MODEL-015","RESEARCH-016","RESEARCH-017","RESEARCH-018","RESEARCH-019","RESEARCH-020","RESEARCH-021"]){
   if(!rules.rules?.[id]?.requirement)fail("missing rule "+id);
 }
 
@@ -51,8 +51,16 @@ for(const token of [
   "searchExhausted",
   "RESEARCH_H2H_MATCH_SOURCE_REF_UNKNOWN",
   "CANONICAL_DAILY_RESEARCH_SCHEMA_UPGRADE_REQUIRED",
-  '"fih-daily-research-v5"'
+  '"fih-daily-research-v5"',
+  "RESEARCH_SYNTHETIC_COMPLETION_MARKER_FORBIDDEN",
+  "SEARCH_EXHAUSTED",
+  "syntheticCompletionOutcome",
+  "exhausted(v)"
 ]) if(!validator.includes(token)) fail("research validator missing "+token);
+
+for(const forbiddenPath of ["scripts/chatgpt-research-refresh.ts",".github/workflows/fih-research-refresh.yml","automation/research-refresh.flag"]){
+  if(fs.existsSync(forbiddenPath))fail("synthetic baseline-copy research path reintroduced: "+forbiddenPath);
+}
 
 const checkpoint=read("scripts/research-checkpoint.ts");
 if(!checkpoint.includes('schema:"fih-daily-research-v5"'))fail("new Step 2 checkpoints are not strict v5");
@@ -107,5 +115,5 @@ if(workflow.includes("- name: Acquire fresh fixture board"))fail("unsafe uncondi
 console.log(JSON.stringify({
   ok:true,
   lock:"STEP2_TO_STEP3_VERIFIED_LINEAGE",
-  rules:["MODEL-001","MODEL-002","MODEL-003","MODEL-004","MODEL-005","MODEL-006","MODEL-007","MODEL-008","MODEL-009","MODEL-010","MODEL-011","MODEL-012","MODEL-013","MODEL-014","MODEL-015","RESEARCH-016","RESEARCH-017","RESEARCH-018","RESEARCH-019"]
+  rules:["MODEL-001","MODEL-002","MODEL-003","MODEL-004","MODEL-005","MODEL-006","MODEL-007","MODEL-008","MODEL-009","MODEL-010","MODEL-011","MODEL-012","MODEL-013","MODEL-014","MODEL-015","RESEARCH-016","RESEARCH-017","RESEARCH-018","RESEARCH-019","RESEARCH-020","RESEARCH-021"]
 },null,2));
