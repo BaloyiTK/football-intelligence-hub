@@ -11,8 +11,13 @@ function formOk(v:any){
  if(!v||typeof v!=="object"||!["VERIFIED","PARTIAL","UNAVAILABLE"].includes(String(v.status))||!Array.isArray(v.attempts)||!v.attempts.length||!v.attempts.every(attemptOk))return false;
  if(v.status==="UNAVAILABLE")return true;
  const d=v.data;if(!d?.homeTeam||!d?.awayTeam)return false;
- for(const key of ["overallLast5","homeLast5"])if(!Array.isArray(d.homeTeam[key])||!d.homeTeam[key].every(matchOk))return false;
- for(const key of ["overallLast5","awayLast5"])if(!Array.isArray(d.awayTeam[key])||!d.awayTeam[key].every(matchOk))return false;
+ for(const key of ["overallLast5","homeLast5"])if(!Array.isArray(d.homeTeam[key])||d.homeTeam[key].length>5||!d.homeTeam[key].every(matchOk))return false;
+ for(const key of ["overallLast5","awayLast5"])if(!Array.isArray(d.awayTeam[key])||d.awayTeam[key].length>5||!d.awayTeam[key].every(matchOk))return false;
+ if(d.homeTeam.homeLast5.some((m:any)=>m.venue!=="HOME"))return false;
+ if(d.awayTeam.awayLast5.some((m:any)=>m.venue!=="AWAY"))return false;
+ if(v.status==="VERIFIED"){
+  if(d.homeTeam.overallLast5.length!==5||d.homeTeam.homeLast5.length!==5||d.awayTeam.overallLast5.length!==5||d.awayTeam.awayLast5.length!==5)return false;
+ }
  return Array.isArray(v.sourceRefs);
 }
 export function validateResearchArtifact(x:any,date:string,eligibleIds:string[],mode:"PREDICTION"|"BACKTEST"){
