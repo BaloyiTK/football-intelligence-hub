@@ -265,3 +265,12 @@ If checkpoint persistence is unavailable in the active execution environment, th
 During ChatGPT-owned Step 2, the complete in-progress research batch MUST be accumulated in a temporary local execution file keyed by date and `researchRunId`. After each fixture is researched and validated, ChatGPT atomically updates that file, rereads it, verifies fixture identity/count and the just-written record, then continues immediately to the next fixture. This temporary file is not Git history and MUST NOT be committed.
 
 At exact N/N, ChatGPT validates the complete temporary dataset against the frozen Step-1 universe, promotes the validated content to the canonical `data/research/<date>.json`, and performs the single canonical research commit and post-commit reread verification. If the temporary execution workspace itself is destroyed before promotion, only the unpromoted temporary research is considered lost; Step 1 remains authoritative and Step 2 restarts from that frozen universe rather than fabricating completion.
+
+
+### Limit-aware Step-2 continuation — LOCKED
+
+A known ChatGPT/web-search call ceiling is an execution-capacity boundary, not a Step-2 failure and not permission to discard progress. Step 2 MUST operate in bounded research chunks with safety headroom below the known ceiling. Each chunk uses the same date, frozen eligible fixture universe and `researchRunId`.
+
+Before available search capacity is too low to complete another fixture research unit, ChatGPT MUST atomically flush and reread the temporary accumulator, verify unique fixture IDs and generation identity, and preserve a continuation cursor containing `validatedCount`, `expectedCount`, and the exact next fixture ID. The next execution opportunity resumes that same research generation from the cursor, skipping fixture IDs already validated in the accumulator. It MUST NOT rerun Step 1 merely because a research chunk ended, and it MUST NOT create a partial Git research commit.
+
+Research chunks have no canonical meaning. Only exact N/N aggregate validation may promote the accumulated dataset and cross the single canonical Git boundary.
