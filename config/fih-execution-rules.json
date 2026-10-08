@@ -245,6 +245,14 @@
     "RESEARCH-019": {
       "kind": "research-no-premature-stop",
       "requirement": "NON-NEGOTIABLE CONTINUATION LOCK: During an authorized Step-2 run, research continues fixture-by-fixture until exact N/N validated coverage. Recoverable errors are fixed, verified, and execution resumes automatically. Search/provider ceilings do not authorize BLOCKED, COMPLETE, or a progress-only final response while another authorized search path or current-turn capacity remains. If the execution environment itself forcibly ends available tool execution, preserve the verified accumulator/cursor and resume from the next unfinished fixture without renewed authorization."
+    },
+    "RESEARCH-020": {
+      "kind": "step2-actual-evidence-capture-lock",
+      "requirement": "NON-NEGOTIABLE ACTUAL-CAPTURE LOCK: A Step-2 fixture is checkpoint-valid only after ChatGPT has written the actual results of its web research into that fixture record. Copying a prior canonical/baseline record and merely appending search-attempt or completion markers is forbidden. Search execution is not evidence capture. VERIFIED/PARTIAL facts must retain their source-backed structured data and sourceMetadata; UNAVAILABLE may be used only after genuine category-specific search exhaustion is explicitly recorded."
+    },
+    "RESEARCH-021": {
+      "kind": "step2-unavailable-exhaustion-lock",
+      "requirement": "For every required Step-2 category, PARTIAL or UNAVAILABLE requires searchExhausted=true plus at least one category-specific attempt whose outcome explicitly records SEARCH_EXHAUSTED. Generic outcomes such as CHATGPT_WEB_SEARCH_REFRESH_COMPLETED, CHATGPT_H2H_SEARCH_REFRESH_COMPLETED, CHATGPT_VENUE_FORM_SEARCH_REFRESH_COMPLETED, SEARCH_COMPLETE, or equivalent completion-only markers MUST NOT satisfy research validation or promotion."
     }
   },
   "hardStops": [
