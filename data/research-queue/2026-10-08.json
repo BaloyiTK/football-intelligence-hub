@@ -1,0 +1,384 @@
+{
+  "schema": "fih-research-queue-v1",
+  "date": "2026-10-08",
+  "generatedAt": "2026-10-08T04:18:25.410Z",
+  "count": 47,
+  "fixtures": [
+    {
+      "fixtureId": "1886716",
+      "home": "HJK Helsinki",
+      "away": "VPS",
+      "competition": "Veikkausliiga",
+      "kickoff": "20261008170000",
+      "query": "HJK Helsinki VPS 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1886717",
+      "home": "KuPS",
+      "away": "AC Oulu",
+      "competition": "Veikkausliiga",
+      "kickoff": "20261008180000",
+      "query": "KuPS AC Oulu 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1807243",
+      "home": "CFR Cluj",
+      "away": "Universitatea Cluj",
+      "competition": "Liga 1",
+      "kickoff": "20261008193000",
+      "query": "CFR Cluj Universitatea Cluj 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1718971",
+      "home": "Shamrock Rovers",
+      "away": "Drogheda United",
+      "competition": "League of Ireland Premier Division",
+      "kickoff": "20261008210000",
+      "query": "Shamrock Rovers Drogheda United 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1854213",
+      "home": "JS Saoura",
+      "away": "Olympique Akbou",
+      "competition": "Ligue 1",
+      "kickoff": "20261008190000",
+      "query": "JS Saoura Olympique Akbou 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1854217",
+      "home": "MB Rouissat",
+      "away": "USM Alger",
+      "competition": "Ligue 1",
+      "kickoff": "20261008190000",
+      "query": "MB Rouissat USM Alger 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1854209",
+      "home": "MC Oran",
+      "away": "ES Setif",
+      "competition": "Ligue 1",
+      "kickoff": "20261008210000",
+      "query": "MC Oran ES Setif 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1806471",
+      "home": "Atletico FC",
+      "away": "Real Cartagena",
+      "competition": "Primera B: Clausura",
+      "kickoff": "20261008223000",
+      "query": "Atletico FC Real Cartagena 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1806477",
+      "home": "Atletico Huila",
+      "away": "Tigres FC",
+      "competition": "Primera B: Clausura",
+      "kickoff": "20261008223000",
+      "query": "Atletico Huila Tigres FC 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1883878",
+      "home": "Vargas Torres",
+      "away": "LDU Portoviejo",
+      "competition": "Serie B Relegation Group",
+      "kickoff": "20261008223000",
+      "query": "Vargas Torres LDU Portoviejo 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1876517",
+      "home": "Atletico FC",
+      "away": "San Antonio",
+      "competition": "Serie B. Promotion Round",
+      "kickoff": "20261008211500",
+      "query": "Atletico FC San Antonio 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1843698",
+      "home": "Al Nasr",
+      "away": "Proxy",
+      "competition": "2. Division A",
+      "kickoff": "20261008143000",
+      "query": "Al Nasr Proxy 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1843708",
+      "home": "Al Tersana",
+      "away": "Kahrbaa Alasmalia",
+      "competition": "2. Division A",
+      "kickoff": "20261008143000",
+      "query": "Al Tersana Kahrbaa Alasmalia 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1843719",
+      "home": "FC Masar",
+      "away": "El Dakhleya",
+      "competition": "2. Division A",
+      "kickoff": "20261008143000",
+      "query": "FC Masar El Dakhleya 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1843709",
+      "home": "Haras El Hodood",
+      "away": "El Sekka El Hadid",
+      "competition": "2. Division A",
+      "kickoff": "20261008143000",
+      "query": "Haras El Hodood El Sekka El Hadid 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1843711",
+      "home": "Mega Sport",
+      "away": "Dayrot",
+      "competition": "2. Division A",
+      "kickoff": "20261008143000",
+      "query": "Mega Sport Dayrot 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1867272",
+      "home": "Al-Ittihad Alexandria",
+      "away": "Wadi Degla FC",
+      "competition": "League Cup: Group A",
+      "kickoff": "20261008160000",
+      "query": "Al-Ittihad Alexandria Wadi Degla FC 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1867242",
+      "home": "Modern Sport FC",
+      "away": "National Bank",
+      "competition": "League Cup: Group B",
+      "kickoff": "20261008190000",
+      "query": "Modern Sport FC National Bank 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1867262",
+      "home": "Al Mokawloon Al Arab",
+      "away": "El Gounah",
+      "competition": "League Cup: Group C",
+      "kickoff": "20261008160000",
+      "query": "Al Mokawloon Al Arab El Gounah 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1867252",
+      "home": "Ghazl Al Mehalla",
+      "away": "Abo Qir Semad",
+      "competition": "League Cup: Group D",
+      "kickoff": "20261008190000",
+      "query": "Ghazl Al Mehalla Abo Qir Semad 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1893562",
+      "home": "Aluminium Arak",
+      "away": "Malavan",
+      "competition": "Persian Gulf Pro League",
+      "kickoff": "20261008143000",
+      "query": "Aluminium Arak Malavan 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1893563",
+      "home": "Nassaji Mazandaran FC",
+      "away": "Zob Ahan",
+      "competition": "Persian Gulf Pro League",
+      "kickoff": "20261008143000",
+      "query": "Nassaji Mazandaran FC Zob Ahan 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1893567",
+      "home": "Gol Gohar",
+      "away": "Esteghlal Khuzestan",
+      "competition": "Persian Gulf Pro League",
+      "kickoff": "20261008151500",
+      "query": "Gol Gohar Esteghlal Khuzestan 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1893564",
+      "home": "Tractor FC",
+      "away": "Esteghlal",
+      "competition": "Persian Gulf Pro League",
+      "kickoff": "20261008153000",
+      "query": "Tractor FC Esteghlal 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1893565",
+      "home": "Sepahan",
+      "away": "Fajr Sepasi",
+      "competition": "Persian Gulf Pro League",
+      "kickoff": "20261008171500",
+      "query": "Sepahan Fajr Sepasi 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1893566",
+      "home": "Foolad Khuzestan",
+      "away": "Mes Shahr Babak",
+      "competition": "Persian Gulf Pro League",
+      "kickoff": "20261008173000",
+      "query": "Foolad Khuzestan Mes Shahr Babak 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1871229",
+      "home": "Duhok",
+      "away": "Al Zawraa",
+      "competition": "Iraq Stars League",
+      "kickoff": "20261008170000",
+      "query": "Duhok Al Zawraa 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1871221",
+      "home": "Naft Maysan",
+      "away": "Erbil",
+      "competition": "Iraq Stars League",
+      "kickoff": "20261008174500",
+      "query": "Naft Maysan Erbil 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1871222",
+      "home": "Al Talaba",
+      "away": "Al Shorta",
+      "competition": "Iraq Stars League",
+      "kickoff": "20261008193000",
+      "query": "Al Talaba Al Shorta 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1893088",
+      "home": "Portmore United",
+      "away": "Waterhouse FC",
+      "competition": "Premier League",
+      "kickoff": "20261008223000",
+      "query": "Portmore United Waterhouse FC 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1902095",
+      "home": "Shabab Al-Ordon",
+      "away": "Al-Baqaa",
+      "competition": "Pro League",
+      "kickoff": "20261008170000",
+      "query": "Shabab Al-Ordon Al-Baqaa 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1903896",
+      "home": "Union Touarga Sport",
+      "away": "RS Berkane",
+      "competition": "Botola Pro",
+      "kickoff": "20261008180000",
+      "query": "Union Touarga Sport RS Berkane 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1903897",
+      "home": "FAR Rabat",
+      "away": "Widad Temara",
+      "competition": "Botola Pro",
+      "kickoff": "20261008200000",
+      "query": "FAR Rabat Widad Temara 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1903898",
+      "home": "Renaissance Club Zemamra",
+      "away": "Hassania Agadir",
+      "competition": "Botola Pro",
+      "kickoff": "20261008200000",
+      "query": "Renaissance Club Zemamra Hassania Agadir 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1903903",
+      "home": "MAS Fes",
+      "away": "Raja Casablanca",
+      "competition": "Botola Pro",
+      "kickoff": "20261008220000",
+      "query": "MAS Fes Raja Casablanca 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1806652",
+      "home": "Club Deportivo Moquegua",
+      "away": "Cienciano",
+      "competition": "Liga 1",
+      "kickoff": "20261008200000",
+      "query": "Club Deportivo Moquegua Cienciano 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1806650",
+      "home": "Atletico Grau",
+      "away": "Los Chankas CYC",
+      "competition": "Liga 1",
+      "kickoff": "20261008223000",
+      "query": "Atletico Grau Los Chankas CYC 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1896300",
+      "home": "EGB Tacna Heroica",
+      "away": "Carlos A. Mannucci",
+      "competition": "Liga 2 Promotion Group C",
+      "kickoff": "20261008220000",
+      "query": "EGB Tacna Heroica Carlos A. Mannucci 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1838565",
+      "home": "Al-Shamal",
+      "away": "Al-Duhail SC",
+      "competition": "Qatar Stars League",
+      "kickoff": "20261008164500",
+      "query": "Al-Shamal Al-Duhail SC 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1838571",
+      "home": "Al-Wakra",
+      "away": "Al-Gharafa",
+      "competition": "Qatar Stars League",
+      "kickoff": "20261008190000",
+      "query": "Al-Wakra Al-Gharafa 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1849079",
+      "home": "ASU Politehnica Timisoara",
+      "away": "Steaua Bucuresti",
+      "competition": "Liga II",
+      "kickoff": "20261008170000",
+      "query": "ASU Politehnica Timisoara Steaua Bucuresti 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1728217",
+      "home": "Vaenersborgs FK",
+      "away": "IFK Kumla",
+      "competition": "Division 2: Norra Goetaland",
+      "kickoff": "20261008193000",
+      "query": "Vaenersborgs FK IFK Kumla 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1861023",
+      "home": "Mashujaa",
+      "away": "Polisi Tanzania FC",
+      "competition": "Premier League",
+      "kickoff": "20261008130000",
+      "query": "Mashujaa Polisi Tanzania FC 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1861007",
+      "home": "Pamba SC",
+      "away": "Geita Gold FC",
+      "competition": "Premier League",
+      "kickoff": "20261008151500",
+      "query": "Pamba SC Geita Gold FC 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1861005",
+      "home": "Namungo FC",
+      "away": "TRA United",
+      "competition": "Premier League",
+      "kickoff": "20261008173000",
+      "query": "Namungo FC TRA United 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1861027",
+      "home": "Coastal Union",
+      "away": "Azam FC",
+      "competition": "Premier League",
+      "kickoff": "20261008200000",
+      "query": "Coastal Union Azam FC 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    },
+    {
+      "fixtureId": "1880351",
+      "home": "Viettel",
+      "away": "Hong Linh Ha Tinh",
+      "competition": "V-League",
+      "kickoff": "20261008141500",
+      "query": "Viettel Hong Linh Ha Tinh 2026-10-08 venue form overall form xG standings goals injuries H2H rest"
+    }
+  ]
+}
