@@ -85,7 +85,7 @@ for(const token of [
 
 const cycle=read("scripts/daily-cycle.ts");
 if(!cycle.includes('tsx("scripts/step3-input-gate.ts","--date",DATE)'))fail("daily cycle does not gate Step 3");
-for(const id of ["MODEL-001","MODEL-002","MODEL-003","MODEL-004"])if(!cycle.includes(id))fail("daily cycle gate missing "+id);
+for(const id of ["MODEL-001","MODEL-002","MODEL-003","MODEL-004","MODEL-014","MODEL-015"])if(!cycle.includes(id))fail("daily cycle gate missing "+id);
 
 const workflow=read(".github/workflows/fih-run-now.yml");
 for(const token of [
