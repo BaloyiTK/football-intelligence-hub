@@ -1,0 +1,2208 @@
+{
+  "schema": "fih-backtest-research-checkpoint-v1",
+  "date": "2026-10-06",
+  "mode": "BACKTEST",
+  "cutoff": "2026-10-06T04:00:00.000Z",
+  "authorizedBy": "automation/backtest-run.flag",
+  "eligibleFixtureCount": 110,
+  "processedFixtureCount": 10,
+  "nextFixtureId": "1872921",
+  "generatedAt": "2026-10-08T00:13:34.518Z",
+  "integrity": "Recovery checkpoint only; NOT canonical Step 2. Post-cutoff and post-match sources were excluded. Source evidence retained only where publication was safely before the 06:00 SAST cutoff.",
+  "fixtures": [
+    {
+      "fixtureId": "1738299",
+      "fixture": {
+        "home": "Croatia",
+        "away": "Spain",
+        "competition": "UEFA Nations League",
+        "kickoff": "20261006204500"
+      },
+      "checkpointStatus": "RESEARCH_ATTEMPTED_NEEDS_NORMALIZATION",
+      "researchedAt": "2026-10-08T00:13:34.518Z",
+      "sourceMetadata": [
+        {
+          "url": "https://news.7msport.com/news/newsdata/20261005/271480.shtml",
+          "retrievedAt": "2026-10-08T00:13:34.518Z",
+          "availableAt": "2026-10-05T23:59:59Z",
+          "supports": [
+            "overallForm",
+            "venueForm",
+            "teamQuality",
+            "motivationContext",
+            "h2h",
+            "goalsProfile",
+            "squadAvailability",
+            "opponentStrength"
+          ]
+        }
+      ],
+      "evidence": {
+        "overallForm": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Croatia Spain October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Croatia Spain October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://news.7msport.com/news/newsdata/20261005/271480.shtml"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "venueForm": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Croatia Spain October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Croatia Spain October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://news.7msport.com/news/newsdata/20261005/271480.shtml"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "xgXga": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Croatia Spain October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Croatia Spain October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "leaguePosition": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Croatia Spain October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Croatia Spain October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "teamQuality": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Croatia Spain October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Croatia Spain October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://news.7msport.com/news/newsdata/20261005/271480.shtml"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "motivationContext": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Croatia Spain October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Croatia Spain October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://news.7msport.com/news/newsdata/20261005/271480.shtml"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "h2h": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Croatia Spain October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Croatia Spain October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://news.7msport.com/news/newsdata/20261005/271480.shtml"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "goalsProfile": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Croatia Spain October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Croatia Spain October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://news.7msport.com/news/newsdata/20261005/271480.shtml"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "squadAvailability": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Croatia Spain October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Croatia Spain October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://news.7msport.com/news/newsdata/20261005/271480.shtml"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "opponentStrength": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Croatia Spain October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Croatia Spain October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://news.7msport.com/news/newsdata/20261005/271480.shtml"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "restSchedule": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Croatia Spain October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Croatia Spain October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        }
+      }
+    },
+    {
+      "fixtureId": "1738300",
+      "fixture": {
+        "home": "England",
+        "away": "Czechia",
+        "competition": "UEFA Nations League",
+        "kickoff": "20261006204500"
+      },
+      "checkpointStatus": "RESEARCH_ATTEMPTED_NEEDS_NORMALIZATION",
+      "researchedAt": "2026-10-08T00:13:34.518Z",
+      "sourceMetadata": [
+        {
+          "url": "https://www.oddsintel.app/blog/england-vs-czechia-preview-2026-10-06",
+          "retrievedAt": "2026-10-08T00:13:34.518Z",
+          "availableAt": "2026-10-05T23:59:59Z",
+          "supports": [
+            "overallForm",
+            "squadAvailability",
+            "goalsProfile"
+          ]
+        }
+      ],
+      "evidence": {
+        "overallForm": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "England Czechia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "England Czechia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://www.oddsintel.app/blog/england-vs-czechia-preview-2026-10-06"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "venueForm": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "England Czechia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "England Czechia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "xgXga": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "England Czechia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "England Czechia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "leaguePosition": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "England Czechia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "England Czechia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "teamQuality": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "England Czechia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "England Czechia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "motivationContext": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "England Czechia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "England Czechia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "h2h": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "England Czechia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "England Czechia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "goalsProfile": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "England Czechia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "England Czechia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://www.oddsintel.app/blog/england-vs-czechia-preview-2026-10-06"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "squadAvailability": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "England Czechia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "England Czechia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://www.oddsintel.app/blog/england-vs-czechia-preview-2026-10-06"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "opponentStrength": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "England Czechia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "England Czechia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "restSchedule": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "England Czechia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "England Czechia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        }
+      }
+    },
+    {
+      "fixtureId": "1738257",
+      "fixture": {
+        "home": "Scotland",
+        "away": "Slovenia",
+        "competition": "UEFA Nations League",
+        "kickoff": "20261006204500"
+      },
+      "checkpointStatus": "RESEARCH_ATTEMPTED_NEEDS_NORMALIZATION",
+      "researchedAt": "2026-10-08T00:13:34.518Z",
+      "sourceMetadata": [],
+      "evidence": {
+        "overallForm": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Scotland Slovenia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Scotland Slovenia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "venueForm": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Scotland Slovenia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Scotland Slovenia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "xgXga": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Scotland Slovenia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Scotland Slovenia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "leaguePosition": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Scotland Slovenia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Scotland Slovenia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "teamQuality": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Scotland Slovenia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Scotland Slovenia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "motivationContext": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Scotland Slovenia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Scotland Slovenia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "h2h": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Scotland Slovenia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Scotland Slovenia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "goalsProfile": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Scotland Slovenia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Scotland Slovenia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "squadAvailability": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Scotland Slovenia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Scotland Slovenia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "opponentStrength": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Scotland Slovenia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Scotland Slovenia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "restSchedule": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Scotland Slovenia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Scotland Slovenia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        }
+      }
+    },
+    {
+      "fixtureId": "1738258",
+      "fixture": {
+        "home": "Switzerland",
+        "away": "North Macedonia",
+        "competition": "UEFA Nations League",
+        "kickoff": "20261006204500"
+      },
+      "checkpointStatus": "RESEARCH_ATTEMPTED_NEEDS_NORMALIZATION",
+      "researchedAt": "2026-10-08T00:13:34.518Z",
+      "sourceMetadata": [
+        {
+          "url": "https://footballwhispers.com/blog/switzerland-vs-north-macedonia-prediction-06-10-2026/",
+          "retrievedAt": "2026-10-08T00:13:34.518Z",
+          "availableAt": "2026-10-05T23:59:59Z",
+          "supports": [
+            "overallForm",
+            "goalsProfile",
+            "teamQuality"
+          ]
+        }
+      ],
+      "evidence": {
+        "overallForm": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Switzerland North Macedonia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Switzerland North Macedonia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://footballwhispers.com/blog/switzerland-vs-north-macedonia-prediction-06-10-2026/"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "venueForm": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Switzerland North Macedonia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Switzerland North Macedonia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "xgXga": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Switzerland North Macedonia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Switzerland North Macedonia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "leaguePosition": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Switzerland North Macedonia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Switzerland North Macedonia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "teamQuality": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Switzerland North Macedonia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Switzerland North Macedonia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://footballwhispers.com/blog/switzerland-vs-north-macedonia-prediction-06-10-2026/"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "motivationContext": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Switzerland North Macedonia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Switzerland North Macedonia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "h2h": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Switzerland North Macedonia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Switzerland North Macedonia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "goalsProfile": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Switzerland North Macedonia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Switzerland North Macedonia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://footballwhispers.com/blog/switzerland-vs-north-macedonia-prediction-06-10-2026/"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "squadAvailability": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Switzerland North Macedonia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Switzerland North Macedonia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "opponentStrength": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Switzerland North Macedonia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Switzerland North Macedonia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "restSchedule": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Switzerland North Macedonia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Switzerland North Macedonia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        }
+      }
+    },
+    {
+      "fixtureId": "1738311",
+      "fixture": {
+        "home": "Albania",
+        "away": "San Marino",
+        "competition": "UEFA Nations League",
+        "kickoff": "20261006204500"
+      },
+      "checkpointStatus": "RESEARCH_ATTEMPTED_NEEDS_NORMALIZATION",
+      "researchedAt": "2026-10-08T00:13:34.518Z",
+      "sourceMetadata": [
+        {
+          "url": "https://www.chopsoc.com/news/50076897",
+          "retrievedAt": "2026-10-08T00:13:34.518Z",
+          "availableAt": "2026-10-05T23:59:59Z",
+          "supports": [
+            "overallForm",
+            "leaguePosition",
+            "motivationContext",
+            "h2h",
+            "squadAvailability",
+            "teamQuality"
+          ]
+        }
+      ],
+      "evidence": {
+        "overallForm": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Albania San Marino October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Albania San Marino October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://www.chopsoc.com/news/50076897"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "venueForm": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Albania San Marino October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Albania San Marino October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "xgXga": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Albania San Marino October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Albania San Marino October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "leaguePosition": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Albania San Marino October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Albania San Marino October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://www.chopsoc.com/news/50076897"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "teamQuality": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Albania San Marino October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Albania San Marino October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://www.chopsoc.com/news/50076897"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "motivationContext": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Albania San Marino October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Albania San Marino October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://www.chopsoc.com/news/50076897"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "h2h": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Albania San Marino October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Albania San Marino October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://www.chopsoc.com/news/50076897"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "goalsProfile": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Albania San Marino October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Albania San Marino October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "squadAvailability": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Albania San Marino October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Albania San Marino October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://www.chopsoc.com/news/50076897"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "opponentStrength": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Albania San Marino October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Albania San Marino October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "restSchedule": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Albania San Marino October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Albania San Marino October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        }
+      }
+    },
+    {
+      "fixtureId": "1738312",
+      "fixture": {
+        "home": "Belarus",
+        "away": "Finland",
+        "competition": "UEFA Nations League",
+        "kickoff": "20261006204500"
+      },
+      "checkpointStatus": "RESEARCH_ATTEMPTED_NEEDS_NORMALIZATION",
+      "researchedAt": "2026-10-08T00:13:34.518Z",
+      "sourceMetadata": [
+        {
+          "url": "https://news.7msport.com/news/newsdata/20261005/271477.shtml",
+          "retrievedAt": "2026-10-08T00:13:34.518Z",
+          "availableAt": "2026-10-05T23:59:59Z",
+          "supports": [
+            "overallForm",
+            "leaguePosition",
+            "motivationContext",
+            "squadAvailability",
+            "teamQuality"
+          ]
+        }
+      ],
+      "evidence": {
+        "overallForm": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Belarus Finland October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Belarus Finland October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://news.7msport.com/news/newsdata/20261005/271477.shtml"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "venueForm": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Belarus Finland October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Belarus Finland October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "xgXga": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Belarus Finland October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Belarus Finland October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "leaguePosition": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Belarus Finland October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Belarus Finland October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://news.7msport.com/news/newsdata/20261005/271477.shtml"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "teamQuality": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Belarus Finland October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Belarus Finland October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://news.7msport.com/news/newsdata/20261005/271477.shtml"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "motivationContext": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Belarus Finland October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Belarus Finland October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://news.7msport.com/news/newsdata/20261005/271477.shtml"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "h2h": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Belarus Finland October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Belarus Finland October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "goalsProfile": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Belarus Finland October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Belarus Finland October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "squadAvailability": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Belarus Finland October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Belarus Finland October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://news.7msport.com/news/newsdata/20261005/271477.shtml"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "opponentStrength": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Belarus Finland October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Belarus Finland October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "restSchedule": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Belarus Finland October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Belarus Finland October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        }
+      }
+    },
+    {
+      "fixtureId": "1738392",
+      "fixture": {
+        "home": "Kazakhstan",
+        "away": "Faroe Islands",
+        "competition": "UEFA Nations League",
+        "kickoff": "20261006160000"
+      },
+      "checkpointStatus": "RESEARCH_ATTEMPTED_NEEDS_NORMALIZATION",
+      "researchedAt": "2026-10-08T00:13:34.518Z",
+      "sourceMetadata": [
+        {
+          "url": "https://www.chopsoc.com/news/50077341",
+          "retrievedAt": "2026-10-08T00:13:34.518Z",
+          "availableAt": "2026-10-05T23:59:59Z",
+          "supports": [
+            "overallForm",
+            "venueForm",
+            "leaguePosition",
+            "motivationContext",
+            "squadAvailability",
+            "teamQuality"
+          ]
+        }
+      ],
+      "evidence": {
+        "overallForm": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Kazakhstan Faroe Islands October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Kazakhstan Faroe Islands October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://www.chopsoc.com/news/50077341"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "venueForm": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Kazakhstan Faroe Islands October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Kazakhstan Faroe Islands October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://www.chopsoc.com/news/50077341"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "xgXga": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Kazakhstan Faroe Islands October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Kazakhstan Faroe Islands October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "leaguePosition": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Kazakhstan Faroe Islands October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Kazakhstan Faroe Islands October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://www.chopsoc.com/news/50077341"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "teamQuality": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Kazakhstan Faroe Islands October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Kazakhstan Faroe Islands October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://www.chopsoc.com/news/50077341"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "motivationContext": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Kazakhstan Faroe Islands October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Kazakhstan Faroe Islands October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://www.chopsoc.com/news/50077341"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "h2h": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Kazakhstan Faroe Islands October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Kazakhstan Faroe Islands October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "goalsProfile": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Kazakhstan Faroe Islands October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Kazakhstan Faroe Islands October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "squadAvailability": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Kazakhstan Faroe Islands October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Kazakhstan Faroe Islands October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://www.chopsoc.com/news/50077341"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "opponentStrength": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Kazakhstan Faroe Islands October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Kazakhstan Faroe Islands October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "restSchedule": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Kazakhstan Faroe Islands October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Kazakhstan Faroe Islands October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        }
+      }
+    },
+    {
+      "fixtureId": "1738393",
+      "fixture": {
+        "home": "Moldova",
+        "away": "Slovakia",
+        "competition": "UEFA Nations League",
+        "kickoff": "20261006204500"
+      },
+      "checkpointStatus": "RESEARCH_ATTEMPTED_NEEDS_NORMALIZATION",
+      "researchedAt": "2026-10-08T00:13:34.518Z",
+      "sourceMetadata": [
+        {
+          "url": "https://www.chopsoc.com/news/50077317",
+          "retrievedAt": "2026-10-08T00:13:34.518Z",
+          "availableAt": "2026-10-05T23:59:59Z",
+          "supports": [
+            "overallForm",
+            "leaguePosition",
+            "motivationContext",
+            "squadAvailability",
+            "teamQuality"
+          ]
+        }
+      ],
+      "evidence": {
+        "overallForm": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Moldova Slovakia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Moldova Slovakia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://www.chopsoc.com/news/50077317"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "venueForm": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Moldova Slovakia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Moldova Slovakia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "xgXga": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Moldova Slovakia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Moldova Slovakia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "leaguePosition": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Moldova Slovakia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Moldova Slovakia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://www.chopsoc.com/news/50077317"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "teamQuality": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Moldova Slovakia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Moldova Slovakia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://www.chopsoc.com/news/50077317"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "motivationContext": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Moldova Slovakia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Moldova Slovakia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://www.chopsoc.com/news/50077317"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "h2h": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Moldova Slovakia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Moldova Slovakia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "goalsProfile": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Moldova Slovakia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Moldova Slovakia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "squadAvailability": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Moldova Slovakia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Moldova Slovakia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://www.chopsoc.com/news/50077317"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "opponentStrength": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Moldova Slovakia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Moldova Slovakia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "restSchedule": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Moldova Slovakia October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Moldova Slovakia October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        }
+      }
+    },
+    {
+      "fixtureId": "1738402",
+      "fixture": {
+        "home": "Estonia",
+        "away": "Iceland",
+        "competition": "UEFA Nations League",
+        "kickoff": "20261006204500"
+      },
+      "checkpointStatus": "RESEARCH_ATTEMPTED_NEEDS_NORMALIZATION",
+      "researchedAt": "2026-10-08T00:13:34.518Z",
+      "sourceMetadata": [
+        {
+          "url": "https://footballwhispers.com/blog/estonia-vs-iceland-prediction-06-10-26/",
+          "retrievedAt": "2026-10-08T00:13:34.518Z",
+          "availableAt": "2026-10-05T23:59:59Z",
+          "supports": [
+            "overallForm",
+            "leaguePosition",
+            "venueForm",
+            "goalsProfile"
+          ]
+        }
+      ],
+      "evidence": {
+        "overallForm": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Estonia Iceland October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Estonia Iceland October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://footballwhispers.com/blog/estonia-vs-iceland-prediction-06-10-26/"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "venueForm": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Estonia Iceland October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Estonia Iceland October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://footballwhispers.com/blog/estonia-vs-iceland-prediction-06-10-26/"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "xgXga": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Estonia Iceland October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Estonia Iceland October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "leaguePosition": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Estonia Iceland October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Estonia Iceland October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://footballwhispers.com/blog/estonia-vs-iceland-prediction-06-10-26/"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "teamQuality": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Estonia Iceland October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Estonia Iceland October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "motivationContext": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Estonia Iceland October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Estonia Iceland October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "h2h": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Estonia Iceland October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Estonia Iceland October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "goalsProfile": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "Estonia Iceland October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Estonia Iceland October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [
+            "https://footballwhispers.com/blog/estonia-vs-iceland-prediction-06-10-26/"
+          ],
+          "note": "Pre-cutoff source returned relevant evidence; full category normalization still pending."
+        },
+        "squadAvailability": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Estonia Iceland October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Estonia Iceland October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "opponentStrength": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Estonia Iceland October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Estonia Iceland October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "restSchedule": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Estonia Iceland October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Estonia Iceland October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        }
+      }
+    },
+    {
+      "fixtureId": "1738403",
+      "fixture": {
+        "home": "Luxembourg",
+        "away": "Bulgaria",
+        "competition": "UEFA Nations League",
+        "kickoff": "20261006204500"
+      },
+      "checkpointStatus": "RESEARCH_ATTEMPTED_NEEDS_NORMALIZATION",
+      "researchedAt": "2026-10-08T00:13:34.518Z",
+      "sourceMetadata": [],
+      "evidence": {
+        "overallForm": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Luxembourg Bulgaria October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Luxembourg Bulgaria October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "venueForm": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Luxembourg Bulgaria October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Luxembourg Bulgaria October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "xgXga": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Luxembourg Bulgaria October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Luxembourg Bulgaria October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "leaguePosition": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Luxembourg Bulgaria October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Luxembourg Bulgaria October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "teamQuality": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Luxembourg Bulgaria October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Luxembourg Bulgaria October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "motivationContext": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Luxembourg Bulgaria October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Luxembourg Bulgaria October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "h2h": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Luxembourg Bulgaria October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Luxembourg Bulgaria October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "goalsProfile": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Luxembourg Bulgaria October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Luxembourg Bulgaria October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "squadAvailability": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Luxembourg Bulgaria October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Luxembourg Bulgaria October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "opponentStrength": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Luxembourg Bulgaria October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Luxembourg Bulgaria October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        },
+        "restSchedule": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Luxembourg Bulgaria October 6 2026 preview form venue xG standings goals injuries H2H rest",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            },
+            {
+              "query": "Luxembourg Bulgaria October 6 2026 motivation team quality opponent strength rest schedule preview",
+              "attemptedAt": "2026-10-08T00:13:34.518Z",
+              "outcome": "WEB_SEARCH_EXECUTED"
+            }
+          ],
+          "sourceRefs": [],
+          "note": "No safely pre-cutoff verifiable evidence retained from this search pass."
+        }
+      }
+    }
+  ]
+}
