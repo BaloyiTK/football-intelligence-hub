@@ -23,7 +23,8 @@
     "run:daily:once": "tsx scripts/daily-cycle.ts",
     "research:checkpoint": "tsx scripts/research-checkpoint.ts",
     "step3:gate": "tsx scripts/step3-input-gate.ts",
-    "research:storage-lock": "tsx scripts/verify-research-storage-lock.ts"
+    "research:storage-lock": "tsx scripts/verify-research-storage-lock.ts",
+    "step3:wiring-lock": "tsx scripts/verify-step3-wiring.ts"
   },
   "dependencies": {},
   "devDependencies": {
