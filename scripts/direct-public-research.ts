@@ -27,7 +27,7 @@ for(const f of queue.fixtures){
  const enough=home.length>=3&&away.length>=3;
  const attemptedAt=new Date().toISOString();
  const attempt=(category:string,outcome:string)=>[{query:`${f.home} ${f.away} ${DATE} ${category}`,attemptedAt,outcome}];
- const unavailable=(category:string,reason:string)=>({status:"UNAVAILABLE",reason,attempts:attempt(category,"NOT_SEARCHED_BY_DIRECT_EXTRACTOR")});
+ const unavailable=(category:string,reason:string)=>({status:"UNAVAILABLE",reason,attempts:attempt(category,"NO_DIRECT_SOURCE_EVIDENCE")});
  const categories={
   overallForm:{status:enough?"VERIFIED":(sourceUrls.length?"PARTIAL":"UNAVAILABLE"),homeMatches:home,awayMatches:away,sourceRefs:sourceUrls.map((_,idx)=>idx),attempts:attempt("overall form",enough?"SOURCE_EVIDENCE_FOUND":(sourceUrls.length?"INSUFFICIENT_SOURCE_EVIDENCE":"NO_SOURCE_EVIDENCE"))},
   venueForm:unavailable("venue form","Direct extractor did not execute a category-specific search."),
