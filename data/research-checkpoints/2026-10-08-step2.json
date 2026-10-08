@@ -5,8 +5,8 @@
   "canonical": false,
   "status": "IN_PROGRESS",
   "eligibleCount": 51,
-  "fixtureRecordsValidated": 20,
-  "lastValidatedFixtureId": "1867262",
+  "fixtureRecordsValidated": 21,
+  "lastValidatedFixtureId": "1867252",
   "workingRecords": {
     "1718971": {
       "fixtureId": "1718971",
@@ -3254,6 +3254,187 @@
         }
       }
     },
+    "1867252": {
+      "fixtureId": "1867252",
+      "fixture": {
+        "competition": "League Cup: Group D",
+        "country": "Egypt",
+        "home": "Ghazl Al Mehalla",
+        "away": "Abo Qir Semad",
+        "kickoff": "20261008190000",
+        "timezone": "Africa/Johannesburg"
+      },
+      "researchedAt": "2026-10-08T22:00:00+02:00",
+      "sourceMetadata": [
+        {
+          "ref": "s1",
+          "url": "https://www.playmakerstats.com/team/abu-qair-semad/233546",
+          "retrievedAt": "2026-10-08T22:00:00+02:00",
+          "supports": [
+            "overallForm",
+            "teamQuality",
+            "h2h",
+            "restSchedule"
+          ]
+        },
+        {
+          "ref": "s2",
+          "url": "https://scangoal.com/team/ghazl-el-mehalla",
+          "retrievedAt": "2026-10-08T22:00:00+02:00",
+          "supports": [
+            "overallForm",
+            "xgXga",
+            "teamQuality"
+          ]
+        },
+        {
+          "ref": "s3",
+          "url": "https://www.fctables.com/h2h/abo-qir-semad/el-mahalla-el-kobra/",
+          "retrievedAt": "2026-10-08T22:00:00+02:00",
+          "supports": [
+            "h2h",
+            "goalsProfile"
+          ]
+        }
+      ],
+      "evidence": {
+        "overallForm": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1",
+            "s2"
+          ],
+          "data": {
+            "home": {
+              "form10": "D-L-L-W-D-W-L-L-D-L"
+            },
+            "away": {
+              "season5": "1W-0D-4L",
+              "gf": 1,
+              "ga": 8,
+              "recent": [
+                "Al Ahly 2-0 Abo Qir",
+                "Zamalek 2-0 Abo Qir",
+                "Abo Qir 0-2 Al Ittihad"
+              ]
+            }
+          }
+        },
+        "venueForm": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Ghazl Mehalla home Abo Qir away form 2026",
+              "attemptedAt": "2026-10-08T22:00:00+02:00",
+              "outcome": "Comparable current venue splits not retained."
+            }
+          ]
+        },
+        "xgXga": {
+          "status": "PARTIAL",
+          "sourceRefs": [
+            "s2"
+          ],
+          "data": {
+            "home": {
+              "xGPerMatch": 0.6,
+              "xGAgainstPerMatch": 1,
+              "sampleMatches": 9
+            },
+            "provenance": "Observed recent-match xG sequence shown by ScanGoal; away xG/xGA unavailable."
+          }
+        },
+        "leaguePosition": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "League Cup Group D Ghazl Mehalla Abo Qir standings October 8 2026",
+              "attemptedAt": "2026-10-08T22:00:00+02:00",
+              "outcome": "Reliable current group table not retained."
+            }
+          ]
+        },
+        "teamQuality": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1",
+            "s2"
+          ],
+          "data": {
+            "awayLeague": {
+              "played": 5,
+              "wins": 1,
+              "losses": 4,
+              "gf": 1,
+              "ga": 8
+            },
+            "homeRecentXGProfile": {
+              "xG": 0.6,
+              "xGA": 1
+            }
+          }
+        },
+        "motivationContext": {
+          "status": "PARTIAL",
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": "Opening Egyptian League Cup fixture."
+        },
+        "h2h": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1",
+            "s3"
+          ],
+          "data": [
+            "Historical official meeting: Ghazl/El Mahalla 2-0 Abo Qir Semad"
+          ],
+          "summary": "Retained sources show one official H2H and a Ghazl/El Mahalla win."
+        },
+        "goalsProfile": {
+          "status": "PARTIAL",
+          "sourceRefs": [
+            "s1",
+            "s3"
+          ],
+          "data": {
+            "awaySeason": {
+              "gfPerGame": 0.2,
+              "gaPerGame": 1.6
+            },
+            "historicalH2HGoals": 2
+          }
+        },
+        "squadAvailability": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Ghazl Mehalla Abo Qir injuries suspensions October 8 2026",
+              "attemptedAt": "2026-10-08T22:00:00+02:00",
+              "outcome": "No trustworthy complete absence list retained."
+            }
+          ]
+        },
+        "opponentStrength": {
+          "status": "PARTIAL",
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": "Abo Qir's recent losses include Al Ahly, Zamalek and Al Ittihad, indicating a strong recent opponent slate."
+        },
+        "restSchedule": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": {
+            "awayLastMatch": "2026-09-15",
+            "homeLastKnownMatch": "2026-09-16"
+          }
+        }
+      }
+    },
     "1867262": {
       "fixtureId": "1867262",
       "fixture": {
@@ -4979,7 +5160,7 @@
       }
     }
   },
-  "nextFixtureId": "1867252",
+  "nextFixtureId": "1893562",
   "nextAction": "Continue fixture-specific Step 2 web research from nextFixtureId.",
   "integrityRepair": {
     "at": "2026-10-08T05:45:00Z",
@@ -5013,5 +5194,5 @@
       ]
     }
   },
-  "updatedAt": "2026-10-08T21:55:00+02:00"
+  "updatedAt": "2026-10-08T22:00:00+02:00"
 }
