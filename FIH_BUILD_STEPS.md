@@ -244,7 +244,29 @@ The active operational model is `FIH-V2-RESEARCH` in `scripts/fih-probability-v2
 - The canonical Step-3 model artifact MUST retain lineage to its exact Step-2 input using `researchRunId`, `inputResearchHash`, and `inputResearchCommit`.
 - A stale generation, fixture-universe drift, partial/uncommitted research file, or multiple canonical research commits for the same `researchRunId` returns the run to RECOVERING before model calculation.
 
-### 3.2 Fixture model loop
+### 3.2 Step-3 data contract — LOCKED
+
+Step 3 receives the canonical Step-2 facts and normalizes them into model-ready evidence using `scripts/step3-normalize.ts`.
+
+| Step-2 evidence | Step-3 treatment |
+|---|---|
+| overall form | used directly as the primary recent-form input |
+| home/away venue form | used directly as venue refinements |
+| standings: points + matches | derive PPG in Step 3; never store calculated PPG in Step 2 |
+| standings: goal difference, or goals for/against + matches | derive goal-difference-per-game in Step 3 |
+| observed xG/xGA | consume only when explicitly source-backed and marked observed; predictive/projected xG is forbidden |
+| recent scorelines | derive scoring, conceding, BTTS and Over-2.5 rates in Step 3 |
+| latest verified match date + kickoff | derive rest days in Step 3 |
+| H2H | context-only unless a later calibrated mapping is explicitly approved |
+| squad availability | context-only unless a later calibrated injury-impact mapping is explicitly approved |
+| competition/motivation context | context-only unless a later calibrated mapping is explicitly approved |
+| opponent quality/context | context-only unless a verified numeric strength mapping is explicitly approved |
+
+Every fixture model record MUST expose `evidenceUsage` and `inputCoverage`. Each researched evidence family is classified as `USED`, `DERIVED`, `CONTEXT_ONLY`, or `UNAVAILABLE`; silent dropping is forbidden.
+
+Missing evidence remains undefined. Step 3 MUST NOT convert missing information to zero and MUST NOT invent numeric injury, motivation, H2H, or opponent-strength adjustments.
+
+### 3.3 Fixture model loop
 Process each fixture independently:
 
 `verified research record -> FIH V2 -> model output -> working daily model dataset`
@@ -262,7 +284,7 @@ Retain, where calculated:
 - model/version identifier;
 - `CALCULATED` or `INSUFFICIENT_DATA` status and reason.
 
-### 3.3 V2 principles
+### 3.4 V2 principles
 - Recent overall form remains the anchor.
 - Home/away venue form refines expected goals when verified.
 - Trustworthy xG/xGA may refine expected goals; unavailable xG is not zero.
@@ -274,7 +296,7 @@ Retain, where calculated:
 - DRAW remains an internal model result.
 - No unsupported numerical qualification/value threshold may be invented. Thresholds require materially larger leak-free calibration.
 
-### 3.4 Complete, verify and persist the date
+### 3.5 Complete, verify and persist the date
 - Do not commit model output fixture-by-fixture.
 - Analyze all eligible fixtures into the working daily model dataset.
 - Verify fixture coverage, model version/status, output integrity and references.
