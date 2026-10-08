@@ -77,8 +77,8 @@
       "notes": "Pre-cutoff sources located; fixture research still requires all FIH_BUILD_STEPS categories/UNAVAILABLE validation."
     }
   ],
-  "nextAction": "Continue fixture-specific Step 2 from Belarus vs Finland (fixture 1738312); Albania vs San Marino now has a persisted cutoff-safe detailed research record but remains non-canonical until full-date coverage.",
-  "lastVerifiedAt": "2026-10-07T23:17:00.573Z",
+  "nextAction": "Continue fixture-specific Step 2 from Kazakhstan vs Faroe Islands (fixture 1738392); Belarus vs Finland now has a persisted cutoff-safe detailed research record but remains non-canonical until full-date coverage.",
+  "lastVerifiedAt": "2026-10-08T02:23:49.000Z",
   "researchRecords": {
     "1738311": {
       "fixtureId": "1738311",
@@ -256,6 +256,220 @@
               "attemptedAt": "2026-10-08T00:00:00Z",
               "outcome": "PRE_CUTOFF_EVIDENCE_FOUND"
             }
+          ]
+        }
+      },
+      "status": "PARTIAL_VALIDATED",
+      "canonical": false
+    },
+    "1738312": {
+      "fixtureId": "1738312",
+      "fixture": {
+        "home": "Belarus",
+        "away": "Finland",
+        "competition": "UEFA Nations League",
+        "kickoff": "2026-10-06T20:45:00+02:00"
+      },
+      "cutoff": "2026-10-06T06:00:00+02:00",
+      "researchedAt": "2026-10-08T02:23:49.000Z",
+      "sourceMetadata": [
+        {
+          "url": "https://statz.ai/h2h/belarus-vs-finland/19676763",
+          "availableAt": "2026-10-04T23:59:59Z",
+          "retrievedAt": "2026-10-08T02:23:49.000Z",
+          "supports": [
+            "overallForm",
+            "venueForm",
+            "leaguePosition",
+            "teamQuality",
+            "h2h",
+            "goalsProfile",
+            "opponentStrength"
+          ]
+        },
+        {
+          "url": "https://www.thestatszone.com/belarus-vs-finland-preview-prediction-2026-27-uefa-nations-league-league-c-228242",
+          "availableAt": "2026-10-04T12:05:00Z",
+          "retrievedAt": "2026-10-08T02:23:49.000Z",
+          "supports": [
+            "overallForm",
+            "motivationContext",
+            "venueForm",
+            "teamQuality"
+          ]
+        },
+        {
+          "url": "https://www.reddit.com/r/SoccerBetting/comments/1wxnlq2/daily_picks_thread_monday_5th_october_2026/",
+          "availableAt": "2026-10-05T23:59:59Z",
+          "retrievedAt": "2026-10-08T02:23:49.000Z",
+          "supports": [
+            "leaguePosition",
+            "motivationContext",
+            "squadAvailability",
+            "h2h",
+            "venueForm"
+          ]
+        }
+      ],
+      "evidence": {
+        "overallForm": {
+          "status": "VERIFIED",
+          "notes": "Pre-cutoff sources: Belarus entered after 4-0 San Marino, 0-0 at Finland and 0-2 at Albania; Finland after 2-1 Albania, 0-0 Belarus and 7-0 at San Marino. Additional recent internationals were identified by Statz.",
+          "attempts": [
+            {
+              "query": "Belarus Finland October 6 2026 overall form preview before cutoff",
+              "attemptedAt": "2026-10-08T02:23:49.000Z",
+              "outcome": "PRE_CUTOFF_EVIDENCE_FOUND"
+            }
+          ],
+          "sourceRefs": [
+            "https://statz.ai/h2h/belarus-vs-finland/19676763",
+            "https://www.thestatszone.com/belarus-vs-finland-preview-prediction-2026-27-uefa-nations-league-league-c-228242"
+          ]
+        },
+        "venueForm": {
+          "status": "PARTIAL",
+          "notes": "Belarus's designated home match was at neutral Illovszky Rudolf Stadion in Budapest, so ordinary home edge was not applicable; Finland away context included 7-0 at San Marino. Exact last-five venue split was not fully reconstructed.",
+          "attempts": [
+            {
+              "query": "Belarus Finland venue form neutral Budapest Oct 6 2026",
+              "attemptedAt": "2026-10-08T02:23:49.000Z",
+              "outcome": "PRE_CUTOFF_EVIDENCE_FOUND"
+            }
+          ],
+          "sourceRefs": [
+            "https://statz.ai/h2h/belarus-vs-finland/19676763",
+            "https://www.thestatszone.com/belarus-vs-finland-preview-prediction-2026-27-uefa-nations-league-league-c-228242",
+            "https://www.reddit.com/r/SoccerBetting/comments/1wxnlq2/daily_picks_thread_monday_5th_october_2026/"
+          ]
+        },
+        "xgXga": {
+          "status": "UNAVAILABLE",
+          "notes": "No trustworthy pre-cutoff xG/xGA split was located in this pass.",
+          "attempts": [
+            {
+              "query": "Belarus Finland xG xGA before Oct 6 2026",
+              "attemptedAt": "2026-10-08T02:23:49.000Z",
+              "outcome": "WEB_SEARCH_EXECUTED_NO_SAFE_XG_SOURCE"
+            }
+          ],
+          "sourceRefs": []
+        },
+        "leaguePosition": {
+          "status": "VERIFIED",
+          "notes": "Pre-cutoff: Finland led Group C1 on 7 points; Belarus had 4 points and were three behind Finland. This is the state before the Oct 6 match.",
+          "attempts": [
+            {
+              "query": "Belarus Finland Group C1 standings Oct 5 2026",
+              "attemptedAt": "2026-10-08T02:23:49.000Z",
+              "outcome": "PRE_CUTOFF_EVIDENCE_FOUND"
+            }
+          ],
+          "sourceRefs": [
+            "https://statz.ai/h2h/belarus-vs-finland/19676763",
+            "https://www.reddit.com/r/SoccerBetting/comments/1wxnlq2/daily_picks_thread_monday_5th_october_2026/"
+          ]
+        },
+        "teamQuality": {
+          "status": "PARTIAL",
+          "notes": "Pre-cutoff sources showed Finland stronger on forward production while Belarus had a strong recent defensive record; no independent Elo-style metric was retained.",
+          "attempts": [
+            {
+              "query": "Belarus Finland team quality preview Oct 5 2026",
+              "attemptedAt": "2026-10-08T02:23:49.000Z",
+              "outcome": "PRE_CUTOFF_EVIDENCE_FOUND"
+            }
+          ],
+          "sourceRefs": [
+            "https://statz.ai/h2h/belarus-vs-finland/19676763",
+            "https://www.thestatszone.com/belarus-vs-finland-preview-prediction-2026-27-uefa-nations-league-league-c-228242"
+          ]
+        },
+        "motivationContext": {
+          "status": "VERIFIED",
+          "notes": "Finland were pursuing promotion from first place; Belarus could close the three-point gap with a win.",
+          "attempts": [
+            {
+              "query": "Belarus Finland promotion motivation Group C1 Oct 5 2026",
+              "attemptedAt": "2026-10-08T02:23:49.000Z",
+              "outcome": "PRE_CUTOFF_EVIDENCE_FOUND"
+            }
+          ],
+          "sourceRefs": [
+            "https://www.thestatszone.com/belarus-vs-finland-preview-prediction-2026-27-uefa-nations-league-league-c-228242",
+            "https://www.reddit.com/r/SoccerBetting/comments/1wxnlq2/daily_picks_thread_monday_5th_october_2026/"
+          ]
+        },
+        "h2h": {
+          "status": "VERIFIED",
+          "notes": "Reverse fixture on 29 Sep 2026 ended Finland 0-0 Belarus; pre-cutoff discussion also noted Finland's unbeaten run in the matchup.",
+          "attempts": [
+            {
+              "query": "Belarus Finland H2H before Oct 6 2026",
+              "attemptedAt": "2026-10-08T02:23:49.000Z",
+              "outcome": "PRE_CUTOFF_EVIDENCE_FOUND"
+            }
+          ],
+          "sourceRefs": [
+            "https://statz.ai/h2h/belarus-vs-finland/19676763",
+            "https://www.reddit.com/r/SoccerBetting/comments/1wxnlq2/daily_picks_thread_monday_5th_october_2026/"
+          ]
+        },
+        "goalsProfile": {
+          "status": "VERIFIED",
+          "notes": "Through three Nations League matches before kickoff, Belarus had 4 GF/2 GA with two clean sheets and no BTTS; Finland had 9 GF/1 GA, heavily influenced by the 7-0 San Marino result.",
+          "attempts": [
+            {
+              "query": "Belarus Finland goals profile before Oct 6 2026",
+              "attemptedAt": "2026-10-08T02:23:49.000Z",
+              "outcome": "PRE_CUTOFF_EVIDENCE_FOUND"
+            }
+          ],
+          "sourceRefs": [
+            "https://statz.ai/h2h/belarus-vs-finland/19676763"
+          ]
+        },
+        "squadAvailability": {
+          "status": "PARTIAL",
+          "notes": "A pre-cutoff Oct 5 discussion reported Finland had no new injuries, Glen Kamara back in the squad and Kaan Kairinen available again. No equally reliable Belarus availability report was located.",
+          "attempts": [
+            {
+              "query": "Belarus Finland injuries squad availability Oct 5 2026",
+              "attemptedAt": "2026-10-08T02:23:49.000Z",
+              "outcome": "PRE_CUTOFF_EVIDENCE_FOUND"
+            }
+          ],
+          "sourceRefs": [
+            "https://www.reddit.com/r/SoccerBetting/comments/1wxnlq2/daily_picks_thread_monday_5th_october_2026/"
+          ]
+        },
+        "opponentStrength": {
+          "status": "PARTIAL",
+          "notes": "Recent group results were contextualized: both had played Albania and San Marino, and had already drawn each other 0-0; Finland's 7-0 against San Marino was treated as an outlier against the weakest opponent.",
+          "attempts": [
+            {
+              "query": "Belarus Finland opponent strength recent opponents Oct 5 2026",
+              "attemptedAt": "2026-10-08T02:23:49.000Z",
+              "outcome": "PRE_CUTOFF_EVIDENCE_FOUND"
+            }
+          ],
+          "sourceRefs": [
+            "https://statz.ai/h2h/belarus-vs-finland/19676763"
+          ]
+        },
+        "restSchedule": {
+          "status": "VERIFIED",
+          "notes": "Both teams played on Oct 3 and again Oct 6, giving equal three-day turnaround; Belarus played the Oct 6 home-designated fixture at a neutral Budapest venue.",
+          "attempts": [
+            {
+              "query": "Belarus Finland rest schedule Oct 3 Oct 6 2026",
+              "attemptedAt": "2026-10-08T02:23:49.000Z",
+              "outcome": "PRE_CUTOFF_EVIDENCE_FOUND"
+            }
+          ],
+          "sourceRefs": [
+            "https://statz.ai/h2h/belarus-vs-finland/19676763",
+            "https://www.thestatszone.com/belarus-vs-finland-preview-prediction-2026-27-uefa-nations-league-league-c-228242"
           ]
         }
       },
