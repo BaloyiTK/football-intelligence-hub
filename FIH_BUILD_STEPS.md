@@ -265,6 +265,8 @@ Step 3 receives the canonical Step-2 facts and normalizes them into model-ready 
 Every fixture model record MUST expose `evidenceUsage` and `inputCoverage`. Each researched evidence family is classified as `USED`, `DERIVED`, `CONTEXT_ONLY`, or `UNAVAILABLE`; silent dropping is forbidden.
 
 Missing evidence remains undefined. Step 3 MUST NOT convert missing information to zero and MUST NOT invent numeric injury, motivation, H2H, or opponent-strength adjustments.
+Every evidence field used numerically in Step 3 MUST have validated Step-2 source references. Standings/H2H/schedule references must resolve to retained source metadata, and xG/xGA is usable only when explicitly marked `OBSERVED_COMPLETED_MATCH_STATISTICS`.
+Pairwise PPG and goal-difference adjustments run only when both teams have verified finite values. A missing side is not replaced by a neutral league-average/default value.
 
 ### 3.3 Fixture model loop
 Process each fixture independently:
