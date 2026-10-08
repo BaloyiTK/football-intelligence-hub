@@ -260,7 +260,8 @@ Step 3 receives the canonical Step-2 facts and normalizes them into model-ready 
 | H2H | context-only unless a later calibrated mapping is explicitly approved |
 | squad availability | context-only unless a later calibrated injury-impact mapping is explicitly approved |
 | competition/motivation context | context-only unless a later calibrated mapping is explicitly approved |
-| opponent quality/context | context-only unless a verified numeric strength mapping is explicitly approved |
+| team quality | context-only when explicitly researched; unavailable otherwise; no numeric score until calibrated |
+| opponent quality/context | context-only when explicitly researched; unavailable otherwise; no numeric score until a verified/calibrated mapping exists |
 
 Every fixture model record MUST expose `evidenceUsage` and `inputCoverage`. Each researched evidence family is classified as `USED`, `DERIVED`, `CONTEXT_ONLY`, or `UNAVAILABLE`; silent dropping is forbidden.
 
