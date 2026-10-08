@@ -23,25 +23,17 @@ for(const f of queue.fixtures){
    if(rows.length>=10) break;
   }catch(e:any){failures.push({source:d.source,url:d.url,error:String(e?.message||e)});}
  }
- const home=teamSeries(f.home,rows,5),away=teamSeries(f.away,rows,5);
- const enough=home.length>=3&&away.length>=3;
+ const toFact=(team:string,m:any)=>({date:m.date||"UNKNOWN",opponent:(m.home===team?m.away:m.home),venue:m.home===team?"HOME":"AWAY",goalsFor:m.home===team?m.homeGoals:m.awayGoals,goalsAgainst:m.home===team?m.awayGoals:m.homeGoals,sourceRef:m.sourceUrl});
+ const homeOverall=teamSeries(f.home,rows,5).map((m:any)=>toFact(f.home,m));
+ const awayOverall=teamSeries(f.away,rows,5).map((m:any)=>toFact(f.away,m));
+ const homeLast5=teamSeries(f.home,rows.filter((m:any)=>m.home===f.home),5).map((m:any)=>toFact(f.home,m));
+ const awayLast5=teamSeries(f.away,rows.filter((m:any)=>m.away===f.away),5).map((m:any)=>toFact(f.away,m));
+ const enough=homeOverall.length>=5&&awayOverall.length>=5&&homeLast5.length>=5&&awayLast5.length>=5;
  const attemptedAt=new Date().toISOString();
- const attempt=(category:string,outcome:string)=>[{query:`${f.home} ${f.away} ${DATE} ${category}`,attemptedAt,outcome}];
- const unavailable=(category:string,reason:string)=>({status:"UNAVAILABLE",reason,attempts:attempt(category,"NO_DIRECT_SOURCE_EVIDENCE")});
- const categories={
-  overallForm:{status:enough?"VERIFIED":(sourceUrls.length?"PARTIAL":"UNAVAILABLE"),homeMatches:home,awayMatches:away,sourceRefs:sourceUrls.map((_,idx)=>idx),attempts:attempt("overall form",enough?"SOURCE_EVIDENCE_FOUND":(sourceUrls.length?"INSUFFICIENT_SOURCE_EVIDENCE":"NO_SOURCE_EVIDENCE"))},
-  venueForm:unavailable("venue form","Direct extractor did not execute a category-specific search."),
-  xgXga:unavailable("xG xGA","Direct extractor did not execute a category-specific search."),
-  leaguePosition:unavailable("standings PPG goal difference","Direct extractor did not execute a category-specific search."),
-  teamQuality:unavailable("team quality","Direct extractor did not execute a category-specific search."),
-  motivationContext:unavailable("motivation context","Direct extractor did not execute a category-specific search."),
-  h2h:unavailable("H2H","Direct extractor did not execute a category-specific search."),
-  goalsProfile:unavailable("goals profile BTTS over 2.5","Direct extractor did not execute a category-specific search."),
-  squadAvailability:unavailable("squad availability injuries suspensions","Direct extractor did not execute a category-specific search."),
-  opponentStrength:unavailable("opponent strength","Direct extractor did not execute a category-specific search."),
-  restSchedule:unavailable("rest schedule","Direct extractor did not execute a category-specific search.")
- };
- results.push({fixtureId:String(f.fixtureId),researchedAt:new Date().toISOString(),searchQuery:f.query,sourceUrls:[...new Set(sourceUrls)],sourceMetadata:[...new Set(sourceUrls)].map(url=>({url,retrievedAt:new Date().toISOString(),supports:["overallForm"]})),evidenceStatus:enough?"VERIFIED_MINIMUM_MODEL_INPUT":"PARTIAL",requiredModelMatchSeries:enough?"VERIFIED":"UNAVAILABLE",categoriesAttempted:Object.keys(categories),evidence:categories,verifiedInputs:{overallMatchSeries:{home,away}},integrity:enough?"Direct extractor verified only supported overall-form evidence; unsearched Build Step 2 categories are explicitly non-canonical.":"Direct extractor did not complete Build Step 2; unsearched categories remain explicitly non-canonical and minimum reproducible score series was not reached.",failures});
+ const sourceRefs=[...new Set([...homeOverall,...awayOverall,...homeLast5,...awayLast5].map((m:any)=>m.sourceRef))];
+ const form={status:enough?"VERIFIED":(sourceRefs.length?"PARTIAL":"UNAVAILABLE"),data:{homeTeam:{overallLast5:homeOverall,homeLast5},awayTeam:{overallLast5:awayOverall,awayLast5}},sourceRefs,attempts:[{query:`${f.home} last 5 overall and home matches; ${f.away} last 5 overall and away matches`,attemptedAt,outcome:enough?"FACTUAL_FORM_VERIFIED":(sourceRefs.length?"INSUFFICIENT_FACTUAL_FORM":"NO_SOURCE_EVIDENCE")}]} ;
+ const categories={form};
+ results.push({fixtureId:String(f.fixtureId),researchedAt:new Date().toISOString(),searchQuery:f.query,sourceUrls:[...new Set(sourceUrls)],sourceMetadata:[...new Set(sourceUrls)].map(url=>({url,retrievedAt:new Date().toISOString(),supports:["overallForm"]})),evidenceStatus:enough?"VERIFIED_FACTUAL_FORM":"PARTIAL",requiredModelMatchSeries:enough?"VERIFIED":"UNAVAILABLE",categoriesAttempted:["form"],evidence:categories,verifiedInputs:{},integrity:enough?"Verified factual match records only; analytical metrics are calculated downstream by FIH.":"Factual form research incomplete; no analytical values were fabricated.",failures});
 }
 fs.mkdirSync(path.dirname(outPath),{recursive:true});
 fs.writeFileSync(outPath,JSON.stringify({schema:"fih-research-inbox-v1",date:DATE,generatedAt:new Date().toISOString(),results},null,2)+"\n");
