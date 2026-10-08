@@ -15,6 +15,7 @@ name: FIH Reliability CI
       - "scripts/research-worker.ts"
       - "scripts/daily-model-runner.ts"
       - "scripts/step3-input-gate.ts"
+      - "scripts/step3-normalize.ts"
       - "scripts/verify-step3-wiring.ts"
       - "scripts/verify-research-storage-lock.ts"
       - ".github/workflows/fih-run-now.yml"
