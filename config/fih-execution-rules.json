@@ -185,6 +185,22 @@
     "MODEL-004": {
       "kind": "frozen-board-resume",
       "requirement": "Once an active ledger has a researchRunId, prediction recovery/resume MUST reuse the frozen Step-1 fixture board. Automated run paths MUST NOT silently reacquire a fresh board before Step 3; any fixture-universe drift requires explicit reconciliation and cannot silently feed the model."
+    },
+    "MODEL-005": {
+      "kind": "step3-normalization-contract",
+      "requirement": "Step 3 MUST normalize the canonical Step-2 facts into explicit model inputs. Overall/venue form are consumed directly; PPG and goal-difference-per-game are derived from source-backed standings facts; goals-profile rates and rest days are derived downstream from verified match facts; observed xG/xGA may be consumed only when explicitly present as source-backed observed data. Missing evidence remains undefined, never zero."
+    },
+    "MODEL-006": {
+      "kind": "step3-evidence-accounting",
+      "requirement": "Step 3 MUST emit per-fixture evidenceUsage/inputCoverage showing which researched categories were USED, DERIVED, CONTEXT_ONLY, or UNAVAILABLE. No researched category may be silently discarded without an explicit usage classification."
+    },
+    "MODEL-007": {
+      "kind": "step3-no-uncalibrated-context-score",
+      "requirement": "Squad availability, motivation/competition context, H2H, and opponent-strength context MUST NOT be converted into invented numeric model adjustments unless a source-backed and calibrated mapping is explicitly defined. Until then they remain auditable CONTEXT_ONLY inputs."
+    },
+    "MODEL-008": {
+      "kind": "step3-minimum-model-input",
+      "requirement": "FIH V2 may calculate only when each team has at least three verified overall-form matches. Otherwise the fixture MUST return INSUFFICIENT_DATA/NO_MODEL. Optional missing evidence may reduce reliability but must not be imputed."
     }
   },
   "hardStops": [
