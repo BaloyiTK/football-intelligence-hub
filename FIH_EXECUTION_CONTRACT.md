@@ -232,3 +232,20 @@ FIH MUST NOT claim that work is running in the background unless a real independ
 
 These requirements are enforced by `TURN-001` and `BG-001` in `config/fih-execution-rules.json`.
 
+
+
+## Step 1 -> Step 2 durable transaction — LOCKED
+
+Step 1 is not merely fixture discovery. Before Step 2 begins, the exact eligible fixture universe (IDs and count) is frozen against the active `researchRunId` in a durable Step-2 working manifest. Step 2 MUST reconcile against that frozen universe throughout execution; missing, extra, duplicate, or changed eligible fixtures reopen reconciliation.
+
+For every eligible fixture, Step 2 executes this indivisible work unit:
+
+**ChatGPT web search -> facts-only record -> validate evidence/source references -> persist non-canonical fixture checkpoint -> reread checkpoint -> revalidate -> mark checkpoint validated -> continue immediately to next unvalidated fixture.**
+
+A web search, extracted evidence in chat/tool context, or an unvalidated write does not count as fixture completion. Evidence must become durable before advancing.
+
+Interruption recovery MUST load `data/research-work/<date>/manifest.json`, preserve all already validated fixture checkpoints, and resume from the first missing/unvalidated fixture. Workload size, a response boundary, or a search-call boundary must never cause validated checkpoint data to be discarded.
+
+Step 2 reaches its promotion boundary only at exact **N/N validated checkpoints**, where N is the frozen eligible fixture count. It must then reconcile IDs/counts, construct the full facts-only daily artifact, validate the aggregate against the active `researchRunId`, promote it to `data/research/<date>.json`, create exactly one canonical research commit, verify the repository commit/HEAD, reread the committed canonical file, and revalidate it.
+
+**N/N without successful canonical commit verification is RECOVERING, not Step-2 completion.** Likewise, a canonical file or commit with fewer than N/N validated fixture checkpoints is invalid. Model execution is forbidden until this entire promotion-and-verification sequence passes.
