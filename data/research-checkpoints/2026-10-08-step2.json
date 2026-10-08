@@ -1,0 +1,335 @@
+{
+  "schema": "fih-step2-working-checkpoint-v2",
+  "date": "2026-10-08",
+  "mode": "PREDICTION",
+  "canonical": false,
+  "status": "IN_PROGRESS",
+  "eligibleCount": 51,
+  "fixtureRecordsValidated": 1,
+  "lastValidatedFixtureId": "1886716",
+  "workingRecords": {
+    "1886716": {
+      "fixtureId": "1886716",
+      "fixture": {
+        "competition": "Veikkausliiga: Championship",
+        "country": "Finland",
+        "home": "HJK Helsinki",
+        "away": "VPS",
+        "kickoff": "20261008170000",
+        "timezone": "Africa/Johannesburg"
+      },
+      "researchedAt": "2026-10-08T04:55:00Z",
+      "sourceMetadata": [
+        {
+          "ref": "s1",
+          "url": "https://www.veikkausliiga.com/tilastot/2026/veikkausliiga/ottelut/4353553/ennakko/",
+          "retrievedAt": "2026-10-08T04:55:00Z",
+          "supports": [
+            "overallForm",
+            "leaguePosition",
+            "teamQuality",
+            "motivationContext",
+            "squadAvailability",
+            "restSchedule"
+          ]
+        },
+        {
+          "ref": "s2",
+          "url": "https://fbref.com/en/squads/d7319d80/2026/matchlogs/c43/schedule/HJK-Helsinki-Scores-and-Fixtures-Veikkausliiga",
+          "retrievedAt": "2026-10-08T04:55:00Z",
+          "supports": [
+            "overallForm",
+            "venueForm",
+            "opponentStrength"
+          ]
+        },
+        {
+          "ref": "s3",
+          "url": "https://www.tntsports.co.uk/football/veikkausliiga/2026/hjk-vps_mtc1659393/live-stats.shtml",
+          "retrievedAt": "2026-10-08T04:55:00Z",
+          "supports": [
+            "overallForm",
+            "h2h",
+            "opponentStrength"
+          ]
+        },
+        {
+          "ref": "s4",
+          "url": "https://www.fotmob.com/matches/vps-vs-hjk/28n6n0",
+          "retrievedAt": "2026-10-08T04:55:00Z",
+          "supports": [
+            "overallForm",
+            "squadAvailability"
+          ]
+        },
+        {
+          "ref": "s5",
+          "url": "https://tipsterarea.com/teams/finland/hjk-helsinki/last-home",
+          "retrievedAt": "2026-10-08T04:55:00Z",
+          "supports": [
+            "venueForm"
+          ]
+        },
+        {
+          "ref": "s6",
+          "url": "https://compactstats.com/match/2026-10-08/hjk-helsinki-v-vps/",
+          "retrievedAt": "2026-10-08T04:55:00Z",
+          "supports": [
+            "xgXga",
+            "goalsProfile"
+          ]
+        },
+        {
+          "ref": "s7",
+          "url": "https://fbref.com/en/stathead/matchup/teams/d7319d80/8b63ce55/HJK-Helsinki-vs-VPS-History",
+          "retrievedAt": "2026-10-08T04:55:00Z",
+          "supports": [
+            "h2h"
+          ]
+        }
+      ],
+      "evidence": {
+        "overallForm": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "HJK Helsinki VPS October 8 2026 form last five",
+              "attemptedAt": "2026-10-08T04:55:00Z",
+              "outcome": "Recent five league results located for both teams"
+            }
+          ],
+          "sourceRefs": [
+            "s1",
+            "s2",
+            "s3",
+            "s4"
+          ],
+          "data": {
+            "home": [
+              "IF Gnistan 1-1 HJK",
+              "KuPS 0-0 HJK",
+              "HJK 2-1 FC Inter",
+              "Ilves 1-2 HJK",
+              "HJK 2-3 IF Gnistan"
+            ],
+            "away": [
+              "VPS 0-2 KuPS",
+              "FC Inter 1-0 VPS",
+              "VPS 1-0 AC Oulu",
+              "VPS 0-1 FC Lahti",
+              "Ilves 0-1 VPS"
+            ]
+          }
+        },
+        "venueForm": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "HJK last 5 home VPS last 5 away 2026",
+              "attemptedAt": "2026-10-08T04:55:00Z",
+              "outcome": "HJK home sequence located; VPS away sequence incomplete"
+            }
+          ],
+          "sourceRefs": [
+            "s2",
+            "s3",
+            "s5"
+          ],
+          "data": {
+            "homeLast5": [
+              "HJK 2-1 Inter",
+              "HJK 2-3 Gnistan",
+              "HJK 3-0 Jaro",
+              "HJK 1-0 TPS",
+              "HJK 2-1 VPS"
+            ],
+            "awayLast5": [
+              "Inter 1-0 VPS",
+              "Ilves 0-1 VPS"
+            ]
+          }
+        },
+        "xgXga": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "HJK VPS 2026 xG xGA",
+              "attemptedAt": "2026-10-08T04:55:00Z",
+              "outcome": "Match-level estimate located; trustworthy venue season splits unavailable"
+            }
+          ],
+          "sourceRefs": [
+            "s6"
+          ],
+          "data": {
+            "homeMatchXgEstimate": 1.48,
+            "awayMatchXgEstimate": 1.08
+          }
+        },
+        "leaguePosition": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "HJK VPS standings October 8 2026",
+              "attemptedAt": "2026-10-08T04:55:00Z",
+              "outcome": "Official standings context located"
+            }
+          ],
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": {
+            "home": {
+              "position": 3
+            },
+            "away": {
+              "position": 5
+            },
+            "context": "HJK six points behind leading pair; VPS six points from medal places"
+          }
+        },
+        "teamQuality": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "HJK VPS 2026 season strength",
+              "attemptedAt": "2026-10-08T04:55:00Z",
+              "outcome": "Season context and current results located"
+            }
+          ],
+          "sourceRefs": [
+            "s1",
+            "s2",
+            "s3"
+          ],
+          "data": {
+            "home": "Third in championship group",
+            "away": "Fifth in championship group"
+          }
+        },
+        "motivationContext": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "HJK VPS championship stakes October 8 2026",
+              "attemptedAt": "2026-10-08T04:55:00Z",
+              "outcome": "Official title/medal context located"
+            }
+          ],
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": "HJK chasing leading pair; VPS chasing medal places"
+        },
+        "h2h": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "HJK VPS head to head",
+              "attemptedAt": "2026-10-08T04:55:00Z",
+              "outcome": "Five recent meetings located"
+            }
+          ],
+          "sourceRefs": [
+            "s3",
+            "s7"
+          ],
+          "data": [
+            "2026-07-18 HJK 2-1 VPS",
+            "2026-05-22 VPS 2-1 HJK",
+            "2025-07-05 VPS 0-2 HJK",
+            "2025-04-26 HJK 3-1 VPS",
+            "2024-09-20 VPS 1-1 HJK"
+          ]
+        },
+        "goalsProfile": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "HJK VPS goals BTTS over 2.5 2026",
+              "attemptedAt": "2026-10-08T04:55:00Z",
+              "outcome": "Supporting current goal profile located"
+            }
+          ],
+          "sourceRefs": [
+            "s6"
+          ],
+          "data": {
+            "matchEstimate": {
+              "over25Pct": 54,
+              "bttsPct": 60
+            }
+          }
+        },
+        "squadAvailability": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "HJK VPS injuries suspensions October 8 2026",
+              "attemptedAt": "2026-10-08T04:55:00Z",
+              "outcome": "Current injury evidence found; complete both-team list unavailable"
+            }
+          ],
+          "sourceRefs": [
+            "s1",
+            "s4"
+          ],
+          "data": {
+            "home": [
+              "Amara Nallo injured"
+            ]
+          }
+        },
+        "opponentStrength": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "HJK VPS recent opponents 2026",
+              "attemptedAt": "2026-10-08T04:55:00Z",
+              "outcome": "Recent opponent identities located"
+            }
+          ],
+          "sourceRefs": [
+            "s2",
+            "s3"
+          ],
+          "data": {
+            "homeRecentOpponents": [
+              "IF Gnistan",
+              "KuPS",
+              "FC Inter",
+              "Ilves",
+              "IF Gnistan"
+            ],
+            "awayRecentOpponents": [
+              "KuPS",
+              "FC Inter",
+              "AC Oulu",
+              "FC Lahti",
+              "Ilves"
+            ]
+          }
+        },
+        "restSchedule": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "HJK VPS rest schedule October 8 2026",
+              "attemptedAt": "2026-10-08T04:55:00Z",
+              "outcome": "Official international-break rest context located"
+            }
+          ],
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": {
+            "home": "About 2.5 weeks since previous league match; friendly vs Paide last Friday",
+            "away": "International-break preparation context"
+          }
+        }
+      }
+    }
+  },
+  "nextFixtureId": "1886717",
+  "nextAction": "Submit fixture 1886717 as next structured ChatGPT Step 2 research job."
+}
