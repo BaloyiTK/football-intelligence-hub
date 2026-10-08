@@ -5,15 +5,15 @@
   "runId": "daily:2026-10-09",
   "researchRunId": "research:2026-10-09:1791446739911",
   "runStatus": "RECOVERING",
-  "heartbeatAt": "2026-10-08T08:05:43.777Z",
-  "recoveryCount": 4,
+  "heartbeatAt": "2026-10-08T08:13:41.693Z",
+  "recoveryCount": 7,
   "board": {
-    "fetchedAt": "2026-10-08T08:05:37.188Z",
+    "fetchedAt": "2026-10-08T08:13:37.726Z",
     "fixtureCount": 252,
     "stageCount": 118
   },
   "createdAt": "2026-10-08T08:05:39.702Z",
-  "updatedAt": "2026-10-08T08:05:43.777Z",
+  "updatedAt": "2026-10-08T08:13:41.693Z",
   "fixtures": [
     {
       "id": "1810712",
