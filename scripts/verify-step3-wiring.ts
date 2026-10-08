@@ -37,10 +37,19 @@ const validator=read("scripts/research-canonical.ts");
 for(const token of [
   "RESEARCH_CATEGORY_SOURCE_REF_UNKNOWN",
   "RESEARCH_EXTERNAL_XG_FORBIDDEN",
-  'v.status==="VERIFIED"',
-  "homeLast5.length!==5",
-  "awayLast5.length!==5"
+  "formOkStrict",
+  "requiredCount=5",
+  "homeLast5.length===requiredCount",
+  "awayLast5.length===requiredCount",
+  '"fih-daily-research-v4"'
 ]) if(!validator.includes(token)) fail("research validator missing "+token);
+
+const checkpoint=read("scripts/research-checkpoint.ts");
+if(!checkpoint.includes('schema:"fih-daily-research-v4"'))fail("new Step 2 checkpoints are not strict v4");
+
+const daily=read("scripts/daily-cycle.ts");
+for(const token of ['venueForm:{count:5','homeTeam:"LAST_COMPLETED_HOME"','awayTeam:"LAST_COMPLETED_AWAY"'])
+  if(!daily.includes(token))fail("Step 2 queue missing requested venue count "+token);
 
 const probability=read("scripts/fih-probability-v2.ts");
 for(const forbidden of ["xgFor","xgAgainst","facts.xg","OBSERVED_COMPLETED_MATCH_STATISTICS"])
