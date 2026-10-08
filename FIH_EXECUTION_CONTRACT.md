@@ -288,6 +288,12 @@ Before available search capacity is too low to complete another fixture research
 Research chunks have no canonical meaning. Only exact N/N aggregate validation may promote the accumulated dataset and cross the single canonical Git boundary.
 
 
+### Venue-form completeness — LOCKED
+
+Step 2 venue form is an exact five-match evidence target: the home team must be researched for its last 5 completed HOME matches and the away team for its last 5 completed AWAY matches. Research must continue until all five are source-backed or the series is explicitly retained as PARTIAL/UNAVAILABLE after genuine search exhaustion. A 1-4 match venue sample is not complete venue evidence.
+
+Step 3 MUST NOT numerically use partial venue form. Venue refinement is permitted only with exactly five validated HOME matches for the home side and exactly five validated AWAY matches for the away side. Partial series remain auditable evidence only.
+
 ### Step-3 evidence normalization — LOCKED
 
 Passing lineage verification is necessary but not sufficient for Step 3. The model stage MUST normalize the canonical facts into an explicit typed model input before probability calculation. Direct factual inputs, deterministic downstream derivations, context-only evidence, and unavailable evidence must be distinguished and auditable per fixture.
