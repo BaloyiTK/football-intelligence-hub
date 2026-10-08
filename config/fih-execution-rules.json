@@ -117,6 +117,14 @@
     "RESEARCH-003": {
       "kind": "research-integrity",
       "requirement": "Step 2 stores source-backed facts only. Calculated or estimated form strength, PPG, rates, clean-sheet rate, BTTS rate, Over 2.5 rate, rest days, squad quality scores, motivation scores, xG/predictions, probabilities, and betting conclusions are downstream FIH calculations and MUST NOT be stored as researched facts."
+    },
+    "RESEARCH-004": {
+      "kind": "research-stage-gate",
+      "requirement": "The daily controller MUST NOT invoke repository-local direct-public-research or research-worker paths to satisfy Step 2. If the current researchRunId does not have a complete validated ChatGPT web-search canonical batch, the controller MUST remain RECOVERING at Step 2, emit/retain the ChatGPT research queue, and MUST NOT execute model or decision stages."
+    },
+    "RESEARCH-005": {
+      "kind": "research-generation",
+      "requirement": "A new authorized ChatGPT research run MUST have an explicit researchRunId. Canonical research records and the daily artifact MUST share that exact ID, and ledger completion MUST be bound to it. Stale or mixed-generation research/ledger completion is invalid."
     }
   },
   "hardStops": [
