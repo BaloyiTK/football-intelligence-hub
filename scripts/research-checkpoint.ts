@@ -31,7 +31,7 @@ function universe(){
 function freshAccumulator(){
   const {fixtures,ids}=universe();
   return {
-    schema:"fih-research-temp-accumulator-v1",
+    schema:"fih-research-temp-accumulator-v2",
     date:DATE,
     researchRunId:RID,
     createdAt:new Date().toISOString(),
@@ -47,7 +47,7 @@ function accumulator(resetStale=false){
   const {ids}=universe();
   if(fs.existsSync(ap)){
     const a=read(ap);
-    const validIdentity=a.schema==="fih-research-temp-accumulator-v1"&&a.date===DATE&&a.researchRunId===RID&&a.universeHash===hash(ids)&&a.expectedCount===ids.length&&Array.isArray(a.fixtures)&&Array.isArray(a.validatedFixtureIds)&&a.records&&typeof a.records==="object";
+    const validIdentity=a.schema==="fih-research-temp-accumulator-v2"&&a.date===DATE&&a.researchRunId===RID&&a.universeHash===hash(ids)&&a.expectedCount===ids.length&&Array.isArray(a.fixtures)&&Array.isArray(a.validatedFixtureIds)&&a.records&&typeof a.records==="object";
     if(validIdentity)return a;
     if(!resetStale)throw new Error("RESEARCH_TEMP_ACCUMULATOR_IDENTITY_INVALID");
   }
@@ -58,7 +58,7 @@ function accumulator(resetStale=false){
 function validateOne(r:any){
   const {ids}=universe();
   if(String(r.fixtureId)!==ID||r.researchRunId!==RID)throw new Error("CHECKPOINT_IDENTITY_INVALID");
-  validateResearchArtifact({schema:"fih-daily-research-v4",date:DATE,mode:"PREDICTION",generatedAt:new Date().toISOString(),researchRunId:RID,fixtures:[r]},DATE,[ID],"PREDICTION");
+  validateResearchArtifact({schema:"fih-daily-research-v5",date:DATE,mode:"PREDICTION",generatedAt:new Date().toISOString(),researchRunId:RID,fixtures:[r]},DATE,[ID],"PREDICTION");
   if(!ids.includes(ID))throw new Error("CHECKPOINT_FIXTURE_NOT_ELIGIBLE");
 }
 function verifyAccumulator(a:any){
@@ -71,7 +71,7 @@ function verifyAccumulator(a:any){
     if(!r)throw new Error("RESEARCH_TEMP_RECORD_MISSING "+id);
     const prev=ID;
     if(String(r.fixtureId)!==id||r.researchRunId!==RID)throw new Error("RESEARCH_TEMP_RECORD_IDENTITY_INVALID "+id);
-    validateResearchArtifact({schema:"fih-daily-research-v4",date:DATE,mode:"PREDICTION",generatedAt:new Date().toISOString(),researchRunId:RID,fixtures:[r]},DATE,[id],"PREDICTION");
+    validateResearchArtifact({schema:"fih-daily-research-v5",date:DATE,mode:"PREDICTION",generatedAt:new Date().toISOString(),researchRunId:RID,fixtures:[r]},DATE,[id],"PREDICTION");
   }
   return {validatedCount:validated.length,expectedCount:ids.length};
 }
@@ -107,7 +107,7 @@ if(cmd==="init"){
   const a=accumulator(false),v=verifyAccumulator(a);
   if(v.validatedCount!==v.expectedCount)throw new Error("RESEARCH_WORK_INCOMPLETE "+v.validatedCount+"/"+v.expectedCount);
   const records=a.fixtures.map((f:any)=>{const id=String(f.fixtureId),r=a.records[id];if(!r)throw new Error("RESEARCH_TEMP_RECORD_MISSING "+id);return r});
-  const artifact={schema:"fih-daily-research-v4",date:DATE,mode:"PREDICTION",generatedAt:new Date().toISOString(),researchRunId:RID,fixtureCount:records.length,fixtures:records};
+  const artifact={schema:"fih-daily-research-v5",date:DATE,mode:"PREDICTION",generatedAt:new Date().toISOString(),researchRunId:RID,fixtureCount:records.length,fixtures:records};
   validateResearchArtifact(artifact,DATE,a.fixtures.map((f:any)=>String(f.fixtureId)),"PREDICTION");
   atomicWrite(cp,artifact);
   const reread=read(cp);
