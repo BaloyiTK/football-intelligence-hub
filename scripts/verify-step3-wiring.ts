@@ -4,7 +4,7 @@ const read=(p:string)=>fs.readFileSync(p,"utf8");
 const fail=(m:string):never=>{throw new Error("STEP3_WIRING_LOCK_FAILED: "+m)};
 
 const rules=JSON.parse(read("config/fih-execution-rules.json"));
-for(const id of ["MODEL-001","MODEL-002","MODEL-003","MODEL-004","MODEL-005","MODEL-006","MODEL-007","MODEL-008","MODEL-009","MODEL-010"]){
+for(const id of ["MODEL-001","MODEL-002","MODEL-003","MODEL-004","MODEL-005","MODEL-006","MODEL-007","MODEL-008","MODEL-009","MODEL-010","MODEL-011","RESEARCH-016"]){
   if(!rules.rules?.[id]?.requirement)fail("missing rule "+id);
 }
 
@@ -23,21 +23,24 @@ for(const token of [
   "goalsProfile",
   "restDays",
   "CONTEXT_ONLY",
-  "facts.xg",
-  "OBSERVED_COMPLETED_MATCH_STATISTICS",
   "facts.teamQuality?.status",
   "facts.opponentStrength?.status",
   "usage:{"
 ]) if(!normalize.includes(token)) fail("normalizer missing "+token);
+for(const forbidden of ["facts.xg","xgFor","xgAgainst","OBSERVED_COMPLETED_MATCH_STATISTICS"])
+  if(normalize.includes(forbidden)) fail("external xG reintroduced into normalizer: "+forbidden);
 
 const validator=read("scripts/research-canonical.ts");
 for(const token of [
   "RESEARCH_CATEGORY_SOURCE_REF_UNKNOWN",
-  "RESEARCH_XG_SOURCE_REF_UNKNOWN",
-  "OBSERVED_COMPLETED_MATCH_STATISTICS"
+  "RESEARCH_EXTERNAL_XG_FORBIDDEN"
 ]) if(!validator.includes(token)) fail("research validator missing "+token);
 
 const probability=read("scripts/fih-probability-v2.ts");
+for(const forbidden of ["xgFor","xgAgainst","facts.xg","OBSERVED_COMPLETED_MATCH_STATISTICS"])
+  if(probability.includes(forbidden)) fail("external xG reintroduced into probability model: "+forbidden);
+for(const token of ["lambdaHome/lambdaAway","no external xG/xGA is consumed"])
+  if(!probability.includes(token)) fail("FIH expected-goal ownership marker missing "+token);
 if(probability.includes("i.home.ppg??1.5")||probability.includes("i.away.ppg??1.5"))fail("neutral PPG imputation reintroduced");
 if(probability.includes("availabilityAttack??0")||probability.includes("availabilityDefence??0"))fail("uncalibrated availability scoring reintroduced");
 for(const token of [
@@ -47,6 +50,8 @@ for(const token of [
 ]) if(!probability.includes(token)) fail("probability model missing no-imputation guard "+token);
 
 const model=read("scripts/daily-model-runner.ts");
+for(const forbidden of ["xgFor","xgAgainst"])
+  if(model.includes(forbidden)) fail("external xG audit field reintroduced: "+forbidden);
 for(const token of [
   '"scripts/step3-input-gate.ts"',
   'validateDailyResearch(root,DATE,ids,"PREDICTION",ledger.researchRunId)',
@@ -72,5 +77,5 @@ if(workflow.includes("- name: Acquire fresh fixture board"))fail("unsafe uncondi
 console.log(JSON.stringify({
   ok:true,
   lock:"STEP2_TO_STEP3_VERIFIED_LINEAGE",
-  rules:["MODEL-001","MODEL-002","MODEL-003","MODEL-004","MODEL-005","MODEL-006","MODEL-007","MODEL-008","MODEL-009","MODEL-010"]
+  rules:["MODEL-001","MODEL-002","MODEL-003","MODEL-004","MODEL-005","MODEL-006","MODEL-007","MODEL-008","MODEL-009","MODEL-010","MODEL-011","RESEARCH-016"]
 },null,2));
