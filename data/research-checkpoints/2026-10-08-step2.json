@@ -5,8 +5,8 @@
   "canonical": false,
   "status": "IN_PROGRESS",
   "eligibleCount": 51,
-  "fixtureRecordsValidated": 24,
-  "lastValidatedFixtureId": "1893567",
+  "fixtureRecordsValidated": 25,
+  "lastValidatedFixtureId": "1893564",
   "workingRecords": {
     "1718971": {
       "fixtureId": "1718971",
@@ -5308,6 +5308,207 @@
         }
       }
     },
+    "1893564": {
+      "fixtureId": "1893564",
+      "fixture": {
+        "competition": "Persian Gulf Pro League",
+        "country": "Iran",
+        "home": "Tractor FC",
+        "away": "Esteghlal",
+        "kickoff": "20261008153000",
+        "timezone": "Africa/Johannesburg"
+      },
+      "researchedAt": "2026-10-08T22:20:00+02:00",
+      "sourceMetadata": [
+        {
+          "ref": "s1",
+          "url": "https://www.soccerpunter.com/h2h/Esteghlal-vs-Tractor-Sazi/5572/3411/",
+          "retrievedAt": "2026-10-08T22:20:00+02:00",
+          "supports": [
+            "overallForm",
+            "venueForm",
+            "h2h",
+            "teamQuality"
+          ]
+        },
+        {
+          "ref": "s2",
+          "url": "https://www.betstudy.com/soccer-stats/h2h/esteghlal-tractor-sazi-5572-3411/",
+          "retrievedAt": "2026-10-08T22:20:00+02:00",
+          "supports": [
+            "h2h",
+            "goalsProfile"
+          ]
+        },
+        {
+          "ref": "s3",
+          "url": "https://fbref.com/en/stathead/matchup/teams/fe550dbf/0230c3aa/Esteghlal-vs-Tractor-History",
+          "retrievedAt": "2026-10-08T22:20:00+02:00",
+          "supports": [
+            "h2h"
+          ]
+        },
+        {
+          "ref": "s4",
+          "url": "https://www.worldfootball.net/match-report/co1156/iran-persian-gulf-pro-league/ma12561313/tractor-sazi_esteghlal/",
+          "retrievedAt": "2026-10-08T22:20:00+02:00",
+          "supports": [
+            "h2h"
+          ]
+        }
+      ],
+      "evidence": {
+        "overallForm": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": {
+            "home": {
+              "played": 7,
+              "wins": 5,
+              "draws": 1,
+              "losses": 1
+            },
+            "away": {
+              "played": 7,
+              "wins": 4,
+              "draws": 3,
+              "losses": 0
+            }
+          }
+        },
+        "venueForm": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": {
+            "home": {
+              "played": 3,
+              "wins": 3,
+              "draws": 0,
+              "losses": 0
+            },
+            "away": {
+              "played": 3,
+              "wins": 1,
+              "draws": 2,
+              "losses": 0
+            }
+          }
+        },
+        "xgXga": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Tractor Esteghlal observed xG xGA 2026",
+              "attemptedAt": "2026-10-08T22:20:00+02:00",
+              "outcome": "No explicit observed xG/xGA provenance retained."
+            }
+          ]
+        },
+        "leaguePosition": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Tractor Esteghlal standings October 8 2026",
+              "attemptedAt": "2026-10-08T22:20:00+02:00",
+              "outcome": "Current numeric league positions not retained from sufficiently trustworthy result."
+            }
+          ]
+        },
+        "teamQuality": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": {
+            "home": {
+              "record": "5W-1D-1L",
+              "homeRecord": "3W-0D-0L"
+            },
+            "away": {
+              "record": "4W-3D-0L",
+              "awayRecord": "1W-2D-0L"
+            }
+          }
+        },
+        "motivationContext": {
+          "status": "PARTIAL",
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": "High-profile Round 8 league fixture; Tractor unbeaten at home and Esteghlal unbeaten overall through seven."
+        },
+        "h2h": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s2",
+            "s3",
+            "s4"
+          ],
+          "data": {
+            "overall36": {
+              "tractorWins": 13,
+              "draws": 11,
+              "esteghlalWins": 12,
+              "avgGoals": 2.44
+            },
+            "recent": [
+              "2026-01-18 Esteghlal 0-0 Tractor",
+              "2025-08-19 Tractor 0-1 Esteghlal",
+              "2025-04-04 Tractor 2-1 Esteghlal"
+            ]
+          }
+        },
+        "goalsProfile": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s2"
+          ],
+          "data": {
+            "h2h36": {
+              "over25Pct": 42,
+              "under25Pct": 58,
+              "bttsPct": 47,
+              "avgGoals": 2.44
+            },
+            "tractorHomeH2H": {
+              "under25Pct": 76,
+              "avgGoals": 1.94
+            }
+          }
+        },
+        "squadAvailability": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Tractor Esteghlal injuries suspensions October 8 2026",
+              "attemptedAt": "2026-10-08T22:20:00+02:00",
+              "outcome": "No trustworthy complete pre-match absence list retained."
+            }
+          ]
+        },
+        "opponentStrength": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": "Both teams entered with strong seven-match league records; Esteghlal unbeaten and Tractor 5-1-1."
+        },
+        "restSchedule": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Tractor Esteghlal last match dates September October 2026",
+              "attemptedAt": "2026-10-08T22:20:00+02:00",
+              "outcome": "Reliable latest domestic match dates not retained in selected sources."
+            }
+          ]
+        }
+      }
+    },
     "1893567": {
       "fixtureId": "1893567",
       "fixture": {
@@ -5780,7 +5981,7 @@
       }
     }
   },
-  "nextFixtureId": "1893564",
+  "nextFixtureId": "1893565",
   "nextAction": "Continue fixture-specific Step 2 web research from nextFixtureId.",
   "integrityRepair": {
     "at": "2026-10-08T05:45:00Z",
@@ -5814,5 +6015,5 @@
       ]
     }
   },
-  "updatedAt": "2026-10-08T22:15:00+02:00"
+  "updatedAt": "2026-10-08T22:20:00+02:00"
 }
