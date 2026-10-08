@@ -5,8 +5,8 @@
   "canonical": false,
   "status": "IN_PROGRESS",
   "eligibleCount": 51,
-  "fixtureRecordsValidated": 4,
-  "lastValidatedFixtureId": "1718971",
+  "fixtureRecordsValidated": 5,
+  "lastValidatedFixtureId": "1904014",
   "workingRecords": {
     "1718971": {
       "fixtureId": "1718971",
@@ -1279,8 +1279,279 @@
           }
         }
       }
+    },
+    "1904014": {
+      "fixtureId": "1904014",
+      "fixture": {
+        "competition": "Women's Friendlies",
+        "country": "International Friendlies",
+        "home": "India W",
+        "away": "Russia W",
+        "kickoff": "20261008143000",
+        "timezone": "Africa/Johannesburg"
+      },
+      "researchedAt": "2026-10-08T05:20:00Z",
+      "sourceMetadata": [
+        {
+          "ref": "s1",
+          "url": "https://www.the-aiff.com/index.php/article/blue-tigresses-kolkata-debut-brings-russia-test-and-chance-for-a-new-generation",
+          "retrievedAt": "2026-10-08T05:20:00Z",
+          "supports": [
+            "teamQuality",
+            "motivationContext",
+            "squadAvailability",
+            "restSchedule"
+          ]
+        },
+        {
+          "ref": "s2",
+          "url": "https://www.the-aiff.com/article/nandini-sibani-eye-senior-team-debuts-as-blue-tigresses-gear-up-for-russia-test",
+          "retrievedAt": "2026-10-08T05:20:00Z",
+          "supports": [
+            "squadAvailability",
+            "teamQuality"
+          ]
+        },
+        {
+          "ref": "s3",
+          "url": "https://www.footlive.com/team/india-women/",
+          "retrievedAt": "2026-10-08T05:20:00Z",
+          "supports": [
+            "overallForm",
+            "opponentStrength"
+          ]
+        },
+        {
+          "ref": "s4",
+          "url": "https://www.sportytrader.com/en/results-live/india-russia-8874489/",
+          "retrievedAt": "2026-10-08T05:20:00Z",
+          "supports": [
+            "overallForm",
+            "goalsProfile",
+            "opponentStrength"
+          ]
+        },
+        {
+          "ref": "s5",
+          "url": "https://sports.ndtv.com/football/india-women-footballers-face-stern-russia-test-in-kolkata-12151622",
+          "retrievedAt": "2026-10-08T05:20:00Z",
+          "supports": [
+            "h2h",
+            "teamQuality",
+            "motivationContext"
+          ]
+        }
+      ],
+      "evidence": {
+        "overallForm": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "India women Russia women recent matches 2026",
+              "attemptedAt": "2026-10-08T05:20:00Z",
+              "outcome": "Recent sequences located"
+            }
+          ],
+          "sourceRefs": [
+            "s3",
+            "s4"
+          ],
+          "data": {
+            "home": [
+              "Bangladesh 1-3 India",
+              "India 1-0 Bhutan",
+              "India 3-0 Bangladesh",
+              "Maldives 0-11 India",
+              "India 3-2 Malawi"
+            ],
+            "away": [
+              "China 0-1 Russia",
+              "China 1-2 Russia",
+              "Serbia 0-3 Russia",
+              "Russia 1-0 Azerbaijan",
+              "Russia 1-0 Azerbaijan"
+            ]
+          }
+        },
+        "venueForm": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "India women last five home Russia women last five away 2026",
+              "attemptedAt": "2026-10-08T05:20:00Z",
+              "outcome": "National-team venues and sparse schedule make comparable five-match home/away split unavailable in retained trustworthy sources"
+            }
+          ]
+        },
+        "xgXga": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "India women Russia women xG xGA 2026",
+              "attemptedAt": "2026-10-08T05:20:00Z",
+              "outcome": "No trustworthy pre-match national-team xG/xGA dataset found"
+            }
+          ]
+        },
+        "leaguePosition": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "India Russia women league position standings",
+              "attemptedAt": "2026-10-08T05:20:00Z",
+              "outcome": "International friendly has no league table; category not applicable"
+            }
+          ]
+        },
+        "teamQuality": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "India women Russia women FIFA ranking October 2026",
+              "attemptedAt": "2026-10-08T05:20:00Z",
+              "outcome": "Official AIFF states India 69th and Russia 27th"
+            }
+          ],
+          "sourceRefs": [
+            "s1",
+            "s2",
+            "s5"
+          ],
+          "data": {
+            "homeFifaRank": 69,
+            "awayFifaRank": 27,
+            "rankGap": 42
+          }
+        },
+        "motivationContext": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "India Russia women friendly context October 8 2026",
+              "attemptedAt": "2026-10-08T05:20:00Z",
+              "outcome": "Official AIFF describes stronger-opposition test and new-generation development"
+            }
+          ],
+          "sourceRefs": [
+            "s1",
+            "s5"
+          ],
+          "data": "First of two friendlies; India testing a new generation against stronger opposition after SAFF title."
+        },
+        "h2h": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "India women Russia women previous meetings",
+              "attemptedAt": "2026-10-08T05:20:00Z",
+              "outcome": "Two previous Russia wins reported"
+            }
+          ],
+          "sourceRefs": [
+            "s5"
+          ],
+          "data": [
+            "2021 Russia 8-0 India",
+            "2025 Russia 2-0 India"
+          ]
+        },
+        "goalsProfile": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "India Russia women goals BTTS over 2.5 recent 2026",
+              "attemptedAt": "2026-10-08T05:20:00Z",
+              "outcome": "Recent six-match aggregate profiles found"
+            }
+          ],
+          "sourceRefs": [
+            "s4"
+          ],
+          "data": {
+            "homeRecent6": {
+              "gfPerGame": 1.17,
+              "gaPerGame": 3.17,
+              "bttsPct": 50,
+              "over25Pct": 83
+            },
+            "awayRecent6": {
+              "gfPerGame": 1.67,
+              "gaPerGame": 0.33,
+              "bttsPct": 33,
+              "over25Pct": 50
+            }
+          }
+        },
+        "squadAvailability": {
+          "status": "PARTIAL",
+          "attempts": [
+            {
+              "query": "India Russia women squad October 8 2026",
+              "attemptedAt": "2026-10-08T05:20:00Z",
+              "outcome": "India youth integration and prospective debutants verified; complete Russia absence list unavailable"
+            }
+          ],
+          "sourceRefs": [
+            "s1",
+            "s2"
+          ],
+          "data": {
+            "home": "New-generation focus; Nandini and Sibani among young players seeking senior debuts",
+            "away": "No complete trustworthy absence list retained"
+          }
+        },
+        "opponentStrength": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "India Russia women recent opponents 2026",
+              "attemptedAt": "2026-10-08T05:20:00Z",
+              "outcome": "Recent opponents retained with ranking context"
+            }
+          ],
+          "sourceRefs": [
+            "s1",
+            "s3",
+            "s4"
+          ],
+          "data": {
+            "home": [
+              "Bangladesh",
+              "Bhutan",
+              "Bangladesh",
+              "Maldives",
+              "Malawi"
+            ],
+            "away": [
+              "China",
+              "China",
+              "Serbia",
+              "Azerbaijan",
+              "Azerbaijan"
+            ],
+            "context": "Russia ranked 27 vs India 69"
+          }
+        },
+        "restSchedule": {
+          "status": "VERIFIED",
+          "attempts": [
+            {
+              "query": "India Russia women schedule October 2026",
+              "attemptedAt": "2026-10-08T05:20:00Z",
+              "outcome": "Official AIFF confirms two-match series Oct 8 and Oct 11; India first international since June"
+            }
+          ],
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": {
+            "home": "First international since June SAFF title; second Russia friendly on Oct 11",
+            "away": "Second match against India on Oct 11"
+          }
+        }
+      }
     }
   },
-  "nextFixtureId": "1904014",
-  "nextAction": "Submit fixture 1904014 India W vs Russia W as next structured ChatGPT Step 2 research job."
+  "nextFixtureId": "1854213",
+  "nextAction": "Submit fixture 1854213 JS Saoura vs Olympique Akbou as next structured ChatGPT Step 2 research job."
 }
