@@ -217,6 +217,14 @@
     "MODEL-011": {
       "kind": "fih-expected-goals-ownership",
       "requirement": "FIH expected goals are owned exclusively by Step 3. lambdaHome and lambdaAway MUST be calculated from validated Step-2 factual evidence by the active FIH model and MUST NOT consume copied, forecast, predicted, projected, or externally supplied xG/xGA values."
+    },
+    "RESEARCH-017": {
+      "kind": "venue-form-completeness",
+      "requirement": "Step 2 venue form target is exact: the home team requires its last 5 completed HOME matches and the away team requires its last 5 completed AWAY matches. Research MUST continue searching until all 5 are source-backed or the venue series is explicitly PARTIAL/UNAVAILABLE after real search exhaustion. A 1-4 match venue series MUST NOT be represented as complete/VERIFIED."
+    },
+    "MODEL-012": {
+      "kind": "venue-form-usage-gate",
+      "requirement": "Step 3 may use venue form numerically only when the home side has exactly 5 validated HOME matches and the away side has exactly 5 validated AWAY matches. Partial venue samples of 1-4 matches remain auditable but MUST NOT influence lambdaHome/lambdaAway."
     }
   },
   "hardStops": [
