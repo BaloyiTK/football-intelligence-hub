@@ -33,6 +33,13 @@
       "squadAvailability",
       "opponentStrength",
       "restSchedule"
+    ],
+    "webResearchBatchesCompleted": 6,
+    "fixtureQueriesExecutedThisRecovery": 48,
+    "sourceDiscoveryCoverage": "48 fixture-specific queries executed in this recovery pass; useful pre-match evidence returned across Romania, Algeria, Colombia, Ecuador, Egypt, Iran, Jamaica, Morocco, Qatar, Romania Liga II, Sweden, Tanzania, Vietnam and others.",
+    "identityWarnings": [
+      "Coastal Union vs Azam: fresh Tanzania source says fixture moved from Oct 8 to Oct 9; provider board still NS Oct 8. Must reconcile before canonical record.",
+      "Gol Gohar vs Esteghlal Khuzestan: sources disagree Oct 8 vs Oct 9; retain provider identity pending authoritative reconciliation."
     ]
   },
   "evidenceLocated": [
@@ -446,11 +453,12 @@
       "away": "Hong Linh Ha Tinh"
     }
   ],
-  "nextAction": "For each of the 51 provider-NS fixtures, execute and record all 11 validator category attempts with source mapping; then validate the complete working daily dataset before canonical persistence.",
+  "nextAction": "Continue unresolved fixture/category research, especially sparse women's cup/Jordan/Peru lower-league/Egypt D2 records; reconcile identified date changes; persist category-complete working records only after each of 11 required categories has an auditable attempt.",
   "recovery": {
     "rule": "REC-005",
     "event": "Previous checkpoint update was rejected by tool safety validation.",
     "action": "Retried with minimal bounded persistence update after re-reading authoritative state.",
     "verifiedAt": "2026-10-08T04:30:00Z"
-  }
+  },
+  "lastResearchRecoveryAt": "2026-10-08T04:29:37Z"
 }
