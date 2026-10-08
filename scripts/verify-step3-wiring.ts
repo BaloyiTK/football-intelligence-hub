@@ -4,7 +4,7 @@ const read=(p:string)=>fs.readFileSync(p,"utf8");
 const fail=(m:string):never=>{throw new Error("STEP3_WIRING_LOCK_FAILED: "+m)};
 
 const rules=JSON.parse(read("config/fih-execution-rules.json"));
-for(const id of ["MODEL-001","MODEL-002","MODEL-003","MODEL-004"]){
+for(const id of ["MODEL-001","MODEL-002","MODEL-003","MODEL-004","MODEL-005","MODEL-006","MODEL-007","MODEL-008"]){
   if(!rules.rules?.[id]?.requirement)fail("missing rule "+id);
 }
 
@@ -17,13 +17,25 @@ for(const token of [
   'STEP3_INPUT_VERIFIED'
 ]) if(!gate.includes(token)) fail("input gate missing "+token);
 
+const normalize=read("scripts/step3-normalize.ts");
+for(const token of [
+  "standingMetrics",
+  "goalsProfile",
+  "restDays",
+  "CONTEXT_ONLY",
+  "facts.xg",
+  "evidenceUsage"
+]) if(!normalize.includes(token)) fail("normalizer missing "+token);
+
 const model=read("scripts/daily-model-runner.ts");
 for(const token of [
   '"scripts/step3-input-gate.ts"',
   'validateDailyResearch(root,DATE,ids,"PREDICTION",ledger.researchRunId)',
   'researchRunId:v.researchRunId',
   'inputResearchHash:gate.inputResearchHash',
-  'inputResearchCommit:gate.researchCommit'
+  'inputResearchCommit:gate.researchCommit',
+  'normalizeResearchRecord',
+  'evidenceUsage:normalized.usage'
 ]) if(!model.includes(token)) fail("model runner missing "+token);
 
 const cycle=read("scripts/daily-cycle.ts");
@@ -41,5 +53,5 @@ if(workflow.includes("- name: Acquire fresh fixture board"))fail("unsafe uncondi
 console.log(JSON.stringify({
   ok:true,
   lock:"STEP2_TO_STEP3_VERIFIED_LINEAGE",
-  rules:["MODEL-001","MODEL-002","MODEL-003","MODEL-004"]
+  rules:["MODEL-001","MODEL-002","MODEL-003","MODEL-004","MODEL-005","MODEL-006","MODEL-007","MODEL-008"]
 },null,2));
