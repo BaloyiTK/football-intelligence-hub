@@ -2,7 +2,10 @@
   "schema": "fih-daily-model-v2",
   "date": "2026-10-09",
   "model": "FIH-V2-RESEARCH",
-  "generatedAt": "2026-10-08T09:11:36.704Z",
+  "generatedAt": "2026-10-08T09:53:34.169Z",
+  "researchRunId": "research:2026-10-09:1791446739911",
+  "inputResearchHash": "28e1583b9bc8fb01aa931ba8e78d18e356c40b95a368e8ccd1e0c03fdaa5806d",
+  "inputResearchCommit": "0b23f9a83d403c61ad23148e570d34641946d5ab",
   "fixtureCount": 216,
   "fixtures": [
     {
@@ -15,7 +18,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "CALCULATED",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.163Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 5,
@@ -94,7 +97,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "CALCULATED",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.164Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 5,
@@ -173,7 +176,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "CALCULATED",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.164Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 5,
@@ -252,7 +255,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "CALCULATED",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.165Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 5,
@@ -331,7 +334,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "CALCULATED",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.165Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 5,
@@ -365,24 +368,24 @@
       "probabilities": {
         "oneXTwo": {
           "home": 0.6178003527832102,
-          "draw": 0.20411197777921852,
-          "away": 0.17808766943757084
+          "draw": 0.2041119777792185,
+          "away": 0.17808766943757082
         },
         "overUnder25": {
-          "over": 0.6042193338724602,
-          "under": 0.3957806661275398
+          "over": 0.6042193338724601,
+          "under": 0.3957806661275399
         },
         "btts": {
-          "yes": 0.5641507691998525,
-          "no": 0.4358492308001475
+          "yes": 0.5641507691998524,
+          "no": 0.4358492308001476
         }
       },
       "fairOdds": {
         "home": 1.6186458869681253,
-        "draw": 4.899271521839196,
-        "away": 5.615211896242783,
-        "over25": 1.6550281395184252,
-        "bttsYes": 1.772575798165306
+        "draw": 4.8992715218391965,
+        "away": 5.6152118962427835,
+        "over25": 1.6550281395184256,
+        "bttsYes": 1.7725757981653065
       },
       "reliability": {
         "homeAway": 0.4,
@@ -410,7 +413,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "CALCULATED",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.166Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 5,
@@ -489,7 +492,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.166Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -527,7 +530,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "CALCULATED",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.166Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 5,
@@ -606,7 +609,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "CALCULATED",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.166Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 5,
@@ -685,7 +688,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.166Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -723,7 +726,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.166Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 5,
@@ -761,7 +764,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "CALCULATED",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.166Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 5,
@@ -840,7 +843,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "CALCULATED",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.166Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 5,
@@ -919,7 +922,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.166Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -957,7 +960,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.166Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -995,7 +998,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.166Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -1033,7 +1036,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.166Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -1071,7 +1074,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.166Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -1109,7 +1112,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.166Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -1147,7 +1150,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.166Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -1185,7 +1188,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.166Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -1223,7 +1226,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.166Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -1261,7 +1264,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.166Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -1299,7 +1302,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.166Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -1337,7 +1340,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.166Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -1375,7 +1378,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.166Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -1413,7 +1416,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.166Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -1451,7 +1454,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.166Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -1489,7 +1492,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.166Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -1527,7 +1530,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.166Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -1565,7 +1568,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.166Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -1603,7 +1606,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.166Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -1641,7 +1644,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.166Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -1679,7 +1682,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.166Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -1717,7 +1720,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.166Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -1755,7 +1758,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.166Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -1793,7 +1796,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.166Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -1831,7 +1834,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.166Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -1869,7 +1872,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -1907,7 +1910,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -1945,7 +1948,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -1983,7 +1986,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 1,
@@ -2021,7 +2024,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -2059,7 +2062,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -2097,7 +2100,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -2135,7 +2138,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -2173,7 +2176,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -2211,7 +2214,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -2249,7 +2252,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -2287,7 +2290,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -2325,7 +2328,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -2363,7 +2366,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -2401,7 +2404,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -2439,7 +2442,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -2477,7 +2480,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -2515,7 +2518,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 3,
         "awayOverall": 0,
@@ -2553,7 +2556,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -2591,7 +2594,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -2629,7 +2632,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -2667,7 +2670,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 0,
@@ -2705,7 +2708,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -2743,7 +2746,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -2781,7 +2784,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -2819,7 +2822,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -2857,7 +2860,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -2895,7 +2898,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -2933,7 +2936,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -2971,7 +2974,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -3009,7 +3012,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 0,
@@ -3047,7 +3050,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -3085,7 +3088,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -3123,7 +3126,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -3161,7 +3164,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -3199,7 +3202,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -3237,7 +3240,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -3275,7 +3278,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -3313,7 +3316,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -3351,7 +3354,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -3389,7 +3392,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -3427,7 +3430,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -3465,7 +3468,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 1,
@@ -3503,7 +3506,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -3541,7 +3544,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 0,
@@ -3579,7 +3582,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 0,
@@ -3617,7 +3620,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -3655,7 +3658,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -3693,7 +3696,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -3731,7 +3734,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -3769,7 +3772,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -3807,7 +3810,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -3845,7 +3848,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -3883,7 +3886,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -3921,7 +3924,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -3959,7 +3962,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -3997,7 +4000,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -4035,7 +4038,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -4073,7 +4076,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -4111,7 +4114,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -4149,7 +4152,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -4187,7 +4190,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -4225,7 +4228,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 0,
@@ -4263,7 +4266,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "CALCULATED",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 4,
         "awayOverall": 3,
@@ -4342,7 +4345,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -4380,7 +4383,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -4418,7 +4421,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -4456,7 +4459,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -4494,7 +4497,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -4532,7 +4535,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -4570,7 +4573,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -4608,7 +4611,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -4646,7 +4649,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "CALCULATED",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 3,
@@ -4725,7 +4728,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -4763,7 +4766,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -4801,7 +4804,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -4839,7 +4842,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -4877,7 +4880,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -4915,7 +4918,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -4953,7 +4956,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -4991,7 +4994,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -5029,7 +5032,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -5067,7 +5070,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -5105,7 +5108,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -5143,7 +5146,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -5181,7 +5184,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -5219,7 +5222,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -5257,7 +5260,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -5295,7 +5298,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -5333,7 +5336,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -5371,7 +5374,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -5409,7 +5412,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -5447,7 +5450,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 5,
@@ -5485,7 +5488,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -5523,7 +5526,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -5561,7 +5564,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -5599,7 +5602,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -5637,7 +5640,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -5675,7 +5678,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 0,
@@ -5713,7 +5716,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -5751,7 +5754,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -5789,7 +5792,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -5827,7 +5830,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -5865,7 +5868,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -5903,7 +5906,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -5941,7 +5944,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -5979,7 +5982,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -6017,7 +6020,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -6055,7 +6058,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -6093,7 +6096,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -6131,7 +6134,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -6169,7 +6172,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -6207,7 +6210,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "CALCULATED",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 3,
         "awayOverall": 5,
@@ -6286,7 +6289,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -6324,7 +6327,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 0,
@@ -6362,7 +6365,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -6400,7 +6403,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -6438,7 +6441,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 0,
@@ -6476,7 +6479,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -6514,7 +6517,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -6552,7 +6555,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 2,
         "awayOverall": 0,
@@ -6590,7 +6593,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -6628,7 +6631,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -6666,7 +6669,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -6704,7 +6707,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 0,
@@ -6742,7 +6745,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 0,
@@ -6780,7 +6783,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -6818,7 +6821,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -6856,7 +6859,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -6894,7 +6897,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.167Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -6932,7 +6935,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -6970,7 +6973,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -7008,7 +7011,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -7046,7 +7049,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -7084,7 +7087,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -7122,7 +7125,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -7160,7 +7163,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -7198,7 +7201,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 1,
         "awayOverall": 1,
@@ -7236,7 +7239,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -7274,7 +7277,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -7312,7 +7315,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -7350,7 +7353,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -7388,7 +7391,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -7426,7 +7429,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 1,
         "awayOverall": 0,
@@ -7464,7 +7467,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -7502,7 +7505,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -7540,7 +7543,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -7578,7 +7581,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 1,
         "awayOverall": 1,
@@ -7616,7 +7619,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -7654,7 +7657,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -7692,7 +7695,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -7730,7 +7733,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -7768,7 +7771,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -7806,7 +7809,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -7844,7 +7847,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -7882,7 +7885,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -7920,7 +7923,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -7958,7 +7961,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -7996,7 +7999,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -8034,7 +8037,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -8072,7 +8075,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -8110,7 +8113,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "INSUFFICIENT_DATA",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 0,
         "awayOverall": 0,
@@ -8148,7 +8151,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "CALCULATED",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 5,
@@ -8227,7 +8230,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "CALCULATED",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 5,
@@ -8306,7 +8309,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "CALCULATED",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 4,
@@ -8339,25 +8342,25 @@
       },
       "probabilities": {
         "oneXTwo": {
-          "home": 0.5606669125395066,
+          "home": 0.5606669125395067,
           "draw": 0.1939540434046068,
-          "away": 0.245379044055886
+          "away": 0.2453790440558861
         },
         "overUnder25": {
-          "over": 0.7502144306139464,
-          "under": 0.24978556938605356
+          "over": 0.7502144306139463,
+          "under": 0.24978556938605367
         },
         "btts": {
-          "yes": 0.7138741369348103,
-          "no": 0.2861258630651897
+          "yes": 0.7138741369348104,
+          "no": 0.2861258630651896
         }
       },
       "fairOdds": {
-        "home": 1.7835901809695902,
+        "home": 1.7835901809695898,
         "draw": 5.1558605453452895,
-        "away": 4.075327637890081,
-        "over25": 1.3329522323126186,
-        "bttsYes": 1.4008071566981537
+        "away": 4.075327637890079,
+        "over25": 1.3329522323126188,
+        "bttsYes": 1.4008071566981535
       },
       "reliability": {
         "homeAway": 0.15,
@@ -8385,7 +8388,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "CALCULATED",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 5,
@@ -8464,7 +8467,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "CALCULATED",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 5,
@@ -8497,25 +8500,25 @@
       },
       "probabilities": {
         "oneXTwo": {
-          "home": 0.6212279002573488,
-          "draw": 0.19630769307962614,
-          "away": 0.18246440666302513
+          "home": 0.621227900257349,
+          "draw": 0.19630769307962617,
+          "away": 0.18246440666302516
         },
         "overUnder25": {
-          "over": 0.6492765056857411,
-          "under": 0.35072349431425887
+          "over": 0.6492765056857412,
+          "under": 0.35072349431425875
         },
         "btts": {
-          "yes": 0.6019053172307559,
-          "no": 0.3980946827692441
+          "yes": 0.601905317230756,
+          "no": 0.398094682769244
         }
       },
       "fairOdds": {
-        "home": 1.6097152101277836,
-        "draw": 5.094043867116206,
-        "away": 5.480520931662019,
-        "over25": 1.5401758591955181,
-        "bttsYes": 1.6613908722401671
+        "home": 1.6097152101277832,
+        "draw": 5.094043867116205,
+        "away": 5.480520931662018,
+        "over25": 1.5401758591955177,
+        "bttsYes": 1.6613908722401667
       },
       "reliability": {
         "homeAway": 0.4,
@@ -8543,7 +8546,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "CALCULATED",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 5,
@@ -8577,24 +8580,24 @@
       "probabilities": {
         "oneXTwo": {
           "home": 0.23116576492813143,
-          "draw": 0.24145751477195468,
-          "away": 0.5273767202999139
+          "draw": 0.24145751477195465,
+          "away": 0.5273767202999138
         },
         "overUnder25": {
-          "over": 0.5109565283168889,
-          "under": 0.48904347168311113
+          "over": 0.5109565283168888,
+          "under": 0.48904347168311124
         },
         "btts": {
-          "yes": 0.5244145623820666,
-          "no": 0.47558543761793337
+          "yes": 0.5244145623820665,
+          "no": 0.4755854376179335
         }
       },
       "fairOdds": {
         "home": 4.325900075691988,
         "draw": 4.141515334258506,
-        "away": 1.896177744499814,
-        "over25": 1.9571136575826515,
-        "bttsYes": 1.9068883126693983
+        "away": 1.8961777444998145,
+        "over25": 1.957113657582652,
+        "bttsYes": 1.9068883126693987
       },
       "reliability": {
         "homeAway": 0.3,
@@ -8622,7 +8625,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "CALCULATED",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 3,
@@ -8655,25 +8658,25 @@
       },
       "probabilities": {
         "oneXTwo": {
-          "home": 0.4957172233081926,
+          "home": 0.4957172233081928,
           "draw": 0.1913498939546063,
-          "away": 0.3129328827372008
+          "away": 0.3129328827372009
         },
         "overUnder25": {
           "over": 0.8168184775103972,
           "under": 0.18318152248960284
         },
         "btts": {
-          "yes": 0.785398779202698,
-          "no": 0.21460122079730204
+          "yes": 0.7853987792026981,
+          "no": 0.21460122079730193
         }
       },
       "fairOdds": {
-        "home": 2.017279111922826,
+        "home": 2.017279111922825,
         "draw": 5.226028503769272,
-        "away": 3.1955734125895425,
+        "away": 3.195573412589542,
         "over25": 1.2242622167999024,
-        "bttsYes": 1.2732385464300768
+        "bttsYes": 1.2732385464300766
       },
       "reliability": {
         "homeAway": 0.15,
@@ -8701,7 +8704,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "CALCULATED",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.168Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 5,
@@ -8780,7 +8783,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "CALCULATED",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.169Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 3,
@@ -8859,7 +8862,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "CALCULATED",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.169Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 5,
@@ -8938,7 +8941,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "CALCULATED",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.169Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 5,
@@ -9017,7 +9020,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "CALCULATED",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.169Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 5,
@@ -9096,7 +9099,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "CALCULATED",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.169Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 5,
@@ -9175,7 +9178,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "CALCULATED",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.169Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 5,
@@ -9254,7 +9257,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "CALCULATED",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.169Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 5,
@@ -9333,7 +9336,7 @@
       },
       "modelVersion": "FIH-V2-RESEARCH",
       "status": "CALCULATED",
-      "generatedAt": "2026-10-08T09:11:36.704Z",
+      "generatedAt": "2026-10-08T09:53:34.169Z",
       "inputCounts": {
         "homeOverall": 5,
         "awayOverall": 5,

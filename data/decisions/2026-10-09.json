@@ -1,7 +1,7 @@
 {
   "schema": "fih-daily-decisions-v2",
   "date": "2026-10-09",
-  "generatedAt": "2026-10-08T09:11:36.713Z",
+  "generatedAt": "2026-10-08T09:53:34.493Z",
   "fixtureCount": 216,
   "calibrationStatus": "NOT_CALIBRATED",
   "betPublicationEnabled": false,
@@ -135,17 +135,17 @@
         },
         {
           "market": "OVER 2.5",
-          "probability": 0.6042193338724602,
+          "probability": 0.6042193338724601,
           "reliability": 0.4
         },
         {
           "market": "BTTS YES",
-          "probability": 0.5641507691998525,
+          "probability": 0.5641507691998524,
           "reliability": 0.4
         },
         {
           "market": "AWAY",
-          "probability": 0.17808766943757084,
+          "probability": 0.17808766943757082,
           "reliability": 0.4
         }
       ],
@@ -1758,22 +1758,22 @@
       "candidateMarkets": [
         {
           "market": "OVER 2.5",
-          "probability": 0.7502144306139464,
+          "probability": 0.7502144306139463,
           "reliability": 0.15
         },
         {
           "market": "BTTS YES",
-          "probability": 0.7138741369348103,
+          "probability": 0.7138741369348104,
           "reliability": 0.15
         },
         {
           "market": "HOME",
-          "probability": 0.5606669125395066,
+          "probability": 0.5606669125395067,
           "reliability": 0.15
         },
         {
           "market": "AWAY",
-          "probability": 0.245379044055886,
+          "probability": 0.2453790440558861,
           "reliability": 0.15
         }
       ],
@@ -1816,22 +1816,22 @@
       "candidateMarkets": [
         {
           "market": "OVER 2.5",
-          "probability": 0.6492765056857411,
+          "probability": 0.6492765056857412,
           "reliability": 0.4
         },
         {
           "market": "HOME",
-          "probability": 0.6212279002573488,
+          "probability": 0.621227900257349,
           "reliability": 0.4
         },
         {
           "market": "BTTS YES",
-          "probability": 0.6019053172307559,
+          "probability": 0.601905317230756,
           "reliability": 0.4
         },
         {
           "market": "AWAY",
-          "probability": 0.18246440666302513,
+          "probability": 0.18246440666302516,
           "reliability": 0.4
         }
       ],
@@ -1845,17 +1845,17 @@
       "candidateMarkets": [
         {
           "market": "AWAY",
-          "probability": 0.5273767202999139,
+          "probability": 0.5273767202999138,
           "reliability": 0.3
         },
         {
           "market": "BTTS YES",
-          "probability": 0.5244145623820666,
+          "probability": 0.5244145623820665,
           "reliability": 0.3
         },
         {
           "market": "OVER 2.5",
-          "probability": 0.5109565283168889,
+          "probability": 0.5109565283168888,
           "reliability": 0.3
         },
         {
@@ -1879,17 +1879,17 @@
         },
         {
           "market": "BTTS YES",
-          "probability": 0.785398779202698,
+          "probability": 0.7853987792026981,
           "reliability": 0.15
         },
         {
           "market": "HOME",
-          "probability": 0.4957172233081926,
+          "probability": 0.4957172233081928,
           "reliability": 0.15
         },
         {
           "market": "AWAY",
-          "probability": 0.3129328827372008,
+          "probability": 0.3129328827372009,
           "reliability": 0.15
         }
       ],
