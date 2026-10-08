@@ -39,7 +39,7 @@ const validation=validateDailyResearch(DATA_ROOT,DATE,eligibleIds,"PREDICTION",l
 if(validation.count!==eligibleIds.length)throw new Error("STEP3_GATE_RESEARCH_COUNT_MISMATCH");
 
 if(path.resolve(DATA_ROOT)!==path.resolve(CODE_ROOT))throw new Error("STEP3_GATE_GIT_ROOT_MISMATCH");
-const git=(args:string[])=>execFileSync("git",args,{cwd:CODE_ROOT,encoding:"utf8"}).trim();
+const git=(args:string[])=>execFileSync("git",args,{cwd:CODE_ROOT,encoding:"utf8",maxBuffer:32*1024*1024}).trim();
 git(["ls-files","--error-unmatch",researchRel]);
 const dirty=git(["status","--porcelain","--",researchRel]);
 if(dirty)throw new Error("STEP3_GATE_RESEARCH_UNCOMMITTED");
