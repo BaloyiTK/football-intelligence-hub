@@ -286,3 +286,12 @@ A known ChatGPT/web-search call ceiling is an execution-capacity boundary, not a
 Before available search capacity is too low to complete another fixture research unit, ChatGPT MUST atomically flush and reread the temporary accumulator, verify unique fixture IDs and generation identity, and preserve a continuation cursor containing `validatedCount`, `expectedCount`, and the exact next fixture ID. The next execution opportunity resumes that same research generation from the cursor, skipping fixture IDs already validated in the accumulator. It MUST NOT rerun Step 1 merely because a research chunk ended, and it MUST NOT create a partial Git research commit.
 
 Research chunks have no canonical meaning. Only exact N/N aggregate validation may promote the accumulated dataset and cross the single canonical Git boundary.
+
+
+### Step-3 evidence normalization — LOCKED
+
+Passing lineage verification is necessary but not sufficient for Step 3. The model stage MUST normalize the canonical facts into an explicit typed model input before probability calculation. Direct factual inputs, deterministic downstream derivations, context-only evidence, and unavailable evidence must be distinguished and auditable per fixture.
+
+PPG, goal-difference-per-game, recent scoring/conceding/BTTS/Over-2.5 rates, and rest days are downstream calculations and must be derived in Step 3 from source-backed Step-2 facts. Missing values remain undefined. Observed xG/xGA may be consumed only when explicitly source-backed as observed statistical evidence. Squad availability, motivation/competition context, H2H, and opponent-strength context must remain context-only until an explicit verified/calibrated numerical mapping exists; they must never be converted into arbitrary scores merely because the model has numeric fields available.
+
+Every Step-3 fixture output MUST carry evidence-use accounting sufficient to show what was USED, DERIVED, CONTEXT_ONLY, or UNAVAILABLE. These invariants are machine-locked by `MODEL-005` through `MODEL-008`.
