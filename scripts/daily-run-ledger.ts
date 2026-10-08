@@ -5,7 +5,7 @@ import {validateDailyResearch} from "./research-canonical";
 type State="PENDING"|"RESEARCH_VERIFIED"|"MODEL_VERIFIED"|"DECISION_VERIFIED"|"COMPLETE"|"EXCLUDED";
 type Item={id:string;home:string;away:string;competition:string;kickoff:string|null;eligible:boolean;exclusionReason:string|null;state:State;updatedAt:string|null};
 type RunStatus="RUNNING"|"RECOVERING"|"WAITING"|"COMPLETE";
-type Ledger={schema:string;date:string;timezone:string;runId:string;runStatus:RunStatus;heartbeatAt:string;recoveryCount:number;board:{fetchedAt:string;fixtureCount:number;stageCount:number};createdAt:string;updatedAt:string;fixtures:Item[];counts:Record<string,number>;next:{fixtureId:string;state:State}|null};
+type Ledger={schema:string;date:string;timezone:string;runId:string;researchRunId?:string;runStatus:RunStatus;heartbeatAt:string;recoveryCount:number;board:{fetchedAt:string;fixtureCount:number;stageCount:number};createdAt:string;updatedAt:string;fixtures:Item[];counts:Record<string,number>;next:{fixtureId:string;state:State}|null};
 
 const ROOT=process.env.FIH_ROOT||process.cwd(), TZ="Africa/Johannesburg";
 const arg=(name:string)=>{const i=process.argv.indexOf(name);return i>=0?process.argv[i+1]:undefined};
@@ -46,8 +46,10 @@ function artifactCandidates(d:string,id:string,to:State){const m:Record<string,s
 function validArtifact(p:string){if(!fs.existsSync(p))return false;try{const x=readJson(p);return x&&typeof x==="object"&&Object.keys(x).length>0}catch{return false}}
 function requireArtifact(d:string,id:string,to:State){if(to==="PENDING"||to==="COMPLETE")return;const c=artifactCandidates(d,id,to);if(!c.some(p=>{const full=path.join(ROOT,p);if(!validArtifact(full))return false;if(to==="RESEARCH_VERIFIED"||to==="MODEL_VERIFIED"||to==="DECISION_VERIFIED"){const x=readJson(full);return Array.isArray(x.fixtures)&&x.fixtures.some((r:any)=>String(r.fixtureId)===id)}return true}))throw new Error("canonical artifact missing/invalid for "+to+" fixture "+id)}
 function advance(d:string){const id=arg("--fixture"),to=arg("--to") as State;if(!id||!to)throw new Error("advance requires --fixture ID --to STATE");const order:State[]=["PENDING","RESEARCH_VERIFIED","MODEL_VERIFIED","DECISION_VERIFIED","COMPLETE"];if(!order.includes(to))throw new Error("invalid state");const l=verify(d),f=l.fixtures.find(x=>x.id===id);if(!f)throw new Error("fixture not in authoritative board");if(!f.eligible||f.state==="EXCLUDED")throw new Error("excluded fixture cannot advance");const fromIndex=order.indexOf(f.state),toIndex=order.indexOf(to);if(toIndex<fromIndex)throw new Error("state regression refused");if(toIndex>fromIndex+1)throw new Error("state skipping refused: "+f.state+" -> "+to);requireArtifact(d,id,to);if(to==="COMPLETE"&&f.state!=="DECISION_VERIFIED")throw new Error("COMPLETE requires DECISION_VERIFIED");f.state=to;f.updatedAt=now();l.updatedAt=now();l.heartbeatAt=l.updatedAt;l.counts=counts(l.fixtures);l.next=next(l.fixtures);l.runStatus=l.next?"RUNNING":"COMPLETE";fs.writeFileSync(ledgerPath(d),JSON.stringify(l,null,2)+"\n");return l}
+function startResearch(d:string){const l=verify(d);const rid=arg("--research-run-id")||("research:"+d+":"+Date.now());l.researchRunId=rid;l.runStatus="RUNNING";l.updatedAt=now();l.heartbeatAt=l.updatedAt;for(const f of l.fixtures)if(f.eligible){f.state="PENDING";f.updatedAt=l.updatedAt}l.counts=counts(l.fixtures);l.next=next(l.fixtures);fs.writeFileSync(ledgerPath(d),JSON.stringify(l,null,2)+"\n");return l}
 const cmd=process.argv[2]||"verify",d=arg("--date")||today();let result:any;
 if(cmd==="init"||cmd==="reconcile")result=init(d);
+else if(cmd==="start-research")result=startResearch(d);
 else if(cmd==="verify")result=verify(d);
 else if(cmd==="advance")result=advance(d);
 else throw new Error("unknown command "+cmd);
