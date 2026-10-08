@@ -195,8 +195,8 @@
       "requirement": "Step 3 MUST emit per-fixture evidenceUsage/inputCoverage showing which researched categories were USED, DERIVED, CONTEXT_ONLY, or UNAVAILABLE. No researched category may be silently discarded without an explicit usage classification."
     },
     "MODEL-007": {
-      "kind": "step3-no-uncalibrated-context-score",
-      "requirement": "Squad availability, motivation/competition context, H2H, and opponent-strength context MUST NOT be converted into invented numeric model adjustments unless a source-backed and calibrated mapping is explicitly defined. Until then they remain auditable CONTEXT_ONLY inputs."
+      "kind": "step3-locked-context-mapping",
+      "requirement": "FIH-5F-V1 MAY use H2H and motivation numerically only through the locked mappings defined by MODEL-014: H2H requires exactly five source-backed meetings and uses W=3/D=1/L=0; motivation uses the locked Step-3 competitive-fixture baseline and source-backed context-tag overrides. Squad availability, team quality, and opponent-strength context remain CONTEXT_ONLY unless a separately approved calibrated mapping is locked."
     },
     "MODEL-008": {
       "kind": "step3-minimum-model-input",
@@ -208,7 +208,7 @@
     },
     "MODEL-010": {
       "kind": "step3-no-imputation",
-      "requirement": "Missing optional Step-3 evidence MUST remain undefined and MUST NOT be replaced by neutral numeric defaults. Pairwise PPG or goal-difference adjustments may execute only when both teams have verified finite inputs. Squad availability, motivation and H2H remain non-numeric until calibrated."
+      "requirement": "Missing optional Step-3 evidence MUST remain undefined and MUST NOT be replaced by neutral numeric defaults. Pairwise PPG or goal-difference adjustments may execute only when both teams have verified finite inputs. For FIH-5F-V1, an unavailable factor contributes no invented value; the remaining available locked factor weights are transparently renormalized. The motivation competitive-fixture baseline is an explicit locked model rule, not missing-evidence imputation."
     },
     "RESEARCH-016": {
       "kind": "facts-only-no-external-xg",
@@ -229,6 +229,14 @@
     "MODEL-013": {
       "kind": "step3-derived-result-profile",
       "requirement": "Step 3 MUST derive W/D/L profiles directly from verified match scorelines. For each fixture it calculates the home club OVERALL and HOME result profiles, and the away club OVERALL and AWAY result profiles. Each profile exposes wins, draws, losses, points using W=3/D=1/L=0, PPG, normalized points strength, win rate, draw rate and loss rate. Venue profiles are usable only when their exact-five series passes. These derived result metrics MUST be exposed in model output and MUST NOT be manually researched or stored as Step-2 calculated facts."
+    },
+    "MODEL-014": {
+      "kind": "five-factor-result-strength-lock",
+      "requirement": "NON-NEGOTIABLE MODEL LOCK: FIH-5F-V1 result strength uses exactly five base weights summing to 100%: overall last-5 form 30%, home-team HOME last-5 versus away-team AWAY last-5 30%, league-position strength 15% operationalized by season PPG derived from verified standings, exact last-5 H2H 15%, and motivation 10%. Overall/venue/H2H result scoring is W=3, D=1, L=0. Each factor converts the two raw scores to a pair share, applies its locked weight, and unavailable factors are omitted with transparent renormalization of the remaining locked weights. Changing these weights or mappings requires an explicit user-approved model-rule change."
+    },
+    "MODEL-015": {
+      "kind": "five-factor-interpretation-lock",
+      "requirement": "FIH-5F-V1 output is a result-strength score, not a win probability. It MUST be emitted separately from Poisson HOME/DRAW/AWAY probabilities and fair odds. The strength score may inform HOME/AWAY evidence support and reliability, but it MUST NOT be relabeled as probability or independently enable bet publication without calibrated qualification rules."
     }
   },
   "hardStops": [
