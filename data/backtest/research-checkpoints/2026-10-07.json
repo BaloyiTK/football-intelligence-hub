@@ -1,0 +1,126 @@
+{
+  "schema": "fih-backtest-research-checkpoint-v1",
+  "date": "2026-10-07",
+  "mode": "BACKTEST",
+  "cutoff": "2026-10-07T04:00:00.000Z",
+  "rules": [
+    "PRE-001",
+    "EXEC-001",
+    "RESUME-001",
+    "REC-005",
+    "TURN-001",
+    "BACKTEST-001",
+    "BACKTEST-002"
+  ],
+  "fixtureCount": 37,
+  "searchedFixtureIds": [
+    "1880752",
+    "1880746",
+    "1880750",
+    "1880756",
+    "1880751",
+    "1880749",
+    "1880747",
+    "1880757",
+    "1880754",
+    "1886720",
+    "1854206",
+    "1854229",
+    "1854214",
+    "1735797",
+    "1747216",
+    "1747218",
+    "1806529",
+    "1883881",
+    "1867271",
+    "1867241",
+    "1867261",
+    "1867251",
+    "1837436",
+    "1839069",
+    "1857932",
+    "1857747",
+    "1829269",
+    "1871223",
+    "1862971",
+    "1881184",
+    "1896296",
+    "1896304",
+    "1814423",
+    "1816013",
+    "1902157",
+    "1743553",
+    "1880689"
+  ],
+  "stage": "STEP2_RESEARCH_RECOVERING",
+  "canonicalResearchCommitted": false,
+  "integrity": "Fixture-specific web searches were executed for every eligible fixture. Search results published/crawled after the historical cutoff were not accepted as pre-match evidence. This checkpoint is recovery state only and MUST NOT be treated as canonical Step 2.",
+  "cutoffSafeLeads": [
+    {
+      "fixtureId": "1854214",
+      "url": "https://www.footix.fr/compositions-probables-cr-belouizdad-vs-usm-khenchela-07-10-2026/",
+      "published": "2026-10-06T09:51:00",
+      "supports": [
+        "leaguePosition",
+        "teamQuality",
+        "motivationContext",
+        "squadAvailability"
+      ]
+    },
+    {
+      "fixtureId": "1839069",
+      "url": "https://gosportboroughfc.com/2026/10/05/next-up-weds-night-at-the-aei-the-boys-are-back-in-town/",
+      "published": "2026-10-05",
+      "supports": [
+        "leaguePosition",
+        "overallForm",
+        "motivationContext"
+      ]
+    },
+    {
+      "fixtureId": "1881184",
+      "url": "https://www.geekinco.com/match-previews/shooting-vs-kano-pillars-prediction",
+      "published": "2026-10-05",
+      "supports": [
+        "overallForm",
+        "venueForm",
+        "leaguePosition",
+        "teamQuality",
+        "h2h",
+        "goalsProfile"
+      ]
+    },
+    {
+      "fixtureId": "1747216",
+      "url": "https://www.geekinco.com/match-previews/foshan-nanshi-vs-guangxi-hengchen-prediction",
+      "published": "2026-10-05",
+      "supports": [
+        "overallForm",
+        "leaguePosition",
+        "teamQuality",
+        "h2h",
+        "goalsProfile"
+      ]
+    },
+    {
+      "fixtureId": "1814423",
+      "url": "https://goldelmurcia.es/real-murcia/noticias/cartagena-real-murcia-miercoles-7-de-octubre-en-el-cartagonova",
+      "published": "2026-10-05",
+      "supports": [
+        "motivationContext"
+      ]
+    },
+    {
+      "fixtureId": "1857932",
+      "url": "https://felixstowefootball.co.uk/10/06/match-preview-gorleston-vs-seasiders/",
+      "published": "2026-10-06",
+      "supports": [
+        "overallForm",
+        "venueForm",
+        "leaguePosition",
+        "motivationContext"
+      ]
+    }
+  ],
+  "next": "Verify cutoff-safe availability timestamps/source contents and build per-category evidence/UNAVAILABLE attempts for each fixture; only then validate complete working dataset and create data/backtest/research/2026-10-07.json."
+}
