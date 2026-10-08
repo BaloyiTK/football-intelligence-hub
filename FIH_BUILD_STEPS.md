@@ -109,7 +109,10 @@ For BOTH teams, collect:
 - Expected goals created.
 - Expected goals conceded.
 - Prefer venue + overall splits when reliable data is available.
-- If trustworthy xG is unavailable, record it as unavailable. Never invent xG.
+- xG/xGA evidence MUST be observed/statistical team or match data from completed play, not another site's prediction, forecast, projected score, betting model, simulation, or pre-match expected-goals estimate.
+- A pre-match source value labelled or functioning as predicted/projected/forecast xG MUST NOT be stored as verified or partial xG/xGA evidence and MUST NOT enter FIH V2 as xG/xGA.
+- If a source mixes observed xG/xGA with predictive values, retain only the clearly attributable observed values; otherwise treat the xG/xGA category as unavailable after the required search attempt.
+- If trustworthy observed xG is unavailable, record it as unavailable. Never invent xG.
 
 ### League position
 - Position.
