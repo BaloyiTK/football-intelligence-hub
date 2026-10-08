@@ -5,8 +5,8 @@
   "canonical": false,
   "status": "IN_PROGRESS",
   "eligibleCount": 51,
-  "fixtureRecordsValidated": 16,
-  "lastValidatedFixtureId": "1843709",
+  "fixtureRecordsValidated": 17,
+  "lastValidatedFixtureId": "1843711",
   "workingRecords": {
     "1718971": {
       "fixtureId": "1718971",
@@ -1795,6 +1795,196 @@
           "data": {
             "homeLastMatch": "2026-10-02",
             "awayLastMatch": "2026-10-01"
+          }
+        }
+      }
+    },
+    "1843711": {
+      "fixtureId": "1843711",
+      "fixture": {
+        "competition": "2. Division A",
+        "country": "Egypt",
+        "home": "Mega Sport",
+        "away": "Dayrot",
+        "kickoff": "20261008143000",
+        "timezone": "Africa/Johannesburg"
+      },
+      "researchedAt": "2026-10-08T21:40:00+02:00",
+      "sourceMetadata": [
+        {
+          "ref": "s1",
+          "url": "https://www.livescore.mobi/football/egypt/2-division-a/mega-sport-vs-dayrot/1843711/?tz=-7",
+          "retrievedAt": "2026-10-08T21:40:00+02:00",
+          "supports": [
+            "leaguePosition",
+            "teamQuality"
+          ]
+        },
+        {
+          "ref": "s2",
+          "url": "https://www.statarea.com/compare/teams/Mega%2BSport%2BBelqas%20%28Egypt%29/Dayrot%20%28Egypt%29",
+          "retrievedAt": "2026-10-08T21:40:00+02:00",
+          "supports": [
+            "overallForm",
+            "h2h",
+            "restSchedule"
+          ]
+        },
+        {
+          "ref": "s3",
+          "url": "https://footballfixtures.org/match/mega-sport-vs-dayrout-2026-10-08",
+          "retrievedAt": "2026-10-08T21:40:00+02:00",
+          "supports": [
+            "overallForm",
+            "h2h"
+          ]
+        },
+        {
+          "ref": "s4",
+          "url": "https://golitoscores.com/en/team/dayrout?league=egypt-second-league&season=2026",
+          "retrievedAt": "2026-10-08T21:40:00+02:00",
+          "supports": [
+            "leaguePosition",
+            "overallForm",
+            "squadAvailability"
+          ]
+        }
+      ],
+      "evidence": {
+        "overallForm": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s2",
+            "s3",
+            "s4"
+          ],
+          "data": {
+            "home": {
+              "last5": "L-L-L-L-L"
+            },
+            "away": {
+              "last5": "D-D-L-L-L",
+              "season": "0W-2D-5L"
+            }
+          }
+        },
+        "venueForm": {
+          "status": "PARTIAL",
+          "sourceRefs": [
+            "s3"
+          ],
+          "data": {
+            "homeRecent": "L-L-D",
+            "awayRecent": "D-L-L-L-W"
+          }
+        },
+        "xgXga": {
+          "status": "UNAVAILABLE",
+          "attempts": [
+            {
+              "query": "Mega Sport Dayrot observed xG xGA 2026",
+              "attemptedAt": "2026-10-08T21:40:00+02:00",
+              "outcome": "No explicit observed xG/xGA provenance found; prediction-site estimates excluded."
+            }
+          ]
+        },
+        "leaguePosition": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1",
+            "s4"
+          ],
+          "data": {
+            "home": {
+              "position": 19,
+              "played": 7,
+              "points": 2,
+              "gf": 5,
+              "ga": 11
+            },
+            "away": {
+              "position": 20,
+              "played": 7,
+              "points": 2,
+              "gf": 2,
+              "ga": 15
+            }
+          }
+        },
+        "teamQuality": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1",
+            "s4"
+          ],
+          "data": {
+            "home": {
+              "record": "0W-2D-5L",
+              "gd": -6
+            },
+            "away": {
+              "record": "0W-2D-5L",
+              "gd": -13
+            }
+          }
+        },
+        "motivationContext": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s1"
+          ],
+          "data": "Bottom-two league fixture: Mega Sport 19th and Dayrot 20th, both on two points."
+        },
+        "h2h": {
+          "status": "UNAVAILABLE",
+          "sourceRefs": [
+            "s2",
+            "s3"
+          ],
+          "data": "No previous meetings found."
+        },
+        "goalsProfile": {
+          "status": "PARTIAL",
+          "sourceRefs": [
+            "s1",
+            "s4"
+          ],
+          "data": {
+            "home": {
+              "gf": 5,
+              "ga": 11,
+              "played": 7
+            },
+            "away": {
+              "gf": 2,
+              "ga": 15,
+              "played": 7
+            }
+          }
+        },
+        "squadAvailability": {
+          "status": "PARTIAL",
+          "sourceRefs": [
+            "s4"
+          ],
+          "data": "Official lineup pending; source has sparse squad data and no complete absence report."
+        },
+        "opponentStrength": {
+          "status": "PARTIAL",
+          "sourceRefs": [
+            "s2",
+            "s4"
+          ],
+          "data": "Recent league opponents/results verified; no normalized strength index retained."
+        },
+        "restSchedule": {
+          "status": "VERIFIED",
+          "sourceRefs": [
+            "s2"
+          ],
+          "data": {
+            "homeLastMatch": "2026-10-02",
+            "awayLastMatch": "2026-10-02"
           }
         }
       }
@@ -4253,7 +4443,7 @@
       }
     }
   },
-  "nextFixtureId": "1843711",
+  "nextFixtureId": "1867272",
   "nextAction": "Continue fixture-specific Step 2 web research from nextFixtureId.",
   "integrityRepair": {
     "at": "2026-10-08T05:45:00Z",
@@ -4287,5 +4477,5 @@
       ]
     }
   },
-  "updatedAt": "2026-10-08T21:35:00+02:00"
+  "updatedAt": "2026-10-08T21:40:00+02:00"
 }
