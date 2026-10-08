@@ -153,6 +153,18 @@
     "RESEARCH-011": {
       "kind": "chatgpt-temp-accumulator",
       "requirement": "The authoritative Step-2 working accumulator for a ChatGPT-run research batch is a temporary local file in ChatGPT's execution workspace, keyed by date and researchRunId. After every fixture the file MUST be atomically updated, reread, fixture count/identity checked, and the just-written record revalidated before continuing. The temp file is disposable working state and MUST NOT be committed to Git."
+    },
+    "RESEARCH-012": {
+      "kind": "bounded-search-continuation",
+      "requirement": "Known ChatGPT/web-search per-turn or per-execution call ceilings are execution boundaries, not research failures. Before reaching a known ceiling, the executor MUST atomically flush and verify the active temp accumulator, record validatedCount/expectedCount and the exact next fixture for the same researchRunId, and resume from that fixture at the next available execution opportunity without reacquiring Step 1 or creating a partial Git research commit."
+    },
+    "RESEARCH-013": {
+      "kind": "chunk-integrity",
+      "requirement": "A research chunk is only a continuation unit, never a canonical batch. Every chunk MUST use the same date, frozen eligible fixture universe, and researchRunId; skip already validated fixture IDs in the accumulator; reject duplicates or universe drift; and only N/N may cross the canonical Git boundary."
+    },
+    "RESEARCH-014": {
+      "kind": "limit-aware-execution",
+      "requirement": "The executor MUST plan Step 2 below the known search-call ceiling with safety headroom rather than deliberately exhausting the tool. When remaining search capacity is insufficient for another complete fixture research unit, checkpoint the temp accumulator and continuation cursor before the limit is hit."
     }
   },
   "hardStops": [
