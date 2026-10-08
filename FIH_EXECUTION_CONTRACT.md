@@ -80,6 +80,14 @@ Execution may terminate only when:
 
 Workload size, number of fixtures, number of web searches, unavailable individual evidence fields, an intermediate commit, an intermediate successful stage, or the desire to provide a progress report are NOT hard stops.
 
+## ChatGPT research ownership and canonical commit boundary — LOCKED
+
+For Step 2, ChatGPT is the authoritative research executor. Each eligible fixture MUST receive an actual ChatGPT web-search job. Repository-local homepage scanners, scrapers, cached-link discovery, or direct-public-source discovery may assist, but MUST NOT be accepted as a substitute for the ChatGPT web-search requirement.
+
+Research is accumulated across the complete eligible fixture universe for the date in working/checkpoint state. Individual fixture completion MUST NOT create a canonical GitHub research commit. Only after every eligible fixture has a validated research record, complete coverage has been reconciled, and the facts-only research schema passes validation may the complete per-date canonical research artifact be committed. The canonical research stage uses one batch commit for the completed daily research dataset.
+
+Research stores source-backed facts only. Derived statistics, strength assessments, rates, rest-day calculations, expected-goal calculations, probabilities, and betting conclusions belong to downstream FIH calculation/model stages.
+
 ## Research obligation
 FIH intentionally uses free web research for the research/evidence layer rather than requiring a paid football-data API.
 
