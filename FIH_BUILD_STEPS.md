@@ -61,6 +61,9 @@ ChatGPT owns the fixture-by-fixture data-collection stage.
 
 - Research/provider/query ceilings are continuation boundaries, never completion or a hard stop. Continue through available search capacity and authorized search paths. If the execution environment itself prevents further calls, first verify the single temp accumulator and exact continuation cursor; resume the same `researchRunId` from the next unfinished fixture without rerunning Step 1 or requiring a new user command.
 - ChatGPT MUST perform the actual web search for every eligible fixture, fixture by fixture.
+- **Actual-capture lock:** a search call or completion marker is not a researched fixture. Before a fixture enters `data/research-work/YYYY-MM-DD.json`, ChatGPT MUST write the source-backed structured facts returned by the search into that fixture record. Copying a prior canonical/baseline record and appending attempt/completion markers is forbidden.
+- For every required category, `PARTIAL` or `UNAVAILABLE` is valid only after genuine category-specific exhaustion: `searchExhausted: true` plus at least one attempt outcome explicitly recording `SEARCH_EXHAUSTED`.
+- Completion-only outcomes such as `CHATGPT_WEB_SEARCH_REFRESH_COMPLETED`, `CHATGPT_H2H_SEARCH_REFRESH_COMPLETED`, `CHATGPT_VENUE_FORM_SEARCH_REFRESH_COMPLETED`, or `SEARCH_COMPLETE` are forbidden as research evidence and cannot satisfy checkpoint/promotion validation.
 - Repository-local homepage scanning, scraping, cached link discovery, or direct-public-source discovery is not equivalent to the required ChatGPT web-search job and MUST NOT satisfy Step 2 by itself.
 - Research each eligible fixture using web search, retain only source-backed factual evidence, and add the validated fixture record to the working daily dataset.
 - Continue until every eligible fixture for the date has been researched or a field has been truthfully recorded as unavailable after a real ChatGPT web-search attempt.
