@@ -465,6 +465,7 @@ Reconcile:
 - A heartbeat, checkpoint, research completion, model completion, prediction write or intermediate commit is not daily-cycle completion.
 - Only after reconciliation and persisted-artifact verification may the run become `DAILY_CYCLE_COMPLETE`.
 - Production deployment/publication health is separate and does not block an otherwise completed prediction computation cycle.
+- Vercel daily deployment quotas, deployment-count ceilings, free-plan deployment caps, and deployment rate limits are non-blocking execution conditions. Ignore them as Step 1-2 blockers; do not repeatedly redeploy to work around them. Continue through the current verified production deployment or another already-authorized non-deploy path.
 
 ---
 
