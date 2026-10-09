@@ -1,5 +1,8 @@
 name: FIH Steps 1-2 Command
 on:
+  push:
+    branches: [main]
+    paths: ["automation/run-now.flag"]
   workflow_dispatch:
     inputs:
       command:
@@ -23,6 +26,14 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - run: npm install --no-audit --no-fund
+      - name: Resolve FIH command
+        run: |
+          CMD="${{ github.event.inputs.command || '' }}"
+          if [ -z "$CMD" ]; then
+            CMD="$(head -n 1 automation/run-now.flag | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')"
+          fi
+          test -n "$CMD"
+          echo "FIH_COMMAND=$CMD" >> "$GITHUB_ENV"
       - name: Resolve protected FIH production endpoint
         run: |
           BASE="${{ vars.FIH_INGEST_BASE_URL }}"
@@ -43,7 +54,7 @@ jobs:
       - name: Execute Step 1 and Step 2 only
         env:
           FIH_TRUSTED_OIDC_TOKEN: ${{ steps.oidc.outputs.token }}
-        run: node scripts/step12-command-runner.mjs "${{ inputs.command }}"
+        run: node scripts/step12-command-runner.mjs "$FIH_COMMAND"
       - name: Assert no Step 3 execution
         run: |
           echo "Step 1-2 acceptance workflow intentionally ends after verified RESEARCH_VERIFIED state."
