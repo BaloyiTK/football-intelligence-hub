@@ -20,6 +20,10 @@ if(terminal&&date&&fs.existsSync(ledgerPath(date))){
  const unfinished=(l.fixtures||[]).filter((x:any)=>x.eligible!==false&&x.state!=="COMPLETE");
  if(unfinished.length&&verdict!=="BLOCKED"&&verdict!=="WAITING")fail("RESP-001 terminal response refused: authorized run remains "+l.runStatus+" with "+unfinished.length+" unfinished eligible fixtures");
 }
+const quotaSignals=rules.infrastructure?.vercel?.deploymentQuotaPolicy?.signals||[];
+const evidenceText=evidence.join(" ");
+const vercelDeploymentQuotaEvidence=quotaSignals.some((signal:string)=>evidenceText.toLowerCase().includes(String(signal).toLowerCase()));
+if((verdict==="BLOCKED"||verdict==="WAITING")&&vercelDeploymentQuotaEvidence)fail("INFRA-002 Vercel deployment quota is non-blocking and non-waiting; continue through an authorized non-deploy/current-production path");
 if(verdict==="BLOCKED"){
  if(!hardStop||!rules.hardStops.includes(hardStop))fail("BLOCKED requires a defined --hard-stop");
  if(!ruleIds.includes("TERM-001")||!ruleIds.includes("REC-003"))fail("BLOCKED requires TERM-001 and REC-003");
