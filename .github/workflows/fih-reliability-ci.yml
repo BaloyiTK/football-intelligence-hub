@@ -27,6 +27,8 @@ name: FIH Reliability CI
       - "scripts/step12-command-runner.mjs"
       - "scripts/step2-autonomous-runner.ts"
       - "scripts/test-step12-implementation.mjs"
+      - "scripts/vercel-ignore-build.sh"
+      - "scripts/test-vercel-ignore-build.mjs"
       - "api/_fih-auth.js"
       - "api/research-fixture.js"
       - ".github/workflows/fih-step12-command.yml"
@@ -43,6 +45,8 @@ jobs:
       - run: npm install --no-audit --no-fund
       - name: Verify Step 1-2 implementation compiles
         run: npm run step12:test
+      - name: Verify data-only commits skip Vercel deployment
+        run: npm run vercel:ignore-test
       - name: Verify Step 2 storage lock
         run: npm run research:storage-lock
       - name: Verify Step 2 actual-capture lock
