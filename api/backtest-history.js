@@ -1,12 +1,14 @@
 import {requireFihGitHubOidc} from "./_fih-auth.js";
-const MONTHS=new Set(["2026-03","2026-04","2026-05","2026-06","2026-07","2026-08","2026-09"]);
-const OWNER="BaloyiTK",REPO="football-intelligence-hub",BRANCH="main";
+const OWNER=process.env.FIH_GITHUB_OWNER||process.env.VERCEL_GIT_REPO_OWNER;
+const REPO=process.env.FIH_GITHUB_REPO||process.env.VERCEL_GIT_REPO_SLUG;
+const BRANCH=process.env.FIH_GITHUB_BRANCH||"main";
 async function gh(path,init={}){return fetch("https://api.github.com/repos/"+OWNER+"/"+REPO+"/contents/"+path,{...init,headers:{"Authorization":"Bearer "+process.env.FIH_GITHUB_TOKEN,"Accept":"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28","Content-Type":"application/json",...(init.headers||{})}})}
 const ymd=d=>d.toISOString().slice(0,10);
 export default async function handler(req,res){
  if(!await requireFihGitHubOidc(req,res))return;
  if(!["GET","POST"].includes(req.method))return res.status(405).json({error:"GET or POST required"});
- const month=String(req.query.month||""); if(!MONTHS.has(month))return res.status(400).json({error:"month outside configured backtest history range"});
+ const month=String(req.query.month||""); if(!/^\\d{4}-(0[1-9]|1[0-2])$/.test(month))return res.status(400).json({error:"month must be YYYY-MM"});
+ if(!OWNER||!REPO)return res.status(500).json({error:"GitHub repository identity missing"});
  const key=process.env.ls_api_key,raw=process.env.ls_api_url; if(!key||!raw||!process.env.FIH_GITHUB_TOKEN)return res.status(500).json({error:"required env missing"});
  const base=/^https?:\/\//i.test(raw)?raw:"https://"+raw; const root=new URL(base); if(root.pathname==="/"||root.pathname==="")root.pathname="/matches/v2/list-by-date";
  const [Y,M]=month.split("-").map(Number), last=new Date(Date.UTC(Y,M,0)).getUTCDate(); const dates=Array.from({length:last},(_,i)=>month+"-"+String(i+1).padStart(2,"0"));
