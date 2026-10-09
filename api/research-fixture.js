@@ -1,9 +1,10 @@
 import { generateText, gateway, isStepCount } from "ai";
+import {requireFihGitHubOidc} from "./_fih-auth.js";
 
 const OWNER=process.env.FIH_GITHUB_OWNER||process.env.VERCEL_GIT_REPO_OWNER;
 const REPO=process.env.FIH_GITHUB_REPO||process.env.VERCEL_GIT_REPO_SLUG;
 const BRANCH=process.env.FIH_GITHUB_BRANCH||"main";
-const MODEL=process.env.FIH_RESEARCH_MODEL||"openai/gpt-6-luna";
+const MODEL=process.env.FIH_RESEARCH_MODEL||"openai/gpt-5.6-sol";
 const GH_TOKEN=process.env.FIH_GITHUB_TOKEN;
 
 function validDate(s){return /^\d{4}-\d{2}-\d{2}$/.test(s)&&new Date(s+"T00:00:00Z").toISOString().slice(0,10)===s}
@@ -39,6 +40,28 @@ function basicRecordCheck(r,f,rid){
   for(const k of ["form","standings","headToHead","schedule"])for(const ref of r.facts[k].sourceRefs||[])if(!refs.has(String(ref)))throw new Error("AI_RESEARCH_UNKNOWN_SOURCE_"+k);
   return r;
 }
+function collectToolEvidence(result){
+  const queries=new Set(),urls=new Set();
+  const visit=v=>{
+    if(!v)return;
+    if(Array.isArray(v)){for(const x of v)visit(x);return;}
+    if(typeof v!=="object")return;
+    if(typeof v.query==="string"&&v.query.trim())queries.add(v.query.trim());
+    if(typeof v.url==="string"&&/^https?:\/\//i.test(v.url))urls.add(v.url);
+    for(const x of Object.values(v))visit(x);
+  };
+  for(const step of (result.steps||[]))visit(step);
+  return {queries:[...queries],urls:[...urls]};
+}
+function enforceObservedResearch(record,evidence){
+  if(evidence.queries.length<6)throw new Error("CATEGORY_SEARCH_PARITY_FAILED_"+evidence.queries.length);
+  const qs=new Set(evidence.queries),urls=new Set(evidence.urls);
+  for(const k of ["form","standings","headToHead","squadAvailability","schedule","competitionContext"]){
+    const c=record.facts[k];
+    if(!c.attempts.some(a=>qs.has(String(a?.query||"").trim())))throw new Error("UNOBSERVED_CATEGORY_QUERY_"+k);
+  }
+  for(const sm of record.sourceMetadata)if(urls.size&&!urls.has(String(sm.url)))throw new Error("UNOBSERVED_SOURCE_URL_"+sm.url);
+}
 function systemPrompt(date,fixture,rid,kickoff){
  return `You are the authoritative FIH Step-2 football research executor. Research exactly one fixture using the provided Browserbase web search and fetch tools. You MUST perform genuine category-specific web searches and retain only source-backed facts. Never invent a score, table position, injury, date, H2H row, URL, or source. If a required category cannot be verified after targeted search, use PARTIAL or UNAVAILABLE only with searchExhausted:true and an attempt outcome containing SEARCH_EXHAUSTED. Do not use generic SEARCH_COMPLETE markers.
 
@@ -61,6 +84,7 @@ Use status/sourceRefs/attempts/data/searchExhausted fields inside each category 
 
 export default async function handler(req,res){
   if(!["GET","POST"].includes(req.method))return res.status(405).json({error:"GET or POST required"});
+  if(!await requireFihGitHubOidc(req,res))return;
   if(!OWNER||!REPO||!GH_TOKEN)return res.status(500).json({error:"required GitHub configuration missing"});
   const date=String(req.query?.date||req.body?.date||"").trim();
   const fixtureId=String(req.query?.fixture||req.body?.fixture||"").trim();
@@ -90,8 +114,9 @@ export default async function handler(req,res){
     const record=basicRecordCheck(parseJson(result.text),f,queue.researchRunId);
     const calls=(result.steps||[]).flatMap(s=>s.toolCalls||[]);
     const searchCalls=calls.filter(c=>String(c.toolName||"").includes("browserbase_search")).length;
-    if(searchCalls<6)throw new Error("CATEGORY_SEARCH_PARITY_FAILED_"+searchCalls);
-    return res.status(200).json({ok:true,date,fixtureId,researchRunId:queue.researchRunId,model:MODEL,searchCalls,record});
+    const evidence=collectToolEvidence(result);
+    enforceObservedResearch(record,evidence);
+    return res.status(200).json({ok:true,date,fixtureId,researchRunId:queue.researchRunId,model:MODEL,searchCalls,observedQueries:evidence.queries.length,observedSources:evidence.urls.length,record});
   }catch(e){
     console.error("FIH_RESEARCH_FIXTURE_ERROR",e);
     return res.status(502).json({error:String(e?.message||e)});
