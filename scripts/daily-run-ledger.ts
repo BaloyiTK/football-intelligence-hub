@@ -22,7 +22,7 @@ function next(items:Item[]){const x=items.find(f=>f.eligible&&f.state!=="COMPLET
 function board(d:string){
  const todayDate=today();
  const candidates=d===todayDate
-  ? [path.join(ROOT,"data","today_fixture.json"),path.join(ROOT,"data","prediction-fixtures",d+".json")]
+  ? [path.join(ROOT,"data","prediction-fixtures",d+".json"),path.join(ROOT,"data","today_fixture.json")]
   : [path.join(ROOT,"data","prediction-fixtures",d+".json")];
  const p=candidates.find(x=>fs.existsSync(x));
  if(!p)throw new Error("MISSING prediction fixture board for "+d);
