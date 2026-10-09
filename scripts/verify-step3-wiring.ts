@@ -108,8 +108,9 @@ if(!cycle.includes('tsx("scripts/step3-input-gate.ts","--date",DATE)'))fail("dai
 for(const id of ["MODEL-001","MODEL-002","MODEL-003","MODEL-004","MODEL-014","MODEL-015"])if(!cycle.includes(id))fail("daily cycle gate missing "+id);
 
 const continuation=read("scripts/continuation-controller.ts");
-for(const token of ["scripts/step2-autonomous-runner.ts","RESEARCH-019","STEP2_AUTONOMOUS_RETRY_REQUIRED"]) if(!continuation.includes(token)) fail("continuation controller missing autonomous Step 2 recovery "+token);
-if(continuation.includes("STEP2_CHATGPT_HANDOFF_REQUIRED"))fail("manual Step 2 handoff reintroduced");
+for(const token of ["STEP2_CHATGPT_HANDOFF_REQUIRED","RESEARCH-019","RESEARCH-004","INFRA-003"]) if(!continuation.includes(token)) fail("continuation controller missing ChatGPT Step 2 handoff "+token);
+if(continuation.includes("scripts/step2-autonomous-runner.ts"))fail("hosted/autonomous Step 2 executor reintroduced");
+if(fs.existsSync("api/research-fixture.js")||fs.existsSync("api/step2-research.js")||fs.existsSync("scripts/step2-autonomous-runner.ts"))fail("hosted Step 2 AI research path reintroduced");
 
 const workflow=read(".github/workflows/fih-run-now.yml");
 for(const token of [
