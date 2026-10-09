@@ -1,31 +1,12 @@
 {
   "schema": "fih-recovery-request-v1",
   "date": "2026-10-09",
-  "runId": "step12:prediction:2026-10-09:1791548095446",
-  "requestedAt": "2026-10-09T12:16:20.190Z",
-  "reason": "ZERO_PROGRESS_PREMATCH_EXPIRY_RECONCILIATION",
+  "runId": "step12:prediction:2026-10-09:1791548294857",
+  "requestedAt": "2026-10-09T12:23:15.501Z",
+  "reason": "WATCHDOG_RECOVERY",
   "next": {
-    "fixtureId": "1865801",
+    "fixtureId": "1810712",
     "state": "PENDING"
   },
-  "status": "SUPERSEDED_ZERO_PROGRESS_PREMATCH_EXPIRY",
-  "supersededAt": "2026-10-09T12:16:20.190Z",
-  "oldRunId": "step12:prediction:2026-10-09:1791548095446",
-  "oldResearchRunId": "research:2026-10-09:1791548095446",
-  "validatedCount": 0,
-  "expectedFixtureCount": 187,
-  "canonicalResearchExists": false,
-  "expiredFixtureCount": 2,
-  "firstExpiredFixtureId": "1865801",
-  "reconciliationRule": "RESEARCH-025",
-  "priorSupersessions": [
-    {
-      "oldRunId": "step12:prediction:2026-10-09:1791543291993",
-      "oldResearchRunId": "research:2026-10-09:1791543291993",
-      "supersededAt": "2026-10-09T12:13:49.556Z",
-      "validatedCount": 0,
-      "expectedFixtureCount": 195,
-      "expiredFixtureCount": 9
-    }
-  ]
+  "status": "PENDING_EXECUTOR"
 }
