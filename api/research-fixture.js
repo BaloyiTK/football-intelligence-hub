@@ -131,7 +131,11 @@ export default async function handler(req,res){
     enforceObservedResearch(record,evidence);
     return res.status(200).json({ok:true,date,mode,fixtureId,researchRunId:queue.researchRunId,model:MODEL,searchCalls,observedQueries:evidence.queries.length,observedSources:evidence.urls.length,record});
   }catch(e){
+    const message=String(e?.message||e);
     console.error("FIH_RESEARCH_FIXTURE_ERROR",e);
-    return res.status(502).json({error:String(e?.message||e)});
+    if(/customer_verification_required|valid credit card on file|billing verification|payment method/i.test(message)){
+      return res.status(424).json({error:"EXTERNAL_AI_AUTHORIZATION_REQUIRED",hardStop:"NEW_SECRET_OR_EXTERNAL_AUTHORIZATION_REQUIRED",evidence:"VERCEL_AI_GATEWAY_CUSTOMER_VERIFICATION_REQUIRED"});
+    }
+    return res.status(502).json({error:message});
   }
 }
