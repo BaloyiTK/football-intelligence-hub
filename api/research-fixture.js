@@ -1,3 +1,4 @@
+export const maxDuration=300;
 import { generateText, gateway, isStepCount } from "ai";
 import {requireFihGitHubOidc} from "./_fih-auth.js";
 
