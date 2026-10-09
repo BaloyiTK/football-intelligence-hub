@@ -49,6 +49,9 @@ jobs:
         run: npm run research:actual-capture-lock
       - name: Verify Step 3 wiring lock
         run: npm run step3:wiring-lock
+      - name: Contract gate accepts defined external-authorization hard stop
+        run: |
+          npm run contract:gate -- --verdict BLOCKED --date 2099-01-01 --terminal --rules TERM-001,REC-003,EVID-001 --evidence synthetic-external-authorization --hard-stop NEW_SECRET_OR_EXTERNAL_AUTHORIZATION_REQUIRED --attempts canonical-retry,investigate-repair,authorized-fallback,persist-reconcile,resume-check
       - name: Build isolated fixture board
         run: |
           ROOT="$(mktemp -d)"; echo "FIH_ROOT=$ROOT" >> "$GITHUB_ENV"; mkdir -p "$ROOT/data/run-state" "$ROOT/data/prediction-fixtures"
