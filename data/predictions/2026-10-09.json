@@ -1,0 +1,9 @@
+{
+  "schema": "fih-daily-predictions-v1",
+  "date": "2026-10-09",
+  "status": "COMPLETE",
+  "generatedAt": "2026-10-09T02:06:17.313Z",
+  "eligibleFixtures": 224,
+  "publishableCount": 0,
+  "predictions": []
+}

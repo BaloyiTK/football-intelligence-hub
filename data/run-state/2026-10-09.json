@@ -4,16 +4,16 @@
   "timezone": "Africa/Johannesburg",
   "runId": "daily:2026-10-09",
   "researchRunId": "research:2026-10-09:1791472170322",
-  "runStatus": "RECOVERING",
-  "heartbeatAt": "2026-10-08T15:39:46.995Z",
-  "recoveryCount": 2,
+  "runStatus": "COMPLETE",
+  "heartbeatAt": "2026-10-09T02:06:17.292Z",
+  "recoveryCount": 4,
   "board": {
     "fetchedAt": "2026-10-08T15:09:26.942Z",
     "fixtureCount": 260,
     "stageCount": 123
   },
   "createdAt": "2026-10-08T15:09:30.031Z",
-  "updatedAt": "2026-10-08T15:39:46.995Z",
+  "updatedAt": "2026-10-09T02:06:17.292Z",
   "fixtures": [
     {
       "id": "1810712",
@@ -23,7 +23,7 @@
       "kickoff": "20261009210000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -34,7 +34,7 @@
       "kickoff": "20261009203000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -45,7 +45,7 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -56,7 +56,7 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -67,7 +67,7 @@
       "kickoff": "20261009210000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -78,7 +78,7 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -89,7 +89,7 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -100,7 +100,7 @@
       "kickoff": "20261009194500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -111,7 +111,7 @@
       "kickoff": "20261009211500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -122,7 +122,7 @@
       "kickoff": "20261009155000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -133,7 +133,7 @@
       "kickoff": "20261009165500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -144,7 +144,7 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -155,7 +155,7 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -166,7 +166,7 @@
       "kickoff": "20261009203000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -177,7 +177,7 @@
       "kickoff": "20261009183000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -188,7 +188,7 @@
       "kickoff": "20261009183000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -199,7 +199,7 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -210,7 +210,7 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -221,7 +221,7 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -232,7 +232,7 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -243,7 +243,7 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -254,7 +254,7 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -265,7 +265,7 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -276,7 +276,7 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -287,7 +287,7 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -298,7 +298,7 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -309,7 +309,7 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -320,7 +320,7 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -331,7 +331,7 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -342,7 +342,7 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -353,7 +353,7 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -364,7 +364,7 @@
       "kickoff": "20261009003000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -375,7 +375,7 @@
       "kickoff": "20261009010000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -386,7 +386,7 @@
       "kickoff": "20261009023000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -397,7 +397,7 @@
       "kickoff": "20261009023000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -408,7 +408,7 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -419,7 +419,7 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -430,7 +430,7 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -441,7 +441,7 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -452,7 +452,7 @@
       "kickoff": "20261009133500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -463,7 +463,7 @@
       "kickoff": "20261009133500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -474,7 +474,7 @@
       "kickoff": "20261009140000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -485,7 +485,7 @@
       "kickoff": "20261009120000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -496,7 +496,7 @@
       "kickoff": "20261009120000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -507,7 +507,7 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -518,7 +518,7 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -529,7 +529,7 @@
       "kickoff": "20261009203000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -540,7 +540,7 @@
       "kickoff": "20261009170000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -551,7 +551,7 @@
       "kickoff": "20261009170000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -562,7 +562,7 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -573,7 +573,7 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -584,7 +584,7 @@
       "kickoff": "20261009070000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -595,7 +595,7 @@
       "kickoff": "20261009093000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -606,7 +606,7 @@
       "kickoff": "20261009093000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -826,7 +826,7 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -837,7 +837,7 @@
       "kickoff": "20261009210000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -848,7 +848,7 @@
       "kickoff": "20261009210000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -859,7 +859,7 @@
       "kickoff": "20261009183000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -870,7 +870,7 @@
       "kickoff": "20261009183000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -881,7 +881,7 @@
       "kickoff": "20261009203000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -892,7 +892,7 @@
       "kickoff": "20261009140000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -903,7 +903,7 @@
       "kickoff": "20261009173000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -914,7 +914,7 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -925,7 +925,7 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -936,7 +936,7 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -947,7 +947,7 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -958,7 +958,7 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -969,7 +969,7 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -980,7 +980,7 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -991,7 +991,7 @@
       "kickoff": "20261009003000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1002,7 +1002,7 @@
       "kickoff": "20261009003000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1013,7 +1013,7 @@
       "kickoff": "20261009163000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1024,7 +1024,7 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1035,7 +1035,7 @@
       "kickoff": "20261009173000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1046,7 +1046,7 @@
       "kickoff": "20261009173000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1057,7 +1057,7 @@
       "kickoff": "20261009010500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1068,7 +1068,7 @@
       "kickoff": "20261009031000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1079,7 +1079,7 @@
       "kickoff": "20261009220000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1090,7 +1090,7 @@
       "kickoff": "20261009040000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1101,7 +1101,7 @@
       "kickoff": "20261009150000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1112,7 +1112,7 @@
       "kickoff": "20261009153000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1123,7 +1123,7 @@
       "kickoff": "20261009153000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1134,7 +1134,7 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1145,7 +1145,7 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1156,7 +1156,7 @@
       "kickoff": "20261009170000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1167,7 +1167,7 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1178,7 +1178,7 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1189,7 +1189,7 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1200,7 +1200,7 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1211,7 +1211,7 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1222,7 +1222,7 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1266,7 +1266,7 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1277,7 +1277,7 @@
       "kickoff": "20261009223000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1288,7 +1288,7 @@
       "kickoff": "20261009143000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1299,7 +1299,7 @@
       "kickoff": "20261009143000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1310,7 +1310,7 @@
       "kickoff": "20261009143000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1321,7 +1321,7 @@
       "kickoff": "20261009143000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1332,7 +1332,7 @@
       "kickoff": "20261009143000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1343,7 +1343,7 @@
       "kickoff": "20261009033000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1365,7 +1365,7 @@
       "kickoff": "20261009183000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1398,7 +1398,7 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1409,7 +1409,7 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1420,7 +1420,7 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1431,7 +1431,7 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1442,7 +1442,7 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1464,7 +1464,7 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1486,7 +1486,7 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1497,7 +1497,7 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1508,7 +1508,7 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1519,7 +1519,7 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1530,7 +1530,7 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1541,7 +1541,7 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1552,7 +1552,7 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1574,7 +1574,7 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1585,7 +1585,7 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1596,7 +1596,7 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1607,7 +1607,7 @@
       "kickoff": "20261009183000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1618,7 +1618,7 @@
       "kickoff": "20261009193000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1629,7 +1629,7 @@
       "kickoff": "20261009193000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1640,7 +1640,7 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1651,7 +1651,7 @@
       "kickoff": "20261009193000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1673,7 +1673,7 @@
       "kickoff": "20261009194500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1695,7 +1695,7 @@
       "kickoff": "20261009193000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1717,7 +1717,7 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1728,7 +1728,7 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1750,7 +1750,7 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1761,7 +1761,7 @@
       "kickoff": "20261009030000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1772,7 +1772,7 @@
       "kickoff": "20261009230000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1783,7 +1783,7 @@
       "kickoff": "20261009140000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1794,7 +1794,7 @@
       "kickoff": "20261009103000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1805,7 +1805,7 @@
       "kickoff": "20261009140000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1816,7 +1816,7 @@
       "kickoff": "20261009151500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1827,7 +1827,7 @@
       "kickoff": "20261009153000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1838,7 +1838,7 @@
       "kickoff": "20261009170000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1849,7 +1849,7 @@
       "kickoff": "20261009184500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1860,7 +1860,7 @@
       "kickoff": "20261009193000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1871,7 +1871,7 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1882,7 +1882,7 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1893,7 +1893,7 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1904,7 +1904,7 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1915,7 +1915,7 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1926,7 +1926,7 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1937,7 +1937,7 @@
       "kickoff": "20261009150000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1948,7 +1948,7 @@
       "kickoff": "20261009150000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1959,7 +1959,7 @@
       "kickoff": "20261009150000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1970,7 +1970,7 @@
       "kickoff": "20261009150000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1981,7 +1981,7 @@
       "kickoff": "20261009150000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -1992,7 +1992,7 @@
       "kickoff": "20261009203000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2003,7 +2003,7 @@
       "kickoff": "20261009113000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2014,7 +2014,7 @@
       "kickoff": "20261009120000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2025,7 +2025,7 @@
       "kickoff": "20261009160000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2036,7 +2036,7 @@
       "kickoff": "20261009183000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2047,7 +2047,7 @@
       "kickoff": "20261009150000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2058,7 +2058,7 @@
       "kickoff": "20261009140000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2069,7 +2069,7 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2080,7 +2080,7 @@
       "kickoff": "20261009194500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2091,7 +2091,7 @@
       "kickoff": "20261009194500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2102,7 +2102,7 @@
       "kickoff": "20261009194500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2113,7 +2113,7 @@
       "kickoff": "20261009194500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2124,7 +2124,7 @@
       "kickoff": "20261009194500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2135,7 +2135,7 @@
       "kickoff": "20261009194500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2146,7 +2146,7 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2157,7 +2157,7 @@
       "kickoff": "20261009030000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2168,7 +2168,7 @@
       "kickoff": "20261009220000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2179,7 +2179,7 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2190,7 +2190,7 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2201,7 +2201,7 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2212,7 +2212,7 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2223,7 +2223,7 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2234,7 +2234,7 @@
       "kickoff": "20261009181500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2256,7 +2256,7 @@
       "kickoff": "20261009191500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2267,7 +2267,7 @@
       "kickoff": "20261009150000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2278,7 +2278,7 @@
       "kickoff": "20261009173000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2289,7 +2289,7 @@
       "kickoff": "20261009220000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2300,7 +2300,7 @@
       "kickoff": "20261009203000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2311,7 +2311,7 @@
       "kickoff": "20261009153000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2322,7 +2322,7 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2333,7 +2333,7 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2344,7 +2344,7 @@
       "kickoff": "20261009220000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2355,7 +2355,7 @@
       "kickoff": "20261009164500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2366,7 +2366,7 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2377,7 +2377,7 @@
       "kickoff": "20261009070000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2388,7 +2388,7 @@
       "kickoff": "20261009093000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2399,7 +2399,7 @@
       "kickoff": "20261009093000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2410,7 +2410,7 @@
       "kickoff": "20261009070000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2421,7 +2421,7 @@
       "kickoff": "20261009211500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2432,7 +2432,7 @@
       "kickoff": "20261009211500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2443,7 +2443,7 @@
       "kickoff": "20261009211500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2454,7 +2454,7 @@
       "kickoff": "20261009173000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2465,7 +2465,7 @@
       "kickoff": "20261009210000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2476,7 +2476,7 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2487,7 +2487,7 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2498,7 +2498,7 @@
       "kickoff": "20261009193000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2509,7 +2509,7 @@
       "kickoff": "20261009193000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2520,7 +2520,7 @@
       "kickoff": "20261009193000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2531,7 +2531,7 @@
       "kickoff": "20261009193000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2542,7 +2542,7 @@
       "kickoff": "20261009201500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2553,7 +2553,7 @@
       "kickoff": "20261009201500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2564,7 +2564,7 @@
       "kickoff": "20261009130000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2575,7 +2575,7 @@
       "kickoff": "20261009151500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2586,7 +2586,7 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2597,7 +2597,7 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2608,7 +2608,7 @@
       "kickoff": "20261009130000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2619,7 +2619,7 @@
       "kickoff": "20261009160000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2630,7 +2630,7 @@
       "kickoff": "20261009160000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2641,7 +2641,7 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2652,7 +2652,7 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2663,7 +2663,7 @@
       "kickoff": "20261009143000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2674,7 +2674,7 @@
       "kickoff": "20261009220000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2685,7 +2685,7 @@
       "kickoff": "20261009153000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2696,7 +2696,7 @@
       "kickoff": "20261009160000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2707,7 +2707,7 @@
       "kickoff": "20261009160000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2718,7 +2718,7 @@
       "kickoff": "20261009163000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2729,7 +2729,7 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2740,7 +2740,7 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2762,7 +2762,7 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2773,7 +2773,7 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2784,7 +2784,7 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2795,7 +2795,7 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2828,7 +2828,7 @@
       "kickoff": "20261009193000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2839,7 +2839,7 @@
       "kickoff": "20261009230000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2850,7 +2850,7 @@
       "kickoff": "20261009210000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2861,7 +2861,7 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     },
     {
@@ -2872,7 +2872,7 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "PENDING",
+      "state": "COMPLETE",
       "updatedAt": "2026-10-08T15:09:30.322Z"
     }
   ],
@@ -2880,15 +2880,12 @@
     "boardTotal": 260,
     "eligible": 224,
     "excluded": 36,
-    "PENDING": 224,
+    "PENDING": 0,
     "RESEARCH_VERIFIED": 0,
     "MODEL_VERIFIED": 0,
     "DECISION_VERIFIED": 0,
-    "COMPLETE": 0,
+    "COMPLETE": 224,
     "EXCLUDED": 36
   },
-  "next": {
-    "fixtureId": "1810712",
-    "state": "PENDING"
-  }
+  "next": null
 }
