@@ -19,10 +19,10 @@ for(;;){
  if(run.status===0&&after?.runStatus==="COMPLETE"){console.log("CONTINUATION_READY_FOR_COMMIT "+DATE);process.exit(0)}
  const researchQueue=path.join(ROOT,"data","research-queue",DATE+".json"),canonicalResearch=path.join(ROOT,"data","research",DATE+".json");
  if(after?.researchRunId&&fs.existsSync(researchQueue)&&!fs.existsSync(canonicalResearch)){
-  gate("RECOVERING","REC-001,REC-005,RESUME-001,EXEC-001,RESEARCH-001,RESEARCH-006,RESEARCH-012,RESEARCH-014,RESEARCH-019","ledger:"+path.relative(ROOT,ledgerPath)+",autonomous-chatgpt-step2");
-  const step2=tsx("scripts/step2-autonomous-runner.ts","--date",DATE);
-  if(step2.status!==0){console.error("STEP2_AUTONOMOUS_RETRY_REQUIRED",DATE,after.researchRunId);noProgress++;if(noProgress<maxNoProgress)continue;gate("BLOCKED","TERM-001,REC-003,EVID-001","ledger:"+path.relative(ROOT,ledgerPath)+",step2-autonomous-retries:"+noProgress,["--hard-stop","SAME_FAILURE_AFTER_REASONABLE_BOUNDED_RECOVERY","--attempts","canonical-retry,ai-worker-retry,persistence-reconcile,resume-check"]);throw new Error("FIH_HARD_STOP STEP2_AUTONOMOUS_RECOVERY_EXHAUSTED")}
-  noProgress=0;continue;
+  gate("RECOVERING","REC-001,REC-005,RESUME-001,EXEC-001,RESEARCH-001,RESEARCH-004,RESEARCH-006,RESEARCH-012,RESEARCH-014,RESEARCH-019,INFRA-003","ledger:"+path.relative(ROOT,ledgerPath)+",chatgpt-step2-handoff");
+  console.error("STEP2_CHATGPT_HANDOFF_REQUIRED",DATE,after.researchRunId,path.relative(ROOT,researchQueue));
+  process.exitCode=20;
+  process.exit();
  }
  if(afterSig!==beforeSig){noProgress=0;gate("RECOVERING","REC-001,REC-005,RESUME-001,EXEC-001","ledger:"+path.relative(ROOT,ledgerPath)+",progress-pass:"+pass);continue}
  noProgress++;gate("RECOVERING","REC-001,REC-002,REC-005,RESUME-001,EXEC-001","ledger:"+path.relative(ROOT,ledgerPath)+",no-progress-pass:"+noProgress);
