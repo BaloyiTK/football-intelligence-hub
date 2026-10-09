@@ -14,8 +14,8 @@ if(!RID)throw new Error("MISSING_RESEARCH_RUN_ID");
 const lp=path.join(ROOT,"data/run-state",DATE+".json");
 const WORK_ROOT=process.env.FIH_STEP2_WORK_DIR||path.join(process.env.RUNNER_TEMP||"/mnt/data","fih","research-work");
 const ap=path.join(WORK_ROOT,DATE+".json");
-const cp=path.join(ROOT,"data/research",DATE+".json");
 const MODE=DATE<new Intl.DateTimeFormat("en-CA",{timeZone:"Africa/Johannesburg",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date())?"BACKTEST":"PREDICTION";
+const cp=path.join(ROOT,MODE==="BACKTEST"?"data/backtest/research":"data/research",DATE+".json");
 const read=(p:string)=>JSON.parse(fs.readFileSync(p,"utf8"));
 const hash=(x:any)=>crypto.createHash("sha256").update(JSON.stringify(x)).digest("hex");
 function atomicWrite(p:string,x:any){
@@ -70,7 +70,11 @@ function validateOne(r:any){
 function verifyAccumulator(a:any){
   const {ids}=universe();
   if(a.fixtures.length!==a.validatedFixtureIds.length||a.expectedFixtureCount!==ids.length||a.nextFixtureId!==(a.fixtureIds.find((id:string)=>!a.validatedFixtureIds.includes(id))||null))throw new Error("RESEARCH_WORKING_INVARIANT_INVALID");
-  if(new Set(a.fixtures.map((f:any)=>String(f.fixtureId))).size!==a.fixtures.length)throw new Error("RESEARCH_DUPLICATE_FIXTURE_RECORD");
+  const recordIds=a.fixtures.map((f:any)=>String(f.fixtureId));
+  if(new Set(recordIds).size!==a.fixtures.length)throw new Error("RESEARCH_DUPLICATE_FIXTURE_RECORD");
+  if(JSON.stringify(recordIds)!==JSON.stringify(a.validatedFixtureIds))throw new Error("RESEARCH_RECORD_ID_ORDER_MISMATCH");
+  const expectedValidatedOrder=a.fixtureIds.filter((id:string)=>a.validatedFixtureIds.includes(id));
+  if(JSON.stringify(expectedValidatedOrder)!==JSON.stringify(a.validatedFixtureIds))throw new Error("RESEARCH_VALIDATED_ID_ORDER_MISMATCH");
   const validated=[...a.validatedFixtureIds].map(String).sort();
   if(a.validatedCount!==validated.length)throw new Error("RESEARCH_VALIDATED_COUNT_MISMATCH");
   if(validated.length!==new Set(validated).size)throw new Error("RESEARCH_TEMP_DUPLICATE_VALIDATED_ID");
@@ -98,8 +102,9 @@ if(cmd==="init"){
   const a=accumulator(false);
   a.fixtures=a.fixtures.filter((x:any)=>String(x.fixtureId)!==ID);
   a.fixtures.push(r);
-  if(!a.validatedFixtureIds.includes(ID))a.validatedFixtureIds.push(ID);
-  a.validatedFixtureIds.sort();
+  const byId=new Map(a.fixtures.map((x:any)=>[String(x.fixtureId),x]));
+  a.fixtures=a.fixtureIds.filter((id:string)=>byId.has(id)).map((id:string)=>byId.get(id));
+  a.validatedFixtureIds=a.fixtures.map((x:any)=>String(x.fixtureId));
   a.validatedCount=a.validatedFixtureIds.length;
   a.nextFixtureId=a.fixtureIds.find((id:string)=>!a.validatedFixtureIds.includes(id))||null;
   a.status=a.validatedCount===a.expectedFixtureCount?"READY_FOR_VALIDATION":"ACCUMULATING";
