@@ -37,7 +37,6 @@ jobs:
             BASE="https://$DOMAIN"
           fi
           echo "FIH_INGEST_BASE_URL=$BASE" >> "$GITHUB_ENV"
-          echo "FIH_RESEARCH_BASE_URL=$BASE" >> "$GITHUB_ENV"
       - name: Resolve requested historical dates
         run: |
           set -euo pipefail
@@ -61,13 +60,16 @@ jobs:
             test "$D" < "$TODAY" || { echo "BACKTEST_DATE_MUST_BE_PAST $D"; exit 1; }
           done
           echo "BACKTEST_DATES=$DATES" >> "$GITHUB_ENV"
-      - name: Execute each historical date through Step 1 and Step 2
+      - name: Execute Step 1 and prepare ChatGPT Step 2 queue for each historical date
         run: |
           set -euo pipefail
           IFS=',' read -ra DS <<< "$BACKTEST_DATES"
           for D in "${DS[@]}"; do
-            echo "=== FIH Step 1-2 BACKTEST $D ==="
+            echo "=== FIH Step 1 + ChatGPT queue BACKTEST $D ==="
             node scripts/step12-command-runner.mjs "run $D"
           done
-      - name: Assert Step 3 was not entered
-        run: echo "Historical acceptance workflow stops after verified Step 2 by design."
+      - name: Assert ChatGPT owns Step 2
+        run: |
+          test ! -e api/research-fixture.js
+          test ! -e scripts/step2-autonomous-runner.ts
+          echo "Historical workflow prepares Step 1 + durable queue only; ChatGPT performs Step 2."
