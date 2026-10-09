@@ -26,6 +26,7 @@ name: FIH Reliability CI
       - "scripts/step12-prepare.ts"
       - "scripts/step12-command-runner.mjs"
       - "scripts/step2-autonomous-runner.ts"
+      - "scripts/step2-recovery-runner.mjs"
       - "scripts/test-step12-implementation.mjs"
       - "scripts/vercel-ignore-build.sh"
       - "scripts/test-vercel-ignore-build.mjs"
