@@ -8,5 +8,11 @@
     "fixtureId": "1810712",
     "state": "PENDING"
   },
-  "status": "PENDING_EXECUTOR"
+  "status": "BLOCKED_EXTERNAL_AUTHORIZATION",
+  "blockedAt": "2026-10-09T12:23:18.903Z",
+  "hardStop": "NEW_SECRET_OR_EXTERNAL_AUTHORIZATION_REQUIRED",
+  "evidence": [
+    "vercel-ai-gateway-customer-verification-required",
+    "no-configured-authorized-alternate-ai-provider"
+  ]
 }
