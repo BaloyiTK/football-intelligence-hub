@@ -31,7 +31,7 @@ jobs:
           if [ "${{ github.event_name }}" = "push" ] && [ -s automation/recover-now.flag ]; then
             DATE="$(head -n 1 automation/recover-now.flag | tr -d '[:space:]')"
           fi
-          node -e 'const d=process.argv[1];if(!/^\\d{4}-\\d{2}-\\d{2}$/.test(d)||new Date(d+"T00:00:00Z").toISOString().slice(0,10)!==d)process.exit(1)' "$DATE"
+          node -e 'const d=process.argv[1];if(!/^\d{4}-\d{2}-\d{2}$/.test(d)||new Date(d+"T00:00:00Z").toISOString().slice(0,10)!==d)process.exit(1)' "$DATE"
           echo "FIH_RECOVERY_DATE=$DATE" >> "$GITHUB_ENV"
       - name: Inspect durable daily heartbeat
         id: watchdog
@@ -59,7 +59,7 @@ jobs:
             schema:"fih-recovery-request-v1",date,runId:ledger.runId,
             requestedAt:new Date().toISOString(),reason:"WATCHDOG_RECOVERY",
             next:ledger.next,status:"PENDING_EXECUTOR"
-          },null,2)+"\\n");
+          },null,2)+"\n");
           NODE
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
