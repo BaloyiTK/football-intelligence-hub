@@ -1,0 +1,17 @@
+import assert from "node:assert/strict";
+import {resolveCommand} from "./fih-command-router.mjs";
+const now=new Date("2026-10-09T04:00:00Z");
+const run=s=>resolveCommand(s,now);
+assert.deepEqual(run("run now"),run("run today"));
+assert.equal(run("run yesterday").dates[0].mode,"BACKTEST");
+assert.equal(run("run tomorrow").dates[0].mode,"PREDICTION");
+assert.equal(run("run past 3 days").dates.length,3);
+assert.equal(run("run past 120 days").dates.length,120);
+assert.equal(run("run next 6 days").dates.length,6);
+assert.equal(run("run from 2026-10-01 to 2026-10-09").dates.length,9);
+assert.equal(run("status").action,"STATUS");
+assert.equal(run("status 2026-10-01").date,"2026-10-01");
+assert.throws(()=>run("run 2026-02-30"),/INVALID_DATE_RANGE/);
+assert.throws(()=>run("run from 2026-10-09 to 2026-10-01"),/INVALID_DATE_RANGE/);
+assert.equal(resolveCommand("run today",new Date("2026-10-08T22:30:00Z")).dates[0].date,"2026-10-09");
+console.log("PASS: 12 stateless command and SAST boundary assertions");
