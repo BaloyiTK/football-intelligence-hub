@@ -9,6 +9,9 @@ on:
 permissions:
   contents: write
   id-token: write
+concurrency:
+  group: fih-step12-${{ github.ref }}
+  cancel-in-progress: false
 jobs:
   daily:
     runs-on: ubuntu-latest
