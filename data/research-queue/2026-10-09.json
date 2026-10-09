@@ -3,9 +3,9 @@
   "date": "2026-10-09",
   "mode": "PREDICTION",
   "cutoffAt": null,
-  "researchRunId": "research:2026-10-09:1791548294857",
-  "generatedAt": "2026-10-09T12:18:17.128Z",
-  "count": 185,
+  "researchRunId": "research:2026-10-09:1791550548581",
+  "generatedAt": "2026-10-09T12:55:50.666Z",
+  "count": 179,
   "executor": "CHATGPT_WEB_SEARCH",
   "workingCheckpoint": "/mnt/data/fih/research-work/2026-10-09.json",
   "canonicalCommitPolicy": "ONE_CANONICAL_COMMIT_AFTER_N_OF_N_VALIDATION_AND_PROMOTION",
@@ -38,48 +38,6 @@
     "factsOnly": true
   },
   "fixtures": [
-    {
-      "fixtureId": "1825661",
-      "home": "Veres Rivne",
-      "away": "Shakhtar Donetsk",
-      "competition": "Premier League",
-      "kickoff": "20261009143000"
-    },
-    {
-      "fixtureId": "1843714",
-      "home": "Team FC",
-      "away": "Pharco FC",
-      "competition": "2. Division A",
-      "kickoff": "20261009143000"
-    },
-    {
-      "fixtureId": "1843716",
-      "home": "Itesalat",
-      "away": "El Mansura",
-      "competition": "2. Division A",
-      "kickoff": "20261009143000"
-    },
-    {
-      "fixtureId": "1843721",
-      "home": "El Entag El Harby",
-      "away": "La Viena FC",
-      "competition": "2. Division A",
-      "kickoff": "20261009143000"
-    },
-    {
-      "fixtureId": "1843722",
-      "home": "Ismaily SC",
-      "away": "Tanta",
-      "competition": "2. Division A",
-      "kickoff": "20261009143000"
-    },
-    {
-      "fixtureId": "1843724",
-      "home": "Maleyeit Kafr El Zayiat",
-      "away": "Baladiyyat Al-Mehalla",
-      "competition": "2. Division A",
-      "kickoff": "20261009143000"
-    },
     {
       "fixtureId": "1799349",
       "home": "Ironi Modiin",
