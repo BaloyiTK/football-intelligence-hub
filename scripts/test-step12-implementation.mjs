@@ -24,6 +24,8 @@ assert.match(worker,/requireFihGitHubOidc/);
 assert.match(worker,/browserbase_search/);
 assert.match(worker,/BACKTEST_SOURCE_AFTER_CUTOFF/);
 assert.match(runner,/fih-step2-working-v1/);
+assert.match(runner,/ACTIONS_ID_TOKEN_REQUEST_URL/);
+assert.match(runner,/const token=await oidcToken\(\)/);
 assert.match(runner,/STEP2_CANONICAL_COMMIT_COUNT_/);
 assert.match(command,/for\(const item of plan\.dates\)/);
 assert.match(command,/STEP2_VERIFIED/);
