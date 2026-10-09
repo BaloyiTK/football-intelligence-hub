@@ -233,6 +233,10 @@ FIH fixture acquisition is pinned to the following verified Vercel project ident
 
 The machine-readable source of truth is `config/fih-execution-rules.json -> infrastructure.vercel`. Fixture workflows MUST use this project/domain and MUST NOT silently fall back to another Vercel project. A deliberate infrastructure migration requires an explicit rules/config change and verification of the replacement project before use.
 
+### Vercel deployment quota — NON-BLOCKING LOCK
+
+A Vercel daily deployment quota, deployment-count ceiling, free-plan deployment cap, or deployment rate limit is explicitly **non-blocking** for FIH computation. It MUST NOT authorize `WAITING`, `BLOCKED`, or termination of an already-authorized run. The executor MUST ignore that quota as a computation blocker, avoid repeated redeploy attempts, and continue using the current verified production deployment and/or another already-authorized execution path that requires no new deployment. Publication/deployment health remains separate from Step 1-2 computation readiness. This invariant is machine-locked by `INFRA-002` and `infrastructure.vercel.deploymentQuotaPolicy`.
+
 ## In-turn execution and background-status integrity — LOCKED
 
 An authorized FIH run with useful work that can still be executed in the current assistant turn MUST continue executing that work. The assistant MUST NOT end the turn with a final response merely to report RUNNING, progress, a checkpoint, an intermediate stage completion, workload size, or a recoverable error. Progress messages are non-terminal and must be followed by continued execution in the same turn.
