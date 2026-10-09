@@ -55,7 +55,9 @@ assert.doesNotMatch(recoveryWorkflow,/step2-recovery-runner/);
 assert.doesNotMatch(recoveryWorkflow,/FIH_RESEARCH_BASE_URL/);
 assert.doesNotMatch(recoveryWorkflow,/research-fixture/);
 
-assert.ok(rules.rules?.["RESEARCH-025"]?.requirement?.includes("exactly 0/N validated Step-2 progress"));
+const r025=String(rules.rules?.["RESEARCH-025"]?.requirement||"");
+assert.match(r025,/0\/N/);
+assert.match(r025,/validated Step-2 progress/);
 assert.ok(rules.rules?.["MODEL-004"]?.requirement?.includes("RESEARCH-025"));
 assert.ok(rules.rules?.["STEP1-002"]?.requirement?.includes("strictly later than the authoritative board fetchedAt"));
 assert.equal(rules.rules?.["RESEARCH-026"],undefined);
@@ -63,6 +65,11 @@ assert.ok(rules.rules?.["INFRA-003"]?.requirement?.includes("Vercel is authorize
 assert.ok(rules.rules?.["INFRA-003"]?.requirement?.includes("Step 2 research is executed by ChatGPT itself"));
 
 assert.match(step12Prepare,/PREMATCH_WINDOW_CLOSED/);
+assert.match(step12Prepare,/CHATGPT_RESEARCH_REQUIRED/);
+assert.match(step12Prepare,/data\/recovery-requests/);
+assert.match(command,/data\/recovery-requests/);
+assert.match(step12Workflow,/Verify durable ChatGPT Step 2 handoff/);
+assert.match(step12Workflow,/CHATGPT_RESEARCH_REQUIRED/);
 assert.match(dailyLedger,/PREMATCH_WINDOW_CLOSED/);
 assert.doesNotMatch(fullWorkflow,/automation\/run-now\.flag/);
 assert.match(backtestWorkflow,/step12-command-runner\.mjs/);

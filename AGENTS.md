@@ -25,4 +25,14 @@ Step 1: new runs require a fresh LiveScore/RapidAPI fetch through configured Ver
 
 Deployment configuration must be portable: supply FIH_GITHUB_OWNER, FIH_GITHUB_REPO, FIH_GITHUB_BRANCH, FIH_GITHUB_TOKEN, ls_api_key, and ls_api_url through secure deployment configuration for Step 1. Step 2 must not require a Vercel/hosted AI research credential. New ChatGPT environments require an explicit repository connection and ChatGPT web-search capability; credentials alone do not make the conversation aware of this project.
 
+## Mandatory ChatGPT handoff continuation
+
+After committing `automation/run-now.flag`, the active ChatGPT execution MUST remain in the same authorized task and actively inspect the corresponding GitHub workflow/repository state until Step 1 is either verified or a contract-valid hard stop is proven. A successful Step-1 workflow is not a response boundary.
+
+Step 1 handoff is accepted only when `data/run-state/<date>.json`, `data/research-queue/<date>.json`, and `data/recovery-requests/<date>.json` have been independently reread from `origin/main`, share the same `runId`/`researchRunId`, the recovery record status is exactly `CHATGPT_RESEARCH_REQUIRED`, and queue count equals the frozen eligible count.
+
+Immediately after that verification, ChatGPT MUST create/verify the single local `/mnt/data/fih/research-work/<date>.json` accumulator for that `researchRunId` and begin fixture-by-fixture web research. Do not emit a normal final response, progress-only response, or wait for a cron/watchdog to wake the chat. The watchdog may detect/persist recovery state but it cannot substitute for the active ChatGPT Step-2 executor.
+
+Before any user-facing terminal response during an authorized run, reread the ledger and handoff record. `CHATGPT_RESEARCH_REQUIRED`, or `RUNNING`/`RECOVERING` with unfinished eligible fixtures, is non-terminal under `RESP-001` and requires immediate continuation.
+
 Until CI and live end-to-end acceptance tests pass, Steps 1 and 2 remain NOT READY. Do not override this gate to appease a user.

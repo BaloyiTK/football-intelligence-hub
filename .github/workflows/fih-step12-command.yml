@@ -54,6 +54,23 @@ jobs:
         env:
           FIH_TRUSTED_OIDC_TOKEN: ${{ steps.oidc.outputs.token }}
         run: node scripts/step12-command-runner.mjs "$FIH_COMMAND"
+      - name: Verify durable ChatGPT Step 2 handoff
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          node --input-type=module - "$FIH_COMMAND" <<'NODE'
+          import {execFileSync} from "node:child_process";
+          import {resolveCommand} from "./scripts/fih-command-router.mjs";
+          const plan=resolveCommand(process.argv[2]);
+          const show=(p)=>JSON.parse(execFileSync("git",["show","origin/main:"+p],{encoding:"utf8"}));
+          for(const {date} of plan.dates){
+            const q=show("data/research-queue/"+date+".json");
+            const l=show("data/run-state/"+date+".json");
+            const h=show("data/recovery-requests/"+date+".json");
+            if(q.executor!=="CHATGPT_WEB_SEARCH"||!q.researchRunId||q.researchRunId!==l.researchRunId||h.researchRunId!==q.researchRunId||h.runId!==l.runId||h.status!=="CHATGPT_RESEARCH_REQUIRED"||h.expectedFixtureCount!==q.count||q.count!==l.counts?.eligible||l.counts?.PENDING!==l.counts?.eligible)throw new Error("CHATGPT_HANDOFF_PERSISTENCE_INVALID "+date);
+            console.log(JSON.stringify({verified:true,date,researchRunId:q.researchRunId,eligible:q.count,handoff:h.status}));
+          }
+          NODE
       - name: Assert no Step 3 execution
         run: |
-          node -e 'const fs=require("fs"),cmd=process.env.FIH_COMMAND||""; console.log("GitHub workflow boundary: Step 1 verified and Step 2 queue prepared. ChatGPT must consume the queue; no hosted AI research is allowed.")'
+          echo "GitHub workflow boundary: Step 1 verified and durable Step 2 handoff persisted. Active ChatGPT must consume the queue immediately; no hosted AI research is allowed."

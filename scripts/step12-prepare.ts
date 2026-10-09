@@ -44,7 +44,11 @@ const ledger={schema:"fih-daily-run-ledger-v1",date:DATE,mode:MODE,timezone:TZ,r
 const cutoffAt=MODE==="BACKTEST"?DATE+"T04:00:00.000Z":null;
 const queueFixtures=eligible.map((f:any)=>({fixtureId:f.id,home:f.home,away:f.away,competition:f.competition,kickoff:f.kickoff}));
 const queue={schema:"fih-chatgpt-research-queue-v3",date:DATE,mode:MODE,cutoffAt,researchRunId,generatedAt:now,count:queueFixtures.length,executor:"CHATGPT_WEB_SEARCH",workingCheckpoint:`/mnt/data/fih/research-work/${DATE}.json`,canonicalCommitPolicy:"ONE_CANONICAL_COMMIT_AFTER_N_OF_N_VALIDATION_AND_PROMOTION",canonicalResearchSchema:"fih-daily-research-v5",researchRequirements:{overallForm:{count:5},venueForm:{count:5,homeTeam:"LAST_COMPLETED_HOME",awayTeam:"LAST_COMPLETED_AWAY"},standings:{factsOnly:true},headToHead:{count:5,verifiedRequiresExactCount:true},squadAvailability:{factsOnly:true},schedule:{factsOnly:true},competitionContext:{factsOnly:true},factsOnly:true},fixtures:queueFixtures};
-for(const [rel,x] of [[`data/run-state/${DATE}.json`,ledger],[`data/research-queue/${DATE}.json`,queue]] as any){
+const recoveryPath=path.join(ROOT,"data","recovery-requests",DATE+".json");
+let priorSupersessions:any[]=[];
+if(fs.existsSync(recoveryPath)){try{const prior=JSON.parse(fs.readFileSync(recoveryPath,"utf8"));if(Array.isArray(prior.priorSupersessions))priorSupersessions=prior.priorSupersessions;}catch{}}
+const recovery={schema:"fih-recovery-request-v1",date:DATE,runId,researchRunId,requestedAt:now,reason:"STEP1_VERIFIED_CHATGPT_STEP2_HANDOFF",status:"CHATGPT_RESEARCH_REQUIRED",next:{fixtureId:eligible[0].id,state:"PENDING"},expectedFixtureCount:eligible.length,validatedCount:0,queuePath:`data/research-queue/${DATE}.json`,boardFetchedAt:board.fetchedAt,priorSupersessions};
+for(const [rel,x] of [[`data/run-state/${DATE}.json`,ledger],[`data/research-queue/${DATE}.json`,queue],[`data/recovery-requests/${DATE}.json`,recovery]] as any){
  const p=path.join(ROOT,rel);fs.mkdirSync(path.dirname(p),{recursive:true});const t=p+".tmp";fs.writeFileSync(t,JSON.stringify(x,null,2)+"\n");fs.renameSync(t,p);const y=JSON.parse(fs.readFileSync(p,"utf8"));if(y.date!==DATE||y.researchRunId!==researchRunId)throw new Error("STEP12_PREPARE_REREAD_FAILED "+rel);
 }
 console.log(JSON.stringify({ok:true,date:DATE,mode:MODE,runId,researchRunId,boardTotal:fixtures.length,eligible:eligible.length,excluded:fixtures.length-eligible.length,cutoffAt,nextFixtureId:eligible[0].id},null,2));
