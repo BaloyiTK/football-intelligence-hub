@@ -1,15 +1,15 @@
-const OWNER=process.env.FIH_GITHUB_OWNER||process.env.VERCEL_GIT_REPO_OWNER||"BaloyiTK";
-const REPO=process.env.FIH_GITHUB_REPO||process.env.VERCEL_GIT_REPO_SLUG||"football-intelligence-hub";
+const OWNER=process.env.FIH_GITHUB_OWNER||process.env.VERCEL_GIT_REPO_OWNER;
+const REPO=process.env.FIH_GITHUB_REPO||process.env.VERCEL_GIT_REPO_SLUG;
 const BRANCH=process.env.FIH_GITHUB_BRANCH||"main";
 function sastDate(){return new Intl.DateTimeFormat("en-CA",{timeZone:"Africa/Johannesburg",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date())}
 async function github(path,init={}){return fetch("https://api.github.com/repos/"+OWNER+"/"+REPO+"/contents/"+path,{...init,headers:{"Authorization":"Bearer "+process.env.FIH_GITHUB_TOKEN,"Accept":"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28","Content-Type":"application/json",...(init.headers||{})}})}
 export default async function handler(req,res){
  if(!["GET","POST"].includes(req.method))return res.status(405).json({error:"GET or POST required"});
  const requested=String(req.query.date||"").trim(),today=sastDate(),date=requested||today;
- if(!/^\d{4}-\d{2}-\d{2}$/.test(date)||Number.isNaN(Date.parse(date+"T00:00:00Z")))return res.status(400).json({error:"date must be a valid YYYY-MM-DD value",today});
+ if(!/^\d{4}-\d{2}-\d{2}$/.test(date)||Number.isNaN(Date.parse(date+"T00:00:00Z"))||new Date(date+"T00:00:00Z").toISOString().slice(0,10)!==date)return res.status(400).json({error:"date must be a valid YYYY-MM-DD value",today});
  const mode=date<today?"BACKTEST":"PREDICTION",isToday=date===today,isFuture=date>today;
  const key=process.env.ls_api_key,url=process.env.ls_api_url,token=process.env.FIH_GITHUB_TOKEN;
- if(!key||!url||!token)return res.status(500).json({error:"required production env vars missing"});
+ if(!key||!url||!token||!OWNER||!REPO)return res.status(500).json({error:"required production env vars missing"});
  const dp=date.replace(/-/g,""),base=/^https?:\/\//i.test(url)?url:"https://"+url,u=new URL(base);
  if(u.pathname==="/"||u.pathname==="")u.pathname="/matches/v2/list-by-date";
  u.searchParams.set("Category","soccer");u.searchParams.set("Date",dp);u.searchParams.set("Timezone","2");
@@ -34,7 +34,7 @@ export default async function handler(req,res){
  try {
   const file=await verify.json();
   if(file.type!=="file"||file.encoding!=="base64")throw new Error("unexpected GitHub content encoding");
-  persisted=JSON.parse(Buffer.from(file.content.replace(/\\s/g,""),"base64").toString("utf8"));
+  persisted=JSON.parse(Buffer.from(file.content.replace(/\s/g,""),"base64").toString("utf8"));
  }catch{return res.status(502).json({error:"GitHub committed snapshot invalid JSON or encoding"})}
  const n=Array.isArray(persisted?.payload?.Stages)?persisted.payload.Stages.reduce((a,s)=>a+(Array.isArray(s.Events)?s.Events.length:0),0):0;
  if(persisted.date!==date||persisted.mode!==mode||persisted.schema!==snapshot.schema||persisted.fixtureCount!==fixtureCount||n!==fixtureCount||persisted.fetchedAt!==snapshot.fetchedAt)
