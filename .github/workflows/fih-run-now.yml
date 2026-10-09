@@ -11,16 +11,25 @@ on:
         type: string
 permissions:
   contents: write
+  id-token: write
 jobs:
   daily:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 330
     steps:
       - uses: actions/checkout@v4
         with: { fetch-depth: 0 }
       - uses: actions/setup-node@v4
-        with: { node-version: 20 }
+        with: { node-version: 22 }
       - run: npm install --no-audit --no-fund
+      - name: Mint short-lived GitHub OIDC identity
+        id: fih_oidc
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const token = await core.getIDToken('fih-step2')
+            core.setSecret(token)
+            core.setOutput('token', token)
       - name: Resolve requested prediction date
         run: |
           DATE="${{ github.event.inputs.date || '' }}"
@@ -30,15 +39,19 @@ jobs:
       - name: Fresh fixture acquisition and independent GitHub verification
         env:
           FIH_INGEST_BASE_URL: ${{ vars.FIH_INGEST_BASE_URL }}
+          FIH_TRUSTED_OIDC_TOKEN: ${{ steps.fih_oidc.outputs.token }}
         run: |
           set -euo pipefail
           test -n "$FIH_INGEST_BASE_URL" || { echo "FIH_INGEST_BASE_URL_NOT_CONFIGURED"; exit 1; }
-          RESPONSE="$(curl --fail --show-error --silent --retry 3 "${FIH_INGEST_BASE_URL%/}/api/backtest-ingest?date=$FIH_DATE")"
+          RESPONSE="$(curl --fail --show-error --silent --retry 3 -H "x-vercel-trusted-oidc-idp-token: $FIH_TRUSTED_OIDC_TOKEN" "${FIH_INGEST_BASE_URL%/}/api/backtest-ingest?date=$FIH_DATE")"
           echo "$RESPONSE" | node -e 'let s="";process.stdin.on("data",x=>s+=x).on("end",()=>{const r=JSON.parse(s);if(r.ok!==true||r.verified!==true||r.date!==process.env.FIH_DATE||!r.commit||!r.fixtureCount)throw Error("STEP1_COMMIT_UNVERIFIED");console.log("STEP1_PROVIDER_COMMIT",r.commit,r.fixtureCount)})'
           git fetch origin main
           git reset --hard origin/main
           node -e 'const fs=require("fs"),d=process.env.FIH_DATE,p="data/prediction-fixtures/"+d+".json";if(!fs.existsSync(p))throw Error("STEP1_PERSISTED_BOARD_MISSING");const b=JSON.parse(fs.readFileSync(p,"utf8"));const n=(b.payload?.Stages||[]).reduce((s,x)=>s+(x.Events||[]).length,0);if(b.date!==d||b.mode!=="PREDICTION"||b.fixtureCount!==n||n<1)throw Error("STEP1_GITHUB_REREAD_INVALID");console.log("STEP1_GITHUB_REREAD_PASS",d,n)'
       - name: Execute repository-owned prediction cycle
+        env:
+          FIH_RESEARCH_BASE_URL: ${{ vars.FIH_INGEST_BASE_URL }}
+          FIH_TRUSTED_OIDC_TOKEN: ${{ steps.fih_oidc.outputs.token }}
         run: npm run run:daily -- --date "$FIH_DATE"
       - name: Persist generated artifacts
         if: always()
