@@ -1,58 +1,43 @@
 {
   "schema": "fih-chatgpt-research-queue-v3",
   "date": "2026-10-09",
-  "researchRunId": "research:2026-10-09:1791532963235",
-  "generatedAt": "2026-10-09T08:23:50.579Z",
-  "count": 200,
+  "mode": "PREDICTION",
+  "cutoffAt": null,
+  "researchRunId": "research:2026-10-09:1791541432833",
+  "generatedAt": "2026-10-09T10:25:47.571Z",
+  "count": 195,
   "executor": "CHATGPT_WEB_SEARCH",
   "workingCheckpoint": "/mnt/data/fih/research-work/2026-10-09.json",
   "canonicalCommitPolicy": "ONE_CANONICAL_COMMIT_AFTER_N_OF_N_VALIDATION_AND_PROMOTION",
   "canonicalResearchSchema": "fih-daily-research-v5",
   "researchRequirements": {
-    "form": "LAST_5_OVERALL_AND_EXACT_HOME_AWAY_VENUE_SERIES",
-    "standings": "CURRENT_COMPETITION_TABLE",
-    "headToHead": "LAST_5_COMPLETED_MEETINGS_STRUCTURED",
-    "squadAvailability": "SOURCE_BACKED_OR_SEARCH_EXHAUSTED",
-    "schedule": "SOURCE_BACKED_OR_SEARCH_EXHAUSTED",
-    "competitionContext": "SOURCE_BACKED_OR_SEARCH_EXHAUSTED",
+    "overallForm": {
+      "count": 5
+    },
+    "venueForm": {
+      "count": 5,
+      "homeTeam": "LAST_COMPLETED_HOME",
+      "awayTeam": "LAST_COMPLETED_AWAY"
+    },
+    "standings": {
+      "factsOnly": true
+    },
+    "headToHead": {
+      "count": 5,
+      "verifiedRequiresExactCount": true
+    },
+    "squadAvailability": {
+      "factsOnly": true
+    },
+    "schedule": {
+      "factsOnly": true
+    },
+    "competitionContext": {
+      "factsOnly": true
+    },
     "factsOnly": true
   },
   "fixtures": [
-    {
-      "fixtureId": "1866465",
-      "home": "Persik Kediri",
-      "away": "Madura United",
-      "competition": "Super League",
-      "kickoff": "20261009103000"
-    },
-    {
-      "fixtureId": "1853312",
-      "home": "SC Sagamihara",
-      "away": "Kamatamare Sanuki",
-      "competition": "J3 League",
-      "kickoff": "20261009113000"
-    },
-    {
-      "fixtureId": "1795783",
-      "home": "Kashiwa Reysol",
-      "away": "Vissel Kobe",
-      "competition": "J1 League",
-      "kickoff": "20261009120000"
-    },
-    {
-      "fixtureId": "1795787",
-      "home": "Kashima Antlers",
-      "away": "Gamba Osaka",
-      "competition": "J1 League",
-      "kickoff": "20261009120000"
-    },
-    {
-      "fixtureId": "1853326",
-      "home": "FC Osaka",
-      "away": "Zweigen Kanazawa",
-      "competition": "J3 League",
-      "kickoff": "20261009120000"
-    },
     {
       "fixtureId": "1847048",
       "home": "Ratchaburi FC",
@@ -1418,6 +1403,5 @@
       "competition": "Liga Nacional: Apertura",
       "kickoff": "20261009230000"
     }
-  ],
-  "processingOrder": "KICKOFF_ASCENDING_THEN_FIXTURE_ID"
+  ]
 }
