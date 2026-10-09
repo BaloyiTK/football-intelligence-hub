@@ -13,11 +13,14 @@ if(!rules.rules["RESEARCH-015"].requirement.includes("one and only one temporary
 if(!rules.rules["RESEARCH-015"].requirement.includes("one and only one canonical research Git commit"))fail("RESEARCH-015 single-commit invariant weakened");
 
 const checkpoint=read("scripts/research-checkpoint.ts");
-if(!checkpoint.includes('path.join(ROOT,"data/research-work",DATE+".json")'))fail("checkpoint is not a single date accumulator file");
+for(const token of ["FIH_STEP2_WORK_DIR",'process.env.RUNNER_TEMP||"/mnt/data"','"fih","research-work"'])
+  if(!checkpoint.includes(token))fail("checkpoint is not using the single execution-environment accumulator root: "+token);
+if(checkpoint.includes('path.join(ROOT,"data/research-work"'))fail("repo-local Step 2 accumulator reintroduced");
 if(checkpoint.includes('"manifest.json"')||checkpoint.includes('path.join(wp,"fixtures"'))fail("per-fixture/manifest checkpoint tree reintroduced");
 
 const cycle=read("scripts/daily-cycle.ts");
-if(!cycle.includes('workingCheckpoint:"data/research-work/"+DATE+".json"'))fail("daily queue does not point to the single temp accumulator");
+for(const token of ["FIH_STEP2_WORK_DIR",'process.env.RUNNER_TEMP||"/mnt/data"',"workingCheckpoint:workPath"])
+  if(!cycle.includes(token))fail("daily queue/controller does not share the single external accumulator: "+token);
 if(!cycle.includes('ONE_CANONICAL_COMMIT_AFTER_N_OF_N_VALIDATION_AND_PROMOTION'))fail("daily queue canonical commit policy weakened");
 
 const ignore=read(".gitignore").split(/\r?\n/).map(x=>x.trim());
@@ -28,7 +31,7 @@ if(tracked)fail("temporary research-work files are tracked by Git: "+tracked.rep
 console.log(JSON.stringify({
   ok:true,
   lock:"STEP2_SINGLE_TEMP_SINGLE_CANONICAL_COMMIT",
-  tempPath:"data/research-work/YYYY-MM-DD.json",
+  tempPath:"$FIH_STEP2_WORK_DIR|$RUNNER_TEMP/fih/research-work/YYYY-MM-DD.json",
   canonicalPath:"data/research/YYYY-MM-DD.json",
   canonicalCommitsPerResearchRunId:1
 },null,2));
