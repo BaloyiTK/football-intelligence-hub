@@ -1,0 +1,49 @@
+name: FIH Steps 1-2 Command
+on:
+  workflow_dispatch:
+    inputs:
+      command:
+        description: "FIH command, e.g. run today, run yesterday, run past 3 days, run from YYYY-MM-DD to YYYY-MM-DD"
+        required: true
+        default: "run today"
+        type: string
+permissions:
+  contents: write
+  id-token: write
+concurrency:
+  group: fih-step12-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  step12:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: npm install --no-audit --no-fund
+      - name: Resolve protected FIH production endpoint
+        run: |
+          BASE="${{ vars.FIH_INGEST_BASE_URL }}"
+          if [ -z "$BASE" ]; then
+            DOMAIN="$(node -e 'const r=require("./config/fih-execution-rules.json");process.stdout.write(r.infrastructure.vercel.productionDomain)')"
+            BASE="https://$DOMAIN"
+          fi
+          echo "FIH_INGEST_BASE_URL=$BASE" >> "$GITHUB_ENV"
+          echo "FIH_RESEARCH_BASE_URL=$BASE" >> "$GITHUB_ENV"
+      - name: Mint short-lived GitHub OIDC identity
+        id: oidc
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const token = await core.getIDToken('fih-step2')
+            core.setSecret(token)
+            core.setOutput('token', token)
+      - name: Execute Step 1 and Step 2 only
+        env:
+          FIH_TRUSTED_OIDC_TOKEN: ${{ steps.oidc.outputs.token }}
+        run: node scripts/step12-command-runner.mjs "${{ inputs.command }}"
+      - name: Assert no Step 3 execution
+        run: |
+          echo "Step 1-2 acceptance workflow intentionally ends after verified RESEARCH_VERIFIED state."
