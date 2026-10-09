@@ -1,4 +1,6 @@
-const OWNER="BaloyiTK",REPO="football-intelligence-hub",BRANCH="main";
+const OWNER=process.env.FIH_GITHUB_OWNER||process.env.VERCEL_GIT_REPO_OWNER||"BaloyiTK";
+const REPO=process.env.FIH_GITHUB_REPO||process.env.VERCEL_GIT_REPO_SLUG||"football-intelligence-hub";
+const BRANCH=process.env.FIH_GITHUB_BRANCH||"main";
 function sastDate(){return new Intl.DateTimeFormat("en-CA",{timeZone:"Africa/Johannesburg",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date())}
 async function github(path,init={}){return fetch("https://api.github.com/repos/"+OWNER+"/"+REPO+"/contents/"+path,{...init,headers:{"Authorization":"Bearer "+process.env.FIH_GITHUB_TOKEN,"Accept":"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28","Content-Type":"application/json",...(init.headers||{})}})}
 export default async function handler(req,res){
@@ -23,5 +25,19 @@ export default async function handler(req,res){
  const body={message,content:Buffer.from(JSON.stringify(snapshot,null,2)+"\n").toString("base64"),branch:BRANCH,...(sha?{sha}:{})};
  const wr=await github(path,{method:"PUT",body:JSON.stringify(body)});
  if(!wr.ok)return res.status(502).json({error:"GitHub write failed",status:wr.status,detail:await wr.text()});
- const saved=await wr.json();return res.status(200).json({ok:true,date,mode,isToday,isFuture,fixtureCount,path,commit:saved.commit?.sha});
+ const saved=await wr.json();
+ const committedSha=saved.commit?.sha;
+ if(!committedSha)return res.status(502).json({error:"GitHub write response missing commit SHA"});
+ const verify=await github(path+"?ref="+encodeURIComponent(committedSha));
+ if(!verify.ok)return res.status(502).json({error:"GitHub committed snapshot reread failed",status:verify.status});
+ let persisted;
+ try {
+  const file=await verify.json();
+  if(file.type!=="file"||file.encoding!=="base64")throw new Error("unexpected GitHub content encoding");
+  persisted=JSON.parse(Buffer.from(file.content.replace(/\\s/g,""),"base64").toString("utf8"));
+ }catch{return res.status(502).json({error:"GitHub committed snapshot invalid JSON or encoding"})}
+ const n=Array.isArray(persisted?.payload?.Stages)?persisted.payload.Stages.reduce((a,s)=>a+(Array.isArray(s.Events)?s.Events.length:0),0):0;
+ if(persisted.date!==date||persisted.mode!==mode||persisted.schema!==snapshot.schema||persisted.fixtureCount!==fixtureCount||n!==fixtureCount||persisted.fetchedAt!==snapshot.fetchedAt)
+  return res.status(502).json({error:"GitHub committed snapshot verification mismatch",date,path,commit:committedSha});
+ return res.status(200).json({ok:true,verified:true,date,mode,isToday,isFuture,fixtureCount,path,commit:committedSha});
 }
