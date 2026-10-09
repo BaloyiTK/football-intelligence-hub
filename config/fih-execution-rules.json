@@ -184,7 +184,7 @@
     },
     "MODEL-004": {
       "kind": "frozen-board-resume",
-      "requirement": "Once an active ledger has a researchRunId, prediction recovery/resume MUST reuse the frozen Step-1 fixture board. Automated run paths MUST NOT silently reacquire a fresh board before Step 3; any fixture-universe drift requires explicit reconciliation and cannot silently feed the model."
+      "requirement": "Once an active ledger has a researchRunId, prediction recovery/resume MUST reuse the frozen Step-1 fixture board and automated run paths MUST NOT silently reacquire a fresh board before Step 3. The only permitted reacquisition is the explicit RESEARCH-025 zero-progress prematch-expiry reconciliation, which requires 0/N validated Step-2 progress, no canonical research for the active researchRunId, persisted supersession evidence, and a new independently verified Step-1/run lineage. Any other fixture-universe drift requires explicit reconciliation and cannot silently feed the model."
     },
     "MODEL-005": {
       "kind": "step3-normalization-contract",
@@ -269,6 +269,10 @@
     "INFRA-002": {
       "kind": "infrastructure-continuation",
       "requirement": "A Vercel deployment-count quota, free-plan deployment limit, deployment rate limit, or inability to create another deployment is NON-BLOCKING for FIH computation and MUST NOT authorize WAITING, BLOCKED, or termination of an authorized run. Do not repeatedly redeploy merely to clear the quota. Continue through the current verified production deployment and/or another already-authorized execution path that does not require a new deployment. Deployment publication health is tracked separately from Step 1-2 computation readiness."
+    },
+    "RESEARCH-025": {
+      "kind": "zero-progress-prematch-expiry-recovery",
+      "requirement": "PREDICTION recovery may explicitly supersede an active frozen Step-1/researchRunId and reacquire a fresh current prematch board ONLY when canonical research for that researchRunId does not exist, validated Step-2 progress is exactly 0/N in both durable state and any surviving temp accumulator, and at least one frozen eligible fixture has reached/passed kickoff so exact N/N cannot be completed without post-kickoff leakage. The supersession reason and old runId/researchRunId MUST be persisted before reacquisition; no old research may be reused; the fresh Step-1 board MUST be independently persisted/reread and MUST create a new runId/researchRunId. If any Step-2 fixture was already validated, this exception is forbidden and the frozen-board resume rule remains binding."
     }
   },
   "hardStops": [
