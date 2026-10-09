@@ -88,10 +88,11 @@ function persistExternalAuthorizationBlock(detail:string):never{
  if(gate.status!==0)throw new Error("STEP2_EXTERNAL_AUTH_CONTRACT_GATE_FAILED");
  const block=runTsx("scripts/daily-run-ledger.ts","block","--date",DATE,"--hard-stop",hardStop,"--reason","AI_GATEWAY_CUSTOMER_VERIFICATION_REQUIRED","--evidence",evidence,"--attempts",attempts);
  if(block.status!==0)throw new Error("STEP2_EXTERNAL_AUTH_LEDGER_BLOCK_FAILED");
- const rel="data/run-state/"+DATE+".json";
+ const rel="data/run-state/"+DATE+".json",requestRel="data/recovery-requests/"+DATE+".json",requestPath=path.join(ROOT,requestRel);
+ if(fs.existsSync(requestPath)){const req=read(requestPath);const blocked=read(path.join(ROOT,rel));if(req.runId===blocked.runId){req.status="BLOCKED_EXTERNAL_AUTHORIZATION";req.blockedAt=new Date().toISOString();req.hardStop=hardStop;req.evidence=evidence.split(",");atomicWrite(requestPath,req)}}
  const gitNow=(args:string[])=>execFileSync("git",args,{cwd:ROOT,encoding:"utf8",maxBuffer:32*1024*1024}).trim();
  gitNow(["config","user.name","fih-runner"]);gitNow(["config","user.email","actions@users.noreply.github.com"]);
- gitNow(["add","--",rel]);
+ const blockPaths=[rel];if(fs.existsSync(requestPath))blockPaths.push(requestRel);gitNow(["add","--",...blockPaths]);
  if(gitNow(["diff","--cached","--name-only"]))gitNow(["commit","-m","step2: block on external AI authorization "+DATE]);
  let push=spawnSync("git",["push","origin","HEAD:main"],{cwd:ROOT,encoding:"utf8"});
  if(push.status!==0){gitNow(["pull","--rebase","origin","main"]);push=spawnSync("git",["push","origin","HEAD:main"],{cwd:ROOT,encoding:"utf8"});if(push.status!==0)throw new Error("STEP2_EXTERNAL_AUTH_BLOCK_PUSH_FAILED "+push.stderr)}
