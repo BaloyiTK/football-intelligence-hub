@@ -1,20 +1,19 @@
 {
   "schema": "fih-recovery-request-v1",
   "date": "2026-10-09",
-  "runId": "step12:prediction:2026-10-09:1791550854497",
-  "researchRunId": "research:2026-10-09:1791550854497",
-  "requestedAt": "2026-10-09T16:06:55.000Z",
-  "reason": "ZERO_PROGRESS_PREMATCH_EXPIRY_RECONCILIATION",
-  "status": "SUPERSEDED_ZERO_PROGRESS_PREMATCH_EXPIRY",
-  "oldRunId": "step12:prediction:2026-10-09:1791550854497",
-  "oldResearchRunId": "research:2026-10-09:1791550854497",
-  "supersededAt": "2026-10-09T16:06:55.000Z",
+  "runId": "step12:prediction:2026-10-09:1791562084338",
+  "researchRunId": "research:2026-10-09:1791562084338",
+  "requestedAt": "2026-10-09T16:08:06.511Z",
+  "reason": "STEP1_VERIFIED_CHATGPT_STEP2_HANDOFF",
+  "status": "CHATGPT_RESEARCH_REQUIRED",
+  "next": {
+    "fixtureId": "1726456",
+    "state": "PENDING"
+  },
+  "expectedFixtureCount": 124,
   "validatedCount": 0,
-  "expectedFixtureCount": 172,
-  "canonicalResearchExists": false,
-  "expiredFixtureCount": 48,
-  "firstExpiredFixtureId": "1893568",
-  "reconciliationRule": "RESEARCH-025",
+  "queuePath": "data/research-queue/2026-10-09.json",
+  "boardFetchedAt": "2026-10-09T16:08:04.338Z",
   "priorSupersessions": [
     {
       "oldRunId": "step12:prediction:2026-10-09:1791548294857",
