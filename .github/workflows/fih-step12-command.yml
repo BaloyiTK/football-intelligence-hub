@@ -42,7 +42,6 @@ jobs:
             BASE="https://$DOMAIN"
           fi
           echo "FIH_INGEST_BASE_URL=$BASE" >> "$GITHUB_ENV"
-          echo "FIH_RESEARCH_BASE_URL=$BASE" >> "$GITHUB_ENV"
       - name: Mint short-lived GitHub OIDC identity
         id: oidc
         uses: actions/github-script@v7
@@ -51,10 +50,10 @@ jobs:
             const token = await core.getIDToken('fih-step2')
             core.setSecret(token)
             core.setOutput('token', token)
-      - name: Execute Step 1 and Step 2 only
+      - name: Execute Step 1 and prepare ChatGPT Step 2 queue
         env:
           FIH_TRUSTED_OIDC_TOKEN: ${{ steps.oidc.outputs.token }}
         run: node scripts/step12-command-runner.mjs "$FIH_COMMAND"
       - name: Assert no Step 3 execution
         run: |
-          echo "Step 1-2 acceptance workflow intentionally ends after verified RESEARCH_VERIFIED state."
+          node -e 'const fs=require("fs"),cmd=process.env.FIH_COMMAND||""; console.log("GitHub workflow boundary: Step 1 verified and Step 2 queue prepared. ChatGPT must consume the queue; no hosted AI research is allowed.")'
