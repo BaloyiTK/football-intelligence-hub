@@ -43,7 +43,7 @@ jobs:
         run: |
           set -euo pipefail
           test -n "$FIH_INGEST_BASE_URL" || { echo "FIH_INGEST_BASE_URL_NOT_CONFIGURED"; exit 1; }
-          RESPONSE="$(curl --fail --show-error --silent --retry 3 -H "x-vercel-trusted-oidc-idp-token: $FIH_TRUSTED_OIDC_TOKEN" "${FIH_INGEST_BASE_URL%/}/api/backtest-ingest?date=$FIH_DATE")"
+          RESPONSE="$(curl --fail --show-error --silent --retry 3 -H "x-fih-github-oidc: $FIH_TRUSTED_OIDC_TOKEN" "${FIH_INGEST_BASE_URL%/}/api/backtest-ingest?date=$FIH_DATE")"
           echo "$RESPONSE" | node -e 'let s="";process.stdin.on("data",x=>s+=x).on("end",()=>{const r=JSON.parse(s);if(r.ok!==true||r.verified!==true||r.date!==process.env.FIH_DATE||!r.commit||!r.fixtureCount)throw Error("STEP1_COMMIT_UNVERIFIED");console.log("STEP1_PROVIDER_COMMIT",r.commit,r.fixtureCount)})'
           git fetch origin main
           git reset --hard origin/main
