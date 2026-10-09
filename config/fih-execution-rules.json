@@ -298,7 +298,13 @@
         "ignoreAsHardStop": true,
         "ignoreAsWaitingReason": true,
         "repeatedRedeployForbidden": true,
-        "requirement": "Deployment quota/limit state must not stop or redefine FIH computation. Use the current verified deployment or another already-authorized non-deploy execution path and continue."
+        "requirement": "Deployment quota/limit state must not stop or redefine FIH computation. Use the current verified deployment or another already-authorized non-deploy execution path and continue.",
+        "signals": [
+          "api-deployments-free-per-day",
+          "VERCEL_DEPLOYMENT_QUOTA",
+          "VERCEL_DAILY_DEPLOYMENT_LIMIT",
+          "deployment-count-quota"
+        ]
       }
     }
   },
