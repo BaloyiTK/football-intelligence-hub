@@ -47,6 +47,16 @@ ChatGPT owns the fixture-by-fixture data-collection stage.
 
 ### ChatGPT web-search ownership and batch persistence — LOCKED
 
+
+#### ChatGPT execution-environment accumulator — LOCKED
+
+- During active Step 2 research, ChatGPT MUST create and maintain one local JSON accumulator in its execution environment at `/mnt/data/fih/research-work/YYYY-MM-DD.json` (the execution-environment equivalent of the logical `data/research-work/YYYY-MM-DD.json` working artifact). The date is resolved dynamically; do not hard-code a run date.
+- Initialize it with the active `researchRunId`, frozen eligible fixture IDs/count, and an initially empty set of validated fixture records. This local file is **temporary** and MUST NOT be committed to GitHub.
+- For each fixture, perform actual ChatGPT web research, validate its source-backed facts-only record, atomically rewrite the **same** accumulator file (write to a sibling temporary file and rename), reopen it, and verify the saved record, fixture IDs/count, date and `researchRunId` before moving to the next fixture.
+- Do not create one file or Git commit per fixture. Do not promote a partial accumulator. Only after exact N/N coverage and all schema/integrity checks pass, promote to `data/research/YYYY-MM-DD.json` and make **one canonical Git commit** for that `researchRunId`; reread and verify the committed artifact before Step 3.
+- ChatGPT's local execution filesystem is **not guaranteed to persist across separate sessions**. On interruption, resume from this accumulator only if it still exists and validates. If it has been lost, reconstruct the uncommitted batch from the verified frozen Step-1 fixture universe; never claim lost records are complete or silently promote partial data. A missing local file must not be treated as a successful checkpoint.
+- This local working-file location is a runtime implementation detail, not an alternative canonical Git storage path. The single-accumulator and single-commit invariants above remain authoritative.
+
 #### Single temporary accumulator + single canonical commit — NON-NEGOTIABLE LOCK
 
 - Step 2 MUST use exactly one temporary accumulator file for the active date and `researchRunId`: `data/research-work/YYYY-MM-DD.json`.
