@@ -8,5 +8,14 @@
     "fixtureId": "1810712",
     "state": "PENDING"
   },
-  "status": "PENDING_EXECUTOR"
+  "status": "SUPERSEDED_ZERO_PROGRESS_PREMATCH_EXPIRY",
+  "supersededAt": "2026-10-09T12:13:49.556Z",
+  "oldRunId": "step12:prediction:2026-10-09:1791543291993",
+  "oldResearchRunId": "research:2026-10-09:1791543291993",
+  "validatedCount": 0,
+  "expectedFixtureCount": 195,
+  "canonicalResearchExists": false,
+  "expiredFixtureCount": 9,
+  "firstExpiredFixtureId": "1847048",
+  "reconciliationRule": "RESEARCH-025"
 }
