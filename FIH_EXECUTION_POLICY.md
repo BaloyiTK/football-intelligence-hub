@@ -127,6 +127,18 @@ Persist concise machine-readable recovery metadata for meaningful recovery event
 7. Continue the original task automatically.
 8. Repeat when a new recoverable issue appears.
 
+## Vercel deployment-limit handling — LOCKED
+
+A Vercel daily deployment limit, deployment-count quota, free-plan deployment ceiling, or deployment rate limit is **not** an FIH Hard Stop and is **not** a valid WAITING reason.
+
+- Ignore the deployment quota as a computation blocker.
+- Do not repeatedly redeploy merely to try to clear or bypass the quota.
+- Continue the authorized FIH run through the current verified production deployment and/or another already-authorized path that does not require a new deployment.
+- Track deployment/publication health separately from Step 1-2 computation readiness.
+- A deployment quota alone may never require the user to repeat a command, approve continuation, or intervene.
+
+This lock is enforced by `INFRA-002` in `config/fih-execution-rules.json`.
+
 ## Hard stops
 Stop and ask the user only when:
 - a new secret/credential or external authorization is required;
