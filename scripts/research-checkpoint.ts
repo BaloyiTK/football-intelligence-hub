@@ -37,22 +37,22 @@ function freshAccumulator(){
     researchRunId:RID,
     createdAt:new Date().toISOString(),
     updatedAt:new Date().toISOString(),
-    expectedCount:ids.length,
+    mode:MODE,
+    cutoffAt:MODE==="BACKTEST"?DATE+"T04:00:00.000Z":null,
     expectedFixtureCount:ids.length,
-    validatedCount:0,
-    nextFixtureId:ids[0]||null,
-    status:"IN_PROGRESS",
-    universeHash:hash(ids),
-    fixtures,
+    fixtureIds:fixtures.map((f:any)=>f.fixtureId),
     validatedFixtureIds:[],
-    records:{} as Record<string,any>
+    validatedCount:0,
+    nextFixtureId:fixtures[0]?.fixtureId||null,
+    status:"ACCUMULATING",
+    fixtures:[] as any[]
   };
 }
 function accumulator(resetStale=false){
   const {ids}=universe();
   if(fs.existsSync(ap)){
     const a=read(ap);
-    const validIdentity=a.schema==="fih-step2-working-v1"&&a.date===DATE&&a.researchRunId===RID&&a.universeHash===hash(ids)&&a.expectedCount===ids.length&&a.expectedFixtureCount===ids.length&&Array.isArray(a.fixtures)&&Array.isArray(a.validatedFixtureIds)&&a.records&&typeof a.records==="object";
+    const validIdentity=a.schema==="fih-step2-working-v1"&&a.date===DATE&&a.researchRunId===RID&&a.mode===MODE&&a.expectedFixtureCount===ids.length&&JSON.stringify(a.fixtureIds)===JSON.stringify(universe().fixtures.map((f:any)=>f.fixtureId))&&Array.isArray(a.fixtures)&&Array.isArray(a.validatedFixtureIds);
     if(validIdentity)return a;
     if(!resetStale)throw new Error("RESEARCH_TEMP_ACCUMULATOR_IDENTITY_INVALID");
   }
@@ -68,12 +68,13 @@ function validateOne(r:any){
 }
 function verifyAccumulator(a:any){
   const {ids}=universe();
+  if(a.fixtures.length!==a.validatedFixtureIds.length||a.expectedFixtureCount!==ids.length||a.nextFixtureId!==(a.fixtureIds.find((id:string)=>!a.validatedFixtureIds.includes(id))||null))throw new Error("RESEARCH_WORKING_INVARIANT_INVALID");
   const validated=[...a.validatedFixtureIds].map(String).sort();
   if(a.validatedCount!==validated.length)throw new Error("RESEARCH_VALIDATED_COUNT_MISMATCH");
   if(validated.length!==new Set(validated).size)throw new Error("RESEARCH_TEMP_DUPLICATE_VALIDATED_ID");
   for(const id of validated){
     if(!ids.includes(id))throw new Error("RESEARCH_TEMP_ORPHAN_ID "+id);
-    const r=a.records[id];
+    const r=a.fixtures.find((x:any)=>String(x.fixtureId)===id);
     if(!r)throw new Error("RESEARCH_TEMP_RECORD_MISSING "+id);
     const prev=ID;
     if(String(r.fixtureId)!==id||r.researchRunId!==RID)throw new Error("RESEARCH_TEMP_RECORD_IDENTITY_INVALID "+id);
@@ -94,30 +95,32 @@ if(cmd==="init"){
   const r=read(path.resolve(input));
   validateOne(r);
   const a=accumulator(false);
-  a.records[ID]=r;
+  a.fixtures=a.fixtures.filter((x:any)=>String(x.fixtureId)!==ID);
+  a.fixtures.push(r);
   if(!a.validatedFixtureIds.includes(ID))a.validatedFixtureIds.push(ID);
   a.validatedFixtureIds.sort();
   a.validatedCount=a.validatedFixtureIds.length;
   a.nextFixtureId=a.fixtures.map((f:any)=>String(f.fixtureId)).find((id:string)=>!a.validatedFixtureIds.includes(id))||null;
-  a.status=a.validatedCount===a.expectedFixtureCount?"READY_TO_PROMOTE":"IN_PROGRESS";
+  a.status=a.validatedCount===a.expectedFixtureCount?"READY_FOR_VALIDATION":"ACCUMULATING";
   a.updatedAt=new Date().toISOString();
   atomicWrite(ap,a);
   const reread=read(ap);
-  const rr=reread.records?.[ID];
+  const rr=reread.fixtures.find((x:any)=>String(x.fixtureId)===ID);
   if(!rr)throw new Error("RESEARCH_TEMP_REREAD_MISSING "+ID);
   validateOne(rr);
   const v=verifyAccumulator(reread);
   out={fixtureId:ID,validated:true,tempAccumulator:ap,checkpointHash:hash(rr),...v};
 }else if(cmd==="status"){
   const a=accumulator(false),v=verifyAccumulator(a);
-  const missing=a.fixtures.map((f:any)=>String(f.fixtureId)).filter((id:string)=>!a.validatedFixtureIds.includes(id));
+  const missing=a.fixtureIds.filter((id:string)=>!a.validatedFixtureIds.includes(id));
   out={researchRunId:RID,tempAccumulator:ap,...v,missing,next:missing[0]||null};
 }else if(cmd==="promote"){
   const a=accumulator(false),v=verifyAccumulator(a);
   if(v.validatedCount!==v.expectedCount)throw new Error("RESEARCH_WORK_INCOMPLETE "+v.validatedCount+"/"+v.expectedCount);
-  const records=a.fixtures.map((f:any)=>{const id=String(f.fixtureId),r=a.records[id];if(!r)throw new Error("RESEARCH_TEMP_RECORD_MISSING "+id);return r});
+  const records=a.fixtureIds.map((id:string)=>{const r=a.fixtures.find((f:any)=>String(f.fixtureId)===id);if(!r)throw new Error("RESEARCH_TEMP_RECORD_MISSING "+id);return r});
   const artifact={schema:"fih-daily-research-v5",date:DATE,mode:MODE,generatedAt:new Date().toISOString(),researchRunId:RID,fixtureCount:records.length,fixtures:records};
-  validateResearchArtifact(artifact,DATE,a.fixtures.map((f:any)=>String(f.fixtureId)),MODE);
+  validateResearchArtifact(artifact,DATE,a.fixtureIds,MODE);
+  a.status="VALIDATED";a.updatedAt=new Date().toISOString();atomicWrite(ap,a);
   atomicWrite(cp,artifact);
   const reread=read(cp);
   validateResearchArtifact(reread,DATE,a.fixtures.map((f:any)=>String(f.fixtureId)),MODE);
