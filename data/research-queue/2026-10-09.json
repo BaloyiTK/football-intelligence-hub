@@ -3,9 +3,9 @@
   "date": "2026-10-09",
   "mode": "PREDICTION",
   "cutoffAt": null,
-  "researchRunId": "research:2026-10-09:1791550762179",
-  "generatedAt": "2026-10-09T12:59:24.258Z",
-  "count": 179,
+  "researchRunId": "research:2026-10-09:1791550854497",
+  "generatedAt": "2026-10-09T13:00:56.973Z",
+  "count": 172,
   "executor": "CHATGPT_WEB_SEARCH",
   "workingCheckpoint": "/mnt/data/fih/research-work/2026-10-09.json",
   "canonicalCommitPolicy": "ONE_CANONICAL_COMMIT_AFTER_N_OF_N_VALIDATION_AND_PROMOTION",
@@ -38,55 +38,6 @@
     "factsOnly": true
   },
   "fixtures": [
-    {
-      "fixtureId": "1799349",
-      "home": "Ironi Modiin",
-      "away": "Hapoel Afula",
-      "competition": "Liga Leumit",
-      "kickoff": "20261009150000"
-    },
-    {
-      "fixtureId": "1799351",
-      "home": "Maccabi Kiryat Gat",
-      "away": "Kiryat Yam",
-      "competition": "Liga Leumit",
-      "kickoff": "20261009150000"
-    },
-    {
-      "fixtureId": "1799352",
-      "home": "SC Kfar Kasem",
-      "away": "Bnei Yehuda Tel Aviv",
-      "competition": "Liga Leumit",
-      "kickoff": "20261009150000"
-    },
-    {
-      "fixtureId": "1799353",
-      "home": "Maccabi Herzliya",
-      "away": "Maccabi Ahi Nazareth",
-      "competition": "Liga Leumit",
-      "kickoff": "20261009150000"
-    },
-    {
-      "fixtureId": "1799354",
-      "home": "Hapoel Ironi Akko",
-      "away": "Maccabi Bnei Reineh",
-      "competition": "Liga Leumit",
-      "kickoff": "20261009150000"
-    },
-    {
-      "fixtureId": "1838043",
-      "home": "NK Sesvete",
-      "away": "NK Jadran LP",
-      "competition": "Prva NL",
-      "kickoff": "20261009150000"
-    },
-    {
-      "fixtureId": "1899306",
-      "home": "Fanja",
-      "away": "Ibri",
-      "competition": "Professional League",
-      "kickoff": "20261009150000"
-    },
     {
       "fixtureId": "1861013",
       "home": "Mbeya City",
