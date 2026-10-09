@@ -1,5 +1,7 @@
+import {requireFihGitHubOidc} from "./_fih-auth.js";
 function sastDate(){return new Intl.DateTimeFormat("en-CA",{timeZone:"Africa/Johannesburg",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date())}
 export default async function handler(req,res){
+ if(!await requireFihGitHubOidc(req,res))return;
  if(!["GET","POST"].includes(req.method))return res.status(405).json({error:"GET or POST required"});
  const today=sastDate(),requested=String(req.query.date||today);
  if(requested!==today)return res.status(400).json({error:"daily ingest only accepts today's SAST date",today});
