@@ -1,0 +1,12 @@
+{
+  "schema": "fih-recovery-request-v1",
+  "date": "2026-10-09",
+  "runId": "step12:prediction:2026-10-09:1791543291993",
+  "requestedAt": "2026-10-09T12:07:05.419Z",
+  "reason": "WATCHDOG_RECOVERY",
+  "next": {
+    "fixtureId": "1810712",
+    "state": "PENDING"
+  },
+  "status": "PENDING_EXECUTOR"
+}
