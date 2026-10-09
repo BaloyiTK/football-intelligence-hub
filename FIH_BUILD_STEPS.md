@@ -35,6 +35,7 @@
 - Detect empty, malformed, partial, or wrong-date fixture data instead of silently accepting it as valid.
 - Only after the persisted GitHub fixture file passes verification is Step 1 complete.
 - Only eligible pre-match fixtures proceed to analysis. Preserve excluded fixtures in the raw daily fixture data rather than deleting them.
+- For PREDICTION, `NS` status alone is not sufficient: scheduled kickoff must be parseable and strictly later than the authoritative fixture board `fetchedAt`. An `NS` event at or before `fetchedAt` is `PREMATCH_WINDOW_CLOSED` and must be excluded before the Step-2 universe is frozen (`STEP1-002`).
 - If fetching, committing, or verification fails, follow the FIH Execution Contract recovery loop automatically: investigate -> fix or authorized fallback -> verify recovery -> resume from the earliest unfinished stage -> continue.
 - A recoverable fixture acquisition failure must not require the user to issue another continue/status command.
 
