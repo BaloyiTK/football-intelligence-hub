@@ -1,4 +1,4 @@
-name: FIH Run Now
+name: FIH Run Now - Step 1 + ChatGPT Queue
 on:
   workflow_dispatch:
     inputs:
@@ -10,19 +10,31 @@ permissions:
   contents: write
   id-token: write
 concurrency:
-  group: fih-step12-${{ github.ref }}
-  cancel-in-progress: false
+  group: fih-step1-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
-  daily:
+  prepare:
     runs-on: ubuntu-latest
-    timeout-minutes: 330
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
         with: { fetch-depth: 0 }
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - run: npm install --no-audit --no-fund
-      - name: Mint short-lived GitHub OIDC identity
+      - name: Resolve date and Step 1 endpoint
+        run: |
+          set -euo pipefail
+          DATE="${{ github.event.inputs.date }}"
+          echo "$DATE" | grep -Eq '^[0-9]{4}-[0-9]{2}-[0-9]{2}$'
+          BASE="${{ vars.FIH_INGEST_BASE_URL }}"
+          if [ -z "$BASE" ]; then
+            DOMAIN="$(node -e 'const r=require("./config/fih-execution-rules.json");process.stdout.write(r.infrastructure.vercel.productionDomain)')"
+            BASE="https://$DOMAIN"
+          fi
+          echo "FIH_DATE=$DATE" >> "$GITHUB_ENV"
+          echo "FIH_INGEST_BASE_URL=$BASE" >> "$GITHUB_ENV"
+      - name: Mint Step 1 GitHub OIDC identity
         id: fih_oidc
         uses: actions/github-script@v7
         with:
@@ -30,78 +42,13 @@ jobs:
             const token = await core.getIDToken('fih-step2')
             core.setSecret(token)
             core.setOutput('token', token)
-      - name: Resolve requested prediction date
-        run: |
-          DATE="${{ github.event.inputs.date }}"
-          echo "$DATE" | grep -Eq '^[0-9]{4}-[0-9]{2}-[0-9]{2}
-          echo "FIH_DATE=$DATE" >> "$GITHUB_ENV"
-      - name: Fresh fixture acquisition and independent GitHub verification
+      - name: Fetch fixtures, verify GitHub persistence, freeze ChatGPT queue
         env:
-          FIH_INGEST_BASE_URL: ${{ vars.FIH_INGEST_BASE_URL }}
           FIH_TRUSTED_OIDC_TOKEN: ${{ steps.fih_oidc.outputs.token }}
-        run: |
-          set -euo pipefail
-          test -n "$FIH_INGEST_BASE_URL" || { echo "FIH_INGEST_BASE_URL_NOT_CONFIGURED"; exit 1; }
-          RESPONSE="$(curl --fail --show-error --silent --retry 3 -H "x-fih-github-oidc: $FIH_TRUSTED_OIDC_TOKEN" "${FIH_INGEST_BASE_URL%/}/api/backtest-ingest?date=$FIH_DATE")"
-          echo "$RESPONSE" | node -e 'let s="";process.stdin.on("data",x=>s+=x).on("end",()=>{const r=JSON.parse(s);if(r.ok!==true||r.verified!==true||r.date!==process.env.FIH_DATE||!r.commit||!r.fixtureCount)throw Error("STEP1_COMMIT_UNVERIFIED");console.log("STEP1_PROVIDER_COMMIT",r.commit,r.fixtureCount)})'
-          git fetch origin main
-          git reset --hard origin/main
-          node -e 'const fs=require("fs"),d=process.env.FIH_DATE,p="data/prediction-fixtures/"+d+".json";if(!fs.existsSync(p))throw Error("STEP1_PERSISTED_BOARD_MISSING");const b=JSON.parse(fs.readFileSync(p,"utf8"));const n=(b.payload?.Stages||[]).reduce((s,x)=>s+(x.Events||[]).length,0);if(b.date!==d||b.mode!=="PREDICTION"||b.fixtureCount!==n||n<1)throw Error("STEP1_GITHUB_REREAD_INVALID");console.log("STEP1_GITHUB_REREAD_PASS",d,n)'
-      - name: Execute repository-owned prediction cycle
-        env:
-          FIH_RESEARCH_BASE_URL: ${{ vars.FIH_INGEST_BASE_URL }}
-          FIH_TRUSTED_OIDC_TOKEN: ${{ steps.fih_oidc.outputs.token }}
-        run: npm run run:daily -- --date "$FIH_DATE"
-      - name: Persist generated artifacts
-        if: always()
-        run: |
-          git config user.name "fih-runner"
-          git config user.email "actions@users.noreply.github.com"
-          git add -A -- data
-          git reset -- "data/research-work" 2>/dev/null || true
-          if git diff --cached --name-only | grep -q "^data/research-work/"; then echo "FORBIDDEN_RESEARCH_WORK_COMMIT"; exit 1; fi
-          git diff --cached --quiet || git commit -m "prediction: persist $FIH_DATE canonical cycle artifacts"
-          git push
-      - name: Enforce DAILY_CYCLE_COMPLETE contract
+        run: node scripts/step12-command-runner.mjs "run $FIH_DATE"
+      - name: Verify ChatGPT handoff
         run: |
           git fetch origin main
-          test "$(git rev-parse HEAD)" = "$(git rev-parse origin/main)"
-          npm run run:ledger:verify -- --date "$FIH_DATE"
-          export FIH_VERIFIED_COMMIT_SHA="$(git rev-parse origin/main)"
-          npm run contract:gate -- --verdict COMPLETE --date "$FIH_DATE" --rules TERM-002,DAILY-001,DAILY-002,PROG-001,EVID-001 --evidence aggregate-verified,canonical-artifacts-verified,commit-verified
-
-          echo "FIH_DATE=$DATE" >> "$GITHUB_ENV"
-      - name: Fresh fixture acquisition and independent GitHub verification
-        env:
-          FIH_INGEST_BASE_URL: ${{ vars.FIH_INGEST_BASE_URL }}
-          FIH_TRUSTED_OIDC_TOKEN: ${{ steps.fih_oidc.outputs.token }}
-        run: |
-          set -euo pipefail
-          test -n "$FIH_INGEST_BASE_URL" || { echo "FIH_INGEST_BASE_URL_NOT_CONFIGURED"; exit 1; }
-          RESPONSE="$(curl --fail --show-error --silent --retry 3 -H "x-fih-github-oidc: $FIH_TRUSTED_OIDC_TOKEN" "${FIH_INGEST_BASE_URL%/}/api/backtest-ingest?date=$FIH_DATE")"
-          echo "$RESPONSE" | node -e 'let s="";process.stdin.on("data",x=>s+=x).on("end",()=>{const r=JSON.parse(s);if(r.ok!==true||r.verified!==true||r.date!==process.env.FIH_DATE||!r.commit||!r.fixtureCount)throw Error("STEP1_COMMIT_UNVERIFIED");console.log("STEP1_PROVIDER_COMMIT",r.commit,r.fixtureCount)})'
-          git fetch origin main
-          git reset --hard origin/main
-          node -e 'const fs=require("fs"),d=process.env.FIH_DATE,p="data/prediction-fixtures/"+d+".json";if(!fs.existsSync(p))throw Error("STEP1_PERSISTED_BOARD_MISSING");const b=JSON.parse(fs.readFileSync(p,"utf8"));const n=(b.payload?.Stages||[]).reduce((s,x)=>s+(x.Events||[]).length,0);if(b.date!==d||b.mode!=="PREDICTION"||b.fixtureCount!==n||n<1)throw Error("STEP1_GITHUB_REREAD_INVALID");console.log("STEP1_GITHUB_REREAD_PASS",d,n)'
-      - name: Execute repository-owned prediction cycle
-        env:
-          FIH_RESEARCH_BASE_URL: ${{ vars.FIH_INGEST_BASE_URL }}
-          FIH_TRUSTED_OIDC_TOKEN: ${{ steps.fih_oidc.outputs.token }}
-        run: npm run run:daily -- --date "$FIH_DATE"
-      - name: Persist generated artifacts
-        if: always()
-        run: |
-          git config user.name "fih-runner"
-          git config user.email "actions@users.noreply.github.com"
-          git add -A -- data
-          git reset -- "data/research-work" 2>/dev/null || true
-          if git diff --cached --name-only | grep -q "^data/research-work/"; then echo "FORBIDDEN_RESEARCH_WORK_COMMIT"; exit 1; fi
-          git diff --cached --quiet || git commit -m "prediction: persist $FIH_DATE canonical cycle artifacts"
-          git push
-      - name: Enforce DAILY_CYCLE_COMPLETE contract
-        run: |
-          git fetch origin main
-          test "$(git rev-parse HEAD)" = "$(git rev-parse origin/main)"
-          npm run run:ledger:verify -- --date "$FIH_DATE"
-          export FIH_VERIFIED_COMMIT_SHA="$(git rev-parse origin/main)"
-          npm run contract:gate -- --verdict COMPLETE --date "$FIH_DATE" --rules TERM-002,DAILY-001,DAILY-002,PROG-001,EVID-001 --evidence aggregate-verified,canonical-artifacts-verified,commit-verified
+          git show "origin/main:data/research-queue/$FIH_DATE.json" >/tmp/research-queue.json
+          git show "origin/main:data/run-state/$FIH_DATE.json" >/tmp/run-state.json
+          node -e 'const q=require("/tmp/research-queue.json"),l=require("/tmp/run-state.json");if(q.executor!=="CHATGPT_WEB_SEARCH"||!q.researchRunId||q.researchRunId!==l.researchRunId||q.count!==l.counts?.eligible||l.counts?.PENDING!==l.counts?.eligible)process.exit(1);console.log(JSON.stringify({verified:true,date:q.date,researchRunId:q.researchRunId,eligible:q.count,handoff:"CHATGPT_STEP2_REQUIRED"}))'
