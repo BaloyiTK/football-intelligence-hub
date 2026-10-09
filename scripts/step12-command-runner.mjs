@@ -8,13 +8,23 @@ const command=process.argv.slice(2).join(" ").trim()||process.env.FIH_COMMAND||"
 const plan=resolveCommand(command);
 if(plan.action!=="RUN")throw new Error("STEP12_COMMAND_MUST_BE_RUN");
 const base=String(process.env.FIH_INGEST_BASE_URL||process.env.FIH_RESEARCH_BASE_URL||"").replace(/\/$/,"");
-const oidc=process.env.FIH_TRUSTED_OIDC_TOKEN||"";
 if(!base)throw new Error("FIH_INGEST_BASE_URL_NOT_CONFIGURED");
-if(!oidc)throw new Error("FIH_TRUSTED_OIDC_TOKEN_NOT_CONFIGURED");
+async function oidcToken(){
+ const u=process.env.ACTIONS_ID_TOKEN_REQUEST_URL,t=process.env.ACTIONS_ID_TOKEN_REQUEST_TOKEN;
+ if(u&&t){
+  const sep=u.includes("?")?"&":"?";
+  const r=await fetch(u+sep+"audience=fih-step2",{headers:{Authorization:"Bearer "+t}});
+  if(!r.ok)throw new Error("GITHUB_OIDC_REQUEST_FAILED "+r.status);
+  const j=await r.json();if(!j.value)throw new Error("GITHUB_OIDC_TOKEN_MISSING");return j.value;
+ }
+ if(process.env.FIH_TRUSTED_OIDC_TOKEN)return process.env.FIH_TRUSTED_OIDC_TOKEN;
+ throw new Error("GITHUB_OIDC_ENV_MISSING");
+}
 const git=(args,opts={})=>execFileSync("git",args,{cwd:ROOT,encoding:"utf8",maxBuffer:64*1024*1024,...opts}).trim();
 const tsx=(...args)=>{const r=spawnSync(process.execPath,["node_modules/tsx/dist/cli.mjs",...args],{cwd:ROOT,stdio:"inherit",env:process.env});if(r.status!==0)throw new Error("STEP12_COMMAND_FAILED "+args.join(" "));};
 
 async function acquire(date,mode){
+ const oidc=await oidcToken();
  const r=await fetch(base+"/api/backtest-ingest?date="+encodeURIComponent(date),{headers:{"x-fih-github-oidc":oidc}});
  const txt=await r.text();if(!r.ok)throw new Error("STEP1_HTTP_"+r.status+" "+txt.slice(0,1000));
  const j=JSON.parse(txt);
