@@ -26,7 +26,7 @@ function atomicWrite(p:string,x:any){
 function universe(){
   const l=read(lp);
   if(!l.researchRunId||l.researchRunId!==RID)throw new Error("RESEARCH_RUN_ID_MISMATCH");
-  const fixtures=l.fixtures.filter((f:any)=>f.eligible).map((f:any)=>({fixtureId:String(f.id),home:f.home,away:f.away,competition:f.competition,kickoff:f.kickoff}));
+  const fixtures=l.fixtures.filter((f:any)=>f.eligible).map((f:any)=>({fixtureId:String(f.id),home:f.home,away:f.away,competition:f.competition,kickoff:f.kickoff})).sort((a:any,b:any)=>String(a.kickoff||"").localeCompare(String(b.kickoff||""))||a.fixtureId.localeCompare(b.fixtureId));
   return {l,fixtures,ids:fixtures.map((f:any)=>f.fixtureId).sort()};
 }
 function freshAccumulator(){
