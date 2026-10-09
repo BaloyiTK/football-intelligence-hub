@@ -3,9 +3,9 @@
   "date": "2026-10-09",
   "mode": "PREDICTION",
   "cutoffAt": null,
-  "researchRunId": "research:2026-10-09:1791543291993",
-  "generatedAt": "2026-10-09T10:54:53.979Z",
-  "count": 195,
+  "researchRunId": "research:2026-10-09:1791548062947",
+  "generatedAt": "2026-10-09T12:14:25.067Z",
+  "count": 187,
   "executor": "CHATGPT_WEB_SEARCH",
   "workingCheckpoint": "/mnt/data/fih/research-work/2026-10-09.json",
   "canonicalCommitPolicy": "ONE_CANONICAL_COMMIT_AFTER_N_OF_N_VALIDATION_AND_PROMOTION",
@@ -39,59 +39,10 @@
   },
   "fixtures": [
     {
-      "fixtureId": "1847048",
-      "home": "Ratchaburi FC",
-      "away": "Sukhothai FC",
-      "competition": "Thai League",
-      "kickoff": "20261009130000"
-    },
-    {
-      "fixtureId": "1861012",
-      "home": "Fountain Gate FC",
-      "away": "JKT Tanzania",
-      "competition": "Premier League",
-      "kickoff": "20261009130000"
-    },
-    {
-      "fixtureId": "1739845",
-      "home": "Shenzhen Peng City",
-      "away": "Henan Songshan Longmen",
-      "competition": "Super League",
-      "kickoff": "20261009133500"
-    },
-    {
-      "fixtureId": "1739851",
-      "home": "Qingdao Hainiu",
-      "away": "Beijing Guoan",
-      "competition": "Super League",
-      "kickoff": "20261009133500"
-    },
-    {
-      "fixtureId": "1739847",
-      "home": "Zhejiang Professional",
-      "away": "Shanghai Port",
-      "competition": "Super League",
-      "kickoff": "20261009140000"
-    },
-    {
-      "fixtureId": "1852897",
-      "home": "Araz PFK",
-      "away": "FC Kapaz",
-      "competition": "Premier League",
-      "kickoff": "20261009140000"
-    },
-    {
       "fixtureId": "1865801",
       "home": "Eastern Sports Club",
       "away": "North District",
       "competition": "Hong Kong Premier League",
-      "kickoff": "20261009140000"
-    },
-    {
-      "fixtureId": "1866466",
-      "home": "Isenmulang Kalteng",
-      "away": "Persebaya Surabaya",
-      "competition": "Super League",
       "kickoff": "20261009140000"
     },
     {
@@ -1310,13 +1261,6 @@
       "home": "San Antonio Bulo Bulo",
       "away": "Real Tomayapo",
       "competition": "Primera Division",
-      "kickoff": "20261009210000"
-    },
-    {
-      "fixtureId": "1899528",
-      "home": "San Martin Mendoza",
-      "away": "Argentino Monte Maiz",
-      "competition": "Federal A",
       "kickoff": "20261009210000"
     },
     {
