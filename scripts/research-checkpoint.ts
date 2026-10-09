@@ -12,7 +12,8 @@ if(!/^\d{4}-\d{2}-\d{2}$/.test(DATE))throw new Error("INVALID_DATE");
 if(!RID)throw new Error("MISSING_RESEARCH_RUN_ID");
 
 const lp=path.join(ROOT,"data/run-state",DATE+".json");
-const ap=path.join(ROOT,"data/research-work",DATE+".json");
+const WORK_ROOT=process.env.FIH_STEP2_WORK_DIR||path.join(process.env.RUNNER_TEMP||"/mnt/data","fih","research-work");
+const ap=path.join(WORK_ROOT,DATE+".json");
 const cp=path.join(ROOT,"data/research",DATE+".json");
 const MODE=DATE<new Intl.DateTimeFormat("en-CA",{timeZone:"Africa/Johannesburg",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date())?"BACKTEST":"PREDICTION";
 const read=(p:string)=>JSON.parse(fs.readFileSync(p,"utf8"));
