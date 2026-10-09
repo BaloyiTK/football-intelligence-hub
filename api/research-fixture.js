@@ -4,7 +4,7 @@ import {requireFihGitHubOidc} from "./_fih-auth.js";
 const OWNER=process.env.FIH_GITHUB_OWNER||process.env.VERCEL_GIT_REPO_OWNER;
 const REPO=process.env.FIH_GITHUB_REPO||process.env.VERCEL_GIT_REPO_SLUG;
 const BRANCH=process.env.FIH_GITHUB_BRANCH||"main";
-const MODEL=process.env.FIH_RESEARCH_MODEL||"openai/gpt-5.6-sol";
+const MODEL=process.env.FIH_RESEARCH_MODEL||"openai/gpt-5.6-luna";
 const GH_TOKEN=process.env.FIH_GITHUB_TOKEN;
 
 function validDate(s){return /^\d{4}-\d{2}-\d{2}$/.test(s)&&new Date(s+"T00:00:00Z").toISOString().slice(0,10)===s}
