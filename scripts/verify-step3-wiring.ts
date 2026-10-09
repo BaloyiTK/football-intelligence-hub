@@ -68,7 +68,9 @@ for(const forbiddenPath of ["scripts/chatgpt-research-refresh.ts",".github/workf
 
 const checkpoint=read("scripts/research-checkpoint.ts");
 if(!checkpoint.includes('schema:"fih-daily-research-v5"'))fail("new Step 2 checkpoints are not strict v5");
-if(!checkpoint.includes('schema:"fih-research-temp-accumulator-v2"'))fail("Step 2 temp accumulator is not H2H-lock v2");
+if(!checkpoint.includes('schema:"fih-step2-working-v1"'))fail("Step 2 temp accumulator is not locked fih-step2-working-v1");
+for(const token of ["expectedFixtureCount","fixtureIds","validatedFixtureIds","validatedCount","nextFixtureId",'status:"ACCUMULATING"'])
+  if(!checkpoint.includes(token))fail("Step 2 working accumulator missing "+token);
 
 const daily=read("scripts/daily-cycle.ts");
 for(const token of ['overallForm:{count:5','venueForm:{count:5','homeTeam:"LAST_COMPLETED_HOME"','awayTeam:"LAST_COMPLETED_AWAY"','standings:{homeTeam:"CURRENT_COMPETITION_TABLE"','squadAvailability:{factsOnly:true','schedule:{factsOnly:true','competitionContext:{factsOnly:true','storage:"facts.competitionContext.data.{homeTeam,awayTeam}.{facts,tags}"','headToHead:{count:5','storage:"facts.headToHead.data.matches"','verifiedRequiresExactCount:true','partialRequiresSearchExhausted:true','canonicalResearchSchema:"fih-daily-research-v5"'])
@@ -106,15 +108,16 @@ if(!cycle.includes('tsx("scripts/step3-input-gate.ts","--date",DATE)'))fail("dai
 for(const id of ["MODEL-001","MODEL-002","MODEL-003","MODEL-004","MODEL-014","MODEL-015"])if(!cycle.includes(id))fail("daily cycle gate missing "+id);
 
 const continuation=read("scripts/continuation-controller.ts");
-for(const token of ["STEP2_CHATGPT_HANDOFF_REQUIRED","RESEARCH-019",'process.exit(2)']) if(!continuation.includes(token)) fail("continuation controller missing recoverable Step 2 handoff "+token);
+for(const token of ["scripts/step2-autonomous-runner.ts","RESEARCH-019","STEP2_AUTONOMOUS_RETRY_REQUIRED"]) if(!continuation.includes(token)) fail("continuation controller missing autonomous Step 2 recovery "+token);
+if(continuation.includes("STEP2_CHATGPT_HANDOFF_REQUIRED"))fail("manual Step 2 handoff reintroduced");
 
 const workflow=read(".github/workflows/fih-run-now.yml");
 for(const token of [
-  "Acquire or reuse frozen fixture board",
-  "ACTIVE_RESEARCH_RUN_REUSE_FROZEN_BOARD",
-  'npm run step3:gate -- --date "$FIH_DATE"'
+  "Fresh fixture acquisition and independent GitHub verification",
+  "x-fih-github-oidc",
+  'npm run run:daily -- --date "$FIH_DATE"'
 ]) if(!workflow.includes(token))fail("run-now workflow missing "+token);
-if(workflow.includes("- name: Acquire fresh fixture board"))fail("unsafe unconditional fixture refresh reintroduced");
+if(workflow.includes("ACTIVE_RESEARCH_RUN_REUSE_FROZEN_BOARD"))fail("stale fixture-board reuse reintroduced");
 
 console.log(JSON.stringify({
   ok:true,
