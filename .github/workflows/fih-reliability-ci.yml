@@ -59,6 +59,14 @@ jobs:
       - name: Contract gate accepts defined external-authorization hard stop
         run: |
           npm run contract:gate -- --verdict BLOCKED --date 2099-01-01 --terminal --rules TERM-001,REC-003,EVID-001 --evidence synthetic-external-authorization --hard-stop NEW_SECRET_OR_EXTERNAL_AUTHORIZATION_REQUIRED --attempts canonical-retry,investigate-repair,authorized-fallback,persist-reconcile,resume-check
+      - name: Vercel deployment quota must never authorize BLOCKED
+        run: |
+          set +e
+          npm run contract:gate -- --verdict BLOCKED --rules TERM-001,REC-003,INFRA-002 --evidence api-deployments-free-per-day --hard-stop SAME_FAILURE_AFTER_REASONABLE_BOUNDED_RECOVERY --attempts canonical-retry,investigate-repair,authorized-fallback,persist-reconcile,resume-check
+          code=$?
+          set -e
+          test "$code" -ne 0
+          echo "PASS: INFRA-002 rejects Vercel deployment quota as BLOCKED evidence"
       - name: Build isolated fixture board
         run: |
           ROOT="$(mktemp -d)"; echo "FIH_ROOT=$ROOT" >> "$GITHUB_ENV"; mkdir -p "$ROOT/data/run-state" "$ROOT/data/prediction-fixtures"
@@ -71,7 +79,7 @@ jobs:
         run: |
           npm run run:ledger:init -- --date 2099-01-01
           npm run run:ledger:verify -- --date 2099-01-01
-          node -e 'const x=require(process.env.FIH_ROOT+"/data/run-state/2099-01-01.json");if(!x.fixtures[0].eligible||x.runId!=="daily:2099-01-01"||!x.heartbeatAt||x.runStatus!=="RUNNING")process.exit(1)'
+          node -e 'const x=require(process.env.FIH_ROOT+"/data/run-state/2099-01-01.json");if(!x.fixtures[0].eligible||!String(x.runId||"").startsWith("daily:2099-01-01:")||!x.heartbeatAt||x.runStatus!=="RUNNING")process.exit(1)'
       - name: Fresh heartbeat must be active
         run: npm run reliability:watchdog -- --date 2099-01-01
       - name: Stale heartbeat must request recovery
