@@ -48,6 +48,37 @@ ChatGPT owns the fixture-by-fixture data-collection stage.
 ### ChatGPT web-search ownership and batch persistence — LOCKED
 
 
+#### Step 2 working JSON schema — LOCKED
+
+The single local working file MUST use this exact top-level contract (no placeholder fixture IDs in a real run):
+
+```json
+{
+  "schema": "fih-step2-working-v1",
+  "date": "YYYY-MM-DD",
+  "researchRunId": "<active-run-id>",
+  "mode": "PREDICTION",
+  "cutoffAt": null,
+  "expectedFixtureCount": 0,
+  "fixtureIds": [],
+  "validatedFixtureIds": [],
+  "validatedCount": 0,
+  "nextFixtureId": null,
+  "status": "ACCUMULATING",
+  "createdAt": "<ISO-8601>",
+  "updatedAt": "<ISO-8601>",
+  "fixtures": []
+}
+```
+
+- `schema` is exactly `fih-step2-working-v1`; `date` is the Step-1 SAST date; `researchRunId` must match the active ledger; `mode` is `PREDICTION` or `BACKTEST`; `cutoffAt` is null for prediction and a valid historical ISO cutoff for backtest.
+- `fixtureIds` is the frozen unique Step-1 eligible ID universe in deterministic order; `expectedFixtureCount === fixtureIds.length`. The example zero count is initialization-only, not evidence of a completed fixture board.
+- `fixtures` contains **only fully validated** research records, each with `fixtureId`, `fixture`, `researchedAt`, `researchRunId`, `sourceMetadata`, and `facts` conforming to the canonical `fih-daily-research-v5` fixture record validator in `scripts/research-canonical.ts`. Required facts: `form`, `standings`, `headToHead`, `squadAvailability`, `schedule`, `competitionContext`; optional factual context: `opponentStrength`, `teamQuality`. Never store external xG or model outputs.
+- `validatedFixtureIds` is the unique ordered list of IDs in `fixtures`; `validatedCount === validatedFixtureIds.length === fixtures.length`; every stored ID must be in `fixtureIds`, without duplicates; each record's `researchRunId` must match the wrapper. `nextFixtureId` is the first frozen fixture ID not yet validated, or null only at exact N/N completion.
+- `status` may be `ACCUMULATING`, `READY_FOR_VALIDATION`, or `VALIDATED`. `READY_FOR_VALIDATION` requires N/N fixture coverage; `VALIDATED` requires successful full canonical v5 validation against the frozen fixture universe. Neither status by itself authorizes a commit without revalidation.
+- `createdAt` and `updatedAt` are valid ISO-8601 timestamps; `updatedAt` changes on each atomic rewrite. Source retrieval timestamps, category attempts, statuses and evidence-to-source references are mandatory as enforced by the canonical validator. `PARTIAL`/`UNAVAILABLE` requires genuine category search exhaustion where specified.
+- The accumulator MUST be reloaded and checked after each atomic write. Never promote if any invariant fails. Promotion removes working-only fields and emits canonical `fih-daily-research-v5` top-level fields with exactly the validated `fixtures` records; commit it exactly once per `researchRunId` and verify the GitHub reread before Step 3.
+
 #### ChatGPT execution-environment accumulator — LOCKED
 
 - During active Step 2 research, ChatGPT MUST create and maintain one local JSON accumulator in its execution environment at `/mnt/data/fih/research-work/YYYY-MM-DD.json` (the execution-environment equivalent of the logical `data/research-work/YYYY-MM-DD.json` working artifact). The date is resolved dynamically; do not hard-code a run date.
