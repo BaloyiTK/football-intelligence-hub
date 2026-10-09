@@ -1,12 +1,13 @@
 # Football Intelligence Hub
 
-Autonomous football research + deterministic probability engine.
+Football fixture acquisition, ChatGPT-owned source-backed research, and deterministic probability analysis.
 
 ## Pipeline
-Scheduled fixture discovery → AI/web research → normalized team stats → λ → Poisson → 1X2 (Home/Draw/Away) → confidence ranking → persisted report.
 
-The current MVP ships the calculation engine and UI with demo normalized inputs. The research adapter and persistent store are intentionally separate so live web/search providers can be connected without changing the model or frontend.
+Step 1: Vercel + LiveScore fixture acquisition -> GitHub persistence/verification.
 
-## Run
-npm install
-npm run dev
+Step 2: ChatGPT consumes the frozen fixture queue and performs fixture-by-fixture web research -> validated working accumulator -> one canonical research commit after N/N.
+
+Step 3+: normalized team evidence -> FIH model -> probabilities -> decisions/predictions.
+
+Vercel is not a Step-2 research engine. Vercel AI Gateway and repository-hosted language-model research workers are forbidden substitutes for ChatGPT Step-2 web research.
