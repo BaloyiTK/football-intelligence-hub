@@ -2,18 +2,18 @@
   "schema": "fih-daily-run-ledger-v1",
   "date": "2026-10-09",
   "timezone": "Africa/Johannesburg",
-  "runId": "daily:2026-10-09",
-  "researchRunId": "research:2026-10-09:1791472170322",
-  "runStatus": "COMPLETE",
-  "heartbeatAt": "2026-10-09T02:06:17.292Z",
-  "recoveryCount": 4,
+  "runId": "daily:2026-10-09:1791532963235",
+  "researchRunId": "research:2026-10-09:1791532963235",
+  "runStatus": "RUNNING",
+  "heartbeatAt": "2026-10-09T08:03:58.529Z",
+  "recoveryCount": 0,
   "board": {
-    "fetchedAt": "2026-10-08T15:09:26.942Z",
+    "fetchedAt": "2026-10-09T08:02:43.235Z",
     "fixtureCount": 260,
-    "stageCount": 123
+    "stageCount": 122
   },
-  "createdAt": "2026-10-08T15:09:30.031Z",
-  "updatedAt": "2026-10-09T02:06:17.292Z",
+  "createdAt": "2026-10-09T08:03:58.529Z",
+  "updatedAt": "2026-10-09T08:03:58.529Z",
   "fixtures": [
     {
       "id": "1810712",
@@ -23,8 +23,8 @@
       "kickoff": "20261009210000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1812724",
@@ -34,8 +34,8 @@
       "kickoff": "20261009203000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1794700",
@@ -45,8 +45,8 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1790213",
@@ -56,8 +56,8 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1802452",
@@ -67,8 +67,8 @@
       "kickoff": "20261009210000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1823553",
@@ -78,8 +78,8 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1821033",
@@ -89,8 +89,8 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1816437",
@@ -100,8 +100,8 @@
       "kickoff": "20261009194500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1816436",
@@ -111,8 +111,8 @@
       "kickoff": "20261009211500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1845647",
@@ -122,8 +122,8 @@
       "kickoff": "20261009155000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1845632",
@@ -133,8 +133,8 @@
       "kickoff": "20261009165500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1845614",
@@ -144,8 +144,8 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1798143",
@@ -155,8 +155,8 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1845103",
@@ -166,8 +166,8 @@
       "kickoff": "20261009203000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1813349",
@@ -177,8 +177,8 @@
       "kickoff": "20261009183000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1813352",
@@ -188,8 +188,8 @@
       "kickoff": "20261009183000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1795026",
@@ -199,8 +199,8 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1795034",
@@ -210,8 +210,8 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1795028",
@@ -221,8 +221,8 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1795027",
@@ -232,8 +232,8 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1795030",
@@ -243,8 +243,8 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1799839",
@@ -254,8 +254,8 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1799840",
@@ -265,8 +265,8 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1799841",
@@ -276,8 +276,8 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1799842",
@@ -287,8 +287,8 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1799851",
@@ -298,8 +298,8 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1799845",
@@ -309,8 +309,8 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1799864",
@@ -320,8 +320,8 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1799846",
@@ -331,8 +331,8 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1799847",
@@ -342,8 +342,8 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1799849",
@@ -353,8 +353,8 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1708681",
@@ -362,10 +362,10 @@
       "away": "Flamengo",
       "competition": "Serie A",
       "kickoff": "20261009003000",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "eligible": false,
+      "exclusionReason": "NOT_PREMATCH",
+      "state": "EXCLUDED",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1708694",
@@ -373,10 +373,10 @@
       "away": "Atletico MG",
       "competition": "Serie A",
       "kickoff": "20261009010000",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "eligible": false,
+      "exclusionReason": "NOT_PREMATCH",
+      "state": "EXCLUDED",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1708679",
@@ -384,10 +384,10 @@
       "away": "Coritiba",
       "competition": "Serie A",
       "kickoff": "20261009023000",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "eligible": false,
+      "exclusionReason": "NOT_PREMATCH",
+      "state": "EXCLUDED",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1708684",
@@ -395,10 +395,10 @@
       "away": "Bahia",
       "competition": "Serie A",
       "kickoff": "20261009023000",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "eligible": false,
+      "exclusionReason": "NOT_PREMATCH",
+      "state": "EXCLUDED",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1710447",
@@ -408,8 +408,8 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1784490",
@@ -419,8 +419,8 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1709270",
@@ -430,8 +430,8 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1800454",
@@ -441,8 +441,8 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1739851",
@@ -452,8 +452,8 @@
       "kickoff": "20261009133500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1739845",
@@ -463,8 +463,8 @@
       "kickoff": "20261009133500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1739847",
@@ -474,8 +474,8 @@
       "kickoff": "20261009140000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1795787",
@@ -485,8 +485,8 @@
       "kickoff": "20261009120000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1795783",
@@ -496,8 +496,8 @@
       "kickoff": "20261009120000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1787189",
@@ -507,8 +507,8 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1795345",
@@ -518,8 +518,8 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1795349",
@@ -529,8 +529,8 @@
       "kickoff": "20261009203000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1886701",
@@ -540,8 +540,8 @@
       "kickoff": "20261009170000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1807295",
@@ -551,8 +551,8 @@
       "kickoff": "20261009170000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1807288",
@@ -562,8 +562,8 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1718969",
@@ -573,8 +573,8 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1723722",
@@ -582,10 +582,10 @@
       "away": "Jeonbuk FC",
       "competition": "K League 1",
       "kickoff": "20261009070000",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "eligible": false,
+      "exclusionReason": "NOT_PREMATCH",
+      "state": "EXCLUDED",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1723723",
@@ -593,10 +593,10 @@
       "away": "Bucheon FC 1995",
       "competition": "K League 1",
       "kickoff": "20261009093000",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "eligible": false,
+      "exclusionReason": "NOT_PREMATCH",
+      "state": "EXCLUDED",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1723724",
@@ -604,21 +604,43 @@
       "away": "Pohang Steelers",
       "competition": "K League 1",
       "kickoff": "20261009093000",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "eligible": false,
+      "exclusionReason": "NOT_PREMATCH",
+      "state": "EXCLUDED",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1898015",
       "home": "Andorra Women",
       "away": "Faroe Islands W",
       "competition": "Women's Friendlies",
-      "kickoff": "20261009120000",
+      "kickoff": "20261009123000",
       "eligible": false,
       "exclusionReason": "WOMEN",
       "state": "EXCLUDED",
-      "updatedAt": null
+      "updatedAt": "2026-10-09T08:03:58.529Z"
+    },
+    {
+      "id": "1904421",
+      "home": "Montenegro W",
+      "away": "Bosnia and Herzegovina Women",
+      "competition": "Women's Friendlies",
+      "kickoff": "20261009130000",
+      "eligible": false,
+      "exclusionReason": "WOMEN",
+      "state": "EXCLUDED",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
+    },
+    {
+      "id": "1904511",
+      "home": "Malaysia W",
+      "away": "Saudi Arabia W",
+      "competition": "Women's Friendlies",
+      "kickoff": "20261009140000",
+      "eligible": false,
+      "exclusionReason": "WOMEN",
+      "state": "EXCLUDED",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1898034",
@@ -629,7 +651,29 @@
       "eligible": false,
       "exclusionReason": "WOMEN",
       "state": "EXCLUDED",
-      "updatedAt": null
+      "updatedAt": "2026-10-09T08:03:58.529Z"
+    },
+    {
+      "id": "1904422",
+      "home": "Malta W",
+      "away": "Luxembourg W",
+      "competition": "Women's Friendlies",
+      "kickoff": "20261009190000",
+      "eligible": false,
+      "exclusionReason": "WOMEN",
+      "state": "EXCLUDED",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
+    },
+    {
+      "id": "1904423",
+      "home": "Haiti W",
+      "away": "Japan W",
+      "competition": "Women's Friendlies",
+      "kickoff": "20261009200000",
+      "eligible": false,
+      "exclusionReason": "WOMEN",
+      "state": "EXCLUDED",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1873548",
@@ -640,7 +684,29 @@
       "eligible": false,
       "exclusionReason": "WOMEN",
       "state": "EXCLUDED",
-      "updatedAt": null
+      "updatedAt": "2026-10-09T08:03:58.529Z"
+    },
+    {
+      "id": "1904425",
+      "home": "Morocco Women",
+      "away": "Uzbekistan W",
+      "competition": "Women's Friendlies",
+      "kickoff": "20261009220000",
+      "eligible": false,
+      "exclusionReason": "WOMEN",
+      "state": "EXCLUDED",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
+    },
+    {
+      "id": "1904424",
+      "home": "Peru W",
+      "away": "Philippines W",
+      "competition": "Women's Friendlies",
+      "kickoff": "20261009220000",
+      "eligible": false,
+      "exclusionReason": "WOMEN",
+      "state": "EXCLUDED",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1794056",
@@ -651,7 +717,7 @@
       "eligible": false,
       "exclusionReason": "WOMEN",
       "state": "EXCLUDED",
-      "updatedAt": null
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1794076",
@@ -662,7 +728,7 @@
       "eligible": false,
       "exclusionReason": "WOMEN",
       "state": "EXCLUDED",
-      "updatedAt": null
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1794073",
@@ -673,7 +739,7 @@
       "eligible": false,
       "exclusionReason": "WOMEN",
       "state": "EXCLUDED",
-      "updatedAt": null
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1794075",
@@ -684,7 +750,7 @@
       "eligible": false,
       "exclusionReason": "WOMEN",
       "state": "EXCLUDED",
-      "updatedAt": null
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1794059",
@@ -695,7 +761,7 @@
       "eligible": false,
       "exclusionReason": "WOMEN",
       "state": "EXCLUDED",
-      "updatedAt": null
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1794067",
@@ -706,7 +772,7 @@
       "eligible": false,
       "exclusionReason": "WOMEN",
       "state": "EXCLUDED",
-      "updatedAt": null
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1794078",
@@ -717,7 +783,7 @@
       "eligible": false,
       "exclusionReason": "WOMEN",
       "state": "EXCLUDED",
-      "updatedAt": null
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1794061",
@@ -728,7 +794,7 @@
       "eligible": false,
       "exclusionReason": "WOMEN",
       "state": "EXCLUDED",
-      "updatedAt": null
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1794066",
@@ -739,7 +805,7 @@
       "eligible": false,
       "exclusionReason": "WOMEN",
       "state": "EXCLUDED",
-      "updatedAt": null
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1794063",
@@ -750,7 +816,7 @@
       "eligible": false,
       "exclusionReason": "WOMEN",
       "state": "EXCLUDED",
-      "updatedAt": null
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1794053",
@@ -761,7 +827,7 @@
       "eligible": false,
       "exclusionReason": "WOMEN",
       "state": "EXCLUDED",
-      "updatedAt": null
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1794069",
@@ -772,7 +838,7 @@
       "eligible": false,
       "exclusionReason": "WOMEN",
       "state": "EXCLUDED",
-      "updatedAt": null
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1794051",
@@ -783,7 +849,7 @@
       "eligible": false,
       "exclusionReason": "WOMEN",
       "state": "EXCLUDED",
-      "updatedAt": null
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1794058",
@@ -794,7 +860,7 @@
       "eligible": false,
       "exclusionReason": "WOMEN",
       "state": "EXCLUDED",
-      "updatedAt": null
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1794081",
@@ -805,7 +871,7 @@
       "eligible": false,
       "exclusionReason": "WOMEN",
       "state": "EXCLUDED",
-      "updatedAt": null
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1794082",
@@ -816,18 +882,18 @@
       "eligible": false,
       "exclusionReason": "WOMEN",
       "state": "EXCLUDED",
-      "updatedAt": null
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1854219",
       "home": "JS Kabylie",
       "away": "ASO Chlef",
       "competition": "Ligue 1",
-      "kickoff": "20261009190000",
+      "kickoff": "20261009184500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1854210",
@@ -837,8 +903,8 @@
       "kickoff": "20261009210000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1899528",
@@ -848,8 +914,8 @@
       "kickoff": "20261009210000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1812284",
@@ -859,8 +925,8 @@
       "kickoff": "20261009183000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1812293",
@@ -870,8 +936,8 @@
       "kickoff": "20261009183000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1812288",
@@ -881,8 +947,8 @@
       "kickoff": "20261009203000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1852897",
@@ -892,8 +958,8 @@
       "kickoff": "20261009140000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1852899",
@@ -903,8 +969,8 @@
       "kickoff": "20261009173000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1900592",
@@ -914,8 +980,8 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1900594",
@@ -925,8 +991,8 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1748988",
@@ -936,8 +1002,8 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1832973",
@@ -947,8 +1013,8 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1870123",
@@ -958,8 +1024,8 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1878509",
@@ -969,8 +1035,8 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1878502",
@@ -980,8 +1046,8 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1741366",
@@ -989,10 +1055,10 @@
       "away": "Criciuma",
       "competition": "Serie B",
       "kickoff": "20261009003000",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "eligible": false,
+      "exclusionReason": "NOT_PREMATCH",
+      "state": "EXCLUDED",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1741375",
@@ -1000,10 +1066,10 @@
       "away": "Novorizontino",
       "competition": "Serie B",
       "kickoff": "20261009003000",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "eligible": false,
+      "exclusionReason": "NOT_PREMATCH",
+      "state": "EXCLUDED",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1811873",
@@ -1013,8 +1079,8 @@
       "kickoff": "20261009163000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1811868",
@@ -1024,8 +1090,8 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1903957",
@@ -1035,8 +1101,8 @@
       "kickoff": "20261009173000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1903953",
@@ -1046,8 +1112,8 @@
       "kickoff": "20261009173000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1806347",
@@ -1055,10 +1121,10 @@
       "away": "Tolima",
       "competition": "Primera A: Clausura",
       "kickoff": "20261009010500",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "eligible": false,
+      "exclusionReason": "NOT_PREMATCH",
+      "state": "EXCLUDED",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1806371",
@@ -1066,10 +1132,10 @@
       "away": "Millonarios",
       "competition": "Primera A: Clausura",
       "kickoff": "20261009031000",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "eligible": false,
+      "exclusionReason": "NOT_PREMATCH",
+      "state": "EXCLUDED",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1806474",
@@ -1079,19 +1145,8 @@
       "kickoff": "20261009220000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
-    },
-    {
-      "id": "1801268",
-      "home": "Inter San Carlos",
-      "away": "Municipal Perez Zeledon",
-      "competition": "Primera División: Apertura",
-      "kickoff": "20261009040000",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1838043",
@@ -1101,8 +1156,8 @@
       "kickoff": "20261009150000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1838036",
@@ -1112,8 +1167,8 @@
       "kickoff": "20261009153000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1838152",
@@ -1123,8 +1178,8 @@
       "kickoff": "20261009153000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1838042",
@@ -1134,8 +1189,8 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1848388",
@@ -1145,8 +1200,8 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1799594",
@@ -1156,8 +1211,8 @@
       "kickoff": "20261009170000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1836453",
@@ -1167,8 +1222,8 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1799596",
@@ -1178,8 +1233,8 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1799595",
@@ -1189,8 +1244,8 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1786758",
@@ -1200,8 +1255,8 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1786763",
@@ -1211,8 +1266,8 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1810002",
@@ -1222,8 +1277,8 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1897280",
@@ -1234,7 +1289,7 @@
       "eligible": false,
       "exclusionReason": "YOUTH",
       "state": "EXCLUDED",
-      "updatedAt": null
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1897225",
@@ -1245,7 +1300,7 @@
       "eligible": false,
       "exclusionReason": "YOUTH",
       "state": "EXCLUDED",
-      "updatedAt": null
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1897227",
@@ -1256,7 +1311,7 @@
       "eligible": false,
       "exclusionReason": "YOUTH",
       "state": "EXCLUDED",
-      "updatedAt": null
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1894578",
@@ -1266,8 +1321,8 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1894549",
@@ -1277,8 +1332,8 @@
       "kickoff": "20261009223000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1843721",
@@ -1288,8 +1343,8 @@
       "kickoff": "20261009143000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1843722",
@@ -1299,8 +1354,8 @@
       "kickoff": "20261009143000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1843716",
@@ -1310,8 +1365,8 @@
       "kickoff": "20261009143000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1843724",
@@ -1321,8 +1376,8 @@
       "kickoff": "20261009143000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1843714",
@@ -1332,8 +1387,8 @@
       "kickoff": "20261009143000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1844461",
@@ -1341,10 +1396,10 @@
       "away": "Alianza FC",
       "competition": "Primera Division: Apertura",
       "kickoff": "20261009033000",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "eligible": false,
+      "exclusionReason": "NOT_PREMATCH",
+      "state": "EXCLUDED",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1743749",
@@ -1355,7 +1410,7 @@
       "eligible": false,
       "exclusionReason": "YOUTH",
       "state": "EXCLUDED",
-      "updatedAt": null
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1743752",
@@ -1365,8 +1420,8 @@
       "kickoff": "20261009183000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1899647",
@@ -1377,7 +1432,7 @@
       "eligible": false,
       "exclusionReason": "WOMEN",
       "state": "EXCLUDED",
-      "updatedAt": null
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1899646",
@@ -1388,7 +1443,7 @@
       "eligible": false,
       "exclusionReason": "WOMEN",
       "state": "EXCLUDED",
-      "updatedAt": null
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1732687",
@@ -1398,8 +1453,8 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1732685",
@@ -1409,8 +1464,8 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1732684",
@@ -1420,8 +1475,8 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1732686",
@@ -1431,8 +1486,8 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1822602",
@@ -1442,8 +1497,8 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1826156",
@@ -1454,7 +1509,7 @@
       "eligible": false,
       "exclusionReason": "RESERVE_OR_DEVELOPMENT",
       "state": "EXCLUDED",
-      "updatedAt": null
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1826162",
@@ -1464,8 +1519,8 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1827107",
@@ -1476,7 +1531,7 @@
       "eligible": false,
       "exclusionReason": "RESERVE_OR_DEVELOPMENT",
       "state": "EXCLUDED",
-      "updatedAt": null
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1826463",
@@ -1486,8 +1541,8 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1826461",
@@ -1497,8 +1552,8 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1826466",
@@ -1508,8 +1563,8 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1830198",
@@ -1519,8 +1574,8 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1829321",
@@ -1530,8 +1585,8 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1828221",
@@ -1541,8 +1596,8 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1828223",
@@ -1552,8 +1607,8 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1828222",
@@ -1564,7 +1619,7 @@
       "eligible": false,
       "exclusionReason": "RESERVE_OR_DEVELOPMENT",
       "state": "EXCLUDED",
-      "updatedAt": null
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1827915",
@@ -1574,8 +1629,8 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1827921",
@@ -1585,8 +1640,8 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1827919",
@@ -1596,19 +1651,8 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
-    },
-    {
-      "id": "1847449",
-      "home": "Brinkumer SV",
-      "away": "Werder Bremen III",
-      "competition": "Oberliga: Bremen",
-      "kickoff": "20261009183000",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1847435",
@@ -1618,8 +1662,8 @@
       "kickoff": "20261009193000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1847429",
@@ -1629,8 +1673,8 @@
       "kickoff": "20261009193000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1827589",
@@ -1640,8 +1684,8 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1827585",
@@ -1651,8 +1695,8 @@
       "kickoff": "20261009193000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1827587",
@@ -1663,7 +1707,7 @@
       "eligible": false,
       "exclusionReason": "RESERVE_OR_DEVELOPMENT",
       "state": "EXCLUDED",
-      "updatedAt": null
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1827651",
@@ -1673,8 +1717,19 @@
       "kickoff": "20261009194500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
+    },
+    {
+      "id": "1882333",
+      "home": "SSV Bornheim 1924",
+      "away": "Borussia Neunkirchen",
+      "competition": "Oberliga: Mittelrhein",
+      "kickoff": "20261009200000",
+      "eligible": true,
+      "exclusionReason": null,
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1842860",
@@ -1685,7 +1740,7 @@
       "eligible": false,
       "exclusionReason": "RESERVE_OR_DEVELOPMENT",
       "state": "EXCLUDED",
-      "updatedAt": null
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1842861",
@@ -1695,8 +1750,8 @@
       "kickoff": "20261009193000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1829906",
@@ -1707,7 +1762,7 @@
       "eligible": false,
       "exclusionReason": "RESERVE_OR_DEVELOPMENT",
       "state": "EXCLUDED",
-      "updatedAt": null
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1829912",
@@ -1717,8 +1772,8 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1829909",
@@ -1728,8 +1783,8 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1828797",
@@ -1740,7 +1795,7 @@
       "eligible": false,
       "exclusionReason": "RESERVE_OR_DEVELOPMENT",
       "state": "EXCLUDED",
-      "updatedAt": null
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1841663",
@@ -1750,8 +1805,8 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1808927",
@@ -1759,10 +1814,10 @@
       "away": "CSD Municipal",
       "competition": "Liga Nacional: Apertura",
       "kickoff": "20261009030000",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "eligible": false,
+      "exclusionReason": "NOT_PREMATCH",
+      "state": "EXCLUDED",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1887370",
@@ -1772,8 +1827,8 @@
       "kickoff": "20261009230000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1865801",
@@ -1783,8 +1838,8 @@
       "kickoff": "20261009140000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1866465",
@@ -1794,8 +1849,8 @@
       "kickoff": "20261009103000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1866466",
@@ -1805,8 +1860,8 @@
       "kickoff": "20261009140000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1893568",
@@ -1816,8 +1871,8 @@
       "kickoff": "20261009151500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1893569",
@@ -1827,8 +1882,8 @@
       "kickoff": "20261009153000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1871227",
@@ -1838,8 +1893,8 @@
       "kickoff": "20261009170000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1871226",
@@ -1849,8 +1904,8 @@
       "kickoff": "20261009184500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1871230",
@@ -1860,8 +1915,8 @@
       "kickoff": "20261009193000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1888965",
@@ -1871,8 +1926,8 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1719635",
@@ -1882,8 +1937,8 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1719640",
@@ -1893,8 +1948,8 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1719638",
@@ -1904,8 +1959,8 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1719641",
@@ -1915,8 +1970,8 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1719639",
@@ -1926,8 +1981,8 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1799354",
@@ -1937,8 +1992,8 @@
       "kickoff": "20261009150000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1799349",
@@ -1948,8 +2003,8 @@
       "kickoff": "20261009150000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1799353",
@@ -1959,8 +2014,8 @@
       "kickoff": "20261009150000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1799351",
@@ -1970,8 +2025,8 @@
       "kickoff": "20261009150000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1799352",
@@ -1981,8 +2036,8 @@
       "kickoff": "20261009150000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1855349",
@@ -1992,8 +2047,8 @@
       "kickoff": "20261009203000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1853312",
@@ -2003,8 +2058,8 @@
       "kickoff": "20261009113000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1853326",
@@ -2014,8 +2069,8 @@
       "kickoff": "20261009120000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1902098",
@@ -2025,8 +2080,8 @@
       "kickoff": "20261009160000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1902109",
@@ -2036,19 +2091,8 @@
       "kickoff": "20261009183000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
-    },
-    {
-      "id": "1872608",
-      "home": "Nairobi United",
-      "away": "KCB",
-      "competition": "Premier League",
-      "kickoff": "20261009150000",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1899304",
@@ -2058,8 +2102,8 @@
       "kickoff": "20261009140000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1899302",
@@ -2069,74 +2113,30 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1866864",
       "home": "Al Nasr",
       "away": "Kuwait SC",
       "competition": "Premier League",
-      "kickoff": "20261009194500",
+      "kickoff": "20261009165000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
-    },
-    {
-      "id": "1885712",
-      "home": "Al Sahel SC",
-      "away": "Al Fahaheel",
-      "competition": "Premier League",
-      "kickoff": "20261009194500",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
-    },
-    {
-      "id": "1885710",
-      "home": "Al-Salibikhaet",
-      "away": "Al-Jahra",
-      "competition": "Premier League",
-      "kickoff": "20261009194500",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
-    },
-    {
-      "id": "1866866",
-      "home": "Al-Salmiyah",
-      "away": "Al-Shabab SC",
-      "competition": "Premier League",
-      "kickoff": "20261009194500",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
-    },
-    {
-      "id": "1866865",
-      "home": "Al-Tadhamon",
-      "away": "Al-Qadsia",
-      "competition": "Premier League",
-      "kickoff": "20261009194500",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1866863",
       "home": "Kazma",
       "away": "Al-Arabi",
       "competition": "Premier League",
-      "kickoff": "20261009194500",
+      "kickoff": "20261009190500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1817825",
@@ -2146,8 +2146,8 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1819338",
@@ -2155,10 +2155,10 @@
       "away": "Correcaminos de la UAT",
       "competition": "Liga de Expansion MX: Apertura",
       "kickoff": "20261009030000",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "eligible": false,
+      "exclusionReason": "NOT_PREMATCH",
+      "state": "EXCLUDED",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1903901",
@@ -2168,19 +2168,19 @@
       "kickoff": "20261009220000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1881210",
       "home": "Katsina United",
       "away": "Enyimba",
       "competition": "NPFL",
-      "kickoff": "20261009180000",
+      "kickoff": "20261009183000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1806042",
@@ -2190,8 +2190,8 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1807057",
@@ -2201,8 +2201,8 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1807060",
@@ -2212,8 +2212,8 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1807054",
@@ -2223,8 +2223,8 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1726456",
@@ -2234,8 +2234,8 @@
       "kickoff": "20261009181500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1726094",
@@ -2246,7 +2246,7 @@
       "eligible": false,
       "exclusionReason": "RESERVE_OR_DEVELOPMENT",
       "state": "EXCLUDED",
-      "updatedAt": null
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1725722",
@@ -2256,8 +2256,8 @@
       "kickoff": "20261009191500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1899306",
@@ -2267,8 +2267,8 @@
       "kickoff": "20261009150000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1899309",
@@ -2278,8 +2278,8 @@
       "kickoff": "20261009173000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1903651",
@@ -2289,8 +2289,8 @@
       "kickoff": "20261009220000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1808295",
@@ -2300,8 +2300,8 @@
       "kickoff": "20261009203000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1808610",
@@ -2311,8 +2311,8 @@
       "kickoff": "20261009153000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1808611",
@@ -2322,8 +2322,8 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1816738",
@@ -2333,8 +2333,8 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1856502",
@@ -2344,8 +2344,8 @@
       "kickoff": "20261009220000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1838570",
@@ -2355,8 +2355,8 @@
       "kickoff": "20261009164500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1838563",
@@ -2366,8 +2366,8 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1729381",
@@ -2375,10 +2375,10 @@
       "away": "Hwaseong",
       "competition": "K League 2",
       "kickoff": "20261009070000",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "eligible": false,
+      "exclusionReason": "NOT_PREMATCH",
+      "state": "EXCLUDED",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1729385",
@@ -2386,10 +2386,10 @@
       "away": "Seongnam FC",
       "competition": "K League 2",
       "kickoff": "20261009093000",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "eligible": false,
+      "exclusionReason": "NOT_PREMATCH",
+      "state": "EXCLUDED",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1729384",
@@ -2397,10 +2397,10 @@
       "away": "Seoul E-Land FC",
       "competition": "K League 2",
       "kickoff": "20261009093000",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "eligible": false,
+      "exclusionReason": "NOT_PREMATCH",
+      "state": "EXCLUDED",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1743974",
@@ -2408,10 +2408,10 @@
       "away": "Ulsan Citizen FC",
       "competition": "K3 League",
       "kickoff": "20261009070000",
-      "eligible": true,
-      "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "eligible": false,
+      "exclusionReason": "NOT_PREMATCH",
+      "state": "EXCLUDED",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1894769",
@@ -2421,8 +2421,8 @@
       "kickoff": "20261009211500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1894776",
@@ -2432,8 +2432,8 @@
       "kickoff": "20261009211500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1894770",
@@ -2443,8 +2443,8 @@
       "kickoff": "20261009211500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1801057",
@@ -2454,8 +2454,8 @@
       "kickoff": "20261009173000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1814471",
@@ -2465,8 +2465,8 @@
       "kickoff": "20261009210000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1719440",
@@ -2476,8 +2476,8 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1728222",
@@ -2487,8 +2487,8 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1730784",
@@ -2498,8 +2498,8 @@
       "kickoff": "20261009193000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1796126",
@@ -2509,8 +2509,8 @@
       "kickoff": "20261009193000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1796127",
@@ -2520,8 +2520,8 @@
       "kickoff": "20261009193000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1796129",
@@ -2531,8 +2531,8 @@
       "kickoff": "20261009193000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1796125",
@@ -2542,8 +2542,8 @@
       "kickoff": "20261009201500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1796128",
@@ -2553,8 +2553,8 @@
       "kickoff": "20261009201500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1861012",
@@ -2564,8 +2564,8 @@
       "kickoff": "20261009130000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1861013",
@@ -2575,8 +2575,8 @@
       "kickoff": "20261009151500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1861021",
@@ -2586,8 +2586,8 @@
       "kickoff": "20261009180000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1861027",
@@ -2597,8 +2597,8 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1847048",
@@ -2608,8 +2608,8 @@
       "kickoff": "20261009130000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1825318",
@@ -2619,8 +2619,8 @@
       "kickoff": "20261009160000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1825320",
@@ -2630,8 +2630,8 @@
       "kickoff": "20261009160000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1825313",
@@ -2641,8 +2641,8 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1825321",
@@ -2652,8 +2652,8 @@
       "kickoff": "20261009190000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1825661",
@@ -2663,8 +2663,8 @@
       "kickoff": "20261009143000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1901301",
@@ -2674,8 +2674,8 @@
       "kickoff": "20261009220000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1743554",
@@ -2685,8 +2685,8 @@
       "kickoff": "20261009153000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1743551",
@@ -2696,8 +2696,8 @@
       "kickoff": "20261009160000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1743552",
@@ -2707,8 +2707,8 @@
       "kickoff": "20261009160000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1743572",
@@ -2718,8 +2718,8 @@
       "kickoff": "20261009163000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1813151",
@@ -2729,8 +2729,8 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1813144",
@@ -2740,8 +2740,8 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1813146",
@@ -2752,7 +2752,7 @@
       "eligible": false,
       "exclusionReason": "NON_SENIOR",
       "state": "EXCLUDED",
-      "updatedAt": null
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1813155",
@@ -2762,8 +2762,8 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1813145",
@@ -2773,8 +2773,8 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1813150",
@@ -2784,8 +2784,8 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1813156",
@@ -2795,8 +2795,8 @@
       "kickoff": "20261009204500",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1899865",
@@ -2807,7 +2807,7 @@
       "eligible": false,
       "exclusionReason": "WOMEN",
       "state": "EXCLUDED",
-      "updatedAt": null
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1899866",
@@ -2818,7 +2818,7 @@
       "eligible": false,
       "exclusionReason": "WOMEN",
       "state": "EXCLUDED",
-      "updatedAt": null
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1715145",
@@ -2828,8 +2828,8 @@
       "kickoff": "20261009193000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1715150",
@@ -2839,8 +2839,8 @@
       "kickoff": "20261009230000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1862067",
@@ -2850,8 +2850,8 @@
       "kickoff": "20261009210000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1810441",
@@ -2861,8 +2861,8 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     },
     {
       "id": "1810436",
@@ -2872,20 +2872,23 @@
       "kickoff": "20261009200000",
       "eligible": true,
       "exclusionReason": null,
-      "state": "COMPLETE",
-      "updatedAt": "2026-10-08T15:09:30.322Z"
+      "state": "PENDING",
+      "updatedAt": "2026-10-09T08:03:58.529Z"
     }
   ],
   "counts": {
     "boardTotal": 260,
-    "eligible": 224,
-    "excluded": 36,
-    "PENDING": 0,
+    "eligible": 200,
+    "excluded": 60,
+    "PENDING": 200,
     "RESEARCH_VERIFIED": 0,
     "MODEL_VERIFIED": 0,
     "DECISION_VERIFIED": 0,
-    "COMPLETE": 224,
-    "EXCLUDED": 36
+    "COMPLETE": 0,
+    "EXCLUDED": 60
   },
-  "next": null
+  "next": {
+    "fixtureId": "1810712",
+    "state": "PENDING"
+  }
 }
