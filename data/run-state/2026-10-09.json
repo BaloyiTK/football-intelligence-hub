@@ -13,7 +13,7 @@
     "stageCount": 122
   },
   "createdAt": "2026-10-09T10:25:47.571Z",
-  "updatedAt": "2026-10-09T10:25:47.571Z",
+  "updatedAt": "2026-10-09T10:31:23.834Z",
   "fixtures": [
     {
       "id": "1810712",
@@ -2899,7 +2899,8 @@
       "fresh-step1-commit:d9bc8cf2315b37fa2a4f8b53132c82008600110c",
       "ai-gateway-live-smoke:card-authorization-required",
       "repository-portability-ci:pass",
-      "repository-reliability-ci:pass"
+      "repository-reliability-ci:pass",
+      "vercel-data-only-deploy-ignore:configured-and-ci-verified"
     ],
     "attempts": [
       "canonical-retry",
