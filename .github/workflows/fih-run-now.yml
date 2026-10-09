@@ -51,4 +51,5 @@ jobs:
           git fetch origin main
           git show "origin/main:data/research-queue/$FIH_DATE.json" >/tmp/research-queue.json
           git show "origin/main:data/run-state/$FIH_DATE.json" >/tmp/run-state.json
-          node -e 'const q=require("/tmp/research-queue.json"),l=require("/tmp/run-state.json");if(q.executor!=="CHATGPT_WEB_SEARCH"||!q.researchRunId||q.researchRunId!==l.researchRunId||q.count!==l.counts?.eligible||l.counts?.PENDING!==l.counts?.eligible)process.exit(1);console.log(JSON.stringify({verified:true,date:q.date,researchRunId:q.researchRunId,eligible:q.count,handoff:"CHATGPT_STEP2_REQUIRED"}))'
+          git show "origin/main:data/recovery-requests/$FIH_DATE.json" >/tmp/recovery-request.json
+          node -e 'const q=require("/tmp/research-queue.json"),l=require("/tmp/run-state.json"),h=require("/tmp/recovery-request.json");if(q.executor!=="CHATGPT_WEB_SEARCH"||!q.researchRunId||q.researchRunId!==l.researchRunId||h.researchRunId!==q.researchRunId||h.runId!==l.runId||h.status!=="CHATGPT_RESEARCH_REQUIRED"||h.expectedFixtureCount!==q.count||q.count!==l.counts?.eligible||l.counts?.PENDING!==l.counts?.eligible)process.exit(1);console.log(JSON.stringify({verified:true,date:q.date,researchRunId:q.researchRunId,eligible:q.count,handoff:"CHATGPT_STEP2_REQUIRED",durableStatus:h.status}))'

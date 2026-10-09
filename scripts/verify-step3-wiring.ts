@@ -114,10 +114,12 @@ if(fs.existsSync("api/research-fixture.js")||fs.existsSync("api/step2-research.j
 
 const workflow=read(".github/workflows/fih-run-now.yml");
 for(const token of [
-  "Fresh fixture acquisition and independent GitHub verification",
-  "x-fih-github-oidc",
-  'npm run run:daily -- --date "$FIH_DATE"'
-]) if(!workflow.includes(token))fail("run-now workflow missing "+token);
+  "scripts/step12-command-runner.mjs",
+  "Verify ChatGPT handoff",
+  "CHATGPT_STEP2_REQUIRED"
+]) if(!workflow.includes(token))fail("run-now Step 1/ChatGPT handoff workflow missing "+token);
+for(const forbidden of ["npm run run:daily","daily-model-runner","daily-decision-runner","step2-autonomous-runner","research-fixture"])
+  if(workflow.includes(forbidden))fail("run-now workflow crossed Step 1/ChatGPT handoff boundary: "+forbidden);
 if(workflow.includes("ACTIVE_RESEARCH_RUN_REUSE_FROZEN_BOARD"))fail("stale fixture-board reuse reintroduced");
 
 console.log(JSON.stringify({
