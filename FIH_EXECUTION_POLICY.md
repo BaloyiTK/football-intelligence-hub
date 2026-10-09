@@ -111,6 +111,8 @@ For transient network, provider, GitHub, deployment, parsing, or rate-limit fail
 ### Stale execution recovery
 If a prior run appears RUNNING but has no active external job and its checkpoint has not advanced, treat it as interrupted/stale. Re-read canonical artifacts, reclaim the run from the last verified checkpoint, and continue. Never wait indefinitely on a stale logical lock.
 
+For PREDICTION, if stale recovery proves the active Step-2 generation has exactly 0/N validated fixtures, no canonical research for that `researchRunId`, no validated record in any surviving temp accumulator, and one or more frozen eligible fixtures have already reached kickoff, the old generation cannot reach N/N without post-kickoff leakage. Under `RESEARCH-025`, persist explicit supersession evidence for the old run/research lineage, reacquire and independently verify a fresh current prematch Step-1 board, create a new lineage, and continue automatically. This exception is forbidden after any Step-2 fixture has validated.
+
 ### Completion invariants
 A daily run may be COMPLETE only when: the authoritative current-date fixture board is verified; every eligible fixture has a verified terminal per-fixture state; all required aggregate/model/decision artifacts reconcile with the eligible fixture count; the public artifact contains only publishable qualifying selections; required commits are verified; and the required production deployment points to the intended committed state. Count mismatches or orphaned PENDING fixtures trigger self-healing/resume.
 
