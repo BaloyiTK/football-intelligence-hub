@@ -23,6 +23,13 @@ name: FIH Reliability CI
       - ".github/workflows/fih-run-now.yml"
       - "package.json"
       - "scripts/daily-decision-runner.ts"
+      - "scripts/step12-prepare.ts"
+      - "scripts/step12-command-runner.mjs"
+      - "scripts/step2-autonomous-runner.ts"
+      - "scripts/test-step12-implementation.mjs"
+      - "api/_fih-auth.js"
+      - "api/research-fixture.js"
+      - ".github/workflows/fih-step12-command.yml"
       - ".github/workflows/fih-reliability-ci.yml"
 permissions:
   contents: read
@@ -34,6 +41,8 @@ jobs:
       - name: Verify runner Node
         run: node --version && npm --version
       - run: npm install --no-audit --no-fund
+      - name: Verify Step 1-2 implementation compiles
+        run: npm run step12:test
       - name: Verify Step 2 storage lock
         run: npm run research:storage-lock
       - name: Verify Step 2 actual-capture lock
