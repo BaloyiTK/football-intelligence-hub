@@ -60,13 +60,13 @@ const token=await oidcToken();
 async function researchFixture(f:any){
  let last:any=null;
  for(let attempt=1;attempt<=Number(process.env.FIH_RESEARCH_RETRIES||"3");attempt++){
-  const job={date:DATE,mode:MODE,cutoffAt:queue.cutoffAt??null,researchRunId:queue.researchRunId,fixture:f,requiredCategories:queue.researchRequirements||null,repairHint:last?String(last).slice(0,1200):null};
+  const job={date:DATE,fixture:String(f.fixtureId)};
   try{
-   const r=await fetch(BASE+"/api/step2-research",{method:"POST",headers:{"Content-Type":"application/json","x-vercel-trusted-oidc-idp-token":token},body:JSON.stringify(job)});
+   const r=await fetch(BASE+"/api/research-fixture",{method:"POST",headers:{"Content-Type":"application/json","x-fih-github-oidc":token},body:JSON.stringify(job)});
    const txt=await r.text();if(!r.ok)throw new Error("RESEARCH_HTTP_"+r.status+" "+txt.slice(0,1600));
    const j=JSON.parse(txt),record=j.record;
    validateResearchArtifact({schema:"fih-daily-research-v5",date:DATE,mode:MODE,generatedAt:new Date().toISOString(),researchRunId:queue.researchRunId,fixtures:[record]},DATE,[String(f.fixtureId)],MODE);
-   return {record,meta:{queries:j.webSearchQueries,sources:j.webSearchSources,model:j.model}};
+   return {record,meta:{queries:j.observedQueries??j.searchCalls,sources:j.observedSources??0,model:j.model}};
   }catch(e){last=e;console.error("STEP2_FIXTURE_RETRY",f.fixtureId,attempt,String(e))}
  }
  throw new Error("STEP2_FIXTURE_EXHAUSTED "+f.fixtureId+" "+String(last));
