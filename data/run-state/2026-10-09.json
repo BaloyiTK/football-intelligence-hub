@@ -4,8 +4,8 @@
   "timezone": "Africa/Johannesburg",
   "runId": "step12:prediction:2026-10-09:1791548294857",
   "researchRunId": "research:2026-10-09:1791548294857",
-  "runStatus": "RECOVERING",
-  "heartbeatAt": "2026-10-09T12:23:15.127Z",
+  "runStatus": "BLOCKED",
+  "heartbeatAt": "2026-10-09T12:23:18.903Z",
   "recoveryCount": 1,
   "board": {
     "fetchedAt": "2026-10-09T12:18:14.857Z",
@@ -13,7 +13,7 @@
     "stageCount": 121
   },
   "createdAt": "2026-10-09T12:18:17.128Z",
-  "updatedAt": "2026-10-09T12:23:15.127Z",
+  "updatedAt": "2026-10-09T12:23:18.903Z",
   "fixtures": [
     {
       "id": "1810712",
@@ -2879,5 +2879,22 @@
   "next": {
     "fixtureId": "1810712",
     "state": "PENDING"
+  },
+  "terminal": {
+    "kind": "BLOCKED",
+    "hardStop": "NEW_SECRET_OR_EXTERNAL_AUTHORIZATION_REQUIRED",
+    "reason": "AI_GATEWAY_CUSTOMER_VERIFICATION_REQUIRED",
+    "evidence": [
+      "vercel-ai-gateway-customer-verification-required",
+      "no-configured-authorized-alternate-ai-provider"
+    ],
+    "attempts": [
+      "canonical-retry",
+      "investigate-repair",
+      "authorized-fallback",
+      "persist-reconcile",
+      "resume-check"
+    ],
+    "at": "2026-10-09T12:23:18.903Z"
   }
 }
