@@ -71,7 +71,7 @@ async function researchFixture(f:any){
   try{
    const token=await oidcToken();
    const r=await fetch(BASE+"/api/research-fixture",{method:"POST",headers:{"Content-Type":"application/json","x-fih-github-oidc":token},body:JSON.stringify(job)});
-   const txt=await r.text();if(!r.ok){if(r.status===424&&/EXTERNAL_AI_AUTHORIZATION_REQUIRED/.test(txt))throw new Error("STEP2_EXTERNAL_AI_AUTHORIZATION_REQUIRED "+txt.slice(0,1600));throw new Error("RESEARCH_HTTP_"+r.status+" "+txt.slice(0,1600));}
+   const txt=await r.text();if(!r.ok){if(/EXTERNAL_AI_AUTHORIZATION_REQUIRED|customer_verification_required|valid credit card on file|billing verification|payment method/i.test(txt))throw new Error("STEP2_EXTERNAL_AI_AUTHORIZATION_REQUIRED "+txt.slice(0,1600));throw new Error("RESEARCH_HTTP_"+r.status+" "+txt.slice(0,1600));}
    const j=JSON.parse(txt),record=j.record;
    validateResearchArtifact({schema:"fih-daily-research-v5",date:DATE,mode:MODE,generatedAt:new Date().toISOString(),researchRunId:queue.researchRunId,fixtures:[record]},DATE,[String(f.fixtureId)],MODE);
    return {record,meta:{queries:j.observedQueries??j.searchCalls,sources:j.observedSources??0,model:j.model}};
