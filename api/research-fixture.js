@@ -62,10 +62,11 @@ function enforceObservedResearch(record,evidence){
   }
   for(const sm of record.sourceMetadata)if(urls.size&&!urls.has(String(sm.url)))throw new Error("UNOBSERVED_SOURCE_URL_"+sm.url);
 }
-function systemPrompt(date,fixture,rid,kickoff){
+function systemPrompt(date,fixture,rid,kickoff,mode,cutoffAt){
+ const temporal=mode==="BACKTEST"?`This is BACKTEST mode. Retain only evidence verifiably available at or before ${cutoffAt}. Every retained sourceMetadata item MUST include availableAt and it must be <= ${cutoffAt}. Do not use this target fixture result or any later information.`:`This is PREDICTION mode. Use only information available before the fixture kickoff; reject any source/result that reveals this fixture\'s live or final outcome.`;
  return `You are the authoritative FIH Step-2 football research executor. Research exactly one fixture using the provided Browserbase web search and fetch tools. You MUST perform genuine category-specific web searches and retain only source-backed facts. Never invent a score, table position, injury, date, H2H row, URL, or source. If a required category cannot be verified after targeted search, use PARTIAL or UNAVAILABLE only with searchExhausted:true and an attempt outcome containing SEARCH_EXHAUSTED. Do not use generic SEARCH_COMPLETE markers.
 
-RUN: date=${date}; researchRunId=${rid}; fixtureId=${fixture.fixtureId}; ${fixture.home} vs ${fixture.away}; competition=${fixture.competition}; kickoff=${kickoff}. This is PREDICTION mode. Use only information available before the fixture kickoff; reject any source/result that reveals this fixture's live or final outcome.
+RUN: date=${date}; researchRunId=${rid}; fixtureId=${fixture.fixtureId}; ${fixture.home} vs ${fixture.away}; competition=${fixture.competition}; kickoff=${kickoff}. ${temporal}
 
 Required categories:
 1) form: last 5 completed overall matches for each team AND last 5 HOME matches for the home team AND last 5 AWAY matches for the away team. Each retained row: date, opponent, venue HOME/AWAY, goalsFor, goalsAgainst, sourceRef. VERIFIED requires exactly 5 in all four series. If exact coverage cannot be verified, retain only verified rows and mark PARTIAL+SEARCH_EXHAUSTED; if none, UNAVAILABLE+SEARCH_EXHAUSTED.
@@ -75,7 +76,7 @@ Required categories:
 5) schedule: source-backed fixture timing and meaningful scheduling/congestion/travel information. Store factual data only.
 6) competitionContext: per-team facts and zero or more tags. Allowed tags only MUST_WIN,KNOCKOUT_ELIMINATION,TITLE_DECIDER,RELEGATION_DECIDER,PROMOTION_DECIDER,TITLE_RACE,RELEGATION_BATTLE,PROMOTION_RACE,QUALIFICATION_RACE,PLAYOFF_RACE,DEAD_RUBBER,ROTATION_EXPECTED,FRIENDLY.
 
-For every source add sourceMetadata {ref,url,retrievedAt,supports}. Every sourceRef in facts must equal one sourceMetadata.ref. Search attempts must contain the real query, attemptedAt, and outcome SOURCE_BACKED_FACTS_FOUND or SEARCH_EXHAUSTED:<short reason>. Do not store xG, probabilities, ratings, PPG calculations, predictions, betting opinions, or derived metrics.
+For every source add sourceMetadata {ref,url,retrievedAt,supports${mode==="BACKTEST"?",availableAt":""}}. Every sourceRef in facts must equal one sourceMetadata.ref. Search attempts must contain the real query, attemptedAt, and outcome SOURCE_BACKED_FACTS_FOUND or SEARCH_EXHAUSTED:<short reason>. Do not store xG, probabilities, ratings, PPG calculations, predictions, betting opinions, or derived metrics.
 
 Return ONLY one JSON object with this exact top-level shape:
 {"fixtureId":"...","fixture":{"home":"...","away":"...","competition":"...","kickoff":"..."},"researchedAt":"ISO","researchRunId":"...","sourceMetadata":[],"facts":{"form":{},"standings":{},"headToHead":{},"squadAvailability":{},"schedule":{},"competitionContext":{}}}
@@ -92,6 +93,9 @@ export default async function handler(req,res){
   try{
     const [queue,ledger]=await Promise.all([gh("data/research-queue/"+date+".json"),gh("data/run-state/"+date+".json")]);
     if(queue.date!==date||queue.researchRunId!==ledger.researchRunId||!Array.isArray(queue.fixtures))throw new Error("ACTIVE_RESEARCH_QUEUE_IDENTITY_INVALID");
+    const mode=queue.mode||"PREDICTION";
+    if(!["PREDICTION","BACKTEST"].includes(mode))throw new Error("ACTIVE_RESEARCH_MODE_INVALID");
+    if(mode==="BACKTEST"&&!queue.cutoffAt)throw new Error("BACKTEST_RESEARCH_CUTOFF_MISSING");
     const f=queue.fixtures.find(x=>String(x.fixtureId)===fixtureId);
     if(!f)throw new Error("FIXTURE_NOT_IN_ACTIVE_RESEARCH_QUEUE");
     const lf=(ledger.fixtures||[]).find(x=>String(x.id)===fixtureId);
@@ -99,10 +103,10 @@ export default async function handler(req,res){
     const nowSast=new Date();
     const raw=String(f.kickoff||"");
     const kickoffIso=/^\d{14}$/.test(raw)?raw.slice(0,4)+"-"+raw.slice(4,6)+"-"+raw.slice(6,8)+"T"+raw.slice(8,10)+":"+raw.slice(10,12)+":"+raw.slice(12,14)+"+02:00":null;
-    if(kickoffIso&&nowSast.getTime()>=new Date(kickoffIso).getTime())return res.status(409).json({error:"PREMATCH_RESEARCH_WINDOW_CLOSED",fixtureId,kickoff:kickoffIso});
+    if(mode==="PREDICTION"&&kickoffIso&&nowSast.getTime()>=new Date(kickoffIso).getTime())return res.status(409).json({error:"PREMATCH_RESEARCH_WINDOW_CLOSED",fixtureId,kickoff:kickoffIso});
     const result=await generateText({
       model:MODEL,
-      system:systemPrompt(date,f,queue.researchRunId,kickoffIso||raw),
+      system:systemPrompt(date,f,queue.researchRunId,kickoffIso||raw,mode,queue.cutoffAt||null),
       prompt:"Perform the required searches now, fetch sources when needed, then return the validated facts-only JSON record.",
       tools:{
         browserbase_search:gateway.tools.browserbaseSearch({numResults:5}),
@@ -112,11 +116,19 @@ export default async function handler(req,res){
       maxOutputTokens:18000
     });
     const record=basicRecordCheck(parseJson(result.text),f,queue.researchRunId);
+    if(mode==="BACKTEST"){
+      const cutoff=new Date(queue.cutoffAt).getTime();
+      for(const sm of record.sourceMetadata){
+        if(!sm.availableAt)throw new Error("BACKTEST_SOURCE_AVAILABILITY_MISSING");
+        const at=new Date(sm.availableAt).getTime();
+        if(!Number.isFinite(at)||at>cutoff)throw new Error("BACKTEST_SOURCE_AFTER_CUTOFF");
+      }
+    }
     const calls=(result.steps||[]).flatMap(s=>s.toolCalls||[]);
     const searchCalls=calls.filter(c=>String(c.toolName||"").includes("browserbase_search")).length;
     const evidence=collectToolEvidence(result);
     enforceObservedResearch(record,evidence);
-    return res.status(200).json({ok:true,date,fixtureId,researchRunId:queue.researchRunId,model:MODEL,searchCalls,observedQueries:evidence.queries.length,observedSources:evidence.urls.length,record});
+    return res.status(200).json({ok:true,date,mode,fixtureId,researchRunId:queue.researchRunId,model:MODEL,searchCalls,observedQueries:evidence.queries.length,observedSources:evidence.urls.length,record});
   }catch(e){
     console.error("FIH_RESEARCH_FIXTURE_ERROR",e);
     return res.status(502).json({error:String(e?.message||e)});
