@@ -48,20 +48,22 @@ if(fs.existsSync(workPath)){work=read(workPath);try{validateWork(work)}catch{wor
 validateWork(read(workPath));
 
 async function oidcToken(){
- if(process.env.FIH_TRUSTED_OIDC_TOKEN)return process.env.FIH_TRUSTED_OIDC_TOKEN;
  const u=process.env.ACTIONS_ID_TOKEN_REQUEST_URL,t=process.env.ACTIONS_ID_TOKEN_REQUEST_TOKEN;
- if(!u||!t)throw new Error("GITHUB_OIDC_ENV_MISSING");
- const sep=u.includes("?")?"&":"?";
- const r=await fetch(u+sep+"audience=fih-step2",{headers:{Authorization:"Bearer "+t}});
- if(!r.ok)throw new Error("GITHUB_OIDC_REQUEST_FAILED "+r.status);
- const j=await r.json();if(!j.value)throw new Error("GITHUB_OIDC_TOKEN_MISSING");return j.value;
+ if(u&&t){
+  const sep=u.includes("?")?"&":"?";
+  const r=await fetch(u+sep+"audience=fih-step2",{headers:{Authorization:"Bearer "+t}});
+  if(!r.ok)throw new Error("GITHUB_OIDC_REQUEST_FAILED "+r.status);
+  const j=await r.json();if(!j.value)throw new Error("GITHUB_OIDC_TOKEN_MISSING");return j.value;
+ }
+ if(process.env.FIH_TRUSTED_OIDC_TOKEN)return process.env.FIH_TRUSTED_OIDC_TOKEN;
+ throw new Error("GITHUB_OIDC_ENV_MISSING");
 }
-const token=await oidcToken();
 async function researchFixture(f:any){
  let last:any=null;
  for(let attempt=1;attempt<=Number(process.env.FIH_RESEARCH_RETRIES||"3");attempt++){
   const job={date:DATE,fixture:String(f.fixtureId)};
   try{
+   const token=await oidcToken();
    const r=await fetch(BASE+"/api/research-fixture",{method:"POST",headers:{"Content-Type":"application/json","x-fih-github-oidc":token},body:JSON.stringify(job)});
    const txt=await r.text();if(!r.ok)throw new Error("RESEARCH_HTTP_"+r.status+" "+txt.slice(0,1600));
    const j=JSON.parse(txt),record=j.record;
