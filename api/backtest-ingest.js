@@ -1,9 +1,11 @@
+import {requireFihGitHubOidc} from "./_fih-auth.js";
 const OWNER=process.env.FIH_GITHUB_OWNER||process.env.VERCEL_GIT_REPO_OWNER;
 const REPO=process.env.FIH_GITHUB_REPO||process.env.VERCEL_GIT_REPO_SLUG;
 const BRANCH=process.env.FIH_GITHUB_BRANCH||"main";
 function sastDate(){return new Intl.DateTimeFormat("en-CA",{timeZone:"Africa/Johannesburg",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date())}
 async function github(path,init={}){return fetch("https://api.github.com/repos/"+OWNER+"/"+REPO+"/contents/"+path,{...init,headers:{"Authorization":"Bearer "+process.env.FIH_GITHUB_TOKEN,"Accept":"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28","Content-Type":"application/json",...(init.headers||{})}})}
 export default async function handler(req,res){
+ if(!await requireFihGitHubOidc(req,res))return;
  if(!["GET","POST"].includes(req.method))return res.status(405).json({error:"GET or POST required"});
  const requested=String(req.query.date||"").trim(),today=sastDate(),date=requested||today;
  if(!/^\d{4}-\d{2}-\d{2}$/.test(date)||Number.isNaN(Date.parse(date+"T00:00:00Z"))||new Date(date+"T00:00:00Z").toISOString().slice(0,10)!==date)return res.status(400).json({error:"date must be a valid YYYY-MM-DD value",today});
