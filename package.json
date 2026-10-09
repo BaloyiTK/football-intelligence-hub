@@ -27,10 +27,13 @@
     "step3:wiring-lock": "tsx scripts/verify-step3-wiring.ts",
     "research:actual-capture-lock": "tsx scripts/verify-research-actual-capture.ts"
   },
-  "dependencies": {},
+  "dependencies": {
+    "ai": "^7.0.116"
+  },
   "devDependencies": {
     "@types/node": "^22",
     "typescript": "^5",
     "tsx": "^4.20.6"
-  }
+  },
+  "type": "module"
 }
