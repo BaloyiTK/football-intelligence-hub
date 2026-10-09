@@ -71,13 +71,34 @@ async function researchFixture(f:any){
   try{
    const token=await oidcToken();
    const r=await fetch(BASE+"/api/research-fixture",{method:"POST",headers:{"Content-Type":"application/json","x-fih-github-oidc":token},body:JSON.stringify(job)});
-   const txt=await r.text();if(!r.ok)throw new Error("RESEARCH_HTTP_"+r.status+" "+txt.slice(0,1600));
+   const txt=await r.text();if(!r.ok){if(r.status===424&&/EXTERNAL_AI_AUTHORIZATION_REQUIRED/.test(txt))throw new Error("STEP2_EXTERNAL_AI_AUTHORIZATION_REQUIRED "+txt.slice(0,1600));throw new Error("RESEARCH_HTTP_"+r.status+" "+txt.slice(0,1600));}
    const j=JSON.parse(txt),record=j.record;
    validateResearchArtifact({schema:"fih-daily-research-v5",date:DATE,mode:MODE,generatedAt:new Date().toISOString(),researchRunId:queue.researchRunId,fixtures:[record]},DATE,[String(f.fixtureId)],MODE);
    return {record,meta:{queries:j.observedQueries??j.searchCalls,sources:j.observedSources??0,model:j.model}};
-  }catch(e){last=e;console.error("STEP2_FIXTURE_RETRY",f.fixtureId,attempt,String(e))}
+  }catch(e){const message=String(e);if(message.includes("STEP2_EXTERNAL_AI_AUTHORIZATION_REQUIRED"))throw e;last=e;console.error("STEP2_FIXTURE_RETRY",f.fixtureId,attempt,message)}
  }
  throw new Error("STEP2_FIXTURE_EXHAUSTED "+f.fixtureId+" "+String(last));
+}
+function persistExternalAuthorizationBlock(detail:string):never{
+ const hardStop="NEW_SECRET_OR_EXTERNAL_AUTHORIZATION_REQUIRED";
+ const attempts="canonical-retry,investigate-repair,authorized-fallback,persist-reconcile,resume-check";
+ const evidence="vercel-ai-gateway-customer-verification-required,no-configured-authorized-alternate-ai-provider";
+ const runTsx=(...a:string[])=>spawnSync(process.execPath,["node_modules/tsx/dist/cli.mjs",...a],{cwd:ROOT,stdio:"inherit",env:process.env});
+ const gate=runTsx("scripts/contract-gate.ts","--verdict","BLOCKED","--date",DATE,"--terminal","--rules","TERM-001,REC-003,EVID-001,RESEARCH-026","--evidence",evidence,"--hard-stop",hardStop,"--attempts",attempts);
+ if(gate.status!==0)throw new Error("STEP2_EXTERNAL_AUTH_CONTRACT_GATE_FAILED");
+ const block=runTsx("scripts/daily-run-ledger.ts","block","--date",DATE,"--hard-stop",hardStop,"--reason","AI_GATEWAY_CUSTOMER_VERIFICATION_REQUIRED","--evidence",evidence,"--attempts",attempts);
+ if(block.status!==0)throw new Error("STEP2_EXTERNAL_AUTH_LEDGER_BLOCK_FAILED");
+ const rel="data/run-state/"+DATE+".json";
+ const gitNow=(args:string[])=>execFileSync("git",args,{cwd:ROOT,encoding:"utf8",maxBuffer:32*1024*1024}).trim();
+ gitNow(["config","user.name","fih-runner"]);gitNow(["config","user.email","actions@users.noreply.github.com"]);
+ gitNow(["add","--",rel]);
+ if(gitNow(["diff","--cached","--name-only"]))gitNow(["commit","-m","step2: block on external AI authorization "+DATE]);
+ let push=spawnSync("git",["push","origin","HEAD:main"],{cwd:ROOT,encoding:"utf8"});
+ if(push.status!==0){gitNow(["pull","--rebase","origin","main"]);push=spawnSync("git",["push","origin","HEAD:main"],{cwd:ROOT,encoding:"utf8"});if(push.status!==0)throw new Error("STEP2_EXTERNAL_AUTH_BLOCK_PUSH_FAILED "+push.stderr)}
+ gitNow(["fetch","origin","main"]);
+ const remote=JSON.parse(gitNow(["show","origin/main:"+rel]));
+ if(remote.runStatus!=="BLOCKED"||remote.terminal?.hardStop!==hardStop)throw new Error("STEP2_EXTERNAL_AUTH_BLOCK_REREAD_FAILED");
+ throw new Error("FIH_HARD_STOP "+hardStop+" "+detail);
 }
 async function checkpoint(f:any,record:any){
  work=read(workPath);validateWork(work);
@@ -114,6 +135,8 @@ for(;;){
   work=read(workPath);
   console.log("STEP2_CHECKPOINT_PASS",work.validatedCount+"/"+work.expectedFixtureCount,f.fixtureId,r.meta.queries,r.meta.sources);
  }
+ const externalAuth=failures.find(x=>x.includes("STEP2_EXTERNAL_AI_AUTHORIZATION_REQUIRED"));
+ if(externalAuth)persistExternalAuthorizationBlock(externalAuth);
  if(failures.length)throw new Error("STEP2_BATCH_RESEARCH_FAILED "+failures.join(" | "));
 }
 work=read(workPath);validateWork(work);
