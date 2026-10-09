@@ -25,7 +25,9 @@
     "step3:gate": "tsx scripts/step3-input-gate.ts",
     "research:storage-lock": "tsx scripts/verify-research-storage-lock.ts",
     "step3:wiring-lock": "tsx scripts/verify-step3-wiring.ts",
-    "research:actual-capture-lock": "tsx scripts/verify-research-actual-capture.ts"
+    "research:actual-capture-lock": "tsx scripts/verify-research-actual-capture.ts",
+    "research:autonomous": "tsx scripts/step2-autonomous-runner.ts",
+    "research:smoke": "tsx scripts/step2-autonomous-runner.ts --smoke"
   },
   "dependencies": {
     "ai": "^7.0.116"
