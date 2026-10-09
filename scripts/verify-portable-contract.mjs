@@ -14,6 +14,7 @@ const workflow = read(".github/workflows/fih-run-now.yml");
 const step12Workflow = read(".github/workflows/fih-step12-command.yml");
 const step12Runner = read("scripts/step12-command-runner.mjs");
 const researchApi = read("api/research-fixture.js");
+const contractGate = read("scripts/contract-gate.ts");
 
 assert.equal(rules.locked, true);
 assert.match(contract, /Date routing contract/);
@@ -32,7 +33,17 @@ gate("STEP2_AUTONOMOUS_HANDOFF", !controller.includes("STEP2_CHATGPT_HANDOFF_REQ
 gate("STEP2_LOCKED_ACCUMULATOR", checkpoint.includes('schema:"fih-step2-working-v1"'), "Checkpoint schema differs from locked Step 2 contract");
 gate("STEP2_WEB_RESEARCH", researchApi.includes("browserbase_search") && researchApi.includes("CATEGORY_SEARCH_PARITY_FAILED") && researchApi.includes("requireFihGitHubOidc"), "Authoritative AI web-research worker or provenance/auth gate missing");
 gate("STEP12_BACKTEST_ROUTE", step12Runner.includes('mode==="BACKTEST"') && researchApi.includes('mode==="BACKTEST"') && researchApi.includes("BACKTEST_SOURCE_AFTER_CUTOFF"), "Historical Step 1-2 route/cutoff enforcement missing");
+gate("VERCEL_DEPLOYMENT_QUOTA_NONBLOCKING",
+  rules.rules?.["INFRA-002"]?.requirement?.includes("NON-BLOCKING") &&
+  rules.infrastructure?.vercel?.deploymentQuotaPolicy?.classification==="NON_BLOCKING" &&
+  rules.infrastructure?.vercel?.deploymentQuotaPolicy?.ignoreAsHardStop===true &&
+  rules.infrastructure?.vercel?.deploymentQuotaPolicy?.ignoreAsWaitingReason===true &&
+  Array.isArray(rules.nonHardStops) && rules.nonHardStops.includes("VERCEL_DEPLOYMENT_QUOTA_OR_DAILY_DEPLOYMENT_LIMIT") &&
+  contract.includes("Vercel deployment quota — NON-BLOCKING LOCK") &&
+  policy.includes("Vercel deployment-limit handling — LOCKED") &&
+  contractGate.includes("INFRA-002 Vercel deployment quota is non-blocking"),
+  "Vercel deployment quota must be machine-locked as non-blocking and rejected as BLOCKED/WAITING evidence");
 if (failures.length) {
  console.error(JSON.stringify({status:"NOT_READY",failed:failures.length,failures},null,2));
  process.exitCode = 1;
-} else console.log(JSON.stringify({status:"PASS",gates:7}));
+} else console.log(JSON.stringify({status:"PASS",gates:8}));
