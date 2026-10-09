@@ -14,9 +14,12 @@ const stages=Array.isArray(board.payload?.Stages)?board.payload.Stages:[],events
 if(!events.length||events.length!==board.fixtureCount)throw new Error("STEP12_BOARD_COUNT_INVALID");
 const id=(e:any,s:any)=>String(e?.Eid??e?.Id??[s?.CompId,e?.T1?.[0]?.Nm,e?.T2?.[0]?.Nm,e?.Esd].filter(Boolean).join(":"));
 const team=(x:any)=>String(x?.[0]?.Nm??"UNKNOWN");
+const boardFetchedMs=Date.parse(String(board.fetchedAt||""));
+function predictionKickoffMs(e:any){const raw=String(e?.Esd??e?.Epsd??e?.startTime??"");if(!/^\\d{14}$/.test(raw))return NaN;return new Date(raw.slice(0,4)+"-"+raw.slice(4,6)+"-"+raw.slice(6,8)+"T"+raw.slice(8,10)+":"+raw.slice(10,12)+":"+raw.slice(12,14)+"+02:00").getTime()}
 function baseExclusion(e:any,s:any){
  const status=String(e?.Eps??"").toUpperCase();
  if(MODE==="PREDICTION"&&status!=="NS")return "NOT_PREMATCH";
+ if(MODE==="PREDICTION"){const km=predictionKickoffMs(e);if(!Number.isFinite(km))return "PREDICTION_KICKOFF_UNVERIFIED";if(!Number.isFinite(boardFetchedMs)||km<=boardFetchedMs)return "PREMATCH_WINDOW_CLOSED"}
  const text=[s?.CompN,s?.Snm,s?.Cnm,e?.T1?.[0]?.Nm,e?.T2?.[0]?.Nm].filter(Boolean).join(" ").toLowerCase();
  if(/women|\bw\b/.test(text))return "WOMEN";
  if(/\bu[- ]?\d{2}\b|under[- ]?\d{2}|youth/.test(text))return "YOUTH";
