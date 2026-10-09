@@ -2,47 +2,11 @@
   "schema": "fih-recovery-request-v1",
   "date": "2026-10-09",
   "runId": "step12:prediction:2026-10-09:1791562084338",
-  "researchRunId": "research:2026-10-09:1791562084338",
-  "requestedAt": "2026-10-09T16:08:06.511Z",
-  "reason": "STEP1_VERIFIED_CHATGPT_STEP2_HANDOFF",
-  "status": "CHATGPT_RESEARCH_REQUIRED",
+  "requestedAt": "2026-10-09T18:19:59.796Z",
+  "reason": "WATCHDOG_RECOVERY",
   "next": {
-    "fixtureId": "1726456",
+    "fixtureId": "1810712",
     "state": "PENDING"
   },
-  "expectedFixtureCount": 124,
-  "validatedCount": 0,
-  "queuePath": "data/research-queue/2026-10-09.json",
-  "boardFetchedAt": "2026-10-09T16:08:04.338Z",
-  "priorSupersessions": [
-    {
-      "oldRunId": "step12:prediction:2026-10-09:1791548294857",
-      "oldResearchRunId": "research:2026-10-09:1791548294857",
-      "supersededAt": "2026-10-09T12:55:22.025Z",
-      "validatedCount": 0,
-      "expectedFixtureCount": 185,
-      "expiredFixtureCount": 6,
-      "reason": "INVALID_VERCEL_AI_STEP2_ARCHITECTURE_REMOVED"
-    },
-    {
-      "oldRunId": "step12:prediction:2026-10-09:1791550762179",
-      "oldResearchRunId": "research:2026-10-09:1791550762179",
-      "supersededAt": "2026-10-09T13:00:26.278Z",
-      "validatedCount": 0,
-      "expectedFixtureCount": 179,
-      "expiredFixtureCount": 7,
-      "firstExpiredFixtureId": "1799349",
-      "reason": "ZERO_PROGRESS_PREMATCH_EXPIRY"
-    },
-    {
-      "oldRunId": "step12:prediction:2026-10-09:1791550854497",
-      "oldResearchRunId": "research:2026-10-09:1791550854497",
-      "supersededAt": "2026-10-09T16:06:55.000Z",
-      "validatedCount": 0,
-      "expectedFixtureCount": 172,
-      "expiredFixtureCount": 48,
-      "firstExpiredFixtureId": "1893568",
-      "reason": "ZERO_PROGRESS_PREMATCH_EXPIRY_AFTER_CHATGPT_HANDOFF_STALL"
-    }
-  ]
+  "status": "CHATGPT_RESEARCH_REQUIRED"
 }
