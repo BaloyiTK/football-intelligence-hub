@@ -265,6 +265,10 @@
     "RESEARCH-024": {
       "kind": "step2-competition-context-shape",
       "requirement": "Step-2 competitionContext MUST retain per-team source-backed facts and motivation tags in facts.competitionContext.data.homeTeam.{facts,tags} and awayTeam.{facts,tags}. Tags are limited to the locked motivation vocabulary. The canonical validator and Step-3 motivation normalizer MUST consume the same shape; schema/normalizer drift is forbidden."
+    },
+    "INFRA-002": {
+      "kind": "infrastructure-continuation",
+      "requirement": "A Vercel deployment-count quota, free-plan deployment limit, deployment rate limit, or inability to create another deployment is NON-BLOCKING for FIH computation and MUST NOT authorize WAITING, BLOCKED, or termination of an authorized run. Do not repeatedly redeploy merely to clear the quota. Continue through the current verified production deployment and/or another already-authorized execution path that does not require a new deployment. Deployment publication health is tracked separately from Step 1-2 computation readiness."
     }
   },
   "hardStops": [
@@ -287,7 +291,18 @@
           "BACKTEST",
           "PREDICTION"
         ]
+      },
+      "deploymentQuotaPolicy": {
+        "locked": true,
+        "classification": "NON_BLOCKING",
+        "ignoreAsHardStop": true,
+        "ignoreAsWaitingReason": true,
+        "repeatedRedeployForbidden": true,
+        "requirement": "Deployment quota/limit state must not stop or redefine FIH computation. Use the current verified deployment or another already-authorized non-deploy execution path and continue."
       }
     }
-  }
+  },
+  "nonHardStops": [
+    "VERCEL_DEPLOYMENT_QUOTA_OR_DAILY_DEPLOYMENT_LIMIT"
+  ]
 }
