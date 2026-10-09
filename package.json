@@ -28,7 +28,8 @@
     "research:actual-capture-lock": "tsx scripts/verify-research-actual-capture.ts",
     "research:autonomous": "tsx scripts/step2-autonomous-runner.ts",
     "research:smoke": "tsx scripts/step2-autonomous-runner.ts --smoke",
-    "step12:test": "node scripts/test-step12-implementation.mjs"
+    "step12:test": "node scripts/test-step12-implementation.mjs",
+    "vercel:ignore-test": "node scripts/test-vercel-ignore-build.mjs"
   },
   "dependencies": {
     "ai": "^7.0.116"
