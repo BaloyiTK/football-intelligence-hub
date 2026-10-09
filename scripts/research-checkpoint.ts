@@ -14,6 +14,7 @@ if(!RID)throw new Error("MISSING_RESEARCH_RUN_ID");
 const lp=path.join(ROOT,"data/run-state",DATE+".json");
 const ap=path.join(ROOT,"data/research-work",DATE+".json");
 const cp=path.join(ROOT,"data/research",DATE+".json");
+const MODE=DATE<new Intl.DateTimeFormat("en-CA",{timeZone:"Africa/Johannesburg",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date())?"BACKTEST":"PREDICTION";
 const read=(p:string)=>JSON.parse(fs.readFileSync(p,"utf8"));
 const hash=(x:any)=>crypto.createHash("sha256").update(JSON.stringify(x)).digest("hex");
 function atomicWrite(p:string,x:any){
@@ -31,12 +32,16 @@ function universe(){
 function freshAccumulator(){
   const {fixtures,ids}=universe();
   return {
-    schema:"fih-research-temp-accumulator-v2",
+    schema:"fih-step2-working-v1",
     date:DATE,
     researchRunId:RID,
     createdAt:new Date().toISOString(),
     updatedAt:new Date().toISOString(),
     expectedCount:ids.length,
+    expectedFixtureCount:ids.length,
+    validatedCount:0,
+    nextFixtureId:ids[0]||null,
+    status:"IN_PROGRESS",
     universeHash:hash(ids),
     fixtures,
     validatedFixtureIds:[],
@@ -47,7 +52,7 @@ function accumulator(resetStale=false){
   const {ids}=universe();
   if(fs.existsSync(ap)){
     const a=read(ap);
-    const validIdentity=a.schema==="fih-research-temp-accumulator-v2"&&a.date===DATE&&a.researchRunId===RID&&a.universeHash===hash(ids)&&a.expectedCount===ids.length&&Array.isArray(a.fixtures)&&Array.isArray(a.validatedFixtureIds)&&a.records&&typeof a.records==="object";
+    const validIdentity=a.schema==="fih-step2-working-v1"&&a.date===DATE&&a.researchRunId===RID&&a.universeHash===hash(ids)&&a.expectedCount===ids.length&&a.expectedFixtureCount===ids.length&&Array.isArray(a.fixtures)&&Array.isArray(a.validatedFixtureIds)&&a.records&&typeof a.records==="object";
     if(validIdentity)return a;
     if(!resetStale)throw new Error("RESEARCH_TEMP_ACCUMULATOR_IDENTITY_INVALID");
   }
@@ -58,12 +63,13 @@ function accumulator(resetStale=false){
 function validateOne(r:any){
   const {ids}=universe();
   if(String(r.fixtureId)!==ID||r.researchRunId!==RID)throw new Error("CHECKPOINT_IDENTITY_INVALID");
-  validateResearchArtifact({schema:"fih-daily-research-v5",date:DATE,mode:"PREDICTION",generatedAt:new Date().toISOString(),researchRunId:RID,fixtures:[r]},DATE,[ID],"PREDICTION");
+  validateResearchArtifact({schema:"fih-daily-research-v5",date:DATE,mode:MODE,generatedAt:new Date().toISOString(),researchRunId:RID,fixtures:[r]},DATE,[ID],MODE);
   if(!ids.includes(ID))throw new Error("CHECKPOINT_FIXTURE_NOT_ELIGIBLE");
 }
 function verifyAccumulator(a:any){
   const {ids}=universe();
   const validated=[...a.validatedFixtureIds].map(String).sort();
+  if(a.validatedCount!==validated.length)throw new Error("RESEARCH_VALIDATED_COUNT_MISMATCH");
   if(validated.length!==new Set(validated).size)throw new Error("RESEARCH_TEMP_DUPLICATE_VALIDATED_ID");
   for(const id of validated){
     if(!ids.includes(id))throw new Error("RESEARCH_TEMP_ORPHAN_ID "+id);
@@ -71,7 +77,7 @@ function verifyAccumulator(a:any){
     if(!r)throw new Error("RESEARCH_TEMP_RECORD_MISSING "+id);
     const prev=ID;
     if(String(r.fixtureId)!==id||r.researchRunId!==RID)throw new Error("RESEARCH_TEMP_RECORD_IDENTITY_INVALID "+id);
-    validateResearchArtifact({schema:"fih-daily-research-v5",date:DATE,mode:"PREDICTION",generatedAt:new Date().toISOString(),researchRunId:RID,fixtures:[r]},DATE,[id],"PREDICTION");
+    validateResearchArtifact({schema:"fih-daily-research-v5",date:DATE,mode:MODE,generatedAt:new Date().toISOString(),researchRunId:RID,fixtures:[r]},DATE,[id],MODE);
   }
   return {validatedCount:validated.length,expectedCount:ids.length};
 }
@@ -91,6 +97,9 @@ if(cmd==="init"){
   a.records[ID]=r;
   if(!a.validatedFixtureIds.includes(ID))a.validatedFixtureIds.push(ID);
   a.validatedFixtureIds.sort();
+  a.validatedCount=a.validatedFixtureIds.length;
+  a.nextFixtureId=a.fixtures.map((f:any)=>String(f.fixtureId)).find((id:string)=>!a.validatedFixtureIds.includes(id))||null;
+  a.status=a.validatedCount===a.expectedFixtureCount?"READY_TO_PROMOTE":"IN_PROGRESS";
   a.updatedAt=new Date().toISOString();
   atomicWrite(ap,a);
   const reread=read(ap);
@@ -107,11 +116,11 @@ if(cmd==="init"){
   const a=accumulator(false),v=verifyAccumulator(a);
   if(v.validatedCount!==v.expectedCount)throw new Error("RESEARCH_WORK_INCOMPLETE "+v.validatedCount+"/"+v.expectedCount);
   const records=a.fixtures.map((f:any)=>{const id=String(f.fixtureId),r=a.records[id];if(!r)throw new Error("RESEARCH_TEMP_RECORD_MISSING "+id);return r});
-  const artifact={schema:"fih-daily-research-v5",date:DATE,mode:"PREDICTION",generatedAt:new Date().toISOString(),researchRunId:RID,fixtureCount:records.length,fixtures:records};
-  validateResearchArtifact(artifact,DATE,a.fixtures.map((f:any)=>String(f.fixtureId)),"PREDICTION");
+  const artifact={schema:"fih-daily-research-v5",date:DATE,mode:MODE,generatedAt:new Date().toISOString(),researchRunId:RID,fixtureCount:records.length,fixtures:records};
+  validateResearchArtifact(artifact,DATE,a.fixtures.map((f:any)=>String(f.fixtureId)),MODE);
   atomicWrite(cp,artifact);
   const reread=read(cp);
-  validateResearchArtifact(reread,DATE,a.fixtures.map((f:any)=>String(f.fixtureId)),"PREDICTION");
+  validateResearchArtifact(reread,DATE,a.fixtures.map((f:any)=>String(f.fixtureId)),MODE);
   out={promoted:true,count:records.length,researchRunId:RID,tempAccumulator:ap,canonicalHash:hash(reread)};
 }else throw new Error("UNKNOWN_COMMAND");
 
