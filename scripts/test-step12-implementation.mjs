@@ -10,7 +10,7 @@ for(const file of tsFiles){
   const errors=(r.diagnostics||[]).filter(d=>d.category===ts.DiagnosticCategory.Error);
   assert.equal(errors.length,0,file+" TypeScript syntax diagnostics: "+errors.map(e=>ts.flattenDiagnosticMessageText(e.messageText," ")).join("; "));
 }
-for(const file of ["api/_fih-auth.js","api/research-fixture.js","api/backtest-ingest.js","scripts/step12-command-runner.mjs","scripts/fih-command-router.mjs"]){
+for(const file of ["api/_fih-auth.js","api/research-fixture.js","api/backtest-ingest.js","scripts/step12-command-runner.mjs","scripts/step2-recovery-runner.mjs","scripts/fih-command-router.mjs"]){
   const r=spawnSync(process.execPath,["--check",file],{encoding:"utf8"});
   assert.equal(r.status,0,file+" node --check failed: "+r.stderr);
 }
@@ -19,6 +19,8 @@ const worker=fs.readFileSync("api/research-fixture.js","utf8");
 const runner=fs.readFileSync("scripts/step2-autonomous-runner.ts","utf8");
 const command=fs.readFileSync("scripts/step12-command-runner.mjs","utf8");
 const step12Workflow=fs.readFileSync(".github/workflows/fih-step12-command.yml","utf8");
+const recoveryWorkflow=fs.readFileSync(".github/workflows/fih-daily-reliability-watchdog.yml","utf8");
+const recoveryRunner=fs.readFileSync("scripts/step2-recovery-runner.mjs","utf8");
 const fullWorkflow=fs.readFileSync(".github/workflows/fih-run-now.yml","utf8");
 const backtestWorkflow=fs.readFileSync(".github/workflows/fih-backtest-history.yml","utf8");
 const agents=fs.readFileSync("AGENTS.md","utf8");
@@ -45,4 +47,4 @@ assert.match(backtestWorkflow,/step12-command-runner\.mjs/);
 assert.doesNotMatch(backtestWorkflow,/RESEARCH_REQUIRED/);
 assert.match(agents,/automation\/run-now\.flag/);
 assert.equal(fs.existsSync("api/step2-research.js"),false,"duplicate Step 2 research endpoint must stay removed");
-console.log(JSON.stringify({ok:true,lock:"STEP12_IMPLEMENTATION_COMPILES",typescript:tsFiles.length,javascript:5},null,2));
+console.log(JSON.stringify({ok:true,lock:"STEP12_IMPLEMENTATION_COMPILES",typescript:tsFiles.length,javascript:6},null,2));
