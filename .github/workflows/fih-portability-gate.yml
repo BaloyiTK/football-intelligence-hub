@@ -15,4 +15,6 @@ jobs:
         with:
           node-version: '20'
       - name: Enforce fail-closed readiness checks
-        run: node scripts/verify-portable-contract.mjs
+        run: |
+          node scripts/test-fih-command-router.mjs
+          node scripts/verify-portable-contract.mjs
