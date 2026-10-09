@@ -1,8 +1,5 @@
 name: FIH Run Now
 on:
-  push:
-    branches: [main]
-    paths: ["automation/run-now.flag"]
   workflow_dispatch:
     inputs:
       date:
