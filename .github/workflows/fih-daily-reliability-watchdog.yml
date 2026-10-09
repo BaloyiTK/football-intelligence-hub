@@ -8,7 +8,6 @@ name: FIH Daily Reliability Watchdog
     - cron: "*/15 * * * *"
 permissions:
   contents: write
-  id-token: write
 concurrency:
   group: fih-daily-recovery
   cancel-in-progress: ${{ github.event_name == 'push' }}
@@ -58,7 +57,7 @@ jobs:
           fs.writeFileSync(`data/recovery-requests/${date}.json`,JSON.stringify({
             schema:"fih-recovery-request-v1",date,runId:ledger.runId,
             requestedAt:new Date().toISOString(),reason:"WATCHDOG_RECOVERY",
-            next:ledger.next,status:"PENDING_EXECUTOR"
+            next:ledger.next,status:"CHATGPT_RESEARCH_REQUIRED"
           },null,2)+"\n");
           NODE
           git config user.name "github-actions[bot]"
@@ -80,36 +79,4 @@ jobs:
           DATE="$FIH_RECOVERY_DATE"
           git show "origin/main:data/run-state/$DATE.json" >/tmp/persisted-ledger.json
           git show "origin/main:data/recovery-requests/$DATE.json" >/tmp/recovery-request.json
-          node -e 'const l=require("/tmp/persisted-ledger.json"),r=require("/tmp/recovery-request.json"); if(!l.runId||!l.heartbeatAt||!["RUNNING","RECOVERING","COMPLETE"].includes(l.runStatus)||r.runId!==l.runId||r.status!=="PENDING_EXECUTOR") process.exit(1); console.log(JSON.stringify({verified:true,runId:l.runId,status:l.runStatus,heartbeatAt:l.heartbeatAt,next:l.next,recoveryRequest:r.status}))'
-      - name: Resolve protected FIH production endpoint
-        if: steps.watchdog.outputs.code == '10' || github.event_name == 'push'
-        run: |
-          BASE="${{ vars.FIH_INGEST_BASE_URL }}"
-          if [ -z "$BASE" ]; then
-            DOMAIN="$(node -e 'const r=require("./config/fih-execution-rules.json");process.stdout.write(r.infrastructure.vercel.productionDomain)')"
-            BASE="https://$DOMAIN"
-          fi
-          echo "FIH_INGEST_BASE_URL=$BASE" >> "$GITHUB_ENV"
-          echo "FIH_RESEARCH_BASE_URL=$BASE" >> "$GITHUB_ENV"
-      - name: Mint short-lived GitHub OIDC identity
-        if: steps.watchdog.outputs.code == '10' || github.event_name == 'push'
-        id: oidc
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const token = await core.getIDToken('fih-step2')
-            core.setSecret(token)
-            core.setOutput('token', token)
-      - name: Execute recovered Step 2
-        if: steps.watchdog.outputs.code == '10' || github.event_name == 'push'
-        env:
-          FIH_TRUSTED_OIDC_TOKEN: ${{ steps.oidc.outputs.token }}
-        run: node scripts/step2-recovery-runner.mjs --date "$FIH_RECOVERY_DATE"
-      - name: Verify recovered Step 2 is persisted
-        if: steps.watchdog.outputs.code == '10' || github.event_name == 'push'
-        run: |
-          git fetch origin main
-          DATE="$FIH_RECOVERY_DATE"
-          git show "origin/main:data/run-state/$DATE.json" >/tmp/recovered-ledger.json
-          git show "origin/main:data/recovery-requests/$DATE.json" >/tmp/recovered-request.json
-          node -e 'const l=require("/tmp/recovered-ledger.json"),r=require("/tmp/recovered-request.json"); if(l.counts?.PENDING!==0||l.counts?.RESEARCH_VERIFIED!==l.counts?.eligible||r.status!=="RECOVERED_STEP2") process.exit(1); console.log(JSON.stringify({verified:true,date:l.date,researchRunId:l.researchRunId,researchVerified:l.counts.RESEARCH_VERIFIED,status:r.status}))'
+          node -e 'const l=require("/tmp/persisted-ledger.json"),r=require("/tmp/recovery-request.json"); if(!l.runId||!l.heartbeatAt||!["RUNNING","RECOVERING","COMPLETE"].includes(l.runStatus)||r.runId!==l.runId||r.status!=="CHATGPT_RESEARCH_REQUIRED") process.exit(1); console.log(JSON.stringify({verified:true,runId:l.runId,status:l.runStatus,heartbeatAt:l.heartbeatAt,next:l.next,recoveryRequest:r.status}))'
