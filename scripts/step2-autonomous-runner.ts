@@ -23,6 +23,8 @@ const MODE=queue.mode||"PREDICTION";
 if(!["PREDICTION","BACKTEST"].includes(MODE))throw new Error("STEP2_MODE_INVALID");
 const fixtures=queue.fixtures||[],fixtureIds=fixtures.map((f:any)=>String(f.fixtureId));
 if(!fixtures.length||fixtureIds.length!==new Set(fixtureIds).size||queue.count!==fixtures.length)throw new Error("STEP2_QUEUE_COVERAGE_INVALID");
+const rawConcurrency=Number(process.env.FIH_RESEARCH_CONCURRENCY||"6");
+const CONCURRENCY=Math.max(1,Math.min(6,Number.isFinite(rawConcurrency)?Math.floor(rawConcurrency):6));
 
 const tempRoot=process.env.FIH_STEP2_WORK_DIR||path.join(process.env.RUNNER_TEMP||"/mnt/data","fih","research-work");
 const workPath=path.join(tempRoot,DATE+".json");
@@ -91,10 +93,24 @@ if(SMOKE){
  console.log(JSON.stringify({ok:true,status:"STEP2_SMOKE_PASS",date:DATE,fixtureId:f.fixtureId,checkpoint:workPath,meta:r.meta},null,2));
  process.exit(0);
 }
-for(const f of fixtures){
- work=read(workPath);const missing=validateWork(work);if(!missing.includes(String(f.fixtureId)))continue;
- const r=await researchFixture(f);await checkpoint(f,r.record);
- console.log("STEP2_CHECKPOINT_PASS",work.validatedCount+"/"+work.expectedFixtureCount,f.fixtureId,r.meta.queries,r.meta.sources);
+for(;;){
+ work=read(workPath);
+ const missing=validateWork(work);
+ if(!missing.length)break;
+ const wanted=new Set(missing.slice(0,CONCURRENCY));
+ const batch=fixtures.filter((f:any)=>wanted.has(String(f.fixtureId)));
+ console.log("STEP2_BATCH_BEGIN",work.validatedCount+"/"+work.expectedFixtureCount,"workers="+batch.length,"concurrency="+CONCURRENCY);
+ const settled=await Promise.allSettled(batch.map(async(f:any)=>({f,r:await researchFixture(f)})));
+ const failures:string[]=[];
+ for(let i=0;i<settled.length;i++){
+  const result=settled[i];
+  if(result.status==="rejected"){failures.push(String(batch[i].fixtureId)+":"+String(result.reason));continue}
+  const {f,r}=result.value;
+  await checkpoint(f,r.record);
+  work=read(workPath);
+  console.log("STEP2_CHECKPOINT_PASS",work.validatedCount+"/"+work.expectedFixtureCount,f.fixtureId,r.meta.queries,r.meta.sources);
+ }
+ if(failures.length)throw new Error("STEP2_BATCH_RESEARCH_FAILED "+failures.join(" | "));
 }
 work=read(workPath);validateWork(work);
 if(work.validatedCount!==work.expectedFixtureCount)throw new Error("STEP2_NOT_N_OF_N");
