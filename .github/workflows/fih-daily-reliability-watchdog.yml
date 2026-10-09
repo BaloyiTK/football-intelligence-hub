@@ -43,7 +43,7 @@ jobs:
           echo "code=$code" >> "$GITHUB_OUTPUT"
           exit 0
       - name: Reconcile recoverable durable state
-        if: steps.watchdog.outputs.code == '10'
+        if: steps.watchdog.outputs.code == '10' || github.event_name == 'push'
         shell: bash
         run: |
           set -euo pipefail
@@ -74,7 +74,7 @@ jobs:
           done
           exit 1
       - name: Assert recovery checkpoint is durable
-        if: steps.watchdog.outputs.code == '10'
+        if: steps.watchdog.outputs.code == '10' || github.event_name == 'push'
         run: |
           git fetch origin main
           DATE="$FIH_RECOVERY_DATE"
@@ -82,7 +82,7 @@ jobs:
           git show "origin/main:data/recovery-requests/$DATE.json" >/tmp/recovery-request.json
           node -e 'const l=require("/tmp/persisted-ledger.json"),r=require("/tmp/recovery-request.json"); if(!l.runId||!l.heartbeatAt||!["RUNNING","RECOVERING","COMPLETE"].includes(l.runStatus)||r.runId!==l.runId||r.status!=="PENDING_EXECUTOR") process.exit(1); console.log(JSON.stringify({verified:true,runId:l.runId,status:l.runStatus,heartbeatAt:l.heartbeatAt,next:l.next,recoveryRequest:r.status}))'
       - name: Resolve protected FIH production endpoint
-        if: steps.watchdog.outputs.code == '10'
+        if: steps.watchdog.outputs.code == '10' || github.event_name == 'push'
         run: |
           BASE="${{ vars.FIH_INGEST_BASE_URL }}"
           if [ -z "$BASE" ]; then
@@ -92,7 +92,7 @@ jobs:
           echo "FIH_INGEST_BASE_URL=$BASE" >> "$GITHUB_ENV"
           echo "FIH_RESEARCH_BASE_URL=$BASE" >> "$GITHUB_ENV"
       - name: Mint short-lived GitHub OIDC identity
-        if: steps.watchdog.outputs.code == '10'
+        if: steps.watchdog.outputs.code == '10' || github.event_name == 'push'
         id: oidc
         uses: actions/github-script@v7
         with:
@@ -101,12 +101,12 @@ jobs:
             core.setSecret(token)
             core.setOutput('token', token)
       - name: Execute recovered Step 2
-        if: steps.watchdog.outputs.code == '10'
+        if: steps.watchdog.outputs.code == '10' || github.event_name == 'push'
         env:
           FIH_TRUSTED_OIDC_TOKEN: ${{ steps.oidc.outputs.token }}
         run: node scripts/step2-recovery-runner.mjs --date "$FIH_RECOVERY_DATE"
       - name: Verify recovered Step 2 is persisted
-        if: steps.watchdog.outputs.code == '10'
+        if: steps.watchdog.outputs.code == '10' || github.event_name == 'push'
         run: |
           git fetch origin main
           DATE="$FIH_RECOVERY_DATE"
