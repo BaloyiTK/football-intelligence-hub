@@ -69,6 +69,7 @@ function validateOne(r:any){
 function verifyAccumulator(a:any){
   const {ids}=universe();
   if(a.fixtures.length!==a.validatedFixtureIds.length||a.expectedFixtureCount!==ids.length||a.nextFixtureId!==(a.fixtureIds.find((id:string)=>!a.validatedFixtureIds.includes(id))||null))throw new Error("RESEARCH_WORKING_INVARIANT_INVALID");
+  if(new Set(a.fixtures.map((f:any)=>String(f.fixtureId))).size!==a.fixtures.length)throw new Error("RESEARCH_DUPLICATE_FIXTURE_RECORD");
   const validated=[...a.validatedFixtureIds].map(String).sort();
   if(a.validatedCount!==validated.length)throw new Error("RESEARCH_VALIDATED_COUNT_MISMATCH");
   if(validated.length!==new Set(validated).size)throw new Error("RESEARCH_TEMP_DUPLICATE_VALIDATED_ID");
@@ -76,7 +77,6 @@ function verifyAccumulator(a:any){
     if(!ids.includes(id))throw new Error("RESEARCH_TEMP_ORPHAN_ID "+id);
     const r=a.fixtures.find((x:any)=>String(x.fixtureId)===id);
     if(!r)throw new Error("RESEARCH_TEMP_RECORD_MISSING "+id);
-    const prev=ID;
     if(String(r.fixtureId)!==id||r.researchRunId!==RID)throw new Error("RESEARCH_TEMP_RECORD_IDENTITY_INVALID "+id);
     validateResearchArtifact({schema:"fih-daily-research-v5",date:DATE,mode:MODE,generatedAt:new Date().toISOString(),researchRunId:RID,fixtures:[r]},DATE,[id],MODE);
   }
@@ -100,7 +100,7 @@ if(cmd==="init"){
   if(!a.validatedFixtureIds.includes(ID))a.validatedFixtureIds.push(ID);
   a.validatedFixtureIds.sort();
   a.validatedCount=a.validatedFixtureIds.length;
-  a.nextFixtureId=a.fixtures.map((f:any)=>String(f.fixtureId)).find((id:string)=>!a.validatedFixtureIds.includes(id))||null;
+  a.nextFixtureId=a.fixtureIds.find((id:string)=>!a.validatedFixtureIds.includes(id))||null;
   a.status=a.validatedCount===a.expectedFixtureCount?"READY_FOR_VALIDATION":"ACCUMULATING";
   a.updatedAt=new Date().toISOString();
   atomicWrite(ap,a);
@@ -123,7 +123,7 @@ if(cmd==="init"){
   a.status="VALIDATED";a.updatedAt=new Date().toISOString();atomicWrite(ap,a);
   atomicWrite(cp,artifact);
   const reread=read(cp);
-  validateResearchArtifact(reread,DATE,a.fixtures.map((f:any)=>String(f.fixtureId)),MODE);
+  validateResearchArtifact(reread,DATE,a.fixtureIds,MODE);
   out={promoted:true,count:records.length,researchRunId:RID,tempAccumulator:ap,canonicalHash:hash(reread)};
 }else throw new Error("UNKNOWN_COMMAND");
 
