@@ -277,6 +277,10 @@
     "STEP1-002": {
       "kind": "prediction-prematch-eligibility",
       "requirement": "For PREDICTION fixture-universe construction, provider status NS is necessary but not sufficient. A fixture is eligible only when its scheduled kickoff is parseable and strictly later than the authoritative board fetchedAt timestamp. Any NS fixture whose kickoff is at or before fetchedAt MUST be excluded as PREMATCH_WINDOW_CLOSED so Step 1 eligibility and the Step-2 no-post-kickoff research gate cannot disagree."
+    },
+    "RESEARCH-026": {
+      "kind": "external-ai-authorization-hard-stop",
+      "requirement": "If the configured Step-2 AI research provider explicitly refuses service because a new billing verification, payment method, credential, or external account authorization is required, the worker MUST surface a typed external-authorization failure and the executor MUST stop retrying that provider, run the BLOCKED contract gate with NEW_SECRET_OR_EXTERNAL_AUTHORIZATION_REQUIRED after authorized alternatives are checked/unavailable, persist the ledger hard stop with evidence, and verify the persisted state. Deployment quota/rate-limit signals remain governed separately by INFRA-002 and MUST NOT be conflated with this rule."
     }
   },
   "hardStops": [
