@@ -36,7 +36,11 @@ function freshWork(){
 function validateWork(w:any){
  if(w.schema!=="fih-step2-working-v1"||w.date!==DATE||w.researchRunId!==queue.researchRunId||w.mode!==MODE||w.expectedFixtureCount!==fixtureIds.length||JSON.stringify(w.fixtureIds)!==JSON.stringify(fixtureIds))throw new Error("STEP2_WORK_IDENTITY_INVALID");
  if(!Array.isArray(w.fixtures)||!Array.isArray(w.validatedFixtureIds)||w.validatedCount!==w.validatedFixtureIds.length||w.fixtures.length!==w.validatedFixtureIds.length)throw new Error("STEP2_WORK_COUNT_INVALID");
- if(new Set(w.validatedFixtureIds).size!==w.validatedFixtureIds.length||new Set(w.fixtures.map((r:any)=>String(r.fixtureId))).size!==w.fixtures.length)throw new Error("STEP2_WORK_DUPLICATE");
+ const recordIds=w.fixtures.map((r:any)=>String(r.fixtureId));
+ if(new Set(w.validatedFixtureIds).size!==w.validatedFixtureIds.length||new Set(recordIds).size!==w.fixtures.length)throw new Error("STEP2_WORK_DUPLICATE");
+ if(JSON.stringify(recordIds)!==JSON.stringify(w.validatedFixtureIds))throw new Error("STEP2_WORK_RECORD_ID_ORDER_MISMATCH");
+ const expectedValidatedOrder=fixtureIds.filter((id:string)=>w.validatedFixtureIds.includes(id));
+ if(JSON.stringify(expectedValidatedOrder)!==JSON.stringify(w.validatedFixtureIds))throw new Error("STEP2_WORK_VALIDATED_ID_ORDER_MISMATCH");
  const missing=fixtureIds.filter((id:string)=>!w.validatedFixtureIds.includes(id));
  if(w.nextFixtureId!==(missing[0]||null))throw new Error("STEP2_WORK_CURSOR_INVALID");
  for(const r of w.fixtures){
