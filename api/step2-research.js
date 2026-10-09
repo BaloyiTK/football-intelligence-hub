@@ -1,3 +1,4 @@
+import {requireFihGitHubOidc} from "./_fih-auth.js";
 export const config={maxDuration:300};
 
 const REQUIRED=["form","standings","headToHead","squadAvailability","schedule","competitionContext"];
@@ -111,6 +112,7 @@ function enforceProvenance(record,evidence){
   }
 }
 export default async function handler(req,res){
+ if(!await requireFihGitHubOidc(req,res))return;
   if(req.method!=="POST")return res.status(405).json({error:"POST required"});
   const job=req.body||{};
   if(!/^\d{4}-\d{2}-\d{2}$/.test(String(job.date||""))||!["PREDICTION","BACKTEST"].includes(job.mode)||!job.researchRunId||!isObj(job.fixture)||!job.fixture.fixtureId||!job.fixture.home||!job.fixture.away)return res.status(400).json({error:"invalid research job"});
