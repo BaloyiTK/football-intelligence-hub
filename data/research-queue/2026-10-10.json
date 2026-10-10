@@ -3,9 +3,9 @@
   "date": "2026-10-10",
   "mode": "PREDICTION",
   "cutoffAt": null,
-  "researchRunId": "research:2026-10-10:1791630336089",
-  "generatedAt": "2026-10-10T11:05:38.232Z",
-  "count": 719,
+  "researchRunId": "research:2026-10-10:1791631006817",
+  "generatedAt": "2026-10-10T11:16:49.271Z",
+  "count": 717,
   "executor": "CHATGPT_WEB_SEARCH",
   "workingCheckpoint": "/mnt/data/fih/research-work/2026-10-10.json",
   "canonicalCommitPolicy": "ONE_CANONICAL_COMMIT_AFTER_N_OF_N_VALIDATION_AND_PROMOTION",
@@ -38,20 +38,6 @@
     "factsOnly": true
   },
   "fixtures": [
-    {
-      "fixtureId": "1810308",
-      "home": "Fredensborg BI",
-      "away": "KFUM Roskilde",
-      "competition": "Danmarksserien: Group 2",
-      "kickoff": "20261010131500"
-    },
-    {
-      "fixtureId": "1811609",
-      "home": "Zalgiris Vilnius",
-      "away": "Suduva",
-      "competition": "A Lyga",
-      "kickoff": "20261010131500"
-    },
     {
       "fixtureId": "1733093",
       "home": "Nomme Kalju FC",
