@@ -27,6 +27,7 @@ const backtestWorkflow=fs.readFileSync(".github/workflows/fih-backtest-history.y
 const agents=fs.readFileSync("AGENTS.md","utf8");
 const portable=fs.readFileSync("FIH_PORTABLE_COMMAND_CONTRACT.md","utf8");
 const rules=JSON.parse(fs.readFileSync("config/fih-execution-rules.json","utf8"));
+const ingest=fs.readFileSync("api/backtest-ingest.js","utf8");
 
 assert.match(auth,/crypto\.verify/);
 assert.match(auth,/token\.actions\.githubusercontent\.com/);
@@ -36,6 +37,18 @@ assert.match(command,/STEP2_CHATGPT_QUEUE_READY/);
 assert.match(command,/STEP12_CHATGPT_HANDOFF_REQUIRED/);
 assert.doesNotMatch(command,/step2-autonomous-runner/);
 assert.doesNotMatch(command,/FIH_RESEARCH_BASE_URL/);
+
+assert.match(ingest,/decodeGithubContentsFile/);
+assert.match(ingest,/file\.git_url/);
+const {decodeGithubContentsFile}=await import("../api/backtest-ingest.js");
+const inlineText=await decodeGithubContentsFile({type:"file",encoding:"base64",content:Buffer.from(JSON.stringify({ok:"inline"})).toString("base64")});
+assert.deepEqual(JSON.parse(inlineText),{ok:"inline"});
+const originalFetch=globalThis.fetch;
+try{
+ globalThis.fetch=async()=>new Response(JSON.stringify({encoding:"base64",content:Buffer.from(JSON.stringify({ok:"blob"})).toString("base64")}),{status:200,headers:{"content-type":"application/json"}});
+ const blobText=await decodeGithubContentsFile({type:"file",encoding:"none",content:"",git_url:"https://api.github.com/repos/example/example/git/blobs/abc"});
+ assert.deepEqual(JSON.parse(blobText),{ok:"blob"});
+}finally{globalThis.fetch=originalFetch;}
 
 assert.match(continuation,/STEP2_CHATGPT_HANDOFF_REQUIRED/);
 assert.match(continuation,/RESEARCH-004/);

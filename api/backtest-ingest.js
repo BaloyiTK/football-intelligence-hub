@@ -4,6 +4,19 @@ const REPO=process.env.FIH_GITHUB_REPO||process.env.VERCEL_GIT_REPO_SLUG;
 const BRANCH=process.env.FIH_GITHUB_BRANCH||"main";
 function sastDate(){return new Intl.DateTimeFormat("en-CA",{timeZone:"Africa/Johannesburg",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date())}
 async function github(path,init={}){return fetch("https://api.github.com/repos/"+OWNER+"/"+REPO+"/contents/"+path,{...init,headers:{"Authorization":"Bearer "+process.env.FIH_GITHUB_TOKEN,"Accept":"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28","Content-Type":"application/json",...(init.headers||{})}})}
+async function githubBlob(url){return fetch(url,{headers:{"Authorization":"Bearer "+process.env.FIH_GITHUB_TOKEN,"Accept":"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28"}})}
+export async function decodeGithubContentsFile(file){
+ if(!file||file.type!=="file")throw new Error("unexpected GitHub content type");
+ let encoded=null;
+ if(file.encoding==="base64"&&typeof file.content==="string"&&file.content.trim())encoded=file.content;
+ else if(file.git_url){
+  const br=await githubBlob(file.git_url);if(!br.ok)throw new Error("GitHub blob reread failed "+br.status);
+  const blob=await br.json();if(blob.encoding!=="base64"||typeof blob.content!=="string"||!blob.content.trim())throw new Error("unexpected GitHub blob encoding");
+  encoded=blob.content;
+ }
+ if(!encoded)throw new Error("unexpected GitHub content encoding");
+ return Buffer.from(encoded.replace(/\\s/g,""),"base64").toString("utf8");
+}
 export default async function handler(req,res){
  if(!await requireFihGitHubOidc(req,res))return;
  if(!["GET","POST"].includes(req.method))return res.status(405).json({error:"GET or POST required"});
@@ -35,8 +48,7 @@ export default async function handler(req,res){
  let persisted;
  try {
   const file=await verify.json();
-  if(file.type!=="file"||file.encoding!=="base64")throw new Error("unexpected GitHub content encoding");
-  persisted=JSON.parse(Buffer.from(file.content.replace(/\s/g,""),"base64").toString("utf8"));
+  persisted=JSON.parse(await decodeGithubContentsFile(file));
  }catch{return res.status(502).json({error:"GitHub committed snapshot invalid JSON or encoding"})}
  const n=Array.isArray(persisted?.payload?.Stages)?persisted.payload.Stages.reduce((a,s)=>a+(Array.isArray(s.Events)?s.Events.length:0),0):0;
  if(persisted.date!==date||persisted.mode!==mode||persisted.schema!==snapshot.schema||persisted.fixtureCount!==fixtureCount||n!==fixtureCount||persisted.fetchedAt!==snapshot.fetchedAt)
