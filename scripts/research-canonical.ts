@@ -5,24 +5,6 @@ const syntheticCompletionOutcome=(v:any)=>/CHATGPT_(?:WEB_SEARCH|H2H_SEARCH|VENU
 const attemptOk=(a:any)=>a&&typeof a.query==="string"&&a.query.trim()&&a.attemptedAt&&typeof a.outcome==="string"&&!syntheticCompletionOutcome(a.outcome);
 const exhausted=(v:any)=>v?.searchExhausted===true&&Array.isArray(v.attempts)&&v.attempts.some((a:any)=>/SEARCH_EXHAUSTED/i.test(String(a?.outcome||"")));
 const matchOk=(m:any)=>m&&typeof m==="object"&&m.date&&m.opponent&&["HOME","AWAY"].includes(String(m.venue))&&Number.isFinite(Number(m.goalsFor))&&Number.isFinite(Number(m.goalsAgainst))&&typeof m.sourceRef==="string"&&m.sourceRef.trim();
-const factItemOk=(v:any)=>v&&typeof v==="object"&&typeof v.fact==="string"&&v.fact.trim()&&typeof v.sourceRef==="string"&&v.sourceRef.trim();
-const MOTIVATION_TAGS=new Set(["MUST_WIN","KNOCKOUT_ELIMINATION","TITLE_DECIDER","RELEGATION_DECIDER","PROMOTION_DECIDER","TITLE_RACE","RELEGATION_BATTLE","PROMOTION_RACE","QUALIFICATION_RACE","PLAYOFF_RACE","DEAD_RUBBER","ROTATION_EXPECTED","FRIENDLY"]);
-const competitionSideOk=(v:any)=>v&&typeof v==="object"&&Array.isArray(v.facts)&&v.facts.every(factItemOk)&&Array.isArray(v.tags)&&v.tags.every((x:any)=>MOTIVATION_TAGS.has(String(x)));
-function competitionContextOk(v:any){
- if(!v||typeof v!=="object"||!["VERIFIED","PARTIAL","UNAVAILABLE"].includes(String(v.status))||!Array.isArray(v.attempts)||!v.attempts.length||!v.attempts.every(attemptOk)||!Array.isArray(v.sourceRefs))return false;
- if(v.status==="UNAVAILABLE")return exhausted(v);
- if(v.sourceRefs.length===0||!competitionSideOk(v.data?.homeTeam)||!competitionSideOk(v.data?.awayTeam))return false;
- const retained=(v.data.homeTeam.facts.length+v.data.awayTeam.facts.length+v.data.homeTeam.tags.length+v.data.awayTeam.tags.length);
- if(retained===0)return false;
- return v.status==="VERIFIED"||(v.status==="PARTIAL"&&exhausted(v));
-}
-function factualCategoryOk(v:any){
- if(!v||typeof v!=="object"||!["VERIFIED","PARTIAL","UNAVAILABLE"].includes(String(v.status))||!Array.isArray(v.attempts)||!v.attempts.length||!v.attempts.every(attemptOk)||!Array.isArray(v.sourceRefs))return false;
- if(v.status==="UNAVAILABLE")return exhausted(v);
- const dataOk=v.data?.homeTeam&&v.data?.awayTeam&&Array.isArray(v.data.homeTeam)&&Array.isArray(v.data.awayTeam)&&v.data.homeTeam.every(factItemOk)&&v.data.awayTeam.every(factItemOk);
- if(!dataOk||v.sourceRefs.length===0)return false;
- return v.status==="VERIFIED"||(v.status==="PARTIAL"&&exhausted(v));
-}
 const genericFactCategoryOk=(v:any)=>{
  if(!v||typeof v!=="object"||!["VERIFIED","PARTIAL","UNAVAILABLE"].includes(String(v.status))||!Array.isArray(v.attempts)||!v.attempts.length||!v.attempts.every(attemptOk)||!Array.isArray(v.sourceRefs))return false;
  if(v.status==="UNAVAILABLE")return exhausted(v);
