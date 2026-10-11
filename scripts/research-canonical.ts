@@ -1,5 +1,5 @@
 import fs from "node:fs";import path from "node:path";
-export const REQUIRED=["form","standings","headToHead","squadAvailability","schedule","competitionContext"];
+export const REQUIRED=["form","standings","headToHead","schedule"];
 const read=(p:string)=>JSON.parse(fs.readFileSync(p,"utf8"));
 const syntheticCompletionOutcome=(v:any)=>/CHATGPT_(?:WEB_SEARCH|H2H_SEARCH|VENUE_FORM_SEARCH)_REFRESH_COMPLETED|CHATGPT_SEARCH_COMPLETE|^SEARCH_COMPLETE$/i.test(String(v||"").trim());
 const attemptOk=(a:any)=>a&&typeof a.query==="string"&&a.query.trim()&&a.attemptedAt&&typeof a.outcome==="string"&&!syntheticCompletionOutcome(a.outcome);
@@ -98,7 +98,7 @@ export function validateResearchArtifact(x:any,date:string,eligibleIds:string[],
    const cat=r?.facts?.[k];
    if(cat&&Array.isArray(cat.attempts)&&cat.attempts.some((a:any)=>syntheticCompletionOutcome(a?.outcome)))throw new Error("RESEARCH_SYNTHETIC_COMPLETION_MARKER_FORBIDDEN "+r.fixtureId+" "+k);
   }
-  if(!r.fixture||!r.researchedAt||typeof r.researchRunId!=="string"||!r.researchRunId.trim()||!Array.isArray(r.sourceMetadata)||!r.facts||!(strictVenue?formOkStrict(r.facts.form,5):formOkLegacy(r.facts.form))||!standingsOk(r.facts.standings)||!headToHeadOk(r.facts.headToHead,strictH2h)||!factualCategoryOk(r.facts.squadAvailability)||!genericFactCategoryOk(r.facts.schedule)||!competitionContextOk(r.facts.competitionContext)||!optionalGenericFactCategoryOk(r.facts.opponentStrength)||!optionalGenericFactCategoryOk(r.facts.teamQuality))throw new Error("RESEARCH_RECORD_INCOMPLETE "+r.fixtureId);
+  if(!r.fixture||!r.researchedAt||typeof r.researchRunId!=="string"||!r.researchRunId.trim()||!Array.isArray(r.sourceMetadata)||!r.facts||!(strictVenue?formOkStrict(r.facts.form,5):formOkLegacy(r.facts.form))||!standingsOk(r.facts.standings)||!headToHeadOk(r.facts.headToHead,strictH2h)||!genericFactCategoryOk(r.facts.schedule)||!optionalGenericFactCategoryOk(r.facts.opponentStrength)||!optionalGenericFactCategoryOk(r.facts.teamQuality))throw new Error("RESEARCH_RECORD_INCOMPLETE "+r.fixtureId);
   if(r.facts.xg!==undefined)throw new Error("RESEARCH_EXTERNAL_XG_FORBIDDEN "+r.fixtureId);
   const refs=new Set(r.sourceMetadata.map((sm:any)=>String(sm.ref||sm.url)));
   for(const ref of r.facts.form.sourceRefs||[])if(!refs.has(String(ref)))throw new Error("RESEARCH_SOURCE_REF_UNKNOWN "+r.fixtureId);
@@ -106,8 +106,6 @@ export function validateResearchArtifact(x:any,date:string,eligibleIds:string[],
   if(strictH2h)for(const m of r.facts.headToHead?.data?.matches||[])if(!refs.has(String(m.sourceRef)))throw new Error("RESEARCH_H2H_MATCH_SOURCE_REF_UNKNOWN "+r.fixtureId);
   for(const k of ["opponentStrength","teamQuality"])if(r.facts[k])for(const ref of r.facts[k].sourceRefs||[])if(!refs.has(String(ref)))throw new Error("RESEARCH_OPTIONAL_CONTEXT_SOURCE_REF_UNKNOWN "+r.fixtureId+" "+k);
   for(const side of ["homeTeam","awayTeam"])for(const key of side==="homeTeam"?["overallLast5","homeLast5"]:["overallLast5","awayLast5"])for(const m of r.facts.form.data?.[side]?.[key]||[])if(!refs.has(String(m.sourceRef)))throw new Error("RESEARCH_MATCH_SOURCE_REF_UNKNOWN "+r.fixtureId);
-  for(const item of [...(r.facts.squadAvailability.data?.homeTeam||[]),...(r.facts.squadAvailability.data?.awayTeam||[])])if(!refs.has(String(item.sourceRef)))throw new Error("RESEARCH_FACT_SOURCE_REF_UNKNOWN "+r.fixtureId+" squadAvailability");
-  for(const item of [...(r.facts.competitionContext.data?.homeTeam?.facts||[]),...(r.facts.competitionContext.data?.awayTeam?.facts||[])])if(!refs.has(String(item.sourceRef)))throw new Error("RESEARCH_FACT_SOURCE_REF_UNKNOWN "+r.fixtureId+" competitionContext");
   for(const sm of r.sourceMetadata){if(!sm||typeof sm.url!=="string"||!/^https?:\/\//.test(sm.url)||!sm.retrievedAt||!Array.isArray(sm.supports))throw new Error("RESEARCH_SOURCE_INVALID "+r.fixtureId);if(mode==="BACKTEST"){if(!sm.availableAt)throw new Error("BACKTEST_SOURCE_AVAILABILITY_UNVERIFIED "+r.fixtureId);const a=new Date(sm.availableAt).getTime();if(!Number.isFinite(a)||a>cutoff!)throw new Error("BACKTEST_SOURCE_AFTER_CUTOFF "+r.fixtureId);}}
  }
  const runIds=new Set(x.fixtures.map((r:any)=>String(r.researchRunId)));if(runIds.size!==1)throw new Error("CANONICAL_DAILY_RESEARCH_MIXED_RUNS");if(typeof x.researchRunId!=="string"||!x.researchRunId.trim()||!runIds.has(String(x.researchRunId)))throw new Error("CANONICAL_DAILY_RESEARCH_RUN_ID_INVALID");
