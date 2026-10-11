@@ -1,20 +1,19 @@
 {
   "schema": "fih-daily-run-ledger-v1",
   "date": "2026-10-11",
-  "mode": "PREDICTION",
   "timezone": "Africa/Johannesburg",
   "runId": "step12:prediction:2026-10-11:1791719285985",
   "researchRunId": "research:2026-10-11:1791719285985",
-  "runStatus": "RUNNING",
-  "heartbeatAt": "2026-10-11T11:48:08.489Z",
-  "recoveryCount": 0,
+  "runStatus": "RECOVERING",
+  "heartbeatAt": "2026-10-11T13:39:21.930Z",
+  "recoveryCount": 1,
   "board": {
     "fetchedAt": "2026-10-11T11:48:05.985Z",
     "fixtureCount": 709,
     "stageCount": 206
   },
   "createdAt": "2026-10-11T11:48:08.489Z",
-  "updatedAt": "2026-10-11T11:48:08.489Z",
+  "updatedAt": "2026-10-11T13:39:21.930Z",
   "fixtures": [
     {
       "id": "1793573",
@@ -7828,7 +7827,7 @@
     "EXCLUDED": 538
   },
   "next": {
-    "fixtureId": "1732095",
+    "fixtureId": "1793573",
     "state": "PENDING"
   }
 }
