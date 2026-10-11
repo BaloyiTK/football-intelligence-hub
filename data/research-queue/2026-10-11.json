@@ -1690,5 +1690,46 @@
       "competition": "Primera Division: Clausura",
       "kickoff": "20261011233000"
     }
-  ]
+  ],
+  "researchExecutionPlan": {
+    "atomicUnit": "FIXTURE",
+    "fixtureOrder": "FROZEN_KICKOFF_ASC_THEN_ID",
+    "categoryPasses": [
+      {
+        "id": "RESULTS_TABLE",
+        "categories": [
+          "form",
+          "standings"
+        ],
+        "mode": "BOUNDED_PARALLEL_SEARCH",
+        "sourceReuse": "REUSE_SOURCE_ACROSS_SUPPORTED_CATEGORIES"
+      },
+      {
+        "id": "H2H",
+        "categories": [
+          "headToHead"
+        ],
+        "mode": "DEDICATED_SEARCH",
+        "sourceReuse": "REUSE_SOURCE_ACROSS_SUPPORTED_CATEGORIES"
+      },
+      {
+        "id": "PREMATCH_CONTEXT",
+        "categories": [
+          "squadAvailability",
+          "schedule",
+          "competitionContext"
+        ],
+        "mode": "BOUNDED_PARALLEL_SEARCH",
+        "sourceReuse": "REUSE_SOURCE_ACROSS_SUPPORTED_CATEGORIES"
+      }
+    ],
+    "recovery": "TARGET_ONLY_MISSING_OR_INVALID_CATEGORIES",
+    "checkpoint": "VALIDATE_FIXTURE_ONCE_THEN_ATOMIC_ACCUMULATOR_WRITE",
+    "sourceHierarchy": [
+      "OFFICIAL",
+      "STRUCTURED_FOOTBALL_SOURCE",
+      "REPUTABLE_SPORTS_NEWS",
+      "BROAD_WEB_RECOVERY"
+    ]
+  }
 }
