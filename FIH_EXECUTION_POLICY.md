@@ -211,7 +211,7 @@ For every eligible fixture in a daily run or backtest:
 1. Start from that fixture on the verified LiveScore board.
 2. Perform fixture-specific external web research using credible sources.
 3. For a backtest, restrict evidence to information that existed before that fixture's kickoff; never use the target match result or later information as research input.
-4. Attempt all evidence categories defined in `FIH_BUILD_STEPS.md`, including last-five overall, exact last 5 HOME matches for the home team, exact last 5 AWAY matches for the away team, **exact last 5 completed H2H meetings**, standings, goals profile, squad availability, motivation/context, opponent strength, and rest/schedule. A venue or H2H series with fewer than 5 must remain PARTIAL/UNAVAILABLE after genuine search exhaustion and must not be treated as complete. H2H VERIFIED requires five structured dated scorelines with source references; a prose summary or aggregate H2H claim is insufficient.
+4. Attempt all active evidence categories defined in `FIH_BUILD_STEPS.md`, including last-five overall, exact last 5 HOME matches for the home team, exact last 5 AWAY matches for the away team, **exact last 5 completed H2H meetings**, standings, goals profile, opponent strength where explicitly researched, and rest/schedule. Injuries/squad availability and motivation/context are excluded. A venue or H2H series with fewer than 5 must remain PARTIAL/UNAVAILABLE after genuine search exhaustion and must not be treated as complete. H2H VERIFIED requires five structured dated scorelines with source references; a prose summary or aggregate H2H claim is insufficient.
 5. Persist source references/URLs and retrieval/reconstruction metadata with the fixture evidence.
 6. Missing categories must be explicitly `UNAVAILABLE`; they may not be silently skipped or replaced with same-window target results.
 7. The FIH probability stage may begin for a fixture only after its research record has been persisted and verified.
@@ -223,9 +223,9 @@ For historical FIH backtests, use a fixed daily information cutoff of **06:00 So
 
 For each historical target date:
 1. Reconstruct the fixture board and research state as it was available at 06:00 SAST on that date.
-2. Only evidence, news, statistics, injuries, standings, context, and historical market odds published or verifiably available by 06:00 SAST may be used.
+2. Only active evidence, statistics, standings, schedule information, and historical market odds published or verifiably available by 06:00 SAST may be used.
 3. Information first available after 06:00 SAST is excluded even if it was available before kickoff.
-4. Match results, later lineups, later injury news, later odds movement, and all post-06:00 information must not influence the frozen FIH assessment.
+4. Match results, later information, later odds movement, and all post-06:00 information must not influence the frozen FIH assessment.
 5. Persist the research cutoff as `06:00 Africa/Johannesburg` with each backtest date/evidence package.
 6. Freeze the model assessment from this 06:00 snapshot before attaching actual results for evaluation.
 
@@ -249,7 +249,7 @@ For every eligible fixture, the mandatory research loop is:
 **Search -> enforce cutoff -> persist verified evidence -> mark each unverifiable field `UNAVAILABLE` -> verify persisted research record -> continue to the next fixture.**
 
 Rules:
-- A missing last-five record, venue split, H2H, standing, injury, motivation item, opponent-strength measure, rest datum, or historical market price does not require user approval and does not terminate the run.
+- A missing last-five record, venue split, H2H, standing, opponent-strength measure, rest datum, or historical market price does not require user approval and does not terminate the run.
 - Sparse evidence may cause a market or entire fixture to become `INSUFFICIENT_DATA` or `NO_BET`; that is a valid model/decision outcome, not an execution failure.
 - Historical research being slow, difficult, incomplete, or spread across many fixtures is not a material architecture change and is not a reason to pause.
 - Do not fabricate or use post-cutoff evidence to fill a gap. Record the gap as `UNAVAILABLE` and continue.
