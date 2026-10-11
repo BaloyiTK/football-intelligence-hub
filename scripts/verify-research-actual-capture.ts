@@ -13,9 +13,7 @@ const record=(outcome:string,exhausted:boolean)=>({
   form:unavailable(outcome,exhausted),
   standings:unavailable(outcome,exhausted),
   headToHead:unavailable(outcome,exhausted,{data:{matches:[]}}),
-  squadAvailability:unavailable(outcome,exhausted),
-  schedule:unavailable(outcome,exhausted),
-  competitionContext:unavailable(outcome,exhausted)
+  schedule:unavailable(outcome,exhausted)
  }
 });
 const artifact=(r:any)=>({schema:"fih-daily-research-v5",date,mode:"PREDICTION",generatedAt:"2098-12-31T12:02:00.000Z",researchRunId:rid,fixtureCount:1,fixtures:[r]});
