@@ -91,7 +91,7 @@ assert.match(step12Prepare,/data\/recovery-requests/);
 assert.match(command,/data\/recovery-requests/);
 assert.match(step12Workflow,/Verify durable ChatGPT Step 2 handoff/);
 assert.match(step12Workflow,/CHATGPT_RESEARCH_REQUIRED/);
-assert.match(dailyLedger,/PREMATCH_WINDOW_CLOSED/);
+assert.match(fixtureEligibility,/PREMATCH_WINDOW_CLOSED/);
 assert.doesNotMatch(fullWorkflow,/automation\/run-now\.flag/);
 assert.match(backtestWorkflow,/step12-command-runner\.mjs/);
 assert.match(agents,/active ChatGPT execution must consume the queue/);
