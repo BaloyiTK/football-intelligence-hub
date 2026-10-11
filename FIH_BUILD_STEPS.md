@@ -46,7 +46,7 @@
 
 ## 2. Data Collection
 
-ChatGPT owns the fixture-by-fixture data-collection stage.
+ChatGPT owns the cluster-first shared-evidence data-collection stage.
 
 ### ChatGPT web-search ownership and batch persistence — LOCKED
 
@@ -86,7 +86,7 @@ The single local working file MUST use this exact top-level contract (no placeho
 
 - During active Step 2 research, ChatGPT MUST create and maintain one local JSON accumulator in its execution environment at `/mnt/data/fih/research-work/YYYY-MM-DD.json` (the execution-environment equivalent of the logical `data/research-work/YYYY-MM-DD.json` working artifact). The date is resolved dynamically; do not hard-code a run date.
 - Initialize it with the active `researchRunId`, frozen eligible fixture IDs/count, and an initially empty set of validated fixture records. This local file is **temporary** and MUST NOT be committed to GitHub.
-- For each fixture, perform actual ChatGPT web research, validate its source-backed facts-only record, atomically rewrite the **same** accumulator file (write to a sibling temporary file and rename), reopen it, and verify the saved record, fixture IDs/count, date and `researchRunId` before moving to the next fixture.
+- Collect actual ChatGPT web research cluster-first by competition/team/team-pair, assemble each source-backed facts-only fixture record from that shared evidence, then atomically rewrite the **same** accumulator file after each fixture validates (write to a sibling temporary file and rename), reopen it, and verify the saved record, fixture IDs/count, date and `researchRunId`.
 - Do not create one file or Git commit per fixture. Do not promote a partial accumulator. Only after exact N/N coverage and all schema/integrity checks pass, promote to `data/research/YYYY-MM-DD.json` and make **one canonical Git commit** for that `researchRunId`; reread and verify the committed artifact before Step 3.
 - ChatGPT's local execution filesystem is **not guaranteed to persist across separate sessions**. On interruption, resume from this accumulator only if it still exists and validates. If it has been lost, reconstruct the uncommitted batch from the verified frozen Step-1 fixture universe; never claim lost records are complete or silently promote partial data. A missing local file must not be treated as a successful checkpoint.
 - This local working-file location is a runtime implementation detail, not an alternative canonical Git storage path. The single-accumulator and single-commit invariants above remain authoritative.
@@ -104,13 +104,13 @@ The single local working file MUST use this exact top-level contract (no placeho
 - New canonical Step-2 research must use `fih-daily-research-v5`; legacy schemas cannot cross the Step-3 input gate after the H2H last-five lock.
 
 - Research/provider/query ceilings are continuation boundaries, never completion or a hard stop. Continue through available search capacity and authorized search paths. If the execution environment itself prevents further calls, first verify the single temp accumulator and exact continuation cursor; resume the same `researchRunId` from the next unfinished fixture without rerunning Step 1 or requiring a new user command.
-- ChatGPT MUST perform the actual web search for every eligible fixture, fixture by fixture.
+- ChatGPT MUST perform the actual web research needed to cover every eligible fixture, but MUST NOT require one independent search job per fixture. Reuse current attributable competition/team/team-pair evidence across all applicable fixture records.
 - **Execution-boundary lock:** Vercel is Step 1 infrastructure only. Step 2 MUST NOT use Vercel AI Gateway, a Vercel-hosted language model, `/api/research-fixture`, `/api/step2-research`, or any repository-hosted AI worker. The frozen queue is input to the active ChatGPT execution, which performs the web research itself.
 - **Actual-capture lock:** a search call or completion marker is not a researched fixture. Before a fixture enters `data/research-work/YYYY-MM-DD.json`, ChatGPT MUST write the source-backed structured facts returned by the search into that fixture record. Copying a prior canonical/baseline record and appending attempt/completion markers is forbidden.
 - For every required category, `PARTIAL` or `UNAVAILABLE` is valid only after genuine category-specific exhaustion: `searchExhausted: true` plus at least one attempt outcome explicitly recording `SEARCH_EXHAUSTED`.
 - Completion-only outcomes such as `CHATGPT_WEB_SEARCH_REFRESH_COMPLETED`, `CHATGPT_H2H_SEARCH_REFRESH_COMPLETED`, `CHATGPT_VENUE_FORM_SEARCH_REFRESH_COMPLETED`, or `SEARCH_COMPLETE` are forbidden as research evidence and cannot satisfy checkpoint/promotion validation.
-- Repository-local homepage scanning, scraping, cached link discovery, or direct-public-source discovery is not equivalent to the required ChatGPT web-search job and MUST NOT satisfy Step 2 by itself.
-- Research each eligible fixture using web search, retain only source-backed factual evidence, and add the validated fixture record to the working daily dataset.
+- Repository-local homepage scanning, scraping, cached link discovery, or direct-public-source discovery is not equivalent to ChatGPT web research and MUST NOT satisfy Step 2 by itself.
+- Ensure each eligible fixture is backed by ChatGPT web-researched factual evidence, reusing shared evidence only when it is current, applicable, and explicitly attributable; then add the independently validated fixture record to the working daily dataset.
 - Continue until every eligible fixture for the date has been researched or a field has been truthfully recorded as unavailable after a real ChatGPT web-search attempt.
 - Do NOT commit canonical research fixture by fixture.
 - After all eligible fixtures are present, validate complete coverage and the facts-only canonical schema, then commit the complete per-date research artifact once as the canonical research commit.
@@ -120,73 +120,48 @@ The single local working file MUST use this exact top-level contract (no placeho
 
 - Read the verified eligible fixtures produced by Step 1.
 - Create one working research dataset for the requested date.
-- Enqueue the complete unfinished frozen fixture universe in kickoff-ascending-then-ID order; workload size has no fixed fixture-count limit.
-- Maintain an adaptive streaming pool of fixture-specific research jobs sized to the maximum safe ChatGPT web-search/tool capacity available in the active execution.
-- Whenever any active fixture job resolves or releases capacity, immediately admit the next unfinished fixture; do not wait for unrelated slow fixtures or a whole batch to finish.
+- Build reusable evidence clusters from the complete unfinished frozen fixture universe: competition clusters, team clusters, and H2H team-pairs.
+- Stream those evidence clusters through the maximum safe ChatGPT web-search/tool capacity; there is no fixed fixture-count or cluster-count ceiling.
+- Bulk-collect standings, overall/venue form, and schedule/rest evidence before launching fixture-specific gap searches.
+- Assemble fixture records from the shared evidence cache and validate every fixture independently.
+- Use FAST for fixtures already complete from shared evidence, STANDARD for targeted missing fields, and DEEP only for scarce/conflicting evidence.
 - As soon as a fixture validates, checkpoint it immediately to the single accumulator. The checkpoint implementation stores validated records in frozen fixture order even when completion occurred out of order, and `nextFixtureId` remains the earliest unfinished fixture.
 - Step 2 collects evidence only. It does not make the final prediction or product decision.
 - Do not commit individual fixture research records to GitHub.
 - Complete the data-collection loop for all eligible fixtures before making the canonical daily research commit.
 - Research data is stored per date so each daily run or historical day remains independently auditable.
 - The working dataset may be checkpointed for recovery without treating a checkpoint as the canonical completed research artifact.
-- If execution is interrupted, use available working/checkpoint state to resume from the earliest unfinished fixture rather than intentionally repeating completed research.
+- If execution is interrupted, use available working/checkpoint state to resume the same researchRunId without intentionally repeating already captured evidence.
 
-### Fixture research-job interface — LOCKED
 
-Step 2 MUST execute each eligible fixture as a structured ChatGPT research job. The repository/controller owns job construction, validation, checkpointing and persistence; ChatGPT owns the web research.
+### Shared-evidence research interface — LOCKED
 
-For each eligible fixture, the controller provides ChatGPT one research-job input containing at minimum:
-- requested date;
-- execution mode (PREDICTION or BACKTEST);
-- applicable information cutoff when BACKTEST;
-- fixture ID;
-- competition;
-- kickoff time and timezone;
-- home team;
-- away team;
-- the complete required evidence-category list defined below;
-- research-integrity requirements;
-- the required Step 2 output/schema contract.
+Step 2 MUST execute the frozen fixture universe as reusable ChatGPT evidence clusters, then assemble fixture records from those clusters. The repository/controller owns queue construction, validation, checkpointing and persistence; ChatGPT owns the web research.
 
-The research job instructs ChatGPT to:
-1. research BOTH teams on the web for every required Step 2 evidence category;
-2. use credible sources and retain source URL/reference plus retrieval timestamp;
-3. map each retained source to the evidence category/categories it supports;
-4. return evidence only and make no prediction;
-5. never fabricate missing evidence or convert missing values to zero;
-6. mark a category `UNAVAILABLE` only after a real search attempt fails to locate trustworthy evidence;
-7. for BACKTEST, enforce the applicable historical information cutoff before retaining evidence;
-8. return one complete fixture research record compatible with the canonical Step 2 validator.
+The controller provides the date, mode/cutoff, frozen fixture list, competition/team identities, required evidence categories, integrity rules and canonical output schema. ChatGPT builds these reusable work units:
 
-The controller MUST validate the returned fixture record before accepting it into the working daily dataset. A fixture is complete only when every required category has a recorded real research attempt and the returned evidence/source mapping passes the Step 2 validator. A source-discovery result, partial search batch, prompt completion, or checkpoint by itself is not fixture completion.
+1. **SHARED_COLLECTION** — group by competition and team; bulk-search current standings, last-five overall form, exact HOME/AWAY venue form, and schedule/rest evidence.
+2. **PAIR_COLLECTION** — group H2H by team-pair and obtain the exact last 5 completed meetings. Multiple pairs may be transported in one search call when each pair's evidence remains independently mapped.
+3. **FIXTURE_ASSEMBLY** — hydrate each fixture from the shared evidence cache and map every retained fact to its source reference.
+4. **GAP_REPAIR** — search only missing, conflicting, or invalid categories for that fixture. FAST means no extra search is needed; STANDARD means targeted missing-field searches; DEEP is reserved for scarce/conflicting evidence.
 
-For the active streaming pool:
-`enqueue all unfinished fixtures -> admit as much safe parallel work as current ChatGPT web-search/tool capacity supports -> run fixture-specific research jobs continuously -> independently validate each returned fixture -> targeted recovery only for invalid/missing categories -> checkpoint each validated fixture immediately -> refill freed capacity immediately -> continue until N/N`
+A single source may support many fixtures when it genuinely contains the relevant facts and every use is explicitly attributable. Sharing transport or a source never permits mixing team identities, competitions, dates, cutoffs, or evidence categories.
 
-Checkpointing a completed fixture is durability only. It MUST NOT end or pause the authorized run while eligible fixtures remain. On recoverable failure, apply the Execution Contract recovery loop to that fixture/job without discarding valid results from other active fixtures.
+The controller MUST validate each assembled fixture record independently before accepting it into the working daily dataset. Fixture validation/checkpoint identity remains atomic even though evidence collection is shared. A fixture is complete only when required categories satisfy the canonical validator or are truthfully PARTIAL/UNAVAILABLE after the required genuine search exhaustion.
 
-The fixture remains the atomic evidence/validation/checkpoint unit. The streaming pool is only an execution-concurrency mechanism. Search execution may pack multiple independent fixture-specific queries into one ChatGPT web-search operation when supported, provided every query result remains attributable to the correct fixture/category and each fixture still receives genuine fixture-specific web research.
+#### Cluster-first adaptive research pool — LOCKED
 
-#### Adaptive streaming research pool — LOCKED
+Step 2 MUST admit the complete unfinished frozen fixture universe and derive evidence clusters from it. There is **no fixed fixture-count concurrency ceiling** and no requirement to divide the workload into batches of 25 or any other fixed size. Live work is bounded only by safe available ChatGPT web-search/tool capacity, provider limits, execution headroom, and integrity safeguards.
 
-Step 2 MUST enqueue the entire unfinished frozen fixture universe. There is **no fixed fixture-count concurrency ceiling** and no requirement to divide the workload into batches of 25 (or any other fixed fixture count). Actual simultaneous work remains bounded dynamically by available ChatGPT web-search/tool capacity, provider limits, execution headroom, and integrity safeguards.
+Search order is bulk-first: competition/team shared evidence before fixture-specific gap repair. The same current standings source may populate every applicable fixture in that competition; the same team form/schedule evidence may populate all applicable fixtures for that team; H2H evidence is keyed to the exact team-pair. A separate search call for every fixture is explicitly not required.
 
-For every active fixture, execute one fixture-specific `FIXTURE_PACKET`. Inside each packet launch these two web-search lanes using adaptive bounded parallel search:
+As evidence arrives, assemble and validate any fixture that now has sufficient coverage. Once a fixture is valid, checkpoint it immediately to the single accumulator without waiting for unrelated slow clusters. The accumulator rewrite MUST preserve frozen fixture order, atomically replace the file, reread it, verify the just-written fixture, and keep `nextFixtureId` pointed at the earliest unfinished fixture.
 
-1. **CORE_STATS** — overall form, HOME/AWAY venue form, current standings, and schedule/rest evidence.
-2. **H2H** — the exact last 5 completed head-to-head meetings.
-
-Injuries/squad availability and motivation/competition context are not researched. Every fixture must still receive its own fixture-specific ChatGPT web-search query/evidence mapping and source-backed evidence record. Multi-query packing changes transport efficiency only; it must never merge fixture identities or allow one fixture's search to substitute for another fixture's required search.
-
-As packet results return or fail, extract every usable source-backed fact into that fixture's category state. Reuse every credible source across all categories it actually supports instead of repeating discovery or opening the same source for each category. For fixtures in the same competition during the same `researchRunId`, a current competition-table source may be reused for standings when it remains applicable and attributable.
-
-Validate each fixture independently. Run targeted recovery searches **only** for that fixture's missing or invalid required categories. Do not repeat categories already satisfying the canonical validator. Once a fixture is valid, checkpoint it immediately to the single accumulator without waiting for earlier or slower fixture jobs. The accumulator rewrite MUST reorder retained records by the frozen fixture universe, atomically replace the file, reread it, verify the just-written fixture, and keep `nextFixtureId` pointed at the earliest unfinished fixture.
-
-Whenever a fixture job completes, fails into targeted recovery, or otherwise releases capacity, admit the next unfinished fixture immediately. There is no active-batch completion barrier. Continue refilling the pool until all frozen eligible fixtures are validated N/N or an unavoidable execution-environment boundary is reached.
+After the shared pass, run targeted gap repair only for unresolved categories. Do not repeat categories already satisfying the canonical validator. Continue refilling available search capacity until all frozen eligible fixtures are validated N/N or an unavoidable execution-environment boundary is reached.
 
 The preferred source ladder is: official league/club/competition sources -> credible structured football result/table sources -> reputable sports/news sources -> broad web recovery search. Source hierarchy changes search order only; every retained fact must still satisfy the canonical source and evidence rules.
 
-Do not ask ChatGPT to make Step 3 model probabilities or Step 4 decisions during a Step 2 research job.
+Do not ask ChatGPT to make Step 3 model probabilities or Step 4 decisions during Step 2 research.
 
 For BOTH teams, collect:
 

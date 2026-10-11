@@ -20,7 +20,7 @@ const contractGate = read("scripts/contract-gate.ts");
 assert.equal(rules.locked, true);
 assert.match(contract, /Date routing contract/);
 assert.match(policy, /Verify persisted data/);
-assert.match(steps, /ChatGPT owns the fixture-by-fixture/);
+assert.match(steps, /ChatGPT owns the cluster-first shared-evidence/);
 assert.match(portable, /Stateless entrypoint/);
 assert.match(portable, /run past N days/);
 assert.match(portable, /status YYYY-MM-DD/);
@@ -34,35 +34,39 @@ gate("STEP2_CHATGPT_HANDOFF", controller.includes("STEP2_CHATGPT_HANDOFF_REQUIRE
 gate("STEP2_LOCKED_ACCUMULATOR", checkpoint.includes('schema:"fih-step2-working-v1"'), "Checkpoint schema differs from locked Step 2 contract");
 gate("STEP2_NO_HOSTED_AI", !fs.existsSync(new URL("../api/research-fixture.js", import.meta.url)) && !fs.existsSync(new URL("../scripts/step2-autonomous-runner.ts", import.meta.url)) && portable.includes("ChatGPT itself is the authoritative Step-2 web-research executor"), "Hosted/repository Step 2 AI executor must be absent");
 gate("STEP12_BACKTEST_ROUTE", step12Runner.includes('mode==="BACKTEST"') && step12Runner.includes("/api/backtest-ingest?date=") && portable.includes("ChatGPT itself is the authoritative Step-2 web-research executor"), "Historical Step 1 route or ChatGPT Step 2 handoff missing");
-gate("STEP2_ADAPTIVE_STREAMING_PLAN",
-  rules.rules?.["RESEARCH-026"]?.requirement?.includes("no fixed fixture-count concurrency ceiling") &&
-  rules.rules?.["RESEARCH-026"]?.requirement?.includes("immediately refill released capacity") &&
-  rules.rules?.["RESEARCH-026"]?.requirement?.includes("checkpoint it immediately to the one active accumulator") &&
-  rules.rules?.["RESEARCH-026"]?.requirement?.includes("Same-competition standings evidence may be reused") &&
-  step12Prepare.includes('atomicUnit:"FIXTURE"') &&
-  step12Prepare.includes('streamingPool:{workload:"ALL_UNVALIDATED_FIXTURES"') &&
-  step12Prepare.includes('admission:"ADAPTIVE_TO_AVAILABLE_CHATGPT_WEB_SEARCH_CAPACITY"') &&
-  step12Prepare.includes('execution:"CONTINUOUS_FIXTURE_PACKETS"') &&
-  step12Prepare.includes('refill:"IMMEDIATE_ON_SLOT_RELEASE"') &&
-  step12Prepare.includes('completionBarrier:"NONE_BETWEEN_FIXTURES"') &&
+gate("STEP2_SHARED_EVIDENCE_BATCHING",
+  rules.rules?.["RESEARCH-001"]?.requirement?.includes("a separate search job per fixture is not required") &&
+  rules.rules?.["RESEARCH-026"]?.requirement?.includes("cluster-first") &&
+  rules.rules?.["RESEARCH-026"]?.requirement?.includes("Fixture-specific search is NOT mandatory") &&
+  rules.rules?.["RESEARCH-026"]?.requirement?.includes("FAST") &&
+  step12Prepare.includes('schema:"fih-chatgpt-research-queue-v4"') &&
+  step12Prepare.includes('collectionUnit:"EVIDENCE_CLUSTER"') &&
+  step12Prepare.includes('validationUnit:"FIXTURE"') &&
+  step12Prepare.includes('checkpointUnit:"FIXTURE"') &&
+  step12Prepare.includes('id:"SHARED_COLLECTION"') &&
+  step12Prepare.includes('strategy:"GROUP_BY_COMPETITION_AND_TEAM"') &&
+  step12Prepare.includes('id:"PAIR_COLLECTION"') &&
+  step12Prepare.includes('strategy:"GROUP_H2H_PAIRS"') &&
+  step12Prepare.includes('id:"FIXTURE_ASSEMBLY"') &&
+  step12Prepare.includes('id:"GAP_REPAIR"') &&
+  step12Prepare.includes('execution:"CONTINUOUS_EVIDENCE_CLUSTERS"') &&
+  step12Prepare.includes('mode:"CLUSTER_FIRST_MULTI_ENTITY_WEB_CALL"') &&
+  step12Prepare.includes('ONE_SOURCE_MAY_SUPPORT_MULTIPLE_FIXTURES_WHEN_FACT_ATTRIBUTION_IS_EXPLICIT') &&
+  step12Prepare.includes('fixtureSpecificSearchRequired:false') &&
+  step12Prepare.includes('individualSearchCallRequired:false') &&
+  step12Prepare.includes('FAST:"SHARED_EVIDENCE_SUFFICIENT_NO_EXTRA_SEARCH"') &&
+  step12Prepare.includes('STANDARD:"TARGETED_MISSING_FIELDS"') &&
+  step12Prepare.includes('DEEP:"CONFLICTING_OR_SCARCE_EVIDENCE_ONLY"') &&
   step12Prepare.includes('checkpoint:"IMMEDIATE_PER_VALIDATED_FIXTURE"') &&
-  step12Prepare.includes('checkpointStorageOrder:"FROZEN_ORDER"') &&
-  step12Prepare.includes('fixedFixtureConcurrencyLimit:null') &&
-  step12Prepare.includes('packet:{id:"FIXTURE_PACKET"') &&
-  step12Prepare.includes('launchMode:"ADAPTIVE_PARALLEL_SEARCH"') &&
-  step12Prepare.includes('MULTI_QUERY_WEB_CALL_WHEN_SUPPORTED') &&
-  step12Prepare.includes('id:"CORE_STATS"') &&
-  step12Prepare.includes('categories:["form","standings","schedule"]') &&
-  step12Prepare.includes('id:"H2H"') &&
-  !step12Prepare.includes('squadAvailability:{factsOnly:true') &&
-  !step12Prepare.includes('competitionContext:{factsOnly:true') &&
-  step12Prepare.includes('fixtureSpecificSearchStillRequired:true') &&
-  step12Prepare.includes('recovery:"TARGET_ONLY_MISSING_OR_INVALID_CATEGORIES_PER_FIXTURE"') &&
-  dailyCycle.includes('streamingPool:{workload:"ALL_UNVALIDATED_FIXTURES"') &&
-  !dailyCycle.includes('maxConcurrentFixtures:25') &&
-  portable.includes("adaptive streaming pool") &&
-  contract.includes("adaptive streaming architecture"),
-  "Step 2 must stream the full unfinished workload through adaptive safe capacity, immediately checkpoint valid fixtures, preserve one accumulator, and keep fixture-specific evidence locks");
+  !step12Prepare.includes('atomicUnit:"FIXTURE"') &&
+  !step12Prepare.includes('FIXTURE_PACKET') &&
+  !step12Prepare.includes('fixtureSpecificSearchStillRequired:true') &&
+  dailyCycle.includes('collectionUnit:"EVIDENCE_CLUSTER"') &&
+  dailyCycle.includes('execution:"CONTINUOUS_EVIDENCE_CLUSTERS"') &&
+  !dailyCycle.includes('execution:"CONTINUOUS_FIXTURE_PACKETS"') &&
+  portable.includes("cluster-first shared-evidence batching") &&
+  contract.includes("cluster-first shared-evidence architecture"),
+  "Step 2 must bulk-collect attributable shared evidence, assemble and validate fixtures independently, and reserve fixture-specific web search for targeted gap repair");
 gate("VERCEL_DEPLOYMENT_QUOTA_NONBLOCKING",
   rules.rules?.["INFRA-002"]?.requirement?.includes("NON-BLOCKING") &&
   rules.infrastructure?.vercel?.deploymentQuotaPolicy?.classification==="NON_BLOCKING" &&
