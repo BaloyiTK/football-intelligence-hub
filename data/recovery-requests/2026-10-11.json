@@ -1,18 +1,18 @@
 {
   "schema": "fih-recovery-request-v1",
   "date": "2026-10-11",
-  "runId": "step12:prediction:2026-10-11:1791709702266",
-  "researchRunId": "research:2026-10-11:1791709702266",
-  "requestedAt": "2026-10-11T09:08:24.492Z",
+  "runId": "step12:prediction:2026-10-11:1791718982398",
+  "researchRunId": "research:2026-10-11:1791718982398",
+  "requestedAt": "2026-10-11T11:43:04.451Z",
   "reason": "STEP1_VERIFIED_CHATGPT_STEP2_HANDOFF",
   "status": "CHATGPT_RESEARCH_REQUIRED",
   "next": {
-    "fixtureId": "1785379",
+    "fixtureId": "1795347",
     "state": "PENDING"
   },
-  "expectedFixtureCount": 220,
+  "expectedFixtureCount": 173,
   "validatedCount": 0,
   "queuePath": "data/research-queue/2026-10-11.json",
-  "boardFetchedAt": "2026-10-11T09:08:22.266Z",
+  "boardFetchedAt": "2026-10-11T11:43:02.398Z",
   "priorSupersessions": []
 }
