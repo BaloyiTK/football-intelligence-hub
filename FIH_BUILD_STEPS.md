@@ -36,6 +36,8 @@
 - Only after the persisted GitHub fixture file passes verification is Step 1 complete.
 - Only eligible pre-match fixtures proceed to analysis. Preserve excluded fixtures in the raw daily fixture data rather than deleting them.
 - For PREDICTION, `NS` status alone is not sufficient: scheduled kickoff must be parseable and strictly later than the authoritative fixture board `fetchedAt`. An `NS` event at or before `fetchedAt` is `PREMATCH_WINDOW_CLOSED` and must be excluded before the Step-2 universe is frozen (`STEP1-002`).
+- For PREDICTION, require at least **60 complete minutes of research runway** between the authoritative board `fetchedAt` and scheduled kickoff. Preserve shorter-runway fixtures in the raw board but exclude them from Step 2 as `INSUFFICIENT_RESEARCH_RUNWAY` (`STEP1-003`).
+- Exclude recognized **lower-division league fixtures** from the FIH research/model universe while preserving them in the raw board. Use the deterministic country-aware classifier in `scripts/fixture-eligibility.ts`; excluded fixtures are `LOWER_DIVISION` (`STEP1-004`).
 - If fetching, committing, or verification fails, follow the FIH Execution Contract recovery loop automatically: investigate -> fix or authorized fallback -> verify recovery -> resume from the earliest unfinished stage -> continue.
 - A recoverable fixture acquisition failure must not require the user to issue another continue/status command.
 

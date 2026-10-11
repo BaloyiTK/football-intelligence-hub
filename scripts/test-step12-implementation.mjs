@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import {spawnSync} from "node:child_process";
 import ts from "typescript";
 
-const tsFiles=["scripts/step12-prepare.ts","scripts/continuation-controller.ts","scripts/research-canonical.ts"];
+const tsFiles=["scripts/fixture-eligibility.ts","scripts/step12-prepare.ts","scripts/daily-run-ledger.ts","scripts/continuation-controller.ts","scripts/research-canonical.ts"];
 for(const file of tsFiles){
   const source=fs.readFileSync(file,"utf8");
   const r=ts.transpileModule(source,{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.ESNext},reportDiagnostics:true,fileName:file});
@@ -21,6 +21,7 @@ const continuation=fs.readFileSync("scripts/continuation-controller.ts","utf8");
 const step12Workflow=fs.readFileSync(".github/workflows/fih-step12-command.yml","utf8");
 const recoveryWorkflow=fs.readFileSync(".github/workflows/fih-daily-reliability-watchdog.yml","utf8");
 const step12Prepare=fs.readFileSync("scripts/step12-prepare.ts","utf8");
+const fixtureEligibility=fs.readFileSync("scripts/fixture-eligibility.ts","utf8");
 const dailyLedger=fs.readFileSync("scripts/daily-run-ledger.ts","utf8");
 const fullWorkflow=fs.readFileSync(".github/workflows/fih-run-now.yml","utf8");
 const backtestWorkflow=fs.readFileSync(".github/workflows/fih-backtest-history.yml","utf8");
@@ -73,11 +74,18 @@ assert.match(r025,/0\/N/);
 assert.match(r025,/validated Step-2 progress/);
 assert.ok(rules.rules?.["MODEL-004"]?.requirement?.includes("RESEARCH-025"));
 assert.ok(rules.rules?.["STEP1-002"]?.requirement?.includes("strictly later than the authoritative board fetchedAt"));
+assert.ok(rules.rules?.["STEP1-003"]?.requirement?.includes("60 complete minutes"));
+assert.ok(rules.rules?.["STEP1-004"]?.requirement?.includes("lower-division"));
+assert.match(fixtureEligibility,/MIN_RESEARCH_RUNWAY_MINUTES=60/);
+assert.match(fixtureEligibility,/INSUFFICIENT_RESEARCH_RUNWAY/);
+assert.match(fixtureEligibility,/LOWER_DIVISION/);
+assert.match(step12Prepare,/fixtureExclusion/);
+assert.match(dailyLedger,/fixtureExclusion/);
 assert.equal(rules.rules?.["RESEARCH-026"],undefined);
 assert.ok(rules.rules?.["INFRA-003"]?.requirement?.includes("Vercel is authorized for FIH Step 1"));
 assert.ok(rules.rules?.["INFRA-003"]?.requirement?.includes("Step 2 research is executed by ChatGPT itself"));
 
-assert.match(step12Prepare,/PREMATCH_WINDOW_CLOSED/);
+assert.match(fixtureEligibility,/PREMATCH_WINDOW_CLOSED/);
 assert.match(step12Prepare,/CHATGPT_RESEARCH_REQUIRED/);
 assert.match(step12Prepare,/data\/recovery-requests/);
 assert.match(command,/data\/recovery-requests/);

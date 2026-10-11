@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import {fixtureExclusion} from "./fixture-eligibility";
 
 const ROOT=process.cwd(),TZ="Africa/Johannesburg";
 const DATE=process.argv[process.argv.indexOf("--date")+1]||process.env.FIH_DATE||"";
@@ -15,25 +16,7 @@ if(!events.length||events.length!==board.fixtureCount)throw new Error("STEP12_BO
 const id=(e:any,s:any)=>String(e?.Eid??e?.Id??[s?.CompId,e?.T1?.[0]?.Nm,e?.T2?.[0]?.Nm,e?.Esd].filter(Boolean).join(":"));
 const team=(x:any)=>String(x?.[0]?.Nm??"UNKNOWN");
 const boardFetchedMs=Date.parse(String(board.fetchedAt||""));
-function predictionKickoffMs(e:any){const raw=String(e?.Esd??e?.Epsd??e?.startTime??"");if(!/^\d{14}$/.test(raw))return NaN;return new Date(raw.slice(0,4)+"-"+raw.slice(4,6)+"-"+raw.slice(6,8)+"T"+raw.slice(8,10)+":"+raw.slice(10,12)+":"+raw.slice(12,14)+"+02:00").getTime()}
-function baseExclusion(e:any,s:any){
- const status=String(e?.Eps??"").toUpperCase();
- if(MODE==="PREDICTION"&&status!=="NS")return "NOT_PREMATCH";
- if(MODE==="PREDICTION"){const km=predictionKickoffMs(e);if(!Number.isFinite(km))return "PREDICTION_KICKOFF_UNVERIFIED";if(!Number.isFinite(boardFetchedMs)||km<=boardFetchedMs)return "PREMATCH_WINDOW_CLOSED"}
- const text=[s?.CompN,s?.Snm,s?.Cnm,e?.T1?.[0]?.Nm,e?.T2?.[0]?.Nm].filter(Boolean).join(" ").toLowerCase();
- if(/women|\bw\b/.test(text))return "WOMEN";
- if(/\bu[- ]?\d{2}\b|under[- ]?\d{2}|youth/.test(text))return "YOUTH";
- const teams=[e?.T1?.[0]?.Nm,e?.T2?.[0]?.Nm].filter(Boolean).join(" ").toLowerCase();
- if(/reserve|reserves|\bu23\b|\bu21\b|\bu20\b|\bu19\b|\bu18\b|\bu17\b|\bii\b|(?:^|\s)2$/.test(teams))return "RESERVE_OR_DEVELOPMENT";
- if(/university|academia|academy|akatemia|juniors?/.test(text))return "NON_SENIOR";
- if(MODE==="BACKTEST"){
-   const raw=String(e?.Esd??"");
-   if(!/^\d{14}$/.test(raw))return "BACKTEST_KICKOFF_UNVERIFIED";
-   const hhmm=Number(raw.slice(8,12));
-   if(hhmm<=600)return "BACKTEST_KICKOFF_AT_OR_BEFORE_0600_SAST";
- }
- return null;
-}
+function baseExclusion(e:any,s:any){return fixtureExclusion(e,s,{mode:MODE as "PREDICTION"|"BACKTEST",boardFetchedAt:board.fetchedAt})}
 const timestamp=Date.parse(board.fetchedAt||"")||Date.now(),runId=`step12:${MODE.toLowerCase()}:${DATE}:${timestamp}`,researchRunId=`research:${DATE}:${timestamp}`;
 const now=new Date().toISOString();
 const fixtures=events.map(({e,s}:any)=>{const reason=baseExclusion(e,s);return {id:id(e,s),home:team(e.T1),away:team(e.T2),competition:String(s?.CompN??s?.Snm??"UNKNOWN"),kickoff:String(e?.Esd??""),eligible:!reason,exclusionReason:reason,state:reason?"EXCLUDED":"PENDING",updatedAt:now}});

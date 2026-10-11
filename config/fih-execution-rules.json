@@ -276,11 +276,19 @@
     },
     "STEP1-002": {
       "kind": "prediction-prematch-eligibility",
-      "requirement": "For PREDICTION fixture-universe construction, provider status NS is necessary but not sufficient. A fixture is eligible only when its scheduled kickoff is parseable and strictly later than the authoritative board fetchedAt timestamp. Any NS fixture whose kickoff is at or before fetchedAt MUST be excluded as PREMATCH_WINDOW_CLOSED so Step 1 eligibility and the Step-2 no-post-kickoff research gate cannot disagree."
+      "requirement": "For PREDICTION fixture-universe construction, provider status NS is necessary but not sufficient. Scheduled kickoff MUST be parseable and strictly later than the authoritative board fetchedAt timestamp. Any NS fixture whose kickoff is at or before fetchedAt MUST be excluded as PREMATCH_WINDOW_CLOSED before the Step-2 universe is frozen."
     },
     "INFRA-003": {
       "kind": "vercel-step-boundary",
       "requirement": "Vercel is authorized for FIH Step 1 fixture acquisition/integration only. Step 2 MUST NOT call Vercel AI Gateway, a Vercel-hosted language model, /api/research-fixture, /api/step2-research, or any repository/local AI worker as the research executor. Step 2 research is executed by ChatGPT itself using ChatGPT web search, fixture by fixture, from the frozen queue."
+    },
+    "STEP1-003": {
+      "kind": "prediction-research-runway",
+      "requirement": "For PREDICTION, an otherwise eligible fixture MUST have at least 60 complete minutes between the authoritative Step-1 board fetchedAt timestamp and scheduled kickoff. Fixtures with less than 60 minutes remaining MUST be preserved in the raw board but excluded from the Step-2 universe as INSUFFICIENT_RESEARCH_RUNWAY. This runway gate exists so ChatGPT Step-2 research can remain pre-match and source-backed."
+    },
+    "STEP1-004": {
+      "kind": "top-division-scope",
+      "requirement": "FIH Step-1 eligibility MUST exclude recognized lower-division league fixtures from the research/model universe while preserving them in the raw LiveScore board. The deterministic classifier in scripts/fixture-eligibility.ts is authoritative for lower-division naming and country-aware exceptions. Excluded fixtures use LOWER_DIVISION. Top-flight competitions with ambiguous names such as Cyprus/Andorra 1st Division, Czech/North Macedonia 1st League, K League 1 and other recognized top tiers MUST remain eligible when no lower-division marker applies."
     }
   },
   "hardStops": [
