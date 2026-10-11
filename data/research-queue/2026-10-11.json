@@ -1,5 +1,5 @@
 {
-  "schema": "fih-chatgpt-research-queue-v3",
+  "schema": "fih-chatgpt-research-queue-v4",
   "date": "2026-10-11",
   "mode": "PREDICTION",
   "cutoffAt": null,
@@ -11,15 +11,52 @@
   "canonicalCommitPolicy": "ONE_CANONICAL_COMMIT_AFTER_N_OF_N_VALIDATION_AND_PROMOTION",
   "canonicalResearchSchema": "fih-daily-research-v5",
   "researchExecutionPlan": {
-    "atomicUnit": "FIXTURE",
+    "collectionUnit": "EVIDENCE_CLUSTER",
+    "validationUnit": "FIXTURE",
+    "checkpointUnit": "FIXTURE",
     "fixtureOrder": "FROZEN_KICKOFF_ASC_THEN_ID",
+    "phases": [
+      {
+        "id": "SHARED_COLLECTION",
+        "strategy": "GROUP_BY_COMPETITION_AND_TEAM",
+        "searchMode": "BULK_FIRST",
+        "categories": [
+          "standings",
+          "form",
+          "schedule"
+        ],
+        "reuse": "ATTRIBUTE_SOURCE_BACKED_FACTS_TO_ALL_APPLICABLE_FIXTURES"
+      },
+      {
+        "id": "PAIR_COLLECTION",
+        "strategy": "GROUP_H2H_PAIRS",
+        "searchMode": "PACKED_WHEN_SUPPORTED",
+        "categories": [
+          "headToHead"
+        ]
+      },
+      {
+        "id": "FIXTURE_ASSEMBLY",
+        "strategy": "ASSEMBLE_FROM_SHARED_EVIDENCE_CACHE",
+        "validation": "INDEPENDENT_PER_FIXTURE"
+      },
+      {
+        "id": "GAP_REPAIR",
+        "strategy": "SEARCH_ONLY_MISSING_OR_INVALID_FIELDS",
+        "tiers": [
+          "FAST",
+          "STANDARD",
+          "DEEP"
+        ]
+      }
+    ],
     "streamingPool": {
       "workload": "ALL_UNVALIDATED_FIXTURES",
       "admission": "ADAPTIVE_TO_AVAILABLE_CHATGPT_WEB_SEARCH_CAPACITY",
-      "execution": "CONTINUOUS_FIXTURE_PACKETS",
+      "execution": "CONTINUOUS_EVIDENCE_CLUSTERS",
       "refill": "IMMEDIATE_ON_SLOT_RELEASE",
-      "completionBarrier": "NONE_BETWEEN_FIXTURES",
-      "validation": "INDEPENDENT_PER_FIXTURE",
+      "completionBarrier": "NONE_BETWEEN_CLUSTERS",
+      "validation": "INDEPENDENT_PER_FIXTURE_AFTER_ASSEMBLY",
       "checkpoint": "IMMEDIATE_PER_VALIDATED_FIXTURE",
       "checkpointStorageOrder": "FROZEN_ORDER",
       "nextCursor": "EARLIEST_UNVALIDATED_IN_FROZEN_ORDER",
@@ -27,43 +64,40 @@
       "fixedFixtureConcurrencyLimit": null,
       "capacityPolicy": "MAXIMUM_SAFE_AVAILABLE_CAPACITY_WITH_HEADROOM"
     },
-    "packet": {
-      "id": "FIXTURE_PACKET",
-      "launchMode": "ADAPTIVE_PARALLEL_SEARCH",
-      "queryLanes": [
-        {
-          "id": "CORE_STATS",
-          "categories": [
-            "form",
-            "standings",
-            "schedule"
-          ]
-        },
-        {
-          "id": "H2H",
-          "categories": [
-            "headToHead"
-          ]
-        }
-      ],
-      "completionBarrier": "ALL_QUERY_LANES_RETURN_OR_FAIL_BEFORE_GAP_ANALYSIS",
-      "sourceReuse": "REUSE_SOURCE_ACROSS_SUPPORTED_CATEGORIES"
-    },
     "searchPacking": {
       "enabled": true,
-      "mode": "MULTI_QUERY_WEB_CALL_WHEN_SUPPORTED",
-      "mapping": "INDEPENDENT_FIXTURE_QUERY_TO_SOURCE_EVIDENCE",
-      "fallback": "SINGLE_FIXTURE_QUERY"
+      "mode": "CLUSTER_FIRST_MULTI_ENTITY_WEB_CALL",
+      "mapping": "ONE_SOURCE_MAY_SUPPORT_MULTIPLE_FIXTURES_WHEN_FACT_ATTRIBUTION_IS_EXPLICIT",
+      "fallback": "TARGETED_FIXTURE_GAP_QUERY"
     },
-    "competitionEvidenceReuse": {
+    "evidenceReuse": {
       "enabled": true,
       "scope": [
-        "standings"
+        "standings",
+        "overallForm",
+        "venueForm",
+        "schedule"
       ],
-      "policy": "SAME_COMPETITION_SAME_RESEARCH_RUN_CURRENT_APPLICABLE_ATTRIBUTABLE",
-      "fixtureSpecificSearchStillRequired": true
+      "keys": [
+        "competition",
+        "team"
+      ],
+      "policy": "SAME_RESEARCH_RUN_CURRENT_APPLICABLE_ATTRIBUTABLE",
+      "fixtureSpecificSearchRequired": false
     },
-    "recovery": "TARGET_ONLY_MISSING_OR_INVALID_CATEGORIES_PER_FIXTURE",
+    "pairEvidence": {
+      "key": "TEAM_PAIR",
+      "category": "headToHead",
+      "exactCount": 5,
+      "pairSpecificEvidenceRequired": true,
+      "individualSearchCallRequired": false
+    },
+    "researchTiers": {
+      "FAST": "SHARED_EVIDENCE_SUFFICIENT_NO_EXTRA_SEARCH",
+      "STANDARD": "TARGETED_MISSING_FIELDS",
+      "DEEP": "CONFLICTING_OR_SCARCE_EVIDENCE_ONLY"
+    },
+    "recovery": "TARGET_ONLY_MISSING_OR_INVALID_CATEGORIES_AFTER_SHARED_ASSEMBLY",
     "checkpoint": "VALIDATE_THEN_IMMEDIATE_ATOMIC_ACCUMULATOR_WRITE_SORTED_BY_FROZEN_ORDER",
     "sourceHierarchy": [
       "OFFICIAL",
