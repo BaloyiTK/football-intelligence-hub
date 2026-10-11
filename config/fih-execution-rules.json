@@ -280,7 +280,7 @@
     },
     "INFRA-003": {
       "kind": "vercel-step-boundary",
-      "requirement": "Vercel is authorized for FIH Step 1 fixture acquisition/integration only. Step 2 MUST NOT call Vercel AI Gateway, a Vercel-hosted language model, /api/research-fixture, /api/step2-research, or any repository/local AI worker as the research executor. Step 2 research is executed by ChatGPT itself using ChatGPT web search, fixture by fixture, from the frozen queue."
+      "requirement": "Vercel is authorized for FIH Step 1 fixture acquisition/integration only. Step 2 MUST NOT call Vercel AI Gateway, a Vercel-hosted language model, /api/research-fixture, /api/step2-research, or any repository/local AI worker as the research executor. Step 2 research is executed by ChatGPT itself using ChatGPT web search, fixture by fixture, from the frozen queue. Bounded parallel searches are allowed only inside the currently active fixture according to RESEARCH-026; independent fixtures must not be completed in parallel."
     },
     "STEP1-003": {
       "kind": "prediction-research-runway",
@@ -293,6 +293,10 @@
     "STEP1-005": {
       "kind": "zero-progress-eligibility-policy-migration",
       "requirement": "When the user explicitly authorizes a material Step-1 eligibility-policy change during an active PREDICTION generation, that generation may be superseded and a fresh current board/research lineage created only if canonical research for the active researchRunId does not exist and validated Step-2 progress is exactly 0/N in durable state and any surviving accumulator. The old runId/researchRunId, validatedCount, expectedFixtureCount, supersession timestamp, and policy-change reason MUST be persisted before reacquisition; no old research may be reused. If validatedCount > 0, the frozen-board rule remains binding."
+    },
+    "RESEARCH-026": {
+      "kind": "step2-bundled-fixture-research-execution",
+      "requirement": "NON-NEGOTIABLE STEP-2 EXECUTION OPTIMIZATION: The fixture remains the atomic research/completion/recovery unit and fixtures remain processed in the frozen deterministic order. Inside the active fixture, ChatGPT MUST organize research into three coordinated passes: (1) RESULTS_TABLE covering form plus standings with bounded parallel searches and source reuse, (2) H2H as a dedicated exact-last-5 search, and (3) PREMATCH_CONTEXT covering squadAvailability, schedule, and competitionContext with bounded parallel searches and source reuse. After these passes, only missing or invalid categories receive targeted recovery searches. Reuse a credible source across every category it actually supports rather than issuing duplicate searches. Validate the complete fixture record once, then atomically checkpoint it once. This optimization MUST NOT weaken any canonical evidence, source attribution, exact-five, exhaustion, cutoff, or facts-only requirement and MUST NOT parallelize independent fixture completion."
     }
   },
   "hardStops": [
