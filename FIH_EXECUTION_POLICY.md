@@ -97,7 +97,7 @@ For each daily run or backtest day, maintain a durable run ledger/checkpoint in 
 Per-fixture status progresses monotonically through applicable states such as PENDING -> RESEARCH_VERIFIED -> MODEL_VERIFIED -> DECISION_VERIFIED -> COMPLETE. A fixture may also reach a valid terminal classification defined by current model rules. Never mark a fixture complete merely because an attempt ran.
 
 ### Atomic work units
-Process long stages as small durable work units. After each fixture or bounded batch: persist the artifact, verify the persisted artifact, then advance the ledger. Do not hold the only copy of progress in chat context, process memory, temporary logs, or an uncommitted workspace.
+Process long stages as small durable work units. Under Step 2 streaming execution, checkpoint and verify each validated fixture immediately while the adaptive worker pool continues refilling available capacity; do not wait for an arbitrary fixed-size batch. For other stages, persist and verify at the smallest integrity-preserving durable work-unit boundary. Do not hold the only copy of progress in chat context, process memory, temporary logs, or an uncommitted workspace.
 
 ### Resume invariant
 At every invocation and after every recoverable interruption, derive the next action from persisted state: verify the fixture board, reconstruct/validate the ledger if necessary, skip only work whose canonical artifact is independently verified, and resume the earliest unfinished fixture/stage. Never restart verified work unnecessarily and never skip unfinished work.

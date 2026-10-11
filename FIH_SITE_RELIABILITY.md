@@ -13,15 +13,15 @@ This file locks the daily reliability architecture.
 8. Recurring automation remains enabled after individual failures.
 
 ## Reliability flow
-Primary trigger -> contract preflight -> deterministic canonical-artifact reconciliation -> bounded parallel fixture workers -> batched safe persistence/verification -> aggregate verification -> COMPLETE.
+Primary trigger -> contract preflight -> deterministic canonical-artifact reconciliation -> adaptive streaming fixture workers -> immediate validated-fixture checkpoint/verification -> aggregate verification -> COMPLETE.
 
 ## Execution architecture
 - Canonical research/model/decision artifacts are the source of truth; the ledger is a derived recovery/checkpoint index.
-- Normal daily execution uses a bounded worker pool of up to 6 independent fixtures concurrently. Fixture evidence must never be shared or mixed between workers.
+- Step 2 normal daily execution uses an adaptive streaming worker pool with no fixed fixture-count concurrency ceiling; actual active work is limited dynamically by safe ChatGPT web-search/tool capacity and provider/execution headroom. Fixture evidence must never be shared or mixed between workers.
 - A fixture work unit is research -> validation -> locked model or INSUFFICIENT_DATA -> BET/NO_BET/NO_MODEL -> canonical persistence/verification.
 - Independent artifact writes and commits should be batched where safe. Avoid per-transition commit/reread churn when the same integrity guarantee can be verified at the completed fixture-work-unit boundary.
 - Reconciliation is deterministic and idempotent: valid research+model+decision artifacts monotonically promote a fixture to COMPLETE even when the ledger is stale.
-- The primary daily executor continues bounded batches until TERM-002 or an unavoidable invocation boundary. Before a boundary it writes a durable RECOVERING checkpoint.
+- The primary daily executor continuously refills released Step-2 capacity until TERM-002 or an unavoidable invocation boundary. Before a boundary it verifies the latest accumulator checkpoint and durable RECOVERING cursor.
 - The watchdog is recovery-only. It must not be the normal pacing mechanism for an active daily cycle.
 - Publication/Vercel health is observed separately and cannot block completion of the prediction-computation cycle.
 
