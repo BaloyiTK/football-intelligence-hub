@@ -34,8 +34,7 @@ export function modelFixture(r:any){
     goalsProfile:Number.isFinite(input.home.over25Rate)||Number.isFinite(input.home.bttsRate),
     resultOverall:input.home.overall.length>0,
     resultVenue:(input.home.venue?.length||0)===5,
-    rest:Number.isFinite(input.home.restDays),
-    motivation:Number.isFinite(input.home.motivation)
+    rest:Number.isFinite(input.home.restDays)
    },
    away:{
     ppg:Number.isFinite(input.away.ppg),
@@ -43,8 +42,7 @@ export function modelFixture(r:any){
     goalsProfile:Number.isFinite(input.away.over25Rate)||Number.isFinite(input.away.bttsRate),
     resultOverall:input.away.overall.length>0,
     resultVenue:(input.away.venue?.length||0)===5,
-    rest:Number.isFinite(input.away.restDays),
-    motivation:Number.isFinite(input.away.motivation)
+    rest:Number.isFinite(input.away.restDays)
    },
    shared:{h2h:(input.h2h?.length||0)===5}
   },
@@ -66,10 +64,10 @@ if(process.env.FIH_MODEL_TEST_CHECKPOINT){
  const coverageSummary:any={
   calculated:fixtures.filter((f:any)=>f.status==="CALCULATED").length,
   insufficientData:fixtures.filter((f:any)=>f.status==="INSUFFICIENT_DATA").length,
-  home:{ppg:0,gd:0,goalsProfile:0,resultOverall:0,resultVenue:0,rest:0,motivation:0},
-  away:{ppg:0,gd:0,goalsProfile:0,resultOverall:0,resultVenue:0,rest:0,motivation:0},
+  home:{ppg:0,gd:0,goalsProfile:0,resultOverall:0,resultVenue:0,rest:0},
+  away:{ppg:0,gd:0,goalsProfile:0,resultOverall:0,resultVenue:0,rest:0},
   shared:{h2h:0},
-  contextOnly:{headToHead:0,squadAvailability:0,competitionContext:0,teamQuality:0,opponentStrength:0}
+  contextOnly:{headToHead:0,teamQuality:0,opponentStrength:0}
  };
  for(const f of fixtures){
   for(const side of ["home","away"]){
