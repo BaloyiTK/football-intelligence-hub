@@ -83,7 +83,11 @@ assert.match(fixtureEligibility,/INSUFFICIENT_RESEARCH_RUNWAY/);
 assert.match(fixtureEligibility,/LOWER_DIVISION/);
 assert.match(step12Prepare,/fixtureExclusion/);
 assert.match(dailyLedger,/fixtureExclusion/);
-assert.equal(rules.rules?.["RESEARCH-026"],undefined);
+assert.ok(rules.rules?.["RESEARCH-026"]?.requirement?.includes("RESULTS_TABLE"));
+assert.ok(rules.rules?.["RESEARCH-026"]?.requirement?.includes("PREMATCH_CONTEXT"));
+assert.ok(rules.rules?.["RESEARCH-026"]?.requirement?.includes("only missing or invalid categories"));
+assert.match(step12Prepare,/researchExecutionPlan/);
+assert.match(step12Prepare,/TARGET_ONLY_MISSING_OR_INVALID_CATEGORIES/);
 assert.ok(rules.rules?.["INFRA-003"]?.requirement?.includes("Vercel is authorized for FIH Step 1"));
 assert.ok(rules.rules?.["INFRA-003"]?.requirement?.includes("Step 2 research is executed by ChatGPT itself"));
 
