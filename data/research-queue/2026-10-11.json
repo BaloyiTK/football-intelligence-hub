@@ -3,13 +3,62 @@
   "date": "2026-10-11",
   "mode": "PREDICTION",
   "cutoffAt": null,
-  "researchRunId": "research:2026-10-11:1791696022003",
-  "generatedAt": "2026-10-11T05:20:24.333Z",
+  "researchRunId": "research:2026-10-11:1791698079769",
+  "generatedAt": "2026-10-11T05:54:41.854Z",
   "count": 236,
   "executor": "CHATGPT_WEB_SEARCH",
   "workingCheckpoint": "/mnt/data/fih/research-work/2026-10-11.json",
   "canonicalCommitPolicy": "ONE_CANONICAL_COMMIT_AFTER_N_OF_N_VALIDATION_AND_PROMOTION",
   "canonicalResearchSchema": "fih-daily-research-v5",
+  "researchExecutionPlan": {
+    "atomicUnit": "FIXTURE",
+    "fixtureOrder": "FROZEN_KICKOFF_ASC_THEN_ID",
+    "packet": {
+      "id": "FIXTURE_PACKET",
+      "launchMode": "BOUNDED_PARALLEL_SEARCH",
+      "queryLanes": [
+        {
+          "id": "RESULTS_TABLE",
+          "categories": [
+            "form",
+            "standings"
+          ]
+        },
+        {
+          "id": "H2H",
+          "categories": [
+            "headToHead"
+          ]
+        },
+        {
+          "id": "PREMATCH_CONTEXT",
+          "categories": [
+            "squadAvailability",
+            "schedule",
+            "competitionContext"
+          ]
+        }
+      ],
+      "completionBarrier": "ALL_QUERY_LANES_RETURN_OR_FAIL_BEFORE_GAP_ANALYSIS",
+      "sourceReuse": "REUSE_SOURCE_ACROSS_SUPPORTED_CATEGORIES"
+    },
+    "competitionEvidenceReuse": {
+      "enabled": true,
+      "scope": [
+        "standings"
+      ],
+      "policy": "SAME_COMPETITION_SAME_RESEARCH_RUN_CURRENT_APPLICABLE_ATTRIBUTABLE",
+      "fixtureSpecificSearchStillRequired": true
+    },
+    "recovery": "TARGET_ONLY_MISSING_OR_INVALID_CATEGORIES",
+    "checkpoint": "VALIDATE_FIXTURE_ONCE_THEN_ATOMIC_ACCUMULATOR_WRITE",
+    "sourceHierarchy": [
+      "OFFICIAL",
+      "STRUCTURED_FOOTBALL_SOURCE",
+      "REPUTABLE_SPORTS_NEWS",
+      "BROAD_WEB_RECOVERY"
+    ]
+  },
   "researchRequirements": {
     "overallForm": {
       "count": 5
@@ -1690,54 +1739,5 @@
       "competition": "Primera Division: Clausura",
       "kickoff": "20261011233000"
     }
-  ],
-  "researchExecutionPlan": {
-    "atomicUnit": "FIXTURE",
-    "fixtureOrder": "FROZEN_KICKOFF_ASC_THEN_ID",
-    "packet": {
-      "id": "FIXTURE_PACKET",
-      "launchMode": "BOUNDED_PARALLEL_SEARCH",
-      "queryLanes": [
-        {
-          "id": "RESULTS_TABLE",
-          "categories": [
-            "form",
-            "standings"
-          ]
-        },
-        {
-          "id": "H2H",
-          "categories": [
-            "headToHead"
-          ]
-        },
-        {
-          "id": "PREMATCH_CONTEXT",
-          "categories": [
-            "squadAvailability",
-            "schedule",
-            "competitionContext"
-          ]
-        }
-      ],
-      "completionBarrier": "ALL_QUERY_LANES_RETURN_OR_FAIL_BEFORE_GAP_ANALYSIS",
-      "sourceReuse": "REUSE_SOURCE_ACROSS_SUPPORTED_CATEGORIES"
-    },
-    "competitionEvidenceReuse": {
-      "enabled": true,
-      "scope": [
-        "standings"
-      ],
-      "policy": "SAME_COMPETITION_SAME_RESEARCH_RUN_CURRENT_APPLICABLE_ATTRIBUTABLE",
-      "fixtureSpecificSearchStillRequired": true
-    },
-    "recovery": "TARGET_ONLY_MISSING_OR_INVALID_CATEGORIES",
-    "checkpoint": "VALIDATE_FIXTURE_ONCE_THEN_ATOMIC_ACCUMULATOR_WRITE",
-    "sourceHierarchy": [
-      "OFFICIAL",
-      "STRUCTURED_FOOTBALL_SOURCE",
-      "REPUTABLE_SPORTS_NEWS",
-      "BROAD_WEB_RECOVERY"
-    ]
-  }
+  ]
 }
