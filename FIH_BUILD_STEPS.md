@@ -119,9 +119,10 @@ The single local working file MUST use this exact top-level contract (no placeho
 
 
 - Read the verified eligible fixtures produced by Step 1.
-- Loop through the fixtures one at a time.
 - Create one working research dataset for the requested date.
-- For each fixture: search the web -> collect the required evidence -> validate the fixture research -> add the completed record to the working daily research dataset -> continue to the next fixture.
+- Select the next maximum 25 unfinished fixtures in frozen kickoff-ascending-then-ID order.
+- Research those selected fixtures concurrently, while keeping each fixture's evidence, validation, recovery and checkpoint identity independent.
+- After the active batch resolves, checkpoint validated fixtures individually in frozen order, then select the next maximum 25 unfinished fixtures.
 - Step 2 collects evidence only. It does not make the final prediction or product decision.
 - Do not commit individual fixture research records to GitHub.
 - Complete the data-collection loop for all eligible fixtures before making the canonical daily research commit.
@@ -158,31 +159,31 @@ The research job instructs ChatGPT to:
 
 The controller MUST validate the returned fixture record before accepting it into the working daily dataset. A fixture is complete only when every required category has a recorded real research attempt and the returned evidence/source mapping passes the Step 2 validator. A source-discovery result, partial search batch, prompt completion, or checkpoint by itself is not fixture completion.
 
-After a fixture validates:
-`research fixture -> validate returned record -> persist/checkpoint working state -> re-read/verify checkpoint -> immediately submit the next unfinished fixture research job`
+For every active batch:
+`select next <=25 unfinished fixtures -> launch fixture-specific research jobs concurrently -> independently validate each fixture -> targeted recovery per invalid fixture -> checkpoint validated fixtures individually in frozen order -> re-read/verify each checkpoint -> launch next <=25 unfinished fixtures`
 
-Checkpointing a completed fixture is durability only. It MUST NOT end or pause the authorized run while another eligible fixture can be researched. On recoverable failure, apply the Execution Contract recovery loop to that fixture/job and continue automatically.
+Checkpointing a completed fixture is durability only. It MUST NOT end or pause the authorized run while eligible fixtures remain. On recoverable failure, apply the Execution Contract recovery loop to that fixture/job without discarding valid results from other fixtures in the active batch.
 
-The fixture is the atomic completion/recovery unit. Search execution inside one fixture may group related categories or use bounded parallel searches where supported, provided evidence remains attributable to the correct fixture and category.
+The fixture remains the atomic evidence/validation/checkpoint unit. The batch is only an execution-concurrency unit. Search execution inside one fixture may group related categories or use bounded parallel searches where supported, provided evidence remains attributable to the correct fixture and category.
 
-#### Optimized fixture research packet — LOCKED
+#### Optimized 25-fixture research batch — LOCKED
 
-For each active fixture, Step 2 MUST use one `FIXTURE_PACKET` without changing the canonical evidence requirements.
+Step 2 MUST select the next **maximum 25 unfinished fixtures** from the frozen kickoff-ascending-then-ID order and treat that set as the only active research batch. The batch size is a hard concurrency ceiling, not a completion unit.
 
-Launch these two fixture-specific web-search lanes together using bounded parallel search:
+For every selected fixture, execute one fixture-specific `FIXTURE_PACKET` concurrently with the other selected fixtures. Inside each fixture packet launch these two web-search lanes together using bounded parallel search:
 
 1. **CORE_STATS** — overall form, HOME/AWAY venue form, current standings, and schedule/rest evidence.
 2. **H2H** — the exact last 5 completed head-to-head meetings.
 
-Injuries/squad availability and motivation/competition context are not researched. Wait for both lanes to return or fail, then extract every usable source-backed fact into the fixture's in-memory category state. Reuse every credible source across all categories it actually supports instead of repeating discovery or opening the same source for each category.
+Injuries/squad availability and motivation/competition context are not researched. Every selected fixture must still receive its own fixture-specific ChatGPT web-search job and source-backed evidence record.
 
-After the packet completes, inspect category validity and run targeted recovery searches **only** for missing or invalid categories. Do not repeat categories that already satisfy the canonical validator. A fixture is validated once after all required categories reach VERIFIED or contract-valid PARTIAL/UNAVAILABLE state, then written once to the atomic accumulator and reread once before advancing.
+As packet results return or fail, extract every usable source-backed fact into that fixture's in-memory category state. Reuse every credible source across all categories it actually supports instead of repeating discovery or opening the same source for each category. For fixtures in the same competition during the same `researchRunId`, a current competition-table source may be reused for standings when it remains applicable and attributable.
 
-For fixtures in the same competition during the same `researchRunId`, a previously retrieved current competition-table source may be reused for standings when it remains applicable and attributable. This is evidence/source reuse only: every fixture must still receive its own fixture-specific ChatGPT web-search packet, and reused evidence must retain valid source metadata.
+Validate each fixture independently. Run targeted recovery searches **only** for that fixture's missing or invalid required categories. Do not repeat categories already satisfying the canonical validator. Once a fixture is valid, retain it until all earlier fixture IDs in the active batch are also resolved, then checkpoint valid fixtures individually in frozen order to the single accumulator. Every fixture checkpoint remains one atomic accumulator rewrite followed by reread/verification.
+
+Only after all fixtures in the active batch are resolved may Step 2 select the next maximum 25 unfinished fixtures. At no point may more than 25 fixture packets be concurrently active.
 
 The preferred source ladder is: official league/club/competition sources -> credible structured football result/table sources -> reputable sports/news sources -> broad web recovery search. Source hierarchy changes search order only; every retained fact must still satisfy the canonical source and evidence rules.
-
-Independent fixtures MUST NOT be completed in parallel. The deterministic fixture cursor remains authoritative. Bounded parallelism is restricted to query lanes inside the single active `FIXTURE_PACKET`.
 
 Do not ask ChatGPT to make Step 3 model probabilities or Step 4 decisions during a Step 2 research job.
 
