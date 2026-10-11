@@ -13,6 +13,8 @@ const checkpoint = read("scripts/research-checkpoint.ts");
 const workflow = read(".github/workflows/fih-run-now.yml");
 const step12Workflow = read(".github/workflows/fih-step12-command.yml");
 const step12Runner = read("scripts/step12-command-runner.mjs");
+const step12Prepare = read("scripts/step12-prepare.ts");
+const dailyCycle = read("scripts/daily-cycle.ts");
 const contractGate = read("scripts/contract-gate.ts");
 
 assert.equal(rules.locked, true);
@@ -32,6 +34,19 @@ gate("STEP2_CHATGPT_HANDOFF", controller.includes("STEP2_CHATGPT_HANDOFF_REQUIRE
 gate("STEP2_LOCKED_ACCUMULATOR", checkpoint.includes('schema:"fih-step2-working-v1"'), "Checkpoint schema differs from locked Step 2 contract");
 gate("STEP2_NO_HOSTED_AI", !fs.existsSync(new URL("../api/research-fixture.js", import.meta.url)) && !fs.existsSync(new URL("../scripts/step2-autonomous-runner.ts", import.meta.url)) && portable.includes("ChatGPT itself is the authoritative Step-2 web-research executor"), "Hosted/repository Step 2 AI executor must be absent");
 gate("STEP12_BACKTEST_ROUTE", step12Runner.includes('mode==="BACKTEST"') && step12Runner.includes("/api/backtest-ingest?date=") && portable.includes("ChatGPT itself is the authoritative Step-2 web-research executor"), "Historical Step 1 route or ChatGPT Step 2 handoff missing");
+gate("STEP2_BUNDLED_FIXTURE_PLAN",
+  rules.rules?.["RESEARCH-026"]?.requirement?.includes("RESULTS_TABLE") &&
+  rules.rules?.["RESEARCH-026"]?.requirement?.includes("PREMATCH_CONTEXT") &&
+  rules.rules?.["RESEARCH-026"]?.requirement?.includes("only missing or invalid categories") &&
+  step12Prepare.includes('atomicUnit:"FIXTURE"') &&
+  step12Prepare.includes('id:"RESULTS_TABLE"') &&
+  step12Prepare.includes('id:"H2H"') &&
+  step12Prepare.includes('id:"PREMATCH_CONTEXT"') &&
+  step12Prepare.includes('recovery:"TARGET_ONLY_MISSING_OR_INVALID_CATEGORIES"') &&
+  dailyCycle.includes('atomicUnit:"FIXTURE"') &&
+  portable.includes("RESULTS_TABLE (form + standings") &&
+  contract.includes("locked three-pass execution strategy"),
+  "Step 2 must use three bundled passes inside one sequential fixture and target recovery only at missing/invalid categories");
 gate("VERCEL_DEPLOYMENT_QUOTA_NONBLOCKING",
   rules.rules?.["INFRA-002"]?.requirement?.includes("NON-BLOCKING") &&
   rules.infrastructure?.vercel?.deploymentQuotaPolicy?.classification==="NON_BLOCKING" &&
@@ -45,4 +60,4 @@ gate("VERCEL_DEPLOYMENT_QUOTA_NONBLOCKING",
 if (failures.length) {
  console.error(JSON.stringify({status:"NOT_READY",failed:failures.length,failures},null,2));
  process.exitCode = 1;
-} else console.log(JSON.stringify({status:"PASS",gates:8}));
+} else console.log(JSON.stringify({status:"PASS",gates:9}));
