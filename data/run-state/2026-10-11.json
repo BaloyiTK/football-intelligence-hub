@@ -5,15 +5,15 @@
   "runId": "step12:prediction:2026-10-11:1791719285985",
   "researchRunId": "research:2026-10-11:1791719285985",
   "runStatus": "RECOVERING",
-  "heartbeatAt": "2026-10-11T13:39:21.930Z",
-  "recoveryCount": 1,
+  "heartbeatAt": "2026-10-11T18:27:29.012Z",
+  "recoveryCount": 2,
   "board": {
     "fetchedAt": "2026-10-11T11:48:05.985Z",
     "fixtureCount": 709,
     "stageCount": 206
   },
   "createdAt": "2026-10-11T11:48:08.489Z",
-  "updatedAt": "2026-10-11T13:39:21.930Z",
+  "updatedAt": "2026-10-11T18:27:29.012Z",
   "fixtures": [
     {
       "id": "1793573",
