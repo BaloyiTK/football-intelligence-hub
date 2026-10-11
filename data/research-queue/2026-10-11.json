@@ -3,9 +3,9 @@
   "date": "2026-10-11",
   "mode": "PREDICTION",
   "cutoffAt": null,
-  "researchRunId": "research:2026-10-11:1791694537638",
-  "generatedAt": "2026-10-11T04:55:39.569Z",
-  "count": 597,
+  "researchRunId": "research:2026-10-11:1791694857158",
+  "generatedAt": "2026-10-11T05:00:58.975Z",
+  "count": 589,
   "executor": "CHATGPT_WEB_SEARCH",
   "workingCheckpoint": "/mnt/data/fih/research-work/2026-10-11.json",
   "canonicalCommitPolicy": "ONE_CANONICAL_COMMIT_AFTER_N_OF_N_VALIDATION_AND_PROMOTION",
@@ -38,62 +38,6 @@
     "factsOnly": true
   },
   "fixtures": [
-    {
-      "fixtureId": "1723729",
-      "home": "Gwangju FC",
-      "away": "Ulsan Hyundai",
-      "competition": "K League 1",
-      "kickoff": "20261011070000"
-    },
-    {
-      "fixtureId": "1729390",
-      "home": "Suwon Bluewings",
-      "away": "Ansan Greeners",
-      "competition": "K League 2",
-      "kickoff": "20261011070000"
-    },
-    {
-      "fixtureId": "1743969",
-      "home": "Gangneung City",
-      "away": "Siheung Citizen FC",
-      "competition": "K3 League",
-      "kickoff": "20261011070000"
-    },
-    {
-      "fixtureId": "1743973",
-      "home": "Gyeongju H & N",
-      "away": "Mokpo City",
-      "competition": "K3 League",
-      "kickoff": "20261011070000"
-    },
-    {
-      "fixtureId": "1795781",
-      "home": "JEF United Chiba",
-      "away": "V-Varen Nagasaki",
-      "competition": "J1 League",
-      "kickoff": "20261011070000"
-    },
-    {
-      "fixtureId": "1804097",
-      "home": "Kataller Toyama",
-      "away": "Tegevajaro Miyazaki",
-      "competition": "J2 League",
-      "kickoff": "20261011070000"
-    },
-    {
-      "fixtureId": "1853329",
-      "home": "Tochigi SC",
-      "away": "Renofa Yamaguchi",
-      "competition": "J3 League",
-      "kickoff": "20261011070000"
-    },
-    {
-      "fixtureId": "1853330",
-      "home": "Gainare Tottori",
-      "away": "FC Gifu",
-      "competition": "J3 League",
-      "kickoff": "20261011070000"
-    },
     {
       "fixtureId": "1795786",
       "home": "Mito Hollyhock",
