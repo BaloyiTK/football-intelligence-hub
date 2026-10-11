@@ -5,10 +5,10 @@
   "researchRunId": "research:2026-10-11:1791694857158",
   "requestedAt": "2026-10-11T05:14:01.000Z",
   "reason": "STEP1_ELIGIBILITY_RULE_DRIFT_RECONCILIATION",
-  "status": "SUPERSEDED_STALE_ELIGIBILITY_GENERATION",
+  "status": "SUPERSEDED_FOR_ELIGIBILITY_MIGRATION",
   "oldRunId": "step12:prediction:2026-10-11:1791694857158",
   "oldResearchRunId": "research:2026-10-11:1791694857158",
-  "supersededAt": "2026-10-11T05:14:01.000Z",
+  "supersededAt": "2026-10-11T05:14:04.000Z",
   "validatedCount": 0,
   "expectedFixtureCount": 589,
   "canonicalResearchExists": false,
@@ -37,6 +37,14 @@
       "expectedFixtureCount": 589,
       "discardedScratchCount": 6,
       "reason": "STEP1_ELIGIBILITY_RULE_DRIFT_STEP1_003_STEP1_004"
+    },
+    {
+      "oldRunId": "step12:prediction:2026-10-11:1791694857158",
+      "oldResearchRunId": "research:2026-10-11:1791694857158",
+      "supersededAt": "2026-10-11T05:14:04.000Z",
+      "validatedCount": 0,
+      "expectedFixtureCount": 589,
+      "reason": "USER_AUTHORIZED_STEP1_ELIGIBILITY_MIGRATION_60_MINUTE_RUNWAY_TOP_DIVISION_SCOPE"
     }
   ]
 }
