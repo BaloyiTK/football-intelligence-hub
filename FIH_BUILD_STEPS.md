@@ -165,19 +165,25 @@ Checkpointing a completed fixture is durability only. It MUST NOT end or pause t
 
 The fixture is the atomic completion/recovery unit. Search execution inside one fixture may group related categories or use bounded parallel searches where supported, provided evidence remains attributable to the correct fixture and category.
 
-#### Optimized three-pass fixture research — LOCKED
+#### Optimized fixture research packet — LOCKED
 
-For each active fixture, Step 2 MUST use this execution plan without changing the canonical evidence requirements:
+For each active fixture, Step 2 MUST use one `FIXTURE_PACKET` without changing the canonical evidence requirements.
 
-1. **RESULTS_TABLE pass** — research overall form, HOME/AWAY venue form, and current standings using bounded parallel web searches. Reuse every credible source across all supported categories instead of issuing duplicate category searches.
-2. **H2H pass** — run a dedicated search for the exact last 5 completed head-to-head meetings. Keep this pass separate because the exact-five H2H validator remains independently locked.
-3. **PREMATCH_CONTEXT pass** — research squad availability, schedule/congestion, and competition context using bounded parallel web searches, again reusing sources wherever they support multiple categories.
+Launch these three fixture-specific web-search lanes together using bounded parallel search:
 
-After the three passes, inspect the in-memory category state and run targeted recovery searches **only** for missing or invalid categories. Do not restart or repeat categories that already satisfy the validator. A fixture is validated once after all required categories reach VERIFIED or contract-valid PARTIAL/UNAVAILABLE state, then written once to the atomic accumulator and reread once before advancing.
+1. **RESULTS_TABLE** — overall form, HOME/AWAY venue form, and current standings.
+2. **H2H** — the exact last 5 completed head-to-head meetings.
+3. **PREMATCH_CONTEXT** — squad availability, schedule/congestion, and competition context.
 
-The preferred source ladder inside each pass is: official league/club/competition sources -> credible structured football result/table sources -> reputable sports/news sources -> broad web recovery search. Source hierarchy changes search order only; every retained fact must still satisfy the canonical source and evidence rules.
+Wait for all three lanes to return or fail, then extract every usable source-backed fact into the fixture's in-memory category state. Reuse every credible source across all categories it actually supports instead of repeating discovery or opening the same source for each category.
 
-Independent fixtures MUST NOT be completed in parallel. The deterministic fixture cursor remains authoritative. Bounded parallelism is restricted to searches within the single active fixture.
+After the packet completes, inspect category validity and run targeted recovery searches **only** for missing or invalid categories. Do not repeat categories that already satisfy the canonical validator. A fixture is validated once after all required categories reach VERIFIED or contract-valid PARTIAL/UNAVAILABLE state, then written once to the atomic accumulator and reread once before advancing.
+
+For fixtures in the same competition during the same `researchRunId`, a previously retrieved current competition-table source may be reused for standings when it remains applicable and attributable. This is evidence/source reuse only: every fixture must still receive its own fixture-specific ChatGPT web-search packet, and reused evidence must retain valid source metadata.
+
+The preferred source ladder is: official league/club/competition sources -> credible structured football result/table sources -> reputable sports/news sources -> broad web recovery search. Source hierarchy changes search order only; every retained fact must still satisfy the canonical source and evidence rules.
+
+Independent fixtures MUST NOT be completed in parallel. The deterministic fixture cursor remains authoritative. Bounded parallelism is restricted to query lanes inside the single active `FIXTURE_PACKET`.
 
 Do not ask ChatGPT to make Step 3 model probabilities or Step 4 decisions during a Step 2 research job.
 
