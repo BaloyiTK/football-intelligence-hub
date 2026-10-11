@@ -7,11 +7,11 @@
   "isFuture": false,
   "timezone": "Africa/Johannesburg",
   "provider": "LiveScore via RapidAPI",
-  "fetchedAt": "2026-10-11T05:20:03.774Z",
+  "fetchedAt": "2026-10-11T05:20:22.003Z",
   "stageCount": 206,
   "fixtureCount": 710,
   "payload": {
-    "Ts": 1791696003,
+    "Ts": 1791696021,
     "Stages": [
       {
         "Sid": "25545",
@@ -276,15 +276,6 @@
             "Spid": 1,
             "Pid": 8,
             "Games": {
-              "p6": [
-                {
-                  "id": "681334bd5a041059deb5b7ae",
-                  "status": "INACTIVE",
-                  "allowedCountries": [
-                    "NG"
-                  ]
-                }
-              ],
               "ls6": [
                 {
                   "id": "679a5dc64c58a24929681a30",
@@ -292,6 +283,15 @@
                   "allowedCountries": [
                     "GB",
                     "IE"
+                  ]
+                }
+              ],
+              "p6": [
+                {
+                  "id": "681334bd5a041059deb5b7ae",
+                  "status": "INACTIVE",
+                  "allowedCountries": [
+                    "NG"
                   ]
                 }
               ]
@@ -7132,11 +7132,11 @@
                 "Sc": "ffffff"
               }
             ],
-            "Eps": "15'",
+            "Eps": "16'",
             "Esid": 2,
             "Etm": {
-              "ATm": 1791695956830,
-              "RTm": 840000
+              "ATm": 1791696016832,
+              "RTm": 900000
             },
             "Epr": 1,
             "Ecov": 0,
@@ -20925,11 +20925,11 @@
                 "Sc": "ffffff"
               }
             ],
-            "Eps": "60'",
+            "Eps": "61'",
             "Esid": 3,
             "Etm": {
-              "ATm": 1791695947412,
-              "RTm": 3540000
+              "ATm": 1791696012477,
+              "RTm": 3600000
             },
             "Epr": 1,
             "Ecov": 0,
@@ -21043,11 +21043,11 @@
                 "Sc": "000000"
               }
             ],
-            "Eps": "16'",
+            "Eps": "17'",
             "Esid": 2,
             "Etm": {
-              "ATm": 1791695947384,
-              "RTm": 900000
+              "ATm": 1791696012464,
+              "RTm": 960000
             },
             "Epr": 1,
             "Ecov": 0,
