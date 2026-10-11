@@ -3,9 +3,9 @@
   "date": "2026-10-11",
   "mode": "PREDICTION",
   "cutoffAt": null,
-  "researchRunId": "research:2026-10-11:1791698900338",
-  "generatedAt": "2026-10-11T06:08:22.441Z",
-  "count": 234,
+  "researchRunId": "research:2026-10-11:1791708504741",
+  "generatedAt": "2026-10-11T08:48:27.046Z",
+  "count": 224,
   "executor": "CHATGPT_WEB_SEARCH",
   "workingCheckpoint": "/mnt/data/fih/research-work/2026-10-11.json",
   "canonicalCommitPolicy": "ONE_CANONICAL_COMMIT_AFTER_N_OF_N_VALIDATION_AND_PROMOTION",
@@ -13,6 +13,20 @@
   "researchExecutionPlan": {
     "atomicUnit": "FIXTURE",
     "fixtureOrder": "FROZEN_KICKOFF_ASC_THEN_ID",
+    "streamingPool": {
+      "workload": "ALL_UNVALIDATED_FIXTURES",
+      "admission": "ADAPTIVE_TO_AVAILABLE_CHATGPT_WEB_SEARCH_CAPACITY",
+      "execution": "CONTINUOUS_FIXTURE_PACKETS",
+      "refill": "IMMEDIATE_ON_SLOT_RELEASE",
+      "completionBarrier": "NONE_BETWEEN_FIXTURES",
+      "validation": "INDEPENDENT_PER_FIXTURE",
+      "checkpoint": "IMMEDIATE_PER_VALIDATED_FIXTURE",
+      "checkpointStorageOrder": "FROZEN_ORDER",
+      "nextCursor": "EARLIEST_UNVALIDATED_IN_FROZEN_ORDER",
+      "preserveValidatedRecords": true,
+      "fixedFixtureConcurrencyLimit": null,
+      "capacityPolicy": "MAXIMUM_SAFE_AVAILABLE_CAPACITY_WITH_HEADROOM"
+    },
     "packet": {
       "id": "FIXTURE_PACKET",
       "launchMode": "ADAPTIVE_PARALLEL_SEARCH",
@@ -35,6 +49,12 @@
       "completionBarrier": "ALL_QUERY_LANES_RETURN_OR_FAIL_BEFORE_GAP_ANALYSIS",
       "sourceReuse": "REUSE_SOURCE_ACROSS_SUPPORTED_CATEGORIES"
     },
+    "searchPacking": {
+      "enabled": true,
+      "mode": "MULTI_QUERY_WEB_CALL_WHEN_SUPPORTED",
+      "mapping": "INDEPENDENT_FIXTURE_QUERY_TO_SOURCE_EVIDENCE",
+      "fallback": "SINGLE_FIXTURE_QUERY"
+    },
     "competitionEvidenceReuse": {
       "enabled": true,
       "scope": [
@@ -50,27 +70,7 @@
       "STRUCTURED_FOOTBALL_SOURCE",
       "REPUTABLE_SPORTS_NEWS",
       "BROAD_WEB_RECOVERY"
-    ],
-    "streamingPool": {
-      "workload": "ALL_UNVALIDATED_FIXTURES",
-      "admission": "ADAPTIVE_TO_AVAILABLE_CHATGPT_WEB_SEARCH_CAPACITY",
-      "execution": "CONTINUOUS_FIXTURE_PACKETS",
-      "refill": "IMMEDIATE_ON_SLOT_RELEASE",
-      "completionBarrier": "NONE_BETWEEN_FIXTURES",
-      "validation": "INDEPENDENT_PER_FIXTURE",
-      "checkpoint": "IMMEDIATE_PER_VALIDATED_FIXTURE",
-      "checkpointStorageOrder": "FROZEN_ORDER",
-      "nextCursor": "EARLIEST_UNVALIDATED_IN_FROZEN_ORDER",
-      "preserveValidatedRecords": true,
-      "fixedFixtureConcurrencyLimit": null,
-      "capacityPolicy": "MAXIMUM_SAFE_AVAILABLE_CAPACITY_WITH_HEADROOM"
-    },
-    "searchPacking": {
-      "enabled": true,
-      "mode": "MULTI_QUERY_WEB_CALL_WHEN_SUPPORTED",
-      "mapping": "INDEPENDENT_FIXTURE_QUERY_TO_SOURCE_EVIDENCE",
-      "fallback": "SINGLE_FIXTURE_QUERY"
-    }
+    ]
   },
   "researchRequirements": {
     "overallForm": {
@@ -94,76 +94,6 @@
     "factsOnly": true
   },
   "fixtures": [
-    {
-      "fixtureId": "1903211",
-      "home": "Taipower",
-      "away": "Taichung Futuro",
-      "competition": "Premier League",
-      "kickoff": "20261011093000"
-    },
-    {
-      "fixtureId": "1865812",
-      "home": "Rangers",
-      "away": "Lee Man FC",
-      "competition": "Hong Kong Premier League",
-      "kickoff": "20261011100000"
-    },
-    {
-      "fixtureId": "1865813",
-      "home": "Southern District RSA",
-      "away": "Eastern District",
-      "competition": "Hong Kong Premier League",
-      "kickoff": "20261011100000"
-    },
-    {
-      "fixtureId": "1903202",
-      "home": "AC Taipei",
-      "away": "Taichung Rock",
-      "competition": "Premier League",
-      "kickoff": "20261011100000"
-    },
-    {
-      "fixtureId": "1903203",
-      "home": "Taipei City Tatung",
-      "away": "Tainan City",
-      "competition": "Premier League",
-      "kickoff": "20261011100000"
-    },
-    {
-      "fixtureId": "1866476",
-      "home": "Malut United",
-      "away": "Borneo FC Samarinda",
-      "competition": "Super League",
-      "kickoff": "20261011103000"
-    },
-    {
-      "fixtureId": "1866477",
-      "home": "PSS Sleman",
-      "away": "PSM Makassar",
-      "competition": "Super League",
-      "kickoff": "20261011103000"
-    },
-    {
-      "fixtureId": "1817838",
-      "home": "Floriana",
-      "away": "Balzan FC",
-      "competition": "Malta Premier",
-      "kickoff": "20261011110000"
-    },
-    {
-      "fixtureId": "1872080",
-      "home": "FC Rangers",
-      "away": "CE Carroi",
-      "competition": "1st Division",
-      "kickoff": "20261011110000"
-    },
-    {
-      "fixtureId": "1889953",
-      "home": "Azkals Development Team",
-      "away": "Mendiola FC 1991",
-      "competition": "PFL",
-      "kickoff": "20261011114500"
-    },
     {
       "fixtureId": "1739846",
       "home": "Qingdao West Coast",
