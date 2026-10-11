@@ -1,0 +1,18 @@
+{
+  "schema": "fih-recovery-request-v1",
+  "date": "2026-10-11",
+  "runId": "step12:prediction:2026-10-11:1791694537638",
+  "researchRunId": "research:2026-10-11:1791694537638",
+  "requestedAt": "2026-10-11T04:55:39.569Z",
+  "reason": "STEP1_VERIFIED_CHATGPT_STEP2_HANDOFF",
+  "status": "CHATGPT_RESEARCH_REQUIRED",
+  "next": {
+    "fixtureId": "1723729",
+    "state": "PENDING"
+  },
+  "expectedFixtureCount": 597,
+  "validatedCount": 0,
+  "queuePath": "data/research-queue/2026-10-11.json",
+  "boardFetchedAt": "2026-10-11T04:55:37.638Z",
+  "priorSupersessions": []
+}
