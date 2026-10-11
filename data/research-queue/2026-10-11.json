@@ -18,24 +18,17 @@
       "launchMode": "BOUNDED_PARALLEL_SEARCH",
       "queryLanes": [
         {
-          "id": "RESULTS_TABLE",
+          "id": "CORE_STATS",
           "categories": [
             "form",
-            "standings"
+            "standings",
+            "schedule"
           ]
         },
         {
           "id": "H2H",
           "categories": [
             "headToHead"
-          ]
-        },
-        {
-          "id": "PREMATCH_CONTEXT",
-          "categories": [
-            "squadAvailability",
-            "schedule",
-            "competitionContext"
           ]
         }
       ],
@@ -75,13 +68,7 @@
       "count": 5,
       "verifiedRequiresExactCount": true
     },
-    "squadAvailability": {
-      "factsOnly": true
-    },
     "schedule": {
-      "factsOnly": true
-    },
-    "competitionContext": {
       "factsOnly": true
     },
     "factsOnly": true
