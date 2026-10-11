@@ -31,12 +31,10 @@ for(const token of [
   "resultProfileOverall",
   "resultProfileVenue",
   "h2hMatches",
-  "motivationIndex",
-  "locked competitive-fixture baseline",
   "usage:{"
 ]) if(!normalize.includes(token)) fail("normalizer missing "+token);
-for(const forbidden of ["facts.xg","xgFor","xgAgainst","OBSERVED_COMPLETED_MATCH_STATISTICS"])
-  if(normalize.includes(forbidden)) fail("external xG reintroduced into normalizer: "+forbidden);
+for(const forbidden of ["facts.xg","xgFor","xgAgainst","OBSERVED_COMPLETED_MATCH_STATISTICS","motivationIndex","facts.competitionContext","facts.squadAvailability"])
+  if(normalize.includes(forbidden)) fail("forbidden input reintroduced into normalizer: "+forbidden);
 
 const validator=read("scripts/research-canonical.ts");
 for(const token of [
@@ -57,9 +55,7 @@ for(const token of [
   "syntheticCompletionOutcome",
   "exhausted(v)",
   "standingsOk",
-  "standingSideOk",
-  "competitionContextOk",
-  "MOTIVATION_TAGS"
+  "standingSideOk"
 ]) if(!validator.includes(token)) fail("research validator missing "+token);
 
 for(const forbiddenPath of ["scripts/chatgpt-research-refresh.ts",".github/workflows/fih-research-refresh.yml","automation/research-refresh.flag"]){
@@ -73,14 +69,18 @@ for(const token of ["expectedFixtureCount","fixtureIds","validatedFixtureIds","v
   if(!checkpoint.includes(token))fail("Step 2 working accumulator missing "+token);
 
 const daily=read("scripts/daily-cycle.ts");
-for(const token of ['overallForm:{count:5','venueForm:{count:5','homeTeam:"LAST_COMPLETED_HOME"','awayTeam:"LAST_COMPLETED_AWAY"','standings:{homeTeam:"CURRENT_COMPETITION_TABLE"','squadAvailability:{factsOnly:true','schedule:{factsOnly:true','competitionContext:{factsOnly:true','storage:"facts.competitionContext.data.{homeTeam,awayTeam}.{facts,tags}"','headToHead:{count:5','storage:"facts.headToHead.data.matches"','verifiedRequiresExactCount:true','partialRequiresSearchExhausted:true','canonicalResearchSchema:"fih-daily-research-v5"','atomicUnit:"FIXTURE"','packet:{id:"FIXTURE_PACKET"','launchMode:"BOUNDED_PARALLEL_SEARCH"','id:"RESULTS_TABLE"','id:"H2H"','id:"PREMATCH_CONTEXT"','completionBarrier:"ALL_QUERY_LANES_RETURN_OR_FAIL_BEFORE_GAP_ANALYSIS"','fixtureSpecificSearchStillRequired:true','recovery:"TARGET_ONLY_MISSING_OR_INVALID_CATEGORIES"'])
-  if(!daily.includes(token))fail("Step 2 queue missing requested venue count "+token);
+for(const token of ['overallForm:{count:5','venueForm:{count:5','homeTeam:"LAST_COMPLETED_HOME"','awayTeam:"LAST_COMPLETED_AWAY"','standings:{homeTeam:"CURRENT_COMPETITION_TABLE"','schedule:{factsOnly:true','headToHead:{count:5','storage:"facts.headToHead.data.matches"','verifiedRequiresExactCount:true','partialRequiresSearchExhausted:true','canonicalResearchSchema:"fih-daily-research-v5"','atomicUnit:"FIXTURE"','packet:{id:"FIXTURE_PACKET"','launchMode:"BOUNDED_PARALLEL_SEARCH"','id:"CORE_STATS"','categories:["form","standings","schedule"]','id:"H2H"','completionBarrier:"ALL_QUERY_LANES_RETURN_OR_FAIL_BEFORE_GAP_ANALYSIS"','fixtureSpecificSearchStillRequired:true','recovery:"TARGET_ONLY_MISSING_OR_INVALID_CATEGORIES"'])
+  if(!daily.includes(token))fail("Step 2 queue missing required lean research token "+token);
+for(const forbidden of ['squadAvailability:{factsOnly:true','competitionContext:{factsOnly:true','id:"PREMATCH_CONTEXT"'])
+  if(daily.includes(forbidden))fail("retired injury/motivation queue requirement reintroduced "+forbidden);
 
 const probability=read("scripts/fih-probability-v2.ts");
 for(const forbidden of ["xgFor","xgAgainst","facts.xg","OBSERVED_COMPLETED_MATCH_STATISTICS"])
   if(probability.includes(forbidden)) fail("external xG reintroduced into probability model: "+forbidden);
-for(const token of ["lambdaHome/lambdaAway","no external xG/xGA is consumed","resultProfile","recentPpg","venuePpg","seasonPpg","FIH_FIVE_FACTOR_WEIGHTS","overallForm:0.30","venueForm:0.30","leaguePosition:0.15","headToHead:0.15","motivation:0.10","FIH-5F-V1","Strength score only; not a win probability."])
-  if(!probability.includes(token)) fail("FIH expected-goal ownership marker missing "+token);
+for(const token of ["lambdaHome/lambdaAway","no external xG/xGA is consumed","resultProfile","recentPpg","venuePpg","seasonPpg","FIH_FOUR_FACTOR_WEIGHTS","overallForm:1/3","venueForm:1/3","leaguePosition:1/6","headToHead:1/6","FIH-4F-V1","Strength score only; not a win probability."])
+  if(!probability.includes(token)) fail("FIH four-factor/expected-goal ownership marker missing "+token);
+for(const forbidden of ["FIH_FIVE_FACTOR_WEIGHTS","motivation:0.10","i.home.motivation","i.away.motivation","availabilityAttack","availabilityDefence","FIH-5F-V1"])
+  if(probability.includes(forbidden)) fail("retired injury/motivation model input reintroduced "+forbidden);
 if(probability.includes("i.home.ppg??1.5")||probability.includes("i.away.ppg??1.5"))fail("neutral PPG imputation reintroduced");
 if(probability.includes("availabilityAttack??0")||probability.includes("availabilityDefence??0"))fail("uncalibrated availability scoring reintroduced");
 for(const token of [
