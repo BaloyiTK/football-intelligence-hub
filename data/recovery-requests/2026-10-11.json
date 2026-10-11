@@ -2,45 +2,11 @@
   "schema": "fih-recovery-request-v1",
   "date": "2026-10-11",
   "runId": "step12:prediction:2026-10-11:1791698900338",
-  "researchRunId": "research:2026-10-11:1791698900338",
-  "requestedAt": "2026-10-11T06:08:22.441Z",
-  "reason": "STEP1_VERIFIED_CHATGPT_STEP2_HANDOFF",
-  "status": "CHATGPT_RESEARCH_REQUIRED",
+  "requestedAt": "2026-10-11T06:52:04.343Z",
+  "reason": "WATCHDOG_RECOVERY",
   "next": {
-    "fixtureId": "1903211",
+    "fixtureId": "1793573",
     "state": "PENDING"
   },
-  "expectedFixtureCount": 234,
-  "validatedCount": 0,
-  "queuePath": "data/research-queue/2026-10-11.json",
-  "boardFetchedAt": "2026-10-11T06:08:20.338Z",
-  "priorSupersessions": [
-    {
-      "oldRunId": "step12:prediction:2026-10-11:1791694537638",
-      "oldResearchRunId": "research:2026-10-11:1791694537638",
-      "supersededAt": "2026-10-11T05:00:05.000Z",
-      "validatedCount": 0,
-      "expectedFixtureCount": 597,
-      "expiredFixtureCount": 8,
-      "firstExpiredFixtureId": "1723729",
-      "reason": "ZERO_PROGRESS_PREMATCH_EXPIRY_AFTER_CHATGPT_ACTIVE_RESEARCH_WINDOW_CLOSED"
-    },
-    {
-      "oldRunId": "step12:prediction:2026-10-11:1791694857158",
-      "oldResearchRunId": "research:2026-10-11:1791694857158",
-      "supersededAt": "2026-10-11T05:14:01.000Z",
-      "validatedCount": 0,
-      "expectedFixtureCount": 589,
-      "discardedScratchCount": 6,
-      "reason": "STEP1_ELIGIBILITY_RULE_DRIFT_STEP1_003_STEP1_004"
-    },
-    {
-      "oldRunId": "step12:prediction:2026-10-11:1791694857158",
-      "oldResearchRunId": "research:2026-10-11:1791694857158",
-      "supersededAt": "2026-10-11T05:14:04.000Z",
-      "validatedCount": 0,
-      "expectedFixtureCount": 589,
-      "reason": "USER_AUTHORIZED_STEP1_ELIGIBILITY_MIGRATION_60_MINUTE_RUNWAY_TOP_DIVISION_SCOPE"
-    }
-  ]
+  "status": "CHATGPT_RESEARCH_REQUIRED"
 }
