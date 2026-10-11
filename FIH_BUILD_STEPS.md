@@ -309,31 +309,26 @@ Step 3 receives the canonical Step-2 facts and normalizes them into model-ready 
 | recent scorelines | derive scoring, conceding, BTTS and Over-2.5 rates plus W/D/L, points, recent PPG and win/draw/loss rates in Step 3 |
 | latest verified match date + kickoff | derive rest days in Step 3 |
 | H2H | FIH-4F-V1 numeric result-strength input only with exactly 5 verified meetings; W=3/D=1/L=0 |
-| squad availability | context-only unless a later calibrated injury-impact mapping is explicitly approved |
-| competition/motivation context | Step 3 derives the locked FIH-4F-V1 motivation index from fixture type plus source-backed per-team context tags |
 | team quality | context-only when explicitly researched; unavailable otherwise; no numeric score until calibrated |
 | opponent quality/context | context-only when explicitly researched; unavailable otherwise; no numeric score until a verified/calibrated mapping exists |
 
 Every fixture model record MUST expose `evidenceUsage` and `inputCoverage`. Each researched evidence family is classified as `USED`, `DERIVED`, `CONTEXT_ONLY`, or `UNAVAILABLE`; silent dropping is forbidden.
 
-Missing evidence remains undefined. Step 3 MUST NOT convert missing information to zero. Outside the explicit FIH-4F-V1 H2H/motivation mapping, numeric injury, team-quality or opponent-strength adjustments remain forbidden without a separately locked calibrated mapping.
+Missing evidence remains undefined. Step 3 MUST NOT convert missing information to zero. Injuries/squad availability and motivation/competition context are excluded. Numeric team-quality or opponent-strength adjustments remain forbidden without a separately locked calibrated mapping.
 Every evidence field used numerically in Step 3 MUST have validated Step-2 source references. Standings/H2H/schedule and other retained references must resolve to retained source metadata. External xG/xGA is not a Step-3 input.
 Pairwise PPG and goal-difference adjustments run only when both teams have verified finite values. A missing side is not replaced by a neutral league-average/default value.
 
 ### 3.3 Locked four-factor result-strength layer — FIH-4F-V1
 
 The result-strength score uses exactly:
-- overall last 5: **30%**
-- home team's last 5 HOME matches vs away team's last 5 AWAY matches: **30%**
-- league-position strength: **15%**, operationalized by season PPG derived from verified standings
-- exact last 5 H2H meetings: **15%**
-- motivation: **10%**
+- overall last 5: **33.333333%**
+- home team's last 5 HOME matches vs away team's last 5 AWAY matches: **33.333333%**
+- league-position strength: **16.666667%**, operationalized by season PPG derived from verified standings
+- exact last 5 H2H meetings: **16.666667%**
 
 Overall, venue and H2H results use **Win = 3, Draw = 1, Loss = 0**. For each factor, the two team scores are converted to a pair share and the locked factor weight is applied. Venue and H2H require exact-five samples for numeric use. If a factor is genuinely unavailable, it is not assigned a neutral value; the remaining available locked weights are transparently renormalized.
 
-Motivation is derived in Step 3 only. A verified competitive fixture has the locked baseline index 1 for each team. Source-backed context tags may change that index using the locked mapping in `scripts/step3-normalize.ts`; Step 2 never stores a numeric motivation score.
-
-The final FIH-4F-V1 number is a **strength score, not a win probability**. It must remain separately auditable from Poisson HOME/DRAW/AWAY probabilities and fair odds.
+Injuries/squad availability and motivation/competition context are not researched or scored. The final FIH-4F-V1 number is a **strength score, not a win probability**. It must remain separately auditable from Poisson HOME/DRAW/AWAY probabilities and fair odds.
 
 ### 3.3 Fixture model loop
 Process each fixture independently:
@@ -356,13 +351,12 @@ Retain, where calculated:
 - `CALCULATED` or `INSUFFICIENT_DATA` status and reason.
 
 ### 3.4 V2 principles
-- FIH-4F-V1 is the locked result-strength layer: Overall 30%, Venue 30%, League 15%, H2H 15%, Motivation 10%.
+- FIH-4F-V1 is the locked result-strength layer: Overall 33.333333%, Venue 33.333333%, League 16.666667%, H2H 16.666667%.
 - Recent overall form remains the anchor for FIH-owned expected-goal calculation.
 - Home/away venue form refines expected goals when verified.
 - FIH calculates `lambdaHome` and `lambdaAway` internally from verified factual evidence; external xG/xGA is not consumed.
 - PPG and goal-difference-per-game provide conservative longer-strength context.
 - Recent matches may be opponent-strength weighted when a verified factor exists.
-- Squad/availability adjustments remain evidence-based.
 - HOME/AWAY, OVER 2.5 and BTTS retain separate reliability values.
 - Probability and reliability are separate concepts.
 - DRAW remains an internal model result.
