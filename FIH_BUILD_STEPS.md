@@ -165,6 +165,20 @@ Checkpointing a completed fixture is durability only. It MUST NOT end or pause t
 
 The fixture is the atomic completion/recovery unit. Search execution inside one fixture may group related categories or use bounded parallel searches where supported, provided evidence remains attributable to the correct fixture and category.
 
+#### Optimized three-pass fixture research — LOCKED
+
+For each active fixture, Step 2 MUST use this execution plan without changing the canonical evidence requirements:
+
+1. **RESULTS_TABLE pass** — research overall form, HOME/AWAY venue form, and current standings using bounded parallel web searches. Reuse every credible source across all supported categories instead of issuing duplicate category searches.
+2. **H2H pass** — run a dedicated search for the exact last 5 completed head-to-head meetings. Keep this pass separate because the exact-five H2H validator remains independently locked.
+3. **PREMATCH_CONTEXT pass** — research squad availability, schedule/congestion, and competition context using bounded parallel web searches, again reusing sources wherever they support multiple categories.
+
+After the three passes, inspect the in-memory category state and run targeted recovery searches **only** for missing or invalid categories. Do not restart or repeat categories that already satisfy the validator. A fixture is validated once after all required categories reach VERIFIED or contract-valid PARTIAL/UNAVAILABLE state, then written once to the atomic accumulator and reread once before advancing.
+
+The preferred source ladder inside each pass is: official league/club/competition sources -> credible structured football result/table sources -> reputable sports/news sources -> broad web recovery search. Source hierarchy changes search order only; every retained fact must still satisfy the canonical source and evidence rules.
+
+Independent fixtures MUST NOT be completed in parallel. The deterministic fixture cursor remains authoritative. Bounded parallelism is restricted to searches within the single active fixture.
+
 Do not ask ChatGPT to make Step 3 model probabilities or Step 4 decisions during a Step 2 research job.
 
 For BOTH teams, collect:
