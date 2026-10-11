@@ -108,7 +108,7 @@
     },
     "RESEARCH-001": {
       "kind": "research-ownership",
-      "requirement": "ChatGPT owns Step 2 fixture-by-fixture web research. For every eligible fixture, ChatGPT MUST use web search to obtain source-backed factual evidence. A repository-local homepage scanner, scraper, source-discovery cache, or provider fallback MUST NOT be treated as a substitute for the required ChatGPT web-search job."
+      "requirement": "ChatGPT owns Step 2 web research. Every eligible fixture MUST end with genuine source-backed factual evidence obtained through ChatGPT web search, but a separate search job per fixture is not required: current attributable competition/team/team-pair evidence may be collected once and reused across all applicable fixture records. Repository-local homepage scanners, scrapers, source-discovery caches, or provider fallbacks MUST NOT substitute for ChatGPT web research. Fixture-specific search is reserved for gap repair when shared evidence is insufficient, missing, conflicting, or invalid."
     },
     "RESEARCH-002": {
       "kind": "research-batching",
