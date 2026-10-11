@@ -73,6 +73,8 @@ const r025=String(rules.rules?.["RESEARCH-025"]?.requirement||"");
 assert.match(r025,/0\/N/);
 assert.match(r025,/validated Step-2 progress/);
 assert.ok(rules.rules?.["MODEL-004"]?.requirement?.includes("RESEARCH-025"));
+assert.ok(rules.rules?.["MODEL-004"]?.requirement?.includes("STEP1-005"));
+assert.ok(rules.rules?.["STEP1-005"]?.requirement?.includes("0/N"));
 assert.ok(rules.rules?.["STEP1-002"]?.requirement?.includes("strictly later than the authoritative board fetchedAt"));
 assert.ok(rules.rules?.["STEP1-003"]?.requirement?.includes("60 complete minutes"));
 assert.ok(rules.rules?.["STEP1-004"]?.requirement?.includes("lower-division"));
