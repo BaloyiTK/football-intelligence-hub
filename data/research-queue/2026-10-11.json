@@ -13,6 +13,15 @@
   "researchExecutionPlan": {
     "atomicUnit": "FIXTURE",
     "fixtureOrder": "FROZEN_KICKOFF_ASC_THEN_ID",
+    "fixtureBatch": {
+      "maxConcurrentFixtures": 25,
+      "selection": "NEXT_UNVALIDATED_IN_FROZEN_ORDER",
+      "execution": "CONCURRENT_FIXTURE_PACKETS",
+      "completionBarrier": "ACTIVE_BATCH_FULLY_RESOLVED_BEFORE_NEXT_BATCH",
+      "validation": "INDEPENDENT_PER_FIXTURE",
+      "checkpointOrder": "FROZEN_ORDER",
+      "preserveValidatedRecords": true
+    },
     "packet": {
       "id": "FIXTURE_PACKET",
       "launchMode": "BOUNDED_PARALLEL_SEARCH",
@@ -43,8 +52,8 @@
       "policy": "SAME_COMPETITION_SAME_RESEARCH_RUN_CURRENT_APPLICABLE_ATTRIBUTABLE",
       "fixtureSpecificSearchStillRequired": true
     },
-    "recovery": "TARGET_ONLY_MISSING_OR_INVALID_CATEGORIES",
-    "checkpoint": "VALIDATE_FIXTURE_ONCE_THEN_ATOMIC_ACCUMULATOR_WRITE",
+    "recovery": "TARGET_ONLY_MISSING_OR_INVALID_CATEGORIES_PER_FIXTURE",
+    "checkpoint": "VALIDATE_FIXTURE_ONCE_THEN_ATOMIC_ACCUMULATOR_WRITE_IN_FROZEN_ORDER",
     "sourceHierarchy": [
       "OFFICIAL",
       "STRUCTURED_FOOTBALL_SOURCE",
