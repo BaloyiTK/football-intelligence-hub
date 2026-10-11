@@ -34,12 +34,18 @@ gate("STEP2_CHATGPT_HANDOFF", controller.includes("STEP2_CHATGPT_HANDOFF_REQUIRE
 gate("STEP2_LOCKED_ACCUMULATOR", checkpoint.includes('schema:"fih-step2-working-v1"'), "Checkpoint schema differs from locked Step 2 contract");
 gate("STEP2_NO_HOSTED_AI", !fs.existsSync(new URL("../api/research-fixture.js", import.meta.url)) && !fs.existsSync(new URL("../scripts/step2-autonomous-runner.ts", import.meta.url)) && portable.includes("ChatGPT itself is the authoritative Step-2 web-research executor"), "Hosted/repository Step 2 AI executor must be absent");
 gate("STEP12_BACKTEST_ROUTE", step12Runner.includes('mode==="BACKTEST"') && step12Runner.includes("/api/backtest-ingest?date=") && portable.includes("ChatGPT itself is the authoritative Step-2 web-research executor"), "Historical Step 1 route or ChatGPT Step 2 handoff missing");
-gate("STEP2_FIXTURE_PACKET_PLAN",
-  rules.rules?.["RESEARCH-026"]?.requirement?.includes("FIXTURE_PACKET") &&
-  rules.rules?.["RESEARCH-026"]?.requirement?.includes("launching two bounded-parallel fixture-specific web-search lanes together") &&
+gate("STEP2_FIXTURE_BATCH_25_PLAN",
+  rules.rules?.["RESEARCH-026"]?.requirement?.includes("up to 25 unfinished fixtures concurrently") &&
+  rules.rules?.["RESEARCH-026"]?.requirement?.includes("more than 25 concurrently active fixture packets is forbidden") &&
+  rules.rules?.["RESEARCH-026"]?.requirement?.includes("checkpointed to the one active accumulator individually in frozen fixture order") &&
   rules.rules?.["RESEARCH-026"]?.requirement?.includes("Same-competition standings evidence may be reused") &&
-  rules.rules?.["RESEARCH-026"]?.requirement?.includes("only for missing or invalid required categories") &&
   step12Prepare.includes('atomicUnit:"FIXTURE"') &&
+  step12Prepare.includes('fixtureBatch:{maxConcurrentFixtures:25') &&
+  step12Prepare.includes('selection:"NEXT_UNVALIDATED_IN_FROZEN_ORDER"') &&
+  step12Prepare.includes('execution:"CONCURRENT_FIXTURE_PACKETS"') &&
+  step12Prepare.includes('completionBarrier:"ACTIVE_BATCH_FULLY_RESOLVED_BEFORE_NEXT_BATCH"') &&
+  step12Prepare.includes('validation:"INDEPENDENT_PER_FIXTURE"') &&
+  step12Prepare.includes('checkpointOrder:"FROZEN_ORDER"') &&
   step12Prepare.includes('packet:{id:"FIXTURE_PACKET"') &&
   step12Prepare.includes('launchMode:"BOUNDED_PARALLEL_SEARCH"') &&
   step12Prepare.includes('id:"CORE_STATS"') &&
@@ -47,13 +53,12 @@ gate("STEP2_FIXTURE_PACKET_PLAN",
   step12Prepare.includes('id:"H2H"') &&
   !step12Prepare.includes('squadAvailability:{factsOnly:true') &&
   !step12Prepare.includes('competitionContext:{factsOnly:true') &&
-  step12Prepare.includes('completionBarrier:"ALL_QUERY_LANES_RETURN_OR_FAIL_BEFORE_GAP_ANALYSIS"') &&
   step12Prepare.includes('fixtureSpecificSearchStillRequired:true') &&
-  step12Prepare.includes('recovery:"TARGET_ONLY_MISSING_OR_INVALID_CATEGORIES"') &&
-  dailyCycle.includes('packet:{id:"FIXTURE_PACKET"') &&
-  portable.includes("one `FIXTURE_PACKET` per active fixture") &&
-  contract.includes("locked `RESEARCH-026` `FIXTURE_PACKET`"),
-  "Step 2 must launch two bounded-parallel active-fixture lanes, exclude injury/motivation research, reuse valid evidence, and recover only missing/invalid required categories");
+  step12Prepare.includes('recovery:"TARGET_ONLY_MISSING_OR_INVALID_CATEGORIES_PER_FIXTURE"') &&
+  dailyCycle.includes('fixtureBatch:{maxConcurrentFixtures:25') &&
+  portable.includes("bounded batch of up to 25 unfinished fixtures") &&
+  contract.includes("bounded fixture-batch architecture"),
+  "Step 2 must run at most 25 fixture packets concurrently, independently validate each fixture, preserve one accumulator, and keep fixture-specific evidence locks");
 gate("VERCEL_DEPLOYMENT_QUOTA_NONBLOCKING",
   rules.rules?.["INFRA-002"]?.requirement?.includes("NON-BLOCKING") &&
   rules.infrastructure?.vercel?.deploymentQuotaPolicy?.classification==="NON_BLOCKING" &&
