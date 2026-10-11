@@ -36,22 +36,24 @@ gate("STEP2_NO_HOSTED_AI", !fs.existsSync(new URL("../api/research-fixture.js", 
 gate("STEP12_BACKTEST_ROUTE", step12Runner.includes('mode==="BACKTEST"') && step12Runner.includes("/api/backtest-ingest?date=") && portable.includes("ChatGPT itself is the authoritative Step-2 web-research executor"), "Historical Step 1 route or ChatGPT Step 2 handoff missing");
 gate("STEP2_FIXTURE_PACKET_PLAN",
   rules.rules?.["RESEARCH-026"]?.requirement?.includes("FIXTURE_PACKET") &&
-  rules.rules?.["RESEARCH-026"]?.requirement?.includes("launching three bounded-parallel fixture-specific web-search lanes together") &&
+  rules.rules?.["RESEARCH-026"]?.requirement?.includes("launching two bounded-parallel fixture-specific web-search lanes together") &&
   rules.rules?.["RESEARCH-026"]?.requirement?.includes("Same-competition standings evidence may be reused") &&
-  rules.rules?.["RESEARCH-026"]?.requirement?.includes("only for missing or invalid categories") &&
+  rules.rules?.["RESEARCH-026"]?.requirement?.includes("only for missing or invalid required categories") &&
   step12Prepare.includes('atomicUnit:"FIXTURE"') &&
   step12Prepare.includes('packet:{id:"FIXTURE_PACKET"') &&
   step12Prepare.includes('launchMode:"BOUNDED_PARALLEL_SEARCH"') &&
-  step12Prepare.includes('id:"RESULTS_TABLE"') &&
+  step12Prepare.includes('id:"CORE_STATS"') &&
+  step12Prepare.includes('categories:["form","standings","schedule"]') &&
   step12Prepare.includes('id:"H2H"') &&
-  step12Prepare.includes('id:"PREMATCH_CONTEXT"') &&
+  !step12Prepare.includes('squadAvailability:{factsOnly:true') &&
+  !step12Prepare.includes('competitionContext:{factsOnly:true') &&
   step12Prepare.includes('completionBarrier:"ALL_QUERY_LANES_RETURN_OR_FAIL_BEFORE_GAP_ANALYSIS"') &&
   step12Prepare.includes('fixtureSpecificSearchStillRequired:true') &&
   step12Prepare.includes('recovery:"TARGET_ONLY_MISSING_OR_INVALID_CATEGORIES"') &&
   dailyCycle.includes('packet:{id:"FIXTURE_PACKET"') &&
   portable.includes("one `FIXTURE_PACKET` per active fixture") &&
   contract.includes("locked `RESEARCH-026` `FIXTURE_PACKET`"),
-  "Step 2 must launch one bounded-parallel fixture packet for the active fixture, reuse valid evidence, and recover only missing/invalid categories");
+  "Step 2 must launch two bounded-parallel active-fixture lanes, exclude injury/motivation research, reuse valid evidence, and recover only missing/invalid required categories");
 gate("VERCEL_DEPLOYMENT_QUOTA_NONBLOCKING",
   rules.rules?.["INFRA-002"]?.requirement?.includes("NON-BLOCKING") &&
   rules.infrastructure?.vercel?.deploymentQuotaPolicy?.classification==="NON_BLOCKING" &&
