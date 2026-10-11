@@ -116,7 +116,7 @@
     },
     "RESEARCH-003": {
       "kind": "research-integrity",
-      "requirement": "Step 2 stores source-backed facts only. Calculated or estimated form strength, PPG, rates, clean-sheet rate, BTTS rate, Over 2.5 rate, rest days, squad quality scores, motivation scores, FIH expected-goal values, probabilities, and betting conclusions are downstream FIH calculations and MUST NOT be stored as researched facts."
+      "requirement": "Step 2 stores source-backed facts only. Calculated or estimated form strength, PPG, rates, clean-sheet rate, BTTS rate, Over 2.5 rate, rest days, squad/injury assessments, motivation scores/context, FIH expected-goal values, probabilities, and betting conclusions MUST NOT be stored as required researched facts. Injuries/squadAvailability and motivation/competitionContext are removed from the active Step-2 research contract."
     },
     "RESEARCH-004": {
       "kind": "research-stage-gate",
@@ -195,8 +195,8 @@
       "requirement": "Step 3 MUST emit per-fixture evidenceUsage/inputCoverage showing which researched categories were USED, DERIVED, CONTEXT_ONLY, or UNAVAILABLE. No researched category may be silently discarded without an explicit usage classification."
     },
     "MODEL-007": {
-      "kind": "step3-locked-context-mapping",
-      "requirement": "FIH-5F-V1 MAY use H2H and motivation numerically only through the locked mappings defined by MODEL-014: H2H requires exactly five source-backed meetings and uses W=3/D=1/L=0; motivation uses the locked Step-3 competitive-fixture baseline and source-backed context-tag overrides. Squad availability, team quality, and opponent-strength context remain CONTEXT_ONLY unless a separately approved calibrated mapping is locked."
+      "kind": "step3-locked-four-factor-mapping",
+      "requirement": "FIH-4F-V1 uses only overall form, exact venue form, league-position strength, and exact last-5 H2H. H2H requires exactly five source-backed meetings and uses W=3/D=1/L=0. Injuries/squadAvailability and motivation/competitionContext are excluded from the active model. Team quality and opponent-strength context remain CONTEXT_ONLY unless a separately approved calibrated mapping is locked."
     },
     "MODEL-008": {
       "kind": "step3-minimum-model-input",
@@ -208,11 +208,11 @@
     },
     "MODEL-010": {
       "kind": "step3-no-imputation",
-      "requirement": "Missing optional Step-3 evidence MUST remain undefined and MUST NOT be replaced by neutral numeric defaults. Pairwise PPG or goal-difference adjustments may execute only when both teams have verified finite inputs. For FIH-5F-V1, an unavailable factor contributes no invented value; the remaining available locked factor weights are transparently renormalized. The motivation competitive-fixture baseline is an explicit locked model rule, not missing-evidence imputation."
+      "requirement": "Missing optional Step-3 evidence MUST remain undefined and MUST NOT be replaced by neutral numeric defaults. Pairwise PPG or goal-difference adjustments may execute only when both teams have verified finite inputs. For FIH-4F-V1, an unavailable factor contributes no invented value; the remaining available locked factor weights are transparently renormalized."
     },
     "RESEARCH-016": {
       "kind": "facts-only-no-external-xg",
-      "requirement": "Canonical Step-2 research MUST NOT contain an xG/xGA model-input field. Step 2 retains factual scorelines, standings, schedule, availability and contextual evidence only; FIH expected-goal values are downstream Step-3 calculations."
+      "requirement": "Canonical Step-2 research MUST NOT contain an xG/xGA model-input field. Active Step 2 retains factual scorelines/form, standings, H2H, and schedule evidence only; FIH expected-goal values are downstream Step-3 calculations."
     },
     "MODEL-011": {
       "kind": "fih-expected-goals-ownership",
@@ -231,12 +231,12 @@
       "requirement": "Step 3 MUST derive W/D/L profiles directly from verified match scorelines. For each fixture it calculates the home club OVERALL and HOME result profiles, and the away club OVERALL and AWAY result profiles. Each profile exposes wins, draws, losses, points using W=3/D=1/L=0, PPG, normalized points strength, win rate, draw rate and loss rate. Venue profiles are usable only when their exact-five series passes. These derived result metrics MUST be exposed in model output and MUST NOT be manually researched or stored as Step-2 calculated facts."
     },
     "MODEL-014": {
-      "kind": "five-factor-result-strength-lock",
-      "requirement": "NON-NEGOTIABLE MODEL LOCK: FIH-5F-V1 result strength uses exactly five base weights summing to 100%: overall last-5 form 30%, home-team HOME last-5 versus away-team AWAY last-5 30%, league-position strength 15% operationalized by season PPG derived from verified standings, exact last-5 H2H 15%, and motivation 10%. Overall/venue/H2H result scoring is W=3, D=1, L=0. Each factor converts the two raw scores to a pair share, applies its locked weight, and unavailable factors are omitted with transparent renormalization of the remaining locked weights. Changing these weights or mappings requires an explicit user-approved model-rule change."
+      "kind": "four-factor-result-strength-lock",
+      "requirement": "NON-NEGOTIABLE MODEL LOCK: FIH-4F-V1 result strength uses exactly four base weights summing to 100% after the explicit removal of motivation: overall last-5 form 33.333333%, home-team HOME last-5 versus away-team AWAY last-5 33.333333%, league-position strength 16.666667% operationalized by season PPG derived from verified standings, and exact last-5 H2H 16.666667%. Overall/venue/H2H result scoring is W=3, D=1, L=0. Each factor converts the two raw scores to a pair share, applies its locked weight, and unavailable factors are omitted with transparent renormalization of the remaining locked weights. Injuries/squadAvailability and motivation/competitionContext are excluded. Changing these weights or mappings requires an explicit user-approved model-rule change."
     },
     "MODEL-015": {
-      "kind": "five-factor-interpretation-lock",
-      "requirement": "FIH-5F-V1 output is a result-strength score, not a win probability. It MUST be emitted separately from Poisson HOME/DRAW/AWAY probabilities and fair odds. The strength score may inform HOME/AWAY evidence support and reliability, but it MUST NOT be relabeled as probability or independently enable bet publication without calibrated qualification rules."
+      "kind": "four-factor-interpretation-lock",
+      "requirement": "FIH-4F-V1 output is a result-strength score, not a win probability. It MUST be emitted separately from Poisson HOME/DRAW/AWAY probabilities and fair odds. The strength score may inform HOME/AWAY evidence support and reliability, but it MUST NOT be relabeled as probability or independently enable bet publication without calibrated qualification rules."
     },
     "RESEARCH-018": {
       "kind": "h2h-last-five-completeness",
@@ -256,15 +256,15 @@
     },
     "RESEARCH-022": {
       "kind": "step2-queue-validator-parity",
-      "requirement": "NON-NEGOTIABLE QUEUE PARITY LOCK: The Step-2 research queue MUST explicitly instruct ChatGPT to research every canonical required category validated by fih-daily-research-v5: form (overall plus exact HOME/AWAY venue series), standings, headToHead, squadAvailability, schedule, and competitionContext. A category required by the canonical validator may not be implicit or omitted from the queue."
+      "requirement": "NON-NEGOTIABLE QUEUE PARITY LOCK: The Step-2 research queue MUST explicitly instruct ChatGPT to research every canonical required category validated by fih-daily-research-v5: form (overall plus exact HOME/AWAY venue series), standings, headToHead, and schedule. squadAvailability/injury research and competitionContext/motivation research are explicitly removed from the active required category set."
     },
     "RESEARCH-023": {
       "kind": "step2-standings-raw-facts-lock",
       "requirement": "VERIFIED Step-2 standings MUST retain source-backed raw standings facts for both teams sufficient for Step 3 league-strength derivation: current table position, matches played, and points, plus goals-for/goals-against or goal difference when available. VERIFIED standings with only a prose note, source URL, or completion marker are invalid. PARTIAL standings require genuine search exhaustion and retain whatever structured source-backed fields were found."
     },
     "RESEARCH-024": {
-      "kind": "step2-competition-context-shape",
-      "requirement": "Step-2 competitionContext MUST retain per-team source-backed facts and motivation tags in facts.competitionContext.data.homeTeam.{facts,tags} and awayTeam.{facts,tags}. Tags are limited to the locked motivation vocabulary. The canonical validator and Step-3 motivation normalizer MUST consume the same shape; schema/normalizer drift is forbidden."
+      "kind": "retired-step2-motivation-context",
+      "requirement": "RETIRED BY EXPLICIT USER-APPROVED MODEL CHANGE: squadAvailability/injury research and competitionContext/motivation research are not required Step-2 categories and MUST NOT be requested by the active research queue or consumed numerically by Step 3. Historical artifacts may retain these fields for audit/backward compatibility, but active runs ignore them."
     },
     "INFRA-002": {
       "kind": "infrastructure-continuation",
@@ -296,7 +296,7 @@
     },
     "RESEARCH-026": {
       "kind": "step2-fixture-packet-execution",
-      "requirement": "NON-NEGOTIABLE STEP-2 EXECUTION OPTIMIZATION: The fixture remains the atomic research/completion/recovery unit and fixtures remain processed in the frozen deterministic order. For the single active fixture, ChatGPT MUST execute one FIXTURE_PACKET by launching three bounded-parallel fixture-specific web-search lanes together: RESULTS_TABLE for overall/venue form plus standings, H2H for the exact last 5 completed head-to-head meetings, and PREMATCH_CONTEXT for squadAvailability, schedule, and competitionContext. After all three lanes return or fail, extract every usable source-backed fact, reuse each credible source across every category it actually supports, inspect category validity, and run targeted recovery searches only for missing or invalid categories. Same-competition standings evidence may be reused within the same researchRunId when the source remains current, applicable and attributable; this reuse MUST NOT replace the required fixture-specific ChatGPT web-search job for each fixture. Validate the complete fixture record once, atomically checkpoint it once, reread/verify it, then advance to the next fixture. This optimization MUST NOT weaken any canonical evidence, source attribution, exact-five, exhaustion, cutoff, facts-only, or fixture-order requirement and MUST NOT parallelize independent fixture completion."
+      "requirement": "NON-NEGOTIABLE STEP-2 EXECUTION OPTIMIZATION: The fixture remains the atomic research/completion/recovery unit and fixtures remain processed in the frozen deterministic order. For the single active fixture, ChatGPT MUST execute one FIXTURE_PACKET by launching two bounded-parallel fixture-specific web-search lanes together: CORE_STATS for overall/venue form, standings, and schedule; and H2H for the exact last 5 completed head-to-head meetings. Injuries/squadAvailability and motivation/competitionContext are excluded. After both lanes return or fail, extract every usable source-backed fact, reuse each credible source across every category it actually supports, inspect category validity, and run targeted recovery searches only for missing or invalid required categories. Same-competition standings evidence may be reused within the same researchRunId when the source remains current, applicable and attributable; this reuse MUST NOT replace the required fixture-specific ChatGPT web-search job for each fixture. Validate the complete fixture record once, atomically checkpoint it once, reread/verify it, then advance to the next fixture. This optimization MUST NOT weaken any canonical evidence, source attribution, exact-five, exhaustion, cutoff, facts-only, or fixture-order requirement and MUST NOT parallelize independent fixture completion."
     }
   },
   "hardStops": [
