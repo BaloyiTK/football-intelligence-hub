@@ -73,7 +73,7 @@ for(const token of ["expectedFixtureCount","fixtureIds","validatedFixtureIds","v
   if(!checkpoint.includes(token))fail("Step 2 working accumulator missing "+token);
 
 const daily=read("scripts/daily-cycle.ts");
-for(const token of ['overallForm:{count:5','venueForm:{count:5','homeTeam:"LAST_COMPLETED_HOME"','awayTeam:"LAST_COMPLETED_AWAY"','standings:{homeTeam:"CURRENT_COMPETITION_TABLE"','squadAvailability:{factsOnly:true','schedule:{factsOnly:true','competitionContext:{factsOnly:true','storage:"facts.competitionContext.data.{homeTeam,awayTeam}.{facts,tags}"','headToHead:{count:5','storage:"facts.headToHead.data.matches"','verifiedRequiresExactCount:true','partialRequiresSearchExhausted:true','canonicalResearchSchema:"fih-daily-research-v5"','atomicUnit:"FIXTURE"','id:"RESULTS_TABLE"','id:"H2H"','id:"PREMATCH_CONTEXT"','recovery:"TARGET_ONLY_MISSING_OR_INVALID_CATEGORIES"'])
+for(const token of ['overallForm:{count:5','venueForm:{count:5','homeTeam:"LAST_COMPLETED_HOME"','awayTeam:"LAST_COMPLETED_AWAY"','standings:{homeTeam:"CURRENT_COMPETITION_TABLE"','squadAvailability:{factsOnly:true','schedule:{factsOnly:true','competitionContext:{factsOnly:true','storage:"facts.competitionContext.data.{homeTeam,awayTeam}.{facts,tags}"','headToHead:{count:5','storage:"facts.headToHead.data.matches"','verifiedRequiresExactCount:true','partialRequiresSearchExhausted:true','canonicalResearchSchema:"fih-daily-research-v5"','atomicUnit:"FIXTURE"','packet:{id:"FIXTURE_PACKET"','launchMode:"BOUNDED_PARALLEL_SEARCH"','id:"RESULTS_TABLE"','id:"H2H"','id:"PREMATCH_CONTEXT"','completionBarrier:"ALL_QUERY_LANES_RETURN_OR_FAIL_BEFORE_GAP_ANALYSIS"','fixtureSpecificSearchStillRequired:true','recovery:"TARGET_ONLY_MISSING_OR_INVALID_CATEGORIES"'])
   if(!daily.includes(token))fail("Step 2 queue missing requested venue count "+token);
 
 const probability=read("scripts/fih-probability-v2.ts");
@@ -126,5 +126,5 @@ console.log(JSON.stringify({
   ok:true,
   lock:"STEP2_TO_STEP3_VERIFIED_LINEAGE",
   actualCaptureLock:true,
-  rules:["MODEL-001","MODEL-002","MODEL-003","MODEL-004","MODEL-005","MODEL-006","MODEL-007","MODEL-008","MODEL-009","MODEL-010","MODEL-011","MODEL-012","MODEL-013","MODEL-014","MODEL-015","RESEARCH-016","RESEARCH-017","RESEARCH-018","RESEARCH-019","RESEARCH-020","RESEARCH-021","RESEARCH-022","RESEARCH-023","RESEARCH-024"]
+  rules:["MODEL-001","MODEL-002","MODEL-003","MODEL-004","MODEL-005","MODEL-006","MODEL-007","MODEL-008","MODEL-009","MODEL-010","MODEL-011","MODEL-012","MODEL-013","MODEL-014","MODEL-015","RESEARCH-016","RESEARCH-017","RESEARCH-018","RESEARCH-019","RESEARCH-020","RESEARCH-021","RESEARCH-022","RESEARCH-023","RESEARCH-024","RESEARCH-026"]
 },null,2));
