@@ -18,7 +18,7 @@ const genericLowerDivision=[
   /\bk\s*league\s*2\b/i,
   /\b2\.?\s*bundesliga\b/i,
   /\b3\.?\s*liga\b/i,
-  /\bsegunda\s+divisi[oó]n\s+rfef\b/i,
+  /\bsegunda\b/i,
   /\bprimera\s+division\s+rfef\b/i,
   /\bregionalliga\b/i,
   /\boberliga\b/i,
@@ -53,6 +53,7 @@ const genericLowerDivision=[
 ];
 
 const countryLowerDivision:Record<string,RegExp[]> = {
+  "Belgium":[/\bNational Division 1\b/i],
   "Bosnia and Herzegovina":[/\b1st League\b/i],
   "China":[/\bLeague One\b/i],
   "Croatia":[/\bPrva NL\b/i],
@@ -60,7 +61,9 @@ const countryLowerDivision:Record<string,RegExp[]> = {
   "England":[/\bChampionship\b/i,/\bLeague One\b/i,/\bLeague Two\b/i],
   "Mexico":[/\bLiga de Expansion\b/i,/\bPrimera Premier\b/i,/\bLiga Premier\b/i],
   "Norway":[/\b1\. Division\b/i,/\b2\.?\s*Division\b/i,/\b3\.?\s*Divisjon\b/i],
+  "Peru":[/\bLiga 2\b/i],
   "Poland":[/\bI Liga\b/i,/\bII Liga\b/i],
+  "Republic of Korea":[/\bK3 League\b/i],
   "Scotland":[/\bChampionship\b/i,/\bLeague One\b/i,/\bLeague Two\b/i],
   "Serbia":[/\bPrva Liga\b/i],
   "Sweden":[/\bDivision 1\b/i,/\bDivision 2\b/i,/\bSuperettan\b/i],
@@ -77,7 +80,7 @@ export function isLowerDivision(s:any){
 function structuralExclusion(e:any,s:any){
   const text=[s?.CompN,s?.Snm,s?.Cnm,e?.T1?.[0]?.Nm,e?.T2?.[0]?.Nm].filter(Boolean).join(" ").toLowerCase();
   if(/women|\bw\b/.test(text))return "WOMEN";
-  if(/\bu[- ]?\d{2}\b|under[- ]?\d{2}|youth/.test(text))return "YOUTH";
+  if(/\bu[- ]?\d{2}\b|under[- ]?\d{2}|youth|primavera/.test(text))return "YOUTH";
   const teams=[e?.T1?.[0]?.Nm,e?.T2?.[0]?.Nm].filter(Boolean).join(" ").toLowerCase();
   if(/reserve|reserves|\bu23\b|\bu21\b|\bu20\b|\bu19\b|\bu18\b|\bu17\b|\bii\b|(?:^|\s)2$/.test(teams))return "RESERVE_OR_DEVELOPMENT";
   if(/university|academia|academy|akatemia|juniors?/.test(text))return "NON_SENIOR";
