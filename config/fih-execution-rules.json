@@ -184,7 +184,7 @@
     },
     "MODEL-004": {
       "kind": "frozen-board-resume",
-      "requirement": "Once an active ledger has a researchRunId, prediction recovery/resume MUST reuse the frozen Step-1 fixture board and automated run paths MUST NOT silently reacquire a fresh board before Step 3. The only permitted reacquisition is the explicit RESEARCH-025 zero-progress prematch-expiry reconciliation, which requires 0/N validated Step-2 progress, no canonical research for the active researchRunId, persisted supersession evidence, and a new independently verified Step-1/run lineage. Any other fixture-universe drift requires explicit reconciliation and cannot silently feed the model."
+      "requirement": "Once an active ledger has a researchRunId, prediction recovery/resume MUST reuse the frozen Step-1 fixture board and automated run paths MUST NOT silently reacquire a fresh board before Step 3. Reacquisition is permitted only by explicit reconciliation: RESEARCH-025 zero-progress prematch-expiry, or STEP1-005 zero-progress user-authorized eligibility-policy migration. Both require 0/N validated Step-2 progress, no canonical research for the active researchRunId, persisted supersession evidence, and a new independently verified Step-1/run lineage. Any other fixture-universe drift requires explicit reconciliation and cannot silently feed the model."
     },
     "MODEL-005": {
       "kind": "step3-normalization-contract",
@@ -289,6 +289,10 @@
     "STEP1-004": {
       "kind": "top-division-scope",
       "requirement": "FIH Step-1 eligibility MUST exclude recognized lower-division league fixtures from the research/model universe while preserving them in the raw LiveScore board. The deterministic classifier in scripts/fixture-eligibility.ts is authoritative for lower-division naming and country-aware exceptions. Excluded fixtures use LOWER_DIVISION. Top-flight competitions with ambiguous names such as Cyprus/Andorra 1st Division, Czech/North Macedonia 1st League, K League 1 and other recognized top tiers MUST remain eligible when no lower-division marker applies."
+    },
+    "STEP1-005": {
+      "kind": "zero-progress-eligibility-policy-migration",
+      "requirement": "When the user explicitly authorizes a material Step-1 eligibility-policy change during an active PREDICTION generation, that generation may be superseded and a fresh current board/research lineage created only if canonical research for the active researchRunId does not exist and validated Step-2 progress is exactly 0/N in durable state and any surviving accumulator. The old runId/researchRunId, validatedCount, expectedFixtureCount, supersession timestamp, and policy-change reason MUST be persisted before reacquisition; no old research may be reused. If validatedCount > 0, the frozen-board rule remains binding."
     }
   },
   "hardStops": [
