@@ -72,9 +72,9 @@ const countryLowerDivision:Record<string,RegExp[]> = {
 
 export function isLowerDivision(s:any){
   const country=String(s?.Cnm??s?.Csnm??"").trim();
-  const competition=[s?.CompN,s?.Snm,s?.Scd].filter(Boolean).join(" ");
-  if(genericLowerDivision.some(re=>re.test(competition)))return true;
-  return (countryLowerDivision[country]||[]).some(re=>re.test(competition));
+  const labels=[s?.CompN,s?.Snm,s?.Scd].filter(Boolean).map((v:any)=>String(v));
+  if(genericLowerDivision.some(re=>labels.some((label:string)=>re.test(label))))return true;
+  return (countryLowerDivision[country]||[]).some(re=>labels.some((label:string)=>re.test(label)));
 }
 
 function structuralExclusion(e:any,s:any){
