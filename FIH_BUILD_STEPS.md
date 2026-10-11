@@ -76,7 +76,7 @@ The single local working file MUST use this exact top-level contract (no placeho
 
 - `schema` is exactly `fih-step2-working-v1`; `date` is the Step-1 SAST date; `researchRunId` must match the active ledger; `mode` is `PREDICTION` or `BACKTEST`; `cutoffAt` is null for prediction and a valid historical ISO cutoff for backtest.
 - `fixtureIds` is the frozen unique Step-1 eligible ID universe in deterministic order; `expectedFixtureCount === fixtureIds.length`. The example zero count is initialization-only, not evidence of a completed fixture board.
-- `fixtures` contains **only fully validated** research records, each with `fixtureId`, `fixture`, `researchedAt`, `researchRunId`, `sourceMetadata`, and `facts` conforming to the canonical `fih-daily-research-v5` fixture record validator in `scripts/research-canonical.ts`. Required facts: `form`, `standings`, `headToHead`, `squadAvailability`, `schedule`, `competitionContext`; optional factual context: `opponentStrength`, `teamQuality`. Never store external xG or model outputs.
+- `fixtures` contains **only fully validated** research records, each with `fixtureId`, `fixture`, `researchedAt`, `researchRunId`, `sourceMetadata`, and `facts` conforming to the canonical `fih-daily-research-v5` fixture record validator in `scripts/research-canonical.ts`. Required facts: `form`, `standings`, `headToHead`, `schedule`; optional factual context: `opponentStrength`, `teamQuality`. Injuries/squad availability and motivation/competition context are removed from the active research contract. Never store external xG or model outputs.
 - `validatedFixtureIds` is the unique ordered list of IDs in `fixtures`; `validatedCount === validatedFixtureIds.length === fixtures.length`; every stored ID must be in `fixtureIds`, without duplicates; each record's `researchRunId` must match the wrapper. `nextFixtureId` is the first frozen fixture ID not yet validated, or null only at exact N/N completion.
 - `status` may be `ACCUMULATING`, `READY_FOR_VALIDATION`, or `VALIDATED`. `READY_FOR_VALIDATION` requires N/N fixture coverage; `VALIDATED` requires successful full canonical v5 validation against the frozen fixture universe. Neither status by itself authorizes a commit without revalidation.
 - `createdAt` and `updatedAt` are valid ISO-8601 timestamps; `updatedAt` changes on each atomic rewrite. Source retrieval timestamps, category attempts, statuses and evidence-to-source references are mandatory as enforced by the canonical validator. `PARTIAL`/`UNAVAILABLE` requires genuine category search exhaustion where specified.
@@ -169,13 +169,12 @@ The fixture is the atomic completion/recovery unit. Search execution inside one 
 
 For each active fixture, Step 2 MUST use one `FIXTURE_PACKET` without changing the canonical evidence requirements.
 
-Launch these three fixture-specific web-search lanes together using bounded parallel search:
+Launch these two fixture-specific web-search lanes together using bounded parallel search:
 
-1. **RESULTS_TABLE** — overall form, HOME/AWAY venue form, and current standings.
+1. **CORE_STATS** — overall form, HOME/AWAY venue form, current standings, and schedule/rest evidence.
 2. **H2H** — the exact last 5 completed head-to-head meetings.
-3. **PREMATCH_CONTEXT** — squad availability, schedule/congestion, and competition context.
 
-Wait for all three lanes to return or fail, then extract every usable source-backed fact into the fixture's in-memory category state. Reuse every credible source across all categories it actually supports instead of repeating discovery or opening the same source for each category.
+Injuries/squad availability and motivation/competition context are not researched. Wait for both lanes to return or fail, then extract every usable source-backed fact into the fixture's in-memory category state. Reuse every credible source across all categories it actually supports instead of repeating discovery or opening the same source for each category.
 
 After the packet completes, inspect category validity and run targeted recovery searches **only** for missing or invalid categories. Do not repeat categories that already satisfy the canonical validator. A fixture is validated once after all required categories reach VERIFIED or contract-valid PARTIAL/UNAVAILABLE state, then written once to the atomic accumulator and reread once before advancing.
 
@@ -217,20 +216,6 @@ For BOTH teams, collect:
 ### Team quality
 Assess underlying team strength so five unusual recent matches do not completely redefine the team.
 
-### Motivation / context
-Research relevant match circumstances:
-- title race
-- promotion/playoff race
-- relegation battle
-- qualification
-- cup/two-leg situation
-- dead rubber
-- friendly
-- rotation
-- other meaningful competition context
-
-Motivation must be supported by evidence, not guessed. Step 2 stores facts/context tags only, never a numeric motivation score. Where supported, use per-team tags from the locked vocabulary: `MUST_WIN`, `KNOCKOUT_ELIMINATION`, `TITLE_DECIDER`, `RELEGATION_DECIDER`, `PROMOTION_DECIDER`, `TITLE_RACE`, `RELEGATION_BATTLE`, `PROMOTION_RACE`, `QUALIFICATION_RACE`, `PLAYOFF_RACE`, `DEAD_RUBBER`, `ROTATION_EXPECTED`, `FRIENDLY`. Step 3 converts these through the locked FIH-5F-V1 motivation mapping.
-
 ### H2H
 Research the **last 5 completed head-to-head meetings** between the two clubs. Store them as structured rows under `facts.headToHead.data.matches`, retaining for every meeting: date, home team, away team, home goals, away goals, and `sourceRef`.
 
@@ -239,7 +224,7 @@ Research the **last 5 completed head-to-head meetings** between the two clubs. S
 - If no trustworthy prior meeting can be found after genuine search exhaustion, use `UNAVAILABLE` with `searchExhausted: true`.
 - A prose note, aggregate H2H record, undated result, or “team unbeaten in N meetings” statement does **not** satisfy the last-five H2H requirement.
 
-H2H is a locked 15% FIH-5F-V1 factor only when all 5 meetings are source-backed. A partial 1-4 meeting sample remains auditable context only and is not scored numerically.
+H2H is a locked 16.666667% FIH-4F-V1 factor only when all 5 meetings are source-backed. A partial 1-4 meeting sample remains auditable context only and is not scored numerically.
 
 ### Goals profile
 Check:
@@ -252,15 +237,6 @@ Check:
 - clean sheets where useful
 
 Prefer venue + overall context.
-
-### Squad availability
-Research:
-- important injuries
-- suspensions
-- goalkeeper absences
-- striker/key attacker absences
-- rotation
-- meaningful expected-lineup changes where reliable
 
 ### Opponent strength
 Contextualize recent results.
@@ -332,19 +308,19 @@ Step 3 receives the canonical Step-2 facts and normalizes them into model-ready 
 | standings: goal difference, or goals for/against + matches | derive goal-difference-per-game in Step 3 |
 | recent scorelines | derive scoring, conceding, BTTS and Over-2.5 rates plus W/D/L, points, recent PPG and win/draw/loss rates in Step 3 |
 | latest verified match date + kickoff | derive rest days in Step 3 |
-| H2H | FIH-5F-V1 numeric result-strength input only with exactly 5 verified meetings; W=3/D=1/L=0 |
+| H2H | FIH-4F-V1 numeric result-strength input only with exactly 5 verified meetings; W=3/D=1/L=0 |
 | squad availability | context-only unless a later calibrated injury-impact mapping is explicitly approved |
-| competition/motivation context | Step 3 derives the locked FIH-5F-V1 motivation index from fixture type plus source-backed per-team context tags |
+| competition/motivation context | Step 3 derives the locked FIH-4F-V1 motivation index from fixture type plus source-backed per-team context tags |
 | team quality | context-only when explicitly researched; unavailable otherwise; no numeric score until calibrated |
 | opponent quality/context | context-only when explicitly researched; unavailable otherwise; no numeric score until a verified/calibrated mapping exists |
 
 Every fixture model record MUST expose `evidenceUsage` and `inputCoverage`. Each researched evidence family is classified as `USED`, `DERIVED`, `CONTEXT_ONLY`, or `UNAVAILABLE`; silent dropping is forbidden.
 
-Missing evidence remains undefined. Step 3 MUST NOT convert missing information to zero. Outside the explicit FIH-5F-V1 H2H/motivation mapping, numeric injury, team-quality or opponent-strength adjustments remain forbidden without a separately locked calibrated mapping.
+Missing evidence remains undefined. Step 3 MUST NOT convert missing information to zero. Outside the explicit FIH-4F-V1 H2H/motivation mapping, numeric injury, team-quality or opponent-strength adjustments remain forbidden without a separately locked calibrated mapping.
 Every evidence field used numerically in Step 3 MUST have validated Step-2 source references. Standings/H2H/schedule and other retained references must resolve to retained source metadata. External xG/xGA is not a Step-3 input.
 Pairwise PPG and goal-difference adjustments run only when both teams have verified finite values. A missing side is not replaced by a neutral league-average/default value.
 
-### 3.3 Locked five-factor result-strength layer — FIH-5F-V1
+### 3.3 Locked four-factor result-strength layer — FIH-4F-V1
 
 The result-strength score uses exactly:
 - overall last 5: **30%**
@@ -357,7 +333,7 @@ Overall, venue and H2H results use **Win = 3, Draw = 1, Loss = 0**. For each fac
 
 Motivation is derived in Step 3 only. A verified competitive fixture has the locked baseline index 1 for each team. Source-backed context tags may change that index using the locked mapping in `scripts/step3-normalize.ts`; Step 2 never stores a numeric motivation score.
 
-The final FIH-5F-V1 number is a **strength score, not a win probability**. It must remain separately auditable from Poisson HOME/DRAW/AWAY probabilities and fair odds.
+The final FIH-4F-V1 number is a **strength score, not a win probability**. It must remain separately auditable from Poisson HOME/DRAW/AWAY probabilities and fair odds.
 
 ### 3.3 Fixture model loop
 Process each fixture independently:
@@ -380,7 +356,7 @@ Retain, where calculated:
 - `CALCULATED` or `INSUFFICIENT_DATA` status and reason.
 
 ### 3.4 V2 principles
-- FIH-5F-V1 is the locked result-strength layer: Overall 30%, Venue 30%, League 15%, H2H 15%, Motivation 10%.
+- FIH-4F-V1 is the locked result-strength layer: Overall 30%, Venue 30%, League 15%, H2H 15%, Motivation 10%.
 - Recent overall form remains the anchor for FIH-owned expected-goal calculation.
 - Home/away venue form refines expected goals when verified.
 - FIH calculates `lambdaHome` and `lambdaAway` internally from verified factual evidence; external xG/xGA is not consumed.
