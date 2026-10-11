@@ -204,18 +204,18 @@ Interpret either command as authorization to execute the full requested historic
 A status request may report current progress, but it does not cancel or redefine the full-cycle authorization. Intermediate completion is not task completion. Continue automatically until the full cycle completes or a Hard Stop defined in this policy is reached.
 
 
-## Mandatory fixture-by-fixture research gate
+## Mandatory source-backed research gate
 The research/evidence stage is not satisfied by reusing the target fixture boards, by deriving form only from other fixtures inside the requested backtest window, or by running the probability model directly from LiveScore results.
 
 For every eligible fixture in a daily run or backtest:
 1. Start from that fixture on the verified LiveScore board.
-2. Perform fixture-specific external web research using credible sources.
+2. Populate fixture evidence from credible ChatGPT web research. Prefer current attributable competition/team/team-pair evidence collected once and reused across applicable fixtures; perform fixture-specific external web research only for missing, conflicting, or invalid evidence.
 3. For a backtest, restrict evidence to information that existed before that fixture's kickoff; never use the target match result or later information as research input.
 4. Attempt all active evidence categories defined in `FIH_BUILD_STEPS.md`, including last-five overall, exact last 5 HOME matches for the home team, exact last 5 AWAY matches for the away team, **exact last 5 completed H2H meetings**, standings, goals profile, opponent strength where explicitly researched, and rest/schedule. Injuries/squad availability and motivation/context are excluded. A venue or H2H series with fewer than 5 must remain PARTIAL/UNAVAILABLE after genuine search exhaustion and must not be treated as complete. H2H VERIFIED requires five structured dated scorelines with source references; a prose summary or aggregate H2H claim is insufficient.
 5. Persist source references/URLs and retrieval/reconstruction metadata with the fixture evidence.
 6. Missing categories must be explicitly `UNAVAILABLE`; they may not be silently skipped or replaced with same-window target results.
 7. The FIH probability stage may begin for a fixture only after its research record has been persisted and verified.
-8. A backtest cannot be marked complete if fixture-specific research was skipped. A LiveScore-only or same-window-form run must be labeled a baseline/data test, never a completed FIH backtest.
+8. A backtest cannot be marked complete if any fixture lacks the required source-backed research coverage. A LiveScore-only or same-window-form run must be labeled a baseline/data test, never a completed FIH backtest.
 
 
 ## Backtest research snapshot time
