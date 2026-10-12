@@ -20,7 +20,7 @@ const contractGate = read("scripts/contract-gate.ts");
 assert.equal(rules.locked, true);
 assert.match(contract, /Date routing contract/);
 assert.match(policy, /Verify persisted data/);
-assert.match(steps, /ChatGPT owns the cluster-first shared-evidence/);
+assert.match(steps, /hybrid cluster-first shared-evidence/);
 assert.match(portable, /Stateless entrypoint/);
 assert.match(portable, /run past N days/);
 assert.match(portable, /status YYYY-MM-DD/);
@@ -30,15 +30,15 @@ const gate = (name, ok, detail) => { if (!ok) failures.push({gate:name,detail});
 gate("STEP1_GITHUB_REREAD", /await github\(path\s*\+\s*["']\?ref=/.test(ingest.slice(ingest.indexOf("const wr="))), "Ingestion must reread AFTER writing and verify persisted payload");
 gate("STEP1_FRESH_RUN", !workflow.includes("ACTIVE_RESEARCH_RUN_REUSE_FROZEN_BOARD"), "Run-now must not reuse old board as proof of fresh acquisition");
 gate("STEP1_RANGE_QUEUE", step12Workflow.includes("scripts/step12-command-runner.mjs") && step12Runner.includes("resolveCommand(command)") && step12Runner.includes("for(const item of plan.dates)") && step12Runner.includes("/api/backtest-ingest?date="), "Durable sequential date-range coordinator missing");
-gate("STEP2_CHATGPT_HANDOFF", controller.includes("STEP2_CHATGPT_HANDOFF_REQUIRED") && !controller.includes("step2-autonomous-runner.ts") && rules.rules?.["INFRA-003"]?.requirement?.includes("Step 2 research is executed by ChatGPT itself"), "Controller must hand the frozen queue to ChatGPT and forbid hosted Step 2 research");
+gate("STEP2_HYBRID_HANDOFF", controller.includes("STEP2_HYBRID_HANDOFF_REQUIRED") && !controller.includes("step2-autonomous-runner.ts") && rules.rules?.["RESEARCH-027"]?.requirement?.includes("data/research-prefill/<date>.json") && step12Runner.includes("scripts/hybrid-research-prefill.ts"), "Controller must preserve deterministic prediction prefill plus ChatGPT gap handoff and forbid hosted AI research");
 gate("STEP2_LOCKED_ACCUMULATOR", checkpoint.includes('schema:"fih-step2-working-v1"'), "Checkpoint schema differs from locked Step 2 contract");
-gate("STEP2_NO_HOSTED_AI", !fs.existsSync(new URL("../api/research-fixture.js", import.meta.url)) && !fs.existsSync(new URL("../scripts/step2-autonomous-runner.ts", import.meta.url)) && portable.includes("ChatGPT itself is the authoritative Step-2 web-research executor"), "Hosted/repository Step 2 AI executor must be absent");
-gate("STEP12_BACKTEST_ROUTE", step12Runner.includes('mode==="BACKTEST"') && step12Runner.includes("/api/backtest-ingest?date=") && portable.includes("ChatGPT itself is the authoritative Step-2 web-research executor"), "Historical Step 1 route or ChatGPT Step 2 handoff missing");
+gate("STEP2_NO_HOSTED_AI", !fs.existsSync(new URL("../api/research-fixture.js", import.meta.url)) && !fs.existsSync(new URL("../scripts/step2-autonomous-runner.ts", import.meta.url)) && portable.includes("deterministic GitHub public-source prefill plus ChatGPT gap research"), "Hosted/repository AI research executor must be absent while deterministic non-AI prefill remains allowed");
+gate("STEP12_BACKTEST_ROUTE", step12Runner.includes('mode==="BACKTEST"') && step12Runner.includes('if(mode==="PREDICTION")tsx("scripts/hybrid-research-prefill.ts"') && portable.includes("BACKTEST must not consume current-data prefill"), "Historical Step 1 route must bypass current-data deterministic prefill");
 gate("STEP2_SHARED_EVIDENCE_BATCHING",
-  rules.rules?.["RESEARCH-001"]?.requirement?.includes("a separate search job per fixture is not required") &&
+  rules.rules?.["RESEARCH-001"]?.requirement?.includes("deterministic source-backed facts") &&
   rules.rules?.["RESEARCH-026"]?.requirement?.includes("cluster-first") &&
-  rules.rules?.["RESEARCH-026"]?.requirement?.includes("Fixture-specific search is NOT mandatory") &&
-  rules.rules?.["RESEARCH-026"]?.requirement?.includes("FAST") &&
+  rules.rules?.["RESEARCH-026"]?.requirement?.includes("deterministic GitHub prefill") &&
+  rules.rules?.["RESEARCH-027"]?.requirement?.includes("fih-daily-research-v5") &&
   step12Prepare.includes('schema:"fih-chatgpt-research-queue-v4"') &&
   step12Prepare.includes('collectionUnit:"EVIDENCE_CLUSTER"') &&
   step12Prepare.includes('validationUnit:"FIXTURE"') &&
@@ -80,4 +80,4 @@ gate("VERCEL_DEPLOYMENT_QUOTA_NONBLOCKING",
 if (failures.length) {
  console.error(JSON.stringify({status:"NOT_READY",failed:failures.length,failures},null,2));
  process.exitCode = 1;
-} else console.log(JSON.stringify({status:"PASS",gates:9}));
+} else console.log(JSON.stringify({status:"PASS",gates:9,step2:"HYBRID_GITHUB_PREFILL_CHATGPT_GAPS"}));
