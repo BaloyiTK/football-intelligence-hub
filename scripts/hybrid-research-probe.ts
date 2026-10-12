@@ -157,7 +157,7 @@ function standingRow(payload:any,id:string){
  };
 }
 async function teamHistory(slug:string,id:string,currentSeason:number,errors:string[]){
- const all:any[]=[],sourceBySeason=new Map<string,string>(),meta:any[]=[];
+ const all:any[]=[],sourceBySeason=new Map<string,string>(),meta:any[]=[],diagnostics:any[]=[];
  const add=(events:any[],url:string,retrievedAt:string)=>{
   for(const e of events){
    all.push(e);
@@ -169,16 +169,18 @@ async function teamHistory(slug:string,id:string,currentSeason:number,errors:str
  const allUrl=SITE+"/all/teams/"+id+"/schedule";
  try{
   const r=await cached("sched:all:"+id,()=>getJson(allUrl));
+  diagnostics.push({url:allUrl,keys:Object.keys(r.json||{}),arrays:Object.fromEntries(Object.entries(r.json||{}).filter(([,v])=>Array.isArray(v)).map(([k,v]:any)=>[k,v.length]))});
   add(Array.isArray(r.json?.events)?r.json.events:[],allUrl,r.retrievedAt);
  }catch(e:any){errors.push("schedule:all:"+id+":"+String(e?.message||e));}
  for(const season of [currentSeason,currentSeason-1,currentSeason-2]){
   const url=SITE+"/"+slug+"/teams/"+id+"/schedule?season="+season;
   try{
    const r=await cached("sched:"+slug+":"+id+":"+season,()=>getJson(url));
+   diagnostics.push({url,keys:Object.keys(r.json||{}),arrays:Object.fromEntries(Object.entries(r.json||{}).filter(([,v])=>Array.isArray(v)).map(([k,v]:any)=>[k,v.length]))});
    add(Array.isArray(r.json?.events)?r.json.events:[],url,r.retrievedAt);
   }catch(e:any){errors.push("schedule:"+slug+":"+id+":"+season+":"+String(e?.message||e));}
  }
- return {events:all,sourceBySeason,meta};
+ return {events:all,sourceBySeason,meta,diagnostics};
 }
 
 async function main(){
@@ -247,6 +249,7 @@ async function main(){
    fixtureId:String(f.fixtureId),fixture:f,matched:true,matchConfidence:Number(matched.score.toFixed(3)),
    providerEventId:String(e?.id||""),leagueId,leagueSlug:slug,
    providerTeams:{home:{id:homeId,name:teamName(h)},away:{id:awayId,name:teamName(a)}},season:e?.season||null,
+   historyDiagnostics:{home:homeHistory.diagnostics,away:awayHistory.diagnostics},
    categories:{
     form:{complete:formOk,homeOverall,homeVenue,awayOverall,awayVenue},
     standings:{complete:standingsOk,homeTeam:homeStanding,awayTeam:awayStanding},
