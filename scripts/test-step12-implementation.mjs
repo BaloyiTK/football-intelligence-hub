@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import {spawnSync} from "node:child_process";
 import ts from "typescript";
 
-const tsFiles=["scripts/fixture-eligibility.ts","scripts/step12-prepare.ts","scripts/daily-run-ledger.ts","scripts/continuation-controller.ts","scripts/research-canonical.ts","scripts/hybrid-research-prefill.ts","scripts/research-prefill-import.ts"];
+const tsFiles=["scripts/fixture-eligibility.ts","scripts/step12-prepare.ts","scripts/daily-run-ledger.ts","scripts/continuation-controller.ts","scripts/research-canonical.ts","scripts/hybrid-research-prefill.ts","scripts/fotmob-prefill-augment.ts","scripts/research-prefill-import.ts"];
 for(const file of tsFiles){
   const source=fs.readFileSync(file,"utf8");
   const r=ts.transpileModule(source,{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.ESNext},reportDiagnostics:true,fileName:file});
@@ -18,6 +18,7 @@ for(const file of ["api/_fih-auth.js","api/backtest-ingest.js","scripts/step12-c
 const auth=fs.readFileSync("api/_fih-auth.js","utf8");
 const command=fs.readFileSync("scripts/step12-command-runner.mjs","utf8");
 const continuation=fs.readFileSync("scripts/continuation-controller.ts","utf8");
+const fotmobPrefill=fs.readFileSync("scripts/fotmob-prefill-augment.ts","utf8");
 const step12Workflow=fs.readFileSync(".github/workflows/fih-step12-command.yml","utf8");
 const recoveryWorkflow=fs.readFileSync(".github/workflows/fih-daily-reliability-watchdog.yml","utf8");
 const step12Prepare=fs.readFileSync("scripts/step12-prepare.ts","utf8");
@@ -36,8 +37,15 @@ assert.match(command,/for\(const item of plan\.dates\)/);
 assert.match(command,/\/api\/backtest-ingest\?date=/);
 assert.match(command,/STEP2_HYBRID_PREFILL_READY/);
 assert.match(command,/STEP2_HYBRID_HANDOFF_REQUIRED/);
+assert.match(command,/fotmob-prefill-augment/);
+assert.match(command,/FOTMOB_PREFILL_AUGMENT_FAILED_CONTINUING_WITH_ESPN/);
 assert.doesNotMatch(command,/step2-autonomous-runner/);
 assert.doesNotMatch(command,/FIH_RESEARCH_BASE_URL/);
+assert.match(fotmobPrefill,/data\/research-queue/);
+assert.match(fotmobPrefill,/validateResearchArtifact/);
+assert.match(fotmobPrefill,/FOTMOB_PUBLIC_SOURCE_FACTS_VERIFIED/);
+assert.match(fotmobPrefill,/fixtureKickoffMs/);
+assert.doesNotMatch(fotmobPrefill,/max_matches|collect_prediction_data|get_todays_matches/);
 
 assert.match(ingest,/decodeGithubContentsFile/);
 assert.match(ingest,/file\.git_url/);

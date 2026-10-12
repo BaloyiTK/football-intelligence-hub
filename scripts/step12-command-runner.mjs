@@ -66,7 +66,11 @@ for(const item of plan.dates){
  console.log("STEP12_DATE_BEGIN",date,mode);
  const step1=await acquire(date,mode);
  tsx("scripts/step12-prepare.ts","--date",date,"--mode",mode);
- if(mode==="PREDICTION")tsx("scripts/hybrid-research-prefill.ts","--date",date);
+ if(mode==="PREDICTION"){
+  tsx("scripts/hybrid-research-prefill.ts","--date",date);
+  try{tsx("scripts/fotmob-prefill-augment.ts","--date",date);}
+  catch(e){console.warn("FOTMOB_PREFILL_AUGMENT_FAILED_CONTINUING_WITH_ESPN",String(e?.message||e));}
+ }
  const q=JSON.parse(fs.readFileSync(path.join(ROOT,"data/research-queue",date+".json"),"utf8"));
  commitPreparation(date);
  const prefill=mode==="PREDICTION"?JSON.parse(fs.readFileSync(path.join(ROOT,"data/research-prefill",date+".json"),"utf8")):null;
