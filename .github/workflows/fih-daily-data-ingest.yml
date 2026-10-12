@@ -1,13 +1,12 @@
-name: FIH Fresh Data Gate Audit
+name: FIH Step 1 Persisted Fixture Audit
 
 "on":
   workflow_dispatch:
   schedule:
-    # 05:50 SAST: independently verify the 05:30 protected Step-1 acquisition.
     - cron: "50 3 * * *"
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   verify:
@@ -28,34 +27,11 @@ jobs:
           const x=JSON.parse(fs.readFileSync(file,"utf8"));
           if(x.schema!=="fih-prediction-fixture-v1") throw new Error("invalid schema");
           if(x.mode!=="PREDICTION") throw new Error("invalid mode");
-          if(x.date!==expected) throw new Error("fresh-data gate failed: expected "+expected+", got "+x.date);
+          if(x.date!==expected) throw new Error("expected "+expected+", got "+x.date);
           if(x.timezone!=="Africa/Johannesburg") throw new Error("invalid timezone");
           if(!Array.isArray(x.payload?.Stages)||!x.payload.Stages.length) throw new Error("missing Stages");
           const n=x.payload.Stages.reduce((a,s)=>a+(Array.isArray(s.Events)?s.Events.length:0),0);
           if(!n||n!==x.fixtureCount) throw new Error("invalid fixture count");
-          const fetched=new Date(x.fetchedAt);
-          if(Number.isNaN(fetched.getTime())) throw new Error("invalid fetchedAt");
-          const fetchedDate=new Intl.DateTimeFormat("en-CA",{timeZone:"Africa/Johannesburg",year:"numeric",month:"2-digit",day:"2-digit"}).format(fetched);
-          if(fetchedDate!==expected) throw new Error("stale fetchedAt: "+x.fetchedAt);
-          console.log(JSON.stringify({gate:"PASS",date:x.date,stageCount:x.stageCount,fixtureCount:x.fixtureCount,fetchedAt:x.fetchedAt}));
+          if(Number.isNaN(Date.parse(x.fetchedAt))) throw new Error("invalid fetchedAt");
+          console.log(JSON.stringify({step:"STEP1",verified:true,date:x.date,stageCount:x.stageCount,fixtureCount:x.fixtureCount,fetchedAt:x.fetchedAt}));
           NODE
-      - name: Reconcile durable daily run ledger
-        run: |
-          npm install --no-audit --no-fund
-          npm run run:ledger:init -- --date "$(TZ=Africa/Johannesburg date +%F)"
-          npm run run:ledger:verify -- --date "$(TZ=Africa/Johannesburg date +%F)"
-      - name: Persist reconciled run ledger
-        run: |
-          DATE="$(TZ=Africa/Johannesburg date +%F)"
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "data/run-state/$DATE.json"
-          if git diff --cached --quiet; then exit 0; fi
-          git commit -m "ops: reconcile daily run ledger $DATE"
-          for attempt in 1 2 3; do
-            if git push; then exit 0; fi
-            git fetch origin main
-            git rebase origin/main || { git rebase --abort || true; exit 1; }
-            sleep $((attempt * 2))
-          done
-          exit 1

@@ -1,13 +1,16 @@
 # Football Intelligence Hub
 
-Football fixture acquisition, ChatGPT-owned source-backed research, and deterministic probability analysis.
+FIH is currently reset to a single active step.
 
-## Pipeline
+## Step 1 — Fixture acquisition
 
-Step 1: Vercel + LiveScore fixture acquisition -> GitHub persistence/verification.
+Step 1:
 
-Step 2: ChatGPT consumes the frozen fixture queue, bulk-researches reusable competition/team/team-pair evidence, assembles and independently validates each fixture, then runs targeted gap repair only where needed -> validated working accumulator -> one canonical research commit after N/N.
+- resolves the requested date in Africa/Johannesburg time;
+- fetches soccer fixtures from LiveScore via RapidAPI through the configured Vercel endpoint;
+- commits one canonical fixture file per date to GitHub;
+- re-reads the committed file and verifies date, mode, structure, and fixture count.
 
-Step 3+: normalized team evidence -> FIH model -> probabilities -> decisions/predictions.
+That verified fixture commit is the end of the active workflow.
 
-Vercel is not a Step-2 research engine. Vercel AI Gateway and repository-hosted language-model research workers are forbidden substitutes for ChatGPT Step-2 web research.
+There is currently no Step 2 or later research/model/prediction pipeline.
