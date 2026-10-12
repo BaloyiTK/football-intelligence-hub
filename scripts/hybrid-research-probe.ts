@@ -98,7 +98,17 @@ async function main(){
  const ymd=DATE.replaceAll("-","");
  const scoreboard=await getJson(BASE+"/scoreboard?dates="+ymd+"&limit=1000");
  const events=Array.isArray(scoreboard.json?.events)?scoreboard.json.events:[];
- const selected=queue.fixtures.slice(0,LIMIT);
+ const preferred=["LaLiga","Serie A","Süper Lig","Primeira Liga","AFC Champions League Elite"];
+ const selected:any[]=[];
+ for(const competition of preferred){
+  for(const f of queue.fixtures.filter((x:any)=>x.competition===competition).slice(0,2)){
+   if(selected.length<LIMIT&&!selected.some(x=>String(x.fixtureId)===String(f.fixtureId)))selected.push(f);
+  }
+ }
+ for(const f of queue.fixtures){
+  if(selected.length>=LIMIT)break;
+  if(!selected.some(x=>String(x.fixtureId)===String(f.fixtureId)))selected.push(f);
+ }
  const results:any[]=[];
  for(const f of selected){
   const matched=bestFixtureEvent(f,events);
