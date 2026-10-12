@@ -5,6 +5,7 @@ name: FIH Hybrid Prefill Acceptance
     branches: [main]
     paths:
       - "scripts/hybrid-research-prefill.ts"
+      - "scripts/soccerway-hybrid-prefill.ts"
       - "scripts/research-prefill-import.ts"
       - ".github/workflows/fih-hybrid-prefill-acceptance.yml"
   workflow_dispatch:
@@ -22,6 +23,10 @@ jobs:
         with:
           node-version: 22
       - run: npm install --no-audit --no-fund
+      - name: Install deterministic browser fallback
+        run: |
+          npm install --no-save playwright
+          npx playwright install chromium
       - name: Resolve current SAST date
         run: |
           echo "FIH_DATE=$(TZ=Africa/Johannesburg date +%F)" >> "$GITHUB_ENV"
