@@ -1,0 +1,32 @@
+name: FIH Soccerway Source Probe
+
+"on":
+  pull_request:
+    branches: [main]
+    paths:
+      - "scripts/soccerway-source-probe.ts"
+      - ".github/workflows/fih-soccerway-source-probe.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+      - name: Probe Soccerway sitemap access
+        run: npx tsx scripts/soccerway-source-probe.ts
+      - name: Upload probe
+        uses: actions/upload-artifact@v4
+        with:
+          name: fih-soccerway-source-probe
+          path: data/research-probe/*-soccerway.json
+          if-no-files-found: error
+          retention-days: 3
