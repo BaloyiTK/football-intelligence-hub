@@ -20,8 +20,8 @@
       "requirement": "Step 2 custom xG may run only for a date that already has a verified Step 1 fixture file in GitHub."
     },
     "STEP2-002": {
-      "kind": "sofascore-data",
-      "requirement": "The Step 2 pilot uses SofaScore public JSON for that date's scheduled events, each selected team's recent finished matches, and event head-to-head history."
+      "kind": "livescore-data",
+      "requirement": "The Step 2 pilot uses the existing LiveScore RapidAPI subscription through the secured FIH Vercel integration for each selected event's pregame form and head-to-head history."
     },
     "STEP2-003": {
       "kind": "custom-xg",
@@ -29,7 +29,7 @@
     },
     "STEP2-004": {
       "kind": "pilot-limit",
-      "requirement": "Until explicitly expanded, the Step 2 pilot processes at most 15 SofaScore scheduled events per run."
+      "requirement": "Until explicitly expanded, the Step 2 pilot processes at most 15 verified Step 1 LiveScore fixtures per run."
     },
     "STEP2-005": {
       "kind": "persistence",
@@ -54,8 +54,10 @@
         ]
       }
     },
-    "sofascore": {
-      "baseUrl": "https://api.sofascore.com/api/v1",
+    "liveScoreStep2": {
+      "provider": "LiveScore via RapidAPI",
+      "pregameFormPath": "/matches/v2/get-pregame-form",
+      "h2hPath": "/matches/v2/get-h2h",
       "step2PilotMaxMatches": 15,
       "outputDirectory": "data/step2-xg"
     }
