@@ -24,7 +24,7 @@ async function getJson(url:string){
   for(let i=1;i<=3;i++){
    const c=new AbortController(),t=setTimeout(()=>c.abort(),15000);
    try{
-    const r=await fetch(candidate,{signal:c.signal,headers:{accept:"application/json","user-agent":"Mozilla/5.0 (compatible; FootballIntelligenceHub/0.1)",referer:"https://www.sofascore.com/"}});
+    const r=await fetch(candidate,{signal:c.signal,headers:{accept:"application/json","accept-language":"en-US,en;q=0.9","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",referer:"https://www.sofascore.com/"}});
     if(r.ok)return {url:candidate,json:await r.json(),retrievedAt:new Date().toISOString()};
     last=new Error("HTTP_"+r.status);
     if(r.status===401||r.status===403||r.status===404)break;
