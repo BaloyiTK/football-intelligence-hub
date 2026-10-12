@@ -4,6 +4,7 @@ name: FIH Soccerway Discovery Probe
     branches: [main]
     paths:
       - "scripts/soccerway-discovery-probe.ts"
+      - "scripts/soccerway-browser-probe.ts"
       - ".github/workflows/fih-soccerway-discovery-probe.yml"
   workflow_dispatch:
 permissions:
@@ -17,7 +18,13 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - run: npm install --no-audit --no-fund
+      - name: Install browser probe dependency
+        run: |
+          npm install --no-save playwright
+          npx playwright install chromium
       - name: Resolve date
         run: echo "FIH_DATE=$(TZ=Africa/Johannesburg date +%F)" >> "$GITHUB_ENV"
       - name: Probe Soccerway discovery
         run: npx tsx scripts/soccerway-discovery-probe.ts
+      - name: Probe rendered Soccerway evidence
+        run: npx tsx scripts/soccerway-browser-probe.ts
