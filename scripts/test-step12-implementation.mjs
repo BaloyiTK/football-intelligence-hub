@@ -37,7 +37,7 @@ assert.match(command,/for\(const item of plan\.dates\)/);
 assert.match(command,/\/api\/backtest-ingest\?date=/);
 assert.match(command,/STEP2_HYBRID_PREFILL_READY/);
 assert.match(command,/STEP2_HYBRID_HANDOFF_REQUIRED/);
-assert.match(command,/sofascore-prefill-augment/);
+assert.match(command,/fotmob-prefill-augment/);
 assert.match(command,/FOTMOB_PREFILL_AUGMENT_FAILED_CONTINUING_WITH_ESPN/);
 assert.doesNotMatch(command,/step2-autonomous-runner/);
 assert.doesNotMatch(command,/FIH_RESEARCH_BASE_URL/);
