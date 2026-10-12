@@ -1,4 +1,4 @@
-name: FIH Run Now - Step 1 + ChatGPT Queue
+name: FIH Run Now - Step 1 + Hybrid Research Prefill
 on:
   workflow_dispatch:
     inputs:
@@ -42,14 +42,16 @@ jobs:
             const token = await core.getIDToken('fih-step2')
             core.setSecret(token)
             core.setOutput('token', token)
-      - name: Fetch fixtures, verify GitHub persistence, freeze ChatGPT queue
+      - name: Fetch fixtures, verify GitHub persistence, freeze hybrid research queue
         env:
           FIH_TRUSTED_OIDC_TOKEN: ${{ steps.fih_oidc.outputs.token }}
         run: node scripts/step12-command-runner.mjs "run $FIH_DATE"
-      - name: Verify ChatGPT handoff
+      - name: Verify hybrid handoff
         run: |
           git fetch origin main
           git show "origin/main:data/research-queue/$FIH_DATE.json" >/tmp/research-queue.json
           git show "origin/main:data/run-state/$FIH_DATE.json" >/tmp/run-state.json
           git show "origin/main:data/recovery-requests/$FIH_DATE.json" >/tmp/recovery-request.json
-          node -e 'const q=require("/tmp/research-queue.json"),l=require("/tmp/run-state.json"),h=require("/tmp/recovery-request.json");if(q.executor!=="CHATGPT_WEB_SEARCH"||!q.researchRunId||q.researchRunId!==l.researchRunId||h.researchRunId!==q.researchRunId||h.runId!==l.runId||h.status!=="CHATGPT_RESEARCH_REQUIRED"||h.expectedFixtureCount!==q.count||q.count!==l.counts?.eligible||l.counts?.PENDING!==l.counts?.eligible)process.exit(1);console.log(JSON.stringify({verified:true,date:q.date,researchRunId:q.researchRunId,eligible:q.count,handoff:"CHATGPT_STEP2_REQUIRED",durableStatus:h.status}))'
+          git show "origin/main:data/research-prefill/$FIH_DATE.json" >/tmp/research-prefill.json
+          git show "origin/main:data/research-gap-queue/$FIH_DATE.json" >/tmp/research-gap-queue.json
+          node -e 'const q=require("/tmp/research-queue.json"),l=require("/tmp/run-state.json"),h=require("/tmp/recovery-request.json"),p=require("/tmp/research-prefill.json"),g=require("/tmp/research-gap-queue.json");if(q.executor!=="HYBRID_GITHUB_PREFILL_CHATGPT_GAPS"||!q.researchRunId||q.researchRunId!==l.researchRunId||h.researchRunId!==q.researchRunId||p.researchRunId!==q.researchRunId||g.researchRunId!==q.researchRunId||h.status!=="CHATGPT_RESEARCH_REQUIRED"||h.expectedFixtureCount!==q.count||p.fixtureCount!==q.count||g.count>q.count)process.exit(1);console.log(JSON.stringify({verified:true,date:q.date,researchRunId:q.researchRunId,eligible:q.count,prefilled:p.summary.fullyValidatedFixtures,gaps:g.count,handoff:"CHATGPT_GAP_RESEARCH_REQUIRED",durableStatus:h.status}))'

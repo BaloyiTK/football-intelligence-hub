@@ -39,15 +39,25 @@ async function acquire(date,mode){
 function commitPreparation(date){
  git(["config","user.name","fih-runner"]);git(["config","user.email","actions@users.noreply.github.com"]);
  const paths=["data/run-state/"+date+".json","data/research-queue/"+date+".json","data/recovery-requests/"+date+".json"];
+ for(const rel of ["data/research-prefill/"+date+".json","data/research-gap-queue/"+date+".json"]){
+  if(fs.existsSync(path.join(ROOT,rel)))paths.push(rel);
+ }
  git(["add","--",...paths]);
  if(git(["diff","--cached","--name-only"]))git(["commit","-m","step12: freeze "+date+" research universe"]);
  let p=spawnSync("git",["push","origin","HEAD:main"],{cwd:ROOT,encoding:"utf8"});
- if(p.status!==0){git(["pull","--rebase","origin","main"]);p=spawnSync("git",["push","origin","HEAD:main"],{cwd:ROOT,encoding:"utf8"});if(p.status!==0)throw new Error("STEP12_PREPARE_PUSH_FAILED "+date+" "+p.stderr)}
+ if(p.status!==0){
+  git(["pull","--rebase","origin","main"]);
+  p=spawnSync("git",["push","origin","HEAD:main"],{cwd:ROOT,encoding:"utf8"});
+  if(p.status!==0)throw new Error("STEP12_PREPARE_PUSH_FAILED "+date+" "+p.stderr);
+ }
  git(["fetch","origin","main"]);
  for(const rel of paths){
-  const local=JSON.parse(fs.readFileSync(path.join(ROOT,rel),"utf8")),remote=JSON.parse(git(["show","origin/main:"+rel]));
+  const local=JSON.parse(fs.readFileSync(path.join(ROOT,rel),"utf8"));
+  const remote=JSON.parse(git(["show","origin/main:"+rel]));
   if(local.researchRunId!==remote.researchRunId||local.date!==remote.date)throw new Error("STEP12_PREPARE_GITHUB_REREAD_MISMATCH "+rel);
   if(rel.startsWith("data/recovery-requests/")&&(remote.status!=="CHATGPT_RESEARCH_REQUIRED"||remote.expectedFixtureCount==null))throw new Error("STEP12_HANDOFF_GITHUB_REREAD_INVALID "+rel);
+  if(rel.startsWith("data/research-prefill/")&&(remote.schema!=="fih-hybrid-research-prefill-v1"||remote.researchRunId!==local.researchRunId))throw new Error("STEP12_PREFILL_GITHUB_REREAD_INVALID "+rel);
+  if(rel.startsWith("data/research-gap-queue/")&&(remote.schema!=="fih-chatgpt-gap-queue-v1"||remote.researchRunId!==local.researchRunId))throw new Error("STEP12_GAP_QUEUE_GITHUB_REREAD_INVALID "+rel);
  }
 }
 const results=[];
@@ -56,9 +66,16 @@ for(const item of plan.dates){
  console.log("STEP12_DATE_BEGIN",date,mode);
  const step1=await acquire(date,mode);
  tsx("scripts/step12-prepare.ts","--date",date,"--mode",mode);
+ if(mode==="PREDICTION")tsx("scripts/hybrid-research-prefill.ts","--date",date);
  const q=JSON.parse(fs.readFileSync(path.join(ROOT,"data/research-queue",date+".json"),"utf8"));
  commitPreparation(date);
- results.push({date,mode,step1Commit:step1.commit,fixtureCount:step1.fixtureCount,researchRunId:q.researchRunId,researchCount:q.count,status:"STEP2_CHATGPT_QUEUE_READY"});
- console.log("STEP12_CHATGPT_HANDOFF_REQUIRED",date,mode,q.researchRunId,q.count);
+ const prefill=mode==="PREDICTION"?JSON.parse(fs.readFileSync(path.join(ROOT,"data/research-prefill",date+".json"),"utf8")):null;
+ const gaps=mode==="PREDICTION"?JSON.parse(fs.readFileSync(path.join(ROOT,"data/research-gap-queue",date+".json"),"utf8")):null;
+ results.push({
+  date,mode,step1Commit:step1.commit,fixtureCount:step1.fixtureCount,researchRunId:q.researchRunId,researchCount:q.count,
+  prefilled:prefill?.summary?.fullyValidatedFixtures||0,gaps:gaps?.count??q.count,
+  status:mode==="PREDICTION"?"STEP2_HYBRID_PREFILL_READY":"STEP2_CHATGPT_QUEUE_READY"
+ });
+ console.log(mode==="PREDICTION"?"STEP2_HYBRID_HANDOFF_REQUIRED":"STEP12_CHATGPT_HANDOFF_REQUIRED",date,mode,q.researchRunId,q.count);
 }
-console.log(JSON.stringify({ok:true,command,start:plan.start,end:plan.end,dates:results,status:"STEP1_COMPLETE_STEP2_CHATGPT_HANDOFF_REQUIRED"},null,2));
+console.log(JSON.stringify({ok:true,command,start:plan.start,end:plan.end,dates:results,status:"STEP1_COMPLETE_STEP2_HYBRID_HANDOFF_REQUIRED"},null,2));

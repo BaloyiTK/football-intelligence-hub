@@ -4,7 +4,7 @@ const read=(p:string)=>fs.readFileSync(p,"utf8");
 const fail=(m:string):never=>{throw new Error("STEP3_WIRING_LOCK_FAILED: "+m)};
 
 const rules=JSON.parse(read("config/fih-execution-rules.json"));
-for(const id of ["MODEL-001","MODEL-002","MODEL-003","MODEL-004","MODEL-005","MODEL-006","MODEL-007","MODEL-008","MODEL-009","MODEL-010","MODEL-011","MODEL-012","MODEL-013","MODEL-014","MODEL-015","RESEARCH-016","RESEARCH-017","RESEARCH-018","RESEARCH-019","RESEARCH-020","RESEARCH-021","RESEARCH-022","RESEARCH-023","RESEARCH-024","RESEARCH-026"]){
+for(const id of ["MODEL-001","MODEL-002","MODEL-003","MODEL-004","MODEL-005","MODEL-006","MODEL-007","MODEL-008","MODEL-009","MODEL-010","MODEL-011","MODEL-012","MODEL-013","MODEL-014","MODEL-015","RESEARCH-016","RESEARCH-017","RESEARCH-018","RESEARCH-019","RESEARCH-020","RESEARCH-021","RESEARCH-022","RESEARCH-023","RESEARCH-024","RESEARCH-026","RESEARCH-027"]){
   if(!rules.rules?.[id]?.requirement)fail("missing rule "+id);
 }
 
@@ -110,16 +110,16 @@ if(!cycle.includes('tsx("scripts/step3-input-gate.ts","--date",DATE)'))fail("dai
 for(const id of ["MODEL-001","MODEL-002","MODEL-003","MODEL-004","MODEL-014","MODEL-015"])if(!cycle.includes(id))fail("daily cycle gate missing "+id);
 
 const continuation=read("scripts/continuation-controller.ts");
-for(const token of ["STEP2_CHATGPT_HANDOFF_REQUIRED","RESEARCH-019","RESEARCH-004","INFRA-003"]) if(!continuation.includes(token)) fail("continuation controller missing ChatGPT Step 2 handoff "+token);
+for(const token of ["STEP2_HYBRID_HANDOFF_REQUIRED","RESEARCH-019","RESEARCH-004","RESEARCH-027","INFRA-003"]) if(!continuation.includes(token)) fail("continuation controller missing hybrid Step 2 handoff "+token);
 if(continuation.includes("scripts/step2-autonomous-runner.ts"))fail("hosted/autonomous Step 2 executor reintroduced");
 if(fs.existsSync("api/research-fixture.js")||fs.existsSync("api/step2-research.js")||fs.existsSync("scripts/step2-autonomous-runner.ts"))fail("hosted Step 2 AI research path reintroduced");
 
 const workflow=read(".github/workflows/fih-run-now.yml");
 for(const token of [
   "scripts/step12-command-runner.mjs",
-  "Verify ChatGPT handoff",
-  "CHATGPT_STEP2_REQUIRED"
-]) if(!workflow.includes(token))fail("run-now Step 1/ChatGPT handoff workflow missing "+token);
+  "Verify hybrid handoff",
+  "HYBRID_GITHUB_PREFILL_CHATGPT_GAPS"
+]) if(!workflow.includes(token))fail("run-now Step 1/hybrid handoff workflow missing "+token);
 for(const forbidden of ["npm run run:daily","daily-model-runner","daily-decision-runner","step2-autonomous-runner","research-fixture"])
   if(workflow.includes(forbidden))fail("run-now workflow crossed Step 1/ChatGPT handoff boundary: "+forbidden);
 if(workflow.includes("ACTIVE_RESEARCH_RUN_REUSE_FROZEN_BOARD"))fail("stale fixture-board reuse reintroduced");
@@ -128,5 +128,5 @@ console.log(JSON.stringify({
   ok:true,
   lock:"STEP2_TO_STEP3_VERIFIED_LINEAGE",
   actualCaptureLock:true,
-  rules:["MODEL-001","MODEL-002","MODEL-003","MODEL-004","MODEL-005","MODEL-006","MODEL-007","MODEL-008","MODEL-009","MODEL-010","MODEL-011","MODEL-012","MODEL-013","MODEL-014","MODEL-015","RESEARCH-016","RESEARCH-017","RESEARCH-018","RESEARCH-019","RESEARCH-020","RESEARCH-021","RESEARCH-022","RESEARCH-023","RESEARCH-024","RESEARCH-026"]
+  rules:["MODEL-001","MODEL-002","MODEL-003","MODEL-004","MODEL-005","MODEL-006","MODEL-007","MODEL-008","MODEL-009","MODEL-010","MODEL-011","MODEL-012","MODEL-013","MODEL-014","MODEL-015","RESEARCH-016","RESEARCH-017","RESEARCH-018","RESEARCH-019","RESEARCH-020","RESEARCH-021","RESEARCH-022","RESEARCH-023","RESEARCH-024","RESEARCH-026","RESEARCH-027"]
 },null,2));
