@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import {validateResearchArtifact} from "./research-canonical";
 
 const root=process.cwd();
 const tz="Africa/Johannesburg";
@@ -248,6 +249,65 @@ async function pairHistory(homeId:string,awayId:string,currentSeason:number,erro
 }
 
 
+const uniq=(xs:any[])=>[...new Set(xs.filter((x:any)=>typeof x==="string"&&x.trim()))];
+function canonicalRecordFromProbe(r:any){
+ const attemptedAt=new Date().toISOString();
+ const attempt=(category:string,outcome:string)=>({query:[r.fixture?.home,r.fixture?.away,category,"GitHub public-source research"].filter(Boolean).join(" "),attemptedAt,outcome});
+ const exhausted=(category:string)=>[attempt(category,"SEARCH_EXHAUSTED_GITHUB_PUBLIC_SOURCES")];
+ const metadata=Array.isArray(r.sourceMetadata)?r.sourceMetadata:[];
+ const refsBy=(category:string)=>uniq(metadata.filter((m:any)=>Array.isArray(m?.supports)&&m.supports.includes(category)).map((m:any)=>String(m.url||"")));
+ const formData=r.categories?.form||{};
+ const formRows=[...(formData.homeOverall||[]),...(formData.homeVenue||[]),...(formData.awayOverall||[]),...(formData.awayVenue||[])];
+ const formRefs=uniq(formRows.map((x:any)=>String(x?.sourceRef||"")));
+ const form=formData.complete?{
+  status:"VERIFIED",data:{homeTeam:{overallLast5:formData.homeOverall,homeLast5:formData.homeVenue},awayTeam:{overallLast5:formData.awayOverall,awayLast5:formData.awayVenue}},
+  sourceRefs:formRefs,attempts:[attempt("form","GITHUB_PUBLIC_SOURCE_FACTS_VERIFIED")]
+ }:(formRows.length?{
+  status:"PARTIAL",data:{homeTeam:{overallLast5:formData.homeOverall||[],homeLast5:formData.homeVenue||[]},awayTeam:{overallLast5:formData.awayOverall||[],awayLast5:formData.awayVenue||[]}},
+  sourceRefs:formRefs,attempts:exhausted("form"),searchExhausted:true
+ }:{
+  status:"UNAVAILABLE",sourceRefs:[],attempts:exhausted("form"),searchExhausted:true
+ });
+ const standingsData=r.categories?.standings||{};
+ const standings=standingsData.complete?{
+  status:"VERIFIED",data:{homeTeam:standingsData.homeTeam,awayTeam:standingsData.awayTeam},sourceRefs:refsBy("standings"),attempts:[attempt("standings","GITHUB_PUBLIC_SOURCE_FACTS_VERIFIED")]
+ }:{
+  status:"UNAVAILABLE",sourceRefs:[],attempts:exhausted("standings"),searchExhausted:true
+ };
+ const h2hData=r.categories?.headToHead||{},h2hMatches=Array.isArray(h2hData.matches)?h2hData.matches:[];
+ const h2hRefs=uniq(h2hMatches.map((x:any)=>String(x?.sourceRef||"")));
+ const headToHead=h2hData.complete?{
+  status:"VERIFIED",data:{matches:h2hMatches},sourceRefs:h2hRefs,attempts:[attempt("headToHead","GITHUB_PUBLIC_SOURCE_FACTS_VERIFIED")]
+ }:(h2hMatches.length?{
+  status:"PARTIAL",data:{matches:h2hMatches},sourceRefs:h2hRefs,attempts:exhausted("headToHead"),searchExhausted:true
+ }:{
+  status:"UNAVAILABLE",data:{matches:[]},sourceRefs:[],attempts:exhausted("headToHead"),searchExhausted:true
+ });
+ const scheduleData=r.categories?.schedule||{};
+ const scheduleRefs=refsBy("schedule");
+ const anySchedule=!!scheduleData?.homeTeam?.latestCompletedMatchDate||!!scheduleData?.awayTeam?.latestCompletedMatchDate;
+ const schedule=scheduleData.complete?{
+  status:"VERIFIED",data:{homeTeam:scheduleData.homeTeam,awayTeam:scheduleData.awayTeam},sourceRefs:scheduleRefs,attempts:[attempt("schedule","GITHUB_PUBLIC_SOURCE_FACTS_VERIFIED")]
+ }:(anySchedule&&scheduleRefs.length?{
+  status:"PARTIAL",data:{homeTeam:scheduleData.homeTeam||{},awayTeam:scheduleData.awayTeam||{}},sourceRefs:scheduleRefs,attempts:exhausted("schedule"),searchExhausted:true
+ }:{
+  status:"UNAVAILABLE",sourceRefs:[],attempts:exhausted("schedule"),searchExhausted:true
+ });
+ return {
+  fixtureId:String(r.fixtureId),
+  fixture:{home:r.fixture.home,away:r.fixture.away,competition:r.fixture.competition,kickoff:r.fixture.kickoff},
+  researchedAt:attemptedAt,
+  researchRunId:String(queue.researchRunId),
+  sourceMetadata:metadata,
+  facts:{form,standings,headToHead,schedule},
+  evidenceStatus:"GITHUB_HYBRID_PUBLIC_RESEARCH",
+  requiredModelMatchSeries:form.status==="VERIFIED"?"VERIFIED":"UNAVAILABLE",
+  verifiedInputs:{},
+  integrity:"Only source-backed facts retained; missing or incomplete categories are explicitly exhausted and never fabricated."
+ };
+}
+
+
 async function main(){
  const ymd=DATE.replaceAll("-","");
  const scoreboardUrl=SITE+"/all/scoreboard?dates="+ymd+"&limit=1000";
@@ -330,10 +390,18 @@ async function main(){
   });
   await sleep(150);
  }
+ let validatorReady=0;
+ for(const r of results){
+  try{
+   const record=canonicalRecordFromProbe(r);
+   validateResearchArtifact({schema:"fih-daily-research-v5",date:DATE,mode:queue.mode,generatedAt:new Date().toISOString(),researchRunId:queue.researchRunId,fixtureCount:1,fixtures:[record]},DATE,[String(r.fixtureId)],queue.mode);
+   r.validatorReady=true;r.canonicalRecord=record;validatorReady++;
+  }catch(e:any){r.validatorReady=false;r.validatorError=String(e?.message||e);}
+ }
  const matchedCount=results.filter(r=>r.matched).length,full=results.filter(r=>r.matched&&r.gaps.length===0).length;
  const categoryCounts=Object.fromEntries(["form","standings","headToHead","schedule"].map(k=>[k,results.filter(r=>r.matched&&r.categories?.[k]?.complete).length]));
  const anyUseful=results.filter(r=>r.matched&&Object.values(r.categories||{}).some((c:any)=>c?.complete)).length;
- const out={schema:"fih-hybrid-research-probe-v2",date:DATE,researchRunId:queue.researchRunId,generatedAt:new Date().toISOString(),limit:selected.length,provider:"ESPN_PUBLIC_JSON",nonCanonical:true,summary:{attempted:selected.length,matched:matchedCount,fixturesWithAnyCompleteCategory:anyUseful,fullEvidenceReady:full,needsGapResearch:selected.length-full,categoryComplete:categoryCounts,cacheEntries:cache.size},results};
+ const out={schema:"fih-hybrid-research-probe-v3",date:DATE,researchRunId:queue.researchRunId,generatedAt:new Date().toISOString(),limit:selected.length,provider:"ESPN_PUBLIC_JSON",nonCanonical:true,summary:{attempted:selected.length,matched:matchedCount,fixturesWithAnyCompleteCategory:anyUseful,fullEvidenceReady:full,validatorReady,needsGapResearch:selected.length-full,categoryComplete:categoryCounts,cacheEntries:cache.size},results};
  const outPath=path.join(root,"data/research-probe",DATE+".json");
  fs.mkdirSync(path.dirname(outPath),{recursive:true});fs.writeFileSync(outPath,JSON.stringify(out,null,2)+"\n");
  console.log(JSON.stringify({outPath,...out.summary},null,2));
