@@ -32,8 +32,8 @@ jobs:
       - name: Run deterministic prediction prefill sample
         run: npx tsx scripts/hybrid-research-prefill.ts --date "$FIH_DATE"
       - name: Snapshot ESPN baseline
-        run: cp "data/research-prefill/$FIH_DATE.json" /tmp/fih-prefill-before-sofa.json
-      - name: Augment deterministic prefill with SofaScore
+        run: cp "data/research-prefill/$FIH_DATE.json" /tmp/fih-prefill-before-fotmob.json
+      - name: Augment deterministic prefill with FotMob
         run: npx tsx scripts/fotmob-prefill-augment.ts --date "$FIH_DATE"
       - name: Verify prefill and gap artifacts
         run: |
@@ -42,7 +42,7 @@ jobs:
           const d=process.env.FIH_DATE;
           const p=JSON.parse(fs.readFileSync("data/research-prefill/"+d+".json","utf8"));
           const g=JSON.parse(fs.readFileSync("data/research-gap-queue/"+d+".json","utf8"));
-          const before=JSON.parse(fs.readFileSync("/tmp/fih-prefill-before-sofa.json","utf8"));
+          const before=JSON.parse(fs.readFileSync("/tmp/fih-prefill-before-fotmob.json","utf8"));
           if(p.schema!=="fih-hybrid-research-prefill-v1"||g.schema!=="fih-chatgpt-gap-queue-v1"||p.researchRunId!==g.researchRunId||p.fixtureCount<1)throw new Error("HYBRID_ACCEPTANCE_IDENTITY_INVALID");
           if((p.summary?.matched||0)<1)throw new Error("HYBRID_ACCEPTANCE_NO_MATCHED_FIXTURES");
           if((p.summary?.fotmob?.matched||0)<1)throw new Error("FOTMOB_ACCEPTANCE_NO_MATCHED_FIXTURES");
