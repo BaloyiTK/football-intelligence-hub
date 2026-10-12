@@ -157,15 +157,25 @@ function standingRow(payload:any,id:string){
  };
 }
 async function teamHistory(slug:string,id:string,currentSeason:number,errors:string[]){
- const seasons=[currentSeason,currentSeason-1,currentSeason-2];
  const all:any[]=[],sourceBySeason=new Map<string,string>(),meta:any[]=[];
- for(const season of seasons){
+ const add=(events:any[],url:string,retrievedAt:string)=>{
+  for(const e of events){
+   all.push(e);
+   const sy=String(e?.season?.year||"");
+   if(sy&&!sourceBySeason.has(sy))sourceBySeason.set(sy,url);
+  }
+  if(events.length)meta.push({url,retrievedAt,supports:["form","headToHead","schedule"]});
+ };
+ const allUrl=SITE+"/all/teams/"+id+"/schedule";
+ try{
+  const r=await cached("sched:all:"+id,()=>getJson(allUrl));
+  add(Array.isArray(r.json?.events)?r.json.events:[],allUrl,r.retrievedAt);
+ }catch(e:any){errors.push("schedule:all:"+id+":"+String(e?.message||e));}
+ for(const season of [currentSeason,currentSeason-1,currentSeason-2]){
   const url=SITE+"/"+slug+"/teams/"+id+"/schedule?season="+season;
   try{
    const r=await cached("sched:"+slug+":"+id+":"+season,()=>getJson(url));
-   const ev=Array.isArray(r.json?.events)?r.json.events:[];
-   all.push(...ev);sourceBySeason.set(String(season),url);
-   meta.push({url,retrievedAt:r.retrievedAt,supports:["form","headToHead","schedule"]});
+   add(Array.isArray(r.json?.events)?r.json.events:[],url,r.retrievedAt);
   }catch(e:any){errors.push("schedule:"+slug+":"+id+":"+season+":"+String(e?.message||e));}
  }
  return {events:all,sourceBySeason,meta};
