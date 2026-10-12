@@ -29,6 +29,10 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - run: npm install --no-audit --no-fund
+      - name: Install deterministic browser fallback
+        run: |
+          npm install --no-save playwright
+          npx playwright install chromium
       - name: Resolve FIH command
         run: |
           set -euo pipefail

@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import {spawnSync} from "node:child_process";
 import ts from "typescript";
 
-const tsFiles=["scripts/fixture-eligibility.ts","scripts/step12-prepare.ts","scripts/daily-run-ledger.ts","scripts/continuation-controller.ts","scripts/research-canonical.ts","scripts/hybrid-research-prefill.ts","scripts/research-prefill-import.ts"];
+const tsFiles=["scripts/fixture-eligibility.ts","scripts/step12-prepare.ts","scripts/daily-run-ledger.ts","scripts/continuation-controller.ts","scripts/research-canonical.ts","scripts/hybrid-research-prefill.ts","scripts/soccerway-hybrid-prefill.ts","scripts/research-prefill-import.ts"];
 for(const file of tsFiles){
   const source=fs.readFileSync(file,"utf8");
   const r=ts.transpileModule(source,{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.ESNext},reportDiagnostics:true,fileName:file});
@@ -29,6 +29,8 @@ const agents=fs.readFileSync("AGENTS.md","utf8");
 const portable=fs.readFileSync("FIH_PORTABLE_COMMAND_CONTRACT.md","utf8");
 const rules=JSON.parse(fs.readFileSync("config/fih-execution-rules.json","utf8"));
 const ingest=fs.readFileSync("api/backtest-ingest.js","utf8");
+const hybridPrefill=fs.readFileSync("scripts/hybrid-research-prefill.ts","utf8");
+const soccerwayPrefill=fs.readFileSync("scripts/soccerway-hybrid-prefill.ts","utf8");
 
 assert.match(auth,/crypto\.verify/);
 assert.match(auth,/token\.actions\.githubusercontent\.com/);
@@ -38,6 +40,13 @@ assert.match(command,/STEP2_HYBRID_PREFILL_READY/);
 assert.match(command,/STEP2_HYBRID_HANDOFF_REQUIRED/);
 assert.doesNotMatch(command,/step2-autonomous-runner/);
 assert.doesNotMatch(command,/FIH_RESEARCH_BASE_URL/);
+assert.match(hybridPrefill,/applySoccerwayFallback/);
+assert.match(soccerwayPrefill,/SOCCERWAY="https:\/\/www\.soccerway\.com\/"|SOCCERWAY="https:\/\/www\.soccerway\.com\//);
+assert.match(soccerwayPrefill,/6100/);
+assert.match(soccerwayPrefill,/countryPath/);
+assert.match(soccerwayPrefill,/Latest Scores/);
+assert.match(soccerwayPrefill,/HEAD-TO-HEAD MATCHES|headToHead/);
+assert.doesNotMatch(soccerwayPrefill,/google\.com|bing\.com|duckduckgo\.com/);
 
 assert.match(ingest,/decodeGithubContentsFile/);
 assert.match(ingest,/file\.git_url/);
