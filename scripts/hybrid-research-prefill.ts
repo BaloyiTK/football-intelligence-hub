@@ -12,6 +12,7 @@ const LIMIT=Number.isFinite(LIMIT_RAW)&&LIMIT_RAW>0?Math.max(1,Math.min(5000,LIM
 const SITE="https://site.api.espn.com/apis/site/v2/sports/soccer";
 const DATA="https://site.api.espn.com/apis/v2/sports/soccer";
 const CORE="https://sports.core.api.espn.com/v2/sports/soccer/leagues";
+const SEARCH="https://site.web.api.espn.com/apis/search/v2";
 const queuePath=path.join(root,"data/research-queue",DATE+".json");
 if(!fs.existsSync(queuePath))throw new Error("HYBRID_PROBE_QUEUE_MISSING "+queuePath);
 const queue=JSON.parse(fs.readFileSync(queuePath,"utf8"));
@@ -24,6 +25,19 @@ function similarity(a:string,b:string){
  const A=new Set(normalize(a).split(" ").filter(Boolean)),B=new Set(normalize(b).split(" ").filter(Boolean));
  if(!A.size||!B.size)return 0; let hit=0; for(const x of A)if(B.has(x))hit++;
  return (2*hit)/(A.size+B.size);
+}
+async function getText(url:string){
+ let last:any;
+ for(let attempt=1;attempt<=2;attempt++){
+  const ctl=new AbortController(),timer=setTimeout(()=>ctl.abort(),15000);
+  try{
+   const r=await fetch(url,{signal:ctl.signal,redirect:"follow",headers:{"accept":"text/html,*/*;q=0.8","user-agent":"Mozilla/5.0 (compatible; FootballIntelligenceHub/0.1)"}});
+   if(r.ok)return {url:r.url,text:await r.text(),status:r.status,retrievedAt:new Date().toISOString()};
+   last=new Error("HTTP_"+r.status);
+  }catch(e){last=e}finally{clearTimeout(timer)}
+  await sleep(350*attempt);
+ }
+ throw new Error("PUBLIC_TEXT_FETCH_FAILED "+url+" "+String(last?.message||last));
 }
 async function getJson(url:string){
  let last:any;
@@ -41,6 +55,7 @@ async function getJson(url:string){
  throw new Error("ESPN_FETCH_FAILED "+url+" "+String(last?.message||last));
 }
 const cache=new Map<string,Promise<any>>();
+const searchDiagnostics:any[]=[];
 const cached=(key:string,fn:()=>Promise<any>)=>{if(!cache.has(key))cache.set(key,fn());return cache.get(key)!;};
 const comp=(e:any)=>Array.isArray(e?.competitions)?e.competitions[0]:null;
 const competitors=(e:any)=>Array.isArray(comp(e)?.competitors)?comp(e).competitors:[];
@@ -71,11 +86,19 @@ const COMPETITION_SLUGS=new Map<string,string>([
  ["eredivisie","ned.1"],
  ["mls","usa.1"],
  ["uefa champions league","uefa.champions"],
- ["uefa europa league","uefa.europa"]
+ ["uefa europa league","uefa.europa"],
+ ["singapore premier league","sgp.1"],["singaporean premier league","sgp.1"],
+ ["afc champions league elite","afc.champions"]
 ]);
 function inferredSlug(f:any,e:any){
  const direct=String(e?.league?.slug||comp(e)?.league?.slug||"");
  if(direct)return direct;
+ const linkObjects=[...(Array.isArray(e?.links)?e.links:[]),...(Array.isArray(comp(e)?.links)?comp(e).links:[])];
+ for(const link of linkObjects){
+  const href=String(link?.href||"");
+  const m=href.match(/\/soccer\/league\/_\/name\/([^/?#]+)/i)||href.match(/\/soccer\/([^/?#]+)\/(?:scoreboard|standings|schedule|team)/i);
+  if(m?.[1]&&m[1]!=="all")return m[1];
+ }
  const seasonSlug=normalize(String(e?.season?.slug||""));
  const seasonMap:[string,string][]=[
   ["laliga","esp.1"],["italian serie a","ita.1"],["turkish super lig","tur.1"],["portuguese primeira liga","por.1"],
@@ -178,7 +201,7 @@ async function teamHistory(slug:string,id:string,currentSeason:number,errors:str
   diagnostics.push({url:allUrl,keys:Object.keys(r.json||{}),arrays:Object.fromEntries(Object.entries(r.json||{}).filter(([,v])=>Array.isArray(v)).map(([k,v]:any)=>[k,v.length]))});
   add(Array.isArray(r.json?.events)?r.json.events:[],allUrl,r.retrievedAt);
  }catch(e:any){errors.push("schedule:all:"+id+":"+String(e?.message||e));}
- for(const season of [currentSeason,currentSeason-1,currentSeason-2]){
+ if(slug)for(const season of [currentSeason,currentSeason-1,currentSeason-2]){
   const url=SITE+"/"+slug+"/teams/"+id+"/schedule?season="+season;
   try{
    const r=await cached("sched:"+slug+":"+id+":"+season,()=>getJson(url));
@@ -265,6 +288,211 @@ async function expandEventPool(ymd:string,baseEvents:any[],leagueMap:Map<string,
 }
 
 
+
+function deepTeamIdentity(x:any){
+ let numericId="",leagueSlug="";const strings:string[]=[],seen=new Set<any>();
+ const visit=(v:any,key="")=>{
+  if(v===null||v===undefined)return;
+  if(typeof v==="string"){
+   strings.push(v);
+   const patterns=[/(?:^|~)t:(\d+)/i,/\/soccer\/team\/_\/id\/(\d+)/i,/\/teams?\/(\d+)(?:[/?#]|$)/i,/\bteam(?:Id|ID)?[=:"']+(\d{2,})\b/i];
+   for(const p of patterns){const m=v.match(p);if(m&&!numericId){numericId=m[1];break;}}
+   const lm=v.match(/\/soccer\/league\/_\/name\/([^/?#]+)/i)||v.match(/\/soccer\/([^/?#]+)\/(?:team|teams|scoreboard|standings|schedule)/i);
+   if(lm?.[1]&&lm[1]!=="all"&&!leagueSlug)leagueSlug=lm[1];
+   return;
+  }
+  if(typeof v==="number"&&/team.?id/i.test(key)&&Number.isInteger(v)&&v>0&&!numericId){numericId=String(v);return;}
+  if(typeof v!=="object"||seen.has(v))return;seen.add(v);
+  if(!numericId){
+   const uid=String(v.uid||"");const m=uid.match(/(?:^|~)t:(\d+)/i);if(m)numericId=m[1];
+   const direct=String(v.teamId||v.teamID||"");if(/^\d+$/.test(direct))numericId=direct;
+   const id=String(v.id||"");if(/^\d+$/.test(id)&&/team/i.test(String(v.type||v.typeName||v.category||"")))numericId=id;
+  }
+  if(!leagueSlug&&typeof v.slug==="string"&&/^[a-z0-9.-]+$/i.test(v.slug)&&String(v.slug)!=="all"&&/league/i.test(String(v.type||v.typeName||v.category||"")))leagueSlug=String(v.slug);
+  if(Array.isArray(v)){for(const y of v)visit(y,key);return;}
+  for(const [k,y] of Object.entries(v))visit(y,k);
+ };
+ visit(x);
+ return {numericId,leagueSlug,strings};
+}
+function searchTeamCandidates(payload:any,query:string){
+ const out:any[]=[],seen=new Set<string>(),visited=new Set<any>();
+ const visit=(x:any)=>{
+  if(!x||typeof x!=="object"||visited.has(x))return;visited.add(x);
+  if(Array.isArray(x)){for(const v of x)visit(v);return;}
+  const identity=deepTeamIdentity(x);
+  const uid=String(x.uid||x.team?.uid||"");
+  const id=identity.numericId;
+  const name=String(x.displayName||x.shortDisplayName||x.name||x.title||x.team?.displayName||x.team?.shortDisplayName||x.team?.name||"");
+  const hrefs=identity.strings.filter(s=>/^https?:\/\//i.test(s));
+  const teamLike=!!id||/~t:\d+/.test(uid)||hrefs.some(h=>/\/soccer\/team\//i.test(h)||/\/teams?\/\d+/i.test(h))||/team|club/i.test(String(x.type||x.typeName||x.category||""));
+  if(id&&name&&teamLike){
+   const leagueSlug=identity.leagueSlug||String(x.league?.slug||x.team?.league?.slug||"");
+   const s=similarity(query,name);
+   if(s>=.45&&!seen.has(id)){seen.add(id);out.push({id,name,uid,leagueSlug,score:s});}
+  }
+  for(const v of Object.values(x))if(v&&typeof v==="object")visit(v);
+ };
+ visit(payload);
+ return out.sort((a,b)=>b.score-a.score).slice(0,8);
+}
+async function searchTeam(name:string){
+ const key="search:"+normalize(name);
+ return cached(key,async()=>{
+  const urls=[
+   SEARCH+"?query="+encodeURIComponent(name)+"&sport=soccer&limit=50",
+   SEARCH+"?query="+encodeURIComponent(name)+"&limit=100"
+  ];
+  let last:any=null;
+  for(const url of urls){
+   try{
+    const r=await getJson(url),candidates=searchTeamCandidates(r.json,name);
+    if(searchDiagnostics.length<12)searchDiagnostics.push({name,url,topKeys:Object.keys(r.json||{}),candidateCount:candidates.length,candidates:candidates.slice(0,5).map((x:any)=>({id:x.id,name:x.name,score:Number(x.score.toFixed(3)),leagueSlug:x.leagueSlug||null}))});
+    last={url,retrievedAt:r.retrievedAt,candidates};
+    if(candidates.length)return last;
+   }catch(e:any){
+    if(searchDiagnostics.length<12)searchDiagnostics.push({name,url,error:String(e?.message||e)});
+   }
+  }
+  return last||{url:urls[urls.length-1],retrievedAt:new Date().toISOString(),candidates:[]};
+ });
+}
+function eventNearDate(e:any){
+ const t=Date.parse(String(eventDate(e)||""));
+ const target=Date.parse(DATE+"T12:00:00.000Z");
+ return Number.isFinite(t)&&Number.isFinite(target)&&Math.abs(t-target)<=36*60*60*1000;
+}
+function bestScheduledFixture(f:any,events:any[]){
+ let best:any=null,bestScore=0;
+ for(const e of events){
+  if(!eventNearDate(e))continue;
+  const h=side(e,"home"),a=side(e,"away");
+  const hs=similarity(f.home,teamName(h)),as=similarity(f.away,teamName(a));
+  const reversed=(similarity(f.home,teamName(a))+similarity(f.away,teamName(h)))/2;
+  const direct=(hs+as)/2;
+  const s=Math.max(direct,reversed*.75);
+  if(hs>=.55&&as>=.55&&s>bestScore){best=e;bestScore=s;}
+ }
+ return best?{event:best,score:bestScore}:null;
+}
+async function resolveFixtureViaTeamSearch(f:any){
+ const errors:string[]=[];
+ let hs:any=null,as:any=null;
+ try{hs=await searchTeam(f.home);}catch(e:any){errors.push("SEARCH_HOME:"+String(e?.message||e));}
+ try{as=await searchTeam(f.away);}catch(e:any){errors.push("SEARCH_AWAY:"+String(e?.message||e));}
+ const homeCandidates=Array.isArray(hs?.candidates)?hs.candidates.slice(0,4):[];
+ const awayCandidates=Array.isArray(as?.candidates)?as.candidates.slice(0,4):[];
+ const homeCandidate=homeCandidates.find((x:any)=>Number(x.score)>=.60)||null;
+ const awayCandidate=awayCandidates.find((x:any)=>Number(x.score)>=.60&&String(x.id)!==String(homeCandidate?.id||""))||null;
+ const awayIds=new Set(awayCandidates.map((x:any)=>String(x.id)));
+ for(const hc of homeCandidates){
+  for(const season of [Number(DATE.slice(0,4)),Number(DATE.slice(0,4))-1]){
+   const url=SITE+"/all/teams/"+hc.id+"/schedule?season="+season;
+   try{
+    const r=await cached("search-schedule:"+hc.id+":"+season,()=>getJson(url));
+    const evs=Array.isArray(r.json?.events)?r.json.events:[];
+    const m=bestScheduledFixture(f,evs);
+    if(!m)continue;
+    const eh=side(m.event,"home"),ea=side(m.event,"away");
+    const ids=new Set([teamId(eh),teamId(ea)]);
+    if(awayIds.size&&![...awayIds].some(id=>ids.has(id)))continue;
+    let slug=String(hc.leagueSlug||"");
+    if(!slug){
+     for(const l of Array.isArray(r.json?.leagues)?r.json.leagues:[])if(l?.slug){slug=String(l.slug);break;}
+    }
+    return {event:{...m.event,__fihLeagueSlug:slug,__fihScoreboardUrl:url,__fihScoreboardRetrievedAt:r.retrievedAt},score:m.score,homeCandidate,awayCandidate,errors,searchMeta:[
+     ...(hs?[{url:hs.url,retrievedAt:hs.retrievedAt,supports:["fixtureMatch"]}]:[]),
+     ...(as?[{url:as.url,retrievedAt:as.retrievedAt,supports:["fixtureMatch"]}]:[]),
+     {url,retrievedAt:r.retrievedAt,supports:["fixtureMatch","schedule"]}
+    ]};
+   }catch(e:any){errors.push("SEARCH_SCHEDULE:"+hc.id+":"+season+":"+String(e?.message||e));}
+  }
+ }
+ return {event:null,score:0,homeCandidate,awayCandidate,errors,searchMeta:[
+  ...(hs?[{url:hs.url,retrievedAt:hs.retrievedAt,supports:["fixtureMatch"]}]:[]),
+  ...(as?[{url:as.url,retrievedAt:as.retrievedAt,supports:["fixtureMatch"]}]:[])
+ ]};
+}
+
+
+function deepLeagueRefs(payload:any){
+ const out=new Set<string>(),seen=new Set<any>();
+ const visit=(v:any)=>{
+  if(v===null||v===undefined)return;
+  if(typeof v==="string"){
+   const patterns=[/\/soccer\/league\/_\/name\/([^/?#]+)/i,/\/leagues\/([^/?#]+)/i,/\/soccer\/([^/?#]+)\/(?:standings|scoreboard|schedule|teams)(?:[/?#]|$)/i];
+   for(const p of patterns){const m=v.match(p);if(m?.[1]&&m[1]!=="all")out.add(m[1]);}
+   return;
+  }
+  if(typeof v!=="object"||seen.has(v))return;seen.add(v);
+  if(Array.isArray(v)){for(const x of v)visit(x);return;}
+  for(const x of Object.values(v))visit(x);
+ };
+ visit(payload);
+ return [...out].filter(s=>/^[a-z0-9.-]{2,80}$/i.test(s));
+}
+
+const AMBIGUOUS_COMPETITIONS=new Set([
+ "premier league","super league","super liga","superliga","liga 1","serie a","ligue 1","primera division","1st league","1st division","2nd league","state cup","national league","primera c"
+]);
+function leagueCandidatesFromSearch(payload:any,query:string){
+ const out:any[]=[],seen=new Set<string>(),visited=new Set<any>();
+ const visit=(x:any)=>{
+  if(!x||typeof x!=="object"||visited.has(x))return;visited.add(x);
+  if(Array.isArray(x)){for(const v of x)visit(v);return;}
+  const name=String(x.displayName||x.shortDisplayName||x.name||x.title||"");
+  const strings:string[]=[];const collect=(v:any,depth=0)=>{
+   if(depth>4||v===null||v===undefined)return;
+   if(typeof v==="string"){strings.push(v);return;}
+   if(typeof v!=="object")return;
+   if(Array.isArray(v)){for(const y of v)collect(y,depth+1);return;}
+   for(const y of Object.values(v))collect(y,depth+1);
+  };collect(x);
+  let slug="";
+  for(const s of strings){
+   const m=s.match(/\/soccer\/league\/_\/name\/([^/?#]+)/i)||s.match(/\/soccer\/(?:standings|teams|schedule)\/_\/league\/([^/?#]+)/i);
+   if(m?.[1]&&m[1]!=="all"){slug=m[1];break;}
+  }
+  const sim=name?similarity(query,name):0;
+  if(slug&&name&&sim>=.55&&!seen.has(slug)){seen.add(slug);out.push({slug,name,score:sim});}
+  for(const v of Object.values(x))if(v&&typeof v==="object")visit(v);
+ };
+ visit(payload);
+ return out.sort((a,b)=>b.score-a.score);
+}
+async function resolveLeagueViaSearch(competition:string){
+ const n=normalize(competition);
+ if(!n||AMBIGUOUS_COMPETITIONS.has(n))return {slug:"",url:"",retrievedAt:""};
+ const url=SEARCH+"?query="+encodeURIComponent(competition)+"&sport=soccer&limit=50";
+ try{
+  const r=await cached("league-search:"+n,()=>getJson(url));
+  const candidates=leagueCandidatesFromSearch(r.json,competition);
+  return {slug:String(candidates[0]?.slug||""),url,retrievedAt:r.retrievedAt};
+ }catch{return {slug:"",url,retrievedAt:""};}
+}
+async function resolveLeagueViaTeamHtml(id:string){
+ const url="https://www.espn.com/soccer/team/_/id/"+encodeURIComponent(id);
+ try{
+  const r=await cached("team-html:"+id,()=>getText(url));
+  const matches=[...r.text.matchAll(/\/soccer\/(?:standings|teams|schedule)\/_\/league\/([a-z0-9.-]+)/gi),...r.text.matchAll(/\/soccer\/league\/_\/name\/([a-z0-9.-]+)/gi)];
+  const slugs=[...new Set(matches.map(m=>m[1]).filter(Boolean))];
+  return {slug:slugs.length===1?slugs[0]:"",url:r.url,retrievedAt:r.retrievedAt};
+ }catch{return {slug:"",url,retrievedAt:""};}
+}
+
+async function resolveLeagueFromTeams(homeId:string,awayId:string){
+ const read=async(id:string)=>{
+  const url=SITE+"/all/teams/"+id;
+  try{
+   const r=await cached("team-detail:"+id,()=>getJson(url));
+   return {url,retrievedAt:r.retrievedAt,slugs:deepLeagueRefs(r.json)};
+  }catch{return {url,retrievedAt:new Date().toISOString(),slugs:[] as string[]};}
+ };
+ const [h,a]=await Promise.all([read(homeId),read(awayId)]);
+ const common=h.slugs.filter((s:string)=>a.slugs.includes(s));
+ return {slug:common.length===1?common[0]:"",home:h,away:a};
+}
+
 async function main(){
  const ymd=DATE.replaceAll("-","");
  const scoreboardUrl=SITE+"/all/scoreboard?dates="+ymd+"&limit=1000";
@@ -283,23 +511,68 @@ async function main(){
   events=leagueDiscovery.events;
  }
  const results:any[]=[];
+ let searchFallbackAttempted=0,searchFallbackMatched=0;
  for(const f of selected){
-  const matched=bestFixtureEvent(f,events);
+  let matched:any=bestFixtureEvent(f,events);
+  let fallbackMeta:any[]=[],discoveryErrors:string[]=[],resolutionMode="SCOREBOARD";
+  let recovered:any=null;
   if(!matched){
-   results.push({fixtureId:String(f.fixtureId),fixture:f,matched:false,gaps:["fixtureMatch","form","standings","headToHead","schedule"],errors:[]});
+   searchFallbackAttempted++;
+   recovered=await resolveFixtureViaTeamSearch(f);
+   discoveryErrors=recovered.errors||[];
+   fallbackMeta=recovered.searchMeta||[];
+   if(recovered.event){matched={event:recovered.event,score:recovered.score};resolutionMode="TEAM_SEARCH_EVENT";searchFallbackMatched++;}
+   else if(recovered.homeCandidate&&recovered.awayCandidate){
+    matched={event:null,score:(Number(recovered.homeCandidate.score)+Number(recovered.awayCandidate.score))/2};
+    resolutionMode="TEAM_SEARCH_IDENTITY";searchFallbackMatched++;
+   }
+  }
+  if(!matched){
+   results.push({fixtureId:String(f.fixtureId),fixture:f,matched:false,gaps:["fixtureMatch","form","standings","headToHead","schedule"],errors:discoveryErrors,sourceMetadata:fallbackMeta});
    continue;
   }
-  const e=matched.event,h=side(e,"home"),a=side(e,"away"),homeId=teamId(h),awayId=teamId(a);
-  const leagueId=eventLeagueId(e),slug=String(e?.__fihLeagueSlug||"")||leagueMap.get(leagueId)||inferredSlug(f,e);
-  const errors:string[]=[];
-  const seasonYear=Number(e?.season?.year);
-  if(!slug||!Number.isFinite(seasonYear)){
-   results.push({fixtureId:String(f.fixtureId),fixture:f,matched:true,matchConfidence:Number(matched.score.toFixed(3)),providerEventId:String(e?.id||""),leagueId,leagueSlug:slug||null,gaps:["leagueIdentity","form","standings","headToHead","schedule"],errors:["ESPN_LEAGUE_IDENTITY_MISSING"]});
+  const e=matched.event;
+  const h=e?side(e,"home"):null,a=e?side(e,"away"):null;
+  const homeId=e?teamId(h):String(recovered?.homeCandidate?.id||"");
+  const awayId=e?teamId(a):String(recovered?.awayCandidate?.id||"");
+  if(!homeId||!awayId){
+   results.push({fixtureId:String(f.fixtureId),fixture:f,matched:false,gaps:["teamIdentity","form","standings","headToHead","schedule"],errors:[...discoveryErrors,"ESPN_TEAM_IDENTITY_MISSING"],sourceMetadata:fallbackMeta});
    continue;
   }
+  const leagueId=e?eventLeagueId(e):"";
+  let slug=(e?String(e?.__fihLeagueSlug||""):"")||leagueMap.get(leagueId)||String(recovered?.homeCandidate?.leagueSlug||recovered?.awayCandidate?.leagueSlug||"")||(e?inferredSlug(f,e):"")||COMPETITION_SLUGS.get(normalize(String(f.competition||"")))||"";
+  const errors:string[]=[...discoveryErrors];
+  if(!slug){
+   const lr=await resolveLeagueFromTeams(homeId,awayId);
+   if(lr.slug)slug=lr.slug;
+   fallbackMeta.push({url:lr.home.url,retrievedAt:lr.home.retrievedAt,supports:["leagueIdentity"]},{url:lr.away.url,retrievedAt:lr.away.retrievedAt,supports:["leagueIdentity"]});
+  }
+  if(!slug){
+   const [hh,ah]=await Promise.all([resolveLeagueViaTeamHtml(homeId),resolveLeagueViaTeamHtml(awayId)]);
+   if(hh.slug&&hh.slug===ah.slug)slug=hh.slug;
+   if(hh.url)fallbackMeta.push({url:hh.url,retrievedAt:hh.retrievedAt,supports:["leagueIdentity"]});
+   if(ah.url)fallbackMeta.push({url:ah.url,retrievedAt:ah.retrievedAt,supports:["leagueIdentity"]});
+  }
+  if(!slug){
+   const ls=await resolveLeagueViaSearch(String(f.competition||""));
+   if(ls.slug)slug=ls.slug;
+   if(ls.url)fallbackMeta.push({url:ls.url,retrievedAt:ls.retrievedAt,supports:["leagueIdentity"]});
+  }
+  const seasonRaw=Number(e?.season?.year);
+  const seasonYear=Number.isFinite(seasonRaw)?seasonRaw:Number(DATE.slice(0,4));
 
-  const homeHistory=await teamHistory(slug,homeId,seasonYear,errors);
-  const awayHistory=await teamHistory(slug,awayId,seasonYear,errors);
+  let homeHistory=await teamHistory(slug,homeId,seasonYear,errors);
+  let awayHistory=await teamHistory(slug,awayId,seasonYear,errors);
+  if(!slug){
+   for(const candidateEvent of [...homeHistory.events.slice(0,20),...awayHistory.events.slice(0,20)]){
+    const inferred=inferredSlug(f,candidateEvent);
+    if(inferred){slug=inferred;break;}
+   }
+   if(slug){
+    homeHistory=await teamHistory(slug,homeId,seasonYear,errors);
+    awayHistory=await teamHistory(slug,awayId,seasonYear,errors);
+   }else errors.push("ESPN_LEAGUE_IDENTITY_MISSING_STANDINGS_ONLY");
+  }
   const homeOverall=recent(homeHistory.events,homeId,homeHistory.sourceBySeason);
   const homeVenue=recent(homeHistory.events,homeId,homeHistory.sourceBySeason,"HOME");
   const awayOverall=recent(awayHistory.events,awayId,awayHistory.sourceBySeason);
@@ -310,9 +583,9 @@ async function main(){
   const h2hOk=h2hMatches.length===5;
   const scheduleOk=!!homeOverall[0]?.date&&!!awayOverall[0]?.date;
 
-  const standingsUrl=DATA+"/"+slug+"/standings?season="+seasonYear;
+  const standingsUrl=slug?DATA+"/"+slug+"/standings?season="+seasonYear:"";
   let standings:any=null,standingsMeta:any[]=[];
-  try{
+  if(slug)try{
    const s=await cached("standings:"+slug+":"+seasonYear,()=>getJson(standingsUrl));
    standings=s.json;standingsMeta=[{url:standingsUrl,retrievedAt:s.retrievedAt,supports:["standings"]}];
   }catch(err:any){errors.push("standings:"+slug+":"+String(err?.message||err));}
@@ -322,13 +595,13 @@ async function main(){
 
   const gaps=[...(!formOk?["form"]:[]),...(!standingsOk?["standings"]:[]),...(!h2hOk?["headToHead"]:[]),...(!scheduleOk?["schedule"]:[])];
   const sourceMetadata=[
-   {url:String(e?.__fihScoreboardUrl||scoreboard.url),retrievedAt:String(e?.__fihScoreboardRetrievedAt||scoreboard.retrievedAt),supports:["fixtureMatch"]},
-   ...homeHistory.meta,...awayHistory.meta,...pair.meta,...standingsMeta
+   ...(e?[{url:String(e?.__fihScoreboardUrl||scoreboard.url),retrievedAt:String(e?.__fihScoreboardRetrievedAt||scoreboard.retrievedAt),supports:["fixtureMatch"]}]:[]),
+   ...fallbackMeta,...homeHistory.meta,...awayHistory.meta,...pair.meta,...standingsMeta
   ];
   results.push({
    fixtureId:String(f.fixtureId),fixture:f,matched:true,matchConfidence:Number(matched.score.toFixed(3)),
-   providerEventId:String(e?.id||""),leagueId,leagueSlug:slug,
-   providerTeams:{home:{id:homeId,name:teamName(h)},away:{id:awayId,name:teamName(a)}},season:e?.season||null,
+   providerEventId:String(e?.id||""),leagueId,leagueSlug:slug||null,resolutionMode,
+   providerTeams:{home:{id:homeId,name:e?teamName(h):String(recovered?.homeCandidate?.name||f.home)},away:{id:awayId,name:e?teamName(a):String(recovered?.awayCandidate?.name||f.away)}},season:e?.season||null,
    categories:{
     form:{complete:formOk,homeOverall,homeVenue,awayOverall,awayVenue},
     standings:{complete:standingsOk,homeTeam:homeStanding,awayTeam:awayStanding},
@@ -388,7 +661,9 @@ async function main(){
  const full=prefillFixtures.filter((r:any)=>r.validatedRecord).length;
  const categoryCounts=Object.fromEntries(["form","standings","headToHead","schedule"].map(k=>[k,prefillFixtures.filter((r:any)=>r.completeCategories.includes(k)).length]));
  const anyUseful=prefillFixtures.filter((r:any)=>r.completeCategories.length>0).length;
- const out={schema:"fih-hybrid-research-prefill-v1",date:DATE,mode:"PREDICTION",researchRunId:queue.researchRunId,generatedAt,provider:"ESPN_PUBLIC_JSON",nonCanonical:true,purpose:"DETERMINISTIC_PREFILL_ONLY",fixtureCount:selected.length,summary:{attempted:selected.length,matched:matchedCount,fixturesWithAnyCompleteCategory:anyUseful,fullyValidatedFixtures:full,gapFixtures:gapFixtures.length,categoryComplete:categoryCounts,cacheEntries:cache.size,eventPool:events.length,globalEventPool:globalEvents.length,leagueCatalogCount:leagueDiscovery.catalogCount,leagueScoreboardsAttempted:leagueDiscovery.attempted,leagueScoreboardsWithEvents:leagueDiscovery.withEvents},fixtures:prefillFixtures};
+ const out={schema:"fih-hybrid-research-prefill-v1",date:DATE,mode:"PREDICTION",researchRunId:queue.researchRunId,generatedAt,provider:"ESPN_PUBLIC_JSON",nonCanonical:true,purpose:"DETERMINISTIC_PREFILL_ONLY",fixtureCount:selected.length,summary:{attempted:selected.length,matched:matchedCount,fixturesWithAnyCompleteCategory:anyUseful,fullyValidatedFixtures:full,gapFixtures:gapFixtures.length,categoryComplete:categoryCounts,cacheEntries:cache.size,eventPool:events.length,globalEventPool:globalEvents.length,leagueCatalogCount:leagueDiscovery.catalogCount,leagueScoreboardsAttempted:leagueDiscovery.attempted,leagueScoreboardsWithEvents:leagueDiscovery.withEvents,searchFallbackAttempted,searchFallbackMatched,
+ resolutionModes:Object.fromEntries(["SCOREBOARD","TEAM_SEARCH_EVENT","TEAM_SEARCH_IDENTITY"].map(k=>[k,results.filter((r:any)=>r.resolutionMode===k).length])),
+ searchDiagnostics},fixtures:prefillFixtures};
  const gap={schema:"fih-chatgpt-gap-queue-v1",date:DATE,mode:"PREDICTION",researchRunId:queue.researchRunId,generatedAt,count:gapFixtures.length,sourcePrefillPath:"data/research-prefill/"+DATE+".json",fixtures:gapFixtures};
  const outPath=path.join(root,"data/research-prefill",DATE+".json"),gapPath=path.join(root,"data/research-gap-queue",DATE+".json");
  fs.mkdirSync(path.dirname(outPath),{recursive:true});fs.mkdirSync(path.dirname(gapPath),{recursive:true});
