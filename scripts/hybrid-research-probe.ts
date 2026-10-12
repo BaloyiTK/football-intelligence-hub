@@ -6,7 +6,7 @@ const tz="Africa/Johannesburg";
 const today=()=>new Intl.DateTimeFormat("en-CA",{timeZone:tz,year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
 const DATE=process.env.FIH_DATE||today();
 const LIMIT=Math.max(1,Math.min(50,Number(process.env.FIH_HYBRID_LIMIT||10)));
-const BASE="https://www.sofascore.com/api/v1";
+const BASE="https://api.sofascore.com/api/v1";
 const queuePath=path.join(root,"data/research-queue",DATE+".json");
 if(!fs.existsSync(queuePath))throw new Error("HYBRID_PROBE_QUEUE_MISSING "+queuePath);
 const queue=JSON.parse(fs.readFileSync(queuePath,"utf8"));
