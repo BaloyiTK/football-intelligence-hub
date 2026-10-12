@@ -2,7 +2,7 @@ from pathlib import Path
 BASE_DIR=Path(__file__).resolve().parent.parent
 SECRET_KEY="dev-only-change-me"
 DEBUG=True
-ALLOWED_HOSTS=[]
+ALLOWED_HOSTS=["*"]
 INSTALLED_APPS=["django.contrib.contenttypes","django.contrib.auth","fixtures"]
 MIDDLEWARE=[]
 ROOT_URLCONF="fih.urls"
