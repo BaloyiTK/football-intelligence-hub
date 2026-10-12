@@ -12,6 +12,7 @@ const LIMIT=Number.isFinite(LIMIT_RAW)&&LIMIT_RAW>0?Math.max(1,Math.min(5000,LIM
 const SITE="https://site.api.espn.com/apis/site/v2/sports/soccer";
 const DATA="https://site.api.espn.com/apis/v2/sports/soccer";
 const CORE="https://sports.core.api.espn.com/v2/sports/soccer/leagues";
+const SEARCH="https://site.api.espn.com/apis/search/v2";
 const queuePath=path.join(root,"data/research-queue",DATE+".json");
 if(!fs.existsSync(queuePath))throw new Error("HYBRID_PROBE_QUEUE_MISSING "+queuePath);
 const queue=JSON.parse(fs.readFileSync(queuePath,"utf8"));
@@ -178,7 +179,7 @@ async function teamHistory(slug:string,id:string,currentSeason:number,errors:str
   diagnostics.push({url:allUrl,keys:Object.keys(r.json||{}),arrays:Object.fromEntries(Object.entries(r.json||{}).filter(([,v])=>Array.isArray(v)).map(([k,v]:any)=>[k,v.length]))});
   add(Array.isArray(r.json?.events)?r.json.events:[],allUrl,r.retrievedAt);
  }catch(e:any){errors.push("schedule:all:"+id+":"+String(e?.message||e));}
- for(const season of [currentSeason,currentSeason-1,currentSeason-2]){
+ if(slug)for(const season of [currentSeason,currentSeason-1,currentSeason-2]){
   const url=SITE+"/"+slug+"/teams/"+id+"/schedule?season="+season;
   try{
    const r=await cached("sched:"+slug+":"+id+":"+season,()=>getJson(url));
@@ -265,6 +266,96 @@ async function expandEventPool(ymd:string,baseEvents:any[],leagueMap:Map<string,
 }
 
 
+
+function searchTeamCandidates(payload:any,query:string){
+ const out:any[]=[],seen=new Set<string>(),visited=new Set<any>();
+ const visit=(x:any)=>{
+  if(!x||typeof x!=="object"||visited.has(x))return;visited.add(x);
+  if(Array.isArray(x)){for(const v of x)visit(v);return;}
+  const uid=String(x.uid||x.team?.uid||"");
+  const id=String(x.id||x.team?.id||uid.match(/(?:^|~)t:(\d+)/)?.[1]||"");
+  const name=String(x.displayName||x.shortDisplayName||x.name||x.title||x.team?.displayName||x.team?.shortDisplayName||x.team?.name||"");
+  const hrefs:any[]=[];
+  for(const k of ["href","url"]){if(typeof x[k]==="string")hrefs.push(x[k]);if(typeof x.team?.[k]==="string")hrefs.push(x.team[k]);}
+  for(const l of [...(Array.isArray(x.links)?x.links:[]),...(Array.isArray(x.team?.links)?x.team.links:[])])if(typeof l?.href==="string")hrefs.push(l.href);
+  const teamLike=/~t:\d+/.test(uid)||hrefs.some(h=>/\/soccer\/team\//i.test(h)||/\/teams?\/\d+/i.test(h))||/team|club/i.test(String(x.type||x.typeName||x.category||""));
+  if(id&&name&&teamLike){
+   let leagueSlug=String(x.league?.slug||x.team?.league?.slug||"");
+   if(!leagueSlug)for(const href of hrefs){
+    const m=href.match(/\/soccer\/league\/_\/name\/([^/?#]+)/i)||href.match(/\/soccer\/([^/?#]+)\/(?:team|teams|scoreboard|standings|schedule)/i);
+    if(m?.[1]&&m[1]!=="all"){leagueSlug=m[1];break;}
+   }
+   const s=similarity(query,name);
+   if(s>=.45&&!seen.has(id)){seen.add(id);out.push({id,name,uid,leagueSlug,score:s});}
+  }
+  for(const v of Object.values(x))if(v&&typeof v==="object")visit(v);
+ };
+ visit(payload);
+ return out.sort((a,b)=>b.score-a.score).slice(0,8);
+}
+async function searchTeam(name:string){
+ const key="search:"+normalize(name);
+ return cached(key,async()=>{
+  const url=SEARCH+"?query="+encodeURIComponent(name)+"&sport=soccer&limit=50";
+  const r=await getJson(url);
+  return {url,retrievedAt:r.retrievedAt,candidates:searchTeamCandidates(r.json,name)};
+ });
+}
+function eventNearDate(e:any){
+ const t=Date.parse(String(eventDate(e)||""));
+ const target=Date.parse(DATE+"T12:00:00.000Z");
+ return Number.isFinite(t)&&Number.isFinite(target)&&Math.abs(t-target)<=36*60*60*1000;
+}
+function bestScheduledFixture(f:any,events:any[]){
+ let best:any=null,bestScore=0;
+ for(const e of events){
+  if(!eventNearDate(e))continue;
+  const h=side(e,"home"),a=side(e,"away");
+  const hs=similarity(f.home,teamName(h)),as=similarity(f.away,teamName(a));
+  const reversed=(similarity(f.home,teamName(a))+similarity(f.away,teamName(h)))/2;
+  const direct=(hs+as)/2;
+  const s=Math.max(direct,reversed*.75);
+  if(hs>=.55&&as>=.55&&s>bestScore){best=e;bestScore=s;}
+ }
+ return best?{event:best,score:bestScore}:null;
+}
+async function resolveFixtureViaTeamSearch(f:any){
+ const errors:string[]=[];
+ let hs:any=null,as:any=null;
+ try{hs=await searchTeam(f.home);}catch(e:any){errors.push("SEARCH_HOME:"+String(e?.message||e));}
+ try{as=await searchTeam(f.away);}catch(e:any){errors.push("SEARCH_AWAY:"+String(e?.message||e));}
+ const homeCandidates=Array.isArray(hs?.candidates)?hs.candidates.slice(0,4):[];
+ const awayCandidates=Array.isArray(as?.candidates)?as.candidates.slice(0,4):[];
+ const awayIds=new Set(awayCandidates.map((x:any)=>String(x.id)));
+ for(const hc of homeCandidates){
+  for(const season of [Number(DATE.slice(0,4)),Number(DATE.slice(0,4))-1]){
+   const url=SITE+"/all/teams/"+hc.id+"/schedule?season="+season;
+   try{
+    const r=await cached("search-schedule:"+hc.id+":"+season,()=>getJson(url));
+    const evs=Array.isArray(r.json?.events)?r.json.events:[];
+    const m=bestScheduledFixture(f,evs);
+    if(!m)continue;
+    const eh=side(m.event,"home"),ea=side(m.event,"away");
+    const ids=new Set([teamId(eh),teamId(ea)]);
+    if(awayIds.size&&![...awayIds].some(id=>ids.has(id)))continue;
+    let slug=String(hc.leagueSlug||"");
+    if(!slug){
+     for(const l of Array.isArray(r.json?.leagues)?r.json.leagues:[])if(l?.slug){slug=String(l.slug);break;}
+    }
+    return {event:{...m.event,__fihLeagueSlug:slug,__fihScoreboardUrl:url,__fihScoreboardRetrievedAt:r.retrievedAt},score:m.score,errors,searchMeta:[
+     ...(hs?[{url:hs.url,retrievedAt:hs.retrievedAt,supports:["fixtureMatch"]}]:[]),
+     ...(as?[{url:as.url,retrievedAt:as.retrievedAt,supports:["fixtureMatch"]}]:[]),
+     {url,retrievedAt:r.retrievedAt,supports:["fixtureMatch","schedule"]}
+    ]};
+   }catch(e:any){errors.push("SEARCH_SCHEDULE:"+hc.id+":"+season+":"+String(e?.message||e));}
+  }
+ }
+ return {event:null,score:0,errors,searchMeta:[
+  ...(hs?[{url:hs.url,retrievedAt:hs.retrievedAt,supports:["fixtureMatch"]}]:[]),
+  ...(as?[{url:as.url,retrievedAt:as.retrievedAt,supports:["fixtureMatch"]}]:[])
+ ]};
+}
+
 async function main(){
  const ymd=DATE.replaceAll("-","");
  const scoreboardUrl=SITE+"/all/scoreboard?dates="+ymd+"&limit=1000";
@@ -283,20 +374,27 @@ async function main(){
   events=leagueDiscovery.events;
  }
  const results:any[]=[];
+ let searchFallbackAttempted=0,searchFallbackMatched=0;
  for(const f of selected){
-  const matched=bestFixtureEvent(f,events);
+  let matched:any=bestFixtureEvent(f,events);
+  let fallbackMeta:any[]=[],discoveryErrors:string[]=[];
   if(!matched){
-   results.push({fixtureId:String(f.fixtureId),fixture:f,matched:false,gaps:["fixtureMatch","form","standings","headToHead","schedule"],errors:[]});
+   searchFallbackAttempted++;
+   const recovered=await resolveFixtureViaTeamSearch(f);
+   discoveryErrors=recovered.errors||[];
+   fallbackMeta=recovered.searchMeta||[];
+   if(recovered.event){matched={event:recovered.event,score:recovered.score};searchFallbackMatched++;}
+  }
+  if(!matched){
+   results.push({fixtureId:String(f.fixtureId),fixture:f,matched:false,gaps:["fixtureMatch","form","standings","headToHead","schedule"],errors:discoveryErrors,sourceMetadata:fallbackMeta});
    continue;
   }
   const e=matched.event,h=side(e,"home"),a=side(e,"away"),homeId=teamId(h),awayId=teamId(a);
   const leagueId=eventLeagueId(e),slug=String(e?.__fihLeagueSlug||"")||leagueMap.get(leagueId)||inferredSlug(f,e);
-  const errors:string[]=[];
-  const seasonYear=Number(e?.season?.year);
-  if(!slug||!Number.isFinite(seasonYear)){
-   results.push({fixtureId:String(f.fixtureId),fixture:f,matched:true,matchConfidence:Number(matched.score.toFixed(3)),providerEventId:String(e?.id||""),leagueId,leagueSlug:slug||null,gaps:["leagueIdentity","form","standings","headToHead","schedule"],errors:["ESPN_LEAGUE_IDENTITY_MISSING"]});
-   continue;
-  }
+  const errors:string[]=[...discoveryErrors];
+  const seasonRaw=Number(e?.season?.year);
+  const seasonYear=Number.isFinite(seasonRaw)?seasonRaw:Number(DATE.slice(0,4));
+  if(!slug)errors.push("ESPN_LEAGUE_IDENTITY_MISSING_STANDINGS_ONLY");
 
   const homeHistory=await teamHistory(slug,homeId,seasonYear,errors);
   const awayHistory=await teamHistory(slug,awayId,seasonYear,errors);
@@ -310,9 +408,9 @@ async function main(){
   const h2hOk=h2hMatches.length===5;
   const scheduleOk=!!homeOverall[0]?.date&&!!awayOverall[0]?.date;
 
-  const standingsUrl=DATA+"/"+slug+"/standings?season="+seasonYear;
+  const standingsUrl=slug?DATA+"/"+slug+"/standings?season="+seasonYear:"";
   let standings:any=null,standingsMeta:any[]=[];
-  try{
+  if(slug)try{
    const s=await cached("standings:"+slug+":"+seasonYear,()=>getJson(standingsUrl));
    standings=s.json;standingsMeta=[{url:standingsUrl,retrievedAt:s.retrievedAt,supports:["standings"]}];
   }catch(err:any){errors.push("standings:"+slug+":"+String(err?.message||err));}
@@ -323,7 +421,7 @@ async function main(){
   const gaps=[...(!formOk?["form"]:[]),...(!standingsOk?["standings"]:[]),...(!h2hOk?["headToHead"]:[]),...(!scheduleOk?["schedule"]:[])];
   const sourceMetadata=[
    {url:String(e?.__fihScoreboardUrl||scoreboard.url),retrievedAt:String(e?.__fihScoreboardRetrievedAt||scoreboard.retrievedAt),supports:["fixtureMatch"]},
-   ...homeHistory.meta,...awayHistory.meta,...pair.meta,...standingsMeta
+   ...fallbackMeta,...homeHistory.meta,...awayHistory.meta,...pair.meta,...standingsMeta
   ];
   results.push({
    fixtureId:String(f.fixtureId),fixture:f,matched:true,matchConfidence:Number(matched.score.toFixed(3)),
@@ -388,7 +486,7 @@ async function main(){
  const full=prefillFixtures.filter((r:any)=>r.validatedRecord).length;
  const categoryCounts=Object.fromEntries(["form","standings","headToHead","schedule"].map(k=>[k,prefillFixtures.filter((r:any)=>r.completeCategories.includes(k)).length]));
  const anyUseful=prefillFixtures.filter((r:any)=>r.completeCategories.length>0).length;
- const out={schema:"fih-hybrid-research-prefill-v1",date:DATE,mode:"PREDICTION",researchRunId:queue.researchRunId,generatedAt,provider:"ESPN_PUBLIC_JSON",nonCanonical:true,purpose:"DETERMINISTIC_PREFILL_ONLY",fixtureCount:selected.length,summary:{attempted:selected.length,matched:matchedCount,fixturesWithAnyCompleteCategory:anyUseful,fullyValidatedFixtures:full,gapFixtures:gapFixtures.length,categoryComplete:categoryCounts,cacheEntries:cache.size,eventPool:events.length,globalEventPool:globalEvents.length,leagueCatalogCount:leagueDiscovery.catalogCount,leagueScoreboardsAttempted:leagueDiscovery.attempted,leagueScoreboardsWithEvents:leagueDiscovery.withEvents},fixtures:prefillFixtures};
+ const out={schema:"fih-hybrid-research-prefill-v1",date:DATE,mode:"PREDICTION",researchRunId:queue.researchRunId,generatedAt,provider:"ESPN_PUBLIC_JSON",nonCanonical:true,purpose:"DETERMINISTIC_PREFILL_ONLY",fixtureCount:selected.length,summary:{attempted:selected.length,matched:matchedCount,fixturesWithAnyCompleteCategory:anyUseful,fullyValidatedFixtures:full,gapFixtures:gapFixtures.length,categoryComplete:categoryCounts,cacheEntries:cache.size,eventPool:events.length,globalEventPool:globalEvents.length,leagueCatalogCount:leagueDiscovery.catalogCount,leagueScoreboardsAttempted:leagueDiscovery.attempted,leagueScoreboardsWithEvents:leagueDiscovery.withEvents,searchFallbackAttempted,searchFallbackMatched},fixtures:prefillFixtures};
  const gap={schema:"fih-chatgpt-gap-queue-v1",date:DATE,mode:"PREDICTION",researchRunId:queue.researchRunId,generatedAt,count:gapFixtures.length,sourcePrefillPath:"data/research-prefill/"+DATE+".json",fixtures:gapFixtures};
  const outPath=path.join(root,"data/research-prefill",DATE+".json"),gapPath=path.join(root,"data/research-gap-queue",DATE+".json");
  fs.mkdirSync(path.dirname(outPath),{recursive:true});fs.mkdirSync(path.dirname(gapPath),{recursive:true});
