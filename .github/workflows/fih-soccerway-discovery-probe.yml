@@ -1,0 +1,23 @@
+name: FIH Soccerway Discovery Probe
+"on":
+  pull_request:
+    branches: [main]
+    paths:
+      - "scripts/soccerway-discovery-probe.ts"
+      - ".github/workflows/fih-soccerway-discovery-probe.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: npm install --no-audit --no-fund
+      - name: Resolve date
+        run: echo "FIH_DATE=$(TZ=Africa/Johannesburg date +%F)" >> "$GITHUB_ENV"
+      - name: Probe Soccerway discovery
+        run: npx tsx scripts/soccerway-discovery-probe.ts
