@@ -68,8 +68,8 @@ for(const item of plan.dates){
  tsx("scripts/step12-prepare.ts","--date",date,"--mode",mode);
  if(mode==="PREDICTION"){
   tsx("scripts/hybrid-research-prefill.ts","--date",date);
-  try{tsx("scripts/sofascore-prefill-augment.ts","--date",date);}
-  catch(e){console.warn("SOFASCORE_PREFILL_AUGMENT_FAILED_CONTINUING_WITH_ESPN",String(e?.message||e));}
+  try{tsx("scripts/fotmob-prefill-augment.ts","--date",date);}
+  catch(e){console.warn("FOTMOB_PREFILL_AUGMENT_FAILED_CONTINUING_WITH_ESPN",String(e?.message||e));}
  }
  const q=JSON.parse(fs.readFileSync(path.join(ROOT,"data/research-queue",date+".json"),"utf8"));
  commitPreparation(date);
