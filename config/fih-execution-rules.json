@@ -20,8 +20,8 @@
       "requirement": "Step 2 custom xG may run only for a date that already has a verified Step 1 fixture file in GitHub."
     },
     "STEP2-002": {
-      "kind": "livescore-data",
-      "requirement": "The Step 2 pilot uses the existing LiveScore RapidAPI subscription through the secured FIH Vercel integration for each selected event's pregame form and head-to-head history."
+      "kind": "livescore-history-data",
+      "requirement": "The Step 2 pilot uses completed-match histories fetched from LiveScore via the existing secured FIH Vercel integration and persisted under data/backtest/history. Dedicated LiveScore pregame-form or H2H endpoints may be used when available but are not required."
     },
     "STEP2-003": {
       "kind": "custom-xg",
@@ -56,8 +56,10 @@
     },
     "liveScoreStep2": {
       "provider": "LiveScore via RapidAPI",
-      "pregameFormPath": "/matches/v2/get-pregame-form",
-      "h2hPath": "/matches/v2/get-h2h",
+      "historicalArchiveEndpoint": "https://football-intelligence-hub-654j.vercel.app/api/backtest-history",
+      "historicalArchiveDirectory": "data/backtest/history",
+      "optionalPregameFormPath": "/matches/v2/get-pregame-form",
+      "optionalH2hPath": "/matches/v2/get-h2h",
       "step2PilotMaxMatches": 15,
       "outputDirectory": "data/step2-xg"
     }
