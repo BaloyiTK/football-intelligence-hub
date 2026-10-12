@@ -1,11 +1,15 @@
-# FIH Execution Policy — Step 1 Only
+# FIH Execution Policy — Step 1 + Step 2 Pilot
 
 Before running FIH, read `FIH_EXECUTION_CONTRACT.md`, `FIH_BUILD_STEPS.md`, and `config/fih-execution-rules.json`.
 
-The only active lifecycle is:
+The authorized lifecycle is:
 
-**Resolve date -> fetch fixtures -> persist to GitHub -> re-read committed fixture file -> verify -> stop.**
+**Step 1: resolve date -> fetch LiveScore fixtures -> persist -> re-read -> verify.**
 
-A run is successful only when the canonical per-date fixture file is present in GitHub and passes the persisted-data checks defined for Step 1.
+For an explicit Step 2 pilot run:
 
-Do not start or prepare any research, model, market, prediction, decision, accumulator, ledger, handoff, or later-step work after Step 1 succeeds.
+**verify Step 1 exists -> collect SofaScore form/H2H -> calculate custom xG -> persist -> re-read -> verify -> stop.**
+
+Step 2 is not an automatic continuation of every Step 1 run. The pilot is separately triggered and capped at 15 events until the repository rules are explicitly changed.
+
+Do not continue into betting decisions, market comparison, accumulators, staking, or any later stage.
