@@ -214,17 +214,8 @@ async function main(){
  for(const l of Array.isArray(scoreboard.json?.leagues)?scoreboard.json.leagues:[]){
   if(l?.id&&l?.slug)leagueMap.set(String(l.id),String(l.slug));
  }
- const preferred=["LaLiga","Serie A","Süper Lig","Primeira Liga","AFC Champions League Elite"];
- const selected:any[]=[];
- for(const competition of preferred){
-  for(const f of queue.fixtures.filter((x:any)=>x.competition===competition).slice(0,2)){
-   if((LIMIT===null||selected.length<LIMIT)&&!selected.some(x=>String(x.fixtureId)===String(f.fixtureId)))selected.push(f);
-  }
- }
- for(const f of queue.fixtures){
-  if(LIMIT!==null&&selected.length>=LIMIT)break;
-  if(!selected.some(x=>String(x.fixtureId)===String(f.fixtureId)))selected.push(f);
- }
+ const selected:any[]=LIMIT===null?[...queue.fixtures]:queue.fixtures.slice(0,LIMIT);
+ if(LIMIT===null&&selected.length!==Number(queue.count))throw new Error("HYBRID_PREFILL_QUEUE_COUNT_MISMATCH");
  const results:any[]=[];
  for(const f of selected){
   const matched=bestFixtureEvent(f,events);
