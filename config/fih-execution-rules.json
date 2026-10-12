@@ -108,7 +108,7 @@
     },
     "RESEARCH-001": {
       "kind": "research-ownership",
-      "requirement": "ChatGPT owns Step 2 web research. Every eligible fixture MUST end with genuine source-backed factual evidence obtained through ChatGPT web search, but a separate search job per fixture is not required: current attributable competition/team/team-pair evidence may be collected once and reused across all applicable fixture records. Repository-local homepage scanners, scrapers, source-discovery caches, or provider fallbacks MUST NOT substitute for ChatGPT web research. Fixture-specific search is reserved for gap repair when shared evidence is insufficient, missing, conflicting, or invalid."
+      "requirement": "Step 2 uses hybrid research ownership. For PREDICTION, GitHub Actions may collect deterministic source-backed facts from authorized public football sources and persist them only as non-canonical prefill; ChatGPT owns research gap repair, conflicting/ambiguous evidence resolution, and final fixture assembly/checkpointing. Every eligible fixture MUST end with genuine source-backed factual evidence. Deterministic prefill may satisfy a category only when the facts, source references, dates and exact-count requirements pass the same canonical validator used for ChatGPT research. Repository-local AI/LLM research workers remain forbidden."
     },
     "RESEARCH-002": {
       "kind": "research-batching",
@@ -120,7 +120,7 @@
     },
     "RESEARCH-004": {
       "kind": "research-stage-gate",
-      "requirement": "The daily controller MUST NOT invoke repository-local direct-public-research or research-worker paths to satisfy Step 2. If the current researchRunId does not have a complete validated ChatGPT web-search canonical batch, the controller MUST remain RECOVERING at Step 2, emit/retain the ChatGPT research queue, and MUST NOT execute model or decision stages."
+      "requirement": "The daily controller MAY invoke the deterministic public-source hybrid prefill collector for PREDICTION. It MUST NOT invoke a repository-hosted AI/LLM research worker to fabricate, infer, or replace missing evidence. If the active researchRunId lacks a complete validated canonical Step-2 batch, the controller remains RECOVERING, persists the prefill and ChatGPT gap queue, and MUST NOT execute model or decision stages. BACKTEST must not use current deterministic prefill unless the source can prove historical cutoff availability."
     },
     "RESEARCH-005": {
       "kind": "research-generation",
@@ -280,7 +280,7 @@
     },
     "INFRA-003": {
       "kind": "vercel-step-boundary",
-      "requirement": "Vercel is authorized for FIH Step 1 fixture acquisition/integration only. Step 2 MUST NOT call Vercel AI Gateway, a Vercel-hosted language model, /api/research-fixture, /api/step2-research, or any repository/local AI worker as the research executor. Step 2 research is executed by ChatGPT itself using ChatGPT web search from the frozen queue. Under RESEARCH-026 the complete unfinished fixture workload is admitted through an adaptive streaming pool with no fixed fixture-count concurrency ceiling or whole-batch barrier; actual active work is bounded dynamically by safe ChatGPT web-search/tool capacity. Every fixture retains its own source-backed evidence and independent validation/checkpoint identity."
+      "requirement": "Vercel is authorized for FIH Step 1 fixture acquisition/integration only. For PREDICTION, GitHub Actions is authorized to run deterministic, credential-free public-source Step-2 prefill that stores source-backed facts and a gap queue; it MUST NOT call a hosted language model or AI research service. ChatGPT performs gap research and final Step-2 completion. Vercel AI Gateway, Vercel-hosted language models, /api/research-fixture, /api/step2-research, and repository/local AI workers remain forbidden. Every fixture retains independent source-backed evidence and validation/checkpoint identity."
     },
     "STEP1-003": {
       "kind": "prediction-research-runway",
@@ -296,7 +296,11 @@
     },
     "RESEARCH-026": {
       "kind": "step2-shared-evidence-batching",
-      "requirement": "NON-NEGOTIABLE STEP-2 EXECUTION OPTIMIZATION: ChatGPT MUST collect source-backed evidence cluster-first instead of requiring a separate web-search job for every fixture. The collection unit is an EVIDENCE_CLUSTER grouped primarily by competition, team, or H2H team-pair; the fixture remains the independent validation, evidence-record, and checkpoint unit. The complete unfinished frozen fixture universe MUST be admitted through adaptive safe ChatGPT web-search/tool capacity with no fixed fixture-count concurrency ceiling or whole-batch completion barrier and immediately refill released capacity. SHARED_COLLECTION MUST bulk-research standings, overall/venue form, and schedule/rest evidence and may attribute one source to multiple applicable fixtures when every reused fact remains current for the researchRunId/cutoff and carries explicit source attribution. PAIR_COLLECTION MUST obtain the exact last 5 H2H meetings per team-pair; multiple pair queries may share one search operation when evidence mapping remains independent. FIXTURE_ASSEMBLY MUST hydrate each fixture from the shared evidence cache and validate it independently. Fixture-specific search is NOT mandatory when shared evidence already satisfies the fixture; GAP_REPAIR MUST search only missing, conflicting, or invalid fields and use FAST for shared-evidence-complete fixtures, STANDARD for targeted missing fields, and DEEP only for scarce or conflicting evidence. Injuries/squadAvailability and motivation/competitionContext remain excluded. Exact-five, exhaustion, cutoff, facts-only, source-attribution, canonical-schema, and accumulator-integrity locks remain unchanged. As soon as a fixture validates, checkpoint it immediately to the one active accumulator without waiting for unrelated slow clusters; stored records remain in frozen fixture order and nextFixtureId remains the earliest unfinished fixture."
+      "requirement": "NON-NEGOTIABLE STEP-2 EXECUTION OPTIMIZATION: Step 2 MUST collect source-backed evidence cluster-first instead of requiring a separate search job for every fixture. For PREDICTION, deterministic GitHub prefill should first reuse competition/team/team-pair evidence from authorized public sources; ChatGPT then researches only missing, conflicting, unsupported, or invalid categories. The fixture remains the independent validation, evidence-record, and checkpoint unit. Shared evidence may be reused only when current for the active researchRunId, applicable to the correct entity, and explicitly source-attributed. PAIR_COLLECTION requires exact last 5 H2H when VERIFIED. Exact-five, exhaustion, cutoff, facts-only, source-attribution, canonical-schema, and accumulator-integrity locks remain unchanged. Validated prefill records may be imported into the one active accumulator; partial prefill is never itself canonical."
+    },
+    "RESEARCH-027": {
+      "kind": "hybrid-deterministic-prefill",
+      "requirement": "PREDICTION Step 2 may use data/research-prefill/<date>.json and data/research-gap-queue/<date>.json as durable non-canonical handoff artifacts. The prefill must share the active researchRunId and exact frozen fixture universe, preserve frozen order, store only source-backed facts, and validate any fully completed fixture against fih-daily-research-v5 before it can be imported into the Step-2 accumulator. Missing categories remain explicit ChatGPT gaps. PREDICTION prefill may never be treated as canonical research by itself. BACKTEST must bypass current-data prefill unless historical source availability at or before cutoff is independently proven."
     }
   },
   "hardStops": [
