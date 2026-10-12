@@ -1,0 +1,55 @@
+name: FIH Step 1 Command
+"on":
+  push:
+    branches: [main]
+    paths: ["automation/run-now.flag"]
+  workflow_dispatch:
+    inputs:
+      command:
+        description: "FIH command, e.g. run today or run YYYY-MM-DD"
+        required: true
+        default: "run today"
+        type: string
+  schedule:
+    - cron: "30 3 * * *"
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: fih-step1-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'push' }}
+
+jobs:
+  step1:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Resolve FIH command
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            CMD="run today"
+          else
+            CMD="${{ github.event.inputs.command || '' }}"
+            if [ -z "$CMD" ]; then
+              CMD="$(head -n 1 automation/run-now.flag | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')"
+            fi
+          fi
+          test -n "$CMD"
+          echo "FIH_COMMAND=$CMD" >> "$GITHUB_ENV"
+      - name: Resolve Step 1 endpoint
+        run: |
+          BASE="${{ vars.FIH_INGEST_BASE_URL }}"
+          if [ -z "$BASE" ]; then
+            DOMAIN="$(node -e 'const r=require("./config/fih-execution-rules.json");process.stdout.write(r.infrastructure.vercel.productionDomain)')"
+            BASE="https://$DOMAIN"
+          fi
+          echo "FIH_INGEST_BASE_URL=$BASE" >> "$GITHUB_ENV"
+      - name: Execute and verify Step 1
+        run: node scripts/step1-command-runner.mjs "$FIH_COMMAND"
