@@ -6,12 +6,14 @@ name: FIH Hybrid Research Probe
     paths:
       - "scripts/hybrid-research-probe.ts"
       - "scripts/public-source-reachability.ts"
+      - "scripts/public-page-discovery-probe.ts"
       - ".github/workflows/fih-hybrid-research-probe.yml"
   pull_request:
     branches: [main]
     paths:
       - "scripts/hybrid-research-probe.ts"
       - "scripts/public-source-reachability.ts"
+      - "scripts/public-page-discovery-probe.ts"
       - ".github/workflows/fih-hybrid-research-probe.yml"
   workflow_dispatch:
     inputs:
@@ -52,7 +54,7 @@ jobs:
           echo "Probing $LIMIT fixtures for $DATE"
       - name: Probe public-source reachability
         run: npx tsx scripts/public-source-reachability.ts
-      - name: Run noncanonical hybrid research probe
+      - name: Probe public-page discovery\n        run: npx tsx scripts/public-page-discovery-probe.ts\n      - name: Run noncanonical hybrid research probe
         id: hybrid
         continue-on-error: true
         run: npx tsx scripts/hybrid-research-probe.ts
