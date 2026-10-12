@@ -18,7 +18,7 @@ if(queue.date!==DATE||!Array.isArray(queue.fixtures))throw new Error("HYBRID_PRE
 if(queue.mode!=="PREDICTION")throw new Error("HYBRID_PREFILL_PREDICTION_ONLY");
 
 const sleep=(ms:number)=>new Promise(r=>setTimeout(r,ms));
-const normalize=(s:string)=>String(s||"").toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g,"").replace(/\b(fc|cf|afc|sc|club|calcio|fk|ac|cd|ud|deportivo)/g," ").replace(/[^a-z0-9]+/g," ").trim();
+const normalize=(s:string)=>String(s||"").toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g,"").replace(/\b(fc|cf|afc|sc|club|calcio|fk|ac|cd|ud|deportivo)\b/g," ").replace(/[^a-z0-9]+/g," ").trim();
 function similarity(a:string,b:string){
  const A=new Set(normalize(a).split(" ").filter(Boolean)),B=new Set(normalize(b).split(" ").filter(Boolean));
  if(!A.size||!B.size)return 0; let hit=0; for(const x of A)if(B.has(x))hit++;
