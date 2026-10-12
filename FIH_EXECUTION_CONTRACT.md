@@ -1,14 +1,23 @@
-# FIH Execution Contract — Step 1 Only
+# FIH Execution Contract — Step 1 + Step 2 Pilot
 
-The repository currently defines one active operation: **Step 1 fixture acquisition and verification**.
+The repository currently defines two authorized operations.
 
-For an authorized run command:
+## Step 1
 
-- Resolve dates using Africa/Johannesburg time.
+- Resolve dates in Africa/Johannesburg time.
 - Fetch a fresh LiveScore fixture board through the configured Vercel endpoint.
 - Persist one fixture file per date in GitHub.
-- Independently re-read the committed file and verify date, mode, structure, non-zero fixture count, and commit identity.
-- A failed fetch, write, or verification is a Step 1 failure and must not be reported as success.
-- A successful verified fixture commit is the terminal state for the run.
+- Independently re-read and verify the committed fixture file.
+- A failed fetch, write, or verification is a Step 1 failure.
 
-No research, evidence collection, modelling, prediction, market comparison, decision, recovery ledger, research queue, or later pipeline stage is authorized by this contract.
+## Step 2 pilot
+
+- Step 2 may run only when a verified Step 1 fixture file already exists for the same date.
+- Use SofaScore public JSON to obtain the date's scheduled events, recent team form, venue-specific form, and H2H history.
+- Process at most 15 scheduled events until the pilot limit is explicitly changed.
+- Apply the custom xG formula defined in `config/fih-execution-rules.json`.
+- Persist the result to `data/step2-xg/YYYY-MM-DD.json`.
+- Re-read the pushed file from `origin/main` and verify its schema, date, and non-zero prediction count.
+- A verified Step 2 pilot file is the terminal state.
+
+No betting decision, odds/market comparison, accumulator construction, staking, or later pipeline stage is authorized.

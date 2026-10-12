@@ -8,12 +8,22 @@ Before any FIH command, read:
 3. `FIH_BUILD_STEPS.md`
 4. `config/fih-execution-rules.json`
 
-Interpret run commands with `scripts/fih-command-router.mjs` using Africa/Johannesburg calendar time.
+Interpret Step 1 run commands with `scripts/fih-command-router.mjs` using Africa/Johannesburg calendar time.
 
-## Active scope
+## Step 1
 
-Only **Step 1** exists.
+Invoke `scripts/step1-command-runner.mjs`. Step 1 fetches the LiveScore fixture board through the configured Vercel integration, persists the per-date fixture file to GitHub, re-reads the committed file, verifies it, and stops.
 
-For an authorized run, invoke `scripts/step1-command-runner.mjs`. Step 1 fetches the LiveScore fixture board through the configured Vercel integration, persists the per-date fixture file to GitHub, re-reads the committed file, verifies it, and stops.
+## Step 2 pilot
 
-Do not create research queues, research state, model outputs, predictions, decisions, market artifacts, or any Step 2+ handoff.
+A Step 2 custom-xG pilot is separately triggered through `.github/workflows/fih-step2-sofascore-xg.yml`.
+
+The pilot:
+- requires a verified Step 1 fixture file for the same date;
+- uses `scripts/sofascore_custom_xg.py`;
+- uses SofaScore scheduled events, recent team events, and H2H;
+- processes at most 15 events per run;
+- persists `data/step2-xg/YYYY-MM-DD.json`;
+- verifies the pushed result and stops.
+
+Do not create betting decisions, market outputs, accumulators, staking outputs, or any later-stage handoff.

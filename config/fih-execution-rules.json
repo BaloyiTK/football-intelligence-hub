@@ -1,7 +1,7 @@
 {
-  "schema": "fih-step1-rules-v1",
+  "schema": "fih-step1-step2-pilot-rules-v1",
   "locked": true,
-  "scope": "STEP_1_ONLY",
+  "scope": "STEP_1_PLUS_STEP_2_PILOT",
   "rules": {
     "STEP1-001": {
       "kind": "fixture-acquisition",
@@ -15,9 +15,29 @@
       "kind": "fixture-verification",
       "requirement": "Step 1 is complete only after the committed fixture file is independently reread from GitHub and its date, mode, structure, non-zero fixture count, fetchedAt value, and commit identity are verified."
     },
-    "STEP1-004": {
+    "STEP2-001": {
+      "kind": "pilot-gate",
+      "requirement": "Step 2 custom xG may run only for a date that already has a verified Step 1 fixture file in GitHub."
+    },
+    "STEP2-002": {
+      "kind": "sofascore-data",
+      "requirement": "The Step 2 pilot uses SofaScore public JSON for that date's scheduled events, each selected team's recent finished matches, and event head-to-head history."
+    },
+    "STEP2-003": {
+      "kind": "custom-xg",
+      "requirement": "Calculate custom xG from five-match overall form, five-match venue-specific form, and up to five H2H matches using weights 0.45 venue, 0.35 overall, 0.20 H2H, then apply multipliers 1.08 home and 0.95 away."
+    },
+    "STEP2-004": {
+      "kind": "pilot-limit",
+      "requirement": "Until explicitly expanded, the Step 2 pilot processes at most 15 SofaScore scheduled events per run."
+    },
+    "STEP2-005": {
+      "kind": "persistence",
+      "requirement": "Persist each Step 2 pilot result to data/step2-xg/YYYY-MM-DD.json and verify the pushed file can be reread from origin/main with matching date, schema, and a non-zero prediction count."
+    },
+    "STEP2-006": {
       "kind": "terminal-boundary",
-      "requirement": "After Step 1 verification, stop. No research queue, research execution, model, market, prediction, decision, or later pipeline step is active."
+      "requirement": "After the Step 2 pilot output is verified, stop. No betting decision, market comparison, accumulator, staking, or later stage is active."
     }
   },
   "infrastructure": {
@@ -33,6 +53,11 @@
           "PREDICTION"
         ]
       }
+    },
+    "sofascore": {
+      "baseUrl": "https://api.sofascore.com/api/v1",
+      "step2PilotMaxMatches": 15,
+      "outputDirectory": "data/step2-xg"
     }
   }
 }
