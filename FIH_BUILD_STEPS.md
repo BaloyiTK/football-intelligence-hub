@@ -46,9 +46,9 @@
 
 ## 2. Data Collection
 
-ChatGPT owns the cluster-first shared-evidence data-collection stage.
+Step 2 uses hybrid cluster-first shared-evidence collection: deterministic GitHub public-source prefill for PREDICTION, followed by ChatGPT gap research and final validation.
 
-### ChatGPT web-search ownership and batch persistence — LOCKED
+### Hybrid deterministic prefill + ChatGPT gap research — LOCKED
 
 
 #### Step 2 working JSON schema — LOCKED
@@ -84,9 +84,9 @@ The single local working file MUST use this exact top-level contract (no placeho
 
 #### ChatGPT execution-environment accumulator — LOCKED
 
-- During active Step 2 research, ChatGPT MUST create and maintain one local JSON accumulator in its execution environment at `/mnt/data/fih/research-work/YYYY-MM-DD.json` (the execution-environment equivalent of the logical `data/research-work/YYYY-MM-DD.json` working artifact). The date is resolved dynamically; do not hard-code a run date.
+- During active Step 2 research, ChatGPT MUST create and maintain one local JSON accumulator in its execution environment at `/mnt/data/fih/research-work/YYYY-MM-DD.json`. For PREDICTION, first import every fully validated record from `data/research-prefill/YYYY-MM-DD.json`, then research the categories listed in `data/research-gap-queue/YYYY-MM-DD.json`. The date is resolved dynamically; do not hard-code a run date.
 - Initialize it with the active `researchRunId`, frozen eligible fixture IDs/count, and an initially empty set of validated fixture records. This local file is **temporary** and MUST NOT be committed to GitHub.
-- Collect actual ChatGPT web research cluster-first by competition/team/team-pair, assemble each source-backed facts-only fixture record from that shared evidence, then atomically rewrite the **same** accumulator file after each fixture validates (write to a sibling temporary file and rename), reopen it, and verify the saved record, fixture IDs/count, date and `researchRunId`.
+- Use deterministic prefill evidence where it is fully source-backed and validator-compliant; use actual ChatGPT web research cluster-first for missing/conflicting competition/team/team-pair evidence, assemble each source-backed facts-only fixture record, then atomically rewrite the **same** accumulator file after each fixture validates (write to a sibling temporary file and rename), reopen it, and verify the saved record, fixture IDs/count, date and `researchRunId`.
 - Do not create one file or Git commit per fixture. Do not promote a partial accumulator. Only after exact N/N coverage and all schema/integrity checks pass, promote to `data/research/YYYY-MM-DD.json` and make **one canonical Git commit** for that `researchRunId`; reread and verify the committed artifact before Step 3.
 - ChatGPT's local execution filesystem is **not guaranteed to persist across separate sessions**. On interruption, resume from this accumulator only if it still exists and validates. If it has been lost, reconstruct the uncommitted batch from the verified frozen Step-1 fixture universe; never claim lost records are complete or silently promote partial data. A missing local file must not be treated as a successful checkpoint.
 - This local working-file location is a runtime implementation detail, not an alternative canonical Git storage path. The single-accumulator and single-commit invariants above remain authoritative.
@@ -105,7 +105,7 @@ The single local working file MUST use this exact top-level contract (no placeho
 
 - Research/provider/query ceilings are continuation boundaries, never completion or a hard stop. Continue through available search capacity and authorized search paths. If the execution environment itself prevents further calls, first verify the single temp accumulator and exact continuation cursor; resume the same `researchRunId` from the next unfinished fixture without rerunning Step 1 or requiring a new user command.
 - ChatGPT MUST perform the actual web research needed to cover every eligible fixture, but MUST NOT require one independent search job per fixture. Reuse current attributable competition/team/team-pair evidence across all applicable fixture records.
-- **Execution-boundary lock:** Vercel is Step 1 infrastructure only. Step 2 MUST NOT use Vercel AI Gateway, a Vercel-hosted language model, `/api/research-fixture`, `/api/step2-research`, or any repository-hosted AI worker. The frozen queue is input to the active ChatGPT execution, which performs the web research itself.
+- **Execution-boundary lock:** Vercel is Step 1 infrastructure only. For PREDICTION, GitHub Actions may run deterministic public-source prefill without any AI/LLM credential. Step 2 MUST NOT use Vercel AI Gateway, a Vercel-hosted language model, `/api/research-fixture`, `/api/step2-research`, or any repository-hosted AI/LLM worker. The frozen gap queue is input to active ChatGPT research.
 - **Actual-capture lock:** a search call or completion marker is not a researched fixture. Before a fixture enters `data/research-work/YYYY-MM-DD.json`, ChatGPT MUST write the source-backed structured facts returned by the search into that fixture record. Copying a prior canonical/baseline record and appending attempt/completion markers is forbidden.
 - For every required category, `PARTIAL` or `UNAVAILABLE` is valid only after genuine category-specific exhaustion: `searchExhausted: true` plus at least one attempt outcome explicitly recording `SEARCH_EXHAUSTED`.
 - Completion-only outcomes such as `CHATGPT_WEB_SEARCH_REFRESH_COMPLETED`, `CHATGPT_H2H_SEARCH_REFRESH_COMPLETED`, `CHATGPT_VENUE_FORM_SEARCH_REFRESH_COMPLETED`, or `SEARCH_COMPLETE` are forbidden as research evidence and cannot satisfy checkpoint/promotion validation.
