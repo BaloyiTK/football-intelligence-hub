@@ -31,7 +31,7 @@
     "ledger:fresh-board-test": "node scripts/test-ledger-fresh-board.mjs",
     "research:prefill": "tsx scripts/hybrid-research-prefill.ts",
     "research:prefill:import": "tsx scripts/research-prefill-import.ts",
-    "research:prefill:sofascore": "tsx scripts/sofascore-prefill-augment.ts"
+    "research:prefill:fotmob": "tsx scripts/fotmob-prefill-augment.ts"
   },
   "devDependencies": {
     "@types/node": "^22",
