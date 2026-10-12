@@ -19,8 +19,8 @@ for(;;){
  if(run.status===0&&after?.runStatus==="COMPLETE"){console.log("CONTINUATION_READY_FOR_COMMIT "+DATE);process.exit(0)}
  const researchQueue=path.join(ROOT,"data","research-queue",DATE+".json"),canonicalResearch=path.join(ROOT,"data","research",DATE+".json");
  if(after?.researchRunId&&fs.existsSync(researchQueue)&&!fs.existsSync(canonicalResearch)){
-  gate("RECOVERING","REC-001,REC-005,RESUME-001,EXEC-001,RESEARCH-001,RESEARCH-004,RESEARCH-006,RESEARCH-012,RESEARCH-014,RESEARCH-019,INFRA-003","ledger:"+path.relative(ROOT,ledgerPath)+",chatgpt-step2-handoff");
-  console.error("STEP2_CHATGPT_HANDOFF_REQUIRED",DATE,after.researchRunId,path.relative(ROOT,researchQueue));
+  gate("RECOVERING","REC-001,REC-005,RESUME-001,EXEC-001,RESEARCH-001,RESEARCH-004,RESEARCH-006,RESEARCH-012,RESEARCH-014,RESEARCH-019,RESEARCH-027,INFRA-003","ledger:"+path.relative(ROOT,ledgerPath)+",hybrid-step2-handoff");
+  console.error("STEP2_HYBRID_HANDOFF_REQUIRED",DATE,after.researchRunId,path.relative(ROOT,researchQueue));
   process.exitCode=20;
   process.exit();
  }
