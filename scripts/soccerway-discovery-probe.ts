@@ -17,7 +17,7 @@ for(const s of board.payload?.Stages||[])for(const e of s.Events||[])meta.set(St
  country:String(s.Cnm||s.Csnm||s.CompD||""),countrySlug:String(s.Ccd||""),competition:String(s.CompN||s.Snm||""),competitionSlug:String(s.CompUrlName||s.Scd||""),
  home:String(e.T1?.[0]?.Nm||""),away:String(e.T2?.[0]?.Nm||"")
 });
-const wanted=["1825659","1846935","1710453","1857520","1784489"].map(id=>queue.fixtures.find((f:any)=>String(f.fixtureId)===id)).filter(Boolean);
+const wanted=["1825659","1846935","1710453"].map(id=>queue.fixtures.find((f:any)=>String(f.fixtureId)===id)).filter(Boolean);
 const world=await get("https://www.soccerway.com/world/");
 console.log(JSON.stringify({world:{status:world.status,links:world.links.length}},null,2));
 for(const f of wanted){
@@ -28,7 +28,10 @@ for(const f of wanted){
  if(!country){console.log(JSON.stringify(row,null,2));continue}
  await sleep(6500);
  const cp=await get(country.url);
- const comps=cp.links.map((x:any)=>({...x,score:Math.max(similarity(f.competition,x.label),similarity(m.competition,x.label))})).filter((x:any)=>x.score>=.6).sort((a:any,b:any)=>b.score-a.score);
+ const countryPath=new URL(country.url).pathname;
+ const comps=cp.links.map((x:any)=>({...x,score:Math.max(similarity(f.competition,x.label),similarity(m.competition,x.label))}))
+  .filter((x:any)=>x.score>=.6&&new URL(x.url).hostname.endsWith("soccerway.com")&&new URL(x.url).pathname.startsWith(countryPath)&&new URL(x.url).pathname!==countryPath)
+  .sort((a:any,b:any)=>b.score-a.score);
  const comp=comps[0];
  row.countryPage={status:cp.status,links:cp.links.length};
  row.competitionCandidate=comp?{url:comp.url,label:comp.label,score:comp.score}:null;
@@ -39,5 +42,25 @@ for(const f of wanted){
  const pairHits=lp.links.filter((x:any)=>similarity(f.home,x.label)>=.45&&similarity(f.away,x.label)>=.45).slice(0,20);
  const routeLinks=lp.links.filter((x:any)=>/\/(results|fixtures|standings)\/?(?:$|\?)/i.test(new URL(x.url).pathname)).slice(0,20);
  row.competitionPage={status:lp.status,links:lp.links.length,teamHits:teamHits.slice(0,12),pairHits:pairHits.slice(0,8),routeLinks,textSample:lp.text.slice(0,800)};
+ const resultLink=routeLinks.find((x:any)=>/\/results\/?(?:$|\?)/i.test(new URL(x.url).pathname));
+ const standingsLink=routeLinks.find((x:any)=>/\/standings\/?(?:$|\?)/i.test(new URL(x.url).pathname));
+ if(resultLink){
+  await sleep(6500);
+  const rp=await get(resultLink.url);
+  const targetMatches=rp.links.filter((x:any)=>/\/match\//.test(new URL(x.url).pathname)&&(similarity(f.home,x.label)>=.45||similarity(f.away,x.label)>=.45)).slice(0,20);
+  row.resultsPage={status:rp.status,links:rp.links.length,targetMatches,textAroundHome:(()=>{const i=normalize(rp.text).indexOf(normalize(f.home));return i>=0?rp.text.slice(Math.max(0,i-300),i+1200):rp.text.slice(0,1000)})()};
+  const pair=targetMatches.find((x:any)=>similarity(f.home,x.label)>=.4&&similarity(f.away,x.label)>=.4);
+  if(pair){
+   await sleep(6500);
+   const mp=await get(pair.url);
+   row.matchPage={url:pair.url,status:mp.status,links:mp.links.length,teamLinks:mp.links.filter((x:any)=>/\/team\//.test(new URL(x.url).pathname)).slice(0,20),textSample:mp.text.slice(0,1800)};
+  }
+ }
+ if(standingsLink){
+  await sleep(6500);
+  const sp=await get(standingsLink.url);
+  const i=Math.max(normalize(sp.text).indexOf(normalize(f.home)),normalize(sp.text).indexOf(normalize(f.away)));
+  row.standingsPage={status:sp.status,links:sp.links.length,textAroundTeams:i>=0?sp.text.slice(Math.max(0,i-500),i+1800):sp.text.slice(0,1500),teamLinks:sp.links.filter((x:any)=>/\/team\//.test(new URL(x.url).pathname)&&(similarity(f.home,x.label)>=.45||similarity(f.away,x.label)>=.45)).slice(0,20)};
+ }
  console.log(JSON.stringify(row,null,2));
 }
