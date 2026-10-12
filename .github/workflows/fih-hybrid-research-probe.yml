@@ -6,6 +6,11 @@ name: FIH Hybrid Research Probe
     paths:
       - "scripts/hybrid-research-probe.ts"
       - ".github/workflows/fih-hybrid-research-probe.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "scripts/hybrid-research-probe.ts"
+      - ".github/workflows/fih-hybrid-research-probe.yml"
   workflow_dispatch:
     inputs:
       date:
