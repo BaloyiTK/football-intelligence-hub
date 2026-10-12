@@ -1,0 +1,146 @@
+name: FIH Step 2 SofaScore Custom xG Pilot
+
+"on":
+  push:
+    paths:
+      - automation/sofascore-xg.flag
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Date YYYY-MM-DD"
+        required: true
+        type: string
+      max_matches:
+        description: "Pilot match limit (maximum 15)"
+        required: false
+        default: "15"
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fih-step2-sofascore-xg-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  step2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Resolve pilot request
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            DATE="${{ inputs.date }}"
+            MAX="${{ inputs.max_matches }}"
+          else
+            read -r DATE MAX _ < automation/sofascore-xg.flag
+          fi
+
+          echo "$DATE" | grep -Eq '^[0-9]{4}-[0-9]{2}-[0-9]{2}$'
+          MAX="${MAX:-15}"
+          echo "$MAX" | grep -Eq '^[0-9]+$'
+          if [ "$MAX" -lt 1 ] || [ "$MAX" -gt 15 ]; then
+            echo "Step 2 pilot max_matches must be between 1 and 15" >&2
+            exit 1
+          fi
+
+          echo "FIH_DATE=$DATE" >> "$GITHUB_ENV"
+          echo "FIH_MAX_MATCHES=$MAX" >> "$GITHUB_ENV"
+          echo "FIH_OUTPUT=data/step2-xg/$DATE.json" >> "$GITHUB_ENV"
+
+      - name: Verify Step 1 gate
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -f "data/prediction-fixtures/$FIH_DATE.json" ]; then
+            STEP1_PATH="data/prediction-fixtures/$FIH_DATE.json"
+          elif [ -f "data/backtest/fixtures/$FIH_DATE.json" ]; then
+            STEP1_PATH="data/backtest/fixtures/$FIH_DATE.json"
+          else
+            echo "No Step 1 fixture file exists for $FIH_DATE" >&2
+            exit 1
+          fi
+
+          python - "$STEP1_PATH" "$FIH_DATE" <<'PY'
+          import json, sys
+          path, date = sys.argv[1], sys.argv[2]
+          data = json.load(open(path, encoding="utf-8"))
+          assert data.get("date") == date
+          assert isinstance(data.get("fixtureCount"), int) and data["fixtureCount"] > 0
+          assert data.get("fetchedAt")
+          assert isinstance(data.get("payload", {}).get("Stages"), list)
+          print(f"STEP1_GATE_OK {path} fixtures={data['fixtureCount']}")
+          PY
+
+      - name: Install Python dependency
+        run: python -m pip install --disable-pip-version-check requests
+
+      - name: Run SofaScore custom xG pilot
+        run: |
+          python scripts/sofascore_custom_xg.py \
+            --date "$FIH_DATE" \
+            --max-matches "$FIH_MAX_MATCHES" \
+            --output "$FIH_OUTPUT"
+
+      - name: Validate local Step 2 output
+        run: |
+          python - "$FIH_OUTPUT" "$FIH_DATE" <<'PY'
+          import json, sys
+          path, date = sys.argv[1], sys.argv[2]
+          data = json.load(open(path, encoding="utf-8"))
+          assert data.get("schema") == "fih-sofascore-custom-xg-v1"
+          assert data.get("date") == date
+          assert 0 < data.get("predictionCount", 0) <= 15
+          assert data.get("predictionCount") == len(data.get("predictions", []))
+          print(
+              f"STEP2_LOCAL_OK predictions={data['predictionCount']} "
+              f"requests={data.get('requestCount')}"
+          )
+          PY
+
+      - name: Persist Step 2 output
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "fih-automation"
+          git config user.email "fih-automation@users.noreply.github.com"
+          git add "$FIH_OUTPUT"
+
+          if git diff --cached --quiet; then
+            echo "No Step 2 output change to commit"
+          else
+            git commit -m "step2: SofaScore custom xG $FIH_DATE"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+
+      - name: Re-read and verify persisted Step 2 output
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git show "origin/main:$FIH_OUTPUT" > /tmp/fih-step2-persisted.json
+          python - "$FIH_DATE" <<'PY'
+          import json, sys
+          date = sys.argv[1]
+          data = json.load(open("/tmp/fih-step2-persisted.json", encoding="utf-8"))
+          assert data.get("schema") == "fih-sofascore-custom-xg-v1"
+          assert data.get("date") == date
+          assert data.get("predictionCount", 0) > 0
+          assert data.get("predictionCount") == len(data.get("predictions", []))
+          print(
+              f"STEP2_PERSISTED_VERIFIED {date} "
+              f"predictions={data['predictionCount']}"
+          )
+          PY
