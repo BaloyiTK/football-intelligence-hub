@@ -53,7 +53,7 @@ jobs:
           console.log(JSON.stringify({
             fotmobProbe:true,status:r.status,matches:all.length,
             sample:{id:sample.id,leagueId:sample.leagueId,home:sample.home?.name,away:sample.away?.name},
-            teamKeys:Object.keys(team||{}),teamFixtureKeys:Object.keys(team?.fixtures||{}),teamFixtureArrays:arrays(team?.fixtures),
+            teamKeys:Object.keys(team||{}),teamFixtureKeys:Object.keys(team?.fixtures||{}),teamFixtureArrays:arrays(team?.fixtures),teamAllFixturesKeys:Object.keys(team?.fixtures?.allFixtures||{}),teamAllFixtures:team?.fixtures?.allFixtures||null,previousFixturesUrl:team?.fixtures?.previousFixturesUrl||team?.overview?.previousFixturesUrl||null,
             teamOverviewKeys:Object.keys(team?.overview||{}),teamFormSample:team?.overview?.teamForm?.[0]||null,
             h2hKeys:Object.keys(detail?.content?.h2h||{}),h2h:detail?.content?.h2h||null,
             tableIsArray:Array.isArray(table),tableSample:Array.isArray(table)?table[0]:table
