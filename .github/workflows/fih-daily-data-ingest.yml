@@ -3,7 +3,7 @@ name: FIH Fresh Data Gate Audit
 "on":
   workflow_dispatch:
   schedule:
-    # 05:50 SAST: audit the Vercel-owned 05:30 ingest before the 06:00 prediction run.
+    # 05:50 SAST: independently verify the 05:30 protected Step-1 acquisition.
     - cron: "50 3 * * *"
 
 permissions:
@@ -20,18 +20,25 @@ jobs:
         run: |
           set -euo pipefail
           DATE="$(TZ=Africa/Johannesburg date +%F)"
-          node -e '
-            const fs=require("fs");
-            const x=JSON.parse(fs.readFileSync("data/today_fixture.json","utf8"));
-            const expected=process.argv[1];
-            if(x.schema!=="fih-today-fixture-v1") throw new Error("invalid schema");
-            if(x.date!==expected) throw new Error("fresh-data gate failed: expected "+expected+", got "+x.date);
-            if(x.timezone!=="Africa/Johannesburg") throw new Error("invalid timezone");
-            if(!Array.isArray(x.payload?.Stages)||!x.payload.Stages.length) throw new Error("missing Stages");
-            const n=x.payload.Stages.reduce((a,s)=>a+(Array.isArray(s.Events)?s.Events.length:0),0);
-            if(!n||n!==x.fixtureCount) throw new Error("invalid fixture count");
-            console.log(JSON.stringify({gate:"PASS",date:x.date,stageCount:x.stageCount,fixtureCount:x.fixtureCount,fetchedAt:x.fetchedAt}));
-          ' "$DATE"
+          FILE="data/prediction-fixtures/$DATE.json"
+          test -s "$FILE"
+          node - "$DATE" "$FILE" <<'NODE'
+          const fs=require("fs");
+          const expected=process.argv[2], file=process.argv[3];
+          const x=JSON.parse(fs.readFileSync(file,"utf8"));
+          if(x.schema!=="fih-prediction-fixture-v1") throw new Error("invalid schema");
+          if(x.mode!=="PREDICTION") throw new Error("invalid mode");
+          if(x.date!==expected) throw new Error("fresh-data gate failed: expected "+expected+", got "+x.date);
+          if(x.timezone!=="Africa/Johannesburg") throw new Error("invalid timezone");
+          if(!Array.isArray(x.payload?.Stages)||!x.payload.Stages.length) throw new Error("missing Stages");
+          const n=x.payload.Stages.reduce((a,s)=>a+(Array.isArray(s.Events)?s.Events.length:0),0);
+          if(!n||n!==x.fixtureCount) throw new Error("invalid fixture count");
+          const fetched=new Date(x.fetchedAt);
+          if(Number.isNaN(fetched.getTime())) throw new Error("invalid fetchedAt");
+          const fetchedDate=new Intl.DateTimeFormat("en-CA",{timeZone:"Africa/Johannesburg",year:"numeric",month:"2-digit",day:"2-digit"}).format(fetched);
+          if(fetchedDate!==expected) throw new Error("stale fetchedAt: "+x.fetchedAt);
+          console.log(JSON.stringify({gate:"PASS",date:x.date,stageCount:x.stageCount,fixtureCount:x.fixtureCount,fetchedAt:x.fetchedAt}));
+          NODE
       - name: Reconcile durable daily run ledger
         run: |
           npm install --no-audit --no-fund
