@@ -12,7 +12,7 @@ const LIMIT=Number.isFinite(LIMIT_RAW)&&LIMIT_RAW>0?Math.max(1,Math.min(5000,LIM
 const SITE="https://site.api.espn.com/apis/site/v2/sports/soccer";
 const DATA="https://site.api.espn.com/apis/v2/sports/soccer";
 const CORE="https://sports.core.api.espn.com/v2/sports/soccer/leagues";
-const SEARCH="https://site.api.espn.com/apis/search/v2";
+const SEARCH="https://site.web.api.espn.com/apis/search/v2";
 const queuePath=path.join(root,"data/research-queue",DATE+".json");
 if(!fs.existsSync(queuePath))throw new Error("HYBRID_PROBE_QUEUE_MISSING "+queuePath);
 const queue=JSON.parse(fs.readFileSync(queuePath,"utf8"));
