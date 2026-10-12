@@ -268,24 +268,45 @@ async function expandEventPool(ymd:string,baseEvents:any[],leagueMap:Map<string,
 
 
 
+function deepTeamIdentity(x:any){
+ let numericId="",leagueSlug="";const strings:string[]=[],seen=new Set<any>();
+ const visit=(v:any,key="")=>{
+  if(v===null||v===undefined)return;
+  if(typeof v==="string"){
+   strings.push(v);
+   const patterns=[/(?:^|~)t:(\d+)/i,/\/soccer\/team\/_\/id\/(\d+)/i,/\/teams?\/(\d+)(?:[/?#]|$)/i,/\bteam(?:Id|ID)?[=:"']+(\d{2,})\b/i];
+   for(const p of patterns){const m=v.match(p);if(m&&!numericId){numericId=m[1];break;}}
+   const lm=v.match(/\/soccer\/league\/_\/name\/([^/?#]+)/i)||v.match(/\/soccer\/([^/?#]+)\/(?:team|teams|scoreboard|standings|schedule)/i);
+   if(lm?.[1]&&lm[1]!=="all"&&!leagueSlug)leagueSlug=lm[1];
+   return;
+  }
+  if(typeof v==="number"&&/team.?id/i.test(key)&&Number.isInteger(v)&&v>0&&!numericId){numericId=String(v);return;}
+  if(typeof v!=="object"||seen.has(v))return;seen.add(v);
+  if(!numericId){
+   const uid=String(v.uid||"");const m=uid.match(/(?:^|~)t:(\d+)/i);if(m)numericId=m[1];
+   const direct=String(v.teamId||v.teamID||"");if(/^\d+$/.test(direct))numericId=direct;
+   const id=String(v.id||"");if(/^\d+$/.test(id)&&/team/i.test(String(v.type||v.typeName||v.category||"")))numericId=id;
+  }
+  if(!leagueSlug&&typeof v.slug==="string"&&/^[a-z0-9.-]+$/i.test(v.slug)&&String(v.slug)!=="all"&&/league/i.test(String(v.type||v.typeName||v.category||"")))leagueSlug=String(v.slug);
+  if(Array.isArray(v)){for(const y of v)visit(y,key);return;}
+  for(const [k,y] of Object.entries(v))visit(y,k);
+ };
+ visit(x);
+ return {numericId,leagueSlug,strings};
+}
 function searchTeamCandidates(payload:any,query:string){
  const out:any[]=[],seen=new Set<string>(),visited=new Set<any>();
  const visit=(x:any)=>{
   if(!x||typeof x!=="object"||visited.has(x))return;visited.add(x);
   if(Array.isArray(x)){for(const v of x)visit(v);return;}
+  const identity=deepTeamIdentity(x);
   const uid=String(x.uid||x.team?.uid||"");
-  const id=String(x.id||x.team?.id||uid.match(/(?:^|~)t:(\d+)/)?.[1]||"");
+  const id=identity.numericId;
   const name=String(x.displayName||x.shortDisplayName||x.name||x.title||x.team?.displayName||x.team?.shortDisplayName||x.team?.name||"");
-  const hrefs:any[]=[];
-  for(const k of ["href","url"]){if(typeof x[k]==="string")hrefs.push(x[k]);if(typeof x.team?.[k]==="string")hrefs.push(x.team[k]);}
-  for(const l of [...(Array.isArray(x.links)?x.links:[]),...(Array.isArray(x.team?.links)?x.team.links:[])])if(typeof l?.href==="string")hrefs.push(l.href);
-  const teamLike=/~t:\d+/.test(uid)||hrefs.some(h=>/\/soccer\/team\//i.test(h)||/\/teams?\/\d+/i.test(h))||/team|club/i.test(String(x.type||x.typeName||x.category||""));
+  const hrefs=identity.strings.filter(s=>/^https?:\/\//i.test(s));
+  const teamLike=!!id||/~t:\d+/.test(uid)||hrefs.some(h=>/\/soccer\/team\//i.test(h)||/\/teams?\/\d+/i.test(h))||/team|club/i.test(String(x.type||x.typeName||x.category||""));
   if(id&&name&&teamLike){
-   let leagueSlug=String(x.league?.slug||x.team?.league?.slug||"");
-   if(!leagueSlug)for(const href of hrefs){
-    const m=href.match(/\/soccer\/league\/_\/name\/([^/?#]+)/i)||href.match(/\/soccer\/([^/?#]+)\/(?:team|teams|scoreboard|standings|schedule)/i);
-    if(m?.[1]&&m[1]!=="all"){leagueSlug=m[1];break;}
-   }
+   const leagueSlug=identity.leagueSlug||String(x.league?.slug||x.team?.league?.slug||"");
    const s=similarity(query,name);
    if(s>=.45&&!seen.has(id)){seen.add(id);out.push({id,name,uid,leagueSlug,score:s});}
   }
