@@ -42,6 +42,7 @@ async function getJson(url:string){
  throw new Error("ESPN_FETCH_FAILED "+url+" "+String(last?.message||last));
 }
 const cache=new Map<string,Promise<any>>();
+const searchDiagnostics:any[]=[];
 const cached=(key:string,fn:()=>Promise<any>)=>{if(!cache.has(key))cache.set(key,fn());return cache.get(key)!;};
 const comp=(e:any)=>Array.isArray(e?.competitions)?e.competitions[0]:null;
 const competitors=(e:any)=>Array.isArray(comp(e)?.competitors)?comp(e).competitors:[];
@@ -296,9 +297,22 @@ function searchTeamCandidates(payload:any,query:string){
 async function searchTeam(name:string){
  const key="search:"+normalize(name);
  return cached(key,async()=>{
-  const url=SEARCH+"?query="+encodeURIComponent(name)+"&sport=soccer&limit=50";
-  const r=await getJson(url);
-  return {url,retrievedAt:r.retrievedAt,candidates:searchTeamCandidates(r.json,name)};
+  const urls=[
+   SEARCH+"?query="+encodeURIComponent(name)+"&sport=soccer&limit=50",
+   SEARCH+"?query="+encodeURIComponent(name)+"&limit=100"
+  ];
+  let last:any=null;
+  for(const url of urls){
+   try{
+    const r=await getJson(url),candidates=searchTeamCandidates(r.json,name);
+    if(searchDiagnostics.length<12)searchDiagnostics.push({name,url,topKeys:Object.keys(r.json||{}),candidateCount:candidates.length,candidates:candidates.slice(0,5).map((x:any)=>({id:x.id,name:x.name,score:Number(x.score.toFixed(3)),leagueSlug:x.leagueSlug||null}))});
+    last={url,retrievedAt:r.retrievedAt,candidates};
+    if(candidates.length)return last;
+   }catch(e:any){
+    if(searchDiagnostics.length<12)searchDiagnostics.push({name,url,error:String(e?.message||e)});
+   }
+  }
+  return last||{url:urls[urls.length-1],retrievedAt:new Date().toISOString(),candidates:[]};
  });
 }
 function eventNearDate(e:any){
@@ -486,7 +500,7 @@ async function main(){
  const full=prefillFixtures.filter((r:any)=>r.validatedRecord).length;
  const categoryCounts=Object.fromEntries(["form","standings","headToHead","schedule"].map(k=>[k,prefillFixtures.filter((r:any)=>r.completeCategories.includes(k)).length]));
  const anyUseful=prefillFixtures.filter((r:any)=>r.completeCategories.length>0).length;
- const out={schema:"fih-hybrid-research-prefill-v1",date:DATE,mode:"PREDICTION",researchRunId:queue.researchRunId,generatedAt,provider:"ESPN_PUBLIC_JSON",nonCanonical:true,purpose:"DETERMINISTIC_PREFILL_ONLY",fixtureCount:selected.length,summary:{attempted:selected.length,matched:matchedCount,fixturesWithAnyCompleteCategory:anyUseful,fullyValidatedFixtures:full,gapFixtures:gapFixtures.length,categoryComplete:categoryCounts,cacheEntries:cache.size,eventPool:events.length,globalEventPool:globalEvents.length,leagueCatalogCount:leagueDiscovery.catalogCount,leagueScoreboardsAttempted:leagueDiscovery.attempted,leagueScoreboardsWithEvents:leagueDiscovery.withEvents,searchFallbackAttempted,searchFallbackMatched},fixtures:prefillFixtures};
+ const out={schema:"fih-hybrid-research-prefill-v1",date:DATE,mode:"PREDICTION",researchRunId:queue.researchRunId,generatedAt,provider:"ESPN_PUBLIC_JSON",nonCanonical:true,purpose:"DETERMINISTIC_PREFILL_ONLY",fixtureCount:selected.length,summary:{attempted:selected.length,matched:matchedCount,fixturesWithAnyCompleteCategory:anyUseful,fullyValidatedFixtures:full,gapFixtures:gapFixtures.length,categoryComplete:categoryCounts,cacheEntries:cache.size,eventPool:events.length,globalEventPool:globalEvents.length,leagueCatalogCount:leagueDiscovery.catalogCount,leagueScoreboardsAttempted:leagueDiscovery.attempted,leagueScoreboardsWithEvents:leagueDiscovery.withEvents,searchFallbackAttempted,searchFallbackMatched,searchDiagnostics},fixtures:prefillFixtures};
  const gap={schema:"fih-chatgpt-gap-queue-v1",date:DATE,mode:"PREDICTION",researchRunId:queue.researchRunId,generatedAt,count:gapFixtures.length,sourcePrefillPath:"data/research-prefill/"+DATE+".json",fixtures:gapFixtures};
  const outPath=path.join(root,"data/research-prefill",DATE+".json"),gapPath=path.join(root,"data/research-gap-queue",DATE+".json");
  fs.mkdirSync(path.dirname(outPath),{recursive:true});fs.mkdirSync(path.dirname(gapPath),{recursive:true});
