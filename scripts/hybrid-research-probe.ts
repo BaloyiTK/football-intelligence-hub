@@ -50,7 +50,7 @@ function score(x:any){
 }
 function eventLeagueId(e:any){
  for(const raw of [e?.uid,comp(e)?.uid]){
-  const m=String(raw||"").match(/(?:^|~)l:(\\d+)/);
+  const m=String(raw||"").match(/(?:^|~)l:(\d+)/);
   if(m)return m[1];
  }
  return String(e?.league?.id||comp(e)?.league?.id||"");
