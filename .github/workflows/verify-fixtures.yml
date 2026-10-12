@@ -2,6 +2,9 @@ name: Verify fixture fetch
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - fih-verify
 
 jobs:
   verify:
