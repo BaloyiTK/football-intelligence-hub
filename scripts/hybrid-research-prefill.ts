@@ -73,7 +73,9 @@ const COMPETITION_SLUGS=new Map<string,string>([
  ["eredivisie","ned.1"],
  ["mls","usa.1"],
  ["uefa champions league","uefa.champions"],
- ["uefa europa league","uefa.europa"]
+ ["uefa europa league","uefa.europa"],
+ ["singapore premier league","sgp.1"],["singaporean premier league","sgp.1"],
+ ["afc champions league elite","afc.champions"]
 ]);
 function inferredSlug(f:any,e:any){
  const direct=String(e?.league?.slug||comp(e)?.league?.slug||"");
@@ -399,6 +401,36 @@ async function resolveFixtureViaTeamSearch(f:any){
  ]};
 }
 
+
+function deepLeagueRefs(payload:any){
+ const out=new Set<string>(),seen=new Set<any>();
+ const visit=(v:any)=>{
+  if(v===null||v===undefined)return;
+  if(typeof v==="string"){
+   const patterns=[/\/soccer\/league\/_\/name\/([^/?#]+)/i,/\/leagues\/([^/?#]+)/i,/\/soccer\/([^/?#]+)\/(?:standings|scoreboard|schedule|teams)(?:[/?#]|$)/i];
+   for(const p of patterns){const m=v.match(p);if(m?.[1]&&m[1]!=="all")out.add(m[1]);}
+   return;
+  }
+  if(typeof v!=="object"||seen.has(v))return;seen.add(v);
+  if(Array.isArray(v)){for(const x of v)visit(x);return;}
+  for(const x of Object.values(v))visit(x);
+ };
+ visit(payload);
+ return [...out].filter(s=>/^[a-z0-9.-]{2,80}$/i.test(s));
+}
+async function resolveLeagueFromTeams(homeId:string,awayId:string){
+ const read=async(id:string)=>{
+  const url=SITE+"/all/teams/"+id;
+  try{
+   const r=await cached("team-detail:"+id,()=>getJson(url));
+   return {url,retrievedAt:r.retrievedAt,slugs:deepLeagueRefs(r.json)};
+  }catch{return {url,retrievedAt:new Date().toISOString(),slugs:[] as string[]};}
+ };
+ const [h,a]=await Promise.all([read(homeId),read(awayId)]);
+ const common=h.slugs.filter((s:string)=>a.slugs.includes(s));
+ return {slug:common.length===1?common[0]:"",home:h,away:a};
+}
+
 async function main(){
  const ymd=DATE.replaceAll("-","");
  const scoreboardUrl=SITE+"/all/scoreboard?dates="+ymd+"&limit=1000";
@@ -446,8 +478,13 @@ async function main(){
    continue;
   }
   const leagueId=e?eventLeagueId(e):"";
-  let slug=(e?String(e?.__fihLeagueSlug||""):"")||leagueMap.get(leagueId)||String(recovered?.homeCandidate?.leagueSlug||recovered?.awayCandidate?.leagueSlug||"")||(e?inferredSlug(f,e):"");
+  let slug=(e?String(e?.__fihLeagueSlug||""):"")||leagueMap.get(leagueId)||String(recovered?.homeCandidate?.leagueSlug||recovered?.awayCandidate?.leagueSlug||"")||(e?inferredSlug(f,e):"")||COMPETITION_SLUGS.get(normalize(String(f.competition||"")))||"";
   const errors:string[]=[...discoveryErrors];
+  if(!slug){
+   const lr=await resolveLeagueFromTeams(homeId,awayId);
+   if(lr.slug)slug=lr.slug;
+   fallbackMeta.push({url:lr.home.url,retrievedAt:lr.home.retrievedAt,supports:["leagueIdentity"]},{url:lr.away.url,retrievedAt:lr.away.retrievedAt,supports:["leagueIdentity"]});
+  }
   const seasonRaw=Number(e?.season?.year);
   const seasonYear=Number.isFinite(seasonRaw)?seasonRaw:Number(DATE.slice(0,4));
 
@@ -551,7 +588,9 @@ async function main(){
  const full=prefillFixtures.filter((r:any)=>r.validatedRecord).length;
  const categoryCounts=Object.fromEntries(["form","standings","headToHead","schedule"].map(k=>[k,prefillFixtures.filter((r:any)=>r.completeCategories.includes(k)).length]));
  const anyUseful=prefillFixtures.filter((r:any)=>r.completeCategories.length>0).length;
- const out={schema:"fih-hybrid-research-prefill-v1",date:DATE,mode:"PREDICTION",researchRunId:queue.researchRunId,generatedAt,provider:"ESPN_PUBLIC_JSON",nonCanonical:true,purpose:"DETERMINISTIC_PREFILL_ONLY",fixtureCount:selected.length,summary:{attempted:selected.length,matched:matchedCount,fixturesWithAnyCompleteCategory:anyUseful,fullyValidatedFixtures:full,gapFixtures:gapFixtures.length,categoryComplete:categoryCounts,cacheEntries:cache.size,eventPool:events.length,globalEventPool:globalEvents.length,leagueCatalogCount:leagueDiscovery.catalogCount,leagueScoreboardsAttempted:leagueDiscovery.attempted,leagueScoreboardsWithEvents:leagueDiscovery.withEvents,searchFallbackAttempted,searchFallbackMatched,searchDiagnostics},fixtures:prefillFixtures};
+ const out={schema:"fih-hybrid-research-prefill-v1",date:DATE,mode:"PREDICTION",researchRunId:queue.researchRunId,generatedAt,provider:"ESPN_PUBLIC_JSON",nonCanonical:true,purpose:"DETERMINISTIC_PREFILL_ONLY",fixtureCount:selected.length,summary:{attempted:selected.length,matched:matchedCount,fixturesWithAnyCompleteCategory:anyUseful,fullyValidatedFixtures:full,gapFixtures:gapFixtures.length,categoryComplete:categoryCounts,cacheEntries:cache.size,eventPool:events.length,globalEventPool:globalEvents.length,leagueCatalogCount:leagueDiscovery.catalogCount,leagueScoreboardsAttempted:leagueDiscovery.attempted,leagueScoreboardsWithEvents:leagueDiscovery.withEvents,searchFallbackAttempted,searchFallbackMatched,
+ resolutionModes:Object.fromEntries(["SCOREBOARD","TEAM_SEARCH_EVENT","TEAM_SEARCH_IDENTITY"].map(k=>[k,results.filter((r:any)=>r.resolutionMode===k).length])),
+ searchDiagnostics},fixtures:prefillFixtures};
  const gap={schema:"fih-chatgpt-gap-queue-v1",date:DATE,mode:"PREDICTION",researchRunId:queue.researchRunId,generatedAt,count:gapFixtures.length,sourcePrefillPath:"data/research-prefill/"+DATE+".json",fixtures:gapFixtures};
  const outPath=path.join(root,"data/research-prefill",DATE+".json"),gapPath=path.join(root,"data/research-gap-queue",DATE+".json");
  fs.mkdirSync(path.dirname(outPath),{recursive:true});fs.mkdirSync(path.dirname(gapPath),{recursive:true});
