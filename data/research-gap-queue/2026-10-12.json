@@ -1,0 +1,1315 @@
+{
+  "schema": "fih-chatgpt-gap-queue-v1",
+  "date": "2026-10-12",
+  "mode": "PREDICTION",
+  "researchRunId": "research:2026-10-12:1791790967428",
+  "generatedAt": "2026-10-12T07:42:59.799Z",
+  "count": 94,
+  "sourcePrefillPath": "data/research-prefill/2026-10-12.json",
+  "fixtures": [
+    {
+      "fixtureId": "1825659",
+      "home": "Livyi Bereg",
+      "away": "Zorya",
+      "competition": "Premier League",
+      "kickoff": "20261012120000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1895302",
+      "home": "Hapeol Yarka",
+      "away": "Beitar Nahariya",
+      "competition": "State Cup",
+      "kickoff": "20261012120000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1846935",
+      "home": "Hougang United FC",
+      "away": "Balestier Khalsa FC",
+      "competition": "Singapore Premier League",
+      "kickoff": "20261012133000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1846807",
+      "home": "FC Syunik",
+      "away": "Shirak",
+      "competition": "Premier League",
+      "kickoff": "20261012140000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1895291",
+      "home": "Hapoel Rahat",
+      "away": "Hapoel Sderot",
+      "competition": "State Cup",
+      "kickoff": "20261012140000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1796214",
+      "home": "Bashkimi",
+      "away": "FK Struga",
+      "competition": "1st League",
+      "kickoff": "20261012150000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1904361",
+      "home": "Olympic Azzaweya SC",
+      "away": "Assabah SC",
+      "competition": "Premier League: Group A",
+      "kickoff": "20261012153000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1904363",
+      "home": "Shabab Al-Ghar",
+      "away": "Al-Ittihad Misrati",
+      "competition": "Premier League: Group A",
+      "kickoff": "20261012153000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1873562",
+      "home": "Pakhtakor Tashkent",
+      "away": "Al Qadsiah",
+      "competition": "AFC Champions League Elite",
+      "kickoff": "20261012154500",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1854234",
+      "home": "Js El Biar",
+      "away": "CR Belouizdad",
+      "competition": "Ligue 1",
+      "kickoff": "20261012160000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1854235",
+      "home": "USM Khenchela",
+      "away": "CS Constantine",
+      "competition": "Ligue 1",
+      "kickoff": "20261012160000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1857524",
+      "home": "Modern Sport FC",
+      "away": "ENPPI",
+      "competition": "Premier League",
+      "kickoff": "20261012160000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1857528",
+      "home": "Al Mokawloon Al Arab",
+      "away": "ZED FC",
+      "competition": "Premier League",
+      "kickoff": "20261012160000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1900646",
+      "home": "Northeast United FC",
+      "away": "Mohun Bagan Super Giant",
+      "competition": "Super League",
+      "kickoff": "20261012160000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1905177",
+      "home": "Hapoel Nir Ramat HaSharon",
+      "away": "Bnei Eilat",
+      "competition": "State Cup",
+      "kickoff": "20261012160000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1895301",
+      "home": "Ironi Nesher",
+      "away": "MS Kiryat Haim",
+      "competition": "State Cup",
+      "kickoff": "20261012163000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1732092",
+      "home": "FK Liepaja",
+      "away": "FK Auda",
+      "competition": "Virsliga",
+      "kickoff": "20261012170000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1799591",
+      "home": "Dukla Praha",
+      "away": "Banik Ostrava B",
+      "competition": "2nd league",
+      "kickoff": "20261012170000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1807297",
+      "home": "ACS Champions FC Arges",
+      "away": "CFR Cluj",
+      "competition": "Liga 1",
+      "kickoff": "20261012170000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1836572",
+      "home": "PAOK FC",
+      "away": "Kalamata",
+      "competition": "Super League",
+      "kickoff": "20261012170000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1846803",
+      "home": "Pyunik",
+      "away": "BKMA",
+      "competition": "Premier League",
+      "kickoff": "20261012170000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1861011",
+      "home": "Coastal Union",
+      "away": "Singida Black Stars",
+      "competition": "Premier League",
+      "kickoff": "20261012170000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1886718",
+      "home": "VPS",
+      "away": "IF Gnistan",
+      "competition": "Veikkausliiga",
+      "kickoff": "20261012170000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1895295",
+      "home": "Hapoel Bnei Jisr az-Zarqa",
+      "away": "Tzeirey Um El Fahem",
+      "competition": "State Cup",
+      "kickoff": "20261012170000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1895300",
+      "home": "Dimona",
+      "away": "Bnei Yehud",
+      "competition": "State Cup",
+      "kickoff": "20261012170000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1895297",
+      "home": "Hapoel Karmiel",
+      "away": "Maccabi Ironi Kfar Yona",
+      "competition": "State Cup",
+      "kickoff": "20261012173000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1903954",
+      "home": "Real du Faso",
+      "away": "Rail Club Kadiogo",
+      "competition": "Ligue 1",
+      "kickoff": "20261012173000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1903956",
+      "home": "AS Douanes Ouagadougou",
+      "away": "AS Maya",
+      "competition": "Ligue 1",
+      "kickoff": "20261012173000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1903958",
+      "home": "US Forces Armees",
+      "away": "AS Faso/Yennenga",
+      "competition": "Ligue 1",
+      "kickoff": "20261012173000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1795346",
+      "home": "Radomiak Radom",
+      "away": "Motor Lublin",
+      "competition": "Ekstraklasa",
+      "kickoff": "20261012180000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1799346",
+      "home": "Hapoel Kfar Shalem",
+      "away": "Hapoel Raanana",
+      "competition": "Liga Leumit",
+      "kickoff": "20261012180000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1799348",
+      "home": "Hapoel Rishon LeZion",
+      "away": "Maccabi Kabilio Jaffa",
+      "competition": "Liga Leumit",
+      "kickoff": "20261012180000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1799350",
+      "home": "Hapoel Kfar Saba",
+      "away": "FC Ashdod",
+      "competition": "Liga Leumit",
+      "kickoff": "20261012180000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1848385",
+      "home": "AEK Larnaca",
+      "away": "Omonia Aradippou",
+      "competition": "1st Division",
+      "kickoff": "20261012180000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1873563",
+      "home": "Al-Wasl",
+      "away": "Al Ahli",
+      "competition": "AFC Champions League Elite",
+      "kickoff": "20261012180000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1873564",
+      "home": "Tractor FC",
+      "away": "Al-Shamal",
+      "competition": "AFC Champions League Elite",
+      "kickoff": "20261012180000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1886719",
+      "home": "AC Oulu",
+      "away": "HJK Helsinki",
+      "competition": "Veikkausliiga",
+      "kickoff": "20261012180000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1895303",
+      "home": "Hapoel Herzliya",
+      "away": "Hapoel Azor",
+      "competition": "State Cup",
+      "kickoff": "20261012180000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1905179",
+      "home": "Maccabi Ironi Kiryat Malakhi",
+      "away": "Beitar Mevaseret Zion",
+      "competition": "State Cup",
+      "kickoff": "20261012180000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1905067",
+      "home": "Deportrio",
+      "away": "Wembley Rangers",
+      "competition": "Baller League UK",
+      "kickoff": "20261012183000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1709267",
+      "home": "KFUM Oslo",
+      "away": "Vaalerenga",
+      "competition": "Eliteserien",
+      "kickoff": "20261012190000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1710445",
+      "home": "Malmo FF",
+      "away": "Kalmar FF",
+      "competition": "Allsvenskan",
+      "kickoff": "20261012190000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1710453",
+      "home": "Elfsborg",
+      "away": "Halmstads BK",
+      "competition": "Allsvenskan",
+      "kickoff": "20261012190000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1735796",
+      "home": "Forge FC",
+      "away": "Inter Toronto",
+      "competition": "Premier League",
+      "kickoff": "20261012190000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1784489",
+      "home": "AGF",
+      "away": "SoenderjyskE",
+      "competition": "Superliga",
+      "kickoff": "20261012190000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1786371",
+      "home": "Ludogorets Razgrad",
+      "away": "Arda Kardzhali",
+      "competition": "Parva Liga",
+      "kickoff": "20261012190000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1821032",
+      "home": "Eyupspor",
+      "away": "Goztepe",
+      "competition": "Süper Lig",
+      "kickoff": "20261012190000",
+      "missingCategories": [
+        "headToHead"
+      ],
+      "prefillAvailable": true
+    },
+    {
+      "fixtureId": "1857520",
+      "home": "Pyramids FC",
+      "away": "Ceramica Cleopatra",
+      "competition": "Premier League",
+      "kickoff": "20261012190000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1857522",
+      "home": "Smouha SC",
+      "away": "Ghazl Al Mehalla",
+      "competition": "Premier League",
+      "kickoff": "20261012190000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1895293",
+      "home": "MS Tira",
+      "away": "Maccabi Maalot Tarshiha",
+      "competition": "State Cup",
+      "kickoff": "20261012190000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1895296",
+      "home": "Hapoel Nof HaGalil",
+      "away": "Hapoel Bnei Musmus",
+      "competition": "State Cup",
+      "kickoff": "20261012190000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1800652",
+      "home": "Hapoel Jerusalem",
+      "away": "Maccabi Haifa",
+      "competition": "Premier League",
+      "kickoff": "20261012193000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1895294",
+      "home": "Gissin Petah Tikva",
+      "away": "Beitar Petah Tikva",
+      "competition": "State Cup",
+      "kickoff": "20261012193000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1905066",
+      "home": "VZN FC",
+      "away": "RTG FC",
+      "competition": "Baller League UK",
+      "kickoff": "20261012193000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1715635",
+      "home": "Argentino de Rosario",
+      "away": "Sacachispas FC",
+      "competition": "Primera C",
+      "kickoff": "20261012200000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1715636",
+      "home": "Atlas",
+      "away": "El Porvenir",
+      "competition": "Primera C",
+      "kickoff": "20261012200000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1715637",
+      "home": "Canuelas",
+      "away": "Central Ballester",
+      "competition": "Primera C",
+      "kickoff": "20261012200000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1715638",
+      "home": "Deportivo Espanol",
+      "away": "Central Cordoba de Rosario",
+      "competition": "Primera C",
+      "kickoff": "20261012200000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1715639",
+      "home": "General Lamadrid",
+      "away": "Sportivo Barracas",
+      "competition": "Primera C",
+      "kickoff": "20261012200000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1715641",
+      "home": "Justo Jose de Urquiza",
+      "away": "Deportivo Paraguayo",
+      "competition": "Primera C",
+      "kickoff": "20261012200000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1715642",
+      "home": "Leones de Rosario",
+      "away": "CA Fenix",
+      "competition": "Primera C",
+      "kickoff": "20261012200000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1715644",
+      "home": "Victoriano Arenas",
+      "away": "Leandro N. Alem",
+      "competition": "Primera C",
+      "kickoff": "20261012200000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1715650",
+      "home": "Centro Espanol",
+      "away": "Puerto Nuevo",
+      "competition": "Primera C",
+      "kickoff": "20261012200000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1715651",
+      "home": "Berazategui",
+      "away": "Defensores de Cambaceres",
+      "competition": "Primera C",
+      "kickoff": "20261012200000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1715652",
+      "home": "Deportivo Muniz",
+      "away": "Claypole",
+      "competition": "Primera C",
+      "kickoff": "20261012200000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1715656",
+      "home": "Mercedes",
+      "away": "Lugano",
+      "competition": "Primera C",
+      "kickoff": "20261012200000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1715657",
+      "home": "Estrella Del Sur",
+      "away": "Juventud Unida San Miguel",
+      "competition": "Primera C",
+      "kickoff": "20261012200000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1715659",
+      "home": "Yupanqui",
+      "away": "Club Lujan",
+      "competition": "Primera C",
+      "kickoff": "20261012200000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1799173",
+      "home": "Mladost Lucani",
+      "away": "OFK Beograd",
+      "competition": "Super Liga",
+      "kickoff": "20261012200000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1807300",
+      "home": "Universitatea Cluj",
+      "away": "FC Rapid 1923",
+      "competition": "Liga 1",
+      "kickoff": "20261012200000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1873565",
+      "home": "Al-Gharafa",
+      "away": "Esteghlal",
+      "competition": "AFC Champions League Elite",
+      "kickoff": "20261012201500",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1873566",
+      "home": "Al Nassr",
+      "away": "Neftchi Fargona",
+      "competition": "AFC Champions League Elite",
+      "kickoff": "20261012201500",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1873569",
+      "home": "Al Quwa Al Jawiya",
+      "away": "Al-Ain",
+      "competition": "AFC Champions League Elite",
+      "kickoff": "20261012201500",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1895299",
+      "home": "Bnei Herzliya",
+      "away": "Maccabi Yavne",
+      "competition": "State Cup",
+      "kickoff": "20261012201500",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1795279",
+      "home": "GKS Katowice",
+      "away": "Wieczysta Krakow",
+      "competition": "Ekstraklasa",
+      "kickoff": "20261012203000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1905071",
+      "home": "SDS FC",
+      "away": "N5 FC",
+      "competition": "Baller League UK",
+      "kickoff": "20261012203000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1837004",
+      "home": "Carshalton Athletic",
+      "away": "Enfield Town",
+      "competition": "Isthmian League Premier Division",
+      "kickoff": "20261012204500",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1857889",
+      "home": "Redbridge",
+      "away": "Canvey Island",
+      "competition": "Isthmian League Northern Division",
+      "kickoff": "20261012204500",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1708705",
+      "home": "Coritiba",
+      "away": "Botafogo FR",
+      "competition": "Serie A",
+      "kickoff": "20261012210000",
+      "missingCategories": [
+        "standings"
+      ],
+      "prefillAvailable": true
+    },
+    {
+      "fixtureId": "1715156",
+      "home": "Lanus",
+      "away": "Velez Sarsfield",
+      "competition": "Liga Profesional: Clausura",
+      "kickoff": "20261012210000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1718961",
+      "home": "Shamrock Rovers",
+      "away": "Bohemian FC",
+      "competition": "League of Ireland Premier Division",
+      "kickoff": "20261012210000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1793572",
+      "home": "Coventry City",
+      "away": "Newcastle United",
+      "competition": "Premier League",
+      "kickoff": "20261012210000",
+      "missingCategories": [
+        "headToHead"
+      ],
+      "prefillAvailable": true
+    },
+    {
+      "fixtureId": "1855162",
+      "home": "Mons Calpe SC",
+      "away": "Lynx",
+      "competition": "National League",
+      "kickoff": "20261012210000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1862065",
+      "home": "GV San Jose",
+      "away": "Guabira",
+      "competition": "Primera Division",
+      "kickoff": "20261012210000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1816434",
+      "home": "Famalicao",
+      "away": "Alverca",
+      "competition": "Primeira Liga",
+      "kickoff": "20261012211500",
+      "missingCategories": [
+        "headToHead"
+      ],
+      "prefillAvailable": true
+    },
+    {
+      "fixtureId": "1905068",
+      "home": "NDL FC",
+      "away": "P17 FC",
+      "competition": "Baller League UK",
+      "kickoff": "20261012212500",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1724144",
+      "home": "Universidad de Chile",
+      "away": "Atletico Nublense",
+      "competition": "Primera Division",
+      "kickoff": "20261012220000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1735799",
+      "home": "HFX Wanderers FC",
+      "away": "Cavalry FC",
+      "competition": "Premier League",
+      "kickoff": "20261012220000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1876583",
+      "home": "2 de Mayo",
+      "away": "Sportivo Ameliano",
+      "competition": "Division Profesional: Clausura",
+      "kickoff": "20261012220000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1903904",
+      "home": "Hassania Agadir",
+      "away": "FAR Rabat",
+      "competition": "Botola Pro",
+      "kickoff": "20261012220000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1905069",
+      "home": "Toma",
+      "away": "Gold Devils",
+      "competition": "Baller League UK",
+      "kickoff": "20261012222000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1862066",
+      "home": "Always Ready",
+      "away": "Independiente Petrolero",
+      "competition": "Primera Division",
+      "kickoff": "20261012231500",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1905070",
+      "home": "Prime FC",
+      "away": "Clutch FC",
+      "competition": "Baller League UK",
+      "kickoff": "20261012231500",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    },
+    {
+      "fixtureId": "1715154",
+      "home": "Gimnasia Mendoza",
+      "away": "Newell's Old Boys",
+      "competition": "Liga Profesional: Clausura",
+      "kickoff": "20261012233000",
+      "missingCategories": [
+        "form",
+        "standings",
+        "headToHead",
+        "schedule"
+      ],
+      "prefillAvailable": false
+    }
+  ]
+}

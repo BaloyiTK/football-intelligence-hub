@@ -1,18 +1,23 @@
 {
   "schema": "fih-recovery-request-v1",
   "date": "2026-10-12",
-  "runId": "step12:prediction:2026-10-12:1791782105869",
-  "researchRunId": "research:2026-10-12:1791782105869",
-  "requestedAt": "2026-10-12T05:15:07.979Z",
-  "reason": "STEP1_VERIFIED_CHATGPT_STEP2_HANDOFF",
+  "runId": "step12:prediction:2026-10-12:1791790967428",
+  "researchRunId": "research:2026-10-12:1791790967428",
+  "requestedAt": "2026-10-12T07:42:49.462Z",
+  "reason": "HYBRID_PREFILL_COMPLETE_CHATGPT_GAP_RESEARCH_REQUIRED",
   "status": "CHATGPT_RESEARCH_REQUIRED",
   "next": {
     "fixtureId": "1825659",
     "state": "PENDING"
   },
-  "expectedFixtureCount": 96,
+  "expectedFixtureCount": 97,
   "validatedCount": 0,
   "queuePath": "data/research-queue/2026-10-12.json",
-  "boardFetchedAt": "2026-10-12T05:15:05.869Z",
-  "priorSupersessions": []
+  "boardFetchedAt": "2026-10-12T07:42:47.428Z",
+  "priorSupersessions": [],
+  "prefillPath": "data/research-prefill/2026-10-12.json",
+  "gapQueuePath": "data/research-gap-queue/2026-10-12.json",
+  "prefilledFixtureCount": 3,
+  "gapFixtureCount": 94,
+  "updatedAt": "2026-10-12T07:42:59.799Z"
 }
