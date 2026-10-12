@@ -19,14 +19,19 @@ const norm=(s:string)=>String(s||"").toLowerCase().normalize("NFKD").replace(/[\
 function sim(a:string,b:string){const A=new Set(norm(a).split(" ").filter(Boolean)),B=new Set(norm(b).split(" ").filter(Boolean));if(!A.size||!B.size)return 0;let n=0;for(const x of A)if(B.has(x))n++;return 2*n/(A.size+B.size)}
 async function getJson(url:string){
  let last:any;
- for(let i=1;i<=3;i++){
-  const c=new AbortController(),t=setTimeout(()=>c.abort(),15000);
-  try{
-   const r=await fetch(url,{signal:c.signal,headers:{accept:"application/json","user-agent":"Mozilla/5.0 (compatible; FootballIntelligenceHub/0.1)",referer:"https://www.sofascore.com/"}});
-   if(r.ok)return {url,json:await r.json(),retrievedAt:new Date().toISOString()};
-   last=new Error("HTTP_"+r.status);if(r.status!==429&&r.status<500)break;
-  }catch(e){last=e}finally{clearTimeout(t)}
-  await sleep(400*i);
+ const candidates=[url,...(url.startsWith("https://api.sofascore.com/")?[url.replace("https://api.sofascore.com/","https://www.sofascore.com/")]:[])];
+ for(const candidate of candidates){
+  for(let i=1;i<=3;i++){
+   const c=new AbortController(),t=setTimeout(()=>c.abort(),15000);
+   try{
+    const r=await fetch(candidate,{signal:c.signal,headers:{accept:"application/json","user-agent":"Mozilla/5.0 (compatible; FootballIntelligenceHub/0.1)",referer:"https://www.sofascore.com/"}});
+    if(r.ok)return {url:candidate,json:await r.json(),retrievedAt:new Date().toISOString()};
+    last=new Error("HTTP_"+r.status);
+    if(r.status===401||r.status===403||r.status===404)break;
+    if(r.status!==429&&r.status<500)break;
+   }catch(e){last=e}finally{clearTimeout(t)}
+   await sleep(400*i);
+  }
  }
  throw new Error("SOFASCORE_FETCH_FAILED "+url+" "+String(last?.message||last));
 }
@@ -65,11 +70,11 @@ function recent(events:any[],id:string,venue?:string){
 }
 async function history(id:string,errors:string[]){
  const events:any[]=[],metadata:any[]=[];
- for(let p=0;p<6;p++){const url=BASE+"/team/"+id+"/events/last/"+p;try{const r=await cached("team:"+id+":"+p,()=>getJson(url)),rows=Array.isArray(r.json?.events)?r.json.events:[];if(rows.length)metadata.push(meta(url,r.retrievedAt,["form","schedule"]));for(const e of rows)events.push({...e,__sourceUrl:url});if(recent(events,id).length===5&&recent(events,id,"HOME").length===5&&recent(events,id,"AWAY").length===5)break;if(!r.json?.hasNextPage)break}catch(e:any){errors.push("team:"+id+":"+String(e?.message||e));break}}
+ for(let p=0;p<6;p++){const url=BASE+"/team/"+id+"/events/last/"+p;try{const r=await cached("team:"+id+":"+p,()=>getJson(url)),rows=Array.isArray(r.json?.events)?r.json.events:[];if(rows.length)metadata.push(meta(r.url,r.retrievedAt,["form","schedule"]));for(const e of rows)events.push({...e,__sourceUrl:r.url});if(recent(events,id).length===5&&recent(events,id,"HOME").length===5&&recent(events,id,"AWAY").length===5)break;if(!r.json?.hasNextPage)break}catch(e:any){errors.push("team:"+id+":"+String(e?.message||e));break}}
  return {events,metadata};
 }
 async function h2h(eventId:string,errors:string[]){
- const url=BASE+"/event/"+eventId+"/h2h/events";try{const r=await cached("h2h:"+eventId,()=>getJson(url)),rows:any[]=[],seen=new Set<string>();for(const e0 of (Array.isArray(r.json?.events)?r.json.events:[])){const e={...e0,__sourceUrl:url};if(!finished(e))continue;const hg=score(e,"home"),ag=score(e,"away"),d=date(e);if(hg===null||ag===null||!d)continue;const x={date:d,homeTeam:tname(e.homeTeam),awayTeam:tname(e.awayTeam),homeGoals:hg,awayGoals:ag,sourceRef:url},k=[x.date,x.homeTeam,x.awayTeam,x.homeGoals,x.awayGoals].join("|");if(seen.has(k))continue;seen.add(k);rows.push(x);if(rows.length===5)break}return {rows,metadata:[meta(url,r.retrievedAt,["headToHead"])]}}catch(e:any){errors.push("h2h:"+String(e?.message||e));return {rows:[],metadata:[]}}
+ const url=BASE+"/event/"+eventId+"/h2h/events";try{const r=await cached("h2h:"+eventId,()=>getJson(url)),rows:any[]=[],seen=new Set<string>();for(const e0 of (Array.isArray(r.json?.events)?r.json.events:[])){const e={...e0,__sourceUrl:url};if(!finished(e))continue;const hg=score(e,"home"),ag=score(e,"away"),d=date(e);if(hg===null||ag===null||!d)continue;const x={date:d,homeTeam:tname(e.homeTeam),awayTeam:tname(e.awayTeam),homeGoals:hg,awayGoals:ag,sourceRef:r.url},k=[x.date,x.homeTeam,x.awayTeam,x.homeGoals,x.awayGoals].join("|");if(seen.has(k))continue;seen.add(k);rows.push(x);if(rows.length===5)break}return {rows,metadata:[meta(r.url,r.retrievedAt,["headToHead"])]}}catch(e:any){errors.push("h2h:"+String(e?.message||e));return {rows:[],metadata:[]}}
 }
 function standing(payload:any,id:string){
  const groups=Array.isArray(payload?.standings)?payload.standings:[],rows=groups.flatMap((g:any)=>Array.isArray(g?.rows)?g.rows:[]),r=rows.find((x:any)=>String(x?.team?.id||"")===id);if(!r)return null;
@@ -79,7 +84,7 @@ function standing(payload:any,id:string){
 const standingOk=(r:any)=>r&&Number.isFinite(Number(r.position))&&Number(r.position)>=1&&Number.isFinite(Number(r.matches))&&Number(r.matches)>=1&&Number.isFinite(Number(r.points));
 async function standings(e:any,hi:string,ai:string,errors:string[]){
  const sid=String(e?.season?.id||""),uid=String(e?.tournament?.uniqueTournament?.id||""),tid=String(e?.tournament?.id||"");
- for(const url of [uid&&sid?BASE+"/unique-tournament/"+uid+"/season/"+sid+"/standings/total":"",tid&&sid?BASE+"/tournament/"+tid+"/season/"+sid+"/standings/total":""].filter(Boolean)){try{const r=await cached("st:"+url,()=>getJson(url)),home=standing(r.json,hi),away=standing(r.json,ai);if(standingOk(home)&&standingOk(away))return {home,away,metadata:[meta(url,r.retrievedAt,["standings"])]}}catch(err:any){errors.push("standings:"+String(err?.message||err))}}
+ for(const url of [uid&&sid?BASE+"/unique-tournament/"+uid+"/season/"+sid+"/standings/total":"",tid&&sid?BASE+"/tournament/"+tid+"/season/"+sid+"/standings/total":""].filter(Boolean)){try{const r=await cached("st:"+url,()=>getJson(url)),home=standing(r.json,hi),away=standing(r.json,ai);if(standingOk(home)&&standingOk(away))return {home,away,metadata:[meta(r.url,r.retrievedAt,["standings"])]}}catch(err:any){errors.push("standings:"+String(err?.message||err))}}
  return {home:null,away:null,metadata:[]};
 }
 function baseRecord(item:any,f:any){const r=item?.prefillRecord&&item.prefillRecord.researchRunId===queue.researchRunId?JSON.parse(JSON.stringify(item.prefillRecord)):{fixtureId:String(f.fixtureId),researchedAt:new Date().toISOString(),researchRunId:queue.researchRunId,sourceMetadata:[],facts:{}};r.fixture={home:f.home,away:f.away,competition:f.competition,kickoff:f.kickoff};r.sourceMetadata=Array.isArray(r.sourceMetadata)?r.sourceMetadata:[];r.facts=r.facts||{};return r}
