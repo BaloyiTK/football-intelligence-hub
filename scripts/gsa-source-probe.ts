@@ -3,6 +3,8 @@ import path from "node:path";
 
 const DATE=process.env.FIH_DATE||new Intl.DateTimeFormat("en-CA",{timeZone:"Africa/Johannesburg",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
 const root=process.cwd();
+const queue=JSON.parse(fs.readFileSync(path.join(root,"data/research-queue",DATE+".json"),"utf8"));
+const sleep=(ms:number)=>new Promise(r=>setTimeout(r,ms));
 async function fetchText(url:string){
  const c=new AbortController(),timer=setTimeout(()=>c.abort(),20000);
  try{
@@ -28,6 +30,15 @@ async function main(){
   const r=await fetchText(url),all=locs(r.text);
   maps.push({url,status:r.status,ok:r.ok,type:r.type,bytes:Buffer.byteLength(r.text),locCount:all.length,first:all.slice(0,20),teamLike:all.filter(x=>/\/soccer\/team\//i.test(x)).slice(0,20)});
  }
+ const searchSamples:any[]=[];
+ const sampleNames=[...new Set(queue.fixtures.slice(0,8).flatMap((x:any)=>[x.home,x.away]))].slice(0,6);
+ for(const name of sampleNames){
+  const url="https://sport-widgets.com/search/autosearch.php?term="+encodeURIComponent(name);
+  const r=await fetchText(url);
+  let parsed:any=null;try{parsed=JSON.parse(r.text)}catch{}
+  searchSamples.push({name,url,status:r.status,ok:r.ok,type:r.type,bytes:Buffer.byteLength(r.text),parsed,body:r.text.slice(0,3000)});
+  await sleep(6500);
+ }
  const allLinks=hrefs(home.text);
  const scriptSrcs=[...home.text.matchAll(/<script\b[^>]*src=["']([^"']+)["']/gi)].map(m=>m[1]);
  const scriptInspections:any[]=[];
@@ -45,6 +56,7 @@ async function main(){
  const markers={next:/__NEXT_DATA__/.test(home.text),nuxt:/__NUXT__/.test(home.text),webpack:/webpack/i.test(home.text),angular:/ng-app|angular/i.test(home.text),react:/react/i.test(home.text)};
  const out={schema:"fih-gsa-source-probe-v2",date:DATE,generatedAt:new Date().toISOString(),nonCanonical:true,
   home:{status:home.status,ok:home.ok,type:home.type,bytes:Buffer.byteLength(home.text),forms:forms(home.text),searchLinks:allLinks.filter(x=>/search/i.test(x.href+" "+x.label)).slice(0,30),teamLinks:allLinks.filter(x=>/\/soccer\/team\//i.test(x.href)).slice(0,20),scriptSrcs,scriptInspections,apiStrings,searchSnippets,markers},
+  searchSamples,
   robots:{status:robots.status,ok:robots.ok,type:robots.type,bytes:Buffer.byteLength(robots.text),declaredSitemaps:declared,firstLines:robots.text.split(/\r?\n/).slice(0,80)},
   maps};
  const p=path.join(root,"data/research-probe",DATE+"-gsa.json");fs.mkdirSync(path.dirname(p),{recursive:true});fs.writeFileSync(p,JSON.stringify(out,null,2)+"\n");
