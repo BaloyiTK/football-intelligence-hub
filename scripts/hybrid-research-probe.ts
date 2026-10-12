@@ -6,7 +6,7 @@ const root=process.cwd();
 const tz="Africa/Johannesburg";
 const today=()=>new Intl.DateTimeFormat("en-CA",{timeZone:tz,year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
 const DATE=process.env.FIH_DATE||today();
-const LIMIT=Math.max(1,Math.min(50,Number(process.env.FIH_HYBRID_LIMIT||10)));
+const LIMIT=Math.max(1,Math.min(1000,Number(process.env.FIH_HYBRID_LIMIT||10)));
 const SITE="https://site.api.espn.com/apis/site/v2/sports/soccer";
 const DATA="https://site.api.espn.com/apis/v2/sports/soccer";
 const queuePath=path.join(root,"data/research-queue",DATE+".json");
