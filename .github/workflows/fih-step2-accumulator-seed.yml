@@ -1,0 +1,39 @@
+name: FIH Step2 Accumulator Seed
+
+"on":
+  pull_request:
+    branches: [main]
+    paths:
+      - ".github/workflows/fih-step2-accumulator-seed.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  seed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+      - name: Resolve current research generation
+        run: |
+          echo "FIH_DATE=$(TZ=Africa/Johannesburg date +%F)" >> "$GITHUB_ENV"
+          RID="$(node -e 'const fs=require("fs");const d=new Intl.DateTimeFormat("en-CA",{timeZone:"Africa/Johannesburg",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());const q=JSON.parse(fs.readFileSync("data/research-queue/"+d+".json","utf8"));process.stdout.write(q.researchRunId)')"
+          echo "FIH_RESEARCH_RUN_ID=$RID" >> "$GITHUB_ENV"
+      - name: Import canonical-valid deterministic prefill
+        run: npx tsx scripts/research-prefill-import.ts --date "$FIH_DATE" --research-run-id "$FIH_RESEARCH_RUN_ID"
+      - name: Verify seeded accumulator
+        run: |
+          npx tsx scripts/research-checkpoint.ts status --date "$FIH_DATE" --research-run-id "$FIH_RESEARCH_RUN_ID"
+          test -s "$RUNNER_TEMP/fih/research-work/$FIH_DATE.json"
+      - name: Upload seeded accumulator
+        uses: actions/upload-artifact@v4
+        with:
+          name: fih-step2-seed-${{ env.FIH_DATE }}
+          path: ${{ runner.temp }}/fih/research-work/${{ env.FIH_DATE }}.json
+          if-no-files-found: error
+          retention-days: 1
