@@ -48,7 +48,10 @@ jobs:
           if [ -z "$DATE" ]; then
             DATE="$(TZ=Africa/Johannesburg date +%F)"
           fi
-          LIMIT="${{ github.event.inputs.limit || '10' }}"
+          LIMIT="${{ github.event.inputs.limit || '' }}"
+          if [ -z "$LIMIT" ]; then
+            if [ "${{ github.event_name }}" = "pull_request" ]; then LIMIT="1000"; else LIMIT="10"; fi
+          fi
           echo "FIH_DATE=$DATE" >> "$GITHUB_ENV"
           echo "FIH_HYBRID_LIMIT=$LIMIT" >> "$GITHUB_ENV"
           echo "Probing $LIMIT fixtures for $DATE"
