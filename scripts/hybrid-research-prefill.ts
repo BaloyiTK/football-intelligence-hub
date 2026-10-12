@@ -368,14 +368,19 @@ async function main(){
   }
   const missingCategories=["form","standings","headToHead","schedule"].filter(k=>!completeCategories.includes(k));
   const partialRecord={fixtureId:String(r.fixtureId),fixture:{home:r.fixture.home,away:r.fixture.away,competition:r.fixture.competition,kickoff:r.fixture.kickoff},researchedAt:generatedAt,researchRunId:queue.researchRunId,sourceMetadata:sm,facts};
-  let validatedRecord:any=null;
+  let validatedRecord:any=null,validationError:string|null=null;
   if(missingCategories.length===0){
-   validateResearchArtifact({schema:"fih-daily-research-v5",date:DATE,mode:"PREDICTION",generatedAt,researchRunId:queue.researchRunId,fixtures:[partialRecord]},DATE,[String(r.fixtureId)],"PREDICTION");
-   validatedRecord=partialRecord;
+   try{
+    validateResearchArtifact({schema:"fih-daily-research-v5",date:DATE,mode:"PREDICTION",generatedAt,researchRunId:queue.researchRunId,fixtures:[partialRecord]},DATE,[String(r.fixtureId)],"PREDICTION");
+    validatedRecord=partialRecord;
+   }catch(e:any){
+    validationError=String(e?.message||e);
+    missingCategories.push("form","standings","headToHead","schedule");
+   }
   }
-  return {fixtureId:String(r.fixtureId),matched:r.matched===true,completeCategories,missingCategories,validatedRecord,prefillRecord:partialRecord,errors:r.errors||[]};
+  return {fixtureId:String(r.fixtureId),matched:r.matched===true,completeCategories,missingCategories,validatedRecord,prefillRecord:partialRecord,errors:[...(r.errors||[]),...(validationError?["CANONICAL_PREFILL_REJECTED:"+validationError]:[])]};
  });
- const gapFixtures=prefillFixtures.filter((r:any)=>r.missingCategories.length).map((r:any)=>{
+ const gapFixtures=prefillFixtures.filter((r:any)=>!r.validatedRecord).map((r:any)=>{
   const q=queue.fixtures.find((f:any)=>String(f.fixtureId)===String(r.fixtureId));
   return {fixtureId:r.fixtureId,home:q?.home,away:q?.away,competition:q?.competition,kickoff:q?.kickoff,missingCategories:r.missingCategories,prefillAvailable:r.completeCategories.length>0};
  });
