@@ -2,9 +2,9 @@
   "schema": "fih-chatgpt-gap-queue-v1",
   "date": "2026-10-12",
   "mode": "PREDICTION",
-  "researchRunId": "research:2026-10-12:1791790967428",
-  "generatedAt": "2026-10-12T07:42:59.799Z",
-  "count": 94,
+  "researchRunId": "research:2026-10-12:1791791447660",
+  "generatedAt": "2026-10-12T07:51:23.829Z",
+  "count": 86,
   "sourcePrefillPath": "data/research-prefill/2026-10-12.json",
   "fixtures": [
     {
@@ -126,12 +126,9 @@
       "competition": "AFC Champions League Elite",
       "kickoff": "20261012154500",
       "missingCategories": [
-        "form",
-        "standings",
-        "headToHead",
-        "schedule"
+        "headToHead"
       ],
-      "prefillAvailable": false
+      "prefillAvailable": true
     },
     {
       "fixtureId": "1854234",
@@ -201,7 +198,7 @@
         "headToHead",
         "schedule"
       ],
-      "prefillAvailable": false
+      "prefillAvailable": true
     },
     {
       "fixtureId": "1905177",
@@ -281,11 +278,9 @@
       "kickoff": "20261012170000",
       "missingCategories": [
         "form",
-        "standings",
-        "headToHead",
-        "schedule"
+        "headToHead"
       ],
-      "prefillAvailable": false
+      "prefillAvailable": true
     },
     {
       "fixtureId": "1846803",
@@ -490,12 +485,9 @@
       "competition": "AFC Champions League Elite",
       "kickoff": "20261012180000",
       "missingCategories": [
-        "form",
-        "standings",
-        "headToHead",
-        "schedule"
+        "headToHead"
       ],
-      "prefillAvailable": false
+      "prefillAvailable": true
     },
     {
       "fixtureId": "1873564",
@@ -572,34 +564,6 @@
       "home": "KFUM Oslo",
       "away": "Vaalerenga",
       "competition": "Eliteserien",
-      "kickoff": "20261012190000",
-      "missingCategories": [
-        "form",
-        "standings",
-        "headToHead",
-        "schedule"
-      ],
-      "prefillAvailable": false
-    },
-    {
-      "fixtureId": "1710445",
-      "home": "Malmo FF",
-      "away": "Kalmar FF",
-      "competition": "Allsvenskan",
-      "kickoff": "20261012190000",
-      "missingCategories": [
-        "form",
-        "standings",
-        "headToHead",
-        "schedule"
-      ],
-      "prefillAvailable": false
-    },
-    {
-      "fixtureId": "1710453",
-      "home": "Elfsborg",
-      "away": "Halmstads BK",
-      "competition": "Allsvenskan",
       "kickoff": "20261012190000",
       "missingCategories": [
         "form",
@@ -991,12 +955,9 @@
       "competition": "AFC Champions League Elite",
       "kickoff": "20261012201500",
       "missingCategories": [
-        "form",
-        "standings",
-        "headToHead",
-        "schedule"
+        "headToHead"
       ],
-      "prefillAvailable": false
+      "prefillAvailable": true
     },
     {
       "fixtureId": "1873566",
@@ -1020,11 +981,9 @@
       "kickoff": "20261012201500",
       "missingCategories": [
         "form",
-        "standings",
-        "headToHead",
-        "schedule"
+        "headToHead"
       ],
-      "prefillAvailable": false
+      "prefillAvailable": true
     },
     {
       "fixtureId": "1895299",
@@ -1097,31 +1056,6 @@
       "prefillAvailable": false
     },
     {
-      "fixtureId": "1708705",
-      "home": "Coritiba",
-      "away": "Botafogo FR",
-      "competition": "Serie A",
-      "kickoff": "20261012210000",
-      "missingCategories": [
-        "standings"
-      ],
-      "prefillAvailable": true
-    },
-    {
-      "fixtureId": "1715156",
-      "home": "Lanus",
-      "away": "Velez Sarsfield",
-      "competition": "Liga Profesional: Clausura",
-      "kickoff": "20261012210000",
-      "missingCategories": [
-        "form",
-        "standings",
-        "headToHead",
-        "schedule"
-      ],
-      "prefillAvailable": false
-    },
-    {
       "fixtureId": "1718961",
       "home": "Shamrock Rovers",
       "away": "Bohemian FC",
@@ -1161,20 +1095,6 @@
       "prefillAvailable": false
     },
     {
-      "fixtureId": "1862065",
-      "home": "GV San Jose",
-      "away": "Guabira",
-      "competition": "Primera Division",
-      "kickoff": "20261012210000",
-      "missingCategories": [
-        "form",
-        "standings",
-        "headToHead",
-        "schedule"
-      ],
-      "prefillAvailable": false
-    },
-    {
       "fixtureId": "1816434",
       "home": "Famalicao",
       "away": "Alverca",
@@ -1200,38 +1120,10 @@
       "prefillAvailable": false
     },
     {
-      "fixtureId": "1724144",
-      "home": "Universidad de Chile",
-      "away": "Atletico Nublense",
-      "competition": "Primera Division",
-      "kickoff": "20261012220000",
-      "missingCategories": [
-        "form",
-        "standings",
-        "headToHead",
-        "schedule"
-      ],
-      "prefillAvailable": false
-    },
-    {
       "fixtureId": "1735799",
       "home": "HFX Wanderers FC",
       "away": "Cavalry FC",
       "competition": "Premier League",
-      "kickoff": "20261012220000",
-      "missingCategories": [
-        "form",
-        "standings",
-        "headToHead",
-        "schedule"
-      ],
-      "prefillAvailable": false
-    },
-    {
-      "fixtureId": "1876583",
-      "home": "2 de Mayo",
-      "away": "Sportivo Ameliano",
-      "competition": "Division Profesional: Clausura",
       "kickoff": "20261012220000",
       "missingCategories": [
         "form",
@@ -1270,20 +1162,6 @@
       "prefillAvailable": false
     },
     {
-      "fixtureId": "1862066",
-      "home": "Always Ready",
-      "away": "Independiente Petrolero",
-      "competition": "Primera Division",
-      "kickoff": "20261012231500",
-      "missingCategories": [
-        "form",
-        "standings",
-        "headToHead",
-        "schedule"
-      ],
-      "prefillAvailable": false
-    },
-    {
       "fixtureId": "1905070",
       "home": "Prime FC",
       "away": "Clutch FC",
@@ -1304,12 +1182,9 @@
       "competition": "Liga Profesional: Clausura",
       "kickoff": "20261012233000",
       "missingCategories": [
-        "form",
-        "standings",
-        "headToHead",
-        "schedule"
+        "headToHead"
       ],
-      "prefillAvailable": false
+      "prefillAvailable": true
     }
   ]
 }
