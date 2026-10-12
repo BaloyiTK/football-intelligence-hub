@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import {validateResearchArtifact} from "./research-canonical";
+import {applySoccerwayFallback} from "./soccerway-hybrid-prefill";
 
 const root=process.cwd();
 const tz="Africa/Johannesburg";
@@ -339,6 +340,7 @@ async function main(){
   });
   await sleep(150);
  }
+ const soccerway=await applySoccerwayFallback({date:DATE,fixtures:selected,results});
  const generatedAt=new Date().toISOString();
  const uniq=(xs:any[])=>[...new Set(xs.filter((x:any)=>typeof x==="string"&&x))];
  const attempt=(query:string,outcome:string)=>[{query,attemptedAt:generatedAt,outcome}];
@@ -388,7 +390,7 @@ async function main(){
  const full=prefillFixtures.filter((r:any)=>r.validatedRecord).length;
  const categoryCounts=Object.fromEntries(["form","standings","headToHead","schedule"].map(k=>[k,prefillFixtures.filter((r:any)=>r.completeCategories.includes(k)).length]));
  const anyUseful=prefillFixtures.filter((r:any)=>r.completeCategories.length>0).length;
- const out={schema:"fih-hybrid-research-prefill-v1",date:DATE,mode:"PREDICTION",researchRunId:queue.researchRunId,generatedAt,provider:"ESPN_PUBLIC_JSON",nonCanonical:true,purpose:"DETERMINISTIC_PREFILL_ONLY",fixtureCount:selected.length,summary:{attempted:selected.length,matched:matchedCount,fixturesWithAnyCompleteCategory:anyUseful,fullyValidatedFixtures:full,gapFixtures:gapFixtures.length,categoryComplete:categoryCounts,cacheEntries:cache.size,eventPool:events.length,globalEventPool:globalEvents.length,leagueCatalogCount:leagueDiscovery.catalogCount,leagueScoreboardsAttempted:leagueDiscovery.attempted,leagueScoreboardsWithEvents:leagueDiscovery.withEvents},fixtures:prefillFixtures};
+ const out={schema:"fih-hybrid-research-prefill-v1",date:DATE,mode:"PREDICTION",researchRunId:queue.researchRunId,generatedAt,provider:"ESPN_PUBLIC_JSON+SOCCERWAY_PUBLIC_WEB",nonCanonical:true,purpose:"DETERMINISTIC_PREFILL_ONLY",fixtureCount:selected.length,summary:{attempted:selected.length,matched:matchedCount,fixturesWithAnyCompleteCategory:anyUseful,fullyValidatedFixtures:full,gapFixtures:gapFixtures.length,categoryComplete:categoryCounts,cacheEntries:cache.size,eventPool:events.length,globalEventPool:globalEvents.length,leagueCatalogCount:leagueDiscovery.catalogCount,leagueScoreboardsAttempted:leagueDiscovery.attempted,leagueScoreboardsWithEvents:leagueDiscovery.withEvents,soccerway},fixtures:prefillFixtures};
  const gap={schema:"fih-chatgpt-gap-queue-v1",date:DATE,mode:"PREDICTION",researchRunId:queue.researchRunId,generatedAt,count:gapFixtures.length,sourcePrefillPath:"data/research-prefill/"+DATE+".json",fixtures:gapFixtures};
  const outPath=path.join(root,"data/research-prefill",DATE+".json"),gapPath=path.join(root,"data/research-gap-queue",DATE+".json");
  fs.mkdirSync(path.dirname(outPath),{recursive:true});fs.mkdirSync(path.dirname(gapPath),{recursive:true});
