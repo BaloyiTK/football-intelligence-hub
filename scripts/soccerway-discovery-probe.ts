@@ -44,22 +44,23 @@ for(const f of wanted){
  row.competitionPage={status:lp.status,links:lp.links.length,teamHits:teamHits.slice(0,12),pairHits:pairHits.slice(0,8),routeLinks,textSample:lp.text.slice(0,800)};
  const resultLink=routeLinks.find((x:any)=>/\/results\/?(?:$|\?)/i.test(new URL(x.url).pathname));
  const standingsLink=routeLinks.find((x:any)=>/\/standings\/?(?:$|\?)/i.test(new URL(x.url).pathname));
+ const matchCandidates=lp.links.filter((x:any)=>/\/match\//.test(new URL(x.url).pathname)).map((x:any)=>({...x,pairScore:similarity(f.home,x.label)+similarity(f.away,x.label)})).sort((a:any,b:any)=>b.pairScore-a.pairScore);
+ const pair=matchCandidates[0];
+ if(pair&&pair.pairScore>=.75){
+  await sleep(6500);
+  const mp=await get(pair.url);
+  const scriptTags=[...mp.html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)].map((m:any)=>({attrs:m[1].slice(0,300),body:m[2].slice(0,500)}));
+  const indicators:any={};
+  for(const needle of ["__NEXT_DATA__","headToHead","head_to_head","h2h","standings","events","initialState","__NUXT__","application/ld+json","matchId","teamId"]){
+   const i=mp.html.toLowerCase().indexOf(needle.toLowerCase());if(i>=0)indicators[needle]=mp.html.slice(Math.max(0,i-300),i+1200);
+  }
+  row.matchPage={url:pair.url,label:pair.label,pairScore:pair.pairScore,status:mp.status,bytes:Buffer.byteLength(mp.html),links:mp.links.length,teamLinks:mp.links.filter((x:any)=>/\/team\//.test(new URL(x.url).pathname)).slice(0,30),textSample:mp.text.slice(0,2200),scriptTags:scriptTags.slice(0,30),indicators};
+ }
  if(resultLink){
   await sleep(6500);
   const rp=await get(resultLink.url);
   const targetMatches=rp.links.filter((x:any)=>/\/match\//.test(new URL(x.url).pathname)&&(similarity(f.home,x.label)>=.45||similarity(f.away,x.label)>=.45)).slice(0,20);
   row.resultsPage={status:rp.status,links:rp.links.length,targetMatches,textAroundHome:(()=>{const i=normalize(rp.text).indexOf(normalize(f.home));return i>=0?rp.text.slice(Math.max(0,i-300),i+1200):rp.text.slice(0,1000)})()};
-  const pair=targetMatches.map((x:any)=>({...x,pairScore:similarity(f.home,x.label)+similarity(f.away,x.label)})).sort((a:any,b:any)=>b.pairScore-a.pairScore)[0];
-  if(pair){
-   await sleep(6500);
-   const mp=await get(pair.url);
-   const scriptTags=[...mp.html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)].map((m:any)=>({attrs:m[1].slice(0,300),body:m[2].slice(0,500)}));
-   const indicators:any={};
-   for(const needle of ["__NEXT_DATA__","headToHead","head_to_head","h2h","standings","events","initialState","__NUXT__","application/ld+json"]){
-    const i=mp.html.toLowerCase().indexOf(needle.toLowerCase());if(i>=0)indicators[needle]=mp.html.slice(Math.max(0,i-300),i+900);
-   }
-   row.matchPage={url:pair.url,status:mp.status,bytes:Buffer.byteLength(mp.html),links:mp.links.length,teamLinks:mp.links.filter((x:any)=>/\/team\//.test(new URL(x.url).pathname)).slice(0,20),textSample:mp.text.slice(0,1800),scriptTags:scriptTags.slice(0,20),indicators};
-  }
  }
  if(standingsLink){
   await sleep(6500);
