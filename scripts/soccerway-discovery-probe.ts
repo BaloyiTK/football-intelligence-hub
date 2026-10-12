@@ -17,7 +17,7 @@ for(const s of board.payload?.Stages||[])for(const e of s.Events||[])meta.set(St
  country:String(s.Cnm||s.Csnm||s.CompD||""),countrySlug:String(s.Ccd||""),competition:String(s.CompN||s.Snm||""),competitionSlug:String(s.CompUrlName||s.Scd||""),
  home:String(e.T1?.[0]?.Nm||""),away:String(e.T2?.[0]?.Nm||"")
 });
-const wanted=["1825659","1846935","1710453"].map(id=>queue.fixtures.find((f:any)=>String(f.fixtureId)===id)).filter(Boolean);
+const wanted=["1825659"].map(id=>queue.fixtures.find((f:any)=>String(f.fixtureId)===id)).filter(Boolean);
 const world=await get("https://www.soccerway.com/world/");
 console.log(JSON.stringify({world:{status:world.status,links:world.links.length}},null,2));
 for(const f of wanted){
@@ -49,11 +49,16 @@ for(const f of wanted){
   const rp=await get(resultLink.url);
   const targetMatches=rp.links.filter((x:any)=>/\/match\//.test(new URL(x.url).pathname)&&(similarity(f.home,x.label)>=.45||similarity(f.away,x.label)>=.45)).slice(0,20);
   row.resultsPage={status:rp.status,links:rp.links.length,targetMatches,textAroundHome:(()=>{const i=normalize(rp.text).indexOf(normalize(f.home));return i>=0?rp.text.slice(Math.max(0,i-300),i+1200):rp.text.slice(0,1000)})()};
-  const pair=targetMatches.find((x:any)=>similarity(f.home,x.label)>=.4&&similarity(f.away,x.label)>=.4);
+  const pair=targetMatches.map((x:any)=>({...x,pairScore:similarity(f.home,x.label)+similarity(f.away,x.label)})).sort((a:any,b:any)=>b.pairScore-a.pairScore)[0];
   if(pair){
    await sleep(6500);
    const mp=await get(pair.url);
-   row.matchPage={url:pair.url,status:mp.status,links:mp.links.length,teamLinks:mp.links.filter((x:any)=>/\/team\//.test(new URL(x.url).pathname)).slice(0,20),textSample:mp.text.slice(0,1800)};
+   const scriptTags=[...mp.html.matchAll(/<script\\b([^>]*)>([\\s\\S]*?)<\\/script>/gi)].map((m:any)=>({attrs:m[1].slice(0,300),body:m[2].slice(0,500)}));
+   const indicators:any={};
+   for(const needle of ["__NEXT_DATA__","headToHead","head_to_head","h2h","standings","events","initialState","__NUXT__","application/ld+json"]){
+    const i=mp.html.toLowerCase().indexOf(needle.toLowerCase());if(i>=0)indicators[needle]=mp.html.slice(Math.max(0,i-300),i+900);
+   }
+   row.matchPage={url:pair.url,status:mp.status,bytes:Buffer.byteLength(mp.html),links:mp.links.length,teamLinks:mp.links.filter((x:any)=>/\/team\//.test(new URL(x.url).pathname)).slice(0,20),textSample:mp.text.slice(0,1800),scriptTags:scriptTags.slice(0,20),indicators};
   }
  }
  if(standingsLink){
