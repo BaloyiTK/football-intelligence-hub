@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import {validateResearchArtifact} from "./research-canonical";
 
 const root=process.cwd();
 const tz="Africa/Johannesburg";
@@ -11,7 +12,8 @@ const DATA="https://site.api.espn.com/apis/v2/sports/soccer";
 const queuePath=path.join(root,"data/research-queue",DATE+".json");
 if(!fs.existsSync(queuePath))throw new Error("HYBRID_PROBE_QUEUE_MISSING "+queuePath);
 const queue=JSON.parse(fs.readFileSync(queuePath,"utf8"));
-if(queue.date!==DATE||!Array.isArray(queue.fixtures))throw new Error("HYBRID_PROBE_QUEUE_INVALID");
+if(queue.date!==DATE||!Array.isArray(queue.fixtures))throw new Error("HYBRID_PREFILL_QUEUE_INVALID");
+if(queue.mode!=="PREDICTION")throw new Error("HYBRID_PREFILL_PREDICTION_ONLY");
 
 const sleep=(ms:number)=>new Promise(r=>setTimeout(r,ms));
 const normalize=(s:string)=>String(s||"").toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g,"").replace(/\b(fc|cf|afc|sc|club|calcio|fk|ac|cd|ud|deportivo)/g," ").replace(/[^a-z0-9]+/g," ").trim();
@@ -270,7 +272,6 @@ async function main(){
    fixtureId:String(f.fixtureId),fixture:f,matched:true,matchConfidence:Number(matched.score.toFixed(3)),
    providerEventId:String(e?.id||""),leagueId,leagueSlug:slug,
    providerTeams:{home:{id:homeId,name:teamName(h)},away:{id:awayId,name:teamName(a)}},season:e?.season||null,
-   historyDiagnostics:{home:homeHistory.diagnostics,away:awayHistory.diagnostics},
    categories:{
     form:{complete:formOk,homeOverall,homeVenue,awayOverall,awayVenue},
     standings:{complete:standingsOk,homeTeam:homeStanding,awayTeam:awayStanding},
@@ -281,12 +282,67 @@ async function main(){
   });
   await sleep(150);
  }
- const matchedCount=results.filter(r=>r.matched).length,full=results.filter(r=>r.matched&&r.gaps.length===0).length;
- const categoryCounts=Object.fromEntries(["form","standings","headToHead","schedule"].map(k=>[k,results.filter(r=>r.matched&&r.categories?.[k]?.complete).length]));
- const anyUseful=results.filter(r=>r.matched&&Object.values(r.categories||{}).some((c:any)=>c?.complete)).length;
- const out={schema:"fih-hybrid-research-prefill-v1",date:DATE,researchRunId:queue.researchRunId,generatedAt:new Date().toISOString(),limit:selected.length,provider:"ESPN_PUBLIC_JSON",nonCanonical:true,purpose:"DETERMINISTIC_PREFILL_ONLY",summary:{attempted:selected.length,matched:matchedCount,fixturesWithAnyCompleteCategory:anyUseful,fullEvidenceReady:full,needsGapResearch:selected.length-full,categoryComplete:categoryCounts,cacheEntries:cache.size},results};
- const outPath=path.join(root,"data/research-prefill",DATE+".json");
- fs.mkdirSync(path.dirname(outPath),{recursive:true});fs.writeFileSync(outPath,JSON.stringify(out,null,2)+"\n");
- console.log(JSON.stringify({outPath,...out.summary},null,2));
+ const generatedAt=new Date().toISOString();
+ const uniq=(xs:any[])=>[...new Set(xs.filter((x:any)=>typeof x==="string"&&x))];
+ const attempt=(query:string,outcome:string)=>[{query,attemptedAt:generatedAt,outcome}];
+ const prefillFixtures=results.map((r:any)=>{
+  const facts:any={},completeCategories:string[]=[];
+  const sm=[...new Map((r.sourceMetadata||[]).map((x:any)=>[String(x.url),x])).values()];
+  if(r.categories?.form?.complete){
+   const d=r.categories.form;
+   const refs=uniq([...d.homeOverall,...d.homeVenue,...d.awayOverall,...d.awayVenue].map((m:any)=>m.sourceRef));
+   facts.form={status:"VERIFIED",data:{homeTeam:{overallLast5:d.homeOverall,homeLast5:d.homeVenue},awayTeam:{overallLast5:d.awayOverall,awayLast5:d.awayVenue}},sourceRefs:refs,attempts:attempt(r.fixture.home+" "+r.fixture.away+" last five overall and venue form","GITHUB_PUBLIC_SOURCE_FACTS_VERIFIED")};
+   completeCategories.push("form");
+  }
+  if(r.categories?.standings?.complete){
+   const refs=uniq(sm.filter((x:any)=>(x.supports||[]).includes("standings")).map((x:any)=>x.url));
+   facts.standings={status:"VERIFIED",data:{homeTeam:r.categories.standings.homeTeam,awayTeam:r.categories.standings.awayTeam},sourceRefs:refs,attempts:attempt(r.fixture.competition+" current standings","GITHUB_PUBLIC_SOURCE_FACTS_VERIFIED")};
+   completeCategories.push("standings");
+  }
+  if(r.categories?.headToHead?.complete){
+   const refs=uniq((r.categories.headToHead.matches||[]).map((m:any)=>m.sourceRef));
+   facts.headToHead={status:"VERIFIED",data:{matches:r.categories.headToHead.matches},sourceRefs:refs,attempts:attempt(r.fixture.home+" vs "+r.fixture.away+" last five head to head","GITHUB_PUBLIC_SOURCE_FACTS_VERIFIED")};
+   completeCategories.push("headToHead");
+  }
+  if(r.categories?.schedule?.complete){
+   const formRefs=uniq([...(facts.form?.sourceRefs||[])]);
+   facts.schedule={status:"VERIFIED",data:{homeTeam:{latestCompletedMatchDate:r.categories.schedule.homeTeam.latestCompletedMatchDate},awayTeam:{latestCompletedMatchDate:r.categories.schedule.awayTeam.latestCompletedMatchDate}},sourceRefs:formRefs,attempts:attempt(r.fixture.home+" "+r.fixture.away+" recent schedule","GITHUB_PUBLIC_SOURCE_FACTS_VERIFIED")};
+   completeCategories.push("schedule");
+  }
+  const missingCategories=["form","standings","headToHead","schedule"].filter(k=>!completeCategories.includes(k));
+  const partialRecord={fixtureId:String(r.fixtureId),fixture:{home:r.fixture.home,away:r.fixture.away,competition:r.fixture.competition,kickoff:r.fixture.kickoff},researchedAt:generatedAt,researchRunId:queue.researchRunId,sourceMetadata:sm,facts};
+  let validatedRecord:any=null;
+  if(missingCategories.length===0){
+   validateResearchArtifact({schema:"fih-daily-research-v5",date:DATE,mode:"PREDICTION",generatedAt,researchRunId:queue.researchRunId,fixtures:[partialRecord]},DATE,[String(r.fixtureId)],"PREDICTION");
+   validatedRecord=partialRecord;
+  }
+  return {fixtureId:String(r.fixtureId),matched:r.matched===true,completeCategories,missingCategories,validatedRecord,prefillRecord:partialRecord,errors:r.errors||[]};
+ });
+ const gapFixtures=prefillFixtures.filter((r:any)=>r.missingCategories.length).map((r:any)=>{
+  const q=queue.fixtures.find((f:any)=>String(f.fixtureId)===String(r.fixtureId));
+  return {fixtureId:r.fixtureId,home:q?.home,away:q?.away,competition:q?.competition,kickoff:q?.kickoff,missingCategories:r.missingCategories,prefillAvailable:r.completeCategories.length>0};
+ });
+ const matchedCount=results.filter((r:any)=>r.matched).length;
+ const full=prefillFixtures.filter((r:any)=>r.validatedRecord).length;
+ const categoryCounts=Object.fromEntries(["form","standings","headToHead","schedule"].map(k=>[k,prefillFixtures.filter((r:any)=>r.completeCategories.includes(k)).length]));
+ const anyUseful=prefillFixtures.filter((r:any)=>r.completeCategories.length>0).length;
+ const out={schema:"fih-hybrid-research-prefill-v1",date:DATE,mode:"PREDICTION",researchRunId:queue.researchRunId,generatedAt,provider:"ESPN_PUBLIC_JSON",nonCanonical:true,purpose:"DETERMINISTIC_PREFILL_ONLY",fixtureCount:selected.length,summary:{attempted:selected.length,matched:matchedCount,fixturesWithAnyCompleteCategory:anyUseful,fullyValidatedFixtures:full,gapFixtures:gapFixtures.length,categoryComplete:categoryCounts,cacheEntries:cache.size},fixtures:prefillFixtures};
+ const gap={schema:"fih-chatgpt-gap-queue-v1",date:DATE,mode:"PREDICTION",researchRunId:queue.researchRunId,generatedAt,count:gapFixtures.length,sourcePrefillPath:"data/research-prefill/"+DATE+".json",fixtures:gapFixtures};
+ const outPath=path.join(root,"data/research-prefill",DATE+".json"),gapPath=path.join(root,"data/research-gap-queue",DATE+".json");
+ fs.mkdirSync(path.dirname(outPath),{recursive:true});fs.mkdirSync(path.dirname(gapPath),{recursive:true});
+ for(const [p,x] of [[outPath,out],[gapPath,gap]] as any){const t=p+".tmp";fs.writeFileSync(t,JSON.stringify(x,null,2)+"\n");fs.renameSync(t,p);JSON.parse(fs.readFileSync(p,"utf8"));}
+ const recoveryPath=path.join(root,"data/recovery-requests",DATE+".json");
+ if(fs.existsSync(recoveryPath)){
+  const recovery=JSON.parse(fs.readFileSync(recoveryPath,"utf8"));
+  recovery.reason=gapFixtures.length?"HYBRID_PREFILL_COMPLETE_CHATGPT_GAP_RESEARCH_REQUIRED":"HYBRID_PREFILL_COMPLETE_PROMOTION_REQUIRED";
+  recovery.status="CHATGPT_RESEARCH_REQUIRED";
+  recovery.prefillPath="data/research-prefill/"+DATE+".json";
+  recovery.gapQueuePath="data/research-gap-queue/"+DATE+".json";
+  recovery.prefilledFixtureCount=full;
+  recovery.gapFixtureCount=gapFixtures.length;
+  recovery.updatedAt=generatedAt;
+  const t=recoveryPath+".tmp";fs.writeFileSync(t,JSON.stringify(recovery,null,2)+"\n");fs.renameSync(t,recoveryPath);
+ }
+ console.log(JSON.stringify({outPath,gapPath,...out.summary},null,2));
 }
 main().catch(e=>{console.error(e);process.exit(1)});
