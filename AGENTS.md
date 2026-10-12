@@ -16,12 +16,13 @@ Invoke `scripts/step1-command-runner.mjs`. Step 1 fetches the LiveScore fixture 
 
 ## Step 2 pilot
 
-A Step 2 custom-xG pilot is separately triggered through `.github/workflows/fih-step2-sofascore-xg.yml`.
+A Step 2 custom-xG pilot is separately triggered through the LiveScore Step 2 workflow.
 
 The pilot:
 - requires a verified Step 1 fixture file for the same date;
-- uses `scripts/sofascore_custom_xg.py`;
-- uses SofaScore scheduled events, recent team events, and H2H;
+- uses the existing LiveScore RapidAPI subscription through the secured FIH Vercel integration;
+- obtains pregame form and H2H from LiveScore and uses the Step 1 fixture identities;
+- preserves the custom xG formula defined in the locked rules;
 - processes at most 15 events per run;
 - persists `data/step2-xg/YYYY-MM-DD.json`;
 - verifies the pushed result and stops.

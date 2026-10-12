@@ -1,0 +1,35 @@
+name: FIH LiveScore Step 2 Probe
+
+"on":
+  push:
+    paths:
+      - automation/livescore-probe.flag
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Resolve probe
+        shell: bash
+        run: |
+          set -euo pipefail
+          EID="$(head -n 1 automation/livescore-probe.flag | tr -d '[:space:]')"
+          echo "$EID" | grep -Eq '^[0-9]+$'
+          BASE="${{ vars.FIH_INGEST_BASE_URL }}"
+          if [ -z "$BASE" ]; then
+            DOMAIN="$(node -e 'const r=require("./config/fih-execution-rules.json");process.stdout.write(r.infrastructure.vercel.productionDomain)')"
+            BASE="https://$DOMAIN"
+          fi
+          echo "FIH_EID=$EID" >> "$GITHUB_ENV"
+          echo "FIH_INGEST_BASE_URL=$BASE" >> "$GITHUB_ENV"
+      - name: Probe LiveScore Step 2 data
+        run: node scripts/livescore-step2-probe.mjs "$FIH_EID"
