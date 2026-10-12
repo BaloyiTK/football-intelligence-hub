@@ -26,6 +26,19 @@ function similarity(a:string,b:string){
  if(!A.size||!B.size)return 0; let hit=0; for(const x of A)if(B.has(x))hit++;
  return (2*hit)/(A.size+B.size);
 }
+async function getText(url:string){
+ let last:any;
+ for(let attempt=1;attempt<=2;attempt++){
+  const ctl=new AbortController(),timer=setTimeout(()=>ctl.abort(),15000);
+  try{
+   const r=await fetch(url,{signal:ctl.signal,redirect:"follow",headers:{"accept":"text/html,*/*;q=0.8","user-agent":"Mozilla/5.0 (compatible; FootballIntelligenceHub/0.1)"}});
+   if(r.ok)return {url:r.url,text:await r.text(),status:r.status,retrievedAt:new Date().toISOString()};
+   last=new Error("HTTP_"+r.status);
+  }catch(e){last=e}finally{clearTimeout(timer)}
+  await sleep(350*attempt);
+ }
+ throw new Error("PUBLIC_TEXT_FETCH_FAILED "+url+" "+String(last?.message||last));
+}
 async function getJson(url:string){
  let last:any;
  for(let attempt=1;attempt<=3;attempt++){
@@ -418,6 +431,55 @@ function deepLeagueRefs(payload:any){
  visit(payload);
  return [...out].filter(s=>/^[a-z0-9.-]{2,80}$/i.test(s));
 }
+
+const AMBIGUOUS_COMPETITIONS=new Set([
+ "premier league","super league","super liga","superliga","liga 1","serie a","ligue 1","primera division","1st league","1st division","2nd league","state cup","national league","primera c"
+]);
+function leagueCandidatesFromSearch(payload:any,query:string){
+ const out:any[]=[],seen=new Set<string>(),visited=new Set<any>();
+ const visit=(x:any)=>{
+  if(!x||typeof x!=="object"||visited.has(x))return;visited.add(x);
+  if(Array.isArray(x)){for(const v of x)visit(v);return;}
+  const name=String(x.displayName||x.shortDisplayName||x.name||x.title||"");
+  const strings:string[]=[];const collect=(v:any,depth=0)=>{
+   if(depth>4||v===null||v===undefined)return;
+   if(typeof v==="string"){strings.push(v);return;}
+   if(typeof v!=="object")return;
+   if(Array.isArray(v)){for(const y of v)collect(y,depth+1);return;}
+   for(const y of Object.values(v))collect(y,depth+1);
+  };collect(x);
+  let slug="";
+  for(const s of strings){
+   const m=s.match(/\/soccer\/league\/_\/name\/([^/?#]+)/i)||s.match(/\/soccer\/(?:standings|teams|schedule)\/_\/league\/([^/?#]+)/i);
+   if(m?.[1]&&m[1]!=="all"){slug=m[1];break;}
+  }
+  const sim=name?similarity(query,name):0;
+  if(slug&&name&&sim>=.55&&!seen.has(slug)){seen.add(slug);out.push({slug,name,score:sim});}
+  for(const v of Object.values(x))if(v&&typeof v==="object")visit(v);
+ };
+ visit(payload);
+ return out.sort((a,b)=>b.score-a.score);
+}
+async function resolveLeagueViaSearch(competition:string){
+ const n=normalize(competition);
+ if(!n||AMBIGUOUS_COMPETITIONS.has(n))return {slug:"",url:"",retrievedAt:""};
+ const url=SEARCH+"?query="+encodeURIComponent(competition)+"&sport=soccer&limit=50";
+ try{
+  const r=await cached("league-search:"+n,()=>getJson(url));
+  const candidates=leagueCandidatesFromSearch(r.json,competition);
+  return {slug:String(candidates[0]?.slug||""),url,retrievedAt:r.retrievedAt};
+ }catch{return {slug:"",url,retrievedAt:""};}
+}
+async function resolveLeagueViaTeamHtml(id:string){
+ const url="https://www.espn.com/soccer/team/_/id/"+encodeURIComponent(id);
+ try{
+  const r=await cached("team-html:"+id,()=>getText(url));
+  const matches=[...r.text.matchAll(/\/soccer\/(?:standings|teams|schedule)\/_\/league\/([a-z0-9.-]+)/gi),...r.text.matchAll(/\/soccer\/league\/_\/name\/([a-z0-9.-]+)/gi)];
+  const slugs=[...new Set(matches.map(m=>m[1]).filter(Boolean))];
+  return {slug:slugs.length===1?slugs[0]:"",url:r.url,retrievedAt:r.retrievedAt};
+ }catch{return {slug:"",url,retrievedAt:""};}
+}
+
 async function resolveLeagueFromTeams(homeId:string,awayId:string){
  const read=async(id:string)=>{
   const url=SITE+"/all/teams/"+id;
@@ -484,6 +546,17 @@ async function main(){
    const lr=await resolveLeagueFromTeams(homeId,awayId);
    if(lr.slug)slug=lr.slug;
    fallbackMeta.push({url:lr.home.url,retrievedAt:lr.home.retrievedAt,supports:["leagueIdentity"]},{url:lr.away.url,retrievedAt:lr.away.retrievedAt,supports:["leagueIdentity"]});
+  }
+  if(!slug){
+   const [hh,ah]=await Promise.all([resolveLeagueViaTeamHtml(homeId),resolveLeagueViaTeamHtml(awayId)]);
+   if(hh.slug&&hh.slug===ah.slug)slug=hh.slug;
+   if(hh.url)fallbackMeta.push({url:hh.url,retrievedAt:hh.retrievedAt,supports:["leagueIdentity"]});
+   if(ah.url)fallbackMeta.push({url:ah.url,retrievedAt:ah.retrievedAt,supports:["leagueIdentity"]});
+  }
+  if(!slug){
+   const ls=await resolveLeagueViaSearch(String(f.competition||""));
+   if(ls.slug)slug=ls.slug;
+   if(ls.url)fallbackMeta.push({url:ls.url,retrievedAt:ls.retrievedAt,supports:["leagueIdentity"]});
   }
   const seasonRaw=Number(e?.season?.year);
   const seasonYear=Number.isFinite(seasonRaw)?seasonRaw:Number(DATE.slice(0,4));
