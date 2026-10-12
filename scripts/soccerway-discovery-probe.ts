@@ -53,7 +53,7 @@ for(const f of wanted){
   if(pair){
    await sleep(6500);
    const mp=await get(pair.url);
-   const scriptTags=[...mp.html.matchAll(/<script\\b([^>]*)>([\\s\\S]*?)<\\/script>/gi)].map((m:any)=>({attrs:m[1].slice(0,300),body:m[2].slice(0,500)}));
+   const scriptTags=[...mp.html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)].map((m:any)=>({attrs:m[1].slice(0,300),body:m[2].slice(0,500)}));
    const indicators:any={};
    for(const needle of ["__NEXT_DATA__","headToHead","head_to_head","h2h","standings","events","initialState","__NUXT__","application/ld+json"]){
     const i=mp.html.toLowerCase().indexOf(needle.toLowerCase());if(i>=0)indicators[needle]=mp.html.slice(Math.max(0,i-300),i+900);
