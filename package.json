@@ -28,7 +28,9 @@
     "research:actual-capture-lock": "tsx scripts/verify-research-actual-capture.ts",
     "step12:test": "node scripts/test-step12-implementation.mjs",
     "vercel:ignore-test": "node scripts/test-vercel-ignore-build.mjs",
-    "ledger:fresh-board-test": "node scripts/test-ledger-fresh-board.mjs"
+    "ledger:fresh-board-test": "node scripts/test-ledger-fresh-board.mjs",
+    "research:prefill": "tsx scripts/hybrid-research-prefill.ts",
+    "research:prefill:import": "tsx scripts/research-prefill-import.ts"
   },
   "devDependencies": {
     "@types/node": "^22",
