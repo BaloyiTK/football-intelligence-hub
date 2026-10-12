@@ -50,10 +50,34 @@ function score(x:any){
 }
 function eventLeagueId(e:any){
  for(const raw of [e?.uid,comp(e)?.uid]){
-  const m=String(raw||"").match(/(?:^|~)l:(\d+)/);
+  const m=String(raw||"").match(/(?:^|~)l:(\\d+)/);
   if(m)return m[1];
  }
  return String(e?.league?.id||comp(e)?.league?.id||"");
+}
+const COMPETITION_SLUGS=new Map<string,string>([
+ ["laliga","esp.1"],["la liga","esp.1"],
+ ["serie a","ita.1"],
+ ["super lig","tur.1"],["süper lig","tur.1"],
+ ["primeira liga","por.1"],
+ ["bundesliga","ger.1"],
+ ["ligue 1","fra.1"],
+ ["eredivisie","ned.1"],
+ ["mls","usa.1"],
+ ["uefa champions league","uefa.champions"],
+ ["uefa europa league","uefa.europa"]
+]);
+function inferredSlug(f:any,e:any){
+ const direct=String(e?.league?.slug||comp(e)?.league?.slug||"");
+ if(direct)return direct;
+ const seasonSlug=normalize(String(e?.season?.slug||""));
+ const seasonMap:[string,string][]=[
+  ["laliga","esp.1"],["italian serie a","ita.1"],["turkish super lig","tur.1"],["portuguese primeira liga","por.1"],
+  ["english premier league","eng.1"],["german bundesliga","ger.1"],["french ligue 1","fra.1"],["dutch eredivisie","ned.1"],
+  ["major league soccer","usa.1"],["uefa champions league","uefa.champions"],["uefa europa league","uefa.europa"]
+ ];
+ for(const [needle,slug] of seasonMap)if(seasonSlug.includes(normalize(needle)))return slug;
+ return COMPETITION_SLUGS.get(normalize(String(f?.competition||"")))||"";
 }
 function bestFixtureEvent(f:any,events:any[]){
  let best:any=null,bestScore=0;
@@ -175,7 +199,7 @@ async function main(){
    continue;
   }
   const e=matched.event,h=side(e,"home"),a=side(e,"away"),homeId=teamId(h),awayId=teamId(a);
-  const leagueId=eventLeagueId(e),slug=leagueMap.get(leagueId)||String(e?.league?.slug||comp(e)?.league?.slug||"");
+  const leagueId=eventLeagueId(e),slug=leagueMap.get(leagueId)||inferredSlug(f,e);
   const errors:string[]=[];
   const seasonYear=Number(e?.season?.year);
   if(!slug||!Number.isFinite(seasonYear)){
