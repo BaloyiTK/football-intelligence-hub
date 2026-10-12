@@ -1,0 +1,57 @@
+name: FIH Hybrid Research Probe
+
+"on":
+  push:
+    branches: [fih-hybrid-step2-pilot]
+    paths:
+      - "scripts/hybrid-research-probe.ts"
+      - ".github/workflows/fih-hybrid-research-probe.yml"
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Research queue date (YYYY-MM-DD); blank = current SAST date"
+        required: false
+        type: string
+      limit:
+        description: "Fixture probe limit"
+        required: false
+        default: "10"
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+      - name: Resolve probe inputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          DATE="${{ github.event.inputs.date || '' }}"
+          if [ -z "$DATE" ]; then
+            DATE="$(TZ=Africa/Johannesburg date +%F)"
+          fi
+          LIMIT="${{ github.event.inputs.limit || '10' }}"
+          echo "FIH_DATE=$DATE" >> "$GITHUB_ENV"
+          echo "FIH_HYBRID_LIMIT=$LIMIT" >> "$GITHUB_ENV"
+          echo "Probing $LIMIT fixtures for $DATE"
+      - name: Run noncanonical hybrid research probe
+        run: npx tsx scripts/hybrid-research-probe.ts
+      - name: Show probe summary
+        run: |
+          node -e 'const fs=require("fs");const p="data/research-probe/"+process.env.FIH_DATE+".json";const x=JSON.parse(fs.readFileSync(p,"utf8"));console.log(JSON.stringify(x.summary,null,2));'
+      - name: Upload probe evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: fih-hybrid-research-probe-${{ env.FIH_DATE }}
+          path: data/research-probe/${{ env.FIH_DATE }}.json
+          if-no-files-found: error
+          retention-days: 7
