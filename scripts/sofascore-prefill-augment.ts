@@ -40,9 +40,19 @@ const tname=(t:any)=>String(t?.name||t?.shortName||"");
 const finished=(e:any)=>["finished","afterpenalties","afterextra"].includes(String(e?.status?.type||"").toLowerCase());
 const score=(e:any,k:"home"|"away")=>{const s=k==="home"?e?.homeScore:e?.awayScore,n=Number(s?.current??s?.normaltime);return Number.isFinite(n)?n:null};
 const date=(e:any)=>Number.isFinite(Number(e?.startTimestamp))?new Date(Number(e.startTimestamp)*1000).toISOString():null;
+function fixtureKickoffMs(raw:any){
+ const s=String(raw||"");if(!/^\\d{14}$/.test(s))return null;
+ const iso=s.slice(0,4)+"-"+s.slice(4,6)+"-"+s.slice(6,8)+"T"+s.slice(8,10)+":"+s.slice(10,12)+":"+s.slice(12,14)+"+02:00";
+ const n=new Date(iso).getTime();return Number.isFinite(n)?n:null;
+}
 function matchEvent(f:any,events:any[]){
- let best:any=null,bestScore=0;
- for(const e of events){const h=sim(f.home,tname(e.homeTeam)),a=sim(f.away,tname(e.awayTeam)),s=(h+a)/2;if(h>=.55&&a>=.55&&s>bestScore){best=e;bestScore=s}}
+ let best:any=null,bestScore=0;const wantedKickoff=fixtureKickoffMs(f.kickoff);
+ for(const e of events){
+  const eventKickoff=Number(e?.startTimestamp)*1000;
+  if(wantedKickoff!==null&&Number.isFinite(eventKickoff)&&Math.abs(eventKickoff-wantedKickoff)>120*60*1000)continue;
+  const h=sim(f.home,tname(e.homeTeam)),a=sim(f.away,tname(e.awayTeam)),s=(h+a)/2;
+  if(h>=.55&&a>=.55&&s>bestScore){best=e;bestScore=s}
+ }
  return best?{event:best,score:Number(bestScore.toFixed(3))}:null;
 }
 function formRow(e:any,id:string){
