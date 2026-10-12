@@ -98,7 +98,22 @@ export async function applySoccerwayFallback(args:{date:string;fixtures:any[];re
  const context=await browser.newContext({userAgent:"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/140 Safari/537.36"});
  await context.route("**/*",(route:any)=>{const t=route.request().resourceType();if(["image","font","media"].includes(t))return route.abort();return route.continue();});
  const page=await context.newPage();
- async function rendered(url:string,ready:string[]){if(!renderCache.has(url))renderCache.set(url,(async()=>{await pace();pageLoads++;await page.goto(url,{waitUntil:"domcontentloaded",timeout:30000});try{await page.waitForFunction((needles:any[])=>{const t=(document.body?.innerText||"").toLowerCase();return needles.some(x=>t.includes(String(x).toLowerCase()));},ready,{timeout:9000});}catch{}const text=await page.locator("body").innerText().catch(()=> "");const anchors=await page.locator("a").evaluateAll((els:any[])=>els.map((a:any)=>({text:(a.innerText||"").trim(),href:a.href||""}))).catch(()=>[]);return {url,text,anchors,retrievedAt:new Date().toISOString()};})());return renderCache.get(url)!;}
+ async function rendered(url:string,ready:string[],expand=false){
+  const key=url+"|"+(expand?"expanded":"base");
+  if(!renderCache.has(key))renderCache.set(key,(async()=>{
+   await pace();pageLoads++;await page.goto(url,{waitUntil:"domcontentloaded",timeout:30000});
+   try{await page.waitForFunction((needles:any[])=>{const t=(document.body?.innerText||"").toLowerCase();return needles.some(x=>t.includes(String(x).toLowerCase()));},ready,{timeout:9000});}catch{}
+   if(expand){
+    for(let i=0;i<2;i++){
+     try{const more=page.getByText("Show more matches",{exact:true}).first();if(!(await more.count()))break;await more.click();await page.waitForTimeout(1200);}catch{break}
+    }
+   }
+   const text=await page.locator("body").innerText().catch(()=> "");
+   const anchors=await page.locator("a").evaluateAll((els:any[])=>els.map((a:any)=>({text:(a.innerText||"").trim(),href:a.href||""}))).catch(()=>[]);
+   return {url,text,anchors,retrievedAt:new Date().toISOString()};
+  })());
+  return renderCache.get(key)!;
+ }
  let world:any;try{world=await staticPage(SOCCERWAY+"world/");}catch(e:any){await browser.close();return {attempted:needs.length,matched:0,categoryComplete:{form:0,standings:0,headToHead:0,schedule:0},pageLoads,errors:["SOCCERWAY_WORLD_FAILED:"+String(e?.message||e)]};}
  const before=Object.fromEntries(REQUIRED.map(k=>[k,results.filter((r:any)=>r.categories?.[k]?.complete).length]));
  let matchedAdded=0;
@@ -108,7 +123,12 @@ export async function applySoccerwayFallback(args:{date:string;fixtures:any[];re
    const countryCandidates=world.links.map((x:any)=>({...x,score:similarity(m.country,x.label)})).filter((x:any)=>x.score>=.72&&new URL(x.url).hostname.endsWith("soccerway.com")).sort((a:any,b:any)=>b.score-a.score);
    const country=countryCandidates[0];if(!country){errors.push("SOCCERWAY_COUNTRY_NOT_FOUND");continue}
    const cp=await staticPage(country.url),countryPath=new URL(country.url).pathname;
-   const comps=cp.links.map((x:any)=>({...x,score:Math.max(similarity(f.competition,x.label),similarity(m.competition,x.label))+(m.competitionSlug&&new URL(x.url).pathname.includes(String(m.competitionSlug).replace(/^sg-/,""))?.15:0)}))
+   const comps=cp.links.map((x:any)=>{
+    const base=Math.max(similarity(f.competition,x.label),similarity(m.competition,x.label));
+    const slug=String(m.competitionSlug||"").replace(/^sg-/,"");
+    const bonus=slug&&new URL(x.url).pathname.includes(slug)?.15:0;
+    return {...x,score:base+bonus};
+   })
     .filter((x:any)=>x.score>=.6&&new URL(x.url).hostname.endsWith("soccerway.com")&&new URL(x.url).pathname.startsWith(countryPath)&&new URL(x.url).pathname!==countryPath)
     .sort((a:any,b:any)=>b.score-a.score);
    const competition=comps[0];if(!competition){errors.push("SOCCERWAY_COMPETITION_NOT_FOUND");continue}
@@ -134,13 +154,8 @@ export async function applySoccerwayFallback(args:{date:string;fixtures:any[];re
     const teamLinks=mp.anchors.filter((x:any)=>/\/team\//.test(String(x.href||""))).map((x:any)=>({...x,homeScore:similarity(f.home,x.text),awayScore:similarity(f.away,x.text)}));
     const homeLink=teamLinks.sort((a:any,b:any)=>b.homeScore-a.homeScore)[0],awayLink=teamLinks.sort((a:any,b:any)=>b.awayScore-a.awayScore)[0];
     if(homeLink?.homeScore>=.55&&awayLink?.awayScore>=.55){
-     const hp=await rendered(homeLink.href,["Latest Scores"]),ap=await rendered(awayLink.href,["Latest Scores"]);
-     let homeRows=parseLatestScores(hp.text,f.home,date,homeLink.href),awayRows=parseLatestScores(ap.text,f.away,date,awayLink.href);
-     if(homeRows.filter((x:any)=>x.venue==="HOME").length<5||awayRows.filter((x:any)=>x.venue==="AWAY").length<5){
-      for(const [url,target] of [[homeLink.href,f.home],[awayLink.href,f.away]] as any){
-       try{await page.goto(url,{waitUntil:"domcontentloaded",timeout:30000});const more=page.getByText("Show more matches",{exact:true}).first();if(await more.count()){await more.click();await page.waitForTimeout(1200);const t=await page.locator("body").innerText();if(url===homeLink.href)homeRows=parseLatestScores(t,target,date,url);else awayRows=parseLatestScores(t,target,date,url);}}catch{}
-      }
-     }
+     const hp=await rendered(homeLink.href,["Latest Scores"],true),ap=await rendered(awayLink.href,["Latest Scores"],true);
+     const homeRows=parseLatestScores(hp.text,f.home,date,homeLink.href),awayRows=parseLatestScores(ap.text,f.away,date,awayLink.href);
      const homeOverall=homeRows.slice(0,5),homeVenue=homeRows.filter((x:any)=>x.venue==="HOME").slice(0,5),awayOverall=awayRows.slice(0,5),awayVenue=awayRows.filter((x:any)=>x.venue==="AWAY").slice(0,5);
      const formOk=homeOverall.length===5&&homeVenue.length===5&&awayOverall.length===5&&awayVenue.length===5;
      if(formOk)r.categories.form={complete:true,homeOverall,homeVenue,awayOverall,awayVenue};
