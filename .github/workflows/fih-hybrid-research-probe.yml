@@ -54,7 +54,9 @@ jobs:
           echo "Probing $LIMIT fixtures for $DATE"
       - name: Probe public-source reachability
         run: npx tsx scripts/public-source-reachability.ts
-      - name: Probe public-page discovery\n        run: npx tsx scripts/public-page-discovery-probe.ts\n      - name: Run noncanonical hybrid research probe
+      - name: Probe public-page discovery
+        run: npx tsx scripts/public-page-discovery-probe.ts
+      - name: Run noncanonical hybrid research probe
         id: hybrid
         continue-on-error: true
         run: npx tsx scripts/hybrid-research-probe.ts
