@@ -8,7 +8,7 @@ The authorized lifecycle is:
 
 For an explicit Step 2 pilot run:
 
-**verify Step 1 exists -> collect SofaScore form/H2H -> calculate custom xG -> persist -> re-read -> verify -> stop.**
+**verify Step 1 exists -> collect LiveScore pregame form/H2H -> calculate custom xG -> persist -> re-read -> verify -> stop.**
 
 Step 2 is not an automatic continuation of every Step 1 run. The pilot is separately triggered and capped at 15 events until the repository rules are explicitly changed.
 
