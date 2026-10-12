@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import {spawnSync} from "node:child_process";
 import ts from "typescript";
 
-const tsFiles=["scripts/fixture-eligibility.ts","scripts/step12-prepare.ts","scripts/daily-run-ledger.ts","scripts/continuation-controller.ts","scripts/research-canonical.ts"];
+const tsFiles=["scripts/fixture-eligibility.ts","scripts/step12-prepare.ts","scripts/daily-run-ledger.ts","scripts/continuation-controller.ts","scripts/research-canonical.ts","scripts/hybrid-research-prefill.ts","scripts/research-prefill-import.ts"];
 for(const file of tsFiles){
   const source=fs.readFileSync(file,"utf8");
   const r=ts.transpileModule(source,{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.ESNext},reportDiagnostics:true,fileName:file});
@@ -34,8 +34,8 @@ assert.match(auth,/crypto\.verify/);
 assert.match(auth,/token\.actions\.githubusercontent\.com/);
 assert.match(command,/for\(const item of plan\.dates\)/);
 assert.match(command,/\/api\/backtest-ingest\?date=/);
-assert.match(command,/STEP2_CHATGPT_QUEUE_READY/);
-assert.match(command,/STEP12_CHATGPT_HANDOFF_REQUIRED/);
+assert.match(command,/STEP2_HYBRID_PREFILL_READY/);
+assert.match(command,/STEP2_HYBRID_HANDOFF_REQUIRED/);
 assert.doesNotMatch(command,/step2-autonomous-runner/);
 assert.doesNotMatch(command,/FIH_RESEARCH_BASE_URL/);
 
@@ -51,7 +51,7 @@ try{
  assert.deepEqual(JSON.parse(blobText),{ok:"blob"});
 }finally{globalThis.fetch=originalFetch;}
 
-assert.match(continuation,/STEP2_CHATGPT_HANDOFF_REQUIRED/);
+assert.match(continuation,/STEP2_HYBRID_HANDOFF_REQUIRED/);
 assert.match(continuation,/RESEARCH-004/);
 assert.match(continuation,/INFRA-003/);
 assert.doesNotMatch(continuation,/step2-autonomous-runner/);
@@ -84,10 +84,10 @@ assert.match(fixtureEligibility,/LOWER_DIVISION/);
 assert.match(step12Prepare,/fixtureExclusion/);
 assert.match(dailyLedger,/fixtureExclusion/);
 assert.ok(rules.rules?.["RESEARCH-026"]?.requirement?.includes("cluster-first"));
-assert.ok(rules.rules?.["RESEARCH-026"]?.requirement?.includes("no fixed fixture-count concurrency ceiling"));
-assert.ok(rules.rules?.["RESEARCH-026"]?.requirement?.includes("immediately refill released capacity"));
-assert.ok(rules.rules?.["RESEARCH-026"]?.requirement?.includes("Fixture-specific search is NOT mandatory"));
-assert.ok(rules.rules?.["RESEARCH-026"]?.requirement?.includes("checkpoint it immediately to the one active accumulator"));
+assert.ok(rules.rules?.["RESEARCH-026"]?.requirement?.includes("deterministic GitHub prefill"));
+assert.ok(rules.rules?.["RESEARCH-026"]?.requirement?.includes("ChatGPT"));
+assert.ok(rules.rules?.["RESEARCH-026"]?.requirement?.includes("exact last 5 H2H"));
+assert.ok(rules.rules?.["RESEARCH-026"]?.requirement?.includes("one active accumulator"));
 assert.match(step12Prepare,/researchExecutionPlan/);
 assert.match(step12Prepare,/schema:"fih-chatgpt-research-queue-v4"/);
 assert.match(step12Prepare,/collectionUnit:"EVIDENCE_CLUSTER"/);
@@ -126,24 +126,24 @@ assert.doesNotMatch(step12Prepare,/squadAvailability:\{factsOnly:true/);
 assert.doesNotMatch(step12Prepare,/competitionContext:\{factsOnly:true/);
 assert.ok(rules.rules?.["RESEARCH-024"]?.requirement?.includes("not required Step-2 categories"));
 assert.ok(rules.rules?.["INFRA-003"]?.requirement?.includes("Vercel is authorized for FIH Step 1"));
-assert.ok(rules.rules?.["INFRA-003"]?.requirement?.includes("Step 2 research is executed by ChatGPT itself"));
-assert.ok(rules.rules?.["INFRA-003"]?.requirement?.includes("no fixed fixture-count concurrency ceiling"));
+assert.ok(rules.rules?.["INFRA-003"]?.requirement?.includes("deterministic, credential-free public-source Step-2 prefill"));
+assert.ok(rules.rules?.["INFRA-003"]?.requirement?.includes("ChatGPT performs gap research"));
 
 assert.match(fixtureEligibility,/PREMATCH_WINDOW_CLOSED/);
 assert.match(step12Prepare,/CHATGPT_RESEARCH_REQUIRED/);
 assert.match(step12Prepare,/data\/recovery-requests/);
 assert.match(command,/data\/recovery-requests/);
-assert.match(step12Workflow,/Verify durable ChatGPT Step 2 handoff/);
+assert.match(step12Workflow,/Verify durable hybrid Step 2 handoff/);
 assert.match(step12Workflow,/CHATGPT_RESEARCH_REQUIRED/);
 assert.match(fixtureEligibility,/PREMATCH_WINDOW_CLOSED/);
 assert.doesNotMatch(fullWorkflow,/automation\/run-now\.flag/);
 assert.match(backtestWorkflow,/step12-command-runner\.mjs/);
-assert.match(agents,/active ChatGPT execution must consume the queue/);
-assert.match(portable,/ChatGPT itself is the authoritative Step-2 web-research executor/);
+assert.match(agents,/deterministic public-source Step-2 prefill/);
+assert.match(portable,/deterministic GitHub public-source prefill plus ChatGPT gap research/);
 assert.doesNotMatch(portable,/configured AI research service/);
 assert.doesNotMatch(portable,/callable AI research provider/);
 
 for(const forbidden of ["api/research-fixture.js","api/step2-research.js","scripts/step2-autonomous-runner.ts","scripts/step2-recovery-runner.mjs"]){
   assert.equal(fs.existsSync(forbidden),false,"forbidden hosted Step 2 executor must stay removed: "+forbidden);
 }
-console.log(JSON.stringify({ok:true,lock:"CHATGPT_STEP2_ONLY",typescript:tsFiles.length,javascript:4},null,2));
+console.log(JSON.stringify({ok:true,lock:"HYBRID_STEP2_GITHUB_PREFILL_CHATGPT_GAPS",typescript:tsFiles.length,javascript:4},null,2));
