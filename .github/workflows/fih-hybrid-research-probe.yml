@@ -5,11 +5,13 @@ name: FIH Hybrid Research Probe
     branches: [fih-hybrid-step2-pilot]
     paths:
       - "scripts/hybrid-research-probe.ts"
+      - "scripts/public-source-reachability.ts"
       - ".github/workflows/fih-hybrid-research-probe.yml"
   pull_request:
     branches: [main]
     paths:
       - "scripts/hybrid-research-probe.ts"
+      - "scripts/public-source-reachability.ts"
       - ".github/workflows/fih-hybrid-research-probe.yml"
   workflow_dispatch:
     inputs:
@@ -48,15 +50,24 @@ jobs:
           echo "FIH_DATE=$DATE" >> "$GITHUB_ENV"
           echo "FIH_HYBRID_LIMIT=$LIMIT" >> "$GITHUB_ENV"
           echo "Probing $LIMIT fixtures for $DATE"
+      - name: Probe public-source reachability
+        run: npx tsx scripts/public-source-reachability.ts
       - name: Run noncanonical hybrid research probe
+        id: hybrid
+        continue-on-error: true
         run: npx tsx scripts/hybrid-research-probe.ts
       - name: Show probe summary
+        if: ${{ steps.hybrid.outcome == 'success' }}
         run: |
           node -e 'const fs=require("fs");const p="data/research-probe/"+process.env.FIH_DATE+".json";const x=JSON.parse(fs.readFileSync(p,"utf8"));console.log(JSON.stringify(x.summary,null,2));'
       - name: Upload probe evidence
+        if: ${{ always() }}
         uses: actions/upload-artifact@v4
         with:
           name: fih-hybrid-research-probe-${{ env.FIH_DATE }}
-          path: data/research-probe/${{ env.FIH_DATE }}.json
+          path: data/research-probe/
           if-no-files-found: error
           retention-days: 7
+      - name: Fail if hybrid provider probe failed
+        if: ${{ steps.hybrid.outcome != 'success' }}
+        run: exit 1
