@@ -71,6 +71,12 @@ const COMPETITION_SLUGS=new Map<string,string>([
 function inferredSlug(f:any,e:any){
  const direct=String(e?.league?.slug||comp(e)?.league?.slug||"");
  if(direct)return direct;
+ const linkObjects=[...(Array.isArray(e?.links)?e.links:[]),...(Array.isArray(comp(e)?.links)?comp(e).links:[])];
+ for(const link of linkObjects){
+  const href=String(link?.href||"");
+  const m=href.match(/\/soccer\/league\/_\/name\/([^/?#]+)/i)||href.match(/\/soccer\/([^/?#]+)\/(?:scoreboard|standings|schedule)/i);
+  if(m?.[1]&&m[1]!=="all")return m[1];
+ }
  const seasonSlug=normalize(String(e?.season?.slug||""));
  const seasonMap:[string,string][]=[
   ["laliga","esp.1"],["italian serie a","ita.1"],["turkish super lig","tur.1"],["portuguese primeira liga","por.1"],
@@ -173,7 +179,7 @@ async function teamHistory(slug:string,id:string,currentSeason:number,errors:str
   diagnostics.push({url:allUrl,keys:Object.keys(r.json||{}),arrays:Object.fromEntries(Object.entries(r.json||{}).filter(([,v])=>Array.isArray(v)).map(([k,v]:any)=>[k,v.length]))});
   add(Array.isArray(r.json?.events)?r.json.events:[],allUrl,r.retrievedAt);
  }catch(e:any){errors.push("schedule:all:"+id+":"+String(e?.message||e));}
- for(const season of [currentSeason,currentSeason-1,currentSeason-2]){
+ if(slug)for(const season of [currentSeason,currentSeason-1,currentSeason-2]){
   const url=SITE+"/"+slug+"/teams/"+id+"/schedule?season="+season;
   try{
    const r=await cached("sched:"+slug+":"+id+":"+season,()=>getJson(url));
@@ -183,6 +189,45 @@ async function teamHistory(slug:string,id:string,currentSeason:number,errors:str
  }
  return {events:all,sourceBySeason,meta,diagnostics};
 }
+function teamDirectoryEntries(payload:any){
+ const out:any[]=[],seen=new Set<string>();
+ const visit=(x:any)=>{
+  if(!x||typeof x!=="object")return;
+  const t=x?.team&&typeof x.team==="object"?x.team:x;
+  const id=String(t?.id||""),name=String(t?.displayName||t?.shortDisplayName||t?.name||"");
+  if(id&&name&&!seen.has(id)){seen.add(id);out.push({id,name,raw:t});}
+  for(const v of Object.values(x)){
+   if(Array.isArray(v))for(const y of v)visit(y);
+   else if(v&&typeof v==="object"&&v!==t)visit(v);
+  }
+ };
+ visit(payload);
+ return out;
+}
+function bestTeam(name:string,teams:any[]){
+ let best:any=null,bestScore=0;
+ for(const t of teams){const s=similarity(name,t.name);if(s>bestScore){best=t;bestScore=s;}}
+ return bestScore>=.62?{...best,score:bestScore}:null;
+}
+async function fallbackFixtureFromTeams(f:any,teams:any[],errors:string[]){
+ const h=bestTeam(f.home,teams),a=bestTeam(f.away,teams);
+ if(!h||!a){errors.push("TEAM_DIRECTORY_MATCH_FAILED");return null;}
+ const url=SITE+"/all/teams/"+h.id+"/schedule";
+ try{
+  const r=await cached("fallback-team-schedule:"+h.id,()=>getJson(url));
+  const events=Array.isArray(r.json?.events)?r.json.events:[];
+  let best:any=null,bestScore=0;
+  for(const e of events){
+   const eh=side(e,"home"),ea=side(e,"away");
+   const hs=similarity(f.home,teamName(eh)),as=similarity(f.away,teamName(ea));
+   const sameDate=String(eventDate(e)||"").slice(0,10)===DATE;
+   const s=(hs+as)/2+(sameDate?.25:0);
+   if(hs>=.55&&as>=.55&&s>bestScore){best=e;bestScore=s;}
+  }
+  return best?{event:best,score:Math.min(1,bestScore),directory:{home:h,away:a},source:url}:null;
+ }catch(e:any){errors.push("TEAM_DIRECTORY_SCHEDULE_FAILED:"+String(e?.message||e));return null;}
+}
+
 async function pairHistory(homeId:string,awayId:string,currentSeason:number,errors:string[]){
  const matches:any[]=[],seen=new Set<string>(),meta:any[]=[];
  for(let season=currentSeason;season>=currentSeason-8&&matches.length<5;season--){
@@ -208,6 +253,11 @@ async function main(){
  const scoreboardUrl=SITE+"/all/scoreboard?dates="+ymd+"&limit=1000";
  const scoreboard=await getJson(scoreboardUrl);
  const events=Array.isArray(scoreboard.json?.events)?scoreboard.json.events:[];
+ let teamDirectory:any[]=[];
+ try{
+  const td=await getJson(SITE+"/all/teams?limit=2000");
+  teamDirectory=teamDirectoryEntries(td.json);
+ }catch{}
  const leagueMap=new Map<string,string>();
  for(const l of Array.isArray(scoreboard.json?.leagues)?scoreboard.json.leagues:[]){
   if(l?.id&&l?.slug)leagueMap.set(String(l.id),String(l.slug));
@@ -225,19 +275,18 @@ async function main(){
  }
  const results:any[]=[];
  for(const f of selected){
-  const matched=bestFixtureEvent(f,events);
+  const discoveryErrors:string[]=[];
+  let matched=bestFixtureEvent(f,events);
+  if(!matched&&teamDirectory.length)matched=await fallbackFixtureFromTeams(f,teamDirectory,discoveryErrors);
   if(!matched){
-   results.push({fixtureId:String(f.fixtureId),fixture:f,matched:false,gaps:["fixtureMatch","form","standings","headToHead","schedule"],errors:[]});
+   results.push({fixtureId:String(f.fixtureId),fixture:f,matched:false,gaps:["fixtureMatch","form","standings","headToHead","schedule"],errors:discoveryErrors});
    continue;
   }
   const e=matched.event,h=side(e,"home"),a=side(e,"away"),homeId=teamId(h),awayId=teamId(a);
   const leagueId=eventLeagueId(e),slug=leagueMap.get(leagueId)||inferredSlug(f,e);
-  const errors:string[]=[];
-  const seasonYear=Number(e?.season?.year);
-  if(!slug||!Number.isFinite(seasonYear)){
-   results.push({fixtureId:String(f.fixtureId),fixture:f,matched:true,matchConfidence:Number(matched.score.toFixed(3)),providerEventId:String(e?.id||""),leagueId,leagueSlug:slug||null,gaps:["leagueIdentity","form","standings","headToHead","schedule"],errors:["ESPN_LEAGUE_IDENTITY_MISSING"]});
-   continue;
-  }
+  const errors:string[]=[...discoveryErrors];
+  const seasonYearRaw=Number(e?.season?.year),seasonYear=Number.isFinite(seasonYearRaw)?seasonYearRaw:Number(DATE.slice(0,4));
+  if(!slug)errors.push("ESPN_LEAGUE_IDENTITY_MISSING_STANDINGS_ONLY");
 
   const homeHistory=await teamHistory(slug,homeId,seasonYear,errors);
   const awayHistory=await teamHistory(slug,awayId,seasonYear,errors);
@@ -251,9 +300,9 @@ async function main(){
   const h2hOk=h2hMatches.length===5;
   const scheduleOk=!!homeOverall[0]?.date&&!!awayOverall[0]?.date;
 
-  const standingsUrl=DATA+"/"+slug+"/standings?season="+seasonYear;
+  const standingsUrl=slug?DATA+"/"+slug+"/standings?season="+seasonYear:"";
   let standings:any=null,standingsMeta:any[]=[];
-  try{
+  if(slug)try{
    const s=await cached("standings:"+slug+":"+seasonYear,()=>getJson(standingsUrl));
    standings=s.json;standingsMeta=[{url:standingsUrl,retrievedAt:s.retrievedAt,supports:["standings"]}];
   }catch(err:any){errors.push("standings:"+slug+":"+String(err?.message||err));}
