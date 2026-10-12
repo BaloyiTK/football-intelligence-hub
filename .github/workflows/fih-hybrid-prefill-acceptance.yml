@@ -5,7 +5,9 @@ name: FIH Hybrid Prefill Acceptance
     branches: [main]
     paths:
       - "scripts/hybrid-research-prefill.ts"
+      - "scripts/sofascore-prefill-augment.ts"
       - "scripts/research-prefill-import.ts"
+      - "scripts/step12-command-runner.mjs"
       - ".github/workflows/fih-hybrid-prefill-acceptance.yml"
   workflow_dispatch:
 
@@ -27,6 +29,8 @@ jobs:
           echo "FIH_DATE=$(TZ=Africa/Johannesburg date +%F)" >> "$GITHUB_ENV"
       - name: Run deterministic prediction prefill sample
         run: npx tsx scripts/hybrid-research-prefill.ts --date "$FIH_DATE"
+      - name: Augment deterministic prefill with SofaScore when available
+        run: npx tsx scripts/sofascore-prefill-augment.ts --date "$FIH_DATE" || echo "SofaScore unavailable; ESPN prefill remains authoritative fallback"
       - name: Verify prefill and gap artifacts
         run: |
           node --input-type=module <<'NODE'
