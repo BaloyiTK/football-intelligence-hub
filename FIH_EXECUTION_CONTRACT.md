@@ -13,7 +13,8 @@ The repository currently defines two authorized operations.
 ## Step 2 pilot
 
 - Step 2 may run only when a verified Step 1 fixture file already exists for the same date.
-- Use the existing LiveScore RapidAPI service through the secured FIH Vercel integration for pregame form and H2H data.
+- Use the existing LiveScore RapidAPI service through the secured FIH Vercel integration to populate historical completed-match archives.
+- Derive five-match overall form, venue-specific form, and up to five H2H meetings from those verified LiveScore histories. Dedicated LiveScore form/H2H endpoints may be used when available.
 - Process at most 15 Step 1 fixtures until the pilot limit is explicitly changed.
 - Apply the custom xG formula defined in `config/fih-execution-rules.json`.
 - Persist the result to `data/step2-xg/YYYY-MM-DD.json`.
