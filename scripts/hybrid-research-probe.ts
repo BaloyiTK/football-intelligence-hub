@@ -119,7 +119,13 @@ async function main(){
   const e=matched.event,h=side(e,"home"),a=side(e,"away"),homeId=teamId(h),awayId=teamId(a);
   const errors:string[]=[];
   const safe=async(label:string,p:Promise<any>)=>{try{return await p}catch(err:any){errors.push(label+":"+String(err?.message||err));return null}};
-  const seasonYear=Number(e?.season?.year);\n  const seasonQuery=Number.isFinite(seasonYear)?"?season="+seasonYear:"";\n  const fixtureSep=seasonQuery?"&":"?";\n  const homeScheduleUrl=BASE+"/teams/"+homeId+"/schedule"+seasonQuery;\n  const awayScheduleUrl=BASE+"/teams/"+awayId+"/schedule"+seasonQuery;\n  const homeFixtureUrl=BASE+"/teams/"+homeId+"/schedule"+seasonQuery+fixtureSep+"fixture=true";\n  const awayFixtureUrl=BASE+"/teams/"+awayId+"/schedule"+seasonQuery+fixtureSep+"fixture=true";
+  const seasonYear=Number(e?.season?.year);
+  const seasonQuery=Number.isFinite(seasonYear)?"?season="+seasonYear:"";
+  const fixtureSep=seasonQuery?"&":"?";
+  const homeScheduleUrl=BASE+"/teams/"+homeId+"/schedule"+seasonQuery;
+  const awayScheduleUrl=BASE+"/teams/"+awayId+"/schedule"+seasonQuery;
+  const homeFixtureUrl=BASE+"/teams/"+homeId+"/schedule"+seasonQuery+fixtureSep+"fixture=true";
+  const awayFixtureUrl=BASE+"/teams/"+awayId+"/schedule"+seasonQuery+fixtureSep+"fixture=true";
   const homeSchedule=await safe("homeSchedule",cached("sched:"+homeId,()=>getJson(homeScheduleUrl)));
   const awaySchedule=await safe("awaySchedule",cached("sched:"+awayId,()=>getJson(awayScheduleUrl)));
   const homeFuture=await safe("homeFuture",cached("future:"+homeId,()=>getJson(homeFixtureUrl)));
