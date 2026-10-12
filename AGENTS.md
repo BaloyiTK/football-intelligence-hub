@@ -16,12 +16,10 @@ Invoke `scripts/step1-command-runner.mjs`. Step 1 fetches the LiveScore fixture 
 
 ## Step 2 pilot
 
-A Step 2 custom-xG pilot is separately triggered through the LiveScore Step 2 workflow.
-
-The pilot:
+The Step 2 custom-xG pilot:
 - requires a verified Step 1 fixture file for the same date;
 - uses the existing LiveScore RapidAPI subscription through the secured FIH Vercel integration;
-- obtains pregame form and H2H from LiveScore and uses the Step 1 fixture identities;
+- builds recent form and H2H from verified LiveScore historical match archives; dedicated LiveScore form/H2H endpoints may be used when available;
 - preserves the custom xG formula defined in the locked rules;
 - processes at most 15 events per run;
 - persists `data/step2-xg/YYYY-MM-DD.json`;
