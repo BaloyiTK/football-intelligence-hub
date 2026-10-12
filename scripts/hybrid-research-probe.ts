@@ -183,6 +183,25 @@ async function teamHistory(slug:string,id:string,currentSeason:number,errors:str
  }
  return {events:all,sourceBySeason,meta,diagnostics};
 }
+async function pairHistory(homeId:string,awayId:string,currentSeason:number,errors:string[]){
+ const matches:any[]=[],seen=new Set<string>(),meta:any[]=[];
+ for(let season=currentSeason;season>=currentSeason-8&&matches.length<5;season--){
+  const url=SITE+"/all/teams/"+homeId+"/schedule?season="+season;
+  try{
+   const r=await cached("pair:"+homeId+":"+season,()=>getJson(url));
+   const events=Array.isArray(r.json?.events)?r.json.events:[];
+   if(events.length)meta.push({url,retrievedAt:r.retrievedAt,supports:["headToHead"]});
+   const map=new Map<string,string>([[String(season),url]]);
+   for(const row of h2h(events,homeId,awayId,map)){
+    const k=[row.date,row.homeTeam,row.awayTeam,row.homeGoals,row.awayGoals].join("|");
+    if(seen.has(k))continue;seen.add(k);matches.push(row);if(matches.length===5)break;
+   }
+  }catch(e:any){errors.push("h2h:"+homeId+":"+season+":"+String(e?.message||e));}
+ }
+ matches.sort((a,b)=>String(b.date||"").localeCompare(String(a.date||"")));
+ return {matches:matches.slice(0,5),meta};
+}
+
 
 async function main(){
  const ymd=DATE.replaceAll("-","");
@@ -227,7 +246,8 @@ async function main(){
   const awayOverall=recent(awayHistory.events,awayId,awayHistory.sourceBySeason);
   const awayVenue=recent(awayHistory.events,awayId,awayHistory.sourceBySeason,"AWAY");
   const formOk=homeOverall.length===5&&homeVenue.length===5&&awayOverall.length===5&&awayVenue.length===5;
-  const h2hMatches=h2h(homeHistory.events,homeId,awayId,homeHistory.sourceBySeason);
+  const pair=await pairHistory(homeId,awayId,seasonYear,errors);
+  const h2hMatches=pair.matches;
   const h2hOk=h2hMatches.length===5;
   const scheduleOk=!!homeOverall[0]?.date&&!!awayOverall[0]?.date;
 
@@ -244,7 +264,7 @@ async function main(){
   const gaps=[...(!formOk?["form"]:[]),...(!standingsOk?["standings"]:[]),...(!h2hOk?["headToHead"]:[]),...(!scheduleOk?["schedule"]:[])];
   const sourceMetadata=[
    {url:scoreboard.url,retrievedAt:scoreboard.retrievedAt,supports:["fixtureMatch"]},
-   ...homeHistory.meta,...awayHistory.meta,...standingsMeta
+   ...homeHistory.meta,...awayHistory.meta,...pair.meta,...standingsMeta
   ];
   results.push({
    fixtureId:String(f.fixtureId),fixture:f,matched:true,matchConfidence:Number(matched.score.toFixed(3)),
