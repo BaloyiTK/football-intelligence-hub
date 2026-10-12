@@ -42,10 +42,11 @@ const competitors=(e:any)=>Array.isArray(comp(e)?.competitors)?comp(e).competito
 const side=(e:any,where:"home"|"away")=>competitors(e).find((x:any)=>String(x?.homeAway).toLowerCase()===where);
 const teamName=(x:any)=>String(x?.team?.displayName||x?.team?.shortDisplayName||x?.team?.name||"");
 const teamId=(x:any)=>String(x?.team?.id||"");
-const completed=(e:any)=>e?.status?.type?.completed===true||String(e?.status?.type?.state||"").toLowerCase()==="post";
+const completed=(e:any)=>{const s=e?.status||comp(e)?.status;return s?.type?.completed===true||String(s?.type?.state||"").toLowerCase()==="post";};
 const eventDate=(e:any)=>typeof e?.date==="string"?e.date:null;
 function score(x:any){
- const n=Number(x?.score?.value??x?.score);
+ const raw=x?.score;
+ const n=Number(raw&&typeof raw==="object"?(raw.value??raw.displayValue):raw);
  return Number.isFinite(n)?n:null;
 }
 function eventLeagueId(e:any){
