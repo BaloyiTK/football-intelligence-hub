@@ -1,5 +1,5 @@
 name: FIH Steps 1-2 Command
-on:
+"on":
   push:
     branches: [main]
     paths: ["automation/run-now.flag"]
@@ -10,6 +10,9 @@ on:
         required: true
         default: "run today"
         type: string
+  schedule:
+    # 05:30 SAST (UTC+02:00): acquire a fresh current-day board and freeze the Step-2 queue.
+    - cron: "30 3 * * *"
 permissions:
   contents: write
   id-token: write
@@ -28,9 +31,14 @@ jobs:
       - run: npm install --no-audit --no-fund
       - name: Resolve FIH command
         run: |
-          CMD="${{ github.event.inputs.command || '' }}"
-          if [ -z "$CMD" ]; then
-            CMD="$(head -n 1 automation/run-now.flag | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')"
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            CMD="run today"
+          else
+            CMD="${{ github.event.inputs.command || '' }}"
+            if [ -z "$CMD" ]; then
+              CMD="$(head -n 1 automation/run-now.flag | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')"
+            fi
           fi
           test -n "$CMD"
           echo "FIH_COMMAND=$CMD" >> "$GITHUB_ENV"
