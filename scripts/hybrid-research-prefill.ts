@@ -78,6 +78,12 @@ const COMPETITION_SLUGS=new Map<string,string>([
 function inferredSlug(f:any,e:any){
  const direct=String(e?.league?.slug||comp(e)?.league?.slug||"");
  if(direct)return direct;
+ const linkObjects=[...(Array.isArray(e?.links)?e.links:[]),...(Array.isArray(comp(e)?.links)?comp(e).links:[])];
+ for(const link of linkObjects){
+  const href=String(link?.href||"");
+  const m=href.match(/\/soccer\/league\/_\/name\/([^/?#]+)/i)||href.match(/\/soccer\/([^/?#]+)\/(?:scoreboard|standings|schedule|team)/i);
+  if(m?.[1]&&m[1]!=="all")return m[1];
+ }
  const seasonSlug=normalize(String(e?.season?.slug||""));
  const seasonMap:[string,string][]=[
   ["laliga","esp.1"],["italian serie a","ita.1"],["turkish super lig","tur.1"],["portuguese primeira liga","por.1"],
@@ -361,6 +367,8 @@ async function resolveFixtureViaTeamSearch(f:any){
  try{as=await searchTeam(f.away);}catch(e:any){errors.push("SEARCH_AWAY:"+String(e?.message||e));}
  const homeCandidates=Array.isArray(hs?.candidates)?hs.candidates.slice(0,4):[];
  const awayCandidates=Array.isArray(as?.candidates)?as.candidates.slice(0,4):[];
+ const homeCandidate=homeCandidates.find((x:any)=>Number(x.score)>=.60)||null;
+ const awayCandidate=awayCandidates.find((x:any)=>Number(x.score)>=.60&&String(x.id)!==String(homeCandidate?.id||""))||null;
  const awayIds=new Set(awayCandidates.map((x:any)=>String(x.id)));
  for(const hc of homeCandidates){
   for(const season of [Number(DATE.slice(0,4)),Number(DATE.slice(0,4))-1]){
@@ -377,7 +385,7 @@ async function resolveFixtureViaTeamSearch(f:any){
     if(!slug){
      for(const l of Array.isArray(r.json?.leagues)?r.json.leagues:[])if(l?.slug){slug=String(l.slug);break;}
     }
-    return {event:{...m.event,__fihLeagueSlug:slug,__fihScoreboardUrl:url,__fihScoreboardRetrievedAt:r.retrievedAt},score:m.score,errors,searchMeta:[
+    return {event:{...m.event,__fihLeagueSlug:slug,__fihScoreboardUrl:url,__fihScoreboardRetrievedAt:r.retrievedAt},score:m.score,homeCandidate,awayCandidate,errors,searchMeta:[
      ...(hs?[{url:hs.url,retrievedAt:hs.retrievedAt,supports:["fixtureMatch"]}]:[]),
      ...(as?[{url:as.url,retrievedAt:as.retrievedAt,supports:["fixtureMatch"]}]:[]),
      {url,retrievedAt:r.retrievedAt,supports:["fixtureMatch","schedule"]}
@@ -385,7 +393,7 @@ async function resolveFixtureViaTeamSearch(f:any){
    }catch(e:any){errors.push("SEARCH_SCHEDULE:"+hc.id+":"+season+":"+String(e?.message||e));}
   }
  }
- return {event:null,score:0,errors,searchMeta:[
+ return {event:null,score:0,homeCandidate,awayCandidate,errors,searchMeta:[
   ...(hs?[{url:hs.url,retrievedAt:hs.retrievedAt,supports:["fixtureMatch"]}]:[]),
   ...(as?[{url:as.url,retrievedAt:as.retrievedAt,supports:["fixtureMatch"]}]:[])
  ]};
@@ -412,27 +420,49 @@ async function main(){
  let searchFallbackAttempted=0,searchFallbackMatched=0;
  for(const f of selected){
   let matched:any=bestFixtureEvent(f,events);
-  let fallbackMeta:any[]=[],discoveryErrors:string[]=[];
+  let fallbackMeta:any[]=[],discoveryErrors:string[]=[],resolutionMode="SCOREBOARD";
+  let recovered:any=null;
   if(!matched){
    searchFallbackAttempted++;
-   const recovered=await resolveFixtureViaTeamSearch(f);
+   recovered=await resolveFixtureViaTeamSearch(f);
    discoveryErrors=recovered.errors||[];
    fallbackMeta=recovered.searchMeta||[];
-   if(recovered.event){matched={event:recovered.event,score:recovered.score};searchFallbackMatched++;}
+   if(recovered.event){matched={event:recovered.event,score:recovered.score};resolutionMode="TEAM_SEARCH_EVENT";searchFallbackMatched++;}
+   else if(recovered.homeCandidate&&recovered.awayCandidate){
+    matched={event:null,score:(Number(recovered.homeCandidate.score)+Number(recovered.awayCandidate.score))/2};
+    resolutionMode="TEAM_SEARCH_IDENTITY";searchFallbackMatched++;
+   }
   }
   if(!matched){
    results.push({fixtureId:String(f.fixtureId),fixture:f,matched:false,gaps:["fixtureMatch","form","standings","headToHead","schedule"],errors:discoveryErrors,sourceMetadata:fallbackMeta});
    continue;
   }
-  const e=matched.event,h=side(e,"home"),a=side(e,"away"),homeId=teamId(h),awayId=teamId(a);
-  const leagueId=eventLeagueId(e),slug=String(e?.__fihLeagueSlug||"")||leagueMap.get(leagueId)||inferredSlug(f,e);
+  const e=matched.event;
+  const h=e?side(e,"home"):null,a=e?side(e,"away"):null;
+  const homeId=e?teamId(h):String(recovered?.homeCandidate?.id||"");
+  const awayId=e?teamId(a):String(recovered?.awayCandidate?.id||"");
+  if(!homeId||!awayId){
+   results.push({fixtureId:String(f.fixtureId),fixture:f,matched:false,gaps:["teamIdentity","form","standings","headToHead","schedule"],errors:[...discoveryErrors,"ESPN_TEAM_IDENTITY_MISSING"],sourceMetadata:fallbackMeta});
+   continue;
+  }
+  const leagueId=e?eventLeagueId(e):"";
+  let slug=(e?String(e?.__fihLeagueSlug||""):"")||leagueMap.get(leagueId)||String(recovered?.homeCandidate?.leagueSlug||recovered?.awayCandidate?.leagueSlug||"")||(e?inferredSlug(f,e):"");
   const errors:string[]=[...discoveryErrors];
   const seasonRaw=Number(e?.season?.year);
   const seasonYear=Number.isFinite(seasonRaw)?seasonRaw:Number(DATE.slice(0,4));
-  if(!slug)errors.push("ESPN_LEAGUE_IDENTITY_MISSING_STANDINGS_ONLY");
 
-  const homeHistory=await teamHistory(slug,homeId,seasonYear,errors);
-  const awayHistory=await teamHistory(slug,awayId,seasonYear,errors);
+  let homeHistory=await teamHistory(slug,homeId,seasonYear,errors);
+  let awayHistory=await teamHistory(slug,awayId,seasonYear,errors);
+  if(!slug){
+   for(const candidateEvent of [...homeHistory.events.slice(0,20),...awayHistory.events.slice(0,20)]){
+    const inferred=inferredSlug(f,candidateEvent);
+    if(inferred){slug=inferred;break;}
+   }
+   if(slug){
+    homeHistory=await teamHistory(slug,homeId,seasonYear,errors);
+    awayHistory=await teamHistory(slug,awayId,seasonYear,errors);
+   }else errors.push("ESPN_LEAGUE_IDENTITY_MISSING_STANDINGS_ONLY");
+  }
   const homeOverall=recent(homeHistory.events,homeId,homeHistory.sourceBySeason);
   const homeVenue=recent(homeHistory.events,homeId,homeHistory.sourceBySeason,"HOME");
   const awayOverall=recent(awayHistory.events,awayId,awayHistory.sourceBySeason);
@@ -455,13 +485,13 @@ async function main(){
 
   const gaps=[...(!formOk?["form"]:[]),...(!standingsOk?["standings"]:[]),...(!h2hOk?["headToHead"]:[]),...(!scheduleOk?["schedule"]:[])];
   const sourceMetadata=[
-   {url:String(e?.__fihScoreboardUrl||scoreboard.url),retrievedAt:String(e?.__fihScoreboardRetrievedAt||scoreboard.retrievedAt),supports:["fixtureMatch"]},
+   ...(e?[{url:String(e?.__fihScoreboardUrl||scoreboard.url),retrievedAt:String(e?.__fihScoreboardRetrievedAt||scoreboard.retrievedAt),supports:["fixtureMatch"]}]:[]),
    ...fallbackMeta,...homeHistory.meta,...awayHistory.meta,...pair.meta,...standingsMeta
   ];
   results.push({
    fixtureId:String(f.fixtureId),fixture:f,matched:true,matchConfidence:Number(matched.score.toFixed(3)),
-   providerEventId:String(e?.id||""),leagueId,leagueSlug:slug,
-   providerTeams:{home:{id:homeId,name:teamName(h)},away:{id:awayId,name:teamName(a)}},season:e?.season||null,
+   providerEventId:String(e?.id||""),leagueId,leagueSlug:slug||null,resolutionMode,
+   providerTeams:{home:{id:homeId,name:e?teamName(h):String(recovered?.homeCandidate?.name||f.home)},away:{id:awayId,name:e?teamName(a):String(recovered?.awayCandidate?.name||f.away)}},season:e?.season||null,
    categories:{
     form:{complete:formOk,homeOverall,homeVenue,awayOverall,awayVenue},
     standings:{complete:standingsOk,homeTeam:homeStanding,awayTeam:awayStanding},
