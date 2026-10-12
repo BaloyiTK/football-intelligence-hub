@@ -11,6 +11,7 @@ const LIMIT_RAW=Number(process.env.FIH_HYBRID_LIMIT||0);
 const LIMIT=Number.isFinite(LIMIT_RAW)&&LIMIT_RAW>0?Math.max(1,Math.min(5000,LIMIT_RAW)):null;
 const SITE="https://site.api.espn.com/apis/site/v2/sports/soccer";
 const DATA="https://site.api.espn.com/apis/v2/sports/soccer";
+const CORE="https://sports.core.api.espn.com/v2/sports/soccer/leagues";
 const queuePath=path.join(root,"data/research-queue",DATE+".json");
 if(!fs.existsSync(queuePath))throw new Error("HYBRID_PROBE_QUEUE_MISSING "+queuePath);
 const queue=JSON.parse(fs.readFileSync(queuePath,"utf8"));
@@ -207,17 +208,80 @@ async function pairHistory(homeId:string,awayId:string,currentSeason:number,erro
 }
 
 
+function extractLeagueSlugs(payload:any){
+ const out=new Set<string>(),seen=new Set<any>();
+ const visit=(x:any)=>{
+  if(!x||typeof x!=="object"||seen.has(x))return;seen.add(x);
+  const direct=String(x.slug||"").trim();
+  if(/^[a-z0-9.-]{2,80}$/i.test(direct))out.add(direct);
+  const ref=String(x.$ref||x.ref||"");
+  const m=ref.match(/\/leagues\/([^/?#]+)/i);
+  if(m&&/^[a-z0-9.-]{2,80}$/i.test(m[1]))out.add(m[1]);
+  if(Array.isArray(x)){for(const v of x)visit(v);return;}
+  for(const v of Object.values(x))visit(v);
+ };
+ visit(payload);
+ return [...out].filter(s=>s!=="all").sort();
+}
+async function expandEventPool(ymd:string,baseEvents:any[],leagueMap:Map<string,string>){
+ let catalogCount=0,attempted=0,withEvents=0;
+ const byId=new Map<string,any>();
+ for(const e of baseEvents){
+  const id=String(e?.id||"");
+  if(id)byId.set(id,e);
+ }
+ try{
+  const catalog=await getJson(CORE+"?limit=1000");
+  const slugs=extractLeagueSlugs(catalog.json);
+  catalogCount=slugs.length;
+  const batchSize=8;
+  for(let i=0;i<slugs.length;i+=batchSize){
+   const batch=slugs.slice(i,i+batchSize);
+   const rows=await Promise.all(batch.map(async slug=>{
+    attempted++;
+    const url=SITE+"/"+slug+"/scoreboard?dates="+ymd+"&limit=1000";
+    try{
+     const s=await getJson(url);
+     return {slug,url,retrievedAt:s.retrievedAt,json:s.json};
+    }catch{return null;}
+   }));
+   for(const row of rows){
+    if(!row)continue;
+    const evs=Array.isArray(row.json?.events)?row.json.events:[];
+    if(evs.length)withEvents++;
+    for(const l of Array.isArray(row.json?.leagues)?row.json.leagues:[]){
+     if(l?.id&&l?.slug)leagueMap.set(String(l.id),String(l.slug));
+    }
+    for(const e of evs){
+     const id=String(e?.id||"");if(!id)continue;
+     const prior=byId.get(id)||{};
+     byId.set(id,{...prior,...e,__fihLeagueSlug:row.slug,__fihScoreboardUrl:row.url,__fihScoreboardRetrievedAt:row.retrievedAt});
+    }
+   }
+   if(i+batchSize<slugs.length)await sleep(125);
+  }
+ }catch{}
+ return {events:[...byId.values()],catalogCount,attempted,withEvents};
+}
+
+
 async function main(){
  const ymd=DATE.replaceAll("-","");
  const scoreboardUrl=SITE+"/all/scoreboard?dates="+ymd+"&limit=1000";
  const scoreboard=await getJson(scoreboardUrl);
- const events=Array.isArray(scoreboard.json?.events)?scoreboard.json.events:[];
  const leagueMap=new Map<string,string>();
  for(const l of Array.isArray(scoreboard.json?.leagues)?scoreboard.json.leagues:[]){
   if(l?.id&&l?.slug)leagueMap.set(String(l.id),String(l.slug));
  }
  const selected:any[]=LIMIT===null?[...queue.fixtures]:queue.fixtures.slice(0,LIMIT);
  if(LIMIT===null&&selected.length!==Number(queue.count))throw new Error("HYBRID_PREFILL_QUEUE_COUNT_MISMATCH");
+ const globalEvents=Array.isArray(scoreboard.json?.events)?scoreboard.json.events:[];
+ let events=globalEvents.map((e:any)=>({...e,__fihScoreboardUrl:scoreboard.url,__fihScoreboardRetrievedAt:scoreboard.retrievedAt}));
+ let leagueDiscovery={events,catalogCount:0,attempted:0,withEvents:0};
+ if(selected.some((f:any)=>!bestFixtureEvent(f,events))){
+  leagueDiscovery=await expandEventPool(ymd,events,leagueMap);
+  events=leagueDiscovery.events;
+ }
  const results:any[]=[];
  for(const f of selected){
   const matched=bestFixtureEvent(f,events);
@@ -226,7 +290,7 @@ async function main(){
    continue;
   }
   const e=matched.event,h=side(e,"home"),a=side(e,"away"),homeId=teamId(h),awayId=teamId(a);
-  const leagueId=eventLeagueId(e),slug=leagueMap.get(leagueId)||inferredSlug(f,e);
+  const leagueId=eventLeagueId(e),slug=String(e?.__fihLeagueSlug||"")||leagueMap.get(leagueId)||inferredSlug(f,e);
   const errors:string[]=[];
   const seasonYear=Number(e?.season?.year);
   if(!slug||!Number.isFinite(seasonYear)){
@@ -258,7 +322,7 @@ async function main(){
 
   const gaps=[...(!formOk?["form"]:[]),...(!standingsOk?["standings"]:[]),...(!h2hOk?["headToHead"]:[]),...(!scheduleOk?["schedule"]:[])];
   const sourceMetadata=[
-   {url:scoreboard.url,retrievedAt:scoreboard.retrievedAt,supports:["fixtureMatch"]},
+   {url:String(e?.__fihScoreboardUrl||scoreboard.url),retrievedAt:String(e?.__fihScoreboardRetrievedAt||scoreboard.retrievedAt),supports:["fixtureMatch"]},
    ...homeHistory.meta,...awayHistory.meta,...pair.meta,...standingsMeta
   ];
   results.push({
@@ -304,14 +368,19 @@ async function main(){
   }
   const missingCategories=["form","standings","headToHead","schedule"].filter(k=>!completeCategories.includes(k));
   const partialRecord={fixtureId:String(r.fixtureId),fixture:{home:r.fixture.home,away:r.fixture.away,competition:r.fixture.competition,kickoff:r.fixture.kickoff},researchedAt:generatedAt,researchRunId:queue.researchRunId,sourceMetadata:sm,facts};
-  let validatedRecord:any=null;
+  let validatedRecord:any=null,validationError:string|null=null;
   if(missingCategories.length===0){
-   validateResearchArtifact({schema:"fih-daily-research-v5",date:DATE,mode:"PREDICTION",generatedAt,researchRunId:queue.researchRunId,fixtures:[partialRecord]},DATE,[String(r.fixtureId)],"PREDICTION");
-   validatedRecord=partialRecord;
+   try{
+    validateResearchArtifact({schema:"fih-daily-research-v5",date:DATE,mode:"PREDICTION",generatedAt,researchRunId:queue.researchRunId,fixtures:[partialRecord]},DATE,[String(r.fixtureId)],"PREDICTION");
+    validatedRecord=partialRecord;
+   }catch(e:any){
+    validationError=String(e?.message||e);
+    missingCategories.push("form","standings","headToHead","schedule");
+   }
   }
-  return {fixtureId:String(r.fixtureId),matched:r.matched===true,completeCategories,missingCategories,validatedRecord,prefillRecord:partialRecord,errors:r.errors||[]};
+  return {fixtureId:String(r.fixtureId),matched:r.matched===true,completeCategories,missingCategories,validatedRecord,prefillRecord:partialRecord,errors:[...(r.errors||[]),...(validationError?["CANONICAL_PREFILL_REJECTED:"+validationError]:[])]};
  });
- const gapFixtures=prefillFixtures.filter((r:any)=>r.missingCategories.length).map((r:any)=>{
+ const gapFixtures=prefillFixtures.filter((r:any)=>!r.validatedRecord).map((r:any)=>{
   const q=queue.fixtures.find((f:any)=>String(f.fixtureId)===String(r.fixtureId));
   return {fixtureId:r.fixtureId,home:q?.home,away:q?.away,competition:q?.competition,kickoff:q?.kickoff,missingCategories:r.missingCategories,prefillAvailable:r.completeCategories.length>0};
  });
@@ -319,7 +388,7 @@ async function main(){
  const full=prefillFixtures.filter((r:any)=>r.validatedRecord).length;
  const categoryCounts=Object.fromEntries(["form","standings","headToHead","schedule"].map(k=>[k,prefillFixtures.filter((r:any)=>r.completeCategories.includes(k)).length]));
  const anyUseful=prefillFixtures.filter((r:any)=>r.completeCategories.length>0).length;
- const out={schema:"fih-hybrid-research-prefill-v1",date:DATE,mode:"PREDICTION",researchRunId:queue.researchRunId,generatedAt,provider:"ESPN_PUBLIC_JSON",nonCanonical:true,purpose:"DETERMINISTIC_PREFILL_ONLY",fixtureCount:selected.length,summary:{attempted:selected.length,matched:matchedCount,fixturesWithAnyCompleteCategory:anyUseful,fullyValidatedFixtures:full,gapFixtures:gapFixtures.length,categoryComplete:categoryCounts,cacheEntries:cache.size},fixtures:prefillFixtures};
+ const out={schema:"fih-hybrid-research-prefill-v1",date:DATE,mode:"PREDICTION",researchRunId:queue.researchRunId,generatedAt,provider:"ESPN_PUBLIC_JSON",nonCanonical:true,purpose:"DETERMINISTIC_PREFILL_ONLY",fixtureCount:selected.length,summary:{attempted:selected.length,matched:matchedCount,fixturesWithAnyCompleteCategory:anyUseful,fullyValidatedFixtures:full,gapFixtures:gapFixtures.length,categoryComplete:categoryCounts,cacheEntries:cache.size,eventPool:events.length,globalEventPool:globalEvents.length,leagueCatalogCount:leagueDiscovery.catalogCount,leagueScoreboardsAttempted:leagueDiscovery.attempted,leagueScoreboardsWithEvents:leagueDiscovery.withEvents},fixtures:prefillFixtures};
  const gap={schema:"fih-chatgpt-gap-queue-v1",date:DATE,mode:"PREDICTION",researchRunId:queue.researchRunId,generatedAt,count:gapFixtures.length,sourcePrefillPath:"data/research-prefill/"+DATE+".json",fixtures:gapFixtures};
  const outPath=path.join(root,"data/research-prefill",DATE+".json"),gapPath=path.join(root,"data/research-gap-queue",DATE+".json");
  fs.mkdirSync(path.dirname(outPath),{recursive:true});fs.mkdirSync(path.dirname(gapPath),{recursive:true});
