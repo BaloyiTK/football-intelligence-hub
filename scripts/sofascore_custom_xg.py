@@ -15,7 +15,7 @@ from zoneinfo import ZoneInfo
 
 import requests
 
-BASE_URL = "https://api.sofascore.com/api/v1"
+BASE_URLS = ["https://api.sofascore.com/api/v1", "https://www.sofascore.com/api/v1"]
 SAST = ZoneInfo("Africa/Johannesburg")
 
 HEADERS = {
@@ -45,26 +45,33 @@ class SofaScoreClient:
             time.sleep(self.min_interval - elapsed)
 
     def get_json(self, path: str, attempts: int = 3) -> Optional[dict]:
-        url = path if path.startswith("http") else f"{BASE_URL}{path}"
-        for attempt in range(1, attempts + 1):
-            try:
-                self._pace()
-                response = self.session.get(url, timeout=self.timeout)
-                self.last_request_at = time.monotonic()
-                self.request_count += 1
+        urls = [path] if path.startswith("http") else [f"{base}{path}" for base in BASE_URLS]
 
-                if response.status_code == 429 or 500 <= response.status_code < 600:
-                    if attempt < attempts:
-                        time.sleep(0.75 * attempt)
-                        continue
+        for url in urls:
+            for attempt in range(1, attempts + 1):
+                try:
+                    self._pace()
+                    response = self.session.get(url, timeout=self.timeout)
+                    self.last_request_at = time.monotonic()
+                    self.request_count += 1
 
-                response.raise_for_status()
-                return response.json()
-            except (requests.RequestException, ValueError) as exc:
-                if attempt == attempts:
-                    print(f"  ⚠️  SofaScore request failed: {url}: {exc}")
-                    return None
-                time.sleep(0.75 * attempt)
+                    if response.status_code == 403:
+                        print(f"  ⚠️  SofaScore host denied request: {url}; trying alternate public host")
+                        break
+
+                    if response.status_code == 429 or 500 <= response.status_code < 600:
+                        if attempt < attempts:
+                            time.sleep(0.75 * attempt)
+                            continue
+
+                    response.raise_for_status()
+                    return response.json()
+                except (requests.RequestException, ValueError) as exc:
+                    if attempt == attempts:
+                        print(f"  ⚠️  SofaScore request failed: {url}: {exc}")
+                        break
+                    time.sleep(0.75 * attempt)
+
         return None
 
     def scheduled_events(self, date: str) -> List[Dict]:
