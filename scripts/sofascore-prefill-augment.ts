@@ -3,7 +3,7 @@ import path from "node:path";
 import {REQUIRED,validateResearchArtifact} from "./research-canonical";
 
 const ROOT=process.env.FIH_ROOT||process.cwd();
-const BASE="https://www.sofascore.com/api/v1";
+const BASE="https://api.sofascore.com/api/v1";
 const arg=(n:string)=>{const i=process.argv.indexOf(n);return i>=0?process.argv[i+1]:undefined};
 const today=()=>new Intl.DateTimeFormat("en-CA",{timeZone:"Africa/Johannesburg",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
 const DATE=arg("--date")||process.env.FIH_DATE||today();
