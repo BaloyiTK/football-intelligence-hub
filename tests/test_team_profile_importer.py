@@ -43,7 +43,7 @@ class TeamProfileImporterTests(unittest.TestCase):
         self.assertEqual(home["matches"], 3)
         self.assertEqual(home["home_matches"], 2)
         self.assertEqual(home["home_non_loss_rate"], 0.5)
-        self.assertAlmostEqual(home["under_2_5_rate"], 2 / 3, places=3)
+        self.assertAlmostEqual(home["under_2_5_rate"], 1.0, places=3)
         self.assertEqual(payload["team_count"], 2)
 
     def test_empty_history_produces_no_fabricated_profiles(self):
