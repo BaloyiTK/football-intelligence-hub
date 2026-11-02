@@ -106,6 +106,8 @@ def _live_stats(fixture):
         "total_shots_on_target": int(home_sot + away_sot),
         "home_xg": round(home_xg, 2),
         "away_xg": round(away_xg, 2),
+        "home_shots_on_target": int(home_sot),
+        "away_shots_on_target": int(away_sot),
     }
 
 
@@ -119,10 +121,13 @@ def load_team_profiles():
         return {}
 
 
-def _profile(teams, name):
-    if not name:
+def _profile(teams, league, name):
+    # Profiles are league-scoped to prevent same-name clubs in different
+    # competitions from inheriting one another's statistics.
+    if not league or not name:
         return None
-    return teams.get(name) or teams.get(name.lower())
+    key = f"{league}::{name}"
+    return teams.get(key) or teams.get(key.lower())
 
 
 def _sample_ok(profile):
@@ -139,6 +144,14 @@ def _assess_home_draw(home_profile, live_stats, fixture):
     non_loss = _number(home_profile.get("home_non_loss_rate"))
     if non_loss is None or non_loss < MIN_HOME_NON_LOSS_RATE:
         reasons.append("Home team's historical home non-loss rate is below the 70% screening threshold or missing.")
+
+    if live_stats is None:
+        reasons.append("Verified first-half xG and shots-on-target data are unavailable.")
+    else:
+        if live_stats["home_xg"] + 0.25 < live_stats["away_xg"]:
+            reasons.append("Home team is being outperformed on first-half xG.")
+        if live_stats["home_shots_on_target"] + 1 < live_stats["away_shots_on_target"]:
+            reasons.append("Home team is being outperformed on first-half shots on target.")
 
     home_red = _number(_value(fixture, "cards.home.red", "statistics.home.redCards",
                               "stats.home.red_cards"))
@@ -195,7 +208,11 @@ def scan_zero_zero_half_time(fixtures, profiles=None):
             continue
 
         home, away = _team_name(fixture, "home"), _team_name(fixture, "away")
-        home_profile, away_profile = _profile(profiles, home), _profile(profiles, away)
+        league = _value(fixture, "league.name", "competition.name", "league")
+        if isinstance(league, dict):
+            league = league.get("name")
+        home_profile = _profile(profiles, league, home)
+        away_profile = _profile(profiles, league, away)
         live_stats = _live_stats(fixture)
         hd_status, hd_reasons = _assess_home_draw(home_profile, live_stats, fixture)
         under_status, under_reasons = _assess_under_25(home_profile, away_profile, live_stats)
@@ -205,7 +222,7 @@ def scan_zero_zero_half_time(fixtures, profiles=None):
             "away_team": away or "Unknown away team",
             "score": "0-0",
             "status": "HALF_TIME",
-            "league": _value(fixture, "league.name", "competition.name", "league"),
+            "league": league,
             "kickoff": _value(fixture, "startTime", "kickoff", "fixture.date", "date"),
             "live_stats": live_stats,
             "markets": {
