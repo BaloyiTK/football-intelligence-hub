@@ -6,9 +6,8 @@ A 0-0 score alone is never sufficient to recommend a bet.
 import json
 from pathlib import Path
 
-from django.conf import settings
 
-PROFILE_FILE = Path(settings.BASE_DIR) / "fixtures" / "data" / "team_profiles.json"
+PROFILE_FILE = Path(__file__).resolve().parent / "data" / "team_profiles.json"
 
 MIN_PROFILE_MATCHES = 8
 MIN_HOME_NON_LOSS_RATE = 0.70
