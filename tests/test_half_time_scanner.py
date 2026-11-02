@@ -26,16 +26,16 @@ class HalfTimeScannerTests(unittest.TestCase):
     def test_under_25_requires_both_team_profiles_and_first_half_stats(self):
         fixture = {
             "id": 1, "status": "HT", "homeTeam": {"name": "Home"}, "awayTeam": {"name": "Away"},
-            "scores": {"home": 0, "away": 0}, "league": {"name": "Test League"},
+            "scores": {"home": 0, "away": 0}, "league": {"name": "Test League"},\n            "pre_match_odds": {"home": 1.70, "draw": 3.60, "away": 4.80},
             "statistics": {"firstHalf": {
                 "home": {"xg": 0.2, "shotsOnTarget": 1},
                 "away": {"xg": 0.1, "shotsOnTarget": 1},
             }},
         }
         profiles = {
-            "Test League::Home": {"matches": 12, "pre_match_favourite": "home", "home_non_loss_rate": 0.75,
+            "test league::home": {"matches": 12, "home_matches": 12, "home_non_loss_rate": 0.75,
                      "under_2_5_rate": 0.75, "avg_total_goals": 2.1},
-            "Test League::Away": {"matches": 12, "under_2_5_rate": 0.70, "avg_total_goals": 2.2},
+            "test league::away": {"matches": 12, "under_2_5_rate": 0.70, "avg_total_goals": 2.2},
         }
         result = scan_zero_zero_half_time([fixture], profiles=profiles)[0]
         self.assertEqual(result["markets"]["under_2_5"]["status"], "QUALIFIES_FOR_REVIEW")
