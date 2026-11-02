@@ -6,7 +6,7 @@ A 0-0 score alone is never sufficient to recommend a bet.
 import json
 from pathlib import Path
 
-from .team_profile_importer import canonical_league, normalize
+from .team_profile_importer import canonical_league, normalize_team
 
 
 PROFILE_FILE = Path(__file__).resolve().parent / "data" / "team_profiles.json"
@@ -128,7 +128,7 @@ def _profile(teams, league, name):
     # punctuation/case mismatches from silently losing or borrowing data.
     if not league or not name:
         return None
-    key = f"{canonical_league(league)}::{normalize(name)}"
+    key = f"{canonical_league(league)}::{normalize_team(name)}"
     return teams.get(key)
 
 
