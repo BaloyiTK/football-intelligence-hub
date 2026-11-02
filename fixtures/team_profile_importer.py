@@ -59,6 +59,27 @@ def canonical_league(name):
     return ALIASES.get(normalized, normalized)
 
 
+TEAM_ALIASES = {
+    "manchester united": "man united",
+    "manchester city": "man city",
+    "tottenham hotspur": "tottenham",
+    "wolverhampton wanderers": "wolves",
+    "nottingham forest": "nott m forest",
+    "newcastle united": "newcastle",
+    "west ham united": "west ham",
+    "athletic bilbao": "ath bilbao",
+    "atletico madrid": "ath madrid",
+    "real sociedad": "sociedad",
+    "brighton and hove albion": "brighton",
+    "leeds united": "leeds",
+}
+
+
+def normalize_team(name):
+    normalized = normalize(name)
+    return TEAM_ALIASES.get(normalized, normalized)
+
+
 def _float(row, *keys):
     for key in keys:
         try:
@@ -104,8 +125,8 @@ def build_team_profiles(seasons=SEASONS, league_codes=None, session=None):
             imported_files.append(f"{season}/{code}.csv")
             league_key = canonical_league(league)
             for row in rows:
-                home = normalize(row.get("HomeTeam"))
-                away = normalize(row.get("AwayTeam"))
+                home = normalize_team(row.get("HomeTeam"))
+                away = normalize_team(row.get("AwayTeam"))
                 hg, ag = _float(row, "FTHG"), _float(row, "FTAG")
                 if not home or not away or hg is None or ag is None:
                     continue
