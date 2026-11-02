@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import Mock
 
-from fixtures.team_profile_importer import build_team_profiles, canonical_league, normalize
+from fixtures.team_profile_importer import build_team_profiles, canonical_league, normalize, normalize_team
 
 
 class FakeResponse:
@@ -25,6 +25,7 @@ class TeamProfileImporterTests(unittest.TestCase):
     def test_normalizes_team_and_league_names(self):
         self.assertEqual(normalize("  Man. United "), "man united")
         self.assertEqual(canonical_league("England Premier League"), "premier league")
+        self.assertEqual(normalize_team("Manchester United"), "man united")
 
     def test_builds_profiles_from_real_result_fields(self):
         csv_text = (
