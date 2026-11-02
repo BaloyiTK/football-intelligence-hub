@@ -6,6 +6,8 @@ A 0-0 score alone is never sufficient to recommend a bet.
 import json
 from pathlib import Path
 
+from .team_profile_importer import canonical_league, normalize
+
 
 PROFILE_FILE = Path(__file__).resolve().parent / "data" / "team_profiles.json"
 
@@ -122,12 +124,52 @@ def load_team_profiles():
 
 
 def _profile(teams, league, name):
-    # Profiles are league-scoped to prevent same-name clubs in different
-    # competitions from inheriting one another's statistics.
+    # Profiles are league-scoped and normalized to prevent cross-league or
+    # punctuation/case mismatches from silently losing or borrowing data.
     if not league or not name:
         return None
-    key = f"{league}::{name}"
-    return teams.get(key) or teams.get(key.lower())
+    key = f"{canonical_league(league)}::{normalize(name)}"
+    return teams.get(key)
+
+
+def _prematch_1x2(fixture):
+    """Read explicit pre-match 1X2 prices; never infer favourite from live score."""
+    containers = (
+        _value(fixture, "pre_match_odds", "prematch_odds", "odds.1x2",
+               "odds.full_time_result", "markets.1x2", "markets.full_time_result",
+               "preMatchOdds"),
+        _value(fixture, "odds"),
+    )
+    for container in containers:
+        if isinstance(container, list):
+            container = next((item for item in container if isinstance(item, dict)), None)
+        if not isinstance(container, dict):
+            continue
+        if isinstance(container.get("1x2"), dict):
+            container = container["1x2"]
+        home = _number(_value(container, "home", "home_win", "homeWin", "H"))
+        draw = _number(_value(container, "draw", "tie", "D"))
+        away = _number(_value(container, "away", "away_win", "awayWin", "A"))
+        if home and draw and away and min(home, draw, away) > 1:
+            return {"home": home, "draw": draw, "away": away}
+        values = container.get("values")
+        if isinstance(values, list):
+            parsed = {}
+            for item in values:
+                if not isinstance(item, dict):
+                    continue
+                label = str(item.get("value", item.get("name", ""))).lower()
+                odd = _number(item.get("odd", item.get("price")))
+                if odd and odd > 1:
+                    if label in ("1", "home", "home win"):
+                        parsed["home"] = odd
+                    elif label in ("x", "draw"):
+                        parsed["draw"] = odd
+                    elif label in ("2", "away", "away win"):
+                        parsed["away"] = odd
+            if len(parsed) == 3:
+                return parsed
+    return None
 
 
 def _sample_ok(profile):
@@ -136,11 +178,14 @@ def _sample_ok(profile):
 
 def _assess_home_draw(home_profile, live_stats, fixture):
     reasons = []
-    if not _sample_ok(home_profile):
-        return "NO_QUALIFICATION", ["Insufficient verified home-team pre-match sample (minimum 8 matches)."]
+    if not _sample_ok(home_profile) or (_number(home_profile.get("home_matches")) or 0) < MIN_PROFILE_MATCHES:
+        return "NO_QUALIFICATION", ["Insufficient verified home-team home-match sample (minimum 8 home matches)."]
 
-    if str(home_profile.get("pre_match_favourite", "")).lower() != "home":
-        reasons.append("Home team is not verified as the pre-match favourite.")
+    odds = _prematch_1x2(fixture)
+    if not odds:
+        reasons.append("Verified pre-match 1X2 odds are unavailable.")
+    elif odds["home"] >= min(odds["draw"], odds["away"]):
+        reasons.append("Home team was not the pre-match favourite on the 1X2 market.")
     non_loss = _number(home_profile.get("home_non_loss_rate"))
     if non_loss is None or non_loss < MIN_HOME_NON_LOSS_RATE:
         reasons.append("Home team's historical home non-loss rate is below the 70% screening threshold or missing.")
@@ -161,7 +206,7 @@ def _assess_home_draw(home_profile, live_stats, fixture):
     if reasons:
         return "NO_QUALIFICATION", reasons
     return "QUALIFIES_FOR_REVIEW", [
-        "Home team is recorded as the pre-match favourite.",
+        "Pre-match 1X2 odds confirm the home team was favourite.",
         f"Verified home non-loss rate: {non_loss:.1%}.",
         "0-0 at half-time; this is a review candidate, not an automatic bet.",
     ]
