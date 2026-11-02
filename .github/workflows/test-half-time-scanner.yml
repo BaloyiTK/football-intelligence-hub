@@ -1,0 +1,24 @@
+name: Half-time scanner tests
+
+on:
+  push:
+    branches:
+      - feature/zero-zero-half-time-scanner
+  workflow_dispatch:
+
+jobs:
+  scanner-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run Django checks
+        run: python manage.py check
+      - name: Run scanner tests
+        run: python manage.py test tests
